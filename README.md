@@ -1,4 +1,4 @@
-# [Deriv.com Developers Portal](https://developers.binary.com)
+# [Deriv.com Developers Portal](https://developers.deriv.com)
 
 This repository is the source for http://developers.deriv.com
 
