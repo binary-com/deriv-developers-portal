@@ -79,9 +79,9 @@ commands:
       - run:
           name: Install and configure dependencies
           command: |
-            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-            sudo apt install nodejs
-            sudo npm install gh-pages@2.0.1
+            mkdir "${HOME}/.npm-packages"
+            npm config set prefix "${HOME}/.npm-packages"
+            npm i -g gh-pages
             git config user.email "ci-build@binary.com"
             git config user.name "ci-build"
       - add_ssh_keys:
@@ -97,35 +97,39 @@ commands:
       - run:
           name: Building docker image
           command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/binary-static-developers:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/binary-static-developers:latest .
+            docker build -t ${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-developers-portal:latest .
       - run:
           name: Pushing Image to docker hub
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            docker push ${DOCKHUB_ORGANISATION}/binary-static-developers:${CIRCLE_SHA1}
-            docker push ${DOCKHUB_ORGANISATION}/binary-static-developers:latest
+            docker push ${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1}
+            docker push ${DOCKHUB_ORGANISATION}/deriv-developers-portal:latest
   k8s_deploy:
     description: "Deploy to k8s cluster"
+    parameters:
+      k8s_svc_name:
+        type: string
+        default: "staging-deriv-developers-portal"
     steps:
       - k8s/install-kubectl
       - run:
-          name: Deploying to k8s cluster for service binary-developers
+          name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
           command: |
-            for SERVER_ID in {1..5}
-            do
-              KUBE_SERVER_REF="KUBE_SERVER_$SERVER_ID"
-              SERVICEACCOUNT_TOKEN_REF="SERVICEACCOUNT_TOKEN_$SERVER_ID"
-              CA_CRT_REF="CA_CRT_$SERVER_ID"
-              if [ ! -z "${!KUBE_SERVER_REF}" ]
-              then
-                echo "Deploying to cluster $SERVER_ID"
-                CA_CRT="${!CA_CRT_REF}"
-                KUBE_SERVER="${!KUBE_SERVER_REF}"
-                SERVICEACCOUNT_TOKEN="${!SERVICEACCOUNT_TOKEN_REF}"
-                echo $CA_CRT | base64 --decode > ca.crt
-                kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/developers-binary-com developers-binary-com=${DOCKHUB_ORGANISATION}/binary-static-developers:${CIRCLE_SHA1}
-              fi
-            done
+            echo $CA_CRT | base64 --decode > ca.crt
+            kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_TAG}
+  k8s_deploy_staging:
+    description: "Deploy to k8s cluster"
+    parameters:
+      k8s_svc_name:
+        type: string
+        default: "staging-deriv-developers-portal"
+    steps:
+      - k8s/install-kubectl
+      - run:
+          name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
+          command: |
+            echo $CA_CRT | base64 --decode > ca.crt
+            kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1}
   notify_slack:
     description: "Notify slack"
     steps:
@@ -142,6 +146,20 @@ jobs:
       - git_checkout_from_cache
       - bundle_install
       - build
+  release_staging:
+    docker:
+      - image: circleci/ruby:2.6.5
+    steps:
+      - git_checkout_from_cache
+      - npm_install_from_cache
+      - npm_test
+      - build
+      - deploy:
+          target_branch: "staging"
+      - docker_build_staging
+      - docker_push
+      - k8s_deploy_staging
+     # - notify_slack
   release_production:
     docker:
       - image: circleci/ruby:2.6.5
@@ -151,16 +169,10 @@ jobs:
       - build
       - deploy:
           target_branch: "production"
+      - k8s_deploy:
+          k8s_svc_name: "production-deriv-developers-portal"
       - notify_slack
-  release_aws_production:
-    docker:
-      - image: circleci/ruby:2.6.5
-    steps:
-      - git_checkout_from_cache
-      - bundle_install
-      - build
-      - docker_build_push
-      - k8s_deploy
+
 
 workflows:
   build:
@@ -171,9 +183,4 @@ workflows:
       - release_production:
           filters:
             branches:
-              only: /^gh-pages$/
-      - release_aws_production:
-          filters:
-            branches:
-              only: /^gh-pages$/
-          context: binary-frontend-artifact-upload
+              only: /^production$/
