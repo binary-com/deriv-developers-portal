@@ -152,13 +152,10 @@ jobs:
       - image: circleci/ruby:2.6.5
     steps:
       - git_checkout_from_cache
-      - npm_install_from_cache
-      - npm_test
+      - bundle_install
       - build
       - deploy:
           target_branch: "staging"
-      - docker_build_staging
-      - docker_push
       - k8s_deploy_staging
      # - notify_slack
   release_production:
