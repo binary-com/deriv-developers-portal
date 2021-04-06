@@ -174,7 +174,6 @@ jobs:
           k8s_svc_name: "production-deriv-developers-portal"
       - notify_slack
 
-
 workflows:
   build:
     jobs:
