@@ -118,6 +118,7 @@ commands:
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
             kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_TAG}
+            kubectl wait --for=condition=available --timeout=600s deployment/<< parameters.k8s_svc_name >> -n deriv-developers-portal
   k8s_deploy_staging:
     description: "Deploy to k8s cluster"
     parameters:
@@ -131,6 +132,7 @@ commands:
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
             kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1}
+            kubectl wait --for=condition=available --timeout=600s deployment/<< parameters.k8s_svc_name >> -n deriv-developers-portal
   notify_slack:
     description: "Notify slack"
     steps:
