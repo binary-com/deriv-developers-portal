@@ -183,4 +183,4 @@ workflows:
       - release_production:
           filters:
             branches:
-              only: /^production$/
+              only: /^master$/
