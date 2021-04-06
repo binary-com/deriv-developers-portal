@@ -178,9 +178,19 @@ workflows:
   build:
     jobs:
       - build
-  release:
+  release_staging:
     jobs:
-      - release_production:
+      - release_staging:
+          context: binary-frontend-artifact-upload
           filters:
             branches:
-              only: /^master$/
+              only: /^master/
+  release_production:
+    jobs:
+      - release_production:
+          context: binary-frontend-artifact-upload
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^production.*/
