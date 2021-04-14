@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  
+  
+
+  <head>
+  <style id="antiClickjack">
+    body {
+      display: none !important;
+    }
+  </style>
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Build your own trading platform, powered by the Deriv API. We use WebSockets for fast, two-way messaging between your apps and our trading services."
+  />
+
+  <link
+    href="/img/deriv.png"
+    rel="icon"
+    sizes="96x96"
+    type="image/png"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+  /></noscript>
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+  /></noscript>
+  <link rel="stylesheet" href="/docson/docson.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/select2.min.css" />
+
+  <script src="/lib/rainbow.js"></script>
+
+  <script src="/lib/language/generic.js"></script>
+  <script src="/lib/language/javascript.js"></script>
+  <script src="/lib/language/coffeescript.js"></script>
+  <script src="/lib/language/csharp.js"></script>
+  <script src="/lib/language/go.js"></script>
+  <script src="/lib/language/java.js"></script>
+  <!-- <script src="/lib/language/perl.js"></script> -->
+  <script src="/lib/language/php.js"></script>
+  <script src="/lib/language/ruby.js"></script>
+  <script src="/lib/language/python.js"></script>
+  <!-- <script src="/lib/language/swift.js"></script> -->
+
+  <script src="https://liveapi.binary.com/binary-live-api.js"></script>
+  <script src="/lib/require.js"></script>
+
+  <title>
+    Developers | Index
+  </title>
+  <link
+    rel="canonical"
+    href="http://localhost:4000/"
+  />
+</head>
+
+
+  <body>
+
+    <div id="main-nav" class="nav">
+  <div class="top-nav flex-container">
+    <div class="top-nav-container">
+      <a href="https://deriv.com">Deriv website</a>
+      <a href="https://deriv.com/about">About us</a>
+      <a href="https://deriv.com/contact-us">Contact us</a>
+    </div>
+  </div>
+  <header>
+    <div class="header-container">
+      <img
+        id="hamburger"
+        alt="Hamburger menu"
+        src="/img/hamburger_menu.svg"
+        width="16"
+        height="16"
+      />
+      <a class="flex-container" href="/">
+        <img
+          class="logo"
+          alt="Deriv Logo"
+          src="/img/deriv.svg"
+          width="180"
+          height="73"
+        />
+        <h1 class="branding">Developers</h1>
+      </a>
+      <nav id="navbar" class="flex-container navbar">
+        <a id="" href="/">Home</a>
+        <a id="docs" href="/docs/">Documentation</a>
+        <a id="playground" href="/playground/">API Playground</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+
+    <section id="canvas-menu" class="off-canvas-menu">
+  <div class="menu-container">
+    <div id="home" class="menu-wrapper">
+      <a href="/">Home</a>
+    </div>
+    <div class="menu-wrapper">
+      <div id="doc-menu-header" class="menu-header">
+        Documentation
+        <img
+          class="menu-button"
+          src="/img/arrow_down.svg"
+          width="16"
+          height="16"
+          alt="expand"
+        />
+      </div>
+      <div class="menu-panel">
+        <a id="quickstart" href="/docs/">Quickstart</a>
+        <a id="code-samples" href="/docs/code-samples/"
+          >Code Samples</a
+        >
+        <a id="app-registration" href="/docs/app-registration/"
+          >App Registration</a
+        >
+        <a id="api-guide" href="/docs/api-guide/">API Guide</a>
+        <a id="faq" href="/docs/faq/">FAQ</a>
+        <a id="json-schemas" href="/docs/json-schemas/"
+          >JSON Schemas</a
+        >
+        <a id="bug-bounty" href="/docs/bug-bounty/">Bug Bounty</a>
+      </div>
+    </div>
+    <div id="playground_link" class="menu-wrapper">
+      <a href="/playground/">API Playground</a>
+    </div>
+  </div>
+</section>
+
+    
+    <div class="main-content">
+      <div class="hero-image">
+  <div class="hero-container">
+    <h1 class="hero-header">The Deriv Developers Programme</h1>
+    <h2 class="hero-text">
+      Build your own trading platform, powered by the Deriv API.
+    </h2>
+    <h2 class="hero-text mb-0">
+      We use WebSockets for fast, two-way messaging between your apps and our
+      trading services.
+    </h2>
+    <a href="/docs/app-registration/" class="hero-btn"
+      >Register my app</a
+    >
+  </div>
+</div>
+<div class="main-page-row with-pattern">
+  <div class="column-container">
+    <h1>Get started with our API in 3 simple steps</h1>
+    <div class="card-container">
+      <div class="main-page-card">
+        <div class="header">
+          <h3>Sign up</h3>
+          <img
+            src="/img/sign-up.svg"
+            alt="sign up icon"
+            width="32"
+            height="32"
+          />
+        </div>
+        <div class="content hide-on-mobile">
+          If you don’t have a Deriv account,<br />
+          sign up for free.
+        </div>
+        <div class="content hide-on-desktop">
+          If you don’t have a Deriv account, sign up for free.
+        </div>
+      </div>
+      <div class="main-page-card">
+        <div class="header">
+          <h3>Register your app</h3>
+          <img
+            src="/img/register-your-app.svg"
+            alt="sign up icon"
+            width="32"
+            height="32"
+          />
+        </div>
+        <div class="content">Register to get your app ID.</div>
+      </div>
+      <div class="main-page-card">
+        <div class="header">
+          <h3>Read our guide</h3>
+          <img
+            src="/img/guide.svg"
+            alt="sign up icon"
+            width="32"
+            height="32"
+          />
+        </div>
+        <div class="content">
+          Our API guide covers the essentials you need to start building.
+        </div>
+      </div>
+    </div>
+    <a
+      href="https://deriv.com/signup/"
+      target="_blank"
+      class="main-register-btn"
+      >Sign up now</a
+    >
+  </div>
+</div>
+<div class="cta-row">
+  <div class="row-container">
+    <div class="cta-container">
+      <img
+        src="/img/playground.svg"
+        class="mb-16p"
+        alt="api playground icon"
+        width="64"
+        height="64"
+      />
+      <h2>Looking for a method call?</h2>
+      <p class="mb-0">
+        Explore our <a href="/playground">API playground</a> for the method
+        calls you need.
+      </p>
+    </div>
+    <div class="cta-container">
+      <img
+        src="/img/code-sample.svg"
+        class="mb-16p"
+        alt="code sample icon"
+        width="64"
+        height="64"
+      />
+      <h2>Need code samples?</h2>
+      <p class="mb-0">
+        See <a href="/docs/code-samples/">code samples</a> in
+        different languages.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="main-page-row">
+  <div class="row-container">
+    <div class="single-container">
+      <img
+        src="/img/js-library.svg"
+        alt="javascript library icon"
+        width="64"
+        height="64"
+      />
+      <h1 class="max-js-div">
+        Our all-in-one JavaScript library helps to reduce headaches
+      </h1>
+      <p class="subheader">
+        Easily get your apps up and running with this customisable ready-made
+        library.
+      </p>
+      <a
+        href="https://github.com/binary-com/deriv-api"
+        class="main-register-btn"
+        rel="noreferrer noopener"
+      >
+        Go to our library
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container dark">
+  <div class="row-container">
+    <div class="single-container dark">
+      <h2>Get connected</h2>
+      <p class="mb-16p">
+        Discuss ideas and share solutions with developers worldwide.
+      </p>
+      <a
+        target="_blank"
+        href="https://community.deriv.com/"
+        class="community-btn"
+        rel="noreferrer noopener"
+        >Join our community</a
+      >
+    </div>
+    <div class="single-container dark">
+      <h2>We’re here to help</h2>
+      <p>
+        Email us at
+        <a href="mailto: api-support@deriv.com">api-support@deriv.com</a><br />
+        if you have any questions.
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+  <div class="footer-container">© 2021 Deriv | All rights reserved</div>
+</footer>
+<script src="/code.js"></script>
+<script src="/deriv.js"></script>
+
+
+  </body>
+
+</html>
