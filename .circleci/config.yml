@@ -173,7 +173,7 @@ jobs:
       - bundle_install
       - build
       - deploy:
-          target_branch: "production"
+          target_branch: "master"
       - docker_build_push:
           docker_image_tag: latest
       - k8s_deploy:
