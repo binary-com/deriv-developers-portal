@@ -108,7 +108,7 @@ commands:
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
             docker push ${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1}
-            docker push ${DOCKHUB_ORGANISATION}/deriv-developers-portal:latest
+            docker push ${DOCKHUB_ORGANISATION}/deriv-developers-portal:<< parameters.docker_image_tag >>
   k8s_deploy:
     description: "Deploy to k8s cluster"
     parameters:
