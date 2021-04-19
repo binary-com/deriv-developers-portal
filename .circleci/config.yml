@@ -121,22 +121,8 @@ commands:
           name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
-            kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_TAG}
-            kubectl wait --for=condition=available --timeout=600s deployment/<< parameters.k8s_svc_name >> -n deriv-developers-portal
-  k8s_deploy_staging:
-    description: "Deploy to k8s cluster"
-    parameters:
-      k8s_svc_name:
-        type: string
-        default: "staging-deriv-developers-portal"
-    steps:
-      - k8s/install-kubectl
-      - run:
-          name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
-          command: |
-            echo $CA_CRT | base64 --decode > ca.crt
             kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1}
-            kubectl wait --for=condition=available --timeout=600s deployment/<< parameters.k8s_svc_name >> -n deriv-developers-portal
+            kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN wait --for=condition=available --timeout=600s deployment/<< parameters.k8s_svc_name >>
   notify_slack:
     description: "Notify slack"
     steps:
@@ -163,7 +149,7 @@ jobs:
       - deploy:
           target_branch: "staging"
       - docker_build_push
-      - k8s_deploy_staging
+      - k8s_deploy
       - notify_slack
   release_production:
     docker:
