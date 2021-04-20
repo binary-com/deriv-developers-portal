@@ -1,7 +1,7 @@
-var DEFAULT_APP_ID = 1089;
+var DEFAULT_APP_ID = 11780;
 var DEFAULT_API_URL = "frontend.binaryws.com";
 var DEFAULT_LANGUAGE = "EN";
-var DEFAULT_BRAND = "binary";
+var DEFAULT_BRAND = "deriv";
 var VALID_LABELS = ["beta", "deprecated"];
 
 var api;
@@ -576,8 +576,8 @@ function setEndpoint(server_url, app_id, brand) {
 function isProduction(url) {
   return (
     url &&
-    (/(developers\.binary\.com|binary\.sx)/i.test(url) ||
-      /(\.netlify\.app)/i.test(url))
+    (/(developers\.deriv\.com|binary\.sx)/i.test(url) ||
+      /(staging-developers\.deriv\.com)/i.test(url))
   );
 }
 
