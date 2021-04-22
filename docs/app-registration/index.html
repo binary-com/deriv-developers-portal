@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  
+  
+
+  <head>
+  <style id="antiClickjack">
+    body {
+      display: none !important;
+    }
+  </style>
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Build your own trading platform, powered by the Deriv API. We use WebSockets for fast, two-way messaging between your apps and our trading services."
+  />
+
+  <link
+    href="/img/deriv.png"
+    rel="icon"
+    sizes="96x96"
+    type="image/png"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+  /></noscript>
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+  /></noscript>
+  <link rel="stylesheet" href="/docson/docson.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/select2.min.css" />
+
+  <script src="/lib/rainbow.js"></script>
+
+  <script src="/lib/language/generic.js"></script>
+  <script src="/lib/language/javascript.js"></script>
+  <script src="/lib/language/coffeescript.js"></script>
+  <script src="/lib/language/csharp.js"></script>
+  <script src="/lib/language/go.js"></script>
+  <script src="/lib/language/java.js"></script>
+  <!-- <script src="/lib/language/perl.js"></script> -->
+  <script src="/lib/language/php.js"></script>
+  <script src="/lib/language/ruby.js"></script>
+  <script src="/lib/language/python.js"></script>
+  <!-- <script src="/lib/language/swift.js"></script> -->
+
+  <script src="https://liveapi.binary.com/binary-live-api.js"></script>
+  <script src="/lib/require.js"></script>
+
+  <title>Deriv.com Developers</title>
+  <link
+    rel="canonical"
+    href="https://developers.deriv.com/docs/app-registration/"
+  />
+</head>
+
+
+  <body>
+
+    <div id="main-nav" class="nav">
+  <div class="top-nav flex-container">
+    <div class="top-nav-container">
+      <a href="https://deriv.com">Deriv website</a>
+      <a href="https://deriv.com/about">About us</a>
+      <a href="https://deriv.com/contact-us">Contact us</a>
+    </div>
+  </div>
+  <header>
+    <div class="header-container">
+      <img
+        id="hamburger"
+        alt="Hamburger menu"
+        src="/img/hamburger_menu.svg"
+        width="16"
+        height="16"
+      />
+      <a class="flex-container" href="/">
+        <img
+          class="logo"
+          alt="Deriv Logo"
+          src="/img/deriv.svg"
+          width="180"
+          height="73"
+        />
+        <h1 class="branding">Developers</h1>
+      </a>
+      <nav id="navbar" class="flex-container navbar">
+        <a id="" href="/">Home</a>
+        <a id="docs" href="/docs/">Documentation</a>
+        <a id="playground" href="/playground/">API Playground</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+
+    <section id="canvas-menu" class="off-canvas-menu">
+  <div class="menu-container">
+    <div id="home" class="menu-wrapper">
+      <a href="/">Home</a>
+    </div>
+    <div class="menu-wrapper">
+      <div id="doc-menu-header" class="menu-header">
+        Documentation
+        <img
+          class="menu-button"
+          src="/img/arrow_down.svg"
+          width="16"
+          height="16"
+          alt="expand"
+        />
+      </div>
+      <div class="menu-panel">
+        <a id="quickstart" href="/docs/">Quickstart</a>
+        <a id="code-samples" href="/docs/code-samples/"
+          >Code Samples</a
+        >
+        <a id="app-registration" href="/docs/app-registration/"
+          >App Registration</a
+        >
+        <a id="api-guide" href="/docs/api-guide/">API Guide</a>
+        <a id="faq" href="/docs/faq/">FAQ</a>
+        <a id="json-schemas" href="/docs/json-schemas/"
+          >JSON Schemas</a
+        >
+        <a id="bug-bounty" href="/docs/bug-bounty/">Bug Bounty</a>
+      </div>
+    </div>
+    <div id="playground_link" class="menu-wrapper">
+      <a href="/playground/">API Playground</a>
+    </div>
+  </div>
+</section>
+
+    
+    <div class="main-content">
+      <div id="content" class="doc-content">
+    <select id="mobile-page-selector">
+  <option value="/docs/">Quickstart</option>
+  <option value="/docs/code-samples/">Code Samples</option>
+  <option value="/docs/app-registration/">App Registration</option>
+  <option value="/playground/">API Playground</option>
+  <option value="/docs/api-guide/">API Guide</option>
+  <option value="/docs/faq/">FAQ</option>
+  <option value="/docs/json-schemas/">JSON Schemas</option>
+  <option value="/docs/bug-bounty/">Bug Bounty</option>
+</select>
+
+  <div class="page-wrapper documentation">
+    <div id="sidebar" class="sidebar-left">
+    <p class="sidebar-title bold">Deriv API</p>
+    <a href="/docs/">Quickstart</a></li>
+    <a id="code-samples" href="/docs/code-samples/">Code samples</a></li>
+    <a id="app-registration" href="/docs/app-registration/">App registration</a></li>
+    <a id="playground" href="/playground/">API playground</a></li>
+    <a id="api-guide" href="/docs/api-guide/">API guide</a></li>
+    <a id="faq" href="/docs/faq/">FAQ</a></li>
+    <a id="json-schemas" href="/docs/json-schemas/">JSON Schemas</a></li>
+    <a id="bug-bounty" href="/docs/bug-bounty/">Bug Bounty</a></li>
+</div>
+
+    <div class="vertical-separator"></div>
+    <div class="page-content">
+  <h1 class="doc-main-title">App registration</h1>
+  <div class="subheader">
+    Authenticate your API token before using it in your app.
+  </div>
+  <div class="cta">
+    <h3>Looking for your API token?</h3>
+    <a target="tokeninput" href="https://app.deriv.com/account/api-token">
+      <div class="cta-button">Get your API token</div>
+    </a>
+  </div>
+  <fieldset id="api-token-fieldset">
+    <div class="api-token-wrapper">
+      <p class="helper-label">API Token</p>
+      <input type="text" id="api-token" placeholder="API Token" />
+      <button id="send-auth-manually-btn" class="btn-authenticate bold">
+        Authenticate
+      </button>
+    </div>
+  </fieldset>
+  <div class="horizontal-separator-grey"></div>
+  <form id="frmNewApplication">
+    <div class="form-content">
+      <fieldset>
+        <h2 id="form-title" class="doc-sub-title">Register your app</h2>
+        <div class="input-wrapper first">
+          <p class="helper-label">Name (Required)</p>
+          <input
+            id="application-name"
+            type="text"
+            maxlength="48"
+            placeholder="Name (Required)"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Redirect URL (Required)</p>
+          <input
+            id="application-redirect_uri"
+            type="text"
+            maxlength="255"
+            placeholder="Redirect URL (Required)"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Verification URL</p>
+          <input
+            id="application-verification_uri"
+            type="text"
+            maxlength="255"
+            placeholder="Verification URL"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Homepage URL</p>
+          <input
+            id="application-homepage"
+            type="text"
+            maxlength="255"
+            placeholder="Homepage URL"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Github URL</p>
+          <input
+            id="application-github"
+            type="text"
+            maxlength="255"
+            placeholder="Github URL"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Appstore URL</p>
+          <input
+            id="application-appstore"
+            type="text"
+            maxlength="255"
+            placeholder="Appstore URL"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Google Play URL</p>
+          <input
+            id="application-googleplay"
+            type="text"
+            maxlength="255"
+            placeholder="Google Play URL"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Markup Percentage</p>
+          <input
+            id="application-app_markup_percentage"
+            type="text"
+            maxlength="5"
+            placeholder="Markup percentage"
+            class="last"
+          />
+          <p class="helper-text">minimum 0.00 and maximum 5.00</p>
+        </div>
+      </fieldset>
+      <div class="scopes">
+        <p class="bold scopes-field">Scopes:</p>
+        <div class="scopes-field">
+          <input id="read-scope" type="checkbox" value="read" />
+          <label for="read-scope">Read: View account activity</label>
+        </div>
+        <div class="scopes-field">
+          <input id="trade-scope" type="checkbox" value="trade" />
+          <label for="trade-scope">Trade: Buy and sell contracts</label>
+        </div>
+        <div class="scopes-field">
+          <input
+            id="trading_information-scope"
+            type="checkbox"
+            value="trading_information"
+          />
+          <label for="trading_information-scope"
+            >Trading Information: View trading and balance information</label
+          >
+        </div>
+        <div class="scopes-field">
+          <input id="payments-scope" type="checkbox" value="payments" />
+          <label for="payments-scope"
+            >Payments: Cashier (Deposit, Withdraw)</label
+          >
+        </div>
+        <div class="scopes-field mb-0">
+          <input id="admin-scope" type="checkbox" value="admin" />
+          <label for="admin-scope"
+            >Admin: API token management, application management</label
+          >
+        </div>
+      </div>
+      <button class="primary-btn-submit" id="btnRegister">Register</button>
+    </div>
+  </form>
+  <div class="horizontal-separator-grey"></div>
+  <div class="request-container">
+    <div class="table-wrapper">
+      <table class="flex-table" id="applications-table" style="display: none">
+        <thead>
+          <tr class="flex-tr">
+            <th class="flex-tr-child name">Name</th>
+            <th class="flex-tr-child app_id">Application ID</th>
+            <th class="flex-tr-child scopes">Scopes</th>
+            <th class="flex-tr-child redirect_url">Redirect URL</th>
+            <th colspan="2" class="flex-tr-child actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <fieldset class="mb-0">
+  <div class="form-content">
+    <h3 class="app-registration-subheader">Request JSON</h3>
+    <!-- <div id="unauthorized-error" >
+            <p class="notice-msg">You are not authenticated.</p>
+        </div> -->
+    <textarea id="playground-request" placeholder="Request JSON"></textarea>
+    <div class="json-btn-wrapper">
+      <button class="gray-btn-submit mr-8p" id="playground-send-btn">
+        Send Request
+      </button>
+      <a id="playground-reset-btn" href="javascript:;">
+        <button class="btn-reset">Reset Connection</button>
+      </a>
+    </div>
+  </div>
+</fieldset>
+<div id="playground-console"></div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+  <div class="footer-container">© 2021 Deriv | All rights reserved</div>
+</footer>
+<script src="/code.js"></script>
+<script src="/deriv.js"></script>
+
+
+  </body>
+
+</html>

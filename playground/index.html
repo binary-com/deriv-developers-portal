@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  
+  
+
+  <head>
+  <style id="antiClickjack">
+    body {
+      display: none !important;
+    }
+  </style>
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Build your own trading platform, powered by the Deriv API. We use WebSockets for fast, two-way messaging between your apps and our trading services."
+  />
+
+  <link
+    href="/img/deriv.png"
+    rel="icon"
+    sizes="96x96"
+    type="image/png"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+  /></noscript>
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+  /></noscript>
+  <link rel="stylesheet" href="/docson/docson.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/select2.min.css" />
+
+  <script src="/lib/rainbow.js"></script>
+
+  <script src="/lib/language/generic.js"></script>
+  <script src="/lib/language/javascript.js"></script>
+  <script src="/lib/language/coffeescript.js"></script>
+  <script src="/lib/language/csharp.js"></script>
+  <script src="/lib/language/go.js"></script>
+  <script src="/lib/language/java.js"></script>
+  <!-- <script src="/lib/language/perl.js"></script> -->
+  <script src="/lib/language/php.js"></script>
+  <script src="/lib/language/ruby.js"></script>
+  <script src="/lib/language/python.js"></script>
+  <!-- <script src="/lib/language/swift.js"></script> -->
+
+  <script src="https://liveapi.binary.com/binary-live-api.js"></script>
+  <script src="/lib/require.js"></script>
+
+  <title>Deriv.com Developers</title>
+  <link
+    rel="canonical"
+    href="https://developers.deriv.com/playground/"
+  />
+</head>
+
+
+  <body>
+
+    <div id="main-nav" class="nav">
+  <div class="top-nav flex-container">
+    <div class="top-nav-container">
+      <a href="https://deriv.com">Deriv website</a>
+      <a href="https://deriv.com/about">About us</a>
+      <a href="https://deriv.com/contact-us">Contact us</a>
+    </div>
+  </div>
+  <header>
+    <div class="header-container">
+      <img
+        id="hamburger"
+        alt="Hamburger menu"
+        src="/img/hamburger_menu.svg"
+        width="16"
+        height="16"
+      />
+      <a class="flex-container" href="/">
+        <img
+          class="logo"
+          alt="Deriv Logo"
+          src="/img/deriv.svg"
+          width="180"
+          height="73"
+        />
+        <h1 class="branding">Developers</h1>
+      </a>
+      <nav id="navbar" class="flex-container navbar">
+        <a id="" href="/">Home</a>
+        <a id="docs" href="/docs/">Documentation</a>
+        <a id="playground" href="/playground/">API Playground</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+
+    <section id="canvas-menu" class="off-canvas-menu">
+  <div class="menu-container">
+    <div id="home" class="menu-wrapper">
+      <a href="/">Home</a>
+    </div>
+    <div class="menu-wrapper">
+      <div id="doc-menu-header" class="menu-header">
+        Documentation
+        <img
+          class="menu-button"
+          src="/img/arrow_down.svg"
+          width="16"
+          height="16"
+          alt="expand"
+        />
+      </div>
+      <div class="menu-panel">
+        <a id="quickstart" href="/docs/">Quickstart</a>
+        <a id="code-samples" href="/docs/code-samples/"
+          >Code Samples</a
+        >
+        <a id="app-registration" href="/docs/app-registration/"
+          >App Registration</a
+        >
+        <a id="api-guide" href="/docs/api-guide/">API Guide</a>
+        <a id="faq" href="/docs/faq/">FAQ</a>
+        <a id="json-schemas" href="/docs/json-schemas/"
+          >JSON Schemas</a
+        >
+        <a id="bug-bounty" href="/docs/bug-bounty/">Bug Bounty</a>
+      </div>
+    </div>
+    <div id="playground_link" class="menu-wrapper">
+      <a href="/playground/">API Playground</a>
+    </div>
+  </div>
+</section>
+
+    
+    <div class="main-content">
+      <div id="content" class="playground-content dark">
+  
+  
+  
+  <h1 class="dark">API Playground</h1>
+  <div class="page-wrapper dark">    
+        <div class="playground">
+  <div class="playground-page-wrapper dark">
+    <div class="playground-api-json dark">
+      <fieldset>
+    <select id="api-call-selector">
+        <option selected disabled hidden>Select API Call - Version 3</option>
+        <optgroup label="All Calls">
+            <option value="api_token">API Token</option>
+            <option value="get_limits">Account Limits</option>
+            <option value="get_account_status">Account Status</option>
+            <option value="active_symbols">Active Symbols</option>
+            <option value="app_delete">Application: Delete</option>
+            <option value="app_get">Application: Get Details</option>
+            <option value="app_list">Application: List</option>
+            <option value="app_markup_details">Application: Markup Details</option>
+            <option value="app_register">Application: Register</option>
+            <option value="app_update">Application: Update</option>
+            <option value="asset_index">Asset Index</option>
+            <option value="authorize">Authorize</option>
+            <option value="balance">Balance</option>
+            <option value="buy">Buy Contract</option>
+            <option value="buy_contract_for_multiple_accounts">Buy Contract for Multiple Accounts</option>
+            <option value="cancel">Cancel a Contract</option>
+            <option value="cashier">Cashier Information</option>
+            <option value="contracts_for">Contracts For Symbol</option>
+            <option value="copytrading_list">Copy Trading: List</option>
+            <option value="copy_start">Copy Trading: Start</option>
+            <option value="copytrading_statistics">Copy Trading: Statistics</option>
+            <option value="copy_stop">Copy Trading: Stop</option>
+            <option value="residence_list">Countries List</option>
+            <option value="document_upload">Document Upload</option>
+            <option value="economic_calendar">Economic Calendar</option>
+            <option value="exchange_rates">Exchange Rates</option>
+            <option value="forget">Forget</option>
+            <option value="forget_all">Forget All</option>
+            <option value="get_settings">Get Account Settings</option>
+            <option value="get_financial_assessment">Get Financial Assessment</option>
+            <option value="get_self_exclusion">Get Self-Exclusion</option>
+            <option value="landing_company">Landing Company</option>
+            <option value="landing_company_details">Landing Company Details</option>
+            <option value="logout">Log Out</option>
+            <option value="login_history">Login History</option>
+            <option value="mt5_login_list">MT5: Accounts List</option>
+            <option value="mt5_deposit">MT5: Deposit</option>
+            <option value="mt5_get_settings">MT5: Get Setting</option>
+            <option value="mt5_new_account">MT5: New Account</option>
+            <option value="mt5_password_change">MT5: Password Change</option>
+            <option value="mt5_password_check">MT5: Password Check</option>
+            <option value="mt5_password_reset">MT5: Password Reset</option>
+            <option value="mt5_withdrawal">MT5: Withdrawal</option>
+            <option value="new_account_real">New Real-Money Account: Default Landing Company</option>
+            <option value="new_account_maltainvest">New Real-Money Account: Deriv Investment (Europe) Ltd</option>
+            <option value="new_account_virtual">New Virtual-Money Account</option>
+            <option value="oauth_apps">OAuth Applications</option>
+            <option value="p2p_advert_create">P2P Advert Create</option>
+            <option value="p2p_advert_info">P2P Advert Information</option>
+            <option value="p2p_advert_list">P2P Advert List</option>
+            <option value="p2p_advert_update">P2P Advert Update</option>
+            <option value="p2p_advertiser_adverts">P2P Advertiser Adverts</option>
+            <option value="p2p_advertiser_create">P2P Advertiser Create</option>
+            <option value="p2p_advertiser_info">P2P Advertiser Information</option>
+            <option value="p2p_advertiser_update">P2P Advertiser Update</option>
+            <option value="p2p_chat_create">P2P Chat Create</option>
+            <option value="p2p_order_cancel">P2P Order Cancel</option>
+            <option value="p2p_order_confirm">P2P Order Confirm</option>
+            <option value="p2p_order_create">P2P Order Create</option>
+            <option value="p2p_order_info">P2P Order Information</option>
+            <option value="p2p_order_list">P2P Order List</option>
+            <option value="paymentagent_list">Payment Agent: List</option>
+            <option value="paymentagent_transfer">Payment Agent: Transfer</option>
+            <option value="paymentagent_withdraw">Payment Agent: Withdraw</option>
+            <option value="payment_methods">Payment Methods</option>
+            <option value="paymentagent_create">Payment agent create</option>
+            <option value="paymentagent_details">Payment agent details</option>
+            <option value="payout_currencies">Payout Currencies</option>
+            <option value="ping">Ping</option>
+            <option value="portfolio">Portfolio</option>
+            <option value="proposal">Price Proposal</option>
+            <option value="proposal_open_contract">Price Proposal: Open Contracts</option>
+            <option value="profit_table">Profit Table</option>
+            <option value="reality_check">Reality Check</option>
+            <option value="revoke_oauth_app">Revoke Oauth Application</option>
+            <option value="sell">Sell Contract</option>
+            <option value="sell_contract_for_multiple_accounts">Sell Contracts: Multiple Accounts</option>
+            <option value="sell_expired">Sell Expired Contracts</option>
+            <option value="website_status">Server Status</option>
+            <option value="time">Server Time</option>
+            <option value="trading_servers">Server list</option>
+            <option value="set_account_currency">Set Account Currency</option>
+            <option value="set_settings">Set Account Settings</option>
+            <option value="set_financial_assessment">Set Financial Assessment</option>
+            <option value="set_self_exclusion">Set Self-Exclusion</option>
+            <option value="statement">Statement</option>
+            <option value="states_list">States List</option>
+            <option value="tnc_approval">Terms and Conditions Approval</option>
+            <option value="ticks_history">Ticks History</option>
+            <option value="ticks">Ticks Stream</option>
+            <option value="topup_virtual">Top Up Virtual-Money Account</option>
+            <option value="trading_durations">Trading Durations</option>
+            <option value="trading_platform_password_reset">Trading Platform: Password Reset</option>
+            <option value="trading_times">Trading Times</option>
+            <option value="transaction">Transactions Stream</option>
+            <option value="transfer_between_accounts">Transfer Between Accounts</option>
+            <option value="contract_update">Update Contract</option>
+            <option value="contract_update_history">Update Contract History</option>
+            <option value="verify_email">Verify Email</option>
+        </optgroup>
+        
+    </select>
+</fieldset>
+
+      <div class="api-token dark">
+        <fieldset id="api-token-fieldset">
+          <input type="text" id="api-token" placeholder="API Token" />
+          <button id="send-auth-manually-btn" class="btn-authenticate bold">
+            Authenticate
+          </button>
+        </fieldset>
+        <div class="vertical-separator"></div>
+        <hr />
+        <div class="cta">
+          <p class="title">Looking for your API token?</p>
+          <a target="tokeninput" href="https://app.deriv.com/account/api-token">
+            <div class="cta-button">Get your API token</div>
+          </a>
+        </div>
+      </div>
+      <div class="playground-box">
+        <label class="inline-label">Request JSON</label>
+        <textarea id="playground-request" placeholder="Request JSON"></textarea>
+        <div class="json-btn-wrapper">
+          <a id="playground-reset-btn" href="javascript:;">
+            <button class="btn-submit">Reset Connection</button>
+          </a>
+          <button class="btn-reset" id="playground-send-btn">
+            Send Request
+          </button>
+        </div>
+        <div id="playground-console"></div>
+      </div>
+    </div>
+    <div id="playground" class="playground-api-docs">
+      <div id="playground-req-schema"></div>
+      <div id="playground-res-schema"></div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+    </div>
+
+    <footer>
+  <div class="footer-container">© 2021 Deriv | All rights reserved</div>
+</footer>
+<script src="/code.js"></script>
+<script src="/deriv.js"></script>
+
+
+  </body>
+
+</html>

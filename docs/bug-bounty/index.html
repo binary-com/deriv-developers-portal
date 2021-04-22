@@ -78,7 +78,7 @@
   <title>Deriv.com Developers</title>
   <link
     rel="canonical"
-    href="https://developers.deriv.com/"
+    href="https://developers.deriv.com/docs/bug-bounty/"
   />
 </head>
 
@@ -162,164 +162,62 @@
 
     
     <div class="main-content">
-      <div class="hero-image">
-  <div class="hero-container">
-    <h1 class="hero-header">The Deriv Developers Programme</h1>
-    <h2 class="hero-text">
-      Build your own trading platform, powered by the Deriv API.
-    </h2>
-    <h2 class="hero-text mb-0">
-      We use WebSockets for fast, two-way messaging between your apps and our
-      trading services.
-    </h2>
-    <a href="/docs/app-registration/" class="hero-btn"
-      >Register my app</a
-    >
-  </div>
+      <div id="content" class="doc-content">
+    <select id="mobile-page-selector">
+  <option value="/docs/">Quickstart</option>
+  <option value="/docs/code-samples/">Code Samples</option>
+  <option value="/docs/app-registration/">App Registration</option>
+  <option value="/playground/">API Playground</option>
+  <option value="/docs/api-guide/">API Guide</option>
+  <option value="/docs/faq/">FAQ</option>
+  <option value="/docs/json-schemas/">JSON Schemas</option>
+  <option value="/docs/bug-bounty/">Bug Bounty</option>
+</select>
+
+  <div class="page-wrapper documentation">
+    <div id="sidebar" class="sidebar-left">
+    <p class="sidebar-title bold">Deriv API</p>
+    <a href="/docs/">Quickstart</a></li>
+    <a id="code-samples" href="/docs/code-samples/">Code samples</a></li>
+    <a id="app-registration" href="/docs/app-registration/">App registration</a></li>
+    <a id="playground" href="/playground/">API playground</a></li>
+    <a id="api-guide" href="/docs/api-guide/">API guide</a></li>
+    <a id="faq" href="/docs/faq/">FAQ</a></li>
+    <a id="json-schemas" href="/docs/json-schemas/">JSON Schemas</a></li>
+    <a id="bug-bounty" href="/docs/bug-bounty/">Bug Bounty</a></li>
 </div>
-<div class="main-page-row with-pattern">
-  <div class="column-container">
-    <h1>Get started with our API in 3 simple steps</h1>
-    <div class="card-container">
-      <a
-        target="_blank"
-        href="https://deriv.com/signup/"
-        rel="noopener noreferrer"
-        class="main-page-card"
-      >
-        <div class="header">
-          <h3>Sign up</h3>
-          <img
-            src="/img/sign-up.svg"
-            alt="sign up icon"
-            width="32"
-            height="32"
-          />
-        </div>
-        <div class="content hide-on-mobile">
-          If you don’t have a Deriv account,<br />
-          sign up for free.
-        </div>
-        <div class="content hide-on-desktop">
-          If you don’t have a Deriv account, sign up for free.
-        </div>
-      </a>
-      <a href="/docs/app-registration" class="main-page-card">
-        <div class="header">
-          <h3>Register your app</h3>
-          <img
-            src="/img/register-your-app.svg"
-            alt="sign up icon"
-            width="32"
-            height="32"
-          />
-        </div>
-        <div class="content">Register to get your app ID.</div>
-      </a>
-      <a href="/docs/api-guide/" class="main-page-card">
-        <div class="header">
-          <h3>Read our guide</h3>
-          <img
-            src="/img/guide.svg"
-            alt="sign up icon"
-            width="32"
-            height="32"
-          />
-        </div>
-        <div class="content">
-          Our API guide covers the essentials you need to start building.
-        </div>
-      </a>
-    </div>
-    <a
-      href="https://deriv.com/signup/"
-      target="_blank"
-      class="main-register-btn"
-      >Sign up now</a
-    >
+
+    <div class="vertical-separator"></div>
+    <div class="page-content">
+  <h1 class="doc-main-title">Bug bounty</h1>
+  <div class="text-block">
+    <h3 class="mb-8p bb-m-sub-title">Want to help us enhance our security?</h3>
+    <p>
+      Test our products and services for security vulnerabilities and earn a
+      monetary reward for any verifiable issues that you find, courtesy of our
+      bug bounty programme.
+    </p>
   </div>
-</div>
-<div class="cta-row">
-  <div class="row-container">
-    <div class="cta-container">
-      <img
-        src="/img/playground.svg"
-        class="mb-16p"
-        alt="api playground icon"
-        width="64"
-        height="64"
-      />
-      <h2>Looking for a method call?</h2>
-      <p class="mb-0">
-        Explore our <a href="/playground">API playground</a> for the method
-        calls you need.
-      </p>
-    </div>
-    <div class="cta-container">
-      <img
-        src="/img/code-sample.svg"
-        class="mb-16p"
-        alt="code sample icon"
-        width="64"
-        height="64"
-      />
-      <h2>Need code samples?</h2>
-      <p class="mb-0">
-        See <a href="/docs/code-samples/">code samples</a> in
-        different languages.
-      </p>
+  <div class="cta px-py-40">
+    <div class="cta-grid">
+      <div class="cta-grid-box">
+        <h2 class="h2-margin">Explore our bounty programme</h2>
+        <a class="bold" target="_blank" href="https://hackerone.com/binary">
+          <div class="cta-button">Go to Hackerone</div>
+        </a>
+      </div>
+      <div class="cta-grid-box">
+        <h2 class="mb-8p">Got questions?</h2>
+        <p>
+          Email us at
+          <a href="mailto:security@deriv.com">security@deriv.com</a> for more
+          information.
+        </p>
+      </div>
     </div>
   </div>
 </div>
-<div class="main-page-row">
-  <div class="row-container">
-    <div class="single-container">
-      <img
-        src="/img/js-library.svg"
-        alt="javascript library icon"
-        width="64"
-        height="64"
-      />
-      <h1 class="max-js-div">
-        Our all-in-one JavaScript library helps to reduce headaches
-      </h1>
-      <p class="subheader">
-        Easily get your apps up and running with this customisable ready-made
-        library.
-      </p>
-      <a
-        href="https://github.com/binary-com/deriv-api"
-        class="main-register-btn"
-        rel="noreferrer noopener"
-      >
-        Go to our library
-      </a>
-    </div>
-  </div>
-</div>
-<div class="container dark">
-  <div class="row-container">
-    <div class="single-container dark">
-      <h2>Get connected</h2>
-      <p class="mb-16p">
-        Discuss ideas and share solutions with developers worldwide.
-      </p>
-      <a
-        target="_blank"
-        href="https://binary.vanillacommunity.com/"
-        class="community-btn"
-        rel="noreferrer noopener"
-        >Join our community</a
-      >
-    </div>
-    <div class="single-container dark">
-      <h2>We’re here to help</h2>
-      <p>
-        Email us at
-        <a href="mailto: api-support@deriv.com">api-support@deriv.com</a><br />
-        if you have any questions.
-      </p>
-    </div>
+
   </div>
 </div>
 

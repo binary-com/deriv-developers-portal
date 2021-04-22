@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  
+  
+
+  <head>
+  <style id="antiClickjack">
+    body {
+      display: none !important;
+    }
+  </style>
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Build your own trading platform, powered by the Deriv API. We use WebSockets for fast, two-way messaging between your apps and our trading services."
+  />
+
+  <link
+    href="/img/deriv.png"
+    rel="icon"
+    sizes="96x96"
+    type="image/png"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+  /></noscript>
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+  /></noscript>
+  <link rel="stylesheet" href="/docson/docson.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/select2.min.css" />
+
+  <script src="/lib/rainbow.js"></script>
+
+  <script src="/lib/language/generic.js"></script>
+  <script src="/lib/language/javascript.js"></script>
+  <script src="/lib/language/coffeescript.js"></script>
+  <script src="/lib/language/csharp.js"></script>
+  <script src="/lib/language/go.js"></script>
+  <script src="/lib/language/java.js"></script>
+  <!-- <script src="/lib/language/perl.js"></script> -->
+  <script src="/lib/language/php.js"></script>
+  <script src="/lib/language/ruby.js"></script>
+  <script src="/lib/language/python.js"></script>
+  <!-- <script src="/lib/language/swift.js"></script> -->
+
+  <script src="https://liveapi.binary.com/binary-live-api.js"></script>
+  <script src="/lib/require.js"></script>
+
+  <title>Deriv.com Developers</title>
+  <link
+    rel="canonical"
+    href="https://developers.deriv.com/docs/code-samples/"
+  />
+</head>
+
+
+  <body>
+
+    <div id="main-nav" class="nav">
+  <div class="top-nav flex-container">
+    <div class="top-nav-container">
+      <a href="https://deriv.com">Deriv website</a>
+      <a href="https://deriv.com/about">About us</a>
+      <a href="https://deriv.com/contact-us">Contact us</a>
+    </div>
+  </div>
+  <header>
+    <div class="header-container">
+      <img
+        id="hamburger"
+        alt="Hamburger menu"
+        src="/img/hamburger_menu.svg"
+        width="16"
+        height="16"
+      />
+      <a class="flex-container" href="/">
+        <img
+          class="logo"
+          alt="Deriv Logo"
+          src="/img/deriv.svg"
+          width="180"
+          height="73"
+        />
+        <h1 class="branding">Developers</h1>
+      </a>
+      <nav id="navbar" class="flex-container navbar">
+        <a id="" href="/">Home</a>
+        <a id="docs" href="/docs/">Documentation</a>
+        <a id="playground" href="/playground/">API Playground</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+
+    <section id="canvas-menu" class="off-canvas-menu">
+  <div class="menu-container">
+    <div id="home" class="menu-wrapper">
+      <a href="/">Home</a>
+    </div>
+    <div class="menu-wrapper">
+      <div id="doc-menu-header" class="menu-header">
+        Documentation
+        <img
+          class="menu-button"
+          src="/img/arrow_down.svg"
+          width="16"
+          height="16"
+          alt="expand"
+        />
+      </div>
+      <div class="menu-panel">
+        <a id="quickstart" href="/docs/">Quickstart</a>
+        <a id="code-samples" href="/docs/code-samples/"
+          >Code Samples</a
+        >
+        <a id="app-registration" href="/docs/app-registration/"
+          >App Registration</a
+        >
+        <a id="api-guide" href="/docs/api-guide/">API Guide</a>
+        <a id="faq" href="/docs/faq/">FAQ</a>
+        <a id="json-schemas" href="/docs/json-schemas/"
+          >JSON Schemas</a
+        >
+        <a id="bug-bounty" href="/docs/bug-bounty/">Bug Bounty</a>
+      </div>
+    </div>
+    <div id="playground_link" class="menu-wrapper">
+      <a href="/playground/">API Playground</a>
+    </div>
+  </div>
+</section>
+
+    
+    <div class="main-content">
+      <div id="content" class="doc-content">
+    <select id="mobile-page-selector">
+  <option value="/docs/">Quickstart</option>
+  <option value="/docs/code-samples/">Code Samples</option>
+  <option value="/docs/app-registration/">App Registration</option>
+  <option value="/playground/">API Playground</option>
+  <option value="/docs/api-guide/">API Guide</option>
+  <option value="/docs/faq/">FAQ</option>
+  <option value="/docs/json-schemas/">JSON Schemas</option>
+  <option value="/docs/bug-bounty/">Bug Bounty</option>
+</select>
+
+  <div class="page-wrapper documentation">
+    <div id="sidebar" class="sidebar-left">
+    <p class="sidebar-title bold">Deriv API</p>
+    <a href="/docs/">Quickstart</a></li>
+    <a id="code-samples" href="/docs/code-samples/">Code samples</a></li>
+    <a id="app-registration" href="/docs/app-registration/">App registration</a></li>
+    <a id="playground" href="/playground/">API playground</a></li>
+    <a id="api-guide" href="/docs/api-guide/">API guide</a></li>
+    <a id="faq" href="/docs/faq/">FAQ</a></li>
+    <a id="json-schemas" href="/docs/json-schemas/">JSON Schemas</a></li>
+    <a id="bug-bounty" href="/docs/bug-bounty/">Bug Bounty</a></li>
+</div>
+
+    <div class="vertical-separator"></div>
+    <div class="page-content">
+    <h1 class="doc-main-title">Code samples</h1>
+    <p>This code opens a WebSocket connection and requests a stream of updates for the symbol <b>R_100</b>.
+        Every time an update is received, it outputs a message. To view the code in another language, use the dropdown menu above.
+    </p>
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">
+                <select id="demo-language" >
+                    <option value="javascript">JavaScript</option>
+                    <option value="clojure">Clojure</option>
+                    <option value="coffeescript">CoffeeScript</option>
+                    <option value="csharp">C#</option>
+                    <option value="elixir">Elixir</option>
+                    <option value="go">Go</option>
+                    <option value="perl">Perl</option>
+                    <option value="java">Java</option>
+                    <option value="php">PHP</option>
+                    <option value="ruby">Ruby</options>
+                    <option value="rust">Rust</options>
+                    <option value="python">Python</option>
+                    <option value="scala">Scala</option>
+                    <option value="swift">Swift</option>
+                </select>
+            </p>
+            <div class="copy-button">
+                <img class="copy-button-image" src="/img/copy.svg" width="16" height="16" alt="copy code icon" /> Copy
+            </div>
+        </div>
+        <div id="language-demos">
+            <pre data-language="javascript">var ws = new WebSocket(&#39;wss://ws.binaryws.com/websockets/v3?app_id=1089&#39;);
+
+ws.onopen = function(evt) { ws.send(JSON.stringify({ticks:&#39;R_100&#39;})); };
+
+ws.onmessage = function(msg) { var data = JSON.parse(msg.data); console.log(&#39;ticks update: %o&#39;, data);};
+</pre>
+            <pre data-language="clojure">(ns binaryws.core
+  (:require [gniazdo.core :as ws]) ;; [stylefruits/gniazdo "0.4.0"]
+  (:require [cheshire.core :refer :all]) ;; [cheshire "5.5.0"]
+  (:gen-class))
+(defn -main
+  [& args]
+  (def socket
+    (ws/connect
+     "wss://ws.binaryws.com/websockets/v3?app_id=1089"
+     :on-receive #(prn (parse-string %))))
+  (ws/send-msg socket (generate-string {:ticks "R_100"}))
+  (Thread/sleep Long/MAX_VALUE)
+  (ws/close socket)
+  )
+</pre>
+            <pre data-language="coffeescript">ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=1089')
+
+ws.onopen = (evt) ->
+    ws.send JSON.stringify(ticks: 'R_100')
+
+ws.onmessage = (msg) ->
+    data = JSON.parse(msg.data)
+    console.log 'ticks update: %o', data
+</pre>
+            <pre data-language="csharp">using System;
+using System.Text;
+using System.Threading.Tasks;
+using System.Net.WebSockets;
+using System.Threading;
+using System.Net;
+
+namespace BinaryWSDemo
+{
+    class BinaryWS
+    {
+    	private ClientWebSocket ws = new ClientWebSocket();
+        private Uri uri = new Uri("wss://ws.binaryws.com/websockets/v3?app_id=1089");
+            
+        public async Task SendRequest(string data)
+        {
+        	
+        	while(this.ws.State == WebSocketState.Connecting){};
+            if (this.ws.State != WebSocketState.Open)
+            {
+                throw new Exception("Connection is not open.");
+            }
+            
+            var reqAsBytes = Encoding.UTF8.GetBytes(data);
+            var ticksRequest = new ArraySegment&ltbyte>(reqAsBytes);
+
+            await this.ws.SendAsync(ticksRequest,
+                WebSocketMessageType.Text,
+                true,
+                CancellationToken.None);
+            
+            Console.WriteLine("The request has been sent: ");
+            Console.WriteLine(data);
+            Console.WriteLine("\r\n \r\n");
+
+            
+        }
+        
+        public async Task StartListen(){
+        	WebSocketReceiveResult result;
+        	while (this.ws.State == WebSocketState.Open){
+        	var buffer = new ArraySegment&ltbyte>(new byte[1024]);
+                    do
+                    {
+                        result = await this.ws.ReceiveAsync(new ArraySegment&ltbyte>(buffer.Array), CancellationToken.None);
+
+                        if (result.MessageType == WebSocketMessageType.Close)
+                        {
+                        	Console.WriteLine("Connection Closed!");
+                        	break;
+                        }
+                        else
+                        {
+                            var str = Encoding.UTF8.GetString(buffer.Array, 0, result.Count);
+                            Console.WriteLine("Received Data at: " + DateTime.Now);
+                            Console.WriteLine(str);
+                            Console.WriteLine("\r\n");
+                        }
+
+                    } while (!result.EndOfMessage);
+        	}
+        }
+        
+        public async Task Connect(){
+        	Console.WriteLine("Prepare to connect to: " + this.uri.ToString());
+        	Console.WriteLine("\r\n");
+        	
+        	ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
+        	await ws.ConnectAsync(uri, CancellationToken.None);
+        	
+        	Console.WriteLine("The connection is established!");
+        	Console.WriteLine("\r\n");
+        }
+
+        static void Main(string[] args)
+        {
+            
+			string data = "{\"ticks\":\"R_100\"}";
+            
+			var bws = new BinaryWS();
+			bws.Connect().Wait();
+			
+			bws.SendRequest(data).Wait();
+			bws.StartListen();
+            
+            Console.ReadLine();
+        }
+    }
+}
+</pre>
+            <pre data-language="elixir"># Build as an escript, cf https://elixirschool.com/en/lessons/advanced/escripts/
+# Depends on: [{:socket, "~> 0.3"}, {:poison, "~> 4.0"}]
+defmodule BinaryWS do
+  def main(_args) do
+    {:ok, omsg} = Poison.encode(%{"ticks" => "R_100"})
+    socket = Socket.Web.connect! "ws.binaryws.com", 443,
+      [{:secure, true}, {:path, "/websockets/v3?app_id=1089"}]
+    socket |> Socket.Web.send!({:text, omsg})
+    spawn_link(fn -> loop(socket) end)
+    :timer.sleep(:infinity)
+    socket |> Socket.Web.close
+  end
+
+  # Start receiving updates in another process until main process wakes up.
+  defp loop(socket) do
+    case socket |> Socket.Web.recv! do
+      {:text, imsg} ->
+        IO.puts "ticks update: " <> imsg
+        loop(socket)
+      _ -> exit(:normal)
+    end
+  end
+end
+</pre>
+            <pre data-language="go">package main
+
+import (
+	"fmt"
+	"log"
+
+	"golang.org/x/net/websocket"
+)
+
+func receive(ticks chan string, ws *websocket.Conn) {
+	defer close(ticks)
+	var msg string
+	for {
+		if err := websocket.Message.Receive(ws, &msg); err != nil {
+			log.Fatalln("recv:", err)
+		}
+		ticks <- msg
+	}
+}
+
+func main() {
+	origin := "http://localhost"
+	url := "wss://ws.binaryws.com/websockets/v3?app_id=1089"
+
+	ws, err := websocket.Dial(url, "", origin)
+	if err != nil {
+		log.Fatalln("dial:", err)
+	}
+	defer ws.Close()
+
+	var ticks = make(chan string)
+	go receive(ticks, ws)
+
+	if err = websocket.Message.Send(ws, `{"ticks": "R_100"}`); err != nil {
+		log.Fatalln("send:", err)
+	}
+
+	for {
+		select {
+		case tick := <-ticks:
+			fmt.Println("ticks update:", tick)
+		}
+	}
+}
+</pre>
+            <pre data-language="java">import java.net.URI;
+import java.io.IOException;
+import java.lang.InterruptedException;
+import javax.websocket.*;
+
+@ClientEndpoint
+public class WSClient  {
+
+    @OnOpen
+    public void onOpen(Session session) throws java.io.IOException
+    {
+        session.getBasicRemote().sendText("{\"ticks\": \"R_100\"}");
+    }
+
+    @OnMessage
+    public void onMessage(String message)
+    {
+        System.out.println("ticks update: " + message);
+    }
+
+    public static void main(String[] args)
+        throws IOException, DeploymentException, InterruptedException
+    {
+        WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+        URI apiUri = URI.create("wss://ws.binaryws.com/websockets/v3?app_id=1089");
+        Session session = container.connectToServer(WSClient.class, apiUri);
+        while (session.isOpen()) {
+            // receive ticks
+        }
+    }
+}
+
+</pre>
+            <pre data-language="perl">use strict;
+use warnings;
+use v5.10;
+use Mojo::UserAgent;
+use Data::Dumper;
+
+my $ua = Mojo::UserAgent->new;
+$ua->websocket('wss://ws.binaryws.com/websockets/v3?app_id=1089' => sub {
+    my ($ua, $tx) = @_;
+    unless($tx->is_websocket) {
+        say 'WebSocket handshake failed!';
+        return;
+    }
+
+    $tx->on(json => sub {
+        my ($tx, $data) = @_;
+        say "ticks update: " . Dumper(\$data);
+    });
+
+    $tx->send({json => {
+        ticks => 'R_100'
+    }});
+});
+Mojo::IOLoop->start unless Mojo::IOLoop->is_running;
+</pre>
+            <pre data-language="php">require __DIR__ . '/vendor/autoload.php';
+
+$loop = \React\EventLoop\Factory::create();
+$connector = new \Ratchet\Client\Connector($loop);
+
+$connector('wss://ws.binaryws.com/websockets/v3?app_id=1089')->then(function ($conn) {
+    $conn->on('message', function ($msg) {
+        echo "ticks update: {$msg}\n";
+    });
+
+    $conn->send("{\"ticks\": \"R_100\"}");
+});
+
+$loop->run();
+</pre>
+            <pre data-language="ruby">gem install faye-websocket
+
+require 'faye/websocket'
+require 'eventmachine'
+require 'json'
+
+EM.run {
+    ws = Faye::WebSocket::Client.new('wss://ws.binaryws.com/websockets/v3?app_id=1089')
+
+    ws.on :open do |event|
+        p [:open]
+        ws.send(JSON.generate({ticks:'R_100'}))
+    end
+
+    ws.on :message do |event|
+        p [:message, event.data]
+    end
+}
+</pre>
+            <pre data-language="rust">extern crate env_logger;
+extern crate ws;
+
+use ws::{connect, CloseCode};
+
+fn main() { 
+    env_logger::init();
+    println!("Starting connection");
+    connect(
+        "wss://frontend.binaryws.com/websockets/v3?app_id=1089",
+        |out| { 
+            println!("Connection established");
+            out.send("{\"ticks\": \"R_100\"}").unwrap();
+                        
+            move |msg| {
+                println!("Got message: {}", msg);
+                out.close(CloseCode::Normal)
+            }
+        },
+    )
+    .unwrap();
+    println!("Event loop ended");
+}
+</pre>
+            <pre data-language="python">import websocket
+import json
+
+def on_open(ws):
+    json_data = json.dumps({'ticks':'R_100'})
+    ws.send(json_data)
+
+def on_message(ws, message):
+    print('ticks update: %s' % message)
+
+if __name__ == "__main__":
+    apiUrl = "wss://ws.binaryws.com/websockets/v3?app_id=1089"
+    ws = websocket.WebSocketApp(apiUrl, on_message = on_message, on_open = on_open)
+    ws.run_forever()
+</pre>
+            <pre data-language="scala">package com.binary.ws
+
+import com.github.andyglow.websocket._
+
+object BinaryWS extends App {
+  val uri = "wss://ws.binaryws.com/websockets/v3?app_id=1089"
+  val cli = WebsocketClient[String](uri) {
+    case str =>
+      println("ticks update: " + str)
+  }
+  val ws = cli.open()
+
+  ws ! "{\"ticks\":\"R_100\"}"
+}
+</pre>
+            <pre data-language="swift">let ws = WebSocket("wss://ws.binaryws.com/websockets/v3?app_id=1089")
+
+ws.event.open = {
+    ws.send("{\"ticks\":\"R_100\"}")
+}
+
+ws.event.message = {
+    var obj: AnyObject? = NSJSONSerialization.JSONObjectWithData(
+        source.dataUsingEncoding(NSUTF8StringEncoding)!,
+        options: nil,
+        error: &err
+    )
+    print(obj)
+}
+</pre>
+        </div>
+    </div>
+</div>
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+  <div class="footer-container">© 2021 Deriv | All rights reserved</div>
+</footer>
+<script src="/code.js"></script>
+<script src="/deriv.js"></script>
+
+
+  </body>
+
+</html>
