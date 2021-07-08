@@ -183,6 +183,12 @@
     display: block;
     border: rgba(37, 37, 37, 0.72) solid 1px;
   }
+  .term-conditions,
+  .term-conditions a {
+    text-align: center;
+    max-width: 350px;
+    font-size: 13px;
+  }
 }
 @media (max-width: 992px) and (max-width: 640px) {
   .main-content
