@@ -65,32 +65,6 @@ commands:
           key: _site-v1-{{ .Revision }}
           paths:
             - _site
-  deploy:
-    description: "Deploy to static branches"
-    parameters:
-      target_branch:
-        type: string
-    steps:
-      - checkout
-      - attach_workspace:
-          at: _site
-      - run:
-          name: Tag build
-          command: echo "<< parameters.target_branch >> $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > _site/version
-      - run:
-          name: Install and configure dependencies
-          command: |
-            curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-            sudo apt install nodejs
-            sudo npm install gh-pages@2.0.1
-            git config user.email "ci-build@binary.com"
-            git config user.name "ci-build"
-      - add_ssh_keys:
-          fingerprints:
-            - "01:67:4a:6d:26:9c:70:c4:1a:60:91:88:d9:dd:f0:83"
-      - run:
-          name: Deploy docs to gh-pages branch
-          command: node ./node_modules/gh-pages/bin/gh-pages -d _site --branch << parameters.target_branch >> --message '[skip ci]'
   docker_build_push:
     description: "Build Docker image"
     parameters:
@@ -146,8 +120,6 @@ jobs:
       - git_checkout_from_cache
       - bundle_install
       - build
-      - deploy:
-          target_branch: "staging"
       - docker_build_push
       - k8s_deploy
       - notify_slack
@@ -158,8 +130,6 @@ jobs:
       - git_checkout_from_cache
       - bundle_install
       - build
-      - deploy:
-          target_branch: "master"
       - docker_build_push:
           docker_image_tag: latest
       - k8s_deploy:
