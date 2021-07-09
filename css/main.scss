@@ -27,6 +27,11 @@
   .row-container {
     flex-direction: column;
   }
+  .term-conditions, .term-conditions a {
+    text-align: center;
+    max-width: 350px;
+    font-size: 13px;
+  }
   .dark h1 {
     font-size: 32px;
   }
@@ -67,7 +72,6 @@
   .page-wrapper > .playground > fieldset {
     margin: unset;
   }
-  .cta-container > h2,
   .docson .title {
     font-size: 18px;
   }
@@ -390,20 +394,6 @@
         .single-container {
           width: unset;
           padding: 40px 16px 0;
-        }
-      }
-    }
-    .cta-row {
-      flex-direction: column;
-      height: auto;
-      padding: 40px 16px 0;
-
-      .row-container {
-        width: 100%;
-
-        .cta-container {
-          width: inherit;
-          margin-bottom: 40px;
         }
       }
     }
@@ -827,40 +817,6 @@ ol > p {
   background-image: url("/img/pattern.svg");
   object-fit: contain;
 }
-.cta-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  height: 308px;
-  background-color: rgba(242, 243, 244, 0.3);
-}
-.cta-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  margin: 0 12px;
-  width: 50%;
-
-  h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-
-    @media (max-width: 480px) {
-      font-size: 20px;
-    }
-  }
-  p {
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 1.5;
-    text-align: center;
-    color: #333333;
-  }
-}
 .main-register-btn {
   padding: 10px 16px;
   border-radius: 4px;
@@ -883,7 +839,7 @@ ol > p {
 .card-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 .column-container {
   display: flex;
@@ -1114,6 +1070,7 @@ ul {
 .subheader {
   font-size: 24px;
   text-align: center;
+  line-height: 1.5;
   color: #333333;
   margin-bottom: 40px;
 }
@@ -2050,6 +2007,11 @@ pre {
   color: #fafafa;
   background-color: #0e0e0e;
 }
+
+.gray{
+  background-color: #f5f7fa;
+}
+
 .dark {
   color: #ffffff;
   background-color: #0e0e0e;
