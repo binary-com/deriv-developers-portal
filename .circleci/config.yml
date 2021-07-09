@@ -65,6 +65,21 @@ commands:
           key: _site-v1-{{ .Revision }}
           paths:
             - _site
+
+  tag:
+    description: "Tagging"
+    parameters:
+      target_branch:
+        type: string
+        default: "staging"
+    steps:
+      - checkout
+      - attach_workspace:
+          at: _site
+      - run:
+          name: Tag build
+          command: echo "<< parameters.target_branch >> $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > _site/version
+
   docker_build_push:
     description: "Build Docker image"
     parameters:
@@ -120,6 +135,7 @@ jobs:
       - git_checkout_from_cache
       - bundle_install
       - build
+      - tag
       - docker_build_push
       - k8s_deploy
       - notify_slack
@@ -130,6 +146,8 @@ jobs:
       - git_checkout_from_cache
       - bundle_install
       - build
+      - tag:
+          target_branch: "production"
       - docker_build_push:
           docker_image_tag: latest
       - k8s_deploy:
