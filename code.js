@@ -576,8 +576,8 @@ function setEndpoint(server_url, app_id, brand) {
 function isProduction(url) {
   return (
     url &&
-    (/(developers\.deriv\.com|binary\.sx)/i.test(url) ||
-      /(staging-developers\.deriv\.com)/i.test(url))
+    (/(api\.deriv\.com|binary\.sx)/i.test(url) ||
+      /(staging-api\.deriv\.com)/i.test(url))
   );
 }
 
