@@ -52,19 +52,9 @@ commands:
   build:
     description: "Build Jekyll site"
     steps:
-      - restore_cache:
-          name: "Build cache restore"
-          keys:
-            - _site-v1-{{ .Revision }}
-            - _site-v1-
       - run:
           name: Building Jekyll site
           command: bundle exec jekyll build --incremental
-      - save_cache:
-          name: Build cache save
-          key: _site-v1-{{ .Revision }}
-          paths:
-            - _site
 
   tag:
     description: "Tagging"

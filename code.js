@@ -573,6 +573,10 @@ function setEndpoint(server_url, app_id, brand) {
 // -----------------------------
 // ===== General Functions =====
 // -----------------------------
+function isLocal(url) {
+  return /\/\/(localhost|127\.0\.0\.1)/.test(url);
+}
+
 function isProduction(url) {
   return (
     url &&
@@ -581,9 +585,6 @@ function isProduction(url) {
   );
 }
 
-function isLocal(url) {
-  return /\/\/(localhost|127\.0\.0\.1)/.test(url);
-}
 
 function getBaseUrl(url) {
   url = url || document.location.href;
