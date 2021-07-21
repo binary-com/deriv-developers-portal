@@ -73,42 +73,53 @@ commands:
   docker_build_push:
     description: "Build Docker image"
     parameters:
-      docker_image_tag:
+      docker_latest_image_tag:
         type: string
         default: "latest-staging"
+      docker_image_tag:
+        type: string
+        default: ${CIRCLE_SHA1}
     steps:
       - setup_remote_docker
       - run:
           name: Building docker image
           command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-developers-portal:<< parameters.docker_image_tag >> .
+            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com-api:<< parameters.docker_image_tag >> -t ${DOCKHUB_ORGANISATION}/deriv-com-api:<< parameters.docker_latest_image_tag >> .
       - run:
           name: Pushing Image to docker hub
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            docker push ${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1}
-            docker push ${DOCKHUB_ORGANISATION}/deriv-developers-portal:<< parameters.docker_image_tag >>
+            docker push ${DOCKHUB_ORGANISATION}/deriv-com-api:<< parameters.docker_image_tag >>
+            docker push ${DOCKHUB_ORGANISATION}/deriv-com-api:<< parameters.docker_latest_image_tag >>
   k8s_deploy:
     description: "Deploy to k8s cluster"
     parameters:
-      k8s_svc_name:
+      target:
         type: string
-        default: "staging-deriv-developers-portal"
+        default: "beta"
+      k8s_version:
+        type: string
+        default: ${CIRCLE_SHA1}
+      k8s_namespace:
+        type: string
+        default: "deriv-com-api-staging"
     steps:
       - k8s/install-kubectl
       - run:
-          name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
+          name: Deploying to k8s cluster for service << parameters.k8s_namespace >>
           command: |
+            export NAMESPACE=<< parameters.k8s_namespace >>
+            git clone https://github.com/binary-com/devops-ci-scripts
+            cd devops-ci-scripts/k8s-build_tools
             echo $CA_CRT | base64 --decode > ca.crt
-            kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-developers-portal:${CIRCLE_SHA1}
-            kubectl -n deriv-developers-portal --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN wait --for=condition=available --timeout=600s deployment/<< parameters.k8s_svc_name >>
+            ./release.sh deriv-com-api << parameters.k8s_version >>
   notify_slack:
     description: "Notify slack"
     steps:
       - slack/status:
           include_project_field: false
-          failure_message: "Release failed for developers.deriv.com with version *$(cat _site/version)*"
-          success_message: "Release succeeded for developers.deriv.com with version *$(cat _site/version)*"
+          failure_message: "Release failed for api.deriv.com with version *$(cat _site/version)*"
+          success_message: "Release succeeded for api.deriv.com with version *$(cat _site/version)*"
           webhook: ${SLACK_WEBHOOK}
 jobs:
   build:
@@ -139,9 +150,11 @@ jobs:
       - tag:
           target_branch: "production"
       - docker_build_push:
-          docker_image_tag: latest
+          docker_latest_image_tag: latest
+          docker_image_tag: ${CIRCLE_TAG}
       - k8s_deploy:
-          k8s_svc_name: "production-deriv-developers-portal"
+          k8s_namespace: "deriv-com-api-production"
+          k8s_version: ${CIRCLE_TAG}
       - notify_slack
 
 workflows:
