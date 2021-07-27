@@ -358,6 +358,15 @@
         h1 {
           margin-bottom: 0 !important;
         }
+        ul{
+          margin-left: 40px
+        } 
+        .benefits{
+          margin-left: 30px;
+        }
+        li, .benefits p{
+          font-size: 18px;
+        }
       }
 
       .card-container {
@@ -605,6 +614,13 @@ h2 {
   line-height: 1.5;
   text-align: center;
   color: #333333;
+}
+li{
+  margin-top: 30px;
+  font-size: 24px;
+}
+.benefits p{
+  font-size: 20px;
 }
 .app-header {
   margin-bottom: 12px;
