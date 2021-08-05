@@ -1,5 +1,8 @@
 ---
 ---
+$slider-width: 588px;
+$slider-width-mobile: 248px; 
+$slider-height: 248px;
 
 * {
   font-family: "IBM Plex Sans", sans-serif;
@@ -362,13 +365,37 @@
           margin-left: 40px
         } 
         .benefits{
-          margin-left: 30px;
+          flex-wrap: wrap;
+          h3{
+            margin: 16px 0;
+          }
+          div{
+            width: 100%;
+          }
+          .personalisation, .earn-more{
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .personalisation div{
+            order: 2
+          }
         }
-        li, .benefits p{
-          font-size: 18px;
+        .ways{
+          max-width: 328px;
+        }
+        .slider, .wrapper, .slide{
+          width: $slider-width-mobile;
+        } 
+        .slides {
+          left: -$slider-width-mobile;
+        }  
+        .prev{
+          left: -70px;
+        }
+        .next{
+          right: -70px;
         }
       }
-
       .card-container {
         flex-direction: column;
         padding: 24px 16px 0;
@@ -392,6 +419,19 @@
         .subheader {
           font-size: 16px;
         }
+      }
+    }
+    .benefits-icons{
+      margin-top: 30px;
+      img{
+        width: 48px;
+        height: 48px;
+      }
+    }
+    .benefits {
+      img{
+        width: 328px;
+        height: 176px;
       }
     }
     .container {
@@ -559,6 +599,24 @@
     font-size: 24px !important;
   }
 }
+@media (max-width: 1499px) {
+  .benefits div{
+    width: 100%;
+  }
+  .personalisation-image{
+    order: 1;
+  }
+  .personalisation{
+    order: 2;
+  }
+  .earn-more-image{
+    order: 3;
+  }
+  .earn-more{
+    order: 4;
+  }
+}
+
 @media (max-width: 1078px) {
   .playground {
     &-page-wrapper {
@@ -618,9 +676,6 @@ h2 {
 li{
   margin-top: 30px;
   font-size: 24px;
-}
-.benefits p{
-  font-size: 20px;
 }
 .app-header {
   margin-bottom: 12px;
@@ -723,7 +778,6 @@ ol > p {
   margin-bottom: 0;
   @media (max-width: 480px) {
     font-size: 16px;
-    text-align: left;
     margin-bottom: 12px;
   }
 }
@@ -795,6 +849,109 @@ ol > p {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+.benefits-icons{
+  flex-wrap: nowrap;
+}
+.benefits{
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  div{
+    padding: 0% 5%;
+  }
+  img{
+    padding:1% 5%;
+  }
+}
+.slider {
+  top: 50%;
+  left: 50%;
+  transform: translate(0%);
+  width: $slider-width;
+  height: $slider-height;
+}
+.wrapper {
+  overflow: hidden;
+  position: relative;
+  width: $slider-width;
+  height: $slider-height;
+  z-index: 1;
+}
+.slides {
+  display: flex;
+  position: relative;
+  top: 0;
+  left: -$slider-width;
+  width: 10000px;
+}
+.slides.shifting {
+  transition: left .2s ease-out;
+}
+.slide {
+  width: $slider-width;
+  height: $slider-height;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+  position: relative;
+}
+.control {
+  position: absolute;
+  top: 35%;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+}
+.prev,
+.next {
+  background-size: 22px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.prev {
+  background-image: url('../img/arrow_left.svg');
+  left: -100px;
+}
+.next {
+  background-image: url('../img/arrow_right.svg');
+  right: -100px;
+}
+.prev:active,
+.next:active {
+  transform: scale(.8);
+}
+blockquote{
+  position: relative;
+  text-align: left;
+}
+blockquote::after{
+  box-sizing: border-box;
+  content: "“";
+  position: absolute;
+  font-size: 17rem;
+  font-weight: bold;
+  z-index: -1;
+  left: 0rem;
+  top: -6.9rem;
+  color: #f2f3f4;
+}
+.blockquote-separator{
+    margin: 20px 0;
+    border: none;
+    width: 15rem;
+    height: 1px;
+    background-color:#a9bfd6;
+}
+.blockquote-author{
+    text-align: left;
+    line-height: 1.5;
+    font-size: 1rem;
+    width: auto;
 }
 .text-block {
   margin-bottom: 40px;
@@ -875,6 +1032,9 @@ ol > p {
 .gray {
   background-color: #f5f7fa;
 }
+.white {
+  background-color: #ffffff;
+}
 .main-page-card {
   width: 100%;
   max-width: 316px;
@@ -923,6 +1083,30 @@ ol > p {
 
   @media (max-width: 480px) {
     padding: 28px 16px 24px;
+  }
+}
+.ways-container{
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  h1{
+    text-align: center;
+    max-width: 384px;
+  }
+  .ways{
+    display: flex;
+    align-items: center;
+    max-width: 628px;
+    margin: 20px 12px;
+    padding: 16px 16px;
+    p{
+      margin-bottom: 0;
+      margin-left: 30px;
+      
+    }
   }
 }
 .app-registration-header {

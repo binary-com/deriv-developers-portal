@@ -14,29 +14,99 @@ permalink: /
 </div>
 <div class="main-page-row">
   <div class="column-container">
-    <div class="text-block benefits with-pattern">
-      <h1>Benefits of using Deriv API</h1>
-      <h3>Automation</h3>
-      <p>Up your trading by automating your strategies. Take advantage of Deriv's APIs and build your own highly customisable trading bots in any programming language</p>
-      <h3>Easy integration</h3>
-      <p>With our great API support, code samples and documentation, enjoy a seamless and easy integration of Deriv API with your existing trading algorithms</p>
-      <h3>Fast execution</h3>
-      <p>Have a fast and reliable connection between your app and our trading services with Deriv's WebSocket based design architecture</p>
-      <h3>Build a business</h3>
-      <p>Create your own trading apps by taking advantage of the power of Deriv's trading services. Share your apps with fellow traders or customers, and have a chance to earn more or build your own business.</p>
-      <h3>Personalisation</h3>
-      <p>Personalise your trading applications as per your need. Create charts and views of your liking. Develop your trading applications using any common programming language and extend your trading opportunity as you see fit</p>
-    </div>
+    <h1>Benefits of using Deriv API</h1>
+      <div class="container benefits-icons">
+        <div class="single-container">
+          <img
+          src="{{ branch }}/img/automation.svg"
+          alt="automation icon"
+          width="72"
+          height="72"
+          />
+          <p>Automation</p>
+        </div>
+        <div class="single-container">
+          <img
+          src="{{ branch }}/img/integration.svg"
+          alt="integration icon"
+          width="72"
+          height="72"
+          />
+          <p>Easy integration</p>
+        </div>
+        <div class="single-container">
+          <img
+          src="{{ branch }}/img/execution.svg"
+          alt="execution icon"
+          width="72"
+          height="72"
+          />
+          <p>Fast execution</p>
+        </div>
+      </div>
+      <div class="benefits">
+        <div class="personalisation">
+          <div>
+            <h3>Personalisation</h3>
+            <p>Personalise your trading apps to match your needs. Create charts and views the way you like them. Develop your trading app using any common programming language and extend your trading opportunity.</p>
+          </div>
+          <img
+          src="{{ branch }}/img/personalisation.png"
+          alt="personalisation icon"
+          width="486px"
+          height="260px"
+          />
+        </div>
+        <div class="earn-more">
+          <img 
+          src="{{ branch }}/img/build-business.png"
+          alt="build business icon"
+          width="486px"
+          height="260px"
+          />
+          <div >
+            <h3>Build a business and earn more</h3>
+            <p>Create your own trading apps by taking advantage of the power of Deriv's trading services. Share your apps with fellow traders or customers, and have a chance to earn more or build your own business.</p>
+          </div>
+        </div>
+      </div>       
   </div>
 </div>
-<div class="main-page-row">
+<div class="main-page-row gray">
   <div class="column-container">
-  <h1>Ways to earn with Deriv API</h1>
-  <ul class="bullet">
-    <li>Register your app with Deriv, and add a percentage markup to the contract prices to profit from every contract payout.</li>
-    <li>Sign up as an affiliate, build your app, and get commission on every signup and trade completed via your app.</li>
-    <li>Sign up as a payment agent , and use our API to build your own custom payment website to earn commission on every payment you process for Deriv’s clients.</li>
-  </ul>
+    <div class="ways-container">
+      <div>
+        <h1>Ways to earn with Deriv API</h1>
+      </div>
+      <div>
+        <div href="/docs/api-guide/" class="main-page-card ways">
+            <img
+              src="{{ branch }}/img/checklist-icon.svg"
+              alt="sign up icon"
+              width="32"
+              height="32"
+            />
+            <p>Register your app with Deriv, and add a percentage markup to the contract prices to profit from every contract payout.</p>
+        </div>
+        <div href="/docs/api-guide/" class="main-page-card ways">
+            <img
+              src="{{ branch }}/img/checklist-icon.svg"
+              alt="sign up icon"
+              width="32"
+              height="32"
+            />
+            <p>Sign up as an affiliate, build your app, and get commission on every signup and trade completed via your app.</p>
+        </div>
+        <div href="/docs/api-guide/" class="main-page-card ways">
+            <img
+              src="{{ branch }}/img/checklist-icon.svg"
+              alt="sign up icon"
+              width="32"
+              height="32"
+            />
+            <p>Sign up as a payment agent , and use our API to build your own custom payment website to earn commission on every payment you process for Deriv’s clients.</p>
+      </div>
+    </div>
   </div>
 </div>
 <div class="main-page-row with-pattern">
@@ -98,6 +168,40 @@ permalink: /
     </p>
   </div>
 </div>
+<div class="main-page-row white">
+  <h1>See what our clients say</h1>
+  <div class="column-container">
+    <div id="slider" class="slider">
+      <div class="wrapper">
+        <div id="slides" class="slides">
+          <div class="slide">
+            <blockquote class="content">
+              Probably the best API for making your business successful in trading derivatives out there.
+            </blockquote>
+            <hr class="blockquote-separator">
+            <p class="blockquote-author"><b>Thiago</b>, entrepreneur | Brazil</p>
+          </div>
+          <div class="slide">
+            <blockquote class="content">
+              I have been using the Deriv API for 13 years to build successful apps in and I find the support I get from Deriv as a business partner second to none. I look forward to 13 more successful years to come. 
+            </blockquote>
+            <hr class="blockquote-separator">
+            <p class="blockquote-author"><b>Josh</b>, trader | Australia</p>
+          </div>
+          <div class="slide">
+            <blockquote class="content">
+              To be honest, Deriv’s API is one of the best APIs in the trading market.
+            </blockquote>
+            <hr class="blockquote-separator">
+            <p class="blockquote-author"><b>Alessandro</b>, CEO | Italy</p>
+          </div>
+        </div>
+      </div>
+      <a id="prev" class="control prev"></a>
+      <a id="next" class="control next"></a>
+    </div>
+  </div>
+</div>
 <div class="main-page-row gray">
   <div class="row-container">
     <div class="single-container gray">
@@ -124,36 +228,6 @@ permalink: /
     </div>
   </div>
 </div>
-  <div class="main-page-row">
-    <div class="column-container">
-    <h1>See what our clients say</h1>
-    <div class="card-container">
-      <div class="main-page-card">
-        <div class="header">
-          <h3>Thiago, entrepreneur<br>Brazil</h3>
-        </div>
-        <div class="content">
-          Probably the best API for making your business successful in trading derivatives out there.
-        </div>
-      </div>
-      <div class="main-page-card">
-        <div class="header">
-          <h3>Josh, trader<br>Australia</h3>
-        </div>
-        <div class="content">I have been using the Deriv API for 13 years to build successful apps in and I find the support I get from Deriv as a business partner second to none. I look forward to 13 more successful years to come. 
-        </div>
-      </div>
-      <div class="main-page-card">
-        <div class="header">
-          <h3>Alessandro, CEO<br>Italy</h3>
-        </div>
-        <div class="content">
-          To be honest, Deriv’s API is one of the best APIs in the trading market. 
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
 </div>
 <div class="container dark">
   <div class="row-container">
