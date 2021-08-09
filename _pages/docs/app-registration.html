@@ -6,28 +6,60 @@ permalink: docs/app-registration/
 <div class="page-content">
   <h1 class="doc-main-title">App registration</h1>
   <div class="subheader">
-    Authenticate your API token before using it in your app.
+    Register your app to get an App ID and start using Deriv API for personal or business purposes.
   </div>
-  <div class="cta">
+  <!-- <div class="cta">
     <h3>Looking for your API token?</h3>
     <a target="tokeninput" href="https://app.deriv.com/account/api-token">
       <div class="cta-button">Get your API token</div>
     </a>
+  </div> -->
+  <div class="text-block">
+    <h3 class="api-sub-titles">
+      Get started in 3 simple steps:
+    </h3>
+    <ol>
+      <li>
+        <a href="https://deriv.com/signup/">Sign up for a Deriv account</a> (demo or
+        real).
+      </li>
+      <li>
+        Create 
+        <a href="https://app.deriv.com/account/api-token">an admin-level access API token</a>.
+      </li>
+      <!-- https://app.deriv.com/account/api-token -->
+      <li>
+        Fill in the details below.
+      </li>
+    </ol>
   </div>
+
   <fieldset id="api-token-fieldset">
-    <div class="api-token-wrapper">
-      <p class="helper-label">API Token</p>
-      <input type="text" id="api-token" placeholder="API Token" />
-      <button id="send-auth-manually-btn" class="btn-authenticate bold">
-        Authenticate
-      </button>
+    <!-- DEAL with  api-token-wrapper -->
+    <!-- DEAL with helper-wrapper -->
+
+    <div class="token-name-box">
+      <div>Your token (Admin level)</div>
+        <input type="text" id="api-token" placeholder="API Token" />
+    </div>
+    <div class="token-name-box">
+      <p>Your app name (required)</p>
+        <input
+          id="application-name"
+          type="text"
+          placeholder="Name (Required)"
+        />
     </div>
   </fieldset>
+  <button id="send-auth-manually-btn" class="btn-authenticate bold">
+    Authenticate
+  </button>
+ 
   <div class="horizontal-separator-grey"></div>
   <form id="frmNewApplication">
     <div class="form-content">
       <fieldset>
-        <h2 id="form-title" class="doc-sub-title">Register your app</h2>
+        <!-- <h2 id="form-title" class="doc-sub-title">Register your app</h2>
         <div class="input-wrapper first">
           <p class="helper-label">Name (Required)</p>
           <input
@@ -36,7 +68,7 @@ permalink: docs/app-registration/
             maxlength="48"
             placeholder="Name (Required)"
           />
-        </div>
+        </div> -->
         <div class="input-wrapper">
           <p class="helper-label">Redirect URL (Required)</p>
           <input

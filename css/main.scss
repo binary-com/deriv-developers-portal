@@ -1010,7 +1010,11 @@ nav {
 
   #api-token-fieldset {
     margin-bottom: 42px;
-
+    .token-name-box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .api-token-wrapper {
       width: 100%;
       display: flex;
@@ -1184,9 +1188,10 @@ fieldset {
   border: none;
 
   input[type="text"] {
-    width: 100%;
+    width: 60%;
     height: 40px;
     padding: 0 12px;
+    margin: 12px 0;
     border-radius: 4px 0 0 4px;
     border: solid 1px #d6dadb;
     font-size: 14px;
