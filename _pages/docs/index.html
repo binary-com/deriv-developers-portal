@@ -21,6 +21,32 @@ permalink: docs/
       language are given as comments in the code samples.</p>
   </div>
   <div class="text-block">
+    <h2 class="doc-sub-title">Buy contract</h2>
+    <p>A contract is an agreement to buy or sell an asset at an agreed-upon price. This example shows you
+      how to buy a contract using Deriv API.</p>
+      <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">
+                <select id="demo-buy-contract" >
+                    <option value="javascript">JavaScript</option>
+                    <option value="csharp">C#</option>
+                    <option value="php">PHP</option>
+                    <option value="python">Python</option>
+                </select>
+            </p>
+            <div class="copy-button">
+                <img class="copy-button-image" src="{{ branch }}/img/copy.svg" width="16" height="16" alt="copy code icon" /> Copy
+            </div>
+        </div>
+        <div class="language-demos">
+            <pre data-buy-contract="javascript">{% include demos/buy-contract-javascript.js %}</pre>
+            <pre data-buy-contract="csharp">{% include demos/buy-contract-csharp.cs %}</pre>
+            <pre data-buy-contract="php">{% include demos/buy-contract-php.php %}</pre>
+            <pre data-buy-contract="python">{% include demos/buy-contract-python.py %}</pre>
+        </div>
+    </div>
+  </div>
+  <div class="text-block">
     <h2 class="doc-sub-title">Ticks</h2>
     <p>A tick is a measure of minimum upward or downward movement in the price of a trading
       commodity. This example shows you how to collect ticks for your trading app using Deriv’s API.</p>
@@ -98,32 +124,6 @@ permalink: docs/
       </div>
   </div>
 </div>
-  <div class="text-block">
-    <h2 class="doc-sub-title">Buy contract</h2>
-    <p>A contract is an agreement to buy or sell an asset at an agreed-upon price. This example shows you
-      how to buy a contract using Deriv API.</p>
-      <div class="card">
-        <div class="card-header">
-            <p class="card-header-title">
-                <select id="demo-buy-contract" >
-                    <option value="javascript">JavaScript</option>
-                    <option value="csharp">C#</option>
-                    <option value="php">PHP</option>
-                    <option value="python">Python</option>
-                </select>
-            </p>
-            <div class="copy-button">
-                <img class="copy-button-image" src="{{ branch }}/img/copy.svg" width="16" height="16" alt="copy code icon" /> Copy
-            </div>
-        </div>
-        <div class="language-demos">
-            <pre data-buy-contract="javascript">{% include demos/buy-contract-javascript.js %}</pre>
-            <pre data-buy-contract="csharp">{% include demos/buy-contract-csharp.cs %}</pre>
-            <pre data-buy-contract="php">{% include demos/buy-contract-php.php %}</pre>
-            <pre data-buy-contract="python">{% include demos/buy-contract-python.py %}</pre>
-        </div>
-    </div>
-  </div>
   <div class="text-block">
     <h2 class="doc-sub-title">Keep alive</h2>
     <p>In this example you’ll see how to keep a connection alive when getting contract proposals via the
