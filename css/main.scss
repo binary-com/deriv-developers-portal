@@ -363,7 +363,7 @@ $slider-height: 248px;
         }
         ul{
           margin-left: 40px
-        } 
+        }
         .benefits{
           flex-wrap: wrap;
           h3{
@@ -371,13 +371,6 @@ $slider-height: 248px;
           }
           div{
             width: 100%;
-          }
-          .personalisation, .earn-more{
-            display: flex;
-            flex-wrap: wrap;
-          }
-          .personalisation div{
-            order: 2
           }
         }
         .ways{
@@ -603,16 +596,19 @@ $slider-height: 248px;
   .benefits div{
     width: 100%;
   }
+  .personalisation{
+    margin: 0 40px;
+    order: 2;
+
+  }
   .personalisation-image{
     order: 1;
-  }
-  .personalisation{
-    order: 2;
   }
   .earn-more-image{
     order: 3;
   }
   .earn-more{
+    margin: 0 40px;
     order: 4;
   }
 }
@@ -850,19 +846,38 @@ ol > p {
   align-items: center;
   justify-content: center;
 }
+.benefits-title{
+  margin-bottom: 10px; 
+}
 .benefits-icons{
+  width: 65%;
   flex-wrap: nowrap;
+    .single-container{
+    img{
+      margin: 8px;
+    }
+  }
 }
 .benefits{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   width: 90%;
   div{
-    padding: 0% 5%;
+    width: 486px;
   }
   img{
-    padding:1% 5%;
+    margin-bottom: 40px
+  };
+  .personalisation{
+    margin-right: 40px;
   }
+  .earn-more{
+    margin-left: 40px;
+  }
+}
+.take-to-lib{
+  padding: 80px 0 0 0;
 }
 .slider {
   top: 50%;
@@ -928,24 +943,25 @@ ol > p {
 blockquote{
   position: relative;
   text-align: left;
-}
-blockquote::after{
-  box-sizing: border-box;
-  content: "“";
-  position: absolute;
-  font-size: 17rem;
-  font-weight: bold;
-  z-index: -1;
-  left: 0rem;
-  top: -6.9rem;
-  color: #f2f3f4;
+  &::after{
+    box-sizing: border-box;
+    content: "“";
+    position: absolute;
+    font-size: 17rem;
+    font-weight: bold;
+    z-index: -1;
+    left: 0rem;
+    top: -6.9rem;
+    color: #f2f3f4;
+    opacity: 56%;
+  }
 }
 .blockquote-separator{
     margin: 20px 0;
     border: none;
     width: 15rem;
     height: 1px;
-    background-color:#a9bfd6;
+    background-color:#f5f7fA;
 }
 .blockquote-author{
     text-align: left;
@@ -1104,8 +1120,7 @@ blockquote::after{
     padding: 16px 16px;
     p{
       margin-bottom: 0;
-      margin-left: 30px;
-      
+      margin-left: 16px;
     }
   }
 }
