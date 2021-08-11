@@ -5,19 +5,13 @@ permalink: docs/app-registration/
 
 <div class="page-content">
   <h1 class="doc-main-title">App registration</h1>
-  <div class="subheader">
+  <h3 class="api-sub-title-bold">
     Register your app to get an App ID and start using Deriv API for personal or business purposes.
-  </div>
-  <!-- <div class="cta">
-    <h3>Looking for your API token?</h3>
-    <a target="tokeninput" href="https://app.deriv.com/account/api-token">
-      <div class="cta-button">Get your API token</div>
-    </a>
-  </div> -->
+  </h3>
   <div class="text-block">
-    <h3 class="api-sub-titles">
+    <h2 class="doc-sub-title">
       Get started in 3 simple steps:
-    </h3>
+    </h2>
     <ol>
       <li>
         <a href="https://deriv.com/signup/">Sign up for a Deriv account</a> (demo or
@@ -27,151 +21,123 @@ permalink: docs/app-registration/
         Create 
         <a href="https://app.deriv.com/account/api-token">an admin-level access API token</a>.
       </li>
-      <!-- https://app.deriv.com/account/api-token -->
       <li>
         Fill in the details below.
       </li>
     </ol>
   </div>
-
-  <fieldset id="api-token-fieldset">
-    <!-- DEAL with  api-token-wrapper -->
-    <!-- DEAL with helper-wrapper -->
-
-    <div class="token-name-box">
-      <div>Your token (Admin level)</div>
-        <input type="text" id="api-token" placeholder="API Token" />
-    </div>
-    <div class="token-name-box">
-      <p>Your app name (required)</p>
+  <form id="frmNewApplication">
+    <fieldset id="api-token-fieldset">
+      <div class="input-wrapper">
+        <p class="helper-label">Your token (Admin level)</p>
+        <input
+          id="api-token"
+          type="text"
+          maxlength="255"
+          placeholder="API Token"
+        />
+      </div>
+      <div class="input-wrapper">
+        <p class="helper-label">Your app name (required)</p>
         <input
           id="application-name"
           type="text"
+          maxlength="255"
           placeholder="Name (Required)"
         />
-    </div>
-  </fieldset>
-  <button id="send-auth-manually-btn" class="btn-authenticate bold">
-    Authenticate
-  </button>
- 
-  <div class="horizontal-separator-grey"></div>
-  <form id="frmNewApplication">
-    <div class="form-content">
+      </div>
+    </fieldset>
+    <div class="horizontal-separator-grey"></div>
+    <p>If you'd like to monetise your app, please complete the following sections.</p>
+    <div class="text-block">
+      <h3 class="api-sub-titles">
+        Commission
+      </h3>
+      <p>For each trade performed on your app, you will receive a commission. Set a markup percentage below to determine the commission you will make. You can find more details on how the commission is calculated here. 
+      </p>
       <fieldset>
-        <!-- <h2 id="form-title" class="doc-sub-title">Register your app</h2>
-        <div class="input-wrapper first">
-          <p class="helper-label">Name (Required)</p>
-          <input
-            id="application-name"
-            type="text"
-            maxlength="48"
-            placeholder="Name (Required)"
-          />
-        </div> -->
         <div class="input-wrapper">
-          <p class="helper-label">Redirect URL (Required)</p>
+          <p class="helper-label">Markup percentage (0.00 – 5.00%)</p>
+            <input
+              id="markup-percentage"
+              type="text"
+              placeholder="Markup percentage"
+            />
+        </div>
+      </fieldset>
+    </div>
+    <div class="text-block">
+      <h3 class="api-sub-titles">
+        Authorisation
+      </h3>
+      <p>Give your clients authorised access to your app using one of the following:
+      </p>
+      <ol>
+        <li>
+          <b>A static token</b>
+          <p class="ul-paragraph">Clients can generate API tokens by logging into their Deriv account and going to <strong>Manage account settings</strong> > <a href="https://app.deriv.com/account/api-token"><code>API token</code></a>.<br>Recommended for personal trading. It is the easiest method of providing authorised access but less secure than Oauth.</p>  
+        </li>
+        <li>
+          <b>Oauth</b> 
+          <p class="ul-paragraph">A more secure method of granting authorised access, but is also more complex to set up.<br>Recommended for third party access (clients).</p>
+        </li>
+      </ol>
+      <p>To use Oauth, please fill out the following fields. These details can be changed later using the <code>app_update</code> API call.</p>
+      <fieldset>
+        <div class="input-wrapper">
+          <div class="helper-data">
+            <p class="helper-label">Website URL*</p>
+            <p class="helper-text">*Please note that this URL will be used as the Oauth redirect URL for the Oauth authorisation</p>
+          </div>
           <input
             id="application-redirect_uri"
             type="text"
             maxlength="255"
-            placeholder="Redirect URL (Required)"
+            placeholder="Website URL"
           />
-        </div>
-        <div class="input-wrapper">
-          <p class="helper-label">Verification URL</p>
-          <input
-            id="application-verification_uri"
-            type="text"
-            maxlength="255"
-            placeholder="Verification URL"
-          />
-        </div>
-        <div class="input-wrapper">
-          <p class="helper-label">Homepage URL</p>
-          <input
-            id="application-homepage"
-            type="text"
-            maxlength="255"
-            placeholder="Homepage URL"
-          />
-        </div>
-        <div class="input-wrapper">
-          <p class="helper-label">Github URL</p>
-          <input
-            id="application-github"
-            type="text"
-            maxlength="255"
-            placeholder="Github URL"
-          />
-        </div>
-        <div class="input-wrapper">
-          <p class="helper-label">Appstore URL</p>
-          <input
-            id="application-appstore"
-            type="text"
-            maxlength="255"
-            placeholder="Appstore URL"
-          />
-        </div>
-        <div class="input-wrapper">
-          <p class="helper-label">Google Play URL</p>
-          <input
-            id="application-googleplay"
-            type="text"
-            maxlength="255"
-            placeholder="Google Play URL"
-          />
-        </div>
-        <div class="input-wrapper">
-          <p class="helper-label">Markup Percentage</p>
-          <input
-            id="application-app_markup_percentage"
-            type="text"
-            maxlength="5"
-            placeholder="Markup percentage"
-            class="last"
-          />
-          <p class="helper-text">minimum 0.00 and maximum 5.00</p>
         </div>
       </fieldset>
       <div class="scopes">
-        <p class="bold scopes-field">Scopes:</p>
-        <div class="scopes-field">
-          <input id="read-scope" type="checkbox" value="read" />
-          <label for="read-scope">Read: View account activity</label>
-        </div>
-        <div class="scopes-field">
-          <input id="trade-scope" type="checkbox" value="trade" />
-          <label for="trade-scope">Trade: Buy and sell contracts</label>
-        </div>
-        <div class="scopes-field">
-          <input
-            id="trading_information-scope"
-            type="checkbox"
-            value="trading_information"
-          />
-          <label for="trading_information-scope"
-            >Trading Information: View trading and balance information</label
-          >
-        </div>
-        <div class="scopes-field">
-          <input id="payments-scope" type="checkbox" value="payments" />
-          <label for="payments-scope"
-            >Payments: Cashier (Deposit, Withdraw)</label
-          >
-        </div>
-        <div class="scopes-field mb-0">
-          <input id="admin-scope" type="checkbox" value="admin" />
-          <label for="admin-scope"
-            >Admin: API token management, application management</label
-          >
+        <p class="bold scopes-field">Oauth authorisation levels</p>
+        <p>Please select the level of access you would like clients to give to your app. </p>
+        <p>Bear in mind that you generally need only 'Trade' and 'Trading information' access. ‘Admin’ access is usually not required. </p>
+        <div class="scopes-fields">
+          <div class="scopes-field">
+            <input id="read-scope" type="checkbox" value="read" />
+            <label for="read-scope">Read all: Full access to users information, including private information
+            </label>
+          </div>
+          <div class="scopes-field">
+            <input id="trade-scope" type="checkbox" value="trade" />
+            <label for="trade-scope">Trade: Buy and sell contracts on the users’ behalf</label>
+          </div>
+          <div class="scopes-field">
+            <input
+              id="trading_information-scope"
+              type="checkbox"
+              value="trading_information"
+            />
+            <label for="trading_information-scope"
+              >Trading information: View users trading information, including balance information
+            </label>
+          </div>
+          <div class="scopes-field">
+            <input id="payments-scope" type="checkbox" value="payments" />
+            <label for="payments-scope"
+              >Payments: Cashier (deposit and withdrawal)
+            </label>
+          </div>
+          <div class="scopes-field mb-0">
+            <input id="admin-scope" type="checkbox" value="admin" />
+            <label for="admin-scope">
+              Admin: Full account access, including the access to manage security tokens
+            </label>
+          </div>
+          <button class="primary-btn-submit" id="btnRegister">Submit</button>
         </div>
       </div>
-      <button class="primary-btn-submit" id="btnRegister">Register</button>
     </div>
   </form>
-  <div class="horizontal-separator-grey"></div>
   <div class="request-container">
     <div class="table-wrapper">
       <table class="flex-table" id="applications-table" style="display: none">
@@ -187,6 +153,6 @@ permalink: docs/app-registration/
         <tbody></tbody>
       </table>
     </div>
-    {% include api-playground-field.html %}
+    <div id="playground-console"></div>
   </div>
 </div>

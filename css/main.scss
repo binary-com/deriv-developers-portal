@@ -1010,11 +1010,6 @@ nav {
 
   #api-token-fieldset {
     margin-bottom: 42px;
-    .token-name-box{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
     .api-token-wrapper {
       width: 100%;
       display: flex;
@@ -1203,27 +1198,28 @@ fieldset {
     margin-top: 20px;
   }
   .input-wrapper {
-    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-
-    .helper-label {
-      position: absolute;
-      left: 0.5vw;
-      top: -12px;
-      font-size: 12px;
-      line-height: 1.4;
-      color: #333333;
-      background-color: white;
-      margin-bottom: 0;
-      padding: 4px;
+    justify-content: space-between;
+    @media(max-width: 480px){
+      flex-wrap: wrap;
     }
-
+    .helper-data {
+      width: 40%;
+      margin-right: 5px;
+      @media(max-width: 480px){
+        width: 100%;
+      }
+      .helper-label {
+        color: #333333;
+        background-color: white;
+        margin-bottom: 0;
+        padding: 4px;
+      }
+    }
+    
     input[type="text"] {
-      width: 100%;
+      width: 60%;
       height: 40px;
       padding: 0 12px;
       border-radius: 4px 0 0 4px;
@@ -1231,6 +1227,9 @@ fieldset {
       font-size: 14px;
       line-height: 1.43;
       color: #333333;
+      @media(max-width: 480px){
+        width: 100%;
+      }
     }
   }
 }
@@ -1247,9 +1246,15 @@ textarea {
 }
 .scopes {
   width: 100%;
+  .scopes-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .scopes-field {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
@@ -1355,7 +1360,6 @@ button {
 #frmNewApplication {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   width: 100%;
 }
@@ -1382,6 +1386,12 @@ button {
     }
   }
 }
+.helper-text {
+  padding-left: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #999999;
+}
 .form-content {
   display: flex;
   flex-direction: column;
@@ -1401,14 +1411,6 @@ button {
 
     .last {
       margin-bottom: 0px !important;
-    }
-
-    .helper-text {
-      width: 100%;
-      padding-left: 12px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #999999;
     }
   }
 }
@@ -1516,7 +1518,7 @@ button {
   width: 100%;
   height: 1px;
   background-color: #eaeced;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .accordion {
   padding-left: 75px;
