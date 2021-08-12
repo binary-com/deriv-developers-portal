@@ -24,11 +24,14 @@
                 "type": "object",
                 "properties": {
                     "account_type": {
-                        "description": "Type of the account.",
+                        "description": "Type of the account. Please note that `binary` is deprecated and replaced by `trading`",
                         "type": "string",
                         "enum": [
-                            "binary",
-                            "mt5"
+                            "trading",
+                            "mt5",
+                            "wallet",
+                            "dxtrade",
+                            "binary"
                         ]
                     },
                     "balance": {
@@ -42,11 +45,27 @@
                             "USD"
                         ]
                     },
+                    "demo_account": {
+                        "description": "0 for real accounts; 1 for virtual/demo accounts.",
+                        "type": "integer",
+                        "enum": [
+                            0,
+                            1
+                        ]
+                    },
                     "loginid": {
-                        "description": "Client loginid.",
+                        "description": "Account identifier used for system transfers.",
                         "type": "string",
                         "examples": [
                             "CR000000"
+                        ]
+                    },
+                    "market_type": {
+                        "description": "Market type of account.",
+                        "type": "string",
+                        "enum": [
+                            "financial",
+                            "synthetic"
                         ]
                     },
                     "mt5_group": {

@@ -19,6 +19,7 @@
                 "buy_orders_count",
                 "cancel_time_avg",
                 "created_time",
+                "favourited",
                 "full_verification",
                 "id",
                 "is_approved",
@@ -65,6 +66,10 @@
                         "null"
                     ]
                 },
+                "cancels_remaining": {
+                    "description": "The number of times the user may cancel orders before being temporarily blocked.",
+                    "type": "integer"
+                },
                 "chat_token": {
                     "description": "The token to be used for authenticating the client for chat.",
                     "type": "string",
@@ -102,6 +107,10 @@
                     "description": "Default description that can be used every time an advert is created.",
                     "type": "string"
                 },
+                "favourited": {
+                    "description": "Number of other users who have favourited this advertiser.",
+                    "type": "integer"
+                },
                 "first_name": {
                     "description": "The advertiser's first name.",
                     "type": "string"
@@ -136,6 +145,18 @@
                 },
                 "last_name": {
                     "description": "The advertiser's last name.",
+                    "type": "string"
+                },
+                "max_order_amount": {
+                    "description": "Maximum order amount for adverts.",
+                    "type": "string"
+                },
+                "min_balance": {
+                    "description": "Sell ads will be hidden when your available balance or remaining daily sell limit falls beneath this value.",
+                    "type": "string"
+                },
+                "min_order_amount": {
+                    "description": "Minimum order amount for adverts.",
                     "type": "string"
                 },
                 "name": {

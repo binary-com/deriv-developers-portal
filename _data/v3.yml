@@ -65,6 +65,8 @@ groups:
         title: Get Self-Exclusion
       - name: get_settings
         title: Get Account Settings
+      - name: identity_verification_document_add
+        title: Identity Verification Add Document
       - name: landing_company
         title: Landing Company
       - name: landing_company_details
@@ -111,6 +113,8 @@ groups:
         title: P2P Advertiser Create
       - name: p2p_advertiser_info
         title: P2P Advertiser Information
+      - name: p2p_advertiser_relations
+        title: P2P Advertiser Relations
       - name: p2p_advertiser_update
         title: P2P Advertiser Update
       - name: p2p_chat_create
@@ -185,6 +189,8 @@ groups:
         title: Top Up Virtual-Money Account
       - name: trading_durations
         title: Trading Durations
+      - name: trading_platform_investor_password_reset
+        title: 'Trading Platform: Investor Password Reset'
       - name: trading_platform_password_reset
         title: 'Trading Platform: Password Reset'
       - name: trading_servers

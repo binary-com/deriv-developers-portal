@@ -31,6 +31,7 @@
                             "description",
                             "id",
                             "is_active",
+                            "is_visible",
                             "local_currency",
                             "max_order_amount_limit",
                             "max_order_amount_limit_display",
@@ -71,6 +72,13 @@
                                         "description": "The advertiser's unique identifier.",
                                         "type": "string"
                                     },
+                                    "is_favourite": {
+                                        "description": "Indicates that the advertiser is a favourite.",
+                                        "type": "integer",
+                                        "enum": [
+                                            1
+                                        ]
+                                    },
                                     "last_name": {
                                         "description": "The advertiser's last name.",
                                         "type": "string"
@@ -89,11 +97,11 @@
                                 }
                             },
                             "amount": {
-                                "description": "The total amount specified in advert, in `account_currency`. It is only visible for advertisers.",
+                                "description": "The total amount specified in advert, in `account_currency`. It is only visible to the advert owner.",
                                 "type": "number"
                             },
                             "amount_display": {
-                                "description": "The total amount specified in advert, in `account_currency`, formatted to appropriate decimal places. It is only visible for advertisers.",
+                                "description": "The total amount specified in advert, in `account_currency`, formatted to appropriate decimal places. It is only visible to the advert owner.",
                                 "type": "string"
                             },
                             "contact_info": {
@@ -117,6 +125,10 @@
                                 "description": "The advert creation time in epoch.",
                                 "type": "integer"
                             },
+                            "days_until_archive": {
+                                "description": "Days until automatic inactivation of this ad, if no activity occurs.",
+                                "type": "integer"
+                            },
                             "description": {
                                 "description": "General information about the advert.",
                                 "type": "string"
@@ -128,6 +140,15 @@
                             "is_active": {
                                 "description": "The activation status of the advert.",
                                 "type": "integer",
+                                "enum": [
+                                    0,
+                                    1
+                                ]
+                            },
+                            "is_visible": {
+                                "description": "Indicates that this advert will appear on the main advert list.",
+                                "type": "integer",
+                                "default": 0,
                                 "enum": [
                                     0,
                                     1
@@ -146,7 +167,7 @@
                                 "type": "number"
                             },
                             "max_order_amount_display": {
-                                "description": "Maximum order amount specified in advert, in `account_currency`, formatted to appropriate decimal places. It is only visible for advertisers.",
+                                "description": "Maximum order amount specified in advert, in `account_currency`, formatted to appropriate decimal places. It is only visible to the advert owner.",
                                 "type": "string"
                             },
                             "max_order_amount_limit": {
@@ -162,7 +183,7 @@
                                 "type": "number"
                             },
                             "min_order_amount_display": {
-                                "description": "Minimum order amount specified in advert, in `account_currency`, formatted to appropriate decimal places. It is only visible for advertisers.",
+                                "description": "Minimum order amount specified in advert, in `account_currency`, formatted to appropriate decimal places. It is only visible to the advert owner.",
                                 "type": "string"
                             },
                             "min_order_amount_limit": {
@@ -178,11 +199,18 @@
                                 "type": "string"
                             },
                             "payment_method": {
-                                "description": "The payment method.",
-                                "type": "string",
-                                "enum": [
-                                    "bank_transfer"
+                                "description": "Supported payment methods. Comma separated list of identifiers.",
+                                "type": [
+                                    "null",
+                                    "string"
                                 ]
+                            },
+                            "payment_method_names": {
+                                "description": "Names of supported payment methods.",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
                             },
                             "price": {
                                 "description": "Cost of the advert in local currency.",
@@ -201,11 +229,11 @@
                                 "type": "string"
                             },
                             "remaining_amount": {
-                                "description": "Amount currently available for orders, in `account_currency`. It is only visible for advertisers.",
+                                "description": "Amount currently available for orders, in `account_currency`. It is only visible to the advert owner.",
                                 "type": "number"
                             },
                             "remaining_amount_display": {
-                                "description": "Amount currently available for orders, in `account_currency`, formatted to appropriate decimal places. It is only visible for advertisers.",
+                                "description": "Amount currently available for orders, in `account_currency`, formatted to appropriate decimal places. It is only visible to the advert owner.",
                                 "type": "string"
                             },
                             "type": {

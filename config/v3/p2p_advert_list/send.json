@@ -40,6 +40,14 @@
                 "sell"
             ]
         },
+        "favourites_only": {
+            "description": "[Optional] Only show adverts from favourite advertisers. Default is 0.",
+            "type": "integer",
+            "enum": [
+                0,
+                1
+            ]
+        },
         "limit": {
             "description": "[Optional] Used for paging.",
             "type": "integer",
@@ -54,6 +62,15 @@
             "description": "[Optional] Used for paging.",
             "type": "integer",
             "default": 0
+        },
+        "payment_method": {
+            "description": "[Optional] Search by supported payment methods.",
+            "type": "array",
+            "items": {
+                "description": "Payment method identifer.",
+                "type": "string",
+                "pattern": "^[a-z0-9_]{1,30}$"
+            }
         },
         "sort_by": {
             "description": "[Optional] How the results are sorted: best rate, or advertiser completion rate.",
