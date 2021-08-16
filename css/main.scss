@@ -17,6 +17,9 @@ $slider-height: 248px;
   .ul-paragraph {
     margin-bottom: 24px;
   }
+  .benefits img{
+    margin-bottom: 0px ;
+  }
 }
 @media (max-width: 992px) {
   .nav > .top-nav,
@@ -34,6 +37,7 @@ $slider-height: 248px;
     text-align: center;
     max-width: 350px;
     font-size: 13px;
+    margin-top: 0px;
   }
   .dark h1 {
     font-size: 32px;
@@ -383,10 +387,10 @@ $slider-height: 248px;
           left: -$slider-width-mobile;
         }  
         .prev{
-          left: -70px;
+          left: -50px;
         }
         .next{
-          right: -70px;
+          right: -50px;
         }
       }
       .card-container {
@@ -403,6 +407,9 @@ $slider-height: 248px;
       h1 {
         width: 90%;
         font-size: 24px;
+        @media (max-width: 480px) {
+          font-size: 32px;
+        }
       }
 
       .single-container {
@@ -426,6 +433,7 @@ $slider-height: 248px;
         width: 328px;
         height: 176px;
       }
+      
     }
     .container {
       flex-direction: column;
@@ -773,8 +781,9 @@ ol > p {
   color: #ffffff;
   margin-bottom: 0;
   @media (max-width: 480px) {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 12px;
+    text-align: center;
   }
 }
 .hero-btn {
@@ -861,7 +870,7 @@ ol > p {
 .benefits{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 90%;
   div{
     width: 486px;
@@ -874,6 +883,14 @@ ol > p {
   }
   .earn-more{
     margin-left: 40px;
+  }
+  @media (max-width: 480px) {
+    .personalisation, .earn-more{
+      margin: 0 5px;
+    }
+    img{
+      margin-bottom: 0px;
+    }
   }
 }
 .take-to-lib{
@@ -1111,10 +1128,15 @@ blockquote{
   h1{
     text-align: center;
     max-width: 384px;
+    @media (max-width: 480px) {
+      text-align: left;
+      padding: 0 20px;
+    }
   }
   .ways{
     display: flex;
     align-items: center;
+    width: unset;
     max-width: 628px;
     margin: 20px 12px;
     padding: 16px 16px;
