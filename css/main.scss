@@ -351,7 +351,11 @@ $slider-height: 248px;
   .main-content {
     .main-page-row {
       padding: 40px 0;
-
+      .clients-opinion{
+        @media (max-width: 480px){
+          margin-bottom: 10px;
+        }
+      } 
       .row-container {
         width: 100%;
 
@@ -427,13 +431,12 @@ $slider-height: 248px;
         width: 48px;
         height: 48px;
       }
+      p{font-size: 10px;}
     }
     .benefits {
       img{
-        width: 328px;
         height: 176px;
-      }
-      
+      }      
     }
     .container {
       flex-direction: column;
@@ -604,10 +607,11 @@ $slider-height: 248px;
   .benefits div{
     width: 100%;
   }
-  .personalisation{
+  .personalisation, .earn-more{
     margin: 0 40px;
+  }
+  .personalisation{
     order: 2;
-
   }
   .personalisation-image{
     order: 1;
@@ -616,7 +620,6 @@ $slider-height: 248px;
     order: 3;
   }
   .earn-more{
-    margin: 0 40px;
     order: 4;
   }
 }
@@ -861,9 +864,13 @@ ol > p {
 .benefits-icons{
   width: 65%;
   flex-wrap: nowrap;
+  margin-bottom: 20px;
     .single-container{
     img{
       margin: 8px;
+    }
+    p{
+      font-size: 22px;
     }
   }
 }
@@ -880,28 +887,47 @@ ol > p {
   };
   .personalisation{
     margin-right: 40px;
+    p{
+      font-size: 22px;
+      line-height: 2rem;
+    }
   }
   .earn-more{
     margin-left: 40px;
+    p{
+      font-size: 22px;
+      line-height: 2rem;
+    }
   }
   @media (max-width: 480px) {
     .personalisation, .earn-more{
-      margin: 0 5px;
+      margin: 0;
+      p{
+        font-size: 20px;
+      }
+      h3{
+        font-size: 22px;
+      }
     }
     img{
       margin-bottom: 0px;
     }
-  }
+  } 
 }
 .take-to-lib{
   padding: 80px 0 0 0;
 }
+
 .slider {
   top: 50%;
   left: 50%;
   transform: translate(0%);
   width: $slider-width;
   height: $slider-height;
+  @media (max-width: 480px) {
+    height: 190px;
+  }
+
 }
 .wrapper {
   overflow: hidden;
