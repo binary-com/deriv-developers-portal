@@ -808,6 +808,15 @@ ol > p {
     }
   }
 }
+.authorisation{
+  margin-bottom: 20px;
+}
+#registration-status div{
+  text-align: center;
+  .reg-error{
+    color: red;
+  }
+}
 .single-container > h2 {
   font-size: 32px;
   margin-bottom: 8px;
@@ -1179,7 +1188,8 @@ ul {
   }
 }
 fieldset {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   border: none;
 
   input[type="text"] {
@@ -1200,12 +1210,12 @@ fieldset {
   .input-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     @media(max-width: 480px){
       flex-wrap: wrap;
     }
     .helper-data {
-      width: 40%;
+      width: 50%;
       margin-right: 5px;
       @media(max-width: 480px){
         width: 100%;
@@ -1217,9 +1227,15 @@ fieldset {
         padding: 4px;
       }
     }
-    
+    p{
+      width: 50%;
+      @media(max-width: 480px){
+        width: 100%;
+        margin-bottom: 0px;
+      }
+    }
     input[type="text"] {
-      width: 60%;
+      width: 50%;
       height: 40px;
       padding: 0 12px;
       border-radius: 4px 0 0 4px;
@@ -1299,6 +1315,9 @@ button {
   &:hover {
     background-color: #d43e47;
   }
+}
+.app-submit{
+  margin-bottom: 10px;
 }
 .gray-btn-submit {
   padding: 8px 16px;
@@ -1387,6 +1406,7 @@ button {
   }
 }
 .helper-text {
+  width: 60%;
   padding-left: 12px;
   font-size: 12px;
   line-height: 1.5;

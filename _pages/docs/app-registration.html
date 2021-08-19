@@ -66,7 +66,7 @@ permalink: docs/app-registration/
         </div>
       </fieldset>
     </div>
-    <div class="text-block">
+    <div class="text-block authorisation">
       <h3 class="api-sub-titles">
         Authorisation
       </h3>
@@ -94,6 +94,15 @@ permalink: docs/app-registration/
             type="text"
             maxlength="255"
             placeholder="Website URL"
+          />
+        </div>
+        <div class="input-wrapper">
+          <p class="helper-label">Verification URL</p>
+          <input
+            id="application-verification_uri"
+            type="text"
+            maxlength="255"
+            placeholder="Verification URL"
           />
         </div>
       </fieldset>
@@ -133,12 +142,14 @@ permalink: docs/app-registration/
               Admin: Full account access, including the access to manage security tokens
             </label>
           </div>
-          <button class="primary-btn-submit" id="btnRegister">Submit</button>
+          <button class="primary-btn-submit app-submit" id="btnSubmit">Submit</button>
         </div>
       </div>
     </div>
   </form>
   <div class="request-container">
+    <div id="registration-status"></div>
+    <h3 id="applications-list" style="display: none">Registered applications</h3>
     <div class="table-wrapper">
       <table class="flex-table" id="applications-table" style="display: none">
         <thead>
@@ -153,6 +164,5 @@ permalink: docs/app-registration/
         <tbody></tbody>
       </table>
     </div>
-    <div id="playground-console"></div>
   </div>
 </div>

@@ -71,15 +71,13 @@ function initConnection(language) {
   api.socket.onclose = function (e) {
     console.log("connection closed."); // intended to help developers, not debugging
   };
-
-  api.events.on("*", incomingMessageHandler);
 }
 
-function sendRequest(json) {
+function sendRequest(json, isRegistration) {
   if (!api) {
     initConnection();
+    api.events.on("*", (e) => incomingMessageHandler(e, isRegistration));
   }
-
   var lang = getLanguage();
   if (api.language !== lang) {
     api.changeLanguage(lang);
@@ -91,20 +89,26 @@ function sendRequest(json) {
   ) {
     api.connect();
   }
-
   api.sendRaw(json);
 }
 
-function incomingMessageHandler(json) {
+function incomingMessageHandler(json, isRegistration) {
   var authorizationError = !!(
       json.error && json.error.code === "AuthorizationRequired"
     ),
     prettyJson = getFormattedJsonStr(json);
   console.log(json); // intended to help developers, not for debugging, do not remove
   $(".progress").remove();
-  appendToConsoleAndScrollIntoView(prettyJson);
+  if (!isRegistration) {
+    appendToConsoleAndScrollIntoView(prettyJson);
+  }
   $("#unauthorized-error").toggle(authorizationError);
-  if (!json.error) handleApplicationsResponse(json);
+  if (!json.error){
+    handleApplicationsResponse(json, isRegistration);
+  } else {
+    $("#registration-status").html("");
+    $("#registration-status").append(`<div><p class="reg-error">${json.error.message}</p></div>`);
+  };
 }
 
 // --------------------------
@@ -305,12 +309,12 @@ function linkToCallName() {
 // ----------------------------------
 // ===== Application Management =====
 // ----------------------------------
-function handleApplicationsResponse(response) {
+function handleApplicationsResponse(response, isRegistration) {
   if (
     response.msg_type === "authorize" &&
     $("#applications-table").length !== 0
   ) {
-    sendRequest({ app_list: 1 });
+    sendRequest({ app_list: 1 }, isRegistration);
   } else if (
     response.msg_type === "app_list" &&
     response.app_list.length !== 0
@@ -335,10 +339,19 @@ function listAllApplications(response) {
     }
   }
   $("#applications-table").show();
+  $("#applications-list").show();
 }
 
 function addApplication(response) {
   var application = response.app_register;
+  $("#registration-status").html('');
+  $("#registration-status").append(
+    '<div><p>Congratulations of registering your application!</p><p>Your <code>app_id</code> for <b>' + 
+    response.app_register.name + 
+    '</b> is <b>' +
+    response.app_register.app_id + 
+    '</b></p></div>'
+    );
   applicationsTableRow(application);
 }
 
@@ -461,7 +474,7 @@ function applicationsTableRow(application) {
   );
 }
 
-function sendApplicationRequest(app_id) {
+function sendApplicationRequest(app_id, isRegistration) {
   var request = app_id
     ? { app_update: app_id, scopes: [] }
     : { app_register: 1, scopes: [] };
@@ -489,8 +502,10 @@ function sendApplicationRequest(app_id) {
       request.scopes.push(scopesEl[i].value);
     }
   }
-  $("#playground-request").val(JSON.stringify(request, null, 2));
-  sendRequest(request);
+  if (!isRegistration) {
+    $("#playground-request").val(JSON.stringify(request, null, 2));
+  }
+  sendRequest(request, isRegistration);
 }
 
 function updateApplication(response) {
@@ -699,6 +714,22 @@ function toggleTheme() {
   );
 }
 
+function sendAuth(isRegistration){
+  const token = sessionStorage.getItem("token");
+  authReqStr = JSON.stringify(
+    {
+      authorize: token || "",
+    },
+    null,
+    2
+  );
+  if (token) {
+    sendRequest(JSON.parse(authReqStr), isRegistration);
+  } else {
+    window.location.hash = "authorize";
+  }
+}
+
 function addEventListeners() {
   $("#api-call-selector")
     .select2({
@@ -753,7 +784,7 @@ function addEventListeners() {
     });
 
   $("#send-auth-manually-btn").on("click", function () {
-    var token = sessionStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     authReqStr = JSON.stringify(
       {
         authorize: token || "",
@@ -777,6 +808,12 @@ function addEventListeners() {
   $("#btnRegister").on("click", function (e) {
     e.preventDefault();
     sendApplicationRequest();
+  });
+
+  $("#btnSubmit").on("click", function (e) {
+    e.preventDefault();
+    sendAuth(true)
+    sendApplicationRequest(null, true);
   });
 
   $("#scroll-to-bottom-btn").on("click", scrollConsoleToBottom);
