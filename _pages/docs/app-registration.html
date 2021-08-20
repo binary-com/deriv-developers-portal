@@ -97,7 +97,10 @@ permalink: docs/app-registration/
           />
         </div>
         <div class="input-wrapper">
-          <p class="helper-label">Verification URL</p>
+          <div class="helper-data">
+            <p class="helper-label">Verification URL*</p>
+            <p class="helper-text">*When verify_email is called, this URL containing a verification token will be sent to the client. If unavailable, the token will be emailed.</p>
+          </div>
           <input
             id="application-verification_uri"
             type="text"
