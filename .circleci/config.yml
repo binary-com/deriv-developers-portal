@@ -151,10 +151,10 @@ jobs:
           target_branch: "production"
       - docker_build_push:
           docker_latest_image_tag: latest
-          docker_image_tag: ${CIRCLE_TAG}
+          docker_image_tag: ${CIRCLE_SHA1}
       - k8s_deploy:
           k8s_namespace: "deriv-com-api-production"
-          k8s_version: ${CIRCLE_TAG}
+          k8s_version: ${CIRCLE_SHA1}
       - notify_slack
 
 workflows:
