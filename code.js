@@ -126,9 +126,14 @@ function slide(wrapper, items, prev, next) {
     allowShift = true;
   }
 }
+function runSliderOnHomepage() {
+  console.log(window.location.pathname);
+  if (window.location.pathname === "/") {
+    slide(slider, sliderItems, prev, next);
+  }
+}
 
-slide(slider, sliderItems, prev, next);
-
+runSliderOnHomepage()
 
 // Add paths with same names as keys for fallback
 require.config({
