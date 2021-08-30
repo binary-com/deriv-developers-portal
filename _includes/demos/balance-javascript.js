@@ -2,7 +2,7 @@
  * This is an example of using JavaScript to subscribe to balance of an account. 
  * To run this example using NodeJS
  * - Ensure you have NodeJs installed https://nodejs.org/
- * - Save this script to a directory on your computer.
+ * - Save this script to a directory on your computer as `account_balance.js`.
  * - Run `npm install ws` to install the websocket library.
  * - Edit the example and change the app_id and the token. 
  * - then run `node account_balance.js` 

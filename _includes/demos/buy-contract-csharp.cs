@@ -42,7 +42,7 @@ namespace DerivWSDemo
             }
 
             var reqAsBytes = Encoding.UTF8.GetBytes(data);
-            var ticksRequest = new ArraySegment<byte>(reqAsBytes);
+            var ticksRequest = new ArraySegment&lt;byte&gt;(reqAsBytes);
 
             await this.ws.SendAsync(ticksRequest,
                 WebSocketMessageType.Text,
@@ -61,8 +61,8 @@ namespace DerivWSDemo
             WebSocketReceiveResult result;
             while (this.ws.State == WebSocketState.Open)
             {
-                var buffer = new ArraySegment<byte>(new byte[4096]);
-                result = await this.ws.ReceiveAsync(new ArraySegment<byte>(buffer.Array), CancellationToken.None);
+                var buffer = new ArraySegment&lt;byte&gt;(new byte[4096]);
+                result = await this.ws.ReceiveAsync(new ArraySegment&lt;byte&gt;(buffer.Array), CancellationToken.None);
 
                 if (result.MessageType == WebSocketMessageType.Close)
                 {

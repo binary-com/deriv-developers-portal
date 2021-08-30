@@ -4,7 +4,7 @@
  * This approach can be used for all subscriptions to prevent timeout. .
  * To run this example using NodeJS
  * - Ensure you have NodeJs installed https://nodejs.org/
- * - Save this script to a directory on your computer.
+ * - Save this script to a directory on your computer as `proposal_keep_alive.js`.
  * - Run `npm install ws` to install the websocket library.
  * - Edit the example and change the app_id and the token. 
  * - then run `node proposal_keep_alive.js` 

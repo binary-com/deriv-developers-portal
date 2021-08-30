@@ -5,7 +5,7 @@
 # This is required so that we can get access to asyncio loop.  
 # To run this example
 # - Ensure you have Python installed https://www.python.org/
-# - Download and save this file to a new directory.
+# - Download and save this file to a new directory as `proposal_keep_alive.py`.
 # - Run `pip install websockets`
 # - Edit the example and change the app_id and the api token.
 # - Then run `python proposal_keep_alive.py`.

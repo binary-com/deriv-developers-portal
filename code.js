@@ -699,6 +699,12 @@ function toggleTheme() {
   );
 }
 
+function onAnchorClick() {
+  if (location.hash.length !== 0) {
+    window.scrollTo(window.scrollX, window.scrollY - 100);
+  }
+}
+
 function addEventListeners() {
   $("#api-call-selector")
     .select2({
@@ -789,4 +795,10 @@ function addEventListeners() {
   $("#toggle-theme").on("click", toggleTheme);
 
   $(window).on("hashchange", updateApiDisplayed);
+  
+  $(document).on('click', 'a[href^="#"]', () => {
+    window.setTimeout(() => {
+      onAnchorClick();
+    }, 0);
+  });
 }

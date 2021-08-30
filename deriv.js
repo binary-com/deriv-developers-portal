@@ -182,9 +182,9 @@ function handleCodeCopyClick() {
     code_text = code_box.children[0].textContent.trim();
   } else {
     code_box = code_box.nextElementSibling;
-    if (code_box.children.length === 14) {
+    if (code_box.children.length === 4) {
       code_box = code_box.children;
-      let select_value = document.getElementById("demo-language").value;
+      const select_value = this.parentNode.querySelector('select').value;
       for (let i = 0; i < code_box.length; i++) {
         if (code_box[i].attributes[0].value === select_value) {
           code_text = code_box[i].textContent;

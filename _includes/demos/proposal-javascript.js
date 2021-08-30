@@ -4,10 +4,10 @@
  * the user has the symbol available . To check this you would use the active_symbols call.
  * To run this example using NodeJS
  * - Ensure you have NodeJs installed https://nodejs.org/
- * - Save this script to a directory on your computer.
+ * - Save this script to a directory on your computer as `proposal.js`.
  * - Run `npm install ws` to install the websocket library.
  * - Edit the example and change the app_id and the token. 
- * - then run `node buy_contract.js` 
+ * - then run `node proposal.js` 
  * 
  */
 const WebSocket = require('ws');
