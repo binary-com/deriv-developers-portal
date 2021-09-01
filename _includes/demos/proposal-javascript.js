@@ -1,5 +1,5 @@
 /*
- * This is an example of using PHP to view contract proposals via the Deriv/Binary API
+ * This is an example of using JavaScript to view contract proposals via the Deriv/Binary API
  * This is a simple example where we do not check first if 
  * the user has the symbol available . To check this you would use the active_symbols call.
  * To run this example using NodeJS

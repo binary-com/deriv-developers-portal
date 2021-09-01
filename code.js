@@ -7,6 +7,7 @@ var CODE_SAMPLES = ["ticks", "balance", "proposal", "buy-contract", "keep-alive"
 
 var api;
 var $console;
+var anchor_shift = 100;
 
 // Add paths with same names as keys for fallback
 require.config({
@@ -701,7 +702,7 @@ function toggleTheme() {
 
 function onAnchorClick() {
   if (location.hash.length !== 0) {
-    window.scrollTo(window.scrollX, window.scrollY - 100);
+    window.scrollTo(window.scrollX, window.scrollY - anchor_shift);
   }
 }
 

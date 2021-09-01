@@ -12,6 +12,8 @@ window.onhashchange = (e) => {
   setSideBarPlaygroundActive();
 };
 
+const examples_amount = 4;
+
 const setAccordionActive = () => {
   let acc = document.getElementsByClassName("accordion-header");
   if (!acc) return;
@@ -182,7 +184,7 @@ function handleCodeCopyClick() {
     code_text = code_box.children[0].textContent.trim();
   } else {
     code_box = code_box.nextElementSibling;
-    if (code_box.children.length === 4) {
+    if (code_box.children.length === examples_amount) {
       code_box = code_box.children;
       const select_value = this.parentNode.querySelector('select').value;
       for (let i = 0; i < code_box.length; i++) {
