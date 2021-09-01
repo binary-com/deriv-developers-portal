@@ -127,7 +127,6 @@ function slide(wrapper, items, prev, next) {
   }
 }
 function runSliderOnHomepage() {
-  console.log(window.location.pathname);
   if (window.location.pathname === "/") {
     slide(slider, sliderItems, prev, next);
   }
