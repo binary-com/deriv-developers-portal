@@ -171,8 +171,9 @@ workflows:
   release_production:
     jobs:
       - release_production:
-          branches:
-            ignore: /.*/
-          tags:
-            only: /^production.*/
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^production.*/
 
