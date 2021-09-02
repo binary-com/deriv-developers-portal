@@ -171,7 +171,8 @@ workflows:
   release_production:
     jobs:
       - release_production:
-          context: binary-frontend-artifact-upload
-          filters:
-            branches:
-              only: /^production$/
+          branches:
+            ignore: /.*/
+          tags:
+            only: /^production.*/
+
