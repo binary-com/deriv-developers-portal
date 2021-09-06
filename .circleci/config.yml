@@ -167,11 +167,11 @@ workflows:
           context: binary-frontend-artifact-upload
           filters:
             branches:
-              only: /^master/
+              only: /^master$/
   release_production:
     jobs:
       - release_production:
           context: binary-frontend-artifact-upload
           filters:
             branches:
-              only: /^production/
+              only: /^production$/
