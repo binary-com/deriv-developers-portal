@@ -3,9 +3,11 @@ var DEFAULT_API_URL = "frontend.binaryws.com";
 var DEFAULT_LANGUAGE = "EN";
 var DEFAULT_BRAND = "deriv";
 var VALID_LABELS = ["beta", "deprecated"];
+var CODE_SAMPLES = ["ticks", "balance", "proposal", "buy-contract", "keep-alive"];
 
 var api;
 var $console;
+var anchor_shift = 100;
 
 
 // SLIDER
@@ -168,7 +170,7 @@ function init(docson) {
   addEventListeners();
   endpointNotification();
   initEndpoint();
-  showDemoForLanguage("javascript");
+  CODE_SAMPLES.forEach(el=> showDemoForLanguage("javascript", el));
   updateApiDisplayed();
   $("#api-token").val(sessionStorage.getItem("token"));
   $("#playground").addClass(localStorage.getItem("console.theme"));
@@ -811,9 +813,9 @@ function appendToConsoleAndScrollIntoView(html) {
   }, 0);
 }
 
-function showDemoForLanguage(lang) {
-  $("[data-language]").hide();
-  $('[data-language="' + lang + '"]').show();
+function showDemoForLanguage(lang, category) {
+  $(`[data-${category}]`).hide();
+  $(`[data-${category}="` + lang + '"]').show();
 }
 
 function toggleTheme() {
@@ -823,6 +825,12 @@ function toggleTheme() {
     "console.theme",
     $playground.hasClass("light") ? "light" : "dark"
   );
+}
+
+function onAnchorClick() {
+  if (location.hash.length !== 0) {
+    window.scrollTo(window.scrollX, window.scrollY - anchor_shift);
+  }
 }
 
 function addEventListeners() {
@@ -867,10 +875,10 @@ function addEventListeners() {
     sessionStorage.setItem("token", $(this).val());
   });
 
-  $("#demo-language").on("change", function () {
-    showDemoForLanguage($(this).val());
-  });
-
+  CODE_SAMPLES.forEach(el => $(`#demo-${el}`).on("change", function () {
+    showDemoForLanguage($(this).val(), el);
+  }));
+  
   $("#mobile-page-selector")
     .val(document.location.pathname)
     .on("change", function (event) {
@@ -915,4 +923,10 @@ function addEventListeners() {
   $("#toggle-theme").on("click", toggleTheme);
 
   $(window).on("hashchange", updateApiDisplayed);
+  
+  $(document).on('click', 'a[href^="#"]', () => {
+    window.setTimeout(() => {
+      onAnchorClick();
+    }, 0);
+  });
 }

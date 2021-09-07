@@ -1869,6 +1869,9 @@ code {
       border: #0e0e0e;
       color: #d6d6d6;
     }
+    option{
+      color: #0e0e0e;
+    }
   }
 }
 .card-light {
@@ -2030,7 +2033,7 @@ pre .string {
 pre .number {
   color: #ae81ff;
 }
-#language-demos pre {
+.language-demos pre {
   display: none;
 }
 pre {
