@@ -1,5 +1,5 @@
 /*
- * This is an example of using JavaScript to create a proposal subscription and prevent it from timing out.  
+ * This is an example of using JavaScript with NodeJS to create a proposal subscription and prevent it from timing out.  
  * a ping will be sent via websocket to the server every 30 seconds. 
  * This approach can be used for all subscriptions to prevent timeout. .
  * To run this example using NodeJS
