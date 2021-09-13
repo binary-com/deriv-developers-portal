@@ -1,5 +1,5 @@
 /*
- * This is an example of using JavaScript to subscribe to balance of an account. 
+ * This is an example of using JavaScript with NodeJS to subscribe to balance of an account. 
  * To run this example using NodeJS
  * - Ensure you have NodeJs installed (https://nodejs.org/).
  * - Save this script to a directory on your computer as `account_balance.js`.

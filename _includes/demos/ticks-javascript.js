@@ -1,5 +1,5 @@
 /*
- * This is an example of using JavaScript to collect ticks for your trading app using Deriv's API.
+ * This is an example of using JavaScript with NodeJS to collect ticks for your trading app using Deriv's API.
  * To run this example using NodeJS
  * - Ensure you have NodeJs installed (https://nodejs.org/).
  * - Save this script to a directory on your computer as `ticks.js`.

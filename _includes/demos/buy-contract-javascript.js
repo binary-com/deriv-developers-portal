@@ -1,5 +1,5 @@
 /*
- * This is an example of using JavaScript to buy a contract via the Deriv/Binary API.
+ * This is an example of using JavaScript with NodeJS to buy a contract via the Deriv/Binary API.
  * This is a simple example where we do not check first if the user has the 
  * symbol available to buy. To check this you would use the active_symbols call.
  * To run this example using NodeJS
@@ -42,7 +42,7 @@ ws.onmessage = function (msg) {
             "price": 10,
             "parameters": { "amount": 10, "basis": "stake", "contract_type": "CALL", "currency": "USD", "duration": 1, "duration_unit": "m", "symbol": "R_10" }
         }));
-    } else if (data.msg_type == 'buy') { // Our buy request was successful lets print the results. 
+    } else if (data.msg_type == 'buy') { // Our buy request was successful let's print the results. 
         console.log("Contract Id " + data.buy.contract_id + "\n");
         console.log("Details " + data.buy.longcode + "\n");
     } else if (data.msg_type == 'proposal_open_contract') { // Because we subscribed to the buy request we will receive updates on our open contract. 
