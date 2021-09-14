@@ -8,6 +8,7 @@ var CODE_SAMPLES = ["ticks", "balance", "proposal", "buy-contract", "keep-alive"
 var api;
 var $console;
 var anchor_shift = 100;
+var shouldScroll = false;
 
 
 // SLIDER
@@ -797,10 +798,10 @@ function appendToConsoleAndScrollIntoView(html) {
     $console.append(html);
     $("#toggle-theme").show();
 
-    if (consoleShouldScroll()) {
+    if (consoleShouldScroll() && !shouldScroll) {
       scrollConsoleToBottom();
       setTimeout(function () {
-        if (consoleShouldScroll()) {
+        if (consoleShouldScroll() && !shouldScroll) {
           $console.animate(
             {
               scrollTop: $console[0].scrollHeight,
@@ -916,8 +917,8 @@ function addEventListeners() {
   $("#scroll-to-bottom-btn").on("click", scrollConsoleToBottom);
 
   $console.on("scroll", function () {
-    var shouldShow = consoleShouldScroll() && !$console.is(":animated");
-    $("#scroll-to-bottom-btn").toggle(shouldShow);
+    shouldScroll = consoleShouldScroll() && !$console.is(":animated");
+    $("#scroll-to-bottom-btn").toggle(shouldScroll);
   });
 
   $("#toggle-theme").on("click", toggleTheme);
