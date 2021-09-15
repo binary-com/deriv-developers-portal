@@ -261,6 +261,7 @@ function getCurrentApi() {
 }
 
 function updatePlaygroundWithRequestAndResponse() {
+  shouldScroll = false;
   try {
     var json = JSON.parse($("#playground-request").val());
   } catch (err) {
@@ -718,9 +719,7 @@ function isProduction(url) {
 
 function getBaseUrl(url) {
   url = url || document.location.href;
-  return (
-    (isProduction(url) || isLocal(url) ? "" : "/" + url.split("/")[3]) + "/"
-  );
+  return "/";
 }
 
 function getServerUrl() {
