@@ -4,7 +4,7 @@
 # The example uses the websocket-client library.
 # To run this example
 # - Ensure you have Python installed (https://www.python.org/).
-# - Download and save this file to a new directory as `buy_contract.py`.
+# - Copy and save this as a file to a new directory as `buy_contract.py`.
 # - Run `pip install websocket-client`.
 # - Edit the example and change the app_id and the API token.
 # - Then run `python buy_contract.py`.

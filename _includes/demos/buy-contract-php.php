@@ -35,7 +35,7 @@ $token = ''; // Put the authorization token for the account to buy the contract 
              * request.
              */
             $conn-&gt;send('{ "buy":1, "subscribe":1, "price":10, "parameters":{ "amount":10, "basis":"stake", "contract_type":"CALL", "currency":"USD", "duration":1, "duration_unit":"m", "symbol":"R_10" } } ');
-        } else if ($msgPHP["msg_type"] == 'buy') { // Our buy request was successful lets print the results. 
+        } else if ($msgPHP["msg_type"] == 'buy') { // Our buy request was successful let's print the results. 
             echo ("contract Id " . $msgPHP["buy"]["contract_id"] . "\n");
             echo ("Details " . $msgPHP["buy"]["longcode"] . "\n");
         } else if ($msgPHP["msg_type"] == 'proposal_open_contract') { // Because we subscribed to the buy request we will receive updates on our open contract. 
