@@ -827,10 +827,14 @@ function toggleTheme() {
   );
 }
 
+function updateDocsHash() {
+  window.history.replaceState({}, '','/docs/');
+}
+
 function onAnchorClick() {
   if (location.hash.length !== 0) {
-    console.log('anchor move!');
     window.scrollTo(window.scrollX, window.scrollY - anchor_shift);
+    updateDocsHash(); 
   }
 }
 
@@ -932,8 +936,9 @@ function addEventListeners() {
   });
 
   $(document).ready(() => {
-    if(window.location.hash) {
+    if (window.location.hash) {
       window.location.href = window.location.hash;
+      updateDocsHash(); 
     }
   }); 
 }
