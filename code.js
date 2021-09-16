@@ -829,6 +829,7 @@ function toggleTheme() {
 
 function onAnchorClick() {
   if (location.hash.length !== 0) {
+    console.log('anchor move!');
     window.scrollTo(window.scrollX, window.scrollY - anchor_shift);
   }
 }
@@ -929,4 +930,10 @@ function addEventListeners() {
       onAnchorClick();
     }, 0);
   });
+
+  $(document).ready(() => {
+    if(window.location.hash) {
+      window.location.href = window.location.hash;
+    }
+  }); 
 }
