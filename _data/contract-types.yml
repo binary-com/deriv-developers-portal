@@ -1,0 +1,96 @@
+types:
+  - API_contract_name: MULTUP
+    Category_on_website: Multiply Up/Multiply Down
+    Name_on_website: Multiply Up
+  - API_contract_name: MULTDOWN
+    Category_on_website: Multiply Up/Multiply Down
+    Name_on_website: Multiply Down
+  - API_contract_name: UPORDOWN
+    Category_on_website: Stays Between/Goes Outside
+    Name_on_website: Goes Outside
+  - API_contract_name: EXPIRYRANGE
+    Category_on_website: Ends Between/Ends Outside
+    Name_on_website: Ends Between
+  - API_contract_name: ONETOUCH
+    Category_on_website: Touch/No Touch
+    Name_on_website: Touches
+  - API_contract_name: CALLE
+    Category_on_website: Rise/Fall Equal
+    Name_on_website: Higher
+  - API_contract_name: LBHIGHLOW
+    Category_on_website: Lookbacks
+    Name_on_website: High-Low
+  - API_contract_name: ASIAND
+    Category_on_website: Asians
+    Name_on_website: Asian Down
+  - API_contract_name: EXPIRYRANGEE
+    Category_on_website: ""
+    Name_on_website: ""
+  - API_contract_name: DIGITDIFF
+    Category_on_website: Digits
+    Name_on_website: Digit Matches
+  - API_contract_name: DIGITOVER
+    Category_on_website: Digits
+    Name_on_website: Digit Over
+  - API_contract_name: PUTE
+    Category_on_website: Rise/Fall Equal
+    Name_on_website: Lower
+  - API_contract_name: DIGITUNDER
+    Category_on_website: Digits
+    Name_on_website: Digit Under
+  - API_contract_name: NOTOUCH
+    Category_on_website: Touch/No Touch
+    Name_on_website: Does Not touch
+  - API_contract_name: CALL
+    Category_on_website: Up/Down
+    Name_on_website: Higher
+  - API_contract_name: RANGE
+    Category_on_website: Stays Between/Goes Outside
+    Name_on_website: Stays Between
+  - API_contract_name: LBFLOATPUT
+    Category_on_website: Lookbacks
+    Name_on_website: High-Close
+  - API_contract_name: DIGITODD
+    Category_on_website: Digits
+    Name_on_website: Digit Odd
+  - API_contract_name: PUT
+    Category_on_website: Asians
+    Name_on_website: Asian Up
+  - API_contract_name: LBFLOATCALL
+    Category_on_website: Lookbacks
+    Name_on_website: Close-Low
+  - API_contract_name: EXPIRYMISSE
+    Category_on_website: ""
+    Name_on_website: ""
+  - API_contract_name: EXPIRYMISS
+    Category_on_website: Ends Between/Ends Outside
+    Name_on_website: Ends Outside
+  - API_contract_name: DIGITEVEN
+    Category_on_website: Digits
+    Name_on_website: Digit Even
+  - API_contract_name: TICKHIGH
+    Category_on_website: highlowticks
+    Name_on_website: High Tick
+  - API_contract_name: TICKLOW
+    Category_on_website: highlowticks
+    Name_on_website: Low Tick
+  - API_contract_name: RESETCALL
+    Category_on_website: Reset Call/Reset Put
+    Name_on_website: Reset Call
+  - API_contract_name: RESETPUT
+    Category_on_website: Reset Call/Reset Put
+    Name_on_website: Reset Put   
+  - API_contract_name: CALLSPREAD
+    Category_on_website: Call Spread/Put Spread
+    Name_on_website: Call Spread
+  - API_contract_name: PUTSPREAD
+    Category_on_website: Call Spread/Put Spread
+    Name_on_website: Put Spread   
+  - API_contract_name: RUNHIGH
+    Category_on_website: Only Ups/Only Downs
+    Name_on_website: Only Ups
+  - API_contract_name: RUNLOW
+    Category_on_website: Only Ups/Only Downs
+    Name_on_website: Only Downs
+
+    
