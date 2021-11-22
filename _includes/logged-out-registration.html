@@ -1,0 +1,42 @@
+
+<div class=login-container>
+    <div class=login-image>
+        <img src="{{ branch }}/img/login.svg" width="128px" height="128px"/>
+    </div>
+    <div class="login-title bold">Log in to your Deriv account to get the API token and start
+            using our API.
+    </div>
+    <a id="registerLogin" class="register-login-button main-register-btn">Log in to my Deriv account</a>
+</div>
+<style>
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;   
+    }
+    .login-image {
+        margin-top: 95px;
+        margin-bottom: 16px;
+    }
+    .login-title {
+        font-size: 16px;
+        margin-bottom: 40px;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: center;
+    }
+    .register-login-button {
+        cursor: pointer;
+    }
+    @media screen and (min-width: 992px) {
+        .login-container {
+            padding-left: 158px;
+            height: 614px;
+        }
+        .login-title {
+            font-size: 20px;
+            margin-bottom: 24px;
+        }
+    }
+</style>
