@@ -105,8 +105,7 @@ permalink: docs/api-guide/
 
     <h4>Conditions of using the Deriv API</h4>
     <p>The Deriv API is free of charge and is subject to our <a href="https://deriv.com/terms-and-conditions">terms
-        and conditions</a> and <a>copyright</a>.</p>
-    <!-- todo -->
+        and conditions</a> and <a href="https://deriv.com/tnc/business-partners-general-terms.pdf">copyright</a>.</p>
     <p>Should you run into any difficulties using it or if you need assistance, please contact us via one of our
       support forums or via <a href="mailto:api-support@deriv.com">email</a>.</p>
   </div>
@@ -130,7 +129,6 @@ permalink: docs/api-guide/
     <p>A client can also subscribe and receive several types of different information simultaneously over a single
       connection.</p>
     <p>For more information on how to write a client using WebSockets, visit this <a href="{{ branch }}/docs/">guide</a>.</p>
-    <!-- todo -->
 
     <h3 id="json" class="has-navigation navigation-subtitle">JSON</h3>
     <p>JavaScript Object Notation (JSON) is a data format based on JavaScript. However, it is completely
@@ -219,10 +217,9 @@ permalink: docs/api-guide/
       attribute. But if you choose to send it, it must be a string (word) and has to match the described pattern.</p>
 
     <p>JSON Schemas on Deriv are divided into schemas we accept (request) and schemas we send (response). You can find
-      the detailed JSON schemas for each API call on our <a href="{{ branch }}/playground/">API Explorer</a>.</p>
-    <!-- todo -->
+      the detailed JSON schemas for each API call on our <a href="{{ branch }}/api-explorer/">API Explorer</a>.</p>
     <div class="center">
-      <img class="api-guide-image" src="{{ branch }}/img/api-playground.png" width="70%" height="auto" alt="api playground" />
+      <img class="api-guide-image" src="{{ branch }}/img/api-playground.png" width="70%" height="auto" alt="api explorer" />
     </div>
     <p>To see the raw JSON schemas, click on the braces within each call.</p>
     <div class="center">
@@ -246,7 +243,7 @@ permalink: docs/api-guide/
     </div>
 
     <p>The access level for each API token has to match the required access level of each API call, which can be found
-      in the <a href="{{ branch }}/playground/">API Explorer</a> as well. </p>
+      in the <a href="{{ branch }}/api-explorer/">API Explorer</a> as well. </p>
     <p>For example, on the screenshot below, you can see that to be able to use the Account Status, a token with read
       access level must be used. </p>
 
@@ -269,7 +266,7 @@ permalink: docs/api-guide/
       which makes it safer.</p>
     <p>The OAuth2 authentication requires more steps to set up, but it is the safest way for developers to share access
       to their app with their clients.</p>
-    <p>For more information on OAuth2, visit <a>this guide</a>.</p>
+    <p>For more information on OAuth2, visit <a href="https://aaronparecki.com/oauth-2-simplified/">this guide</a>.</p>
     <p>Here is the visual representation of how the OAuth authorisation connection works:</p>
 
     <div class="center">

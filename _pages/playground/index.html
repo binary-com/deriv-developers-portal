@@ -1,13 +1,14 @@
 ---
 layout: playground
-permalink: playground/
+permalink: api-explorer/
 ---
 
 <div class="playground">
-  <div class="playground-page-wrapper dark">
-    <div class="playground-api-json dark">
+  <h1 class="">API Explorer</h1>
+  <div class="playground-page-wrapper">
+    <div class="playground-api-json">
       {% include api-selector.html %}
-      <div class="api-token dark">
+      <div class="api-token">
         <fieldset id="api-token-fieldset">
           <input type="text" id="api-token" placeholder="API Token" />
           <button id="send-auth-manually-btn" class="btn-authenticate bold">
