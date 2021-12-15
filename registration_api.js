@@ -180,9 +180,8 @@ const loginUrl = ({ language }) => {
     const signup_device = signup_device_cookie.get('signup_device');
     const date_first_contact_cookie = new CookieStorage('date_first_contact');
     const date_first_contact = date_first_contact_cookie.get('date_first_contact');
-    const marketing_queries = `${signup_device ? `&signup_device=${signup_device}` : ''}${
-        date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
-    }`;
+    const marketing_queries = `${signup_device ? `&signup_device=${signup_device}` : ''}${date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
+        }`;
     const getOAuthUrl = () => {
         return `https://oauth.deriv.com/oauth2/authorize?app_id=${appId()}&l=${language}${marketing_queries}&brand=deriv`;
     };
@@ -191,7 +190,7 @@ const loginUrl = ({ language }) => {
         return `https://${server_url}/oauth2/authorize?app_id=${appId()}&l=${language}${marketing_queries}&brand=deriv`;
     }
 
-if (window.localStorage.getItem("config.app_id") === 11780) {
+    if (window.localStorage.getItem("config.app_id") === 11780) {
         return getOAuthUrl();
     }
     return new URL(getOAuthUrl()).href;
@@ -214,7 +213,7 @@ const getSocketURL = () => {
 
 
 const generateDerivApiInstance = () => {
-    const socket_url = `wss://${getSocketURL()}/websockets/v3?app_id=1027&l=en&brand=deriv`;
+    const socket_url = `wss://${getSocketURL()}/websockets/v3?app_id=1023&l=en&brand=deriv`;
     const deriv_socket = new WebSocket(socket_url);
     const deriv_api = new DerivAPIBasic({
         connection: deriv_socket,
@@ -224,42 +223,91 @@ const generateDerivApiInstance = () => {
 const myapi = generateDerivApiInstance();
 const { createMachine, actions, interpret } = XState;
 const appRegistrationMachine = createMachine({
-    id: 'login',
-    initial: 'loggedOut',
+    id: "register_api",
+    initial: "logged_out",
     states: {
-        loggedOut: {
+        logged_out: {
+            id: "logged_out",
             on: {
-                LOGIN: 'loggedIn'
-            }
+                LOGIN: "#history",
+            },
         },
-        loggedIn: {
+        logged_in: {
+            id: "logged_in",
             on: {
-                LOGOUT: 'loggedOut'
-            }
-        }
-    }
+                LOGOUT: "#logged_out",
+            },
+            states: {
+                history: {
+                    id: "history",
+                    type: "history",
+                    target: "#folded_form",
+                },
+                folded_form: {
+                    id: "folded_form",
+                    on: {
+                        TOGGLE_FORM: "#unfolded_form",
+                    },
+                },
+                unfolded_form: {
+                    id: "unfolded_form",
+                    on: {
+                        TOGGLE_FORM: "#folded_form",
+                    },
+                },
+            },
+        },
+    },
 });
-let sessionState = sessionStorage.getItem('app_registration_state') || 'loggedOut';
+
+let sessionState = sessionStorage.getItem('app_registration_state') || 'logged_out';
 const urlParams = new URLSearchParams(window.location.search);
 const token = urlParams.get('token1');
 if (token) {
     sessionStorage.setItem('token1', token);
-    sessionStorage.setItem('app_registration_state', 'loggedIn');
-    sessionState = 'loggedIn';
+    sessionStorage.setItem('app_registration_state', 'logged_in');
+    sessionState = 'logged_in';
 }
 function activate(state) {
-  const joinedState = state.toStrings().join(' ');
-  const elApp = document.getElementById('app-registration-machine');
-  if (elApp) elApp.dataset.state = joinedState;
+    const joinedState = state.toStrings().join(' ');
+    const elApp = document.getElementById('app-registration-machine');
+    if (elApp) elApp.dataset.state = joinedState;
 }
+
 const interpreter = XState
-  .interpret(appRegistrationMachine)
-  .onTransition(activate)
-  .start(sessionState);
+    .interpret(appRegistrationMachine)
+    .onTransition(activate)
+    .start(sessionState);
+
+// const toggleFormInterpreter = XState
+//   .interpret(toggleFormMachine)
+//   .onTransition(activate)
+//   .start('folded_form');
+
 const { send } = interpreter;
+
+// const { sendToggleForm } = toggleFormInterpreter;
+
+// console.log(document.getElementById('frmNewApplication'));
+
+// const validateFormField = () => {
+//     const form_fields = document.querySelectorAll("[id^='application-']");
+//     const form_fields_array = Object.values(form_fields);
+//     console.log(form_fields_array);
+//     form_fields_array.forEach(field => {
+//         field.addEventListener('blur', () => {
+//             console.log(field.id);
+//         });
+//     })
+
+//     //const form_elements_array = Object.values(registerForm);
+// }
+
+// validateFormField()
+
 const registerLoginButton = document.getElementById('registerLogin');
 if (registerLoginButton) {
     registerLoginButton.addEventListener('click', () => {
-    redirectToLogin(false, 'EN');
+        redirectToLogin(false, 'EN');
     });
 };
