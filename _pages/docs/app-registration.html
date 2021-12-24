@@ -33,7 +33,7 @@ permalink: docs/app-registration/
                             <h4 class="register-form-header">General information</h4>
                             <div class='info-icon'>
                                 <div class='tooltip'>
-                                    Please create your API token here 
+                                    Please create your API token here
                                     <a href="https://app.deriv.com/account/api-token" class="tooltip-link">app.deriv.com/account/api-token</a>, and copy it into this field.
                                 </div>
                                 <img src="/img/info-icon.svg" />
@@ -43,11 +43,11 @@ permalink: docs/app-registration/
                             <input type="text" id="api-token-input" placeholder="API token (Required)" />
                             <p class="helper-text">max. 50 characters</p>
                             <div class="api-token-warning">
-                        </div>
-                        <div class="first">
-                            <input type="text" id="app_name" name="app_name" placeholder="App name (Required)"
-                                pattern="^[\w\s-]{1,48}$" required />
-                        </div>
+                            </div>
+                            <div class="first">
+                                <input type="text" id="app_name" name="app_name" placeholder="App name (Required)"
+                                    pattern="^[\w\s-]{1,48}$" required />
+                            </div>
                     </fieldset>
                     <div class="expand-form">
                         <input id="expand_form" class="expand-form-checkbox" type="checkbox" autocomplete="off" />
@@ -98,9 +98,9 @@ permalink: docs/app-registration/
                                         <img src="/img/info-icon.svg" />
                                     </div>
                                 </div>
-                                <p>Bear in mind that you generally need only 
-                                    <b>'Trade'</b> and 
-                                    <b>'Trading information'</b> access. 
+                                <p>Bear in mind that you generally need only
+                                    <b>'Trade'</b> and
+                                    <b>'Trading information'</b> access.
                                     <b>'Admin'</b> access is usually not required.
                                 </p>
                             </div>
@@ -126,7 +126,7 @@ permalink: docs/app-registration/
                                 <label for="admin-scope">Admin: API token management, application management</label>
                             </div>
                         </div>
-                        <button class="primary-btn-submit" id="btnRegister">Register</button>
+                        <button class="dialog-btn-submit" id="btnRegister">Register</button>
                     </div>
                 </div>
             </form>
@@ -139,50 +139,82 @@ permalink: docs/app-registration/
                         <th>Application ID</th>
                         <th>Scopes</th>
                         <th>Redirect URL</th>
-                        <th><!-- keep for button --></th>
-                        <th><!-- keep for button --></th>
+                        <th>
+                            <!-- update app action column -->
+                        </th>
+                        <th>
+                            <!-- remove app action column -->
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="app_list">
                     <!-- populate table with data from API -->
                 </tbody>
             </table>
-            <dialog id="delete_app_dialog">
-                Putting something here
-                <!-- add button that deletes app -->
-                <button id="delete_app_button">Delete app</button>
-            </dialog>
-            <!-- add update_app_dialog -->
-            <dialog id="update_app_dialog">
-                Putting something here
-                <!-- add button that updates app -->
-                <!-- add inputs for name, and checkboxes for scopes, redirect URL -->
-                <input id="update_app_name" type="text" maxlength="48" placeholder="Name" />
-                <input id="update_app_redirect_uri" type="text" maxlength="255" placeholder="Redirect URL" />
-                <div id="app_scopes" class="scopes">
-                    <p class="bold scopes-field">Scopes:</p>
-                    <div class="scopes-field">
-                        <input id="update_read-scope" type="checkbox" value="read" />
-                        <label for="update_read-scope">Read all: Full access to users information, including private information</label>
+            <dialog id="delete_app_dialog" class="dialog-wrapper">
+                <div class="dialog dialog-delete">
+                    <div class="dialog-header">
+                        <img id="close_delete_dialog" src="/img/close_dialog.svg" />
                     </div>
-                    <div class="scopes-field">
-                        <input id="update_trade-scope" type="checkbox" value="trade" />
-                        <label for="update_trade-scope">Trade: Buy and sell contracts on the users' behalf</label>
+                    <div class="dialog-body dialog-body-delete">
+                        <img class="dialog-warning" src="/img/warning.png" />
+                        <!-- Add "Delete app" bold text in the center -->
+                        <h3>Delete app</h3>
+                        <p class="dialog-question">Are you sure you want to remove this application?</p>
                     </div>
-                    <div class="scopes-field">
-                        <input id="update_trading_information-scope" type="checkbox" value="trading_information" />
-                        <label for="update_trading_information-scope">Trading information: View users trading information, including balance information</label>
-                    </div>
-                    <div class="scopes-field">
-                        <input id="update_payments-scope" type="checkbox" value="payments" />
-                        <label for="update_payments-scope">Payments: Cashier (deposit and withdrawal)</label>
-                    </div>
-                    <div class="scopes-field mb-0">
-                        <input id="update_admin-scope" type="checkbox" value="admin" />
-                        <label for="update_admin-scope">Admin: Full account access, including the access to manage security tokens</label>
+                    <div class="dialog-footer">
+                        <button class="dialog-btn-cancel" id="delete_app_keep">No, keep it</button>
+                        <button class="dialog-btn-submit" id="delete_app_button">Yes, delete</button>
                     </div>
                 </div>
-                <button id="update_app_button">Update app</button>
+            </dialog>
+            <!-- add update_app_dialog -->
+            <dialog id="update_app_dialog" class="dialog-wrapper">
+                <div class="dialog dialog-update">
+                    <div class="dialog-header">
+                        <img id="close_update_dialog" src="/img/close_dialog.svg" />
+                    </div>
+                    <div class="dialog-body dialog-body-update">
+                        <div class="dialog-update-input">
+                            <h4 class="register-form-header">App name</h4>
+                            <input class="input-container" id="update_app_name" type="text" maxlength="48" placeholder="Name" />
+                        </div>
+                        <div class="dialog-update-input">
+                            <h4 class="register-form-header">Redirect URL</h4>
+                            <input class="input-container" id="update_app_redirect_uri" type="text" maxlength="255" placeholder="Redirect URL" />
+                        </div>
+                        <div class="dialog-update-scopes" id="app_scopes">
+                        <p class="bold scopes-field">Scopes:</p>
+                        <div class="scopes-field">
+                            <input id="update_read-scope" type="checkbox" value="read" />
+                            <label for="update_read-scope">Read all: Full access to users information, including private
+                                information</label>
+                        </div>
+                        <div class="scopes-field">
+                            <input id="update_trade-scope" type="checkbox" value="trade" />
+                            <label for="update_trade-scope">Trade: Buy and sell contracts on the users' behalf</label>
+                        </div>
+                        <div class="scopes-field">
+                            <input id="update_trading_information-scope" type="checkbox" value="trading_information" />
+                            <label for="update_trading_information-scope">Trading information: View users trading
+                                information, including balance information</label>
+                        </div>
+                        <div class="scopes-field">
+                            <input id="update_payments-scope" type="checkbox" value="payments" />
+                            <label for="update_payments-scope">Payments: Cashier (deposit and withdrawal)</label>
+                        </div>
+                        <div class="scopes-field mb-0">
+                            <input id="update_admin-scope" type="checkbox" value="admin" />
+                            <label for="update_admin-scope">Admin: Full account access, including the access to manage
+                                security tokens</label>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="dialog-footer">
+                        <button class="dialog-btn-cancel" id="update_app_cancel">Cancel</button>
+                        <button class="dialog-btn-submit" id="update_app_button">Update app</button>
+                    </div>
+                </div>
             </dialog>
         </div>
     </div>
@@ -195,8 +227,7 @@ permalink: docs/app-registration/
         --app-registration-tab-secondary: #999999;
         --app-registration-tab-tooltip-background: #D6DADB;
         --app-registration-tab-light-grey: #E6E9E9;
-        --app-registration-tab-table-row-grey: #FBFBFB
-;
+        --app-registration-tab-table-row-grey: #FBFBFB;
     }
 
     .app-registration-login {
@@ -213,42 +244,37 @@ permalink: docs/app-registration/
     }
 
     /* add delete.svg icon to app-remove-btn */
-    .app-remove-btn {
+    .app-btn {
         background-image: url("/img/delete.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 16px;
         background-origin: content-box;
         background-clip: content-box;
+        background-color: transparent;
+        border: none;
         border-radius: 4px;
-        border: 1px solid #ff444f;
-        color: #ff444f;
         font-size: 14px;
         font-weight: bold;
-        padding: 10px 20px;
-        margin-top: 10px;
+        width: 32px;
     }
 
-        /* make app-remove-btn disabled when data-state logged_in.manage_tab.loading */
-        [data-state~="logged_in.manage_tab.loading"] .app-remove-btn {
+    .app-btn span {
+        visibility: hidden;
+    }
+
+    .delete-icon {
+        background-image: url("/img/delete.svg");
+    }
+
+    .update-icon {
+        background-image: url("/img/edit.svg");
+    }
+
+    /* make app-remove-btn disabled when data-state logged_in.manage_tab.loading */
+    [data-state~="logged_in.manage_tab.loading"] .app-remove-btn {
         pointer-events: none;
         cursor: not-allowed;
-    }
-
-    .app-update-btn {
-        background-image: url("/img/edit.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 16px;
-        background-origin: content-box;
-        background-clip: content-box;
-        border-radius: 4px;
-        border: 1px solid #ff444f;
-        color: #ff444f;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 10px 20px;
-        margin-top: 10px;
     }
 
     [data-state~="logged_out"] .app-registration-login {
@@ -260,6 +286,129 @@ permalink: docs/app-registration/
 
     .app-registration-logged-in {
         display: none;
+    }
+
+    .dialog-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        border: none;
+        max-width: 100vw;
+        max-height: 100vh;
+    }
+    
+
+    .dialog {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 433px;
+        height: 383px;
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .dialog-delete {
+        width: 360px;
+        height: 483px;
+    }
+
+    .dialog-update {
+        width: 360px;
+        height: 700px;
+    }
+
+    .dialog-update-input {
+        padding: 20px;
+    }
+
+    .dialog-update-scopes {
+        padding: 20px;
+    }
+
+    .dialog-header {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .dialog-header img {
+        padding: 26px 18px;
+        cursor: pointer;
+    }
+
+    .dialog-body {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .dialog-body-delete {
+        align-items: center;
+    };
+
+    .dialog-body .dialog-body-delete img {
+        margin-bottom: 24px;
+    }
+
+    .dialog-body .dialog-body-delete h3 {
+        margin-bottom: 8px
+    }
+
+    .dialog-footer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 37px;
+    }
+    
+
+    /* red "No, keep it" button with white text */
+    .dialog-btn-cancel {
+        background-color: var(--app-registration-tab-active-underline);
+        color: white;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 16px 10px 16px;
+        margin-right: 24px;
+    }
+
+    .dialog-btn-cancel:hover {
+        background-color: #ff5560;
+    }
+
+    /* white "Yes, delete" button with black text */
+    .dialog-btn-submit {
+        background-color: white;
+        color: black;
+        border: 1px solid #999999;
+        height: 40px;
+        border-radius: 4px;
+        padding: 10px 16px 10px 16px;
+    }
+
+        /* add hover color to "Yes, delete" */
+    .dialog-btn-submit:hover {
+        background-color: #e4e2e2;
+    }
+
+    .dialog-question {
+        padding: 20px;
+        text-align: center;
     }
 
     [data-state~="logged_in"] .app-registration-logged-in {
@@ -392,6 +541,22 @@ permalink: docs/app-registration/
         min-width: 120px;
     }
 
+    /* Set width of last two table columns to 40px */
+    .manage-apps td:last-child,
+    .manage-apps th:last-child {
+        min-width: 1px !important;
+        width: 1px !important;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    /* set padding-left of first column to 32px */
+    .manage-apps td:first-child,
+    .manage-apps th:first-child {
+        padding-left: 32px;
+    }
+
+    /* set width of last table column to 20px */
     .manage-apps tbody tr:nth-child(even) {
         background-color: var(--app-registration-tab-table-row-grey);
     }
@@ -472,6 +637,7 @@ permalink: docs/app-registration/
     .tooltip-link {
         font-size: 12px;
     }
+
     /* add app-registration-tab-light-grey color to thead no borders */
     [data-state~="logged_in.manage_tab.loadingApps.loading"] thead {
         visibility: hidden;
@@ -484,7 +650,7 @@ permalink: docs/app-registration/
         visibility: visible;
         background-color: var(--app-registration-tab-light-grey);
     }
-    
+
 
     @media screen and (min-width: 992px) {
         .app-registration-login {
@@ -498,6 +664,20 @@ permalink: docs/app-registration/
 
         .app-registration-header .form-subtitle {
             font-size: 20px;
+        }
+
+        .dialog-delete {
+            width: 433px;
+            height: 383px;
+        }
+
+        .dialog-update {
+            width: 433px;
+            height: 640px
+        }
+
+        .dialog-warning {
+            margin-bottom: 24px;
         }
 
         .info-icon:hover .tooltip:before {

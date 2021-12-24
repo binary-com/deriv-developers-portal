@@ -195,8 +195,7 @@ const isStorageSupported = storage => {
 
 const redirectToLogin = (is_logged_in, language, has_params = true, redirect_delay = 0) => {
     if (!is_logged_in && isStorageSupported(sessionStorage)) {
-        const l = window.location;
-        const redirect_url = has_params ? window.location.href : `${l.protocol}//${l.host}${l.pathname}`;
+        const redirect_url = has_params ? window.location.href : `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
         sessionStorage.setItem('redirect_url', redirect_url);
         setTimeout(() => {
             window.location.href = loginUrl({ language });
@@ -352,11 +351,53 @@ CookieStorage.prototype = {
     },
 };
 
-const appId = () => window.localStorage.getItem("config.app_id");
+
+let sessionState = sessionStorage.getItem('app_registration_state') || 'logged_out';
+const urlParams = new URLSearchParams(window.location.search);
+const token1_in_url = urlParams.get('token1');
+if (token1_in_url) {
+    sessionStorage.setItem('token1', token1_in_url);
+    sessionStorage.setItem('app_registration_state', 'logged_in');
+    sessionState = 'logged_in';
+}
+
+// add getToken function
+const getToken = () => token1_in_url || sessionStorage.getItem('token1');
+
+
+// add setToken function
+const setToken = (token) => {
+    LocalStore.set('config.token', token);
+};
+
+// sest token in localStore if getToken is true
+if (getToken()) {
+    setToken(getToken());
+}
+
+// get app_id from url
+const app_id_in_url = urlParams.get('app_id');
+// if app_id is in url, set it in LocalStore
+if (app_id_in_url) {
+    LocalStore.set('config.app_id', app_id_in_url);
+}
+
+const getSessionAppId = () => app_id_in_url || LocalStore.get("config.app_id");
+
+// get endpoint from url
+const endpoint_in_url = urlParams.get('endpoint');
+// if endpoint is in url, set it as config.server_url
+if (endpoint_in_url) {
+    LocalStore.set('config.server_url', endpoint_in_url);
+}
+
+// add getEndpoint function
+const getEndpoint = () => endpoint_in_url || LocalStore.get('config.server_url');
+
 
 
 const loginUrl = ({ language }) => {
-    const server_url = LocalStore.get('config.server_url');
+    const server_url = getEndpoint();
     const signup_device_cookie = new CookieStorage('signup_device');
     const signup_device = signup_device_cookie.get('signup_device');
     const date_first_contact_cookie = new CookieStorage('date_first_contact');
@@ -364,27 +405,14 @@ const loginUrl = ({ language }) => {
     const marketing_queries = `${signup_device ? `&signup_device=${signup_device}` : ''}${date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
         }`;
     const getOAuthUrl = () => {
-        return `https://oauth.deriv.com/oauth2/authorize?app_id=${appId()}&l=${language}${marketing_queries}&brand=deriv`;
+        return `https://oauth.deriv.com/oauth2/authorize?app_id=${getSessionAppId()}&l=${language}${marketing_queries}&brand=deriv`;
     };
 
     if (server_url && /qa/.test(server_url)) {
-        return `https://${server_url}/oauth2/authorize?app_id=${appId()}&l=${language}${marketing_queries}&brand=deriv`;
+        return `https://${server_url}/oauth2/authorize?app_id=${getSessionAppId()}&l=${language}${marketing_queries}&brand=deriv`;
     }
-
-    if (window.localStorage.getItem("config.app_id") === 11780) {
-        return getOAuthUrl();
-    }
-    return new URL(getOAuthUrl()).href;
+    return getOAuthUrl();
 };
-
-let sessionState = sessionStorage.getItem('app_registration_state') || 'logged_out';
-const urlParams = new URLSearchParams(window.location.search);
-const token = urlParams.get('token1');
-if (token) {
-    sessionStorage.setItem('token1', token);
-    sessionStorage.setItem('app_registration_state', 'logged_in');
-    sessionState = 'logged_in';
-}
 
 function activate(state) {
     const joinedState = state.toStrings().join(' ');
@@ -453,8 +481,10 @@ if (registerLoginButton) {
 };
 
 const getAppList = async () => {
-    const api = new DerivAPIBasic({ endpoint: 'qa10.deriv.dev', lang: 'EN', app_id: 1016 });
-    const token1 = sessionStorage.getItem('token1');
+    const app_id = getSessionAppId();
+    const endpoint = getEndpoint();
+    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+    const token1 = getToken();
     await api.authorize(token1);
     const get_data = await api.appList();
     const app_list = get_data.app_list;
@@ -470,10 +500,8 @@ const getAppList = async () => {
                         <td>${app.scopes.join(', ')}</td>
                         <td>${app.redirect_uri}</td>
                         <td>
-                            <button class="app-update-btn" onclick="open_update_dialog(${app.app_id}, '${app.name}', '${app.scopes.join(', ')}', '${app.redirect_uri}' )">Update</button>
-                        </td>
-                        <td>
-                            <button class="app-remove-btn" onclick="open_delete_dialog(${app.app_id})">Remove</button>
+                            <button aria-label="Update app" class="app-btn update-icon" onclick="open_update_dialog(${app.app_id}, '${app.name}', '${app.scopes.join(', ')}', '${app.redirect_uri}' )"><span>Remove app</span></button>
+                            <button aria-label="Delete app" class="app-btn delete-icon" onclick="open_delete_dialog(${app.app_id})"><span>Update app</span></button>
                         </td>
                         `;
         app_list_body.appendChild(tr);
@@ -481,16 +509,18 @@ const getAppList = async () => {
 }
 
 const removeApp = async (app_id) => {
-    const api = new DerivAPIBasic({ endpoint: 'qa10.deriv.dev', lang: 'EN', app_id: 1016 });
-    const token1 = sessionStorage.getItem('token1');
+    const endpoint = getEndpoint();
+    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+    const token1 = getToken();
     await api.authorize(token1);
     await api.appDelete(app_id);
     send({ type: 'FETCH_APP_LIST' });
 }
 
 const appUpdate = async ({ app_id, name, redirect_uri, scopes }) => {
-    const api = new DerivAPIBasic({ endpoint: 'qa10.deriv.dev', lang: 'EN', app_id: 1016 });
-    const token1 = sessionStorage.getItem('token1');
+    const endpoint = getEndpoint();
+    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+    const token1 = getToken();
     await api.authorize(token1);
     await api.appUpdate({ app_update: app_id, name, redirect_uri, scopes });
     send({ type: 'FETCH_APP_LIST' });
@@ -556,6 +586,23 @@ const open_update_dialog = (app_id, name, scopes, redirect_uri) => {
     });
 }
 
+
+// handle outside click to close delete_app_dialog
+const delete_app_dialog = document.getElementById('delete_app_dialog');
+delete_app_dialog.addEventListener('click', (event) => {
+    if (event.target === delete_app_dialog) {
+        delete_app_dialog.close();
+    }
+});
+
+// handle outside click to close update_app_dialog
+const update_app_dialog = document.getElementById('update_app_dialog');
+update_app_dialog.addEventListener('click', (event) => {
+    if (event.target === update_app_dialog) {
+        update_app_dialog.close();
+    }
+});
+
 const send_register_button = document.getElementById('btnRegister');
 if (send_register_button) {
     send_register_button.addEventListener('click', (event) => {
@@ -589,8 +636,59 @@ if (send_register_button) {
 };
 
 const registerApp = async ({ name, redirect_uri, scopes, verification_uri, app_markup_percentage }) => {
-    const api = new DerivAPIBasic({ endpoint: 'qa10.deriv.dev', lang: 'EN', app_id: 1016 });
-    const token1 = sessionStorage.getItem('token1');
+    const app_id = getSessionAppId();
+    const endpoint = getEndpoint();
+    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+    const token1 = getToken();
     await api.authorize(token1);
     await api.appRegister({ name, redirect_uri, scopes, verification_uri, app_markup_percentage });
 };
+
+
+// close delete_app_dialog when delete_app_keep_button is clicked
+const delete_app_keep_button = document.getElementById('delete_app_keep');
+if (delete_app_keep_button) {
+    delete_app_keep_button.addEventListener('click', () => {
+        delete_app_dialog.close();
+    });
+}
+
+// close delete_app_dialog when close_delete_dialog is clicked
+const close_delete_dialog = document.getElementById('close_delete_dialog');
+if (close_delete_dialog) {
+    close_delete_dialog.addEventListener('click', () => {
+        delete_app_dialog.close();
+    });
+}
+
+// close update_app_dialog when update_app_cancel is clicked
+const update_app_cancel = document.getElementById('update_app_cancel');
+if (update_app_cancel) {
+    update_app_cancel.addEventListener('click', () => {
+        update_app_dialog.close();
+    });
+}
+
+// close update_app_dialog when close_update_dialog is clicked
+const close_update_dialog = document.getElementById('close_update_dialog');
+if (close_update_dialog) {
+    close_update_dialog.addEventListener('click', () => {
+        update_app_dialog.close();
+    });
+}
+
+// if token1 in session storage fille api-token-input with token1
+const api_token_input = document.getElementById('api-token-input');
+if (api_token_input) {
+    const stored_token = getToken();
+    if (stored_token) {
+        api_token_input.value = stored_token;
+    }
+    // if token is filled in input
+    api_token_input.addEventListener('input', () => {
+        const token = api_token_input.value;
+        setToken(token);
+    }
+    );
+}
+
