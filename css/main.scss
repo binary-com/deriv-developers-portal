@@ -26,8 +26,7 @@ $slider-height: 248px;
   .nav > .top-nav > .top-nav-container,
   .nav > header > .header-container > .navbar,
   #playground-sidebar,
-  #sidebar,
-  .vertical-separator {
+  #sidebar {
     display: none;
   }
   .row-container {
@@ -635,9 +634,6 @@ $slider-height: 248px;
     &-api-docs {
       width: 100% !important;
     }
-  }
-  .dark > .vertical-separator {
-    margin: 0 20px 0 40px;
   }
   header > nav {
     margin-left: 56px;
@@ -1253,12 +1249,6 @@ nav {
     }
   }
 }
-.vertical-separator {
-  width: 2px;
-  height: inherit;
-  margin-left: 220px;
-  background-color: rgba(240, 241, 243, 0.64);
-}
 .with-bg {
   background-image: url("/img/pattern-left.svg"), url("/img/pattern-right.svg");
   background-size: 46%, 50%;
@@ -1707,11 +1697,15 @@ button {
 .sidebar-left {
   display: flex;
   flex-direction: column;
-  max-width: 220px;
+  min-width: 220px;
   width: 220px;
-  position: fixed;
-  height: 100vh;
+  position: relative;
+  height: 100%;
   z-index: 10;
+  background: white;
+  left: 0;
+  padding-left: 10px;
+  border-right: 2px solid rgba(240, 241, 243, 0.64);
 
   a {
     position: relative;
@@ -2176,12 +2170,6 @@ pre {
         display: none;
       }
 
-      .vertical-separator {
-        background-color: rgba(37, 37, 37, 0.72);
-        margin: 0 24px 0 0;
-        width: 2px;
-      }
-
       .cta {
         display: flex;
         flex-direction: column;
@@ -2525,6 +2513,7 @@ footer {
   align-items: center;
   height: 54px;
   z-index: 300;
+  position: relative;
 
   .footer-container {
     width: 80%;
