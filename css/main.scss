@@ -1,5 +1,15 @@
 ---
 ---
+:root {
+  --app-sidebar-border-color: #f0f1f3a3;
+  --app-registration-tab-active-font: #333333;
+  --app-registration-tab-active-underline: #ff444f;
+  --app-registration-tab-secondary: #999999;
+  --app-registration-tab-tooltip-background: #D6DADB;
+  --app-registration-tab-light-grey: #E6E9E9;
+  --app-registration-tab-table-row-grey: #FBFBFB;
+}
+
 $slider-width: 588px;
 $slider-width-mobile: 248px; 
 $slider-height: 248px;
@@ -551,7 +561,7 @@ $slider-height: 248px;
           }
 
           .selected {
-            background-color: rgba(240, 241, 243, 0.64);
+            background-color: var(--app-sidebar-border-color);
             border-radius: 4px;
             font-weight: bold;
             opacity: 1;
@@ -571,7 +581,7 @@ $slider-height: 248px;
       }
 
       .selected {
-        background-color: rgba(240, 241, 243, 0.64);
+        background-color: var(--app-sidebar-border-color);
         border-radius: 4px;
         opacity: 1;
 
@@ -1341,7 +1351,7 @@ ul {
   width: auto;
   padding: 24px 0;
   border-radius: 4px;
-  background-color: rgba(240, 241, 243, 0.64);
+  background-color: var(--app-sidebar-border-color);
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
@@ -1705,7 +1715,7 @@ button {
   background: white;
   left: 0;
   padding-left: 10px;
-  border-right: 2px solid rgba(240, 241, 243, 0.64);
+  border-right: 2px solid var(--app-sidebar-border-color);
 
   a {
     position: relative;
@@ -1745,7 +1755,7 @@ button {
   }
 
   .selected {
-    background-color: rgba(240, 241, 243, 0.64);
+    background-color: var(--app-sidebar-border-color);
     font-size: 16px;
     font-weight: bold;
     line-height: 1.88;
@@ -2568,7 +2578,7 @@ footer {
     border: solid 1px #d6dadb;
     border-radius: 6px;
     thead {
-      background-color: rgba(240, 241, 243, 0.64);
+      background-color: var(--app-sidebar-border-color);
 
       .flex-tr {
         border-bottom: solid 1px #d6dadb;
@@ -2622,3 +2632,5 @@ footer {
 }
 
 @import "monokai.css";
+@import "registration.css";
+
