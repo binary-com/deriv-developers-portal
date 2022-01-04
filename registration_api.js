@@ -676,19 +676,3 @@ if (close_update_dialog) {
         update_app_dialog.close();
     });
 }
-
-// if token1 in session storage fille api-token-input with token1
-const api_token_input = document.getElementById('api-token-input');
-if (api_token_input) {
-    const stored_token = getToken();
-    if (stored_token) {
-        api_token_input.value = stored_token;
-    }
-    // if token is filled in input
-    api_token_input.addEventListener('input', () => {
-        const token = api_token_input.value;
-        setToken(token);
-    }
-    );
-}
-
