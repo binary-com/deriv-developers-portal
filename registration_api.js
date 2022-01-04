@@ -530,7 +530,7 @@ const open_delete_dialog = (app_id) => {
     const dialog = document.getElementById('delete_app_dialog');
     dialog.showModal();
     const delete_app_button = document.getElementById('delete_app_button');
-    delete_app_button.addEventListener('click', () => {
+    if (delete_app_button) delete_app_button.addEventListener('click', () => {
         send({ type: "DELETE_APP", data: app_id });
         dialog.close();
     });
@@ -577,7 +577,7 @@ const open_update_dialog = (app_id, name, scopes, redirect_uri) => {
         return checked_scopes;
     }
 
-    update_app_button.addEventListener('click', () => {
+    if (update_app_button) update_app_button.addEventListener('click', () => {
         const name = update_name.value;
         const redirect_uri = update_redirect_uri.value;
         const scopes = checkedScopes();
@@ -589,7 +589,7 @@ const open_update_dialog = (app_id, name, scopes, redirect_uri) => {
 
 // handle outside click to close delete_app_dialog
 const delete_app_dialog = document.getElementById('delete_app_dialog');
-delete_app_dialog.addEventListener('click', (event) => {
+if (delete_app_dialog) delete_app_dialog.addEventListener('click', (event) => {
     if (event.target === delete_app_dialog) {
         delete_app_dialog.close();
     }
@@ -597,7 +597,7 @@ delete_app_dialog.addEventListener('click', (event) => {
 
 // handle outside click to close update_app_dialog
 const update_app_dialog = document.getElementById('update_app_dialog');
-update_app_dialog.addEventListener('click', (event) => {
+if (update_app_dialog) update_app_dialog.addEventListener('click', (event) => {
     if (event.target === update_app_dialog) {
         update_app_dialog.close();
     }

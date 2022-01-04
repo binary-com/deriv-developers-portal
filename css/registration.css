@@ -329,10 +329,6 @@
     background-color: var(--app-registration-tab-table-row-grey);
 }
 
-.page-content {
-    display: none;
-}
-
 .register-app {
     width: 100%;
     display: none;
