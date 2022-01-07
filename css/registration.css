@@ -415,6 +415,9 @@
     background-color: var(--app-registration-tab-light-grey);
 }
 
+.app-registration-signout {
+    display: none;
+}
 
 @media screen and (min-width: 992px) {
     .app-registration-login {
@@ -460,5 +463,34 @@
 
     .register-form-header {
         font-size: 16px;
+    }
+
+
+    [data-state~="logged_in"] .app-registration-signout {
+        display: block;
+    }
+    
+    .signout-container {
+        cursor: pointer;
+        border: 2px solid var(--app-registration-tab-secondary);
+        border-radius: 4px;
+        height: 40px;
+        right: 174px;
+        position: fixed;
+        top: 43px;
+        width: 86px;
+        z-index: 100;
+    }
+    
+    .signout-label {
+        z-index: 101;
+        background-color: transparent;
+        color: var(--app-registration-text-submit);
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+        position: relative;
+        text-align: center;
+        top: 10px;
     }
 }

@@ -676,3 +676,17 @@ if (close_update_dialog) {
         update_app_dialog.close();
     });
 }
+
+const signout_button = document.getElementById('logout');
+if (signout_button) {
+    signout_button.addEventListener('click', () => {
+        send({ type: "LOGOUT" });
+    });
+    sessionStorage.removeItem('token1');
+    sessionStorage.removeItem('app_registration_state');
+    // clear tokens from search params
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.delete('token1');
+    searchParams.delete('token2');
+    window.history.replaceState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
+}
