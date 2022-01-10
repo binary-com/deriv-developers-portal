@@ -81,6 +81,9 @@ const appRegistrationMachine = createMachine({
                         loadingApps: {
                             id: "loadingApps",
                             initial: 'loading',
+                            on: {
+                                GO_TO_EMPTY_STATE: "#empty",
+                            },
                             states: {
                                 loading: {
                                     invoke: {
@@ -93,11 +96,14 @@ const appRegistrationMachine = createMachine({
                                         },
                                     },
                                 },
+                                empty: {
+                                    id: "empty",
+                                    on: {
+                                        REGISTER_TOGGLE_TAB: "#register_tab",
+                                    },
+                                },
                                 success: {
                                     id: "successLoadingApps",
-                                    on: {
-                                        REFETCH: "#loadingApps",
-                                    },
                                 },
                                 error: {
                                     id: "errorLoadingApps",
@@ -488,6 +494,12 @@ const getAppList = async () => {
     await api.authorize(token1);
     const get_data = await api.appList();
     const app_list = get_data.app_list;
+    // send go to empty state when no app_list
+    if (!app_list.length) {
+        send({
+            "type": "GO_TO_EMPTY_STATE"
+        });
+    };
     const app_list_body = document.getElementById('app_list');
     while (app_list_body.firstChild) {
         app_list_body.removeChild(app_list_body.firstChild);
@@ -642,7 +654,31 @@ const registerApp = async ({ name, redirect_uri, scopes, verification_uri, app_m
     const token1 = getToken();
     await api.authorize(token1);
     await api.appRegister({ name, redirect_uri, scopes, verification_uri, app_markup_percentage });
+    open_register_dialog();
 };
+
+const open_register_dialog = () => {
+    const dialog = document.getElementById('register_app_dialog');
+    dialog.showModal();
+};
+
+const close_register_dialog = () => {
+    const dialog = document.getElementById('register_app_dialog');
+    dialog.close();
+}
+
+// handle register_got_it button
+const register_got_it = document.getElementById('register_got_it');
+if (register_got_it) register_got_it.addEventListener('click', (event) => {
+    close_register_dialog();
+});
+
+// handle register_app_manage button
+const register_app_manage = document.getElementById('register_app_manage');
+if (register_app_manage) register_app_manage.addEventListener('click', (event) => {
+    close_register_dialog();
+    send({ type: "MANAGE_TOGGLE_TAB"});
+});
 
 
 // close delete_app_dialog when delete_app_keep_button is clicked
@@ -681,12 +717,18 @@ const signout_button = document.getElementById('logout');
 if (signout_button) {
     signout_button.addEventListener('click', () => {
         send({ type: "LOGOUT" });
+        sessionStorage.removeItem('token1');
+        sessionStorage.removeItem('app_registration_state');
+        // clear tokens from search params
+        const searchParams = new URLSearchParams(window.location.search);
+        searchParams.delete('token1');
+        searchParams.delete('token2');
+        window.history.replaceState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
     });
-    sessionStorage.removeItem('token1');
-    sessionStorage.removeItem('app_registration_state');
-    // clear tokens from search params
-    const searchParams = new URLSearchParams(window.location.search);
-    searchParams.delete('token1');
-    searchParams.delete('token2');
-    window.history.replaceState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
 }
+
+// handle empty_go_back to send go to register
+const empty_go_back = document.getElementById('empty_go_back');
+if (empty_go_back) empty_go_back.addEventListener('click', () => {
+    send({ type: "REGISTER_TOGGLE_TAB" });
+});

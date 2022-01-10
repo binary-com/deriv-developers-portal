@@ -126,31 +126,53 @@ permalink: docs/app-registration/
                                 <label for="admin-scope">Admin: API token management, application management</label>
                             </div>
                         </div>
+                        <!-- <div class="frame-873-Wl1CjS" data-id="1781:46893">
+                            <div class="frame-875-H8sDVI" data-id="1781:46894"><div class="copy-rSwHoF" data-id="1781:46896"><span class="span0-nRYBSy">By registering your application, you acknowledge that you’ve read and accepted the Deriv API </span><a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank"><span class="span1-nRYBSy">terms and conditions</span></a><span class="span2-nRYBSy">.</span></div>
+                            </div>
+                            <div class="general-H8sDVI" onclick="Lib.autoanim_redirect('%2A,javascript%3AShowOverlay%28%27api-register-oauthmonetise-app-logged-out%27%2C%20%27animate-appear%27%29%3B,,,', event)" data-id="1781:46897">
+                                <div class="label-2kfpPa" data-id="I1781:46897;183:507">Update application</div>
+                            </div>
+                        </div> -->
                         <button class="dialog-btn-submit" id="btnRegister">Register</button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="manage-apps">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Users</th>
-                        <th>Application ID</th>
-                        <th>Scopes</th>
-                        <th>Redirect URL</th>
-                        <th>
-                            <!-- update app action column -->
-                        </th>
-                        <th>
-                            <!-- remove app action column -->
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="app_list">
-                    <!-- populate table with data from API -->
-                </tbody>
-            </table>
+            <div class="manage-apps-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Users</th>
+                            <th>Application ID</th>
+                            <th>Scopes</th>
+                            <th>Redirect URL</th>
+                            <th>
+                                <!-- update app action column -->
+                            </th>
+                            <th>
+                                <!-- remove app action column -->
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="app_list">
+                        <!-- populate table with data from API -->
+                    </tbody>
+                </table>
+                <!-- display message "To modify your details please go back to the form and update your applicaton." when data-state empty -->
+                <div class="no-apps-wrapper">
+                    <div class="no-apps">
+                        <div class="no-apps-icon">
+                            <img src="/img/table-empty.svg" alt="No apps registered" />
+                        </div>
+                        <div class="no-apps-text">
+                            <p>To modify your details please go back to the form and update your applicaton.</p>
+                        </div>
+                        <!-- add go back button like in dialogs "got it" -->
+                        <button class="gray-btn-submit" id="empty_go_back">Go back</button>
+                    </div>
+                </div>
+            </div>
             <dialog id="delete_app_dialog" class="dialog-wrapper">
                 <div class="dialog dialog-delete">
                     <div class="dialog-header">
@@ -216,7 +238,24 @@ permalink: docs/app-registration/
                     </div>
                 </div>
             </dialog>
+            <!-- add register_app_dialog dialog with success.svg and "Success!" title and two buttons white "Got it" button and red "Manage application" button -->
+            <dialog id="register_app_dialog" class="dialog-wrapper">
+                <div class="dialog dialog-register">
+                    <div class="dialog-header">
+                        <img id="close_register_dialog" src="/img/close_dialog.svg" alt="Close" />
+                    </div>
+                    <div class="dialog-body dialog-body-register">
+                        <img class="dialog-success" src="/img/success.svg" alt="Success!" />
+                        <h3>Success!</h3>
+                        <p class="dialog-question">You have successfully registered your application. You can now start using Deriv API</p>
+                    </div>
+                    <div class="dialog-footer">
+                        <button class="dialog-btn-cancel" id="register_got_it">Got it</button>
+                        <button class="dialog-btn-submit" id="register_app_manage">Manage application</button>
+                    </div>
+                </div>
+            </dialog>
         </div>
     </div>
-    <div id="logout" class="app-registration-signout signout-container"><div class="signout-label">Sign out</div></div>
+    <button id="logout" class="app-registration-signout gray-btn-submit" id="delete_app_keep">Sign out</button>
 </div>

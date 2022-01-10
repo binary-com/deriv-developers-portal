@@ -286,7 +286,6 @@
     display: inline-block;
     overflow: auto;
     width: 100%;
-    padding-left: 125px;
 }
 
 .manage-apps {
@@ -299,6 +298,7 @@
 }
 
 .manage-apps thead {
+    background-color: var(--app-registration-tab-light-grey);
     height: 50px;
     text-align: left;
 }
@@ -327,6 +327,39 @@
 /* set width of last table column to 20px */
 .manage-apps tbody tr:nth-child(even) {
     background-color: var(--app-registration-tab-table-row-grey);
+}
+
+.no-apps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(320px - 32px);
+    position: relative;
+    margin: 0 auto;
+}
+
+.no-apps-icon {
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.no-apps-text {
+    text-align: center;
+}
+
+.no-apps-wrapper {
+    display: none;
+}
+
+[data-state~="logged_in.manage_tab.loadingApps.empty"] .no-apps-wrapper {
+    display: inline-block;
+}
+
+.no-apps-wrapper {
+    width: calc(100% - 32px);
+    position: absolute;
+    height: auto;
 }
 
 .register-app {
@@ -402,19 +435,6 @@
     font-size: 12px;
 }
 
-/* add app-registration-tab-light-grey color to thead no borders */
-[data-state~="logged_in.manage_tab.loadingApps.loading"] thead {
-    visibility: hidden;
-}
-
-
-
-/* add app-registration-tab-light-grey color to thead no borders */
-[data-state~="logged_in.manage_tab.loadingApps.success"] .manage-apps thead {
-    visibility: visible;
-    background-color: var(--app-registration-tab-light-grey);
-}
-
 .app-registration-signout {
     display: none;
 }
@@ -461,6 +481,26 @@
         margin-bottom: 24px;
     }
 
+
+    [data-state~="logged_in.manage_tab"] .manage-apps {
+        margin-left: 125px;
+    }
+
+    .no-apps-wrapper {
+        width: calc(100% - 125px);
+        position: relative;
+    }
+
+    .no-apps {
+        padding-top: 72px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .no-apps-text {
+        width: 390px;
+    }
+
     .register-form-header {
         font-size: 16px;
     }
@@ -468,29 +508,11 @@
 
     [data-state~="logged_in"] .app-registration-signout {
         display: block;
-    }
-    
-    .signout-container {
-        cursor: pointer;
-        border: 2px solid var(--app-registration-tab-secondary);
-        border-radius: 4px;
-        height: 40px;
-        right: 174px;
         position: fixed;
+        right: 174px;
         top: 43px;
-        width: 86px;
         z-index: 100;
-    }
-    
-    .signout-label {
-        z-index: 101;
-        background-color: transparent;
         color: var(--app-registration-text-submit);
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 20px;
-        position: relative;
-        text-align: center;
-        top: 10px;
+        background-color: transparent;
     }
 }
