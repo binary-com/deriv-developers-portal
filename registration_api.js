@@ -654,7 +654,7 @@ const registerApp = async ({ name, redirect_uri, scopes, verification_uri, app_m
     const token1 = getToken();
     await api.authorize(token1);
     await api.appRegister({ name, redirect_uri, scopes, verification_uri, app_markup_percentage });
-    open_register_dialog();
+    // open_register_dialog();
 };
 
 const open_register_dialog = () => {
