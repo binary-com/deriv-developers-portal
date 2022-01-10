@@ -416,6 +416,15 @@
     cursor: pointer;
 }
 
+/* add skeleton css for .skeleton class */
+.skeleton {
+    background-color: var(--app-registration-tab-light-grey);
+    padding: 10px;
+    height: 20px;
+    margin-bottom: 16px;
+    width: 100px;
+}
+
 .tooltip {
     display: none;
 }
