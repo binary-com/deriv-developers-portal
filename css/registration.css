@@ -120,6 +120,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -172,6 +173,11 @@
     /* add hover color to "Yes, delete" */
 .dialog-btn-submit:hover {
     background-color: #e4e2e2;
+}
+
+.dialog-success {
+    width: 100px;
+    height: 100px;
 }
 
 .dialog-question {
@@ -392,6 +398,31 @@
     border-bottom: 3px solid var(--app-registration-tab-active-underline);
 }
 
+[data-state~="logged_in.update_mode"] .expandable-form .register-app-button span {
+    visibility: hidden;
+    position: relative;
+}
+
+[data-state~="logged_in.update_mode"] .expandable-form .register-app-button span:after {
+    visibility: visible;
+    content: "Update application";
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+[data-state~="logged_in.update_mode"] .register-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-state~="logged_in.update_mode"] .expandable-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .expandable-form .register-app-button {
     padding: 12px 32.5px;
 }
@@ -408,6 +439,17 @@
     text-indent: 12px;
     margin-bottom: 4px !important;
 }
+
+/* make registration-dialog display none */
+.registration-dialog {
+    display: none;
+}
+
+/*  display register-app when [data-state] success */
+[data-state~="logged_in.register_tab.unfolded_form.submitting_registration.registration_success"] .registration-dialog {
+    display: flex;
+}
+
 
 .register-app-form {
     width: 100%;

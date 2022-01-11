@@ -129,14 +129,29 @@ permalink: docs/app-registration/
                             <div class="terms-of-conditions-register">
                                 <span>By registering your application, you acknowledge that you’ve read and accepted the Deriv API </span>
                                 <a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank">
-                                    <span>terms and conditions</span>
-                                </a>
-                                <span>.</span>
+                                    <span>terms and conditions</span></a><span>.</span>
                             </div>
-                        <button class="primary-btn-submit register-app-button" id="btnRegister">Register new application</button>
+                        <button class="primary-btn-submit register-app-button" id="btnRegister"><span>Register new application</span></button>
                     </div>
                 </div>
             </form>
+            <!-- add register_app_dialog dialog with success.svg and "Success!" title and two buttons white "Got it" button and red "Manage application" button -->
+            <dialog open id="register_app_dialog" class="registration-dialog dialog-wrapper">
+                <div class="dialog dialog-register">
+                    <div class="dialog-header">
+                        <img id="close_register_dialog" src="/img/close_dialog.svg" alt="Close" />
+                    </div>
+                    <div class="dialog-body dialog-body-register">
+                        <img class="dialog-success" src="/img/success.svg" alt="Success!" />
+                        <h3>Success!</h3>
+                        <p class="dialog-question">You have successfully registered your application. You can now start using Deriv API</p>
+                    </div>
+                    <div class="dialog-footer">
+                        <button class="dialog-btn-cancel" id="register_got_it">Got it</button>
+                        <button class="dialog-btn-submit" id="register_app_manage">Manage application</button>
+                    </div>
+                </div>
+            </dialog>
         </div>
         <div class="manage-apps">
             <div class="manage-apps-table">
@@ -238,20 +253,20 @@ permalink: docs/app-registration/
                     </div>
                 </div>
             </dialog>
-            <!-- add register_app_dialog dialog with success.svg and "Success!" title and two buttons white "Got it" button and red "Manage application" button -->
+            <!-- create a modal with a svg, header and text.  -->
             <dialog id="register_app_dialog" class="dialog-wrapper">
-                <div class="dialog dialog-register">
+                <div class="dialog dialog-modal">
                     <div class="dialog-header">
-                        <img id="close_register_dialog" src="/img/close_dialog.svg" alt="Close" />
+                        <img id="close_register_app_dialog" src="/img/close_dialog.svg" alt="Close" />
                     </div>
-                    <div class="dialog-body dialog-body-register">
-                        <img class="dialog-success" src="/img/success.svg" alt="Success!" />
+                    <div class="dialog-body dialog-body-modal">
+                        <img class="dialog-warning" src="/img/success.svg" alt="Success!" />
                         <h3>Success!</h3>
-                        <p class="dialog-question">You have successfully registered your application. You can now start using Deriv API</p>
+                        <p class="dialog-question">You have successfully registered your application. You can now start using Deriv API.</p>
                     </div>
                     <div class="dialog-footer">
-                        <button class="dialog-btn-cancel" id="register_got_it">Got it</button>
-                        <button class="dialog-btn-submit" id="register_app_manage">Manage application</button>
+                        <button class="dialog-btn-cancel" id="modal_got_it">Got it</button>
+                        <button class="dialog-btn-submit" id="modal_app_register">Manage application</button>
                     </div>
                 </div>
             </dialog>

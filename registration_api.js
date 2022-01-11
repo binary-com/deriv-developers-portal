@@ -43,6 +43,9 @@ const appRegistrationMachine = createMachine({
                                 submitting_registration: {
                                     id: "submitting_registration",
                                     initial: "loading_registration",
+                                    on: {
+                                        CLOSE_REGISTER_DIALOG: "#closed_registration_dialog",
+                                    },
                                     states: {
                                         loading_registration: {
                                             id: "loading_registration",
@@ -62,9 +65,12 @@ const appRegistrationMachine = createMachine({
                                         registration_error: {
                                             id: "registration_error",
                                         },
+                                        closed_registration_dialog: {
+                                            id: "closed_registration_dialog",
+                                        },
                                     },
                                 },
-                            }
+                            },
                         },
                     },
                 },
@@ -75,7 +81,9 @@ const appRegistrationMachine = createMachine({
                         REGISTER_TOGGLE_TAB: "#register_tab",
                         FETCH_APP_LIST: "#loadingApps",
                         DELETE_APP: "#deletingApp",
-                        UPDATE_APP: "#updateApp",
+                        // add GO_UPDATE_MODE event with data
+                        GO_UPDATE_MODE: { target: "#update_mode", data: (_, event) => event.data },
+
                     },
                     states: {
                         loadingApps: {
@@ -146,6 +154,11 @@ const appRegistrationMachine = createMachine({
                                 },
                             },
                         },
+                    },
+                },
+                update_mode: {
+                    id: "update_mode",
+                    states: {
                         updateApp: {
                             id: "updateApp",
                             initial: "loadingUpdate",
@@ -503,7 +516,6 @@ const getAppList = async () => {
 
     // create an array with 5 skeleton
     const skeleton_array = Array(5).fill(skeleton);
-    console.log('skeleton_array ', skeleton_array);
     // for each skeleton create a tr
     skeleton_array.forEach(item => {
         const tr = document.createElement('tr');
@@ -524,14 +536,16 @@ const getAppList = async () => {
         app_list_body.removeChild(app_list_body.firstChild);
     }
     app_list.forEach((app) => {
+        const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri} = app;
+        console.log('app ', app);
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${app.name}</td>
-                        <td>${app.app_id}</td>
-                        <td>${app.scopes.join(', ')}</td>
-                        <td>${app.redirect_uri}</td>
+        tr.innerHTML = `<td>${name}</td>
+                        <td>${app_id}</td>
+                        <td>${scopes.join(', ')}</td>
+                        <td>${redirect_uri}</td>
                         <td>
-                            <button aria-label="Update app" class="app-btn update-icon" onclick="open_update_dialog(${app.app_id}, '${app.name}', '${app.scopes.join(', ')}', '${app.redirect_uri}' )"><span>Remove app</span></button>
-                            <button aria-label="Delete app" class="app-btn delete-icon" onclick="open_delete_dialog(${app.app_id})"><span>Update app</span></button>
+                            <button aria-label="Update app" class="app-btn update-icon" onclick="go_update_mode(${active}, '${app_id}', '${app_markup_percentage}', '${appstore}', '${github}', '${googleplay}', '${homepage}', '${name}', '${redirect_uri}', '${verification_uri}', '${scopes.join(', ')}')"><span>Remove app</span></button>
+                            <button aria-label="Delete app" class="app-btn delete-icon" onclick="open_delete_dialog(${app_id})"><span>Update app</span></button>
                         </td>
                         `;
         app_list_body.appendChild(tr);
@@ -566,54 +580,61 @@ const open_delete_dialog = (app_id) => {
     });
 }
 
-const open_update_dialog = (app_id, name, scopes, redirect_uri) => {
-    const dialog = document.getElementById('update_app_dialog');
-    dialog.showModal();
-    const update_name = document.getElementById('update_app_name');
-    update_name.value = name;
-    const update_redirect_uri = document.getElementById('update_app_redirect_uri');
-    update_redirect_uri.value = redirect_uri;
-    const update_app_button = document.getElementById('update_app_button');
+// const edit_app_mode (app_id, name, scopes, redirect_uri) => {
 
-    const update_read_scope = document.getElementById('update_read-scope');
-    if (scopes.includes('read')) {
-        update_read_scope.checked = true;
-    }
-    const update_trade_scope = document.getElementById('update_trade-scope');
-    if (scopes.includes('trade')) {
-        update_trade_scope.checked = true;
-    }
-    const update_trading_information_scope = document.getElementById('update_trading_information-scope');
-    if (scopes.includes('trading_information')) {
-        update_trading_information_scope.checked = true;
-    }
-    const update_payments_scope = document.getElementById('update_payments-scope');
-    if (scopes.includes('payments')) {
-        update_payments_scope.checked = true;
-    }
-    const update_admin_scope = document.getElementById('update_admin-scope');
-    if (scopes.includes('admin')) {
-        update_admin_scope.checked = true;
-    }
+// }
 
-    const checkedScopes = () => {
-        const checked_scopes = [];
-        const checkboxes = document.querySelectorAll('#app_scopes input[type="checkbox"]');
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-                checked_scopes.push(checkbox.value);
-            }
-        });
-        return checked_scopes;
-    }
+const go_update_mode = (...app) => {
+    const [active, app_id, app_markup_percentage,
+        appstore, github, googleplay, homepage, name,
+        redirect_uri, scopes, verification_uri] = app;
+    console.log('inside update mode app ', redirect_uri);
+    send({ type: "GO_UPDATE_MODE", data: { app_id, name, redirect_uri, scopes } });
+    // WIP - update_mode
+    // const update_name = document.getElementById('update_app_name');
+    // update_name.value = name;
+    // const update_redirect_uri = document.getElementById('update_app_redirect_uri');
+    // update_redirect_uri.value = redirect_uri;
+    // const update_app_button = document.getElementById('update_app_button');
 
-    if (update_app_button) update_app_button.addEventListener('click', () => {
-        const name = update_name.value;
-        const redirect_uri = update_redirect_uri.value;
-        const scopes = checkedScopes();
-        send({ type: "UPDATE_APP", data: { app_id, name, redirect_uri, scopes } });
-        dialog.close();
-    });
+    // const update_read_scope = document.getElementById('update_read-scope');
+    // if (scopes.includes('read')) {
+    //     update_read_scope.checked = true;
+    // }
+    // const update_trade_scope = document.getElementById('update_trade-scope');
+    // if (scopes.includes('trade')) {
+    //     update_trade_scope.checked = true;
+    // }
+    // const update_trading_information_scope = document.getElementById('update_trading_information-scope');
+    // if (scopes.includes('trading_information')) {
+    //     update_trading_information_scope.checked = true;
+    // }
+    // const update_payments_scope = document.getElementById('update_payments-scope');
+    // if (scopes.includes('payments')) {
+    //     update_payments_scope.checked = true;
+    // }
+    // const update_admin_scope = document.getElementById('update_admin-scope');
+    // if (scopes.includes('admin')) {
+    //     update_admin_scope.checked = true;
+    // }
+
+    // const checkedScopes = () => {
+    //     const checked_scopes = [];
+    //     const checkboxes = document.querySelectorAll('#app_scopes input[type="checkbox"]');
+    //     checkboxes.forEach((checkbox) => {
+    //         if (checkbox.checked) {
+    //             checked_scopes.push(checkbox.value);
+    //         }
+    //     });
+    //     return checked_scopes;
+    // }
+
+    // if (update_app_button) update_app_button.addEventListener('click', () => {
+    //     const name = update_name.value;
+    //     const redirect_uri = update_redirect_uri.value;
+    //     const scopes = checkedScopes();
+    //     dialog.close();
+    // });
 }
 
 
@@ -672,7 +693,6 @@ const registerApp = async ({ name, redirect_uri, scopes, verification_uri, app_m
     const token1 = getToken();
     await api.authorize(token1);
     await api.appRegister({ name, redirect_uri, scopes, verification_uri, app_markup_percentage });
-    // open_register_dialog();
 };
 
 const open_register_dialog = () => {
@@ -749,4 +769,22 @@ if (signout_button) {
 const empty_go_back = document.getElementById('empty_go_back');
 if (empty_go_back) empty_go_back.addEventListener('click', () => {
     send({ type: "REGISTER_TOGGLE_TAB" });
+});
+
+// handle close_register_dialog to send CLOSE_REGISTER_MODAL
+const close_register_dialog_button = document.getElementById('close_register_dialog');
+if (close_register_dialog_button) close_register_dialog_button.addEventListener('click', () => {
+    send({ type: "CLOSE_REGISTER_DIALOG" });
+});
+
+// handle register_got_it in the same way
+const register_got_it_button = document.getElementById('register_got_it');
+if (register_got_it_button) register_got_it_button.addEventListener('click', () => {
+    send({ type: "CLOSE_REGISTER_DIALOG" });
+});
+
+// handle register_app_manage
+const register_app_manage_button = document.getElementById('register_app_manage');
+if (register_app_manage_button) register_app_manage_button.addEventListener('click', () => {
+    send({ type: "MANAGE_TOGGLE_TAB" });
 });
