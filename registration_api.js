@@ -493,23 +493,23 @@ const getAppList = async () => {
     const token1 = getToken();
 
     // rewrite skeleton to have div inside td with class="skeleton"
-    // const skeleton = `<tr>
-    //     <td><div class="skeleton"></div></td>
-    //     <td><div class="skeleton"></div></td>
-    //     <td><div class="skeleton"></div></td>
-    //     <td><div class="skeleton"></div></td>
-    //     <td><div class="skeleton"></div></td>
-    // </tr>`;
+    const skeleton = `<tr>
+        <td><div class="skeleton"></div></td>
+        <td><div class="skeleton"></div></td>
+        <td><div class="skeleton"></div></td>
+        <td><div class="skeleton"></div></td>
+        <td><div class="skeleton"></div></td>
+    </tr>`;
 
-    // // create an array with 5 skeleton
-    // const skeleton_array = Array(5).fill(skeleton);
-    // console.log('skeleton_array ', skeleton_array);
-    // // for each skeleton create a tr
-    // skeleton_array.forEach(item => {
-    //     const tr = document.createElement('tr');
-    //     tr.innerHTML = item;
-    //     document.getElementById('app_list').appendChild(tr);
-    // });
+    // create an array with 5 skeleton
+    const skeleton_array = Array(5).fill(skeleton);
+    console.log('skeleton_array ', skeleton_array);
+    // for each skeleton create a tr
+    skeleton_array.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = item;
+        document.getElementById('app_list').appendChild(tr);
+    });
     await api.authorize(token1);
     const get_data = await api.appList();
     const app_list = get_data.app_list;
