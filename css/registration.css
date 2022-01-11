@@ -190,8 +190,6 @@
 [data-state~="logged_in.register_tab.unfolded_form"] .expandable-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 [data-state~="logged_in.register_tab.folded_form"] .expandable-form {
@@ -394,6 +392,10 @@
     border-bottom: 3px solid var(--app-registration-tab-active-underline);
 }
 
+.expandable-form .register-app-button {
+    padding: 12px 32.5px;
+}
+
 .register-form-header {
     font-size: 16px;
     margin-right: 5px;
@@ -414,15 +416,6 @@
 
 .register-login-button {
     cursor: pointer;
-}
-
-/* add skeleton css for .skeleton class */
-.skeleton {
-    background-color: var(--app-registration-tab-light-grey);
-    padding: 10px;
-    height: 20px;
-    margin-bottom: 16px;
-    width: 100px;
 }
 
 .skeleton {
@@ -458,6 +451,10 @@
     100% {
         opacity: 1;
     }
+}
+
+.terms-of-conditions-register {
+    margin-top: 35px;
 }
 
 .tooltip {
@@ -545,10 +542,13 @@
         width: 390px;
     }
 
+    .expandable-form .register-app-button {
+        padding: 12px 20px;
+    }
+
     .register-form-header {
         font-size: 16px;
     }
-
 
     [data-state~="logged_in"] .app-registration-signout {
         display: block;
