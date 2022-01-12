@@ -537,7 +537,6 @@ const getAppList = async () => {
     }
     app_list.forEach((app) => {
         const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri} = app;
-        console.log('app ', app);
         const tr = document.createElement('tr');
         tr.innerHTML = `<td>${name}</td>
                         <td>${app_id}</td>
@@ -585,56 +584,44 @@ const open_delete_dialog = (app_id) => {
 // }
 
 const go_update_mode = (...app) => {
-    const [active, app_id, app_markup_percentage,
-        appstore, github, googleplay, homepage, name,
-        redirect_uri, scopes, verification_uri] = app;
-    console.log('inside update mode app ', redirect_uri);
+    const [_active, app_id, app_markup_percentage,
+        _appstore, _github, _googleplay, _homepage, name,
+        redirect_uri, verification_uri, scopes] = app;
     send({ type: "GO_UPDATE_MODE", data: { app_id, name, redirect_uri, scopes } });
-    // WIP - update_mode
-    // const update_name = document.getElementById('update_app_name');
-    // update_name.value = name;
-    // const update_redirect_uri = document.getElementById('update_app_redirect_uri');
-    // update_redirect_uri.value = redirect_uri;
-    // const update_app_button = document.getElementById('update_app_button');
 
-    // const update_read_scope = document.getElementById('update_read-scope');
-    // if (scopes.includes('read')) {
-    //     update_read_scope.checked = true;
-    // }
-    // const update_trade_scope = document.getElementById('update_trade-scope');
-    // if (scopes.includes('trade')) {
-    //     update_trade_scope.checked = true;
-    // }
-    // const update_trading_information_scope = document.getElementById('update_trading_information-scope');
-    // if (scopes.includes('trading_information')) {
-    //     update_trading_information_scope.checked = true;
-    // }
-    // const update_payments_scope = document.getElementById('update_payments-scope');
-    // if (scopes.includes('payments')) {
-    //     update_payments_scope.checked = true;
-    // }
-    // const update_admin_scope = document.getElementById('update_admin-scope');
-    // if (scopes.includes('admin')) {
-    //     update_admin_scope.checked = true;
-    // }
 
-    // const checkedScopes = () => {
-    //     const checked_scopes = [];
-    //     const checkboxes = document.querySelectorAll('#app_scopes input[type="checkbox"]');
-    //     checkboxes.forEach((checkbox) => {
-    //         if (checkbox.checked) {
-    //             checked_scopes.push(checkbox.value);
-    //         }
-    //     });
-    //     return checked_scopes;
-    // }
+    // get register your application fields
+    const app_name_input = document.getElementById('app_name');
+    const app_redirect_uri_input = document.getElementById('app_redirect_uri');
+    const app_verification_uri_input = document.getElementById('app_verification_uri');
+    const app_markup_percentage_input = document.getElementById('app_markup_percentage');
 
-    // if (update_app_button) update_app_button.addEventListener('click', () => {
-    //     const name = update_name.value;
-    //     const redirect_uri = update_redirect_uri.value;
-    //     const scopes = checkedScopes();
-    //     dialog.close();
-    // });
+    // prefill in the fields with app data
+    app_name_input.value = name;
+    app_redirect_uri_input.value = redirect_uri;
+    app_verification_uri_input.value = verification_uri;
+    app_markup_percentage_input.value = app_markup_percentage;
+
+    const update_read_scope = document.getElementById('read-scope');
+    if (scopes.includes('read')) {
+        update_read_scope.checked = true;
+    }
+    const update_trade_scope = document.getElementById('trade-scope');
+    if (scopes.includes('trade')) {
+        update_trade_scope.checked = true;
+    }
+    const update_trading_information_scope = document.getElementById('trading_information-scope');
+    if (scopes.includes('trading_information')) {
+        update_trading_information_scope.checked = true;
+    }
+    const update_payments_scope = document.getElementById('payments-scope');
+    if (scopes.includes('payments')) {
+        update_payments_scope.checked = true;
+    }
+    const update_admin_scope = document.getElementById('admin-scope');
+    if (scopes.includes('admin')) {
+        update_admin_scope.checked = true;
+    }
 }
 
 
