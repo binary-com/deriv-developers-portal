@@ -596,11 +596,8 @@ const go_update_mode = (...app) => {
     const app_redirect_uri_input = document.getElementById('app_redirect_uri');
     const app_verification_uri_input = document.getElementById('app_verification_uri');
     const app_markup_percentage_input = document.getElementById('app_markup_percentage');
-    const app_id_input = document.createElement('input');
-    app_id_input.setAttribute('type', 'hidden');
-    app_id_input.setAttribute('id', 'app_id');
+    const app_id_input = document.getElementById('app_id');
     app_id_input.setAttribute('value', app_id);
-    document.getElementById('frmNewApplication').appendChild(app_id_input);
 
     // prefill in the fields with app data
     app_name_input.value = name;
@@ -676,7 +673,7 @@ if (send_register_button) {
                 "scopes": scopes,
                 "verification_uri": verification_uri,
                 "app_markup_percentage": app_markup_percentage,
-                "app_id": app_id
+                "app_id": app_id,
             }
         });
     });
