@@ -158,6 +158,7 @@ const appRegistrationMachine = createMachine({
                 },
                 update_mode: {
                     id: "update_mode",
+                    on: { SUBMIT_REGISTRATION: "#updateApp" },
                     states: {
                         updateApp: {
                             id: "updateApp",
@@ -587,7 +588,7 @@ const go_update_mode = (...app) => {
     const [_active, app_id, app_markup_percentage,
         _appstore, _github, _googleplay, _homepage, name,
         redirect_uri, verification_uri, scopes] = app;
-    send({ type: "GO_UPDATE_MODE", data: { app_id, name, redirect_uri, scopes } });
+    send({ type: "GO_UPDATE_MODE"}); // TODO: send app_id through xstate
 
 
     // get register your application fields
@@ -595,6 +596,11 @@ const go_update_mode = (...app) => {
     const app_redirect_uri_input = document.getElementById('app_redirect_uri');
     const app_verification_uri_input = document.getElementById('app_verification_uri');
     const app_markup_percentage_input = document.getElementById('app_markup_percentage');
+    const app_id_input = document.createElement('input');
+    app_id_input.setAttribute('type', 'hidden');
+    app_id_input.setAttribute('id', 'app_id');
+    app_id_input.setAttribute('value', app_id);
+    document.getElementById('frmNewApplication').appendChild(app_id_input);
 
     // prefill in the fields with app data
     app_name_input.value = name;
@@ -660,6 +666,8 @@ if (send_register_button) {
         }
         const scopes = checkedRegisterScopes();
         const app_markup_percentage = document.getElementById('app_markup_percentage').value;
+        // read app_id from hidden input
+        const app_id = document.getElementById('app_id').value;
         send({
             "type": "SUBMIT_REGISTRATION",
             "data": {
@@ -667,7 +675,8 @@ if (send_register_button) {
                 "redirect_uri": redirect_uri,
                 "scopes": scopes,
                 "verification_uri": verification_uri,
-                "app_markup_percentage": app_markup_percentage
+                "app_markup_percentage": app_markup_percentage,
+                "app_id": app_id
             }
         });
     });
