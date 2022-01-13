@@ -29,6 +29,9 @@ const appRegistrationMachine = createMachine({
                     states: {
                         folded_form: {
                             id: "folded_form",
+                            invoke: {
+                                src: 'resetFields',
+                            },
                             on: {
                                 TOGGLE_FORM: "#unfolded_form",
                             },
@@ -158,7 +161,9 @@ const appRegistrationMachine = createMachine({
                 },
                 update_mode: {
                     id: "update_mode",
-                    on: { SUBMIT_REGISTRATION: "#updateApp" },
+                    on: {
+                        SUBMIT_REGISTRATION: "#updateApp",
+                    },
                     states: {
                         updateApp: {
                             id: "updateApp",
@@ -195,6 +200,13 @@ const appRegistrationMachine = createMachine({
                     },
                 },
             },
+        },
+    },
+}, {
+    services: {
+        resetFields: async () => {
+            const form = document.querySelector('#frmNewApplication');
+            form.reset();
         },
     },
 });
@@ -608,22 +620,32 @@ const go_update_mode = (...app) => {
     const update_read_scope = document.getElementById('read-scope');
     if (scopes.includes('read')) {
         update_read_scope.checked = true;
+    } else {
+        update_read_scope.checked = false;
     }
     const update_trade_scope = document.getElementById('trade-scope');
     if (scopes.includes('trade')) {
         update_trade_scope.checked = true;
+    } else {
+        update_trade_scope.checked = false;
     }
     const update_trading_information_scope = document.getElementById('trading_information-scope');
     if (scopes.includes('trading_information')) {
         update_trading_information_scope.checked = true;
+    } else {
+        update_trading_information_scope.checked = false;
     }
     const update_payments_scope = document.getElementById('payments-scope');
     if (scopes.includes('payments')) {
         update_payments_scope.checked = true;
+    } else {
+        update_payments_scope.checked = false;
     }
     const update_admin_scope = document.getElementById('admin-scope');
     if (scopes.includes('admin')) {
         update_admin_scope.checked = true;
+    } else {
+        update_admin_scope.checked = false;
     }
 }
 
