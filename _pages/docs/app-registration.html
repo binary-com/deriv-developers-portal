@@ -40,13 +40,18 @@ permalink: docs/app-registration/
                             </div>
                         </div>
                         <div class="api-token-wrapper">
-                            <input type="text" id="api-token-input" placeholder="API token (Required)" />
+                            <div class="custom-text-input" id="custom-text-input">
+                                <input type="text" id="api-token-input" />
+                                <label>API token (Required)</label>
+                            </div>
                             <p class="helper-text">max. 50 characters</p>
                             <div class="api-token-warning">
                             </div>
                             <div class="first">
-                                <input type="text" id="app_name" name="app_name" placeholder="App name (Required)"
-                                    pattern="^[\w\s-]{1,48}$" required />
+                                <div class="custom-text-input" id="custom-text-input">
+                                    <input type="text" id="app_name" name="app_name" pattern="^[\w\s-]{1,48}$" required />
+                                    <label>App name (Required)</label>
+                                </div>
                             </div>
                     </fieldset>
                     <div class="expand-form">
@@ -66,8 +71,10 @@ permalink: docs/app-registration/
                             </div>
                             <div class="input-container">
                                 <div>
-                                    <input id="app_markup_percentage" type="text" maxlength="5"
-                                        placeholder="Markup percentage" class="last" />
+                                    <div class="custom-text-input" id="custom-text-input">
+                                        <input id="app_markup_percentage" type="text" maxlength="5" class="last" />
+                                        <label>Markup percentage</label>
+                                    </div>
                                     <p class="helper-text">(0.00-5.00%)</p>
                                 </div>
                             </div>
@@ -79,14 +86,18 @@ permalink: docs/app-registration/
                                 </div>
                             </div>
                             <div class="input-container">
-                                <input id="app_redirect_uri" type="text" maxlength="255"
-                                    placeholder="Website URL" />
+                                <div class="custom-text-input" id="custom-text-input">
+                                    <input id="app_redirect_uri" type="text" maxlength="255" />
+                                    <label>Website URL</label>
+                                </div>
                                 <p class="helper-text">*Please note that this URL will be used as the OAuth redirect
                                     URL for the OAuth authorisation</p>
                             </div>
                             <div class="input-container">
-                                <input id="app_verification_uri" type="text" maxlength="255"
-                                    placeholder="Verification URL" />
+                                <div class="custom-text-input" id="custom-text-input">
+                                    <input id="app_verification_uri" type="text" maxlength="255" />
+                                    <label>Verification URL</label>
+                                </div>
                             </div>
                         </fieldset>
                         <div class="scopes" id="register_scopes">

@@ -437,7 +437,7 @@
     padding: 0;
     width: 100%;
     text-indent: 12px;
-    margin-bottom: 4px !important;
+    margin-bottom: 0 !important;
 }
 
 /* make registration-dialog display none */

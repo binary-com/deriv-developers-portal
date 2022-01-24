@@ -9,6 +9,9 @@
   --app-registration-tab-light-grey: #E6E9E9;
   --app-registration-tab-table-row-grey: #FBFBFB;
   --app-registration-text-submit: #ffffff;
+  --brand-secondary: #85acb0;
+  --border-normal: #d6dadb;
+  --label-background: #ffffff;
 }
 
 $slider-width: 588px;
@@ -21,9 +24,69 @@ $slider-height: 248px;
   padding: 0;
   margin: 0;
 }
+
 #hamburger {
   display: none;
 }
+
+.custom-text-input {
+  align-items: center;
+  border: 1px solid var(--border-normal);
+  border-radius: 4px;
+  display: flex;
+  line-height: 1.43;
+  position: relative;
+  width: 100%;
+}
+
+.custom-text-input input[type="text"]:focus {
+  outline: none;
+}
+
+.custom-text-input:focus-within {
+  border-color: var(--brand-secondary);
+}
+
+.custom-text-input input[type="text"] {
+  background: 0 0;
+  box-sizing: border-box;
+  color: var(--app-registration-tab-active-font);
+  display: block;
+  height: 2.5rem;
+  min-width: 0;
+  width: 100%;
+  border: none;
+}
+
+.custom-text-input label {
+  position: absolute;
+  color: var(--app-registration-tab-secondary);
+  left: 12px;
+  font-size: 14px;
+  pointer-events: none;
+  transform-origin: top left;
+  transition: all .25s ease;
+  white-space: nowrap;
+}
+
+.custom-text-input input[type="text"]:focus~label {
+  color: var(--brand-secondary);
+  background-color: var(--label-background);
+  padding: 0 4px;
+  transform: translateY(-20px) scale(.75);
+}
+
+.keep-text-input-focus {
+  border-color: var(--border-normal);
+}
+
+.keep-text-input-focus label {
+  transform: translateY(-20px) scale(.75);
+  padding: 0 4px;
+  background-color: var(--label-background);
+  color: var(--app-registration-tab-active-font);
+}
+
 @media (max-width: 480px) {
   .ul-paragraph {
     margin-bottom: 24px;
