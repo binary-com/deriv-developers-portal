@@ -1,3 +1,7 @@
+[data-state~="logged_in.manage_tab.loadingApps.loading"] #app_list .data {
+    display: none;
+}
+
 .app-registration-login {
     display: none;
 }
@@ -207,7 +211,10 @@
 }
 
 .expand-form {
-    padding: 20px 0 10px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    padding: 40px 0 10px;
 }
 
 .expand-form-checkbox {

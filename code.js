@@ -724,6 +724,33 @@ function addEventListeners() {
   });
 }
 
+// Creating custom checkbox.
+const all_main_checkboxes = document.querySelectorAll("input[type='checkbox']");
+all_main_checkboxes.forEach(checkbox => {
+  const custom_checkbox = document.createElement("span");
+  const check_icon = document.createElement("img");
+
+  custom_checkbox.className = "custom-checkbox";
+  custom_checkbox.id = checkbox.id;
+  
+  custom_checkbox.appendChild(check_icon);
+  checkbox.after(custom_checkbox);
+
+  custom_checkbox.addEventListener("click", (event) => {
+    const main_checkbox = document.querySelector(`input#${event.target.id}`);
+    const is_checked = main_checkbox.hasAttribute("checked");
+    if (!is_checked && event.target.id === checkbox.id) {
+      // check
+      main_checkbox.setAttribute("checked", "");
+      custom_checkbox.classList.add("active-checkbox");
+    } else {
+      // uncheck
+      main_checkbox.removeAttribute("checked");
+      custom_checkbox.classList.remove("active-checkbox");
+    }
+  });
+});
+
 // keep text input :focus state values in seperate class, if user fills in a value.
 const custom_text_input_containers = document.querySelectorAll('#custom-text-input');
 custom_text_input_containers.forEach(container => {

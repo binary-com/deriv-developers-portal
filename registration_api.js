@@ -449,16 +449,16 @@ const loginUrl = ({ language }) => {
 function activate(state) {
     const joinedState = state.toStrings().join(' ');
     const elApp = document.getElementById('app-registration-machine');
-    const form_checkbox = document.getElementById('expand_form');
+    const form_checkbox = document.querySelector('span#expand_form');
     const is_folded_state = joinedState === 'logged_in logged_in.register_tab logged_in.register_tab.folded_form';
     if (elApp) {
         elApp.dataset.state = joinedState;
         elApp.setAttribute("data-state", joinedState);
     }
     if (is_folded_state) {
-        if (form_checkbox) form_checkbox.checked = false;
+        if (form_checkbox) form_checkbox.classList.remove("active-checkbox");
     } else {
-        if (form_checkbox) form_checkbox.checked = true;
+        if (form_checkbox) form_checkbox.classList.add("active-checkbox");
     }
 }
 
@@ -469,9 +469,9 @@ const interpreter = XState
 
 const { send } = interpreter;
 
-const unfolded_form_checkbox = document.getElementById('expand_form');
+const unfolded_form_checkbox = document.querySelector('span#expand_form');
 if (unfolded_form_checkbox) {
-    unfolded_form_checkbox.addEventListener('change', () => {
+    unfolded_form_checkbox.addEventListener('click', () => {
         send({
             "type": "TOGGLE_FORM"
         });
@@ -561,6 +561,7 @@ const getAppList = async () => {
                         </td>
                         `;
         app_list_body.appendChild(tr);
+        tr.classList.add("data");
     });
 }
 
@@ -592,10 +593,6 @@ const open_delete_dialog = (app_id) => {
     });
 }
 
-// const edit_app_mode (app_id, name, scopes, redirect_uri) => {
-
-// }
-
 const go_update_mode = (...app) => {
     const [_active, app_id, app_markup_percentage,
         _appstore, _github, _googleplay, _homepage, name,
@@ -617,35 +614,54 @@ const go_update_mode = (...app) => {
     app_verification_uri_input.value = verification_uri;
     app_markup_percentage_input.value = app_markup_percentage;
 
-    const update_read_scope = document.getElementById('read-scope');
-    if (scopes.includes('read')) {
-        update_read_scope.checked = true;
+    const custom_read_checkbox = document.querySelector("span#read-scope");
+    const read_checkbox = document.querySelector("input#read-scope");
+    if (scopes.includes("read")) {
+        custom_read_checkbox.classList.add("active-checkbox");
+        read_checkbox.setAttribute("checked", "");
     } else {
-        update_read_scope.checked = false;
+        custom_read_checkbox.classList.remove("active-checkbox");
+        read_checkbox.removeAttribute("checked");
     }
-    const update_trade_scope = document.getElementById('trade-scope');
-    if (scopes.includes('trade')) {
-        update_trade_scope.checked = true;
+
+    const custom_trade_checkbox = document.querySelector("span#trade-scope");
+    const trade_checkbox = document.querySelector("input#trade-scope");
+    if (scopes.includes("trade")) {
+        custom_trade_checkbox.classList.add("active-checkbox");
+        trade_checkbox.setAttribute("checked", "");
     } else {
-        update_trade_scope.checked = false;
+        custom_trade_checkbox.classList.remove("active-checkbox");
+        trade_checkbox.removeAttribute("checked");
     }
-    const update_trading_information_scope = document.getElementById('trading_information-scope');
-    if (scopes.includes('trading_information')) {
-        update_trading_information_scope.checked = true;
+    
+    const custom_trading_information_checkbox = document.querySelector("span#trading_information-scope");
+    const trading_information_checkbox = document.querySelector("input#trading_information-scope");
+    if (scopes.includes("trading_information")) {
+        custom_trading_information_checkbox.classList.add("active-checkbox");
+        trading_information_checkbox.setAttribute("checked", "");
     } else {
-        update_trading_information_scope.checked = false;
+        custom_trading_information_checkbox.classList.remove("active-checkbox");
+        trading_information_checkbox.removeAttribute("checked");
     }
-    const update_payments_scope = document.getElementById('payments-scope');
-    if (scopes.includes('payments')) {
-        update_payments_scope.checked = true;
+
+    const custom_payments_scope_checkbox = document.querySelector("span#payments-scope");
+    const payments_scope_checkbox = document.querySelector("input#payments-scope");
+    if (scopes.includes("payments")) {
+        custom_payments_scope_checkbox.classList.add("active-checkbox");
+        payments_scope_checkbox.setAttribute("checked", "");
     } else {
-        update_payments_scope.checked = false;
+        custom_payments_scope_checkbox.classList.remove("active-checkbox");
+        payments_scope_checkbox.removeAttribute("checked");
     }
-    const update_admin_scope = document.getElementById('admin-scope');
-    if (scopes.includes('admin')) {
-        update_admin_scope.checked = true;
+
+    const custom_admin_scope_checkbox = document.querySelector("span#admin-scope");
+    const admin_scope_checkbox = document.querySelector("input#admin-scope");
+    if (scopes.includes("admin")) {
+        custom_admin_scope_checkbox.classList.add("active-checkbox");
+        admin_scope_checkbox.setAttribute("checked", "");
     } else {
-        update_admin_scope.checked = false;
+        custom_admin_scope_checkbox.classList.remove("active-checkbox");
+        admin_scope_checkbox.removeAttribute("checked");
     }
 }
 

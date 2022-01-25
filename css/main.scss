@@ -29,6 +29,46 @@ $slider-height: 248px;
   display: none;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  background-image: url("/img/check.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  border: 2px solid var(--app-registration-tab-secondary);
+  min-width: 11px;
+  height: 11px;
+  position: relative;
+  top: 1px;
+  margin-right: 8px;
+  border-radius: 2px;
+  transition: background-color .25s, border-color .25s;
+  &#expand_form {
+    top: 3px;
+    margin-right: 16px;
+  }
+  .check-icon {
+    display: none;
+  }
+} 
+
+.active-checkbox .check-icon {
+  display: inline-block;
+  pointer-events: none;
+  position: absolute;
+  top: 1px;
+  left: 0.3px;
+  width: 11px;
+}
+
+[data-state~="logged_in.register_tab.unfolded_form"] .active-checkbox,
+[data-state~="logged_in.update_mode"] .active-checkbox {
+  background-color: var(--app-registration-tab-active-underline);
+  border-color: var(--app-registration-tab-active-underline);
+}
+
 .custom-text-input {
   align-items: center;
   border: 1px solid var(--border-normal);
