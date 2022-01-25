@@ -25,6 +25,10 @@ $slider-height: 248px;
   margin: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 #hamburger {
   display: none;
 }
@@ -548,7 +552,7 @@ input[type="checkbox"] {
     }
     .benefits {
       img{
-        height: 176px;
+        height: auto;
       }      
     }
     .container {
@@ -719,9 +723,6 @@ input[type="checkbox"] {
 @media (max-width: 1499px) {
   .benefits div{
     width: 100%;
-  }
-  .personalisation, .earn-more{
-    margin: 0 40px;
   }
   .personalisation{
     order: 2;
@@ -967,27 +968,71 @@ ol > p {
   align-items: center;
   justify-content: center;
 }
-.benefits-title{
+.benefits-title {
   margin-bottom: 10px; 
 }
-.benefits-icons{
+.benefits-icons {
   width: 65%;
   flex-wrap: nowrap;
   margin-bottom: 20px;
-    .single-container{
-    img{
+    .single-container {
+    img {
       margin: 8px;
     }
-    p{
+    p {
       font-size: 22px;
     }
   }
 }
-.benefits{
+.benefits {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-evenly;
-  width: 90%;
+  width: 100%;
+  .earn-more-container,
+  .personalisation-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px 0 0 0;
+  }
+  .earn-more-container {
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
+    .earn-more {
+      @media (max-width: 992px) {
+        width: 90% !important;
+        margin: 0 auto;
+      }
+    }
+    .earn-more-image {
+      @media (max-width: 486px) {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+  .personalisation-container {
+    flex-direction: row-reverse;
+    @media (max-width: 992px) {
+      flex-direction: column-reverse;
+    }
+    .personalisation {
+      @media (max-width: 992px) {
+        width: 90% !important;
+        margin: 0 auto;
+      }
+    }
+    .personalisation-image {
+      @media (max-width: 486px) {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
   div{
     width: 486px;
   }
@@ -1022,6 +1067,9 @@ ol > p {
       margin-bottom: 0px;
     }
   } 
+  @media (max-width: 992px) {
+    width: 90%
+  }
 }
 .take-to-lib{
   padding: 80px 0 0 0;
