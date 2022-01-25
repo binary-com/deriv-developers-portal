@@ -410,6 +410,10 @@ const getToken = () => {
     }
 };
 
+const getStorageToken = () => {
+    return localStorage.getItem("config.token");
+}
+
 // get app_id from url
 const app_id_in_url = urlParams.get('app_id');
 // if app_id is in url, set it in LocalStore
@@ -487,6 +491,14 @@ if (register_button) {
         send({
             "type": "REGISTER_TOGGLE_TAB"
         });
+        const all_checkboxes = document.querySelectorAll("[data-state~='logged_in.register_tab'] input[type='checkbox']");
+        all_checkboxes.forEach(checkbox => {
+            if (checkbox.hasAttribute("checked")) {
+                const custom_checkbox = checkbox.parentElement.querySelector(".custom-checkbox");
+                checkbox.removeAttribute("checked");
+                custom_checkbox.classList.remove("active-checkbox");
+            }
+        });
     });
 }
 
@@ -519,7 +531,7 @@ const getAppList = async () => {
     const app_id = getSessionAppId();
     const endpoint = getEndpoint();
     const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getToken();
+    const token1 = getStorageToken();
 
     // rewrite skeleton to have div inside td with class="skeleton"
     const skeleton = `<tr>
@@ -571,7 +583,7 @@ const getAppList = async () => {
 const removeApp = async (app_id) => {
     const endpoint = getEndpoint();
     const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getToken();
+    const token1 = getStorageToken();
     await api.authorize(token1);
     await api.appDelete(app_id);
     send({ type: 'FETCH_APP_LIST' });
