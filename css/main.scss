@@ -83,6 +83,10 @@ input[type="checkbox"] {
   width: 100%;
 }
 
+.custom-text-input:hover {
+  border: 1px solid var(--app-registration-tab-secondary);
+}
+
 .custom-text-input input[type="text"]:focus {
   outline: none;
 }
@@ -111,6 +115,13 @@ input[type="checkbox"] {
   transform-origin: top left;
   transition: all .25s ease;
   white-space: nowrap;
+}
+
+.custom-text-input input[type="text"]:not(:placeholder-shown)~label {
+  color: var(--app-registration-tab-active-font);
+  background-color: var(--label-background);
+  padding: 0 4px;
+  transform: translateY(-20px) scale(.75);
 }
 
 .custom-text-input input[type="text"]:focus~label {

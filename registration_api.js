@@ -388,6 +388,7 @@ let sessionState = sessionStorage.getItem('app_registration_state') || 'logged_o
 const urlParams = new URLSearchParams(window.location.search);
 const token1_in_url = urlParams.get('token1');
 if (token1_in_url) {
+    sessionStorage.setItem('token1', token1_in_url);
     sessionStorage.setItem('app_registration_state', 'logged_in');
     sessionState = 'logged_in';
 }
@@ -409,6 +410,10 @@ const getToken = () => {
         return token_input.value;
     }
 };
+
+const getStorageToken = () => {
+    return sessionStorage.getItem('token1');
+}
 
 // get app_id from url
 const app_id_in_url = urlParams.get('app_id');
@@ -519,7 +524,7 @@ const getAppList = async () => {
     const app_id = getSessionAppId();
     const endpoint = getEndpoint();
     const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getToken();
+    const token1 = getStorageToken();
 
     // rewrite skeleton to have div inside td with class="skeleton"
     const skeleton = `<tr>
@@ -564,14 +569,13 @@ const getAppList = async () => {
                         </td>
                         `;
         app_list_body.appendChild(tr);
-        tr.classList.add("data");
     });
 }
 
 const removeApp = async (app_id) => {
     const endpoint = getEndpoint();
     const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getToken();
+    const token1 = getStorageToken();
     await api.authorize(token1);
     await api.appDelete(app_id);
     send({ type: 'FETCH_APP_LIST' });

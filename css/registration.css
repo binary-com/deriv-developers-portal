@@ -1,7 +1,3 @@
-[data-state~="logged_in.manage_tab.loadingApps.loading"] #app_list .data {
-    display: none;
-}
-
 .app-registration-login {
     display: none;
 }

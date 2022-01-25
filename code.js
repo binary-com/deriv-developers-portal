@@ -750,17 +750,3 @@ all_main_checkboxes.forEach(checkbox => {
     }
   });
 });
-
-// keep text input :focus state values in seperate class, if user fills in a value.
-const custom_text_input_containers = document.querySelectorAll('#custom-text-input');
-custom_text_input_containers.forEach(container => {
-    const input = container.children[0];
-    input.addEventListener('input', (event) => {
-        const input_value = event.target.value;
-        const custom_input = event.target.parentElement;
-
-        input_value !== '' ? 
-        custom_input.classList.add("keep-text-input-focus") :
-        custom_input.classList.remove("keep-text-input-focus");
-    });
-});
