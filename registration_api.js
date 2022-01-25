@@ -388,24 +388,27 @@ let sessionState = sessionStorage.getItem('app_registration_state') || 'logged_o
 const urlParams = new URLSearchParams(window.location.search);
 const token1_in_url = urlParams.get('token1');
 if (token1_in_url) {
-    sessionStorage.setItem('token1', token1_in_url);
     sessionStorage.setItem('app_registration_state', 'logged_in');
     sessionState = 'logged_in';
 }
 
-// add getToken function
-const getToken = () => token1_in_url || sessionStorage.getItem('token1');
 
-
-// add setToken function
-const setToken = (token) => {
-    LocalStore.set('config.token', token);
-};
-
-// sest token in localStore if getToken is true
-if (getToken()) {
-    setToken(getToken());
+// token field api_token_input onchange set token
+const token_input = document.getElementById('api_token_input');
+if (token_input) {
+    token_input.onchange = (e) =>{
+        const token = e.target.value;
+        if (token) {
+            sessionStorage.setItem('token1', token);
+        }
+    };
 }
+
+const getToken = () => {
+    if (token_input) {
+        return token_input.value;
+    }
+};
 
 // get app_id from url
 const app_id_in_url = urlParams.get('app_id');
