@@ -492,6 +492,14 @@ if (register_button) {
         send({
             "type": "REGISTER_TOGGLE_TAB"
         });
+        const all_checkboxes = document.querySelectorAll("[data-state~='logged_in.register_tab'] input[type='checkbox']");
+        all_checkboxes.forEach(checkbox => {
+            if (checkbox.hasAttribute("checked")) {
+                const custom_checkbox = checkbox.parentElement.querySelector(".custom-checkbox");
+                checkbox.removeAttribute("checked");
+                custom_checkbox.classList.remove("active-checkbox");
+            }
+        });
     });
 }
 
