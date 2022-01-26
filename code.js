@@ -221,15 +221,13 @@ function initConnection(language) {
   api.socket.onclose = function (e) {
     console.log("connection closed."); // intended to help developers, not debugging
   };
-
-  api.events.on("*", incomingMessageHandler);
 }
 
-function sendRequest(json) {
+function sendRequest(json, isRegistration) {
   if (!api) {
     initConnection();
+    api.events.on("*", (e) => incomingMessageHandler(e, isRegistration));
   }
-
   var lang = getLanguage();
   if (api.language !== lang) {
     api.changeLanguage(lang);
@@ -241,20 +239,26 @@ function sendRequest(json) {
   ) {
     api.connect();
   }
-
   api.sendRaw(json);
 }
 
-function incomingMessageHandler(json) {
+function incomingMessageHandler(json, isRegistration) {
   var authorizationError = !!(
       json.error && json.error.code === "AuthorizationRequired"
     ),
     prettyJson = getFormattedJsonStr(json);
   console.log(json); // intended to help developers, not for debugging, do not remove
   $(".progress").remove();
-  appendToConsoleAndScrollIntoView(prettyJson);
+  if (!isRegistration) {
+    appendToConsoleAndScrollIntoView(prettyJson);
+  }
   $("#unauthorized-error").toggle(authorizationError);
-  if (!json.error) handleApplicationsResponse(json);
+  if (!json.error){
+    handleApplicationsResponse(json, isRegistration);
+  } else {
+    $("#registration-status").html("");
+    $("#registration-status").append(`<div><p class="reg-error">${json.error.message}</p></div>`);
+  };
 }
 
 // --------------------------
@@ -711,7 +715,7 @@ function addEventListeners() {
     });
 
   $("#send-auth-manually-btn").on("click", function () {
-    var token = sessionStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     authReqStr = JSON.stringify(
       {
         authorize: token || "",
