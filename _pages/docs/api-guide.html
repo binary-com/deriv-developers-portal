@@ -1,239 +1,379 @@
 ---
-layout: documentation
+layout: documentation-with-navigator
 permalink: docs/api-guide/
 ---
 
-<div class="page-content">
+<div class="page-content content-with-navigator">
   <h1 class="doc-main-title">API guide</h1>
+
   <div class="text-block">
-    <h3 class="app-registration-header">App registration</h3>
-    <h3 class="api-sub-title bold">
-      Register your app before using our API. Here’s how:
-    </h3>
-    <ol>
+    <h3 id='what-is-api' class="app-registration-header has-navigation">What is API?</h3>
+    <p class="short-margin">API stands for Application Programming Interface – a software that allows 2 or more computer
+      programs to
+      communicate with each other. These 2 programs are usually referred to as server and client.</p>
+    <ul>
       <li>
-        <a href="https://deriv.com">Open a Deriv account</a> (either a demo or
-        real account).
+        <span class="bold">Server</span>
+        <p class="short-margin">A server contains information required by a client, can grant access to this
+          information, and performs
+          actions with it.</p>
+        <p class="short-margin">The server defines how it should be spoken to, what actions it will perform, what
+          information it will give,
+          and its format.</p>
+        <p class="short-margin">All these details are usually determined in an API specification. For example, here is
+          the <a href="https://developer.twitter.com/en/docs/twitter-api">API specification for Twitter</a>.</p>
       </li>
       <li>
-        <a href="https://app.deriv.com/account/api-token">Create a new token</a>
-        using the <strong>admin</strong> scope.
+        <span class="bold">Client</span>
+        <p class="short-margin">A client is a software program that talks to the server to either obtain information or
+          ask the server to
+          perform certain actions.</p>
+        <p class="short-margin">Clients can be written in any programming language as long as that language can
+          implement the communication
+          standards specified by the server. </p>
+        <p class="short-margin">The communication between a server and a client happens with the help of API requests,
+          also known as API
+          calls. The API calls are sent from a client to a server and back. The client and server can be written in
+          different programming languages.</p>
       </li>
-      <li>
-        Register your app to obtain your
-        <a href="/docs/app-registration/"> <code>app_id</code> </a>.
-      </li>
-    </ol>
+    </ul>
+    <p>Here is a representation of how an API works:</p>
+    <div class="center">
+      <img class="api-guide-image" src="{{ branch }}/img/how-api-works.png" width="70%" height="auto" alt="how api works" />
+    </div>
+
+    <h4>Client libraries</h4>
+    <p class="short-margin">Client libraries are pre-written pieces of code that can be used to send API calls instead
+      of writing codes from
+      scratch.</p>
+    <p class="short-margin">Using a client library is optional but highly recommended, as it makes it much easier and
+      efficient to start
+      working with the API.</p>
+    <p class="short-margin">For example, configuring the correct protocol to talk to the server may require several
+      steps without the client
+      library, but using a ready-made code can shorten the process to just one step.</p>
+    <p class="short-margin">A client library also makes it easier to adapt to API updates. In many cases, if the API has
+      a significant
+      update, the client library is updated too. The developer of the client that uses API won’t need to make any
+      changes to their code and will just need to update the version of the client library.</p>
   </div>
+  
   <div class="text-block">
-    <h2 class="doc-sub-title">Client authentication</h2>
-    <p>
-      Some API calls require client authentication (e.g.
-      <a href="/playground/#portfolio"><code>portfolio</code></a
-      >) while others don’t (e.g.
-      <a href="/playground/#ticks"><code>ticks</code></a
-      >).
-    </p>
-    <h3 class="api-sub-title2 bold">
-      There are 2 ways to authenticate clients:
-    </h3>
-    <ol>
-      <li><b>Client authentication by app-specific API tokens</b></li>
-      <p class="ul-paragraph">
-        Clients can generate API tokens by logging to their Deriv account and
-        going to <strong>Security & Limits</strong> >
-        <a href="https://app.deriv.com/account/api-token"
-          ><code>API token</code></a
-        >.
-      </p>
-      <li><b>Client authentication by OAuth</b></li>
-      <p>Send clients to:</p>
-      <div class="card-light">
-        <text class="card-light-content">
-          https://oauth.binary.com/oauth2/authorize?app_id=[..insert app_id..]
-        </text>
-        <div class="copy-button">
-          <img
-            class="copy-button-image"
-            src="{{ branch }}/img/copy.svg"
-            width="16"
-            height="16"
-            alt="copy code icon"
-          />
-          <text>Copy</text>
+    <h2 id='the-deriv-api' class="doc-sub-title has-navigation">The Deriv API</h2>
+
+    <h3 id='what-can-you-do-with-the-deriv-api' class="api-sub-title2 bold has-navigation navigation-subtitle">What can you do with the Deriv API?</h3>
+    <p class="short-margin">The Deriv API allows you to perform nearly all functions of the Deriv platforms, since they
+      share the same API.
+      For our CFD platforms (Deriv MT5 and Deriv X), the API functionality is only available for some account management
+      actions.</p>
+    <p class="short-margin">Our API users typically perform the following activities:</p>
+    <ul>
+      <li>
+        <p class="short-margin">Build websites similar to Deriv but with different features.</p>
+      </li>
+      <li>
+        <p class="short-margin">Create desktop apps to execute trades for themselves and their clients.</p>
+      </li>
+      <li>
+        <p class="short-margin">Explore historical tick information.</p>
+      </li>
+      <li>
+        <p class="short-margin">Automate services as payment agents.</p>
+      </li>
+    </ul>
+    <h3 id='how-can-you-earn-with-deriv-api' class="api-sub-title bold has-navigation navigation-subtitle">How can you earn with Deriv API?</h3>
+    <ul>
+      <li>
+        <p class="short-margin">You can earn commission on signups, and trades or payments your clients perform via the
+          websites and apps you
+          create with Deriv API. Get more details about the commission plans here. </p>
+      </li>
+      <li>
+        <p class="short-margin">You can also earn from markups on every contract purchased via a trading app you created
+          with Deriv API. The
+          markup is defined by you and can be up to 5%.</p>
+      </li>
+    </ul>
+    <p class="short-margin">Here is an example of how the markup is calculated:</p>
+    <div class="qute-left">
+      <p>To get a payout of <b>2 USD:</b></p>
+      <p>Client stake without markup = <b>1.07 USD</b></p>
+      <p>With the markup (e.g. 2%), a client pays:</p>
+      <p>Client’s stake with the markup = Stake + (payout x markup)</p>
+      <p>Client’s stake with the markup = 1.07 USD (2 USD x 2%) = <b>1.11 USD</b></p>
+    </div>
+
+    <h4>Conditions of using the Deriv API</h4>
+    <p>The Deriv API is free of charge and is subject to our <a href="https://deriv.com/terms-and-conditions">terms
+        and conditions</a> and <a href="https://deriv.com/tnc/business-partners-general-terms.pdf">copyright</a>.</p>
+    <p>Should you run into any difficulties using it or if you need assistance, please contact us via one of our
+      support forums or via <a href="mailto:api-support@deriv.com">email</a>.</p>
+  </div>
+
+  <div class="text-block">
+    <h2 id="technical-specifications-of-the-deriv-api" class="doc-sub-title has-navigation">Technical specifications of the Deriv API</h2>
+    <p>It is only possible to communicate with the Deriv API using WebSockets; it does not support other protocols. Any
+      data passed to the Deriv API should be in JSON format, while the comprehensive all-in-one client library is
+      available in JavaScript, Python, C#, and PHP.</p>
+
+    <h3 id="websockets" class="has-navigation navigation-subtitle">WebSockets</h3>
+
+    <p>The WebSockets protocol is an advanced version of the communication channel that is available in all popular
+      programming languages. It allows the server to send information to the client and maintain the connection without
+      the client requesting it every time.</p>
+    <p>In comparison, APIs using REST over HTTP don’t maintain a connection to the client once the server has replied to
+      it.</p>
+    <p>The WebSockets protocol provides clients with a faster and more efficient way to receive updated information as
+      soon as it becomes available. For example, you can subscribe to account balance updates and the Deriv servers will
+      send the new balance to your client in real time.</p>
+    <p>A client can also subscribe and receive several types of different information simultaneously over a single
+      connection.</p>
+    <p>For more information on how to write a client using WebSockets, visit this <a href="{{ branch }}/docs/">guide</a>.</p>
+
+    <h3 id="json" class="has-navigation navigation-subtitle">JSON</h3>
+    <p>JavaScript Object Notation (JSON) is a data format based on JavaScript. However, it is completely
+      language-independent, and can be used by any modern programming language. JSON has a good balance between being
+      readable by humans and by machines, making it both user-friendly and computer-efficient.</p>
+    <p>Here is an example of the JSON formatted code, where “ticks” is the name of the attribute and “R_100” is the
+      value of that attribute.</p>
+
+    <div class="center">
+      <div class="card card-small">
+        <div class="card-header code-card-header">
+          <div class="copy-button">
+            <img class="copy-button-image" src="{{ branch }}/img/copy.svg" width="16" height="16"
+              alt="copy code icon" />
+            Copy
+          </div>
+        </div>
+        <div class="language-demos">
+          <pre data-ticks="json">{% include api-guide/ticks.json %}</pre>
         </div>
       </div>
-      <p>
-        Our system will authenticate the client and send them to the redirect
-        URL you gave us during app registration. A valid token will be returned
-        in the <a href="/playground/#api_token"><code>token</code></a> parameter
-        of the URL.
-      </p>
-      <p>
-        To display the authentication form in another language, add the language
-        code to the OAuth URL as follows:
-      </p>
-      <div class="card-light">
-        <text class="card-light-content">
-          https://oauth.binary.com/oauth2/authorize?app_id=[..insert
-          app_id..]&l=ZH_CN
-        </text>
-        <div class="copy-button">
-          <img
-            class="copy-button-image"
-            src="{{ branch }}/img/copy.svg"
-            width="16"
-            height="16"
-            alt="copy code icon"
-          />
-          <text>Copy</text>
+    </div>
+
+    <p>Data in JSON can also be nested, so if you wanted to send user information with an address, it could look like:
+    </p>
+
+    <div class="center">
+      <div class="card card-small">
+        <div class="card-header code-card-header">
+          <div class="copy-button">
+            <img class="copy-button-image" src="{{ branch }}/img/copy.svg" width="16" height="16"
+              alt="copy code icon" />
+            Copy
+          </div>
+        </div>
+        <div class="language-demos">
+          <pre data-user-information="json">{% include api-guide/user-information.json %}</pre>
+        </div>1
+      </div>
+    </div>
+
+    <p>When you are writing an API client, you will write something like <code>print address.street_number</code>
+      (depending on the programming language) to print the street number.</p>
+
+    <p>This nesting can have as many levels as required to convey the information.</p>
+    <p>For example, when we send information about account status, it requires several levels to print information about
+      the manual Identity service status:</p>
+
+    <div class="center">
+      <div class="card card-small">
+        <div class="card-header code-card-header">
+          <div class="copy-button">
+            <img class="copy-button-image" src="{{ branch }}/img/copy.svg" width="16" height="16"
+              alt="copy code icon" />
+            Copy
+          </div>
+        </div>
+        <div class="language-demos">
+          <pre data-account-status="json">{% include api-guide/account-status.json %}</pre>
         </div>
       </div>
-      <p class="ul-paragraph">
-        Complete the authentication by calling
-        <a href="/playground/#authorize"><code>authorize</code></a> using
-        clients’ API token.
-      </p>
-    </ol>
+    </div>
+
+    <h3 id="json-schemas" class="has-navigation navigation-subtitle">JSON Schemas</h3>
+    <p>JSON Schema is a defined format for the JSON messages used to describe their structure to Deriv API users. In a
+      nutshell, it’s a standardised way of explaining what a JSON request should look like using JSON itself.</p>
+    <p>Here is an example of the part of the JSON Schema that is used to tell developers what to send when they request
+      the balance of an account:</p>
+
+    <div class="center">
+      <div class="card card-small">3 
+        <div class="card-header code-card-header">
+          <div class="copy-button">
+            <img class="copy-button-image" src="{{ branch }}/img/copy.svg" width="16" height="16"
+              alt="copy code icon" />
+            Copy
+          </div>
+        </div>
+        <div class="language-demos">
+          <pre data-balance="json">{% include api-guide/balance.json %}</pre>
+        </div>
+      </div>
+    </div>
+
+    <p>You can see that the balance is a required attribute, the value must equal 1, and the account is an optional
+      attribute. But if you choose to send it, it must be a string (word) and has to match the described pattern.</p>
+
+    <p>JSON Schemas on Deriv are divided into schemas we accept (request) and schemas we send (response). You can find
+      the detailed JSON schemas for each API call on our <a href="{{ branch }}/api-explorer/">API Explorer</a>.</p>
+    <div class="center">
+      <img class="api-guide-image" src="{{ branch }}/img/api-playground.png" width="70%" height="auto" alt="api explorer" />
+    </div>
+    <p>To see the raw JSON schemas, click on the braces within each call.</p>
+    <div class="center">
+      <img class="api-guide-image" src="{{ branch }}/img/show-json-schema.png" width="70%" height="auto" alt="show json schema" />
+    </div>
+    <p>The JSON Schema also forms the documentation for the API Explorer.</p>
   </div>
+
   <div class="text-block">
-    <h2 class="doc-sub-title">Token scopes</h2>
-    <h3 class="bold">Each token can have one or more of these scopes:</h3>
-    <ul class="bullet">
-      <li>read - for calls that only read client’s data</li>
-      <li>trade - for calls that can create trades</li>
+    <h2 id="authorisation" class="doc-sub-title has-navigation navigation-subtitle">Authorisation</h2>
+    <p>Third-party developers can authorise calls to the API in two different ways: via API token or via OAuth2.</p>
+    <h4>API token</h4>
+    <p>An API token is a unique identifier of a client that requests access from a server. It’s the simplest way of
+      authorisation.</p>
+    <p>The Deriv API token has to be generated by a client <a href="https://app.deriv.com/account/api-token">here</a>, along with setting the appropriate access level.
+    </p>
+
+
+    <div class="center">
+      <img class="api-guide-image" src="{{ branch }}/img/api-token-page.png" width="70%" height="auto" alt="api token page" />
+    </div>
+
+    <p>The access level for each API token has to match the required access level of each API call, which can be found
+      in the <a href="{{ branch }}/api-explorer/">API Explorer</a> as well. </p>
+    <p>For example, on the screenshot below, you can see that to be able to use the Account Status, a token with read
+      access level must be used. </p>
+
+    <div class="center">
+      <img class="api-guide-image" src="{{ branch }}/img/read-access.png" width="70%" height="auto" alt="read access api" />
+    </div>
+
+    <p>Following the authorisation of a WebSocket connection, subsequent calls on that connection will be considered
+      user actions.</p>
+    <p>Please bear in mind that the API token can be used with any app, so both your app and your clients need to keep
+      it secure.</p>
+
+
+    <h4>OAuth2</h4>
+
+    <p>OAuth stands for Open Authorisation – a protocol that allows a client access resources hosted on a server on
+      behalf of the user without revealing the credentials.</p>
+    <p>This type of authorisation allows clients to log in to third-party apps using their Deriv accounts without
+      creating an API token. In this case, the third-party app does not see the user's password or permanent API token,
+      which makes it safer.</p>
+    <p>The OAuth2 authentication requires more steps to set up, but it is the safest way for developers to share access
+      to their app with their clients.</p>
+    <p>For more information on OAuth2, visit <a href="https://aaronparecki.com/oauth-2-simplified/">this guide</a>.</p>
+    <p>Here is the visual representation of how the OAuth authorisation connection works:</p>
+
+    <div class="center">
+      <img class="api-guide-image" src="{{ branch }}/img/how-oauth-works.png" width="70%" height="auto" alt="how oauth works" />
+    </div>
+  </div>
+
+  <div class="text-block">
+    <h2 class="doc-sub-title">What do you need to do to use OAuth authorisation for Deriv API?</h2>
+    <ul>
       <li>
-        trading_information - for calls that can read information on client’s
-        trades
+        <p class="short-margin">Specify the URL that will be used as the OAuth Redirect URL on the <a href="https://developers.binary.com/applications/">API
+            registration</a> page
+          in the ‘Website URL' field.</p>
       </li>
       <li>
-        payments - for calls that can access the cashier (for deposits and
-        withdrawals)
-      </li>
-      <li>admin - for calls that can change client’s settings</li>
-    </ul>
-    <p>
-      Explore our <a href="/playground/">API playground</a> to learn about the
-      required scope for all our API calls.
-    </p>
-  </div>
-  <div class="text-block">
-    <h2 class="doc-sub-title">Opening Deriv accounts</h2>
-    <p>
-      To open accounts via our API, you’ll first need to verify the client's
-      email address using
-      <a href="/playground/#verify_email"><code>verify_email</code></a
-      >.
-    </p>
-    <p>
-      To open a virtual account, use
-      <a href="/playground/#new_account_virtual"
-        ><code>new_account_virtual</code></a
-      >
-      and then
-      <a href="/playground/#topup_virtual"><code>topup_virtual</code></a> to
-      top-up the new account with virtual money.
-    </p>
-    <p>
-      To open a real account, use
-      <a href="/playground/#residence_list"><code>residence_list</code></a> and
-      <a href="/playground/#states_list"><code>states_list</code></a> to get the
-      information needed for the account opening form. Once you have all the
-      necessary information, use
-      <a href="/playground/#new_account_real"><code>new_account_real</code></a
-      >.
-    </p>
-    <p>
-      If you are a registered affiliate, remember to include the
-      <strong>affiliate_token</strong> parameter. You’ll earn commission for
-      every new account.
-    </p>
-    <p>
-      Based on the client’s country of residence, use
-      <a href="/playground/#landing_company"><code>landing_company</code></a> to
-      determine which landing company the account will be opened with. Use
-      <a href="/playground/#landing_company_details"
-        ><code>landing_company_details</code></a
-      >
-      to get information about the landing company.
-    </p>
-  </div>
-  <div class="text-block">
-    <h2 class="doc-sub-title">Accounting functionalites</h2>
-    <p>
-      You may get a client's
-      <a href="/playground/#portfolio"><code>portfolio</code></a
-      >, <a href="/playground/#statement"><code>statement</code></a
-      >, <a href="/playground/#profit_table"><code>profit_table</code></a
-      >, and their account
-      <a href="/playground/#balance"><code>balance</code></a
-      >. You may also sell an expired contract with
-      <a href="/playground/#sell_expired"><code>sell_expired</code></a
-      >, or generate a real time stream of
-      <a href="/playground/#transaction"><code>transactions</code></a>
-    </p>
-  </div>
-  <div class="text-block">
-    <h2 class="doc-sub-title">Option prices</h2>
-    <ul class="bullet">
-      <li>
-        To price an option, call
-        <a href="/playground/#proposal"><code>proposal</code></a
-        >.
-      </li>
-      <li>
-        To price options that are open in a client's portfolio, use
-        <a href="/playground/#proposal_open_contract"
-          ><code>proposal_open_contract</code></a
-        >.
-      </li>
-    </ul>
-  </div>
-  <div class="text-block">
-    <h2 class="doc-sub-title">Payment agents</h2>
-    <ul class="bullet">
-      <li>
-        Clients may withdraw via a payment agent using
-        <a href="/playground/#paymentagent_withdraw"
-          ><code>paymentagent_withdraw</code></a
-        >.
-      </li>
-      <li>
-        Payment agents may credit clients’ accounts using
-        <a href="/playground/#paymentagent_transfer"
-          ><code>paymentagent_transfer</code></a
-        >.
+        <p class="short-margin">Add a login button on your website or app and direct users to
+          <b>https://oauth.binary.com/ oauth2/authorize? app_id=your_app_id</b> where your_app_id is the ID of your app.
+        </p>
       </li>
     </ul>
-  </div>
-  <div class="text-block">
-    <h2 class="doc-sub-title">Utility calls</h2>
-    <ul class="bullet">
+
+    <div class="center">
+      <img class="api-guide-image" src="{{ branch }}/img/signup.png" width="70%" height="auto" alt="signup" />
+    </div>
+
+    <p class="short-margin">Once a user signs up, they will be redirected to the URL that you entered as the Redirect
+      URL. This URL will have arguments added to it with the user's session tokens, and will look similar to this: </p>
+
+    <p class="">
+      <code class="code">https://mywebsite.com/redirect/?acct1=cr799393& token1=a1-f7pnteezo4jzhpxclctizt27hyeot&cur1=usd& acct2=vrtc1859315& token2=a1clwe3vfuuus5kraceykdsoqm4snfq& cur2=usd&state=</code>
+    </p>
+
+    <p class="short-margin">In the parameters of the URL you will see all the accounts and the session token for each
+      account.</p>
+
+    <ul>
       <li>
-        To keep the connection alive, use
-        <a href="/playground/#ping"><code>ping</code></a
-        >.
-      </li>
-      <li>
-        Get the server time with
-        <a href="/playground/#time"><code>time</code></a
-        >.
-      </li>
-      <li>
-        Get the status of the website with
-        <a href="/playground/#website_status"><code>website_status</code></a
-        >.
+        <p class="short-margin">Pass these tokens to the Authorize API call in order to perform actions on behalf of the
+          account.</p>
       </li>
     </ul>
+
   </div>
+
   <div class="text-block">
-    <h2 class="doc-sub-title">Streams</h2>
-    <p>
-      Some functions generate streams of data (e.g.
-      <a href="/playground/#ticks"><code>ticks</code></a
-      >) while others don’t. Use
-      <a href="/playground/#forget"><code>forget</code></a> to cancel an
-      outstanding stream.
+    <h2 id="performing-trades-via-deriv-api" class="doc-sub-title has-navigation navigation-subtitle">Performing trades via Deriv API</h2>
+
+    <p class="short-margin">You can perform a simple contract purchase with a code from our list of examples on the
+      <a href="{{ branch }}/docs/">quick start page</a>.
     </p>
+    <p>However, while the simple example will work for most cases, it does not perform any checks to see if the asset is
+      available for purchase or show the potential payout if they proceed with the purchase.</p>
+    <p>To receive this additional information, you can perform several steps once you are authorised and before
+      purchasing the contract.</p>
+
+    <ul>
+      <li>
+        <p class="short-margin">Call <a>Active Symbols</a> to get the list of active symbols.</p>
+      </li>
+      <li>
+        <p class="short-margin">Call <a>Contracts For Symbol</a> to see what contracts can be purchased.</p>
+      </li>
+      <li>
+        <p class="short-margin">Call <a>Price Proposal</a> to get the current payout level for the contract. Setting
+          "subscribe": 1 gives regular updates.</p>
+      </li>
+      <li>
+        <p class="short-margin">Call <a>Buy Contract</a> with the ID given in the Price Proposal to open a trade. Note
+          the
+          contract_id from the response. Setting “subscribe” : 1 will send you updates on the contracts status as
+          <a>Proposal Open Contract</a> responses.
+        </p>
+      </li>
+      <li>
+        <p class="short-margin">Monitor the <b>“is_sold”</b> attribute of the <b>Proposal Open Contract</b> response to
+          see when the
+          contract is finished. Once the contract is finished, you can check the <b>“status”</b> attribute to see if the
+          contract has been won or lost.</p>
+      </li>
+    </ul>
+
   </div>
+
+  <div class="text-block">
+    <h2 id="table-mapping" class="doc-sub-title has-navigation">Table mapping</h2>
+    <h3>Deriv website contract types to API parameter names</h3>
+    <p>If you would like to copy certain contract types from our websites, the following table will describe how the
+      contract type is referred to using the API.</p>
+
+    <div class="center">
+      <table cellspacing="0" cellpadding="0" class="table">
+        <tr>
+          <th class="table-header">API contract name</th>
+          <th class="table-header">Category on website</th>
+          <th class="table-header">Name on website</th>
+        </tr>
+        {%- for type in site.data.contract-types.types %}
+        <tr>
+          <td class="table-data">{{ type.API_contract_name }}</td>
+          <td class="table-data">{{ type.Category_on_website }}</td>
+          <td class="table-data">{{ type.Name_on_website }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+  </div>
+
 </div>

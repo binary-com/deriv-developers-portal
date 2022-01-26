@@ -4,6 +4,7 @@ var DEFAULT_LANGUAGE = "EN";
 var DEFAULT_BRAND = "deriv";
 var VALID_LABELS = ["beta", "deprecated"];
 var CODE_SAMPLES = ["ticks", "balance", "proposal", "buy-contract", "keep-alive"];
+var JSON_SAMPLES = ["ticks", "user-information", "account-status", "balance"];
 
 var api;
 var $console;
@@ -171,9 +172,29 @@ function init(docson) {
   endpointNotification();
   initEndpoint();
   CODE_SAMPLES.forEach(el=> showDemoForLanguage("javascript", el));
+  JSON_SAMPLES.forEach(el=> showDemoForLanguage("json", el));
   updateApiDisplayed();
   $("#api-token").val(sessionStorage.getItem("token"));
   $("#playground").addClass(localStorage.getItem("console.theme"));
+  populateNavigator();
+}
+
+
+// -------------------------------
+// ====== Navigator Handler ======
+// -------------------------------
+function populateNavigator() {
+  const navigator = document.getElementById('navigator');
+  if (!navigator) return
+  const headerList = document.getElementsByClassName('has-navigation');
+  Array.from(headerList).forEach((header) => {
+    const link = document.createElement('a');
+    link.classList.add('navigator-link');
+    if (header.classList.contains('navigation-subtitle')) link.classList.add('navigator-sublink');
+    link.setAttribute('href', `#${header.id}`);
+    link.innerHTML = header.innerHTML
+    navigator.appendChild(link)
+  });1
 }
 
 // -------------------------------
