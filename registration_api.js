@@ -546,11 +546,16 @@ const getAppList = async () => {
     // create an array with 5 skeleton
     const skeleton_array = Array(5).fill(skeleton);
     // for each skeleton create a tr
-    skeleton_array.forEach(item => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = item;
-        document.getElementById('app_list').appendChild(tr);
-    });
+    const app_list_element = document.getElementById('app_list');
+    const is_app_list_tr_loaded = app_list_element.querySelectorAll('tr').length > 0;
+    if (!is_app_list_tr_loaded) {
+        skeleton_array.forEach(item => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = item;
+            app_list_element.appendChild(tr);
+        });
+    }
+
     await api.authorize(token1);
     const get_data = await api.appList();
     const app_list = get_data.app_list;
