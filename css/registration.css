@@ -426,6 +426,22 @@
 
 [data-state~="logged_in.update_mode"] .register-button {
     pointer-events: none;
+    visibility: hidden;
+    position: relative;
+}
+
+[data-state~="logged_in.update_mode"] .register-button::before {
+    visibility: visible;
+    content: "Update your application";
+    font-weight: bold;
+    color: var(--app-registration-tab-active-font);
+    border-bottom: 3px solid var(--app-registration-tab-active-underline);
+    position: absolute;
+    padding: 10px 0;
+    width: 100%;
+    right: 0;
+    top: 0;
+    bottom: -1px;
 }
 
 [data-state~="logged_in.update_mode"] .register-app {

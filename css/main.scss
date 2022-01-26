@@ -81,6 +81,7 @@ input[type="checkbox"] {
   line-height: 1.43;
   position: relative;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .custom-text-input:hover {
