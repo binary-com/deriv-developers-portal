@@ -9,6 +9,7 @@ var JSON_SAMPLES = ["ticks", "user-information", "account-status", "balance"];
 var api;
 var $console;
 var anchor_shift = 100;
+var shouldScroll = false;
 
 
 // SLIDER
@@ -281,6 +282,7 @@ function getCurrentApi() {
 }
 
 function updatePlaygroundWithRequestAndResponse() {
+  shouldScroll = false;
   try {
     var json = JSON.parse($("#playground-request").val());
   } catch (err) {
@@ -536,9 +538,7 @@ function isProduction(url) {
 
 function getBaseUrl(url) {
   url = url || document.location.href;
-  return (
-    (isProduction(url) || isLocal(url) ? "" : "/" + url.split("/")[3]) + "/"
-  );
+  return "/";
 }
 
 function getServerUrl() {
@@ -616,10 +616,10 @@ function appendToConsoleAndScrollIntoView(html) {
     $console.append(html);
     $("#toggle-theme").show();
 
-    if (consoleShouldScroll()) {
+    if (consoleShouldScroll() && !shouldScroll) {
       scrollConsoleToBottom();
       setTimeout(function () {
-        if (consoleShouldScroll()) {
+        if (consoleShouldScroll() && !shouldScroll) {
           $console.animate(
             {
               scrollTop: $console[0].scrollHeight,
@@ -735,8 +735,8 @@ function addEventListeners() {
   $("#scroll-to-bottom-btn").on("click", scrollConsoleToBottom);
 
   $console.on("scroll", function () {
-    var shouldShow = consoleShouldScroll() && !$console.is(":animated");
-    $("#scroll-to-bottom-btn").toggle(shouldShow);
+    shouldScroll = consoleShouldScroll() && !$console.is(":animated");
+    $("#scroll-to-bottom-btn").toggle(shouldScroll);
   });
 
   $("#toggle-theme").on("click", toggleTheme);
