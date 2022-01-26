@@ -646,9 +646,14 @@ function toggleTheme() {
   );
 }
 
+function updateDocsHash() {
+  window.history.replaceState({}, '','/docs/');
+}
+
 function onAnchorClick() {
   if (location.hash.length !== 0) {
     window.scrollTo(window.scrollX, window.scrollY - anchor_shift);
+    updateDocsHash(); 
   }
 }
 
@@ -743,6 +748,13 @@ function addEventListeners() {
       onAnchorClick();
     }, 0);
   });
+
+  $(document).ready(() => {
+    if (window.location.hash) {
+      window.location.href = window.location.hash;
+      updateDocsHash(); 
+    }
+  }); 
 }
 
 // Creating custom checkbox.
