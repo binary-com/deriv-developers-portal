@@ -493,6 +493,7 @@ if (register_button) {
             "type": "REGISTER_TOGGLE_TAB"
         });
         const all_checkboxes = document.querySelectorAll("[data-state~='logged_in.register_tab'] input[type='checkbox']");
+        const api_token_input_element = document.getElementById('api_token_input');
         all_checkboxes.forEach(checkbox => {
             if (checkbox.hasAttribute("checked")) {
                 const custom_checkbox = checkbox.parentElement.querySelector(".custom-checkbox");
@@ -500,6 +501,7 @@ if (register_button) {
                 custom_checkbox.classList.remove("active-checkbox");
             }
         });
+        api_token_input_element.removeAttribute('readonly');
     });
 }
 
@@ -597,7 +599,7 @@ const removeApp = async (app_id) => {
 const appUpdate = async ({ app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes }) => {
     const endpoint = getEndpoint();
     const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getToken();
+    const token1 = getStorageToken();
     await api.authorize(token1);
     await api.appUpdate({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
     send({ type: 'FETCH_APP_LIST' });
@@ -625,6 +627,7 @@ const go_update_mode = (...app) => {
     const app_verification_uri_input = document.getElementById('app_verification_uri');
     const app_markup_percentage_input = document.getElementById('app_markup_percentage');
     const app_id_input = document.getElementById('app_id');
+    const api_token_input_element = document.getElementById('api_token_input');
     app_id_input.setAttribute('value', app_id);
 
     // prefill in the fields with app data
@@ -632,6 +635,9 @@ const go_update_mode = (...app) => {
     app_redirect_uri_input.value = redirect_uri;
     app_verification_uri_input.value = verification_uri;
     app_markup_percentage_input.value = app_markup_percentage;
+    api_token_input_element.value = getStorageToken();
+    // set api_token_input to readonly
+    api_token_input_element.setAttribute('readonly', true);
 
     const custom_read_checkbox = document.querySelector("span#read-scope");
     const read_checkbox = document.querySelector("input#read-scope");

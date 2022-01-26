@@ -27,6 +27,15 @@
     width: 32px;
 }
 
+[data-state~="logged_in.update_mode"] .custom-text-input .api-token-input[readonly=true] {
+    color: var(--app-registration-tab-tooltip-background);
+    cursor: not-allowed;  
+}
+
+[data-state~="logged_in.update_mode"] .custom-text-input .api-token-input[readonly=true]~label {
+    color: var(--app-registration-tab-tooltip-background) !important;
+}
+
 .app-btn span {
     visibility: hidden;
 }
@@ -413,6 +422,10 @@
     position: absolute;
     left: 0;
     right: 0;
+}
+
+[data-state~="logged_in.update_mode"] .register-button {
+    pointer-events: none;
 }
 
 [data-state~="logged_in.update_mode"] .register-app {
