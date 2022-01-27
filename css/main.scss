@@ -2640,6 +2640,7 @@ pre {
         margin-right: 24px;
         margin: 0 24px 0 0;
         justify-content: flex-start;
+        min-width: calc(60% + 10px);
 
         input[type="text"] {
           border: 1px solid #D6DADB;
