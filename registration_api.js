@@ -821,6 +821,19 @@ if (signout_button) {
     });
 }
 
+const clearFields = () => {
+    document.getElementById('app_name').value = '';
+    document.getElementById('app_redirect_uri').value = '';
+    document.getElementById('app_verification_uri').value = '';
+    document.getElementById('app_markup_percentage').value = '';
+    const checkboxes = document.querySelectorAll('#register_scopes input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+        const custom_checkbox = checkbox.parentElement.querySelector('.custom-checkbox');
+        checkbox.removeAttribute('checked');
+        custom_checkbox.classList.remove('active-checkbox');
+    });
+}
+
 // handle empty_go_back to send go to register
 const empty_go_back = document.getElementById('empty_go_back');
 if (empty_go_back) empty_go_back.addEventListener('click', () => {
@@ -837,6 +850,7 @@ if (close_register_dialog_button) close_register_dialog_button.addEventListener(
 const register_got_it_button = document.getElementById('register_got_it');
 if (register_got_it_button) register_got_it_button.addEventListener('click', () => {
     send({ type: "CLOSE_REGISTER_DIALOG" });
+    clearFields();
 });
 
 // handle register_app_manage
