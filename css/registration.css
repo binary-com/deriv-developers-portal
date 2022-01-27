@@ -205,6 +205,7 @@
 [data-state~="logged_in.register_tab.unfolded_form"] .expandable-form {
     display: flex;
     flex-direction: column;
+
 }
 
 [data-state~="logged_in.register_tab.folded_form"] .expandable-form {
@@ -213,10 +214,15 @@
 
 .expandable-form {
     display: none;
+    width: 80%;
+}
+
+.expandable-form fieldset {
+    width: 100%;
 }
 
 .expand-form {
-    width: 100%;
+    width: 80%;
     left: 0;
     display: flex;
     padding: 40px 0 10px;
