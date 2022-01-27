@@ -1671,14 +1671,19 @@ ul {
 }
 .cta {
   width: auto;
-  padding: 24px 0;
+  margin: 24px 0 !important;
+  padding-left: 24px;
   border-radius: 4px;
-  background-color: var(--app-sidebar-border-color);
+  border-left: 1px solid var(--app-sidebar-border-color);
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .title {
+    font-size: 12px;
+  }
 
   a {
     .cta-button {
@@ -1687,7 +1692,7 @@ ul {
       padding: 10px 16px;
       border-radius: 4px;
       border: solid 2px #999999;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: bold;
       line-height: 1.43;
       letter-spacing: normal;
@@ -2641,6 +2646,10 @@ pre {
           border-radius: 4px;
           color: #c2c2c2;
           background-color: #f8fafb;
+          width: calc(100% - 118px);
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          border-right-color: transparent;
         }
       }
 
@@ -2672,6 +2681,9 @@ pre {
             text-align: center;
           }
         }
+      }
+      @media (max-width: 768px) {
+        flex-direction: column-reverse;
       }
     }
   }
