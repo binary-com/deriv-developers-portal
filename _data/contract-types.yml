@@ -28,6 +28,9 @@ types:
     Name_on_website: ""
   - API_contract_name: DIGITDIFF
     Category_on_website: Digits
+    Name_on_website: Digit Differs
+  - API_contract_name: DIGITMATCH
+    Category_on_website: Digits
     Name_on_website: Digit Matches
   - API_contract_name: DIGITOVER
     Category_on_website: Digits
@@ -54,6 +57,9 @@ types:
     Category_on_website: Digits
     Name_on_website: Digit Odd
   - API_contract_name: PUT
+    Category_on_website: Up/Down
+    Name_on_website: Lower
+  - API_contract_name: ASIANU
     Category_on_website: Asians
     Name_on_website: Asian Up
   - API_contract_name: LBFLOATCALL
