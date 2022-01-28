@@ -748,7 +748,7 @@ const registerApp = async ({ name, redirect_uri, scopes, verification_uri, app_m
     const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
     const token1 = getToken();
     await api.authorize(token1);
-    await api.appRegister({ name, redirect_uri, scopes, verification_uri, app_markup_percentage });
+    await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
 };
 
 const open_register_dialog = () => {
