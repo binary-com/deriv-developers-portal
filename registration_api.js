@@ -601,7 +601,7 @@ const appUpdate = async ({ app_id, app_markup_percentage, name, redirect_uri, ve
     const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
     const token1 = getStorageToken();
     await api.authorize(token1);
-    await api.appUpdate({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
+    await api.send({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
     send({ type: 'FETCH_APP_LIST' });
 };
 
