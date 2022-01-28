@@ -236,6 +236,10 @@
     position: relative;
 }
 
+.form-content h4 {
+    margin-bottom: 0;
+}
+
 .form-header-container {
     display: flex;
     padding: 10px 0;
