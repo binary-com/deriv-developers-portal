@@ -1079,7 +1079,7 @@ ol > p {
     .personalisation {
       @media (max-width: 992px) {
         width: 90% !important;
-        margin: 0 auto;
+        margin: 0 auto 30px auto;
       }
     }
     .personalisation-image {
@@ -3110,4 +3110,4 @@ footer {
 
 @import "monokai.css";
 @import "registration.css";
-
+@import "libraries-links.css";
