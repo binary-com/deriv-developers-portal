@@ -37,6 +37,10 @@ input[type="checkbox"] {
   display: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 .custom-checkbox {
   background-image: url("/img/check.svg");
   background-repeat: no-repeat;
