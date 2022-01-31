@@ -15,7 +15,8 @@ permalink: docs/app-registration/
     <div class="app-registration-logged-in">
         <div class="app-registration-header">
             <h2 id="form-title" class="doc-sub-title form-title">Your Apps</h2>
-            <h4 class="form-subtitle">Register your app to get an app ID and start using Deriv API for personal or business purposes</h4>
+            <h4 class="form-subtitle">Register your app to get an app ID and start using Deriv API for personal or
+                business purposes</h4>
         </div>
         <div class="registered-apps-tabs">
             <button id="register_button" class="register-button">
@@ -34,7 +35,8 @@ permalink: docs/app-registration/
                             <div class='info-icon'>
                                 <div class='tooltip'>
                                     Please create your API token
-                                    <a href="https://app.deriv.com/account/api-token" class="tooltip-link">here</a>, and copy it into this field.
+                                    <a href="https://app.deriv.com/account/api-token" class="tooltip-link">here</a>, and
+                                    copy it into this field.
                                 </div>
                                 <img src="/img/info-icon.svg" alt="Info" />
                             </div>
@@ -49,7 +51,8 @@ permalink: docs/app-registration/
                             </div>
                             <div class="first">
                                 <div class="custom-text-input" id="custom-text-input">
-                                    <input type="text" id="app_name" name="app_name" pattern="^[\w\s-]{1,48}$" placeholder=" " required />
+                                    <input type="text" id="app_name" name="app_name" pattern="^[\w\s-]{1,48}$"
+                                        placeholder=" " required />
                                     <label>App name (Required)</label>
                                 </div>
                             </div>
@@ -63,14 +66,17 @@ permalink: docs/app-registration/
                             <div class="form-header-container">
                                 <h4 class="register-form-header">Markup</h4>
                                 <div class='info-icon'>
-                                    <div class='tooltip'>For each trade performed on your app, you will receive a commission. Set a markup percentage below to determine the commission you will make.</div>
+                                    <div class='tooltip'>For each trade performed on your app, you will receive a
+                                        commission. Set a markup percentage below to determine the commission you will
+                                        make.</div>
                                     <img src="/img/info-icon.svg" alt="Info" />
                                 </div>
                             </div>
                             <div class="input-container">
                                 <div>
                                     <div class="custom-text-input" id="custom-text-input">
-                                        <input id="app_markup_percentage" type="text" maxlength="5" class="last" placeholder=" " />
+                                        <input id="app_markup_percentage" type="text" maxlength="5" class="last"
+                                            placeholder=" " />
                                         <label>Markup percentage</label>
                                     </div>
                                     <p class="helper-text">(0.00-5.00%)</p>
@@ -79,7 +85,8 @@ permalink: docs/app-registration/
                             <div class="form-header-container">
                                 <h4 class="register-form-header">Authorisation</h4>
                                 <div class='info-icon'>
-                                    <div class='tooltip'>To use OAuth, please fill out the following fields. These details can be changed later using the app_update API call.</div>
+                                    <div class='tooltip'>To use OAuth, please fill out the following fields. These
+                                        details can be changed later using the app_update API call.</div>
                                     <img src="/img/info-icon.svg" alt="Info" />
                                 </div>
                             </div>
@@ -103,7 +110,8 @@ permalink: docs/app-registration/
                                 <div class="form-header-container">
                                     <h4 class="register-form-header">OAuth authorisation levels</h4>
                                     <div class='info-icon'>
-                                        <div class='tooltip'>Please select the level of access you would like clients to give to your app.</div>
+                                        <div class='tooltip'>Please select the level of access you would like clients to
+                                            give to your app.</div>
                                         <img src="/img/info-icon.svg" alt="Info" />
                                     </div>
                                 </div>
@@ -115,7 +123,8 @@ permalink: docs/app-registration/
                             </div>
                             <div class="scopes-field">
                                 <input id="read-scope" type="checkbox" value="read" />
-                                <label for="read-scope">Read all: Full access to users’ information, including private information</label>
+                                <label for="read-scope">Read all: Full access to users’ information, including private
+                                    information</label>
                             </div>
                             <div class="scopes-field">
                                 <input id="trade-scope" type="checkbox" value="trade" />
@@ -123,7 +132,8 @@ permalink: docs/app-registration/
                             </div>
                             <div class="scopes-field">
                                 <input id="trading_information-scope" type="checkbox" value="trading_information" />
-                                <label for="trading_information-scope">Trading information: View users’ trading information, including balance information</label>
+                                <label for="trading_information-scope">Trading information: View users’ trading
+                                    information, including balance information</label>
                             </div>
                             <div class="scopes-field">
                                 <input id="payments-scope" type="checkbox" value="payments" />
@@ -131,15 +141,18 @@ permalink: docs/app-registration/
                             </div>
                             <div class="scopes-field mb-0">
                                 <input id="admin-scope" type="checkbox" value="admin" />
-                                <label for="admin-scope">Admin: Full account access, including the access to manage security tokens</label>
+                                <label for="admin-scope">Admin: Full account access, including the access to manage
+                                    security tokens</label>
                             </div>
                         </div>
-                            <div class="terms-of-conditions-register">
-                                <span>By registering your application, you acknowledge that you’ve read and accepted the Deriv API </span>
-                                <a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank">
-                                    <span>terms and conditions</span></a><span>.</span>
-                            </div>
-                        <button class="primary-btn-submit register-app-button" id="btnRegister"><span>Register new application</span></button>
+                        <div class="terms-of-conditions-register">
+                            <span>By registering your application, you acknowledge that you’ve read and accepted the
+                                Deriv API </span>
+                            <a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank">
+                                <span>terms and conditions</span></a><span>.</span>
+                        </div>
+                        <button class="primary-btn-submit register-app-button" id="btnRegister"><span>Register new
+                                application</span></button>
                     </div>
                 </div>
                 <input type="hidden" id="app_id" name="app_id" value="">
@@ -153,7 +166,8 @@ permalink: docs/app-registration/
                     <div class="dialog-body dialog-body-register">
                         <img class="dialog-success" src="/img/success.svg" alt="Success!" />
                         <h3>Success!</h3>
-                        <p class="dialog-question">You have successfully registered your application. You can now start using Deriv API</p>
+                        <p class="dialog-question">You have successfully registered your application. You can now start
+                            using Deriv API</p>
                     </div>
                     <div class="dialog-footer">
                         <button class="dialog-btn-cancel" id="register_got_it">Got it</button>
@@ -223,7 +237,8 @@ permalink: docs/app-registration/
                     <div class="dialog-body dialog-body-modal">
                         <img class="dialog-warning" src="/img/success.svg" alt="Success!" />
                         <h3>Success!</h3>
-                        <p class="dialog-question">You have successfully registered your application. You can now start using Deriv API.</p>
+                        <p class="dialog-question">You have successfully registered your application. You can now start
+                            using Deriv API.</p>
                     </div>
                     <div class="dialog-footer">
                         <button class="dialog-btn-cancel" id="modal_got_it">Got it</button>
@@ -235,3 +250,9 @@ permalink: docs/app-registration/
     </div>
     <button id="logout" class="app-registration-signout gray-btn-submit" id="delete_app_keep">Sign out</button>
 </div>
+<script>
+    const dialog1 = document.querySelector('#register_app_dialog');
+    if (dialog1) dialogPolyfill.registerDialog(dialog1);
+    const dialog2 = document.querySelector('#delete_app_dialog');
+    if (dialog2) dialogPolyfill.registerDialog(dialog2);
+</script>
