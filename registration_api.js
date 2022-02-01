@@ -67,6 +67,9 @@ const appRegistrationMachine = createMachine({
                                         },
                                         registration_error: {
                                             id: "registration_error",
+                                            invoke: {
+                                                src: 'handleError',
+                                            },
                                         },
                                         closed_registration_dialog: {
                                             id: "closed_registration_dialog",
@@ -207,6 +210,13 @@ const appRegistrationMachine = createMachine({
         resetFields: async () => {
             const form = document.querySelector('#frmNewApplication');
             form.reset();
+        },
+        handleError: async (context, event) => {
+            console.log("Context and event: ", context, event);
+            console.log("event data: ", event.data);
+            // if (event.data.status === 401) {
+            //     context.dispatch('LOGOUT');
+            // }
         },
     },
 });
