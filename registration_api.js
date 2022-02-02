@@ -244,104 +244,6 @@ const redirectToLogin = (is_logged_in, language, has_params = true, redirect_del
         }, redirect_delay);
     }
 };
-
-const getObject = function (key) {
-    return JSON.parse(this.getItem(key) || '{}');
-};
-
-const setObject = function (key, value) {
-    if (value && value instanceof Object) {
-        try {
-            this.setItem(key, JSON.stringify(value));
-        } catch (e) {
-            /* do nothing */
-        }
-    }
-};
-
-const Store = function (storage) {
-    this.storage = storage;
-    this.storage.getObject = getObject;
-    this.storage.setObject = setObject;
-};
-
-Store.prototype = {
-    get(key) {
-        return this.storage.getItem(key) || undefined;
-    },
-    set(key, value) {
-        if (typeof value !== 'undefined') {
-            this.storage.setItem(key, value);
-        }
-    },
-    getObject(key) {
-        return typeof this.storage.getObject === 'function' // Prevent runtime error in IE
-            ? this.storage.getObject(key)
-            : JSON.parse(this.storage.getItem(key) || '{}');
-    },
-    setObject(key, value) {
-        if (typeof this.storage.setObject === 'function') {
-            // Prevent runtime error in IE
-            this.storage.setObject(key, value);
-        } else {
-            this.storage.setItem(key, JSON.stringify(value));
-        }
-    },
-    remove(key) {
-        this.storage.removeItem(key);
-    },
-    clear() {
-        this.storage.clear();
-    },
-};
-
-const InScriptStore = function (object) {
-    this.store = typeof object !== 'undefined' ? object : {};
-};
-
-InScriptStore.prototype = {
-    get(key) {
-        return getPropertyValue(this.store, key);
-    },
-    set(k, value, obj = this.store) {
-        let key = k;
-        if (!Array.isArray(key)) key = [key];
-        if (key.length > 1) {
-            if (!(key[0] in obj) || isEmptyObject(obj[key[0]])) obj[key[0]] = {};
-            this.set(key.slice(1), value, obj[key[0]]);
-        } else {
-            obj[key[0]] = value;
-        }
-    },
-    getObject(key) {
-        return JSON.parse(this.get(key) || '{}');
-    },
-    setObject(key, value) {
-        this.set(key, JSON.stringify(value));
-    },
-    remove(...keys) {
-        keys.forEach(key => {
-            delete this.store[key];
-        });
-    },
-    clear() {
-        this.store = {};
-    },
-    has(key) {
-        return this.get(key) !== undefined;
-    },
-    keys() {
-        return Object.keys(this.store);
-    },
-    call(key) {
-        if (typeof this.get(key) === 'function') this.get(key)();
-    },
-};
-
-const LocalStore = isStorageSupported(window.localStorage)
-    ? new Store(window.localStorage)
-    : new InScriptStore();
-
 const CookieStorage = function (cookie_name) {
     this.initialized = false;
     this.cookie_name = cookie_name;
@@ -425,24 +327,23 @@ const getStorageToken = () => {
     return sessionStorage.getItem('token1');
 }
 
+// set production app_id and server_url in sessionStorage
+const app_id = 31063;
+const server_url = 'https://green.binaryws.com';
+sessionStorage.setItem('app_id', app_id);
+sessionStorage.setItem('server_url', server_url);
+
 // get app_id from url
 const app_id_in_url = urlParams.get('app_id');
 // if app_id is in url, set it in LocalStore
-if (app_id_in_url) {
-    LocalStore.set('config.app_id', app_id_in_url);
-}
-
-const getSessionAppId = () => app_id_in_url || LocalStore.get("config.app_id");
+if (app_id_in_url) sessionStorage.setItem('app_id', app_id_in_url);
+const getSessionAppId = () => sessionStorage.getItem("app_id");
 
 // get endpoint from url
 const endpoint_in_url = urlParams.get('endpoint');
-// if endpoint is in url, set it as config.server_url
-if (endpoint_in_url) {
-    LocalStore.set('config.server_url', endpoint_in_url);
-}
-
+if (endpoint_in_url) sessionStorage.setItem('server_url', endpoint_in_url);
 // add getEndpoint function
-const getEndpoint = () => endpoint_in_url || LocalStore.get('config.server_url');
+const getEndpoint = () => sessionStorage.getItem('server_url');
 
 
 
