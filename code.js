@@ -4,10 +4,12 @@ var DEFAULT_LANGUAGE = "EN";
 var DEFAULT_BRAND = "deriv";
 var VALID_LABELS = ["beta", "deprecated"];
 var CODE_SAMPLES = ["ticks", "balance", "proposal", "buy-contract", "keep-alive"];
+var JSON_SAMPLES = ["ticks", "user-information", "account-status", "balance"];
 
 var api;
 var $console;
 var anchor_shift = 100;
+var shouldScroll = false;
 
 
 // SLIDER
@@ -171,9 +173,29 @@ function init(docson) {
   endpointNotification();
   initEndpoint();
   CODE_SAMPLES.forEach(el=> showDemoForLanguage("javascript", el));
+  JSON_SAMPLES.forEach(el=> showDemoForLanguage("json", el));
   updateApiDisplayed();
   $("#api-token").val(sessionStorage.getItem("token"));
   $("#playground").addClass(localStorage.getItem("console.theme"));
+  populateNavigator();
+}
+
+
+// -------------------------------
+// ====== Navigator Handler ======
+// -------------------------------
+function populateNavigator() {
+  const navigator = document.getElementById('navigator');
+  if (!navigator) return
+  const headerList = document.getElementsByClassName('has-navigation');
+  Array.from(headerList).forEach((header) => {
+    const link = document.createElement('a');
+    link.classList.add('navigator-link');
+    if (header.classList.contains('navigation-subtitle')) link.classList.add('navigator-sublink');
+    link.setAttribute('href', `#${header.id}`);
+    link.innerHTML = header.innerHTML
+    navigator.appendChild(link)
+  });1
 }
 
 // -------------------------------
@@ -199,15 +221,13 @@ function initConnection(language) {
   api.socket.onclose = function (e) {
     console.log("connection closed."); // intended to help developers, not debugging
   };
-
-  api.events.on("*", incomingMessageHandler);
 }
 
-function sendRequest(json) {
+function sendRequest(json, isRegistration) {
   if (!api) {
     initConnection();
+    api.events.on("*", (e) => incomingMessageHandler(e, isRegistration));
   }
-
   var lang = getLanguage();
   if (api.language !== lang) {
     api.changeLanguage(lang);
@@ -219,20 +239,26 @@ function sendRequest(json) {
   ) {
     api.connect();
   }
-
   api.sendRaw(json);
 }
 
-function incomingMessageHandler(json) {
+function incomingMessageHandler(json, isRegistration) {
   var authorizationError = !!(
       json.error && json.error.code === "AuthorizationRequired"
     ),
     prettyJson = getFormattedJsonStr(json);
   console.log(json); // intended to help developers, not for debugging, do not remove
   $(".progress").remove();
-  appendToConsoleAndScrollIntoView(prettyJson);
+  if (!isRegistration) {
+    appendToConsoleAndScrollIntoView(prettyJson);
+  }
   $("#unauthorized-error").toggle(authorizationError);
-  if (!json.error) handleApplicationsResponse(json);
+  if (!json.error){
+    handleApplicationsResponse(json, isRegistration);
+  } else {
+    $("#registration-status").html("");
+    $("#registration-status").append(`<div><p class="reg-error">${json.error.message}</p></div>`);
+  };
 }
 
 // --------------------------
@@ -260,6 +286,7 @@ function getCurrentApi() {
 }
 
 function updatePlaygroundWithRequestAndResponse() {
+  shouldScroll = false;
   try {
     var json = JSON.parse($("#playground-request").val());
   } catch (err) {
@@ -430,208 +457,6 @@ function linkToCallName() {
   });
 }
 
-// ----------------------------------
-// ===== Application Management =====
-// ----------------------------------
-function handleApplicationsResponse(response) {
-  if (
-    response.msg_type === "authorize" &&
-    $("#applications-table").length !== 0
-  ) {
-    sendRequest({ app_list: 1 });
-  } else if (
-    response.msg_type === "app_list" &&
-    response.app_list.length !== 0
-  ) {
-    listAllApplications(response);
-  } else if (response.msg_type === "app_register") {
-    addApplication(response);
-  } else if (response.msg_type === "app_delete") {
-    $("tr[id=" + response.echo_req.app_delete + "]")
-      .fadeOut(700)
-      .remove();
-  } else if (response.msg_type === "app_update") {
-    updateApplication(response);
-  }
-}
-
-function listAllApplications(response) {
-  var applications = response.app_list;
-  for (i = 0; i < applications.length; i++) {
-    if ($("#" + applications[i].app_id).length === 0) {
-      applicationsTableRow(applications[i]);
-    }
-  }
-  $("#applications-table").show();
-}
-
-function addApplication(response) {
-  var application = response.app_register;
-  applicationsTableRow(application);
-}
-
-function applicationsTableRow(application) {
-  $("#applications-table")
-    .find("tbody")
-    .append(
-      '<tr class="flex-tr" id="' +
-        application.app_id +
-        '">' +
-        '<td class="flex-tr-child name">' +
-        application.name +
-        "</td>" +
-        '<td class="flex-tr-child app_id">' +
-        application.app_id +
-        "</td>" +
-        '<td class="flex-tr-child scopes">' +
-        application.scopes.join(", ") +
-        "</td>" +
-        '<td class="flex-tr-child redirect_uri">' +
-        application.redirect_uri +
-        "</td>" +
-        '<td class="flex-tr-child verification_uri" style="display:none">' +
-        (application.verification_uri || "") +
-        "</td>" +
-        '<td class="flex-tr-child homepage" style="display:none">' +
-        application.homepage +
-        "</td>" +
-        '<td class="flex-tr-child github" style="display:none">' +
-        application.github +
-        "</td>" +
-        '<td class="flex-tr-child googleplay" style="display:none">' +
-        application.googleplay +
-        "</td>" +
-        '<td class="flex-tr-child appstore" style="display:none">' +
-        application.appstore +
-        "</td>" +
-        '<td class="flex-tr-child app_markup_percentage" style="display:none">' +
-        application.app_markup_percentage +
-        "</td>" +
-        '<td class="action flex-tr-child"><button class="delete" id="' +
-        application.app_id +
-        '">Delete</button></td>' +
-        '<td class="action flex-tr-child"><button class="update" id="' +
-        application.app_id +
-        '">Update</button></td>' +
-        "</tr>"
-    )
-    .end()
-    .show();
-
-  $("button[id=" + application.app_id + '][class="delete"]').on(
-    "click",
-    function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      sendRequest({ app_delete: e.target.id });
-    }
-  );
-
-  $("button[id=" + application.app_id + '][class="update"]').on(
-    "click",
-    function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      let form_title = document.getElementById("form-title");
-      if (form_title) {
-        form_title.innerText = form_title.innerText.replace(
-          "Register",
-          "Update"
-        );
-      }
-      $("#placeholder_app_id")
-        .text(" " + e.target.id + " ")
-        .attr("style", "background:#ffffe0");
-
-      [
-        "name",
-        "redirect_uri",
-        "verification_uri",
-        "homepage",
-        "github",
-        "googleplay",
-        "appstore",
-        "app_markup_percentage",
-      ].forEach(function (field) {
-        $("#application-" + field).val(
-          $("#" + e.target.id + " ." + field).text()
-        );
-      });
-
-      var array = $("#" + e.target.id + " .scopes")
-          .text()
-          .split(", "),
-        $scopes = $(".scopes input"),
-        i;
-      for (i = 0; i < array.length; i++) {
-        array[i] = array[i] + "-scope";
-      }
-      for (i = 0; i < $scopes.length; i++) {
-        if ($.inArray($scopes[i].id, array) > -1) {
-          $('.scopes input[id="' + $scopes[i].id + '"').prop("checked", true);
-        } else {
-          $('.scopes input[id="' + $scopes[i].id + '"').prop("checked", false);
-        }
-      }
-      // can't store btnupdate in a variable since it won't exist first
-      if ($("#btnUpdate").length === 0) {
-        $(".application_buttons").prepend(
-          '<button id="btnUpdate">Update</button> Or'
-        );
-        $("#btnRegister").text("Register as New Application");
-        $("#btnUpdate").on("click", function (e) {
-          e.preventDefault();
-          sendApplicationRequest(trim($("#placeholder_app_id").text()));
-        });
-      }
-      $("html, body").animate({ scrollTop: 280 }, "slow");
-    }
-  );
-}
-
-function sendApplicationRequest(app_id) {
-  var request = app_id
-    ? { app_update: app_id, scopes: [] }
-    : { app_register: 1, scopes: [] };
-
-  var fields = [
-    "name",
-    "redirect_uri",
-    "verification_uri",
-    "homepage",
-    "github",
-    "appstore",
-    "googleplay",
-    "app_markup_percentage",
-  ];
-  fields.forEach(function (fld) {
-    var value = trim($("#application-" + fld).val());
-    if (value) {
-      request[fld] = value;
-    }
-  });
-
-  var scopesEl = $("form:first :input[type='checkbox']");
-  for (i = 0; i < scopesEl.length; i++) {
-    if (scopesEl[i].checked) {
-      request.scopes.push(scopesEl[i].value);
-    }
-  }
-  $("#playground-request").val(JSON.stringify(request, null, 2));
-  sendRequest(request);
-}
-
-function updateApplication(response) {
-  var application = response.app_update;
-
-  var columns = ["name", "app_id", "redirect_uri", "verification_uri"];
-  columns.forEach(function (col) {
-    $("#" + application.app_id + " ." + col).text(application[col]);
-  });
-
-  $("#" + application.app_id + " .scopes").text(application.scopes.join(", "));
-}
-
 // --------------------
 // ===== Endpoint =====
 // --------------------
@@ -717,9 +542,7 @@ function isProduction(url) {
 
 function getBaseUrl(url) {
   url = url || document.location.href;
-  return (
-    (isProduction(url) || isLocal(url) ? "" : "/" + url.split("/")[3]) + "/"
-  );
+  return "/";
 }
 
 function getServerUrl() {
@@ -797,10 +620,10 @@ function appendToConsoleAndScrollIntoView(html) {
     $console.append(html);
     $("#toggle-theme").show();
 
-    if (consoleShouldScroll()) {
+    if (consoleShouldScroll() && !shouldScroll) {
       scrollConsoleToBottom();
       setTimeout(function () {
-        if (consoleShouldScroll()) {
+        if (consoleShouldScroll() && !shouldScroll) {
           $console.animate(
             {
               scrollTop: $console[0].scrollHeight,
@@ -827,9 +650,14 @@ function toggleTheme() {
   );
 }
 
+function updateDocsHash() {
+  window.history.replaceState({}, '','/docs/');
+}
+
 function onAnchorClick() {
   if (location.hash.length !== 0) {
     window.scrollTo(window.scrollX, window.scrollY - anchor_shift);
+    updateDocsHash(); 
   }
 }
 
@@ -887,7 +715,7 @@ function addEventListeners() {
     });
 
   $("#send-auth-manually-btn").on("click", function () {
-    var token = sessionStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
     authReqStr = JSON.stringify(
       {
         authorize: token || "",
@@ -908,16 +736,11 @@ function addEventListeners() {
     }
   });
 
-  $("#btnRegister").on("click", function (e) {
-    e.preventDefault();
-    sendApplicationRequest();
-  });
-
   $("#scroll-to-bottom-btn").on("click", scrollConsoleToBottom);
 
   $console.on("scroll", function () {
-    var shouldShow = consoleShouldScroll() && !$console.is(":animated");
-    $("#scroll-to-bottom-btn").toggle(shouldShow);
+    shouldScroll = consoleShouldScroll() && !$console.is(":animated");
+    $("#scroll-to-bottom-btn").toggle(shouldScroll);
   });
 
   $("#toggle-theme").on("click", toggleTheme);
@@ -929,4 +752,38 @@ function addEventListeners() {
       onAnchorClick();
     }, 0);
   });
+
+  $(document).ready(() => {
+    if (window.location.hash) {
+      window.location.href = window.location.hash;
+      updateDocsHash(); 
+    }
+  }); 
 }
+
+// Creating custom checkbox.
+const all_main_checkboxes = document.querySelectorAll("input[type='checkbox']");
+all_main_checkboxes.forEach(checkbox => {
+  const custom_checkbox = document.createElement("span");
+  const check_icon = document.createElement("img");
+
+  custom_checkbox.className = "custom-checkbox";
+  custom_checkbox.id = checkbox.id;
+  
+  custom_checkbox.appendChild(check_icon);
+  checkbox.after(custom_checkbox);
+
+  custom_checkbox.addEventListener("click", (event) => {
+    const main_checkbox = document.querySelector(`input#${event.target.id}`);
+    const is_checked = main_checkbox.hasAttribute("checked");
+    if (!is_checked && event.target.id === checkbox.id) {
+      // check
+      main_checkbox.setAttribute("checked", "");
+      custom_checkbox.classList.add("active-checkbox");
+    } else {
+      // uncheck
+      main_checkbox.removeAttribute("checked");
+      custom_checkbox.classList.remove("active-checkbox");
+    }
+  });
+});

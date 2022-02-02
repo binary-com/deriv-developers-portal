@@ -45,10 +45,7 @@ permalink: /
         </div>
       </div>
       <div class="benefits">
-          <div class="personalisation">
-            <h3>Personalisation</h3>
-            <p>Personalise your trading applications to match your needs. Create charts and views just the way you like them. Develop your trading applications using any common programming language and extend your trading opportunity.</p>
-          </div>
+        <div class="personalisation-container">
           <img
           class="personalisation-image"
           src="{{ branch }}/img/personalisation.png"
@@ -56,6 +53,12 @@ permalink: /
           width="486px"
           height="260px"
           />
+          <div class="personalisation">
+            <h3>Personalise your trading</h3>
+            <p>Personalise your trading apps to match your needs. Create charts and views the way you like them. Develop your trading app using any common programming language and extend your trading opportunities.</p>
+          </div>
+        </div>
+        <div class="earn-more-container">
           <img
           class="earn-more-image" 
           src="{{ branch }}/img/build-business.png"
@@ -65,8 +68,9 @@ permalink: /
           />
           <div class="earn-more">
             <h3>Build a business and earn more</h3>
-            <p>Create your own trading apps by taking advantage of the power of Deriv's trading services. Share your apps with fellow traders or customers, and have a chance to earn more or build your own business.</p>
+            <p>Create your own trading apps by taking advantage of the power of Deriv's trading services. Share your apps with fellow traders or customers, and get a chance to earn more or build your own business.</p>
           </div>
+        </div>
       </div>
   </div>
 </div>
@@ -84,7 +88,7 @@ permalink: /
               width="32"
               height="32"
             />
-            <p>Register your app with Deriv, and add a percentage markup to the contract prices to profit from every contract payout.</p>
+            <p>Register your app with Deriv, and add a percentage markup to the contract prices to profit from every purchased contract.</p>
         </div>
         <div href="/docs/api-guide/" class="main-page-card ways">
             <img
@@ -93,7 +97,7 @@ permalink: /
               width="32"
               height="32"
             />
-            <p>Sign up as an affiliate, build your app, and get commission on every signup and trade completed via your app.</p>
+            <p>Sign up as an affiliate, build your app, and get commissions on trades completed via your app and the affiliate plan you select.</p>
         </div>
         <div href="/docs/api-guide/" class="main-page-card ways">
             <img
@@ -102,7 +106,7 @@ permalink: /
               width="32"
               height="32"
             />
-            <p>Sign up as a payment agent , and use our API to build your own custom payment website to earn commission on every payment you process for Deriv’s clients.</p>
+            <p>Sign up as a payment agent, build your own custom payment website, and use our API to earn commission on every payment you process for Deriv’s clients.</p>
       </div>
     </div>
   </div>
@@ -167,6 +171,80 @@ permalink: /
   </div>
 </div>
 <div class="main-page-row white">
+  <div class="column-container">
+      <div class="api-features">
+          <div class="api-features-description">
+            <h3>Deriv API features</h3>
+            <p>Deriv API gives you full access to all the trading functionalities of DTrader and allows you to build your own comprehensive trading systems and analysis tools.</p>
+            <p>With our API, you'll be able to:</p>
+            <ul>
+              <li>
+                <img
+                  src="{{ branch }}/img/checklist-icon.svg"
+                  alt="check list icon"
+                  width="24"
+                  height="24"
+                />
+                <p>Trade digital options and multipliers</p>
+              </li>
+              <li>
+                <img
+                  src="{{ branch }}/img/checklist-icon.svg"
+                  alt="check list icon"
+                  width="24"
+                  height="24"
+                />
+                <p>Monitor real-time pricing</p>
+              </li>
+              <li>
+                <img
+                  src="{{ branch }}/img/checklist-icon.svg"
+                  alt="check list icon"
+                  width="24"
+                  height="24"
+                />
+                <p>Buy/sell contracts</p>
+              </li>
+              <li>
+                <img
+                  src="{{ branch }}/img/checklist-icon.svg"
+                  alt="check list icon"
+                  width="24"
+                  height="24"
+                />
+                <p>Manage users' accounts</p>
+              </li>
+              <li>
+                <img
+                  src="{{ branch }}/img/checklist-icon.svg"
+                  alt="check list icon"
+                  width="24"
+                  height="24"
+                />
+                <p>Monitor existing contracts</p>
+              </li>
+              <li>
+                <img
+                  src="{{ branch }}/img/checklist-icon.svg"
+                  alt="check list icon"
+                  width="24"
+                  height="24"
+                />
+                <p>View users' historical transactions</p>
+              </li>
+            </ul>
+          </div>
+          <img
+            class="api-features-image" 
+            src="{{ branch }}/img/api-featutes.png"
+            alt="api features"
+            width="600px"
+            height="auto"
+          />
+      </div>
+  </div>
+</div>
+<div class="main-page-row white">
   <h1 class="clients-opinion">See what our clients say</h1>
   <div class="column-container">
     <div id="slider" class="slider">
@@ -210,19 +288,28 @@ permalink: /
         height="64"
       />
       <h1 class="max-js-div">
-        Comprehensive all-in-one JavaScript client library
+        Comprehensive all-in-one client library
       </h1>
       <p class="subheader">
         Simplify your development processes and get your app up and running <br>
-        faster with our all-in-one client library
+        faster with the client library of your choice.
       </p>
-      <a
-        href="https://github.com/binary-com/deriv-api"
-        class="main-register-btn"
-        rel="noreferrer noopener"
-      >
-        Take me to the library
-      </a>
+      <div class="lib-links">
+        <div class="logo-and-link">
+          <a href="https://binary-com.github.io/deriv-api/" class="library-go-to">
+            <div class="logo-javascript"></div>
+            <label>Go to the JavaScript library</label>
+            <div class="library-chevron"></div>
+          </a>
+        </div>
+        <div class="logo-and-link">
+          <a href="https://binary-com.github.io/python-deriv-api/" class="library-go-to">
+            <div class="logo-python"></div>
+            <label>Go to the Python library</label>
+            <div class="library-chevron"></div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

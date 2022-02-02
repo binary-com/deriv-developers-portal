@@ -1,15 +1,15 @@
 ---
 layout: default
 ---
-<div id="content" class="playground-content dark">
+<div id="content" class="doc-content">
   {% assign branch = site.baseurl %}
   {% if site.baseurl == '/websockets' %}
     {% assign branch = '' %}
   {% endif %}
   
-  <h1 class="dark">API Playground</h1>
-  <div class="page-wrapper dark">    
-        {{ content }}
+  <div class="page-wrapper documentation">
+    {% include sidebar.html %}
+    {{ content }}
   </div>
 </div>
 
