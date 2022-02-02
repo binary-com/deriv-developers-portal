@@ -82,6 +82,7 @@ const appRegistrationMachine = createMachine({
                 },
                 manage_tab: {
                     id: "manage_tab",
+                    invoke: { src: 'setEnvironment' },
                     initial: "loadingApps",
                     on: {
                         REGISTER_TOGGLE_TAB: "#register_tab",
@@ -214,13 +215,9 @@ const appRegistrationMachine = createMachine({
         handleError: async (context, event) => {
             console.log("Context and event: ", context, event);
             console.log("event data: ", event.data);
-            // if (event.data.status === 401) {
-            //     context.dispatch('LOGOUT');
-            // }
         },
     },
 });
-
 const isStorageSupported = storage => {
     if (typeof storage === 'undefined') {
         return false;
@@ -309,13 +306,26 @@ if (token1_in_url) {
 // token field api_token_input onchange set token
 const token_input = document.getElementById('api_token_input');
 if (token_input) {
-    token_input.onchange = (e) =>{
+    token_input.onchange = (e) => {
         const token = e.target.value;
         if (token) {
             sessionStorage.setItem('token1', token);
         }
     };
 }
+
+const is_production = window.location.hostname === 'api.deriv.com';
+if (is_production) {
+    const app_id = 31063;
+    const server_url = 'https://green.binaryws.com';
+    sessionStorage.setItem('app_id', app_id);
+    sessionStorage.setItem('server_url', server_url);
+}
+
+const app_id_in_url = urlParams.get('app_id');
+if (app_id_in_url) sessionStorage.setItem('app_id', app_id_in_url);
+const endpoint_in_url = urlParams.get('endpoint');
+if (endpoint_in_url) sessionStorage.setItem('server_url', endpoint_in_url);
 
 const getToken = () => {
     if (token_input) {
@@ -327,21 +337,7 @@ const getStorageToken = () => {
     return sessionStorage.getItem('token1');
 }
 
-// set production app_id and server_url in sessionStorage
-const app_id = 31063;
-const server_url = 'https://green.binaryws.com';
-sessionStorage.setItem('app_id', app_id);
-sessionStorage.setItem('server_url', server_url);
-
-// get app_id from url
-const app_id_in_url = urlParams.get('app_id');
-// if app_id is in url, set it in LocalStore
-if (app_id_in_url) sessionStorage.setItem('app_id', app_id_in_url);
 const getSessionAppId = () => sessionStorage.getItem("app_id");
-
-// get endpoint from url
-const endpoint_in_url = urlParams.get('endpoint');
-if (endpoint_in_url) sessionStorage.setItem('server_url', endpoint_in_url);
 // add getEndpoint function
 const getEndpoint = () => sessionStorage.getItem('server_url');
 
@@ -483,7 +479,7 @@ const getAppList = async () => {
         app_list_body.removeChild(app_list_body.firstChild);
     }
     app_list.forEach((app) => {
-        const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri} = app;
+        const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri } = app;
         const tr = document.createElement('tr');
         tr.innerHTML = `<td>${name}</td>
                         <td>${app_id}</td>
@@ -530,8 +526,8 @@ const go_update_mode = (...app) => {
     const [_active, app_id, app_markup_percentage,
         _appstore, _github, _googleplay, _homepage, name,
         redirect_uri, verification_uri, scopes] = app;
-    send({ type: "GO_UPDATE_MODE"}); // TODO: send app_id through xstate
-    
+    send({ type: "GO_UPDATE_MODE" }); // TODO: send app_id through xstate
+
     // get register your application fields
     const app_name_input = document.getElementById('app_name');
     const app_redirect_uri_input = document.getElementById('app_redirect_uri');
@@ -569,7 +565,7 @@ const go_update_mode = (...app) => {
         custom_trade_checkbox.classList.remove("active-checkbox");
         trade_checkbox.removeAttribute("checked");
     }
-    
+
     const custom_trading_information_checkbox = document.querySelector("span#trading_information-scope");
     const trading_information_checkbox = document.querySelector("input#trading_information-scope");
     if (scopes.includes("trading_information")) {
@@ -682,7 +678,7 @@ if (register_got_it) register_got_it.addEventListener('click', (event) => {
 const register_app_manage = document.getElementById('register_app_manage');
 if (register_app_manage) register_app_manage.addEventListener('click', (event) => {
     close_register_dialog();
-    send({ type: "MANAGE_TOGGLE_TAB"});
+    send({ type: "MANAGE_TOGGLE_TAB" });
 });
 
 
