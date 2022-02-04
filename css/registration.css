@@ -381,6 +381,11 @@
 
 [data-state~="logged_in.manage_tab.loadingApps.empty"] .no-apps-wrapper {
     display: inline-block;
+    visibility: visible;
+}
+
+[data-state~="logged_in.manage_tab.loadingApps.empty"] .manage-apps {
+    visibility: hidden;
 }
 
 .no-apps-wrapper {
