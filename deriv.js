@@ -178,7 +178,6 @@ function setCopyButton() {
 function handleCodeCopyClick() {
   let code_box = this.parentNode;
   if (!code_box) return;
-
   let code_text;
   if (code_box.className === "card-light") {
     code_text = code_box.children[0].textContent.trim();
