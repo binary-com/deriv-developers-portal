@@ -36,7 +36,7 @@ createMachine({
                   states: {
                     loading_registration: {
                       invoke: {
-                        src: "_inline",
+                        src: "registerApp",
                         onDone: [
                           {
                             target:
@@ -98,7 +98,7 @@ createMachine({
               states: {
                 loading: {
                   invoke: {
-                    src: "_inline",
+                    src: "getAppList",
                     onDone: [
                       {
                         target:
@@ -135,7 +135,7 @@ createMachine({
               states: {
                 loadingDelete: {
                   invoke: {
-                    src: "_inline",
+                    src: "removeApp",
                     onDone: [
                       {
                         target:
@@ -177,7 +177,7 @@ createMachine({
               states: {
                 loadingUpdate: {
                   invoke: {
-                    src: "_inline",
+                    src: "appUpdate",
                     onDone: [
                       {
                         target:
@@ -223,6 +223,86 @@ createMachine({
         handleError: async (context, event) => {
             console.log("Context and event: ", context, event);
             console.log("event data: ", event.data);
+        },
+        appUpdate: async ({ app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes }) => {
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getStorageToken();
+          await api.authorize(token1);
+          await api.send({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
+          send({ type: 'FETCH_APP_LIST' });
+        },
+        registerApp: async ({ name, redirect_uri, scopes, verification_uri, app_markup_percentage }) => {
+          const app_id = getSessionAppId();
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getToken();
+          await api.authorize(token1);
+          await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
+        },
+        removeApp: async (app_id) => {
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getStorageToken();
+          await api.authorize(token1);
+          await api.appDelete(app_id);
+          send({ type: 'FETCH_APP_LIST' });
+        },
+        getAppList: async () => {
+          const app_id = getSessionAppId();
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getStorageToken();
+      
+          // rewrite skeleton to have div inside td with class="skeleton"
+          const skeleton = `<tr>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+          </tr>`;
+      
+          // create an array with 5 skeleton
+          const skeleton_array = Array(5).fill(skeleton);
+          // for each skeleton create a tr
+          const app_list_element = document.getElementById('app_list');
+          const is_app_list_tr_loaded = app_list_element.querySelectorAll('tr').length > 0;
+          if (!is_app_list_tr_loaded) {
+              skeleton_array.forEach(item => {
+                  const tr = document.createElement('tr');
+                  tr.innerHTML = item;
+                  app_list_element.appendChild(tr);
+              });
+          }
+      
+          await api.authorize(token1);
+          const get_data = await api.appList();
+          const app_list = get_data.app_list;
+          // send go to empty state when no app_list
+          if (!app_list.length) {
+              send({
+                  "type": "GO_TO_EMPTY_STATE"
+              });
+          };
+          const app_list_body = document.getElementById('app_list');
+          while (app_list_body.firstChild) {
+              app_list_body.removeChild(app_list_body.firstChild);
+          }
+          app_list.forEach((app) => {
+              const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri } = app;
+              const tr = document.createElement('tr');
+              tr.innerHTML = `<td>${name}</td>
+                              <td>${app_id}</td>
+                              <td>${scopes.join(', ')}</td>
+                              <td>${redirect_uri}</td>
+                              <td>
+                                  <button aria-label="Update app" class="app-btn update-icon" onclick="go_update_mode(${active}, '${app_id}', '${app_markup_percentage}', '${appstore}', '${github}', '${googleplay}', '${homepage}', '${name}', '${redirect_uri}', '${verification_uri}', '${scopes.join(', ')}')"><span>Remove app</span></button>
+                                  <button aria-label="Delete app" class="app-btn delete-icon" onclick="open_delete_dialog(${app_id})"><span>Update app</span></button>
+                              </td>
+                              `;
+              app_list_body.appendChild(tr);
+          });
         },
     },
 });
@@ -445,81 +525,6 @@ if (registerLoginButton) {
     });
 };
 
-const getAppList = async () => {
-    const app_id = getSessionAppId();
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getStorageToken();
-
-    // rewrite skeleton to have div inside td with class="skeleton"
-    const skeleton = `<tr>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-    </tr>`;
-
-    // create an array with 5 skeleton
-    const skeleton_array = Array(5).fill(skeleton);
-    // for each skeleton create a tr
-    const app_list_element = document.getElementById('app_list');
-    const is_app_list_tr_loaded = app_list_element.querySelectorAll('tr').length > 0;
-    if (!is_app_list_tr_loaded) {
-        skeleton_array.forEach(item => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = item;
-            app_list_element.appendChild(tr);
-        });
-    }
-
-    await api.authorize(token1);
-    const get_data = await api.appList();
-    const app_list = get_data.app_list;
-    // send go to empty state when no app_list
-    if (!app_list.length) {
-        send({
-            "type": "GO_TO_EMPTY_STATE"
-        });
-    };
-    const app_list_body = document.getElementById('app_list');
-    while (app_list_body.firstChild) {
-        app_list_body.removeChild(app_list_body.firstChild);
-    }
-    app_list.forEach((app) => {
-        const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri } = app;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${name}</td>
-                        <td>${app_id}</td>
-                        <td>${scopes.join(', ')}</td>
-                        <td>${redirect_uri}</td>
-                        <td>
-                            <button aria-label="Update app" class="app-btn update-icon" onclick="go_update_mode(${active}, '${app_id}', '${app_markup_percentage}', '${appstore}', '${github}', '${googleplay}', '${homepage}', '${name}', '${redirect_uri}', '${verification_uri}', '${scopes.join(', ')}')"><span>Remove app</span></button>
-                            <button aria-label="Delete app" class="app-btn delete-icon" onclick="open_delete_dialog(${app_id})"><span>Update app</span></button>
-                        </td>
-                        `;
-        app_list_body.appendChild(tr);
-    });
-}
-
-const removeApp = async (app_id) => {
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getStorageToken();
-    await api.authorize(token1);
-    await api.appDelete(app_id);
-    send({ type: 'FETCH_APP_LIST' });
-}
-
-const appUpdate = async ({ app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes }) => {
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getStorageToken();
-    await api.authorize(token1);
-    await api.send({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
-    send({ type: 'FETCH_APP_LIST' });
-};
-
 const open_delete_dialog = (app_id) => {
     const dialog = document.getElementById('delete_app_dialog');
     dialog.showModal();
@@ -655,15 +660,6 @@ if (send_register_button) {
             }
         });
     });
-};
-
-const registerApp = async ({ name, redirect_uri, scopes, verification_uri, app_markup_percentage }) => {
-    const app_id = getSessionAppId();
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getToken();
-    await api.authorize(token1);
-    await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
 };
 
 const open_register_dialog = () => {
