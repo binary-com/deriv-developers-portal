@@ -1,7 +1,7 @@
 const { createMachine, actions, interpret, assign } = XState;
 
 const appRegistrationMachine = 
-/** @xstate-layout N4IgpgJg5mDOIC5QCcxQJawC5mQfQEMAHdAOgBsB7KGCPSgVywGIAZAeQHEBJAOUVBFKsdFnSUAdgJAAPRABYAnKQDsAJkUqAjAGYVANnUqArJoA0IAJ6IAtIoAM80vodqAHPc3rjxgL6+LVAxsXEISCmpaPHQJUiDMHHwsAgAjUgAzSnIISDxM5ABbZgAVLk5WAFE8ADF2ACUAWWkhETFJaTkEFR0nLX1jdS1jdzV7FwtrBBsht2NnLTcdNSVTfR0h-0C0BNDiMioaXJi47ZCk1NIGCUzs3PyC0lgGFILRMQkoPHjsZAI22KoBAgMU+3ywv3+zAgkjApBiADdKABrWFg3bhA5RY5o85pK43HJ0e6PZ6vLDvUGncF-cQAyhAkFfKkQ2kIBGUADGNMkAG17ABdZrCUS0jqILRqYbORTyeTrNxqLRKrQqCa2LRyrSkRTGLSKFy6hY6MabEA4sL7SJHWLm5J465ZQl5SiFEkvN6MsEsyQRBkfJnBamQ3DIF2kIjkP7E817CKHOjYqmhO2XB23Ikuh5Pd3kz3M7l0v2UwPeiRsiSIrn-PmCpAgFoi9p1zoSqUuWXyxXK1VWdU6fT6UgeJT62Y+Dz6U0xjFWhM2pO41MEu6Zt1kikBhKl5gAYQ4AGUqnUKjx98UKnU8AARbgAQQ4nCFrVFzcQik0pGGksUbm0P6W8hqlMGqKDopAaG4ihqHoxj6G4MxTguFpxli86BsmFz4o6K6FCUZSVDU9RNHWDb-GKCD6LKqieO49j2Is7gakB0yUYO7hKNBKjyNBraIeh+Cxpi1onPxeAplh6bOrh+4AKoAEINNwxR4Mep7FHUt7FNw7D8CRwpka+CB9HRpB9Co9EeNoSpqGozEqno2pQTqmrmf+fE7AJM7xtEaEeWJqRsFw7AycUT6NlIhk6GBcEaGMso-pK6x2YYg56NB8H2Co8E9PI7lnMhQlziJfl2swDS3rwt6cFUpScOUNW3nJYUGaAnTrFo9imY4bhuPIxizLobjMe+bjahxuo-i4-SKHliQFbOPmkAUBASAQMD+WkgLAh8t5EEQsC+ttUBQjCcIVsiqJIYJC3HMtq3rSmW0grt+2HSC5aVgWNbNS+rWIP2kpDjxfVKPBco9pMNg6AM4HQ2oJhqHBPjcTos3opa3m3Sta1gBtb07XtB1PR8zAhmGEZRqu04Y6hS3Yw9FzE1AL1E-SR0fZyX0Cj9TZ-QgAOjQqUXQ-0Oi-oozEaGB0HGFF-T2Lq8jqGjnk08Jd043jTMs6QYAFEQWCWMwqncGeF54LV9UW41PMRXzZlOFFxhK-19FLO4QEw2s8M9QMMqwcsk4BGaV1ebTGsM5tbPPYTuvIKGyDGxU6kAJq2+RYuLNqiqeFxsHcbLkugbDsv9sYCsasrwfUyh6v07jj3RwT+3MJw7AW+3FQNAACsUKd4GemkVOnkXyB1n4dZRzs-hq8j6JLxpDj1kodcs5c9EHWyiddmOxBHDcXDk5BgBSL341AV5gMfOAnRIsLsiixX5Tv4f13jR8nzHRDn5f19gBzVZaTfT0s+Xmsh-o+DmKYWW+gbI6nsHqeevYpjDE6k5aCY8VT503iHbeYc673QPmkD+p89o-yvifMApN47k0jFgaMoc1ZFX3u-ChpDv5M1-pQgBXNayCH0r9cB-NIGfh1ADDQ5dEHMUoqNdBsDBgji0Creau86aENYdfL+JIOQcjgLALhN9jzVGTjuAAEiPPm0MVDKGdr1X29h+wA2Yv1Jw6DuimAcLqHBNdCqLRYSmEhWiybIAMVQ48qcLFCP7Ag0g-YJSOA7HqCWyCbDaDUNnUC9gbJZMmsol+BDNalRNmbS8lsCLFBtiA8K5EHaxOhi7DwDEPYpNSoYaGfRRhKjGDoHUeT8HMLfqVYxxQzF4FvN3bueBWCm1ClUlqUS9ROAViYFYjgdSSzlLE5euosl9UcHoPpTC-GDICleColRzxjImZEtqizSDLOnuXFY0j1jgQMDZLKsoHFwUObXAZ6jSptzwDJbuV4h54AaOwM5NzxSGEdvUkwjT3ZDRSb+dJ8VJRcUxdxNQvzfHHAYEQCAfxcYFEoDkS4RKSVnyZjJKlN9oR3zOoiR+PibqxEJcSnAeAyUUs5dSshtL6X-3ZIA3k3M5mCJbPIX89zy6mCyb7RUQEOlDgcPRWBGqorcTxeyylXLSXkthPynANKm5QDpQa6hCdwx0IYXgo5BLhU8qNfqgVHDzWWpJTw6sEr+GgLtkIjUsqFYK1cEqrQQEehqrogqT5ipIIGF1aok1hq+XCrPk8HReivWGIqMMsxMKjKGnuQ47QlFNCDSQZMH8MbMp6jGAOUwbhk201TS69NBqz7BNzWE5OdQ06SrAS2WW6T4KUQAv2cyEoi5dXfAsKC1iepK1ytXRhfzFrtt5VQ2SCklIqRPDMjSWkdJFoWArZwA0JQz11P2ZijihwOKghZOUZc-BrodRumIgU24hSLVFS9sVKKg0SpGlJfQJSxPUD0IY+pKIqFbdaMqFUqo1Xwg1JqQ7A2dGGDYnoGhliKBVDKiGthoZzElMMMWHilSwP8MHCQRr4B1jZd5RgWAz0Dkcj4JYGpm2QWreqfQDjwJ6mNIYPUCwlaIaKraC4y4MyFCLX7bUSpl0DBsn1QTwEOKfkRnoXQhgNAyhk4tOT9oFNSSzKSD0-ovQFnPpuH4BYz0dTmFO4YCMUbqDsmLTq5lQbCaNEMbx678W+XyuJNMTpiTZnXHmEsDn7P-DwFm3RsBmP+uqYZDUgNG0IOo9BWBtlwPcU6hBHUM9M69VM4mUSUXLOxZs7mOz+Z-hPyDLSPAwSz0F3uQOArswis2V8+ZZwaz1W-iWKYWrEW5oNewop6zOYNzJdpKQDkVBYC5DW5IPAwICAHDPZKdJ7ZNQKmVCqOyMqtRT1AlBMWPTUYfr8vk2TSEFuSSaythLW4XNYfIpoMCX5m1-gYoBcDAxRoQSmx4OKNWXvP36WZj7mFos4QKEWmUNibKg71ODuyCp0nvlinKYTmSZqI7mm9lH9XUjKZ8KphYvUNNr209MSCcwScOCVmsDwSxZtqMKYzc1Osmb-vLqNNY-UBNiwMPqe95dtRwy8DKhUi7Bf+JF0WHWesDaTCy-MtqA3wKwLcEjF2P5JZ6hLhocyRXTDPa3q95HWMAXa6OjrNLej-1ZVGg89QYxXYOPvX1T8QtFSIxUNoBBmuTlRx17HHrAPIrWPRX1d8P46JYJ0JLeC4foK8b6ojRUCGqfoy-XveP58Wb-rFoOHZU9Qaz3Z7KdJMt4awW0Nxfocf3fELYVozhbCwD-rHp1RvIMZ6ynZy4ZQaz4YmGsXKPvwuB+aObto9L+iR++5VEDIHsxvlOJSbBQcA3TBcT6s7Liq-I6kECZv4JoS98qAP90I-jjYHSJlM4YTwmBgEkndcEXdHUq9+8H9B9m469zcJ44pp4wY55mIsoucpYskADZgEdnckcwChdI5-0VROoHlVlnkUkoItQnJ1go8DABxV1sDqdXcOVnVt03VTVBVPVhUz0opRpuI55dB1BhNlVIdwJjMVQaDXINhy9VZK9WC01jUM0yFvcMte1OMlBwJeo4MlBtB68VV98Zg85KIpZhMW0pCVE21mDXVU1u0aFkAVCU97YK11ClBaDK0dDwNOpepWx5Acl1B3xZZBct1LCFCiAuCNRSBeD9B+DEYskwNIZV450iNQJjRzdMpKd6CK9wtZCO1R97Cg1YpwjA4ojBDYjbBZRBYn1I80ULJZtlML1ZZuIoIlBiNfw7Is9HJ3AfxfwVRnJDksdAMHBgMEpZYSiphRhZZ2jIJF055DAy9-AgA */
+/** @xstate-layout N4IgpgJg5mDOIC5QCcxQJawC5mQfQEMAHdAOgBsB7KGCPSgVywGIAZAeQHEBJAOUVBFKsdFnSUAdgJAAPRAFoALAE4ADKQBsADgDMigOyKdy5QCZTARgCsVgDQgAnoh06tpRVtUbVxnfquqJgC+QfaoGNi4hCQU1LR46BKk4Zg4+FgEAEakAGaU5BCQeHnIALbMACpcnKwAongAYuwASgCy0kIiYpLScghWyqRm+vqBihaeBjoa9k4IilakVhqK5tNa-qYj+iFhaKlRxGRUNEWJyfuR6VmkDBJ5BUUlpaSwDJmlomISUHgp2MgCN0klQCBBEr9-lhAcDmBBJGBSIkAG6UADWiKhhxiJ3i5yx12ydwehToz1e70+WG+kMu0KB4hBlDBEL+dJhjIQKMoAGMGZIANqqAC6HWEokZvUQVn0bgWKwsyn0FkCVkss0QisGph0qhlygsOisOlMG12IAJ0WOcTOSUtGSJ93ypOKlDKFI+X1ZUI5kliLJ+bIi9NhuGQbtIRHIQPJlqOsVOdHxdKiDtuTseZLdLzenup3vZ-KZAdpwd9Ei5ElRfOBQtFSBAnQlPQbfRlcuW4yVKuUaosGoQphWpD8-isFn0BvbO1CFpT+HjuNtF2DqZuxOdT2zHqpNKDqXLzAAwhwAMr1Zq1Hiniq1Zp4AAi3AAghxOGKupLW84daRTQstA0bxlA0fRTQHQ19FILRdA0UwPDUPQ9BnPZVwXHEbSTO15zwNMN0zV0ykqao6kaFp2gbJtgSlBBvFICxDX-ZZfEArQBzcI09A0TjFFUMCDCsc04wwxMEmwtDcPXDMXWeZhTwAVQAIVabgKjwS9rwqZpnwqbh2H4SjxWo79+j0IYtBUfRXA8LZQIHeRFSGKxxgYjQbC0Zy1SEnDF0wsSVwOQk2C4dh5IqD9mykEz5BcCx3EAvxFCMVYEoHSxFHovi1VlBjlBUCZvIk3zROTCSHWYVpn14Z9OHqKpOBqOrn0UiLjNAPo8o0EcDUMVQjC2eCdDSrx6Lc3txxVLQlRQucipEvEklKAgJAIGBJOyUFwR+Z8iCIWB-S2qA4QRJEq3RTEfPm5clpWta002iEdr2g6IUrasizrVqv3azUwK67xTQGQCfC0Uw7EcTUwaWVi+r8CcLNAwrAqtBMFtIG7VrAdaXu23b9oen5mDDCMoxjbdhOtErFuWzHsYJqAnvx5lDre3kPpFL6Wx+hAJ1MQZvF1AJVAsDQGNlCCpuh0CjENcceqRq4UaXLD0Zpu6bnpxnSDAUoiCwBxmA07gbzvPB6sas3ms5qLuYsU0oM7BYdENAxdAHUDBiswwTT50ZXAVtIlb884MfVjbmcevHmE4dgzdj2pWgABQqABNPAbx02prZoixkqWEW9BArxViNCCoKVBZzEQ7iwcUAPsUptHQ6xtNCnIMAaSenGoAfMB25wY6JERbkMQCxXiqbtWW5uNuO8johu97-uwFZmtGU+wzPy52RNW4uLzAGCZVmUZ29QHV33GVAxc9UQCjBGev0Mb66p+x2fO92xe+47sAieQcNkCRmjFgWMl1n4q2bm-b+H8F70yXj-Ve7N6yCCMt9HePNvBdVcPBWWVgPIuHPgxJYbkjB4KNBZXQj8g5U1VrdaemRDZXmNree85tSIVCtpvSKOdTRdX0KLRUwEwZ8xmBDWiRp6JajysscwGgqETxfnQ9azAGi1AqEeAAEngZ8idE54FYMw7OJkRZEMMAYEYKwtATGcvZdKQxhbOX4dYE+blBKzgpqjRRtNyoPlqHUW82jdFGNtjqLqyxDR5VlFOfQEEiFJTULnRQbkximHkVdCBr9yoxzwPJROD5M54FaOwXxwT0EqlUKYcyeCNgmBYv2MRngdCaFUMLDwot2wuDSeA-yDAiAQCBFjUolBCi3D6QMru9N5JjIHvCIep1USjw8crHp0zBnDMRL0-pOAJkRx+FMrZK9uRr0FBzLhbV0HjEWBZXiNkPCyiMKIuYZgMobA0CYA+DippdM8SrTZAy8BDJGX87Zn9JmrL-gAoBZN3RLODkkYFaygWrJ2SWfZAzEG1lOSgreNsLki3oh5awvU4bGHYm86CFTQYBBPkab5yzzgIoBesuSSkVJqSNjebSul9KlL6K4MJnhBoGDeTBQ0A5lTlydoEcphK6VwuCjHMKvKFAuHUDco0hhTC3yVHZMRQ51CuGsIEQChhDRaDlVTCqVUap1RIk1FqZy0EdSSSORUVKrJbHHGxMRBdoIbB8MoDysplQ6BCLOCQ6z4ANlhaJRgWBlUIHkOOcuZgzDCz1A4x5iAhxxQoXgtUfhdB+FDe4sBPz-L2huCSLcZQE3yDyiOHNnq-AGl4kNH1rhNDhJGFsQNAxewWrRpWx01aszulzLuAsZYizd33ACIsCaZb0T5uOZyN8LFpQCJffwcE4IwXvoO5cw70yjsIjmSkXpAw+hnde4EeA3g8h5HAKN2LuEmX8OoUGnhhaaq1UONKKo-XkJgi4LYqpD0q2PfhGS24J2XtLAeG9hY73E2QAmj90FTQtInKsP9WbBx0RlGODyQMXALAgxWnCeFpI1vPXmPct7GSkB5FQWARRGOSDwOCAgJwE3tncJ2RUypVTqh9SoJY0xgK8VeXBCjpVkbUdPeSOD+Yr3IbQVRJ12aTB-gsngoCgRQLgTEWqIDYFezmADV80tc1unycVopzcY7SgJs9bpgCBmQJgW9XMByfUnK8T4hUy5nhlByfEgprIdaGIcSbf4FtN922+YnOXY0agdTPNFm88LtDvEa12QzPG3cE0i0CO4aw3hAsysUBBZ2frQJWKmkakCJbULIwURkpR90Ctax1nrOYr7zl9Bww7N52CzAdNMMNUgeokqQX1HbVYOXIHdZLFrB9T7YAvsbKg7ew2YJuF0N5lYWHSUdqghl-wR2hymnNTZ9r6T-Irfy2torqGStTSaQfK+IscE1b1cLP8xhDCGF7HxUCrXZoPbs9TLrL3DqMxK+MdQ45uIqEwSXcGvnQIzdrroZxehmLLcyTPaB88v7LyR6LP8U5YLSNzjEsRNz86ha1X7Q0ehidw+yO-cnG3n3wJwB9lppB-Cpu0HxXOblz6GFF0G3QU0REDC53lnnZPcYL1Q4LsAJX+FuFFl4fhowWleCS4gaT9jQLcWkc7MjKuw6kF5xrpHfgafWDpwsBnA5Yos9vt4PiLhk32-oSVywlTwnGFdtE+yRp1AJONDI3hfMcuMsBRs5FoKCtoqF46vb2bjB-mvlqwNWq8FWXYjYGbztuJZfSin1ZTKkUHK7vzrb2ede59xW2ZUl897wxdjKAcE3XUne4iaPQFl68HMb+n5vn9UPt74z33UFSbBJVimBdiy+d1gwFnocj93x6PYZQ3tPoy59EFc9YQvypi+gz1BsM3CBZSVJ8DhviJ9YKQ5jWjVP6ySsGg352zGql6P7uwmhDALDjDFq1yGDhbRarCNqizNqTiJb2SkL2LWDjDaB4IuRdJ1prpDCppaoqgBAVb2QBBuDx7jAjDpbKhhpBBAA */
 createMachine({
   id: "register_api",
   initial: "logged_out",
@@ -121,13 +121,7 @@ createMachine({
                   },
                 },
                 success: {},
-                error: {
-                  on: {
-                    RETRY: {
-                      target: "#register_api.logged_in.manage_tab.loadingApps",
-                    },
-                  },
-                },
+                error: {},
               },
               on: {
                 GO_TO_EMPTY_STATE: {
@@ -156,22 +150,8 @@ createMachine({
                     ],
                   },
                 },
-                successDelete: {
-                  on: {
-                    REFETCH: {
-                      target:
-                        "#register_api.logged_in.manage_tab.deletingApp.loadingDelete",
-                    },
-                  },
-                },
-                errorDelete: {
-                  on: {
-                    RETRY: {
-                      target:
-                        "#register_api.logged_in.manage_tab.deletingApp.loadingDelete",
-                    },
-                  },
-                },
+                successDelete: {},
+                errorDelete: {},
               },
             },
           },
@@ -212,22 +192,8 @@ createMachine({
                     ],
                   },
                 },
-                successUpdate: {
-                  on: {
-                    REFETCH: {
-                      target:
-                        "#register_api.logged_in.update_mode.updateApp.loadingUpdate",
-                    },
-                  },
-                },
-                errorUpdate: {
-                  on: {
-                    RETRY: {
-                      target:
-                        "#register_api.logged_in.update_mode.updateApp.loadingUpdate",
-                    },
-                  },
-                },
+                successUpdate: {},
+                errorUpdate: {},
               },
             },
           },
