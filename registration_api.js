@@ -224,7 +224,8 @@ createMachine({
             console.log("Context and event: ", context, event);
             console.log("event data: ", event.data);
         },
-        appUpdate: async ({ app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes }) => {
+        appUpdate: async (_context, event) => {
+          const { app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes } = event.data;
           const endpoint = getEndpoint();
           const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
           const token1 = getStorageToken();
@@ -232,7 +233,8 @@ createMachine({
           await api.send({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
           send({ type: 'FETCH_APP_LIST' });
         },
-        registerApp: async ({ name, redirect_uri, scopes, verification_uri, app_markup_percentage }) => {
+        registerApp: async (_context, event) => {
+          const { name, redirect_uri, scopes, verification_uri, app_markup_percentage } = event.data;
           const app_id = getSessionAppId();
           const endpoint = getEndpoint();
           const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
@@ -240,7 +242,8 @@ createMachine({
           await api.authorize(token1);
           await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
         },
-        removeApp: async (app_id) => {
+        removeApp: async (_context, event) => {
+          const { app_id } = event.data;
           const endpoint = getEndpoint();
           const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
           const token1 = getStorageToken();
