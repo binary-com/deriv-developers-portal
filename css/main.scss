@@ -1135,13 +1135,15 @@ ol > p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 90%;
-  div{
-    width: 486px;
+  width: 100%;
+  .api-features-description,
+  .api-features-image {
+    min-width: 320px;
+    margin-bottom: 40px;
   }
-  img{
-    margin-bottom: 40px
-  };
+  img {
+    margin-bottom: 40px;
+  }
   ul {
     margin-left: 0px;
 
@@ -1409,7 +1411,7 @@ blockquote{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  width: 80%;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
