@@ -1,211 +1,219 @@
 const { createMachine, actions, interpret, assign } = XState;
 
-const appRegistrationMachine = createMachine({
-    id: "register_api",
-    initial: "logged_out",
-    states: {
-        logged_out: {
-            id: "logged_out",
-            on: {
-                LOGIN: "#logged_in",
-            },
+const appRegistrationMachine = 
+/** @xstate-layout N4IgpgJg5mDOIC5QCcxQJawC5mQfQEMAHdAOgBsB7KGCPSgVywGIAZAeQHEBJAOUVBFKsdFnSUAdgJAAPRAFoAzAAYAjKQBsyjQCYNAFg0B2VaoAcZ1QBoQATwWKzy0ooCcq10ZM7X+xQFYjAF8gm1QMbFxCEgpqWjx0CVJwzBx8LAIAI1IAM0pyCEg8POQAW2YAFS5OVgBRPAAxdgAlAFlpIRExSWk5BH9XUlcdL2Vfc2V9I0UNG3sEfX9SfwMdHRmzI38RrxCwtFSo4jIqGiLE5IPI9KzSBgk8gqKS0tJYBkzS0TEJKDwU7DIAjdJJUAgQRJ-AFYIEg5gQSRgUiJABulAA1kjoUcYqd4hdsTdsvdHoU6C83h8vlgflCrjDgeJQZRwZD-vTYUyEKjKABjRmSADaygAuh1hKImb1EIEzKRFgYPCYxttrHZEB5ButlIF3AFFDpNnsQIToic4uckqaMsSHvkycVKGVKZ9vmzoZzJLFWb92REGXDcMgnaQiORgRTTcdYmc6AT6VEbXc7U9yU7Xu9XTT3RyBcyfXT-Z6JNyJGj+SDhWKkCBOpKejW+rL5St9ErVCqdGr5np9C4vP5-KojO5ZcFQiaE-ho3jLZd-YnbiT7c90y7qbS-ali8wAMIcADK9WatR4B4qtWaeAAItwAIIcTjirpSxuIA2KUiGxZmDRaVzGIacwaooRikBYMw6PoZiuMoih+FMxpRriFpxlaU54Emy6po6ZSVNUdSNC07Q1nWILSggWikKYBpmAqbiOBoZjAQgcr6oY7HKEYUFbEhGEzqhCToQuRLJqSq54QeACqABCrTcBUeAnmeFTNHeFTcOw-CkRK5Fvv08FDHRniONBIzGCx8geEM-htqYGiDmYtnbHxIlmjG+LCYcRJsFw7BSRUz71lI+lKIon56EYFgDPoOq6PollrIMWgGoYUF-oaOiud57mzmh845TazCtHevB3pw9RVJwNSVXeMlBXpoB9L4GguO4RixX4IxQYoLE6No1EOa4g6mMoMG7BOyHmrGQmkKUBASAQMCYbcYIQr8d5EEQsDeutUDwoiyJlhiWL8ShM0XPNi3LUma2Qpt227ZCpblnmVYNa+TWIF2Mxfvo+h6K4oHDKYLHDV+RhDToI1GMoYyuNl1y5YJl0LUtYArdkd0bVtO3Y-tQYhmGEZrlNHlzld6OY09OOPfjL18m9oofQ2X0ID9Wr-Ysw3wS1LGqAMEMOYoqgi0OY1wYjaTIxdSSUzdq0sntD07WApREFgtjMMp3DnpeeBVTVBt1SzIVs6ohpga2iwi-BUW9eqlEjqQ0wdQaPiw44Us4tNnlzWjCtY0r9248wnDsAbEe1K0AAKFQAJp4Oe6m1KbFFdlx-aapYbauBYlkrKQcHDv4qUaK4w1jd707nX78sY0mhTkGAtIPTTUDXmAzc4AdEhIjymIFUjAmy-710N7cTctyHRDt533dgAzFZMu9OkvqzsggXnX4rEOhgaJByg6Cxhe2W7MGWL+g7Q9XMt1wHE-ZFPrdbXPXct2AzCE8gobhlgkZnV9hTB+1Nn4zzfgvJeTNqyCF0p9TeCBRbTHlKLOGnhhh0SAo7KyzgAhOQAgMMYPhfAI0moA8m+V66Y21qeXWF4ryG0IhUE2a9goUQtr+F2GhTAASIdsACLED5LB4RXBUawNC3xHvfce1CGi1AqLuAAEngO8McY54FYHQtO+lzD+GcNDaC9E87Dksh4VqTlIaqAVALLq+hJG12ATIoq15ah1AvCotR2jza2T7IaLi4VhxmBGE5RKagjJ6DUAYGYwxFj2KAZQkBRVw54CkjHa8Kc8CtHYC4rxCCDGfiYn4tYHhNjDALs4Ic-VQKBD-E5PwcSKGzQYEQCAwIMalEoIUO4LS2lt3xlJHpPcER9yOmiQeZM8pNMGe0zpSJmmtJwH04OvwBkLMXjyZeQpmasMagglQixwK-i7NwvBosEqO0hn9IJDkoqBHWMYBpkyLjzLaXgDpXSXmLNfv06ZX9kDBh-sTf+pNyFPKSJ8mZHzplLILKstpUDKzbNgevM2ezJitTWNMaGPguJ+D6uoYcsU866BglY3iZC3JSLnBCt5szmDSTkgpJStDzxqQ0lpXJfQVCqFaroKCNEDBqA6qYlQmgzDwWHDMPBANFCPJRhIXy4cAqcocD4Fw-hxUfh5T4IcsxsHmF5aUupBisV2IpTlKlaFiqlXKpVAitV6o7Pgc1QwLgSnQyxVscw-MD6HM9nnMcosQgTgkLM+ANYJmCUYFgFVCB5DQXUA5YcSp3D9UsJZAGOhqI+GxR2bYugJHmuHg4-K1pbjiTTGUWN8hfAuD0BbLYwMrFwX5o4TQKxhzcRHPg4acrR5lttBW3CGYqRul9B6PM7ctyAjzLGvwBKdU2ObV4PVPY9HygHAWw0dFQJ9r9gOsSK5K0jqzJuCdIIh4BiZHgd4vJeRwHDcith+ktjOCCU4IVmaj6ru+h2Q5eCIIGlhr2ot0tLWzQPdhB0FJMwbhzEWSd57r3f1ja+8CfjP1rG-X1KigQtgasHHncKsTQM+0afGNyWEUzQbXLBsdhZtyTt5FQWARQkOSDwBCAgpxY3NgVLnZUw0uz830IMUuf4xixU2BlPdc5IPUYkieuD47cy7LIs676Fcvx0Q1RJgC3FmKO22P++K0EOomAFrJ0tGEqNDpeLGkYSxvy6f-IBQz8wcF9mGnZfqGruJMTNfsSlJaIM2ayNW0wbF62OabbFB2HnO02R84YAWFcLZWdmlQ26yyoAq3bg5tQgwdSw1FkOIjf5+ZhJqYEOGJgAYDH8Bl1GTjFYFjy2rDW8wn27L6F2QIX4Owjigv9bhotTH6MHN27QXZvB-ia3LRJrXla40pHeh9DmfByimL+YaLVfzCsdh2VqwxvMOW2M5INpGa7xMy4toObWVsoadRvXrKgs37YthsC2ANznzGHM4E7pcVgdQrioRrV276OKptlh721Y2aiWMVtQAQSkzB-XGqx6hi5eFgrFSThagsWpC816Hk934v1nvjeeH94drCizNiu27humLArFGKcFWwGBggTycwWbsk8DqQMBtNVv3tgLAanOB4fA5dhfIGkwrErHizKd73CvX73MJDOi82x6k6fuT8B39JdgGlwETQbZupA3nejqyn4hV6DojnLnAEddZbJ93GetPJh1oZxgoJ-1LKwXlDqGCkw4Yey9hD8DAvH7w4mD74cjOLDM+weFMCedobDG0LDfe4PCfFv5+C6ZtKoVrJhXtOFUvnuot6zt7TfudtjXc4gVqsUcUAU8DnqKPPI2jxpe8uZ0LX63rF7ASvJvq8UQNFV8wUwAJMVAtBFilymKQwrvtvUUEdf99md0svr9v7j9jdP9Q8EoLrHCnBDifUs0dSYmlxwsFhjjnz2B4nRe1kl8H-vogDmdP1+3Ub3zmwT-GWE8DD3gm4R2B71BXlT31eQHz-y7AAIsCAObzjT6zFUgMsAMQAgCHmwiwBjrSgMbRHGbWVzjUzXCQIyBhHCBnwKjxIGrT0SWCTRMHQQtjGm7AUFEyWAzwa1GEiTNRCCAA */
+createMachine({
+  id: "register_api",
+  initial: "logged_out",
+  states: {
+    logged_out: {
+      on: {
+        LOGIN: {
+          target: "#register_api.logged_in",
         },
-        logged_in: {
-            id: "logged_in",
-            initial: "register_tab",
-            on: {
-                LOGOUT: "#logged_out",
-                MANAGE_TOGGLE_TAB: "#manage_tab",
-            },
-            states: {
-                register_tab: {
-                    id: "register_tab",
-                    initial: "folded_form",
-                    on: {
-                        LOGOUT: "#logged_out",
-                        TOGGLE_FORM: "#unfolded_form",
-                        MANAGE_TOGGLE_TAB: "#manage_tab",
-                    },
-                    states: {
-                        folded_form: {
-                            id: "folded_form",
-                            invoke: {
-                                src: 'resetFields',
-                            },
-                            on: {
-                                TOGGLE_FORM: "#unfolded_form",
-                            },
-                        },
-                        unfolded_form: {
-                            id: "unfolded_form",
-                            on: {
-                                TOGGLE_FORM: "#folded_form",
-                                SUBMIT_REGISTRATION: "#submitting_registration",
-                            },
-                            states: {
-                                submitting_registration: {
-                                    id: "submitting_registration",
-                                    initial: "loading_registration",
-                                    on: {
-                                        CLOSE_REGISTER_DIALOG: "#closed_registration_dialog",
-                                    },
-                                    states: {
-                                        loading_registration: {
-                                            id: "loading_registration",
-                                            invoke: {
-                                                src: async (_, event) => await registerApp(event.data),
-                                                onDone: {
-                                                    target: "#registration_success",
-                                                },
-                                                onError: {
-                                                    target: "#registration_error",
-                                                },
-                                            },
-                                        },
-                                        registration_success: {
-                                            id: "registration_success",
-                                        },
-                                        registration_error: {
-                                            id: "registration_error",
-                                            invoke: {
-                                                src: 'handleError',
-                                            },
-                                        },
-                                        closed_registration_dialog: {
-                                            id: "closed_registration_dialog",
-                                        },
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-                manage_tab: {
-                    id: "manage_tab",
-                    invoke: { src: 'setEnvironment' },
-                    initial: "loadingApps",
-                    on: {
-                        REGISTER_TOGGLE_TAB: "#register_tab",
-                        FETCH_APP_LIST: "#loadingApps",
-                        DELETE_APP: "#deletingApp",
-                        // add GO_UPDATE_MODE event with data
-                        GO_UPDATE_MODE: { target: "#update_mode", data: (_, event) => event.data },
-
-                    },
-                    states: {
-                        loadingApps: {
-                            id: "loadingApps",
-                            initial: 'loading',
-                            on: {
-                                GO_TO_EMPTY_STATE: "#empty",
-                            },
-                            states: {
-                                loading: {
-                                    invoke: {
-                                        src: async () => await getAppList(),
-                                        onDone: {
-                                            target: "#successLoadingApps",
-                                        },
-                                        onError: {
-                                            target: "#errorLoadingApps",
-                                        },
-                                    },
-                                },
-                                empty: {
-                                    id: "empty",
-                                    on: {
-                                        REGISTER_TOGGLE_TAB: "#register_tab",
-                                    },
-                                },
-                                success: {
-                                    id: "successLoadingApps",
-                                },
-                                error: {
-                                    id: "errorLoadingApps",
-                                    on: {
-                                        RETRY: "#loadingApps",
-                                    },
-                                },
-                            },
-                        },
-                        deletingApp: {
-                            id: "deletingApp",
-                            initial: "loadingDelete",
-                            states: {
-                                loadingDelete: {
-                                    id: "loadingDelete",
-                                    invoke: {
-                                        // get the app id from the event
-                                        src: async (_, event) => {
-                                            await removeApp(event.data);
-                                        },
-                                        onDone: {
-                                            target: "#successDelete",
-                                        },
-                                        onError: {
-                                            target: "#errorDelete",
-                                        },
-                                    },
-                                },
-                                successDelete: {
-                                    id: "successDelete",
-                                    on: {
-                                        REFETCH: "#loadingDelete",
-                                    },
-                                },
-                                errorDelete: {
-                                    id: "errorDelete",
-                                    on: {
-                                        RETRY: "#loadingDelete",
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-                update_mode: {
-                    id: "update_mode",
-                    on: {
-                        SUBMIT_REGISTRATION: "#updateApp",
-                    },
-                    states: {
-                        updateApp: {
-                            id: "updateApp",
-                            initial: "loadingUpdate",
-                            states: {
-                                loadingUpdate: {
-                                    id: "loadingUpdate",
-                                    invoke: {
-                                        src: async (_, event) => {
-                                            await appUpdate(event.data);
-                                        },
-                                        onDone: {
-                                            target: "#successUpdate",
-                                        },
-                                        onError: {
-                                            target: "#errorUpdate",
-                                        },
-                                    },
-                                },
-                                successUpdate: {
-                                    id: "successUpdate",
-                                    on: {
-                                        REFETCH: "#loadingUpdate",
-                                    },
-                                },
-                                errorUpdate: {
-                                    id: "errorUpdate",
-                                    on: {
-                                        RETRY: "#loadingUpdate",
-                                    },
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-        },
+      },
     },
+    logged_in: {
+      initial: "register_tab",
+      states: {
+        register_tab: {
+          initial: "folded_form",
+          states: {
+            folded_form: {
+              invoke: {
+                src: "resetFields",
+              },
+              on: {
+                TOGGLE_FORM: {
+                  target: "#register_api.logged_in.register_tab.unfolded_form",
+                },
+              },
+            },
+            unfolded_form: {
+              states: {
+                submitting_registration: {
+                  initial: "loading_registration",
+                  states: {
+                    loading_registration: {
+                      invoke: {
+                        src: "registerApp",
+                        onDone: [
+                          {
+                            target:
+                              "#register_api.logged_in.register_tab.unfolded_form.submitting_registration.registration_success",
+                          },
+                        ],
+                        onError: [
+                          {
+                            target:
+                              "#register_api.logged_in.register_tab.unfolded_form.submitting_registration.registration_error",
+                          },
+                        ],
+                      },
+                    },
+                    registration_success: {},
+                    registration_error: {
+                      invoke: {
+                        src: "handleError",
+                      },
+                    },
+                    closed_registration_dialog: {},
+                  },
+                  on: {
+                    CLOSE_REGISTER_DIALOG: {
+                      target:
+                        "#register_api.logged_in.register_tab.unfolded_form.submitting_registration.closed_registration_dialog",
+                    },
+                  },
+                },
+              },
+              on: {
+                TOGGLE_FORM: {
+                  target: "#register_api.logged_in.register_tab.folded_form",
+                },
+                SUBMIT_REGISTRATION: {
+                  target:
+                    "#register_api.logged_in.register_tab.unfolded_form.submitting_registration",
+                },
+              },
+            },
+          },
+          on: {
+            LOGOUT: {
+              target: "#register_api.logged_out",
+            },
+            MANAGE_TOGGLE_TAB: {
+              target: "#register_api.logged_in.manage_tab",
+            },
+          },
+        },
+        manage_tab: {
+          invoke: {
+            src: "setEnvironment",
+          },
+          initial: "loadingApps",
+          states: {
+            loadingApps: {
+              initial: "loading",
+              states: {
+                loading: {
+                  invoke: {
+                    src: "getAppList",
+                    onDone: [
+                      {
+                        target:
+                          "#register_api.logged_in.manage_tab.loadingApps.success",
+                      },
+                    ],
+                    onError: [
+                      {
+                        target:
+                          "#register_api.logged_in.manage_tab.loadingApps.error",
+                      },
+                    ],
+                  },
+                },
+                empty: {
+                  on: {
+                    REGISTER_TOGGLE_TAB: {
+                      target: "#register_api.logged_in.register_tab",
+                    },
+                  },
+                },
+                success: {},
+                error: {},
+              },
+              on: {
+                GO_TO_EMPTY_STATE: {
+                  target:
+                    "#register_api.logged_in.manage_tab.loadingApps.empty",
+                },
+              },
+            },
+            deletingApp: {
+              initial: "loadingDelete",
+              states: {
+                loadingDelete: {
+                  invoke: {
+                    src: "removeApp",
+                    onDone: [
+                      {
+                        target:
+                          "#register_api.logged_in.manage_tab.deletingApp.successDelete",
+                      },
+                    ],
+                    onError: [
+                      {
+                        target:
+                          "#register_api.logged_in.manage_tab.deletingApp.errorDelete",
+                      },
+                    ],
+                  },
+                },
+                successDelete: {},
+                errorDelete: {},
+              },
+            },
+          },
+          on: {
+            REGISTER_TOGGLE_TAB: {
+              target: "#register_api.logged_in.register_tab",
+            },
+            FETCH_APP_LIST: {
+              target: "#register_api.logged_in.manage_tab.loadingApps",
+            },
+            DELETE_APP: {
+              target: "#register_api.logged_in.manage_tab.deletingApp",
+            },
+            GO_UPDATE_MODE: {
+              target: "#register_api.logged_in.update_mode",
+            },
+          },
+        },
+        update_mode: {
+          states: {
+            updateApp: {
+              initial: "loadingUpdate",
+              states: {
+                loadingUpdate: {
+                  invoke: {
+                    src: "appUpdate",
+                    onDone: [
+                      {
+                        target:
+                          "#register_api.logged_in.update_mode.updateApp.successUpdate",
+                      },
+                    ],
+                    onError: [
+                      {
+                        target:
+                          "#register_api.logged_in.update_mode.updateApp.errorUpdate",
+                      },
+                    ],
+                  },
+                },
+                successUpdate: {},
+                errorUpdate: {},
+              },
+            },
+          },
+          on: {
+            SUBMIT_REGISTRATION: {
+              target: "#register_api.logged_in.update_mode.updateApp",
+            },
+          },
+        },
+      },
+      on: {
+        LOGOUT: {
+          target: "#register_api.logged_out",
+        },
+        MANAGE_TOGGLE_TAB: {
+          target: "#register_api.logged_in.manage_tab",
+        },
+      },
+    },
+  },
 }, {
     services: {
         resetFields: async () => {
@@ -215,6 +223,89 @@ const appRegistrationMachine = createMachine({
         handleError: async (context, event) => {
             console.log("Context and event: ", context, event);
             console.log("event data: ", event.data);
+        },
+        appUpdate: async (_context, event) => {
+          const { app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes } = event.data;
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getStorageToken();
+          await api.authorize(token1);
+          await api.send({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
+          send({ type: 'FETCH_APP_LIST' });
+        },
+        registerApp: async (_context, event) => {
+          const { name, redirect_uri, scopes, verification_uri, app_markup_percentage } = event.data;
+          const app_id = getSessionAppId();
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getToken();
+          await api.authorize(token1);
+          await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
+        },
+        removeApp: async (_context, event) => {
+          const { app_id } = event.data;
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getStorageToken();
+          await api.authorize(token1);
+          await api.appDelete(app_id);
+          send({ type: 'FETCH_APP_LIST' });
+        },
+        getAppList: async () => {
+          const app_id = getSessionAppId();
+          const endpoint = getEndpoint();
+          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+          const token1 = getStorageToken();
+      
+          // rewrite skeleton to have div inside td with class="skeleton"
+          const skeleton = `<tr>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+              <td><div class="skeleton"></div></td>
+          </tr>`;
+      
+          // create an array with 5 skeleton
+          const skeleton_array = Array(5).fill(skeleton);
+          // for each skeleton create a tr
+          const app_list_element = document.getElementById('app_list');
+          const is_app_list_tr_loaded = app_list_element.querySelectorAll('tr').length > 0;
+          if (!is_app_list_tr_loaded) {
+              skeleton_array.forEach(item => {
+                  const tr = document.createElement('tr');
+                  tr.innerHTML = item;
+                  app_list_element.appendChild(tr);
+              });
+          }
+      
+          await api.authorize(token1);
+          const get_data = await api.appList();
+          const app_list = get_data.app_list;
+          // send go to empty state when no app_list
+          if (!app_list.length) {
+              send({
+                  "type": "GO_TO_EMPTY_STATE"
+              });
+          };
+          const app_list_body = document.getElementById('app_list');
+          while (app_list_body.firstChild) {
+              app_list_body.removeChild(app_list_body.firstChild);
+          }
+          app_list.forEach((app) => {
+              const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri } = app;
+              const tr = document.createElement('tr');
+              tr.innerHTML = `<td>${name}</td>
+                              <td>${app_id}</td>
+                              <td>${scopes.join(', ')}</td>
+                              <td>${redirect_uri}</td>
+                              <td>
+                                  <button aria-label="Update app" class="app-btn update-icon" onclick="go_update_mode(${active}, '${app_id}', '${app_markup_percentage}', '${appstore}', '${github}', '${googleplay}', '${homepage}', '${name}', '${redirect_uri}', '${verification_uri}', '${scopes.join(', ')}')"><span>Remove app</span></button>
+                                  <button aria-label="Delete app" class="app-btn delete-icon" onclick="open_delete_dialog(${app_id})"><span>Update app</span></button>
+                              </td>
+                              `;
+              app_list_body.appendChild(tr);
+          });
         },
     },
 });
@@ -437,81 +528,6 @@ if (registerLoginButton) {
     });
 };
 
-const getAppList = async () => {
-    const app_id = getSessionAppId();
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getStorageToken();
-
-    // rewrite skeleton to have div inside td with class="skeleton"
-    const skeleton = `<tr>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-        <td><div class="skeleton"></div></td>
-    </tr>`;
-
-    // create an array with 5 skeleton
-    const skeleton_array = Array(5).fill(skeleton);
-    // for each skeleton create a tr
-    const app_list_element = document.getElementById('app_list');
-    const is_app_list_tr_loaded = app_list_element.querySelectorAll('tr').length > 0;
-    if (!is_app_list_tr_loaded) {
-        skeleton_array.forEach(item => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = item;
-            app_list_element.appendChild(tr);
-        });
-    }
-
-    await api.authorize(token1);
-    const get_data = await api.appList();
-    const app_list = get_data.app_list;
-    // send go to empty state when no app_list
-    if (!app_list.length) {
-        send({
-            "type": "GO_TO_EMPTY_STATE"
-        });
-    };
-    const app_list_body = document.getElementById('app_list');
-    while (app_list_body.firstChild) {
-        app_list_body.removeChild(app_list_body.firstChild);
-    }
-    app_list.forEach((app) => {
-        const { active, app_id, app_markup_percentage, appstore, github, googleplay, homepage, name, redirect_uri, scopes, verification_uri } = app;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${name}</td>
-                        <td>${app_id}</td>
-                        <td>${scopes.join(', ')}</td>
-                        <td>${redirect_uri}</td>
-                        <td>
-                            <button aria-label="Update app" class="app-btn update-icon" onclick="go_update_mode(${active}, '${app_id}', '${app_markup_percentage}', '${appstore}', '${github}', '${googleplay}', '${homepage}', '${name}', '${redirect_uri}', '${verification_uri}', '${scopes.join(', ')}')"><span>Remove app</span></button>
-                            <button aria-label="Delete app" class="app-btn delete-icon" onclick="open_delete_dialog(${app_id})"><span>Update app</span></button>
-                        </td>
-                        `;
-        app_list_body.appendChild(tr);
-    });
-}
-
-const removeApp = async (app_id) => {
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getStorageToken();
-    await api.authorize(token1);
-    await api.appDelete(app_id);
-    send({ type: 'FETCH_APP_LIST' });
-}
-
-const appUpdate = async ({ app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes }) => {
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getStorageToken();
-    await api.authorize(token1);
-    await api.send({ app_update: app_id, app_markup_percentage, name, redirect_uri, verification_uri, scopes });
-    send({ type: 'FETCH_APP_LIST' });
-};
-
 const open_delete_dialog = (app_id) => {
     const dialog = document.getElementById('delete_app_dialog');
     dialog.showModal();
@@ -647,15 +663,6 @@ if (send_register_button) {
             }
         });
     });
-};
-
-const registerApp = async ({ name, redirect_uri, scopes, verification_uri, app_markup_percentage }) => {
-    const app_id = getSessionAppId();
-    const endpoint = getEndpoint();
-    const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-    const token1 = getToken();
-    await api.authorize(token1);
-    await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
 };
 
 const open_register_dialog = () => {
