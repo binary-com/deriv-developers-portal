@@ -150,11 +150,16 @@ button:focus {
 @media (max-width: 480px) {
   .ul-paragraph {
     margin-bottom: 24px;
-  }
+   }
   .benefits img{
     margin-bottom: 0px ;
   }
 }
+.doc-title{
+  font-size: 32px;
+  
+}
+
 @media (max-width: 992px) {
   .nav > .top-nav,
   .nav > .top-nav > .top-nav-container,
@@ -215,6 +220,7 @@ button:focus {
   .docson .title {
     font-size: 18px;
   }
+
   .docson .box {
     padding-bottom: 0 !important;
   }
@@ -379,6 +385,7 @@ button:focus {
   #frmNewApplication > .form-content {
     width: 100%;
     padding-left: unset;
+    margin-right: inherit;
   }
   .row-container {
     .single-container > h2 {
@@ -396,13 +403,16 @@ button:focus {
     flex-direction: row;
   }
   .doc-content {
+    
     .page-wrapper {
       width: 100% !important;
 
       .page-content {
+        
         .doc-main-title {
-          font-size: 32px;
+          font-size: 32px; 
         }
+      
         .doc-sub-title {
           font-size: 24px;
           text-align: left;
@@ -725,7 +735,11 @@ button:focus {
     width: unset;
     min-height: calc(88vh - 54px);
     justify-content: unset;
+    align-items: center;
+    
   }
+  
+  
 
   .docson .type-enum {
     margin: 8px 6px 0 0 !important;
@@ -841,7 +855,10 @@ p {
 }
 .content-with-navigator {
   @media (min-width: 480px) {
+    width:100%;
     margin-right: 160px;
+
+    
   }
 }
 .short-margin {
@@ -850,6 +867,7 @@ p {
 .qute-left {
   padding-left: 4rem;
   @media (max-width: 480px) {
+    visibility: visible;
     padding-left: 1rem;
   }
 }
@@ -1337,11 +1355,18 @@ blockquote{
 }
 .text-block {
   margin-bottom: 40px;
+  margin-right: inherit;
 
   .sub-title {
     font-size: 32px;
     text-align: left;
     margin-bottom: 8px;
+  }
+  @media(max-width: 480px){
+    width: 100%;
+    display: block;
+    //justify-content: center;
+    
   }
 
   p {
@@ -2038,14 +2063,14 @@ button {
   min-height: 95vh;
 }
 #content > .documentation {
-  width: 80%;
+  width: 100%;
   margin-top: 20px;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1000px) {
     width: 90%;
   }
 
-  @media (max-width: 1164px) {
+  @media (max-width: 1000px) {
     width: 95%;
   }
 }
@@ -2225,9 +2250,16 @@ a.align-end {
   box-sizing: border-box;
   padding: 1rem;
   
-  @media (max-width: 480px) {
-    display: none;
-  }
+    @media(max-width:992px){
+      position: relative;
+      line-height: 1;
+      max-width: unset;
+      width: 100%;
+      right: unset;
+      padding:16px;
+
+    }
+    
   a {
     padding: 4px 0;
     
@@ -2242,6 +2274,19 @@ a.align-end {
 .api-guide-image {
   @media (max-width: 480px) {
     width: 90%;
+  }
+}
+@media(max-width:992px){
+.api-guide-mobile{
+  position: relative;
+  //display: none;
+  }
+}
+
+@media(min-width:992px){
+  .api-guide-desktop{
+    position: relative;
+    display: flex;
   }
 }
 .sidebar-title {
@@ -3111,6 +3156,7 @@ footer {
     }
   }
 }
+
 
 @import "monokai.css";
 @import "registration.css";

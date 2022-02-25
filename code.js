@@ -185,6 +185,7 @@ function init(docson) {
 // ====== Navigator Handler ======
 // -------------------------------
 function populateNavigator() {
+  console.log("Func called")
   const navigator = document.getElementById('navigator');
   if (!navigator) return
   const headerList = document.getElementsByClassName('has-navigation');
@@ -192,7 +193,7 @@ function populateNavigator() {
     const link = document.createElement('a');
     link.classList.add('navigator-link');
     if (header.classList.contains('navigation-subtitle')) link.classList.add('navigator-sublink');
-    link.setAttribute('href', `#${header.id}`);
+    link.setAttribute('href', `#${header.id}` );
     link.innerHTML = header.innerHTML
     navigator.appendChild(link)
   });1
