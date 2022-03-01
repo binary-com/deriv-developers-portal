@@ -735,12 +735,8 @@ button:focus {
     width: unset;
     min-height: calc(88vh - 54px);
     justify-content: unset;
-    align-items: center;
-    
+    align-items: center;  
   }
-  
-  
-
   .docson .type-enum {
     margin: 8px 6px 0 0 !important;
   }
@@ -768,7 +764,7 @@ button:focus {
   }
 }
 
-@media (max-width: 1078px) {
+@media (max-width: 1424px) {
   .playground {
     &-page-wrapper {
       flex-direction: column;
@@ -2715,6 +2711,8 @@ pre {
           line-height: 1.43;
           text-align: center;
           color: #333333;
+          white-space: nowrap;
+          overflow: hidden;
         }
 
         a {
