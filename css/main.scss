@@ -1983,6 +1983,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .main-docs {
@@ -2047,7 +2048,7 @@ button {
   flex-direction: column;
 }
 .doc-content {
-  padding: 105px 0 80px;
+  padding: 105px 120px 80px;
   display: flex;
   justify-content: center;
   min-height: 95vh;
