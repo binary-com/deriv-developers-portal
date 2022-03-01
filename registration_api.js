@@ -1,7 +1,7 @@
 const { createMachine, actions, interpret, assign } = XState;
 
 const appRegistrationMachine = 
-/** @xstate-layout N4IgpgJg5mDOIC5QCcxQJawC5mQfQEMAHdAOgBsB7KGCPSgVywGIAZAeQHEBJAOUVBFKsdFnSUAdgJAAPRAFoAzAAYAjKQBsyjQCYNAFg0B2VaoAcZ1QBoQATwWKzy0ooCcq10ZM7X+xQFYjAF8gm1QMbFxCEgpqWjx0CVJwzBx8LAIAI1IAM0pyCEg8POQAW2YAFS5OVgBRPAAxdgAlAFlpIRExSWk5BH9XUlcdL2Vfc2V9I0UNG3sEfX9SfwMdHRmzI38RrxCwtFSo4jIqGiLE5IPI9KzSBgk8gqKS0tJYBkzS0TEJKDwU7DIAjdJJUAgQRJ-AFYIEg5gQSRgUiJABulAA1kjoUcYqd4hdsTdsvdHoU6C83h8vlgflCrjDgeJQZRwZD-vTYUyEKjKABjRmSADaygAuh1hKImb1EIEzKRFgYPCYxttrHZEB5ButlIF3AFFDpNnsQIToic4uckqaMsSHvkycVKGVKZ9vmzoZzJLFWb92REGXDcMgnaQiORgRTTcdYmc6AT6VEbXc7U9yU7Xu9XTT3RyBcyfXT-Z6JNyJGj+SDhWKkCBOpKejW+rL5St9ErVCqdGr5np9C4vP5-KojO5ZcFQiaE-ho3jLZd-YnbiT7c90y7qbS-ali8wAMIcADK9WatR4B4qtWaeAAItwAIIcTjirpSxuIA2KUiGxZmDRaVzGIacwaooRikBYMw6PoZiuMoih+FMxpRriFpxlaU54Emy6po6ZSVNUdSNC07Q1nWILSggWikKYBpmAqbiOBoZjAQgcr6oY7HKEYUFbEhGEzqhCToQuRLJqSq54QeACqABCrTcBUeAnmeFTNHeFTcOw-CkRK5Fvv08FDHRniONBIzGCx8geEM-htqYGiDmYtnbHxIlmjG+LCYcRJsFw7BSRUz71lI+lKIon56EYFgDPoOq6PollrIMWgGoYUF-oaOiud57mzmh845TazCtHevB3pw9RVJwNSVXeMlBXpoB9L4GguO4RixX4IxQYoLE6No1EOa4g6mMoMG7BOyHmrGQmkKUBASAQMCYbcYIQr8d5EEQsDeutUDwoiyJlhiWL8ShM0XPNi3LUma2Qpt227ZCpblnmVYNa+TWIF2Mxfvo+h6K4oHDKYLHDV+RhDToI1GMoYyuNl1y5YJl0LUtYArdkd0bVtO3Y-tQYhmGEZrlNHlzld6OY09OOPfjL18m9oofQ2X0ID9Wr-Ysw3wS1LGqAMEMOYoqgi0OY1wYjaTIxdSSUzdq0sntD07WApREFgtjMMp3DnpeeBVTVBt1SzIVs6ohpga2iwi-BUW9eqlEjqQ0wdQaPiw44Us4tNnlzWjCtY0r9248wnDsAbEe1K0AAKFQAJp4Oe6m1KbFFdlx-aapYbauBYlkrKQcHDv4qUaK4w1jd707nX78sY0mhTkGAtIPTTUDXmAzc4AdEhIjymIFUjAmy-710N7cTctyHRDt533dgAzFZMu9OkvqzsggXnX4rEOhgaJByg6Cxhe2W7MGWL+g7Q9XMt1wHE-ZFPrdbXPXct2AzCE8gobhlgkZnV9hTB+1Nn4zzfgvJeTNqyCF0p9TeCBRbTHlKLOGnhhh0SAo7KyzgAhOQAgMMYPhfAI0moA8m+V66Y21qeXWF4ryG0IhUE2a9goUQtr+F2GhTAASIdsACLED5LB4RXBUawNC3xHvfce1CGi1AqLuAAEngO8McY54FYHQtO+lzD+GcNDaC9E87Dksh4VqTlIaqAVALLq+hJG12ATIoq15ah1AvCotR2jza2T7IaLi4VhxmBGE5RKagjJ6DUAYGYwxFj2KAZQkBRVw54CkjHa8Kc8CtHYC4rxCCDGfiYn4tYHhNjDALs4Ic-VQKBD-E5PwcSKGzQYEQCAwIMalEoIUO4LS2lt3xlJHpPcER9yOmiQeZM8pNMGe0zpSJmmtJwH04OvwBkLMXjyZeQpmasMagglQixwK-i7NwvBosEqO0hn9IJDkoqBHWMYBpkyLjzLaXgDpXSXmLNfv06ZX9kDBh-sTf+pNyFPKSJ8mZHzplLILKstpUDKzbNgevM2ezJitTWNMaGPguJ+D6uoYcsU866BglY3iZC3JSLnBCt5szmDSTkgpJStDzxqQ0lpXJfQVCqFaroKCNEDBqA6qYlQmgzDwWHDMPBANFCPJRhIXy4cAqcocD4Fw-hxUfh5T4IcsxsHmF5aUupBisV2IpTlKlaFiqlXKpVAitV6o7Pgc1QwLgSnQyxVscw-MD6HM9nnMcosQgTgkLM+ANYJmCUYFgFVCB5DQXUA5YcSp3D9UsJZAGOhqI+GxR2bYugJHmuHg4-K1pbjiTTGUWN8hfAuD0BbLYwMrFwX5o4TQKxhzcRHPg4acrR5lttBW3CGYqRul9B6PM7ctyAjzLGvwBKdU2ObV4PVPY9HygHAWw0dFQJ9r9gOsSK5K0jqzJuCdIIh4BiZHgd4vJeRwHDcith+ktjOCCU4IVmaj6ru+h2Q5eCIIGlhr2ot0tLWzQPdhB0FJMwbhzEWSd57r3f1ja+8CfjP1rG-X1KigQtgasHHncKsTQM+0afGNyWEUzQbXLBsdhZtyTt5FQWARQkOSDwBCAgpxY3NgVLnZUw0uz830IMUuf4xixU2BlPdc5IPUYkieuD47cy7LIs676Fcvx0Q1RJgC3FmKO22P++K0EOomAFrJ0tGEqNDpeLGkYSxvy6f-IBQz8wcF9mGnZfqGruJMTNfsSlJaIM2ayNW0wbF62OabbFB2HnO02R84YAWFcLZWdmlQ26yyoAq3bg5tQgwdSw1FkOIjf5+ZhJqYEOGJgAYDH8Bl1GTjFYFjy2rDW8wn27L6F2QIX4Owjigv9bhotTH6MHN27QXZvB-ia3LRJrXla40pHeh9DmfByimL+YaLVfzCsdh2VqwxvMOW2M5INpGa7xMy4toObWVsoadRvXrKgs37YthsC2ANznzGHM4E7pcVgdQrioRrV276OKptlh721Y2aiWMVtQAQSkzB-XGqx6hi5eFgrFSThagsWpC816Hk934v1nvjeeH94drCizNiu27humLArFGKcFWwGBggTycwWbsk8DqQMBtNVv3tgLAanOB4fA5dhfIGkwrErHizKd73CvX73MJDOi82x6k6fuT8B39JdgGlwETQbZupA3nejqyn4hV6DojnLnAEddZbJ93GetPJh1oZxgoJ-1LKwXlDqGCkw4Yey9hD8DAvH7w4mD74cjOLDM+weFMCedobDG0LDfe4PCfFv5+C6ZtKoVrJhXtOFUvnuot6zt7TfudtjXc4gVqsUcUAU8DnqKPPI2jxpe8uZ0LX63rF7ASvJvq8UQNFV8wUwAJMVAtBFilymKQwrvtvUUEdf99md0svr9v7j9jdP9Q8EoLrHCnBDifUs0dSYmlxwsFhjjnz2B4nRe1kl8H-vogDmdP1+3Ub3zmwT-GWE8DD3gm4R2B71BXlT31eQHz-y7AAIsCAObzjT6zFUgMsAMQAgCHmwiwBjrSgMbRHGbWVzjUzXCQIyBhHCBnwKjxIGrT0SWCTRMHQQtjGm7AUFEyWAzwa1GEiTNRCCAA */
+/** @xstate-layout N4IgpgJg5mDOIC5QCcxQJawC5mQfQEMAHdAOgBsB7KGCPSgVywGIAZAeQHEBJAOUVBFKsdFnSUAdgJAAPRAFoAzAAYAjKQBsyjQCYNAFg0B2VaoAcZ1QBoQATwWKzy0ooCcq10ZM7X+xQFYjAF8gm1QMbFxCEgpqWjx0CVJwzBx8LAIAI1IAM0pyCEg8POQAW2YAFS5OVgBRPAAxdgAlAFlpIRExSWk5BH9XUlcdL2Vfc2V9I0UNG3sEfX9SfwMdHRmzI38RrxCwtFSo4jIqGiLE5IPI9KzSBgk8gqKS0tJYBkzS0TEJKDwU7DIAjdJJUAgQRJ-AFYIEg5gQSRgUiJABulAA1kjoUcYqd4hdsTdsvdHoU6C83h8vlgflCrjDgeJQZRwZD-vTYUyEKjKABjRmSADaygAuh1hKImb1EIEzKRFgYPCYxttrHZEB5ButlIF3AFFDpNnsQIToic4uckqaMsSHvkycVKGVKZ9vmzoZzJLFWb92REGXDcMgnaQiORgRTTcdYmc6AT6VEbXc7U9yU7Xu9XTT3RyBcyfXT-Z6JNyJGj+SDhWKkCBOpKejW+rL5St9ErVCqdGr5np9C4vP5-KojO5ZcFQiaE-ho3jLZd-YnbiT7c90y7qbS-ali8wAMIcADK9WatR4B4qtWaeAAItwAIIcTjirpSxuIA2KUiGxZmDRaVzGIacwaooRikBYMw6PoZiuMoih+FMxpRriFpxlaU54Emy6po6ZSVNUdSNC07Q1nWILSggWikKYBpmAqbiOBoZjAQgcr6oY7HKEYUFbEhGEzqhCToQuRLJqSq54QeACqABCrTcBUeAnmeFTNHeFTcOw-CkRK5Fvv08FDHRniONBIzGCx8geEM-htqYGiDmYtnbHxIlmjG+LCYcRJsFw7BSRUz71lI+lKIon56EYFgDPoOq6PollrIMWgGoYUF-oaOiud57mzmh845TazCtHevB3pw9RVJwNSVXeMlBXpoB9L4GguO4RixX4IxQYoLE6No1EOa4g6mMoMG7BOyHmrGQmkKUBASAQMCYbcYIQr8d5EEQsDeutUDwoiyJlhiWL8ShM0XPNi3LUma2Qpt227ZCpblnmVYNa+TWIF2Mxfvo+h6K4oHDKYLHDV+RhDToI1GMoYyuNl1y5YJl0LUtYArdkd0bVtO3Y-tQYhmGEZrlNHlzld6OY09OOPfjL18m9oofQ2X0ID9Wr-Ysw3wS1LGqAMEMOYoqgi0OY1wYjaTIxdSSUzdq0sntD07WApREFgtjMMp3DnpeeBVTVBt1SzIVs6ohpga2iwi-BUW9eqlEjqQ0wdQaPiw44Us4tNnlzWjCtY0r9248wnDsAbEe1K0AAKFQAJp4Oe6m1KbFFdlx-aapYbauBYlkrKQcHDv4qUaK4w1jd707nX78sY0mhTkGAtIPTTUDXmAzc4AdEhIjymIFUjAmy-710N7cTctyHRDt533dgAzFZMu9OkvqzsggXnX4rEOhgaJByg6Cxhe2W7MGWL+g7Q9XMt1wHE-ZFPrdbXPXct2AzCE8gobhlgkZnV9hTB+1Nn4zzfgvJeTNqyCF0p9TeCBRa-hdpsPUqgOKpUstZUWEs4b-UsA5KKt8R733HpjbWp5dYXivIbQiFQTZr2ChRC2yDIamAAmMaGPhZiOwPksdhFcFRrA0MQ2uwCyFFQaLUCou4AASeA7wxxjngVgVC076XMP4Zw0NoL0TzsOLBAFwKBA0OglYAsur6FEUA-K9dyHXlqHUC8CilHqPNrZPshouLhWHGYEYTlEpqCMnoNQBgZjDEWNY8mtiQFFXDngKSMdrwpzwK0dgDi3EIJ0Z+JiXi1geFQcfR28gtHLAtnBLYkMmK2UUFEvKs0GBEAgMCDGpRKCFDuE0lpbd8ZSS6T3BEfcjpokHmTepFxGnNJwHgNpHTJndNfr0-pi8eTLyFMzRhjUEEqEWOBX8XZTEBEsPBFikM-p+MIU5biMxxz7DciQuc8zpmzKRE8sAPTg6-D6VMz+39f4k2dGMlGSQ3kzPaa85ZHyCzfJaVAysGzYHrzNtsyYrU1jTC4bBN2fV1DDlinnXQMF0G8UmoA6JDTllgsKMwaSckFJKUoeeNSGktKZL6CoVQrVdBQRogYNQHUsEqE0GYeCw4ZhHIBrU0l9yxFoV8uHAKbKHA+BcP4EVH5OU+CHDw+YVlkFMRHE5AGZ9Up1OBcVUq5VKoEVqvVTZ8DmqGBcAU6GGKtjmH5gfPZns85jlFiECcEhwXwBrECmajAsBKoQPIaC6gHLDiVO4fqlhLIAx0NRHwXCOzbF0CI6VOUHn5WtLccSaYyhRvkL4FwegLZbGBuguC-NHCaHMV4EYvqK7+DNaPYttpS24QzFSN0voPR5nbluQEeYo1+FxVqixDavA6u+qUqYWxc2GjoqBbtfte1iRXGWwdWZNyjpBEPAMTI8DvF5LyOAIbEVMP0lsZwfinD8rTUfJd7MOx7KORBA0sNhrbrnLu7CDoKSZg3DmIsY6T0Xu-lGp94EvFvrWB+vqVFAhbDVYOPO4VIn5uHrK2aIGUxgbXBB4dhZtxjt5FQWARRYOSDwBCAgpwo3NgVLnZUw0uz830IMUuf4xixU2BlIDRaMJYVIxJQ9kGR25i2WRB130K5fjomqoTAFuLMUdtsH9pjNgDCihbKxBHpaFuI5Jpc0mD1RpGEsb8Gn-yAR07qjsfZhp2S8L+Nsxgu1mZ9uS+MbkbQVtMGxGt9n62xQdm5rwNk2zrHcOXEc4nZp2Nup8qAKt252bUIMHUsNRZDlw3+fmQSTGBDhiYY1gGAs1xsel2JisCw5bVhreY96tl9C7IEL8HYRxQX+qY0WWDtGDkNdoLs3g-xpdRhIlrytcaUmvbeuzPg5RTF-MNFqv4BWOw7K1YYnmHLbGcv6+rd9xFU0y615b8H7Ubx6yodNe2LYbBM1BfmsMhhaoCMYfjQMdRzbls1oOd3tpRs1EsQragAgFJmJ+qybYi4iy2EDAcgQpV3ILUR+bN3J7vxfrPfG88P5Q7WBF6bFcN1DawWBWKMU4KtgMDBPNOPCONfx4HUgYDaYrZvbAWAZOcBQ5WGBKKecgdtnoifV7pj3X73MJDOiIOx4E6fkT8B38RdgDFwETQiXuJAxnUj0WRdhx6DojnVnAE1cZcJ93GeFPJjVup8MCwdPinDGoioe2B8HJTFMPbsHUOJhu+HDTz3-1LLhTAnnaGnhivDFMWr0FLzOk-KhXtGFovHvIp69ttTHuLDlzGq5xArVYo+DGCl2GW32eThlVzkFlKM9vLblewXsBc96-zxRA0FXzBTAAkxUC0FTlctExXPbeooJp7b+CzPCzZ7f171Gwf6h4JQXWOFOCHE+rpo6kxCuSDYLDFuU33HLfl-PKXx3radn1PF43dt8vlk-zLE8LXrqVz-oL5+SpT7y62U3Zj8XUENBLzf3zmKV62FW315hlwMFMw53Mzx2RSUyewUHQXTQNFMSixHAbViwUDTWCSMwPl8UmGsQrS0SWHjRME8CTTGm7BIPBgTwGEsHMjtgDSCCAA */
 createMachine({
   id: "register_api",
   initial: "logged_out",
@@ -135,7 +135,9 @@ createMachine({
               states: {
                 loadingDelete: {
                   invoke: {
-                    src: "removeApp",
+                    src: async (_, event) => {
+                      await removeApp(event.data);
+                  },
                     onDone: [
                       {
                         target:
@@ -242,15 +244,6 @@ createMachine({
           await api.authorize(token1);
           await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
         },
-        removeApp: async (_context, event) => {
-          const { app_id } = event.data;
-          const endpoint = getEndpoint();
-          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-          const token1 = getStorageToken();
-          await api.authorize(token1);
-          await api.appDelete(app_id);
-          send({ type: 'FETCH_APP_LIST' });
-        },
         getAppList: async () => {
           const app_id = getSessionAppId();
           const endpoint = getEndpoint();
@@ -309,6 +302,14 @@ createMachine({
         },
     },
 });
+const removeApp = async (app_id) => {
+  const endpoint = getEndpoint();
+  const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+  const token1 = getStorageToken();
+  await api.authorize(token1);
+  await api.appDelete(app_id);
+  send({ type: 'FETCH_APP_LIST' });
+}
 const isStorageSupported = storage => {
     if (typeof storage === 'undefined') {
         return false;
