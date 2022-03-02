@@ -502,9 +502,6 @@ button:focus {
         h1 {
           margin-bottom: 0 !important;
         }
-        ul{
-          margin-left: 40px
-        }
         .benefits{
           flex-wrap: wrap;
           h3{
@@ -1134,7 +1131,7 @@ ol > p {
 .api-features {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 90%;
   div{
     width: 486px;
@@ -1193,7 +1190,7 @@ ol > p {
     width: 486px;
   }
   img{
-    margin-bottom: 40px
+    margin-bottom: 20px
   };
   ul {
     margin-left: 0px;
@@ -1213,7 +1210,6 @@ ol > p {
     }
   }
   .api-features-description{
-    margin-left: 40px;
     h3 {
       font-size: 48px;
     }
@@ -1222,9 +1218,15 @@ ol > p {
       line-height: 2rem;
     }
   }
+  .api-features-image {
+    min-width: 320px;
+  }
   @media (max-width: 480px) {
     .api-features-description {
       margin: 0;
+      h3{
+        text-align: center;
+      }
       p{
         font-size: 16px;
       }
