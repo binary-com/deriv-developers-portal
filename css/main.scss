@@ -1217,6 +1217,12 @@ ol > p {
       font-size: 16px;
       line-height: 2rem;
     }
+    .check-icon-mobile{
+      display: none;
+    }
+    .check-icon-desktop{
+      display: block;
+    }
   }
   .api-features-image {
     min-width: 320px;
@@ -1232,6 +1238,12 @@ ol > p {
       }
       h3{
         font-size: 22px;
+      }
+      .check-icon-desktop{
+        display: none;
+      }
+      .check-icon-mobile{
+        display: block;
       }
     }
     img{
