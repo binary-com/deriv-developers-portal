@@ -2569,6 +2569,11 @@ pre {
   .select2{
     width: 124% !important;
   }
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: #000;
+  }
   &-page-wrapper {
     display: flex;
     width: 95%;
@@ -2764,7 +2769,7 @@ pre {
 .select2-container--default
   .select2-selection--single
   .select2-selection__rendered {
-  color: #999999 !important;
+  color: #999999;
 }
 .select2-results {
   color: #999999;
