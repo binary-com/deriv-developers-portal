@@ -342,6 +342,7 @@
     width: 1px !important;
     padding: 0;
     white-space: nowrap;
+    padding-left: 5%;
 }
 
 /* set padding-left of first column to 32px */
