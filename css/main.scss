@@ -2558,6 +2558,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
 .playground {
   display: flex;
   justify-content: center;
@@ -2668,20 +2669,18 @@ pre {
       flex-wrap: nowrap;
       border-radius: 4px;
       background-color: #f8fafb;
-      padding: 0rem 2rem 0rem 0.5rem;
+      padding: 1rem 2rem 0rem 0.5rem;
       margin-top: 16px;
       justify-content: space-between;
       box-sizing: border-box;
       gap:1rem;
-      
 
       fieldset {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
         justify-content: flex-start;
-        min-width: 60%;
-      
+        min-width: 60%; 
         input[type="text"] {
           border: 1px solid #D6DADB;
           border-radius: 4px;
@@ -2705,7 +2704,6 @@ pre {
         font-size: 14px;
         margin-bottom: unset;
         white-space: nowrap;
-
         .title {
           font-weight: bold;
           line-height: 1.43;
@@ -3153,6 +3151,19 @@ footer {
     }
   }
 }
+
+[data-view~="laptop"] .api-token {
+  flex-wrap: wrap;
+}
+
+[data-view~="laptop"] .doc-content {
+  padding: 105px 0px 80px ;
+}
+
+[data-view~="laptop"] .playground-page-wrapper {
+  flex-direction: row;
+}
+
 @import "monokai.css";
 @import "registration.css";
 @import "libraries-links.css";
