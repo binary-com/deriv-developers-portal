@@ -1,9 +1,0 @@
-{
-    "name": "Michael",
-    "address": {
-        "street_number": 10,
-        "street_name": "Fairy Drive",
-        "city": "Melbourne",
-        "country": "Australia"
-    }
-}
