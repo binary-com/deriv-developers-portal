@@ -1,4 +1,4 @@
-# deriv-developers-portal
+# deriv-product-api
 
 Build: `npm run build`
 
