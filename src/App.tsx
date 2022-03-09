@@ -1,20 +1,20 @@
-import { useState } from 'react'
-import { ReactLocationDevtools } from '@tanstack/react-location-devtools'
 import logo from './logo.svg'
+import { useState } from 'react'
 import './App.css'
+import { useSolidMachine, solidState } from './stateSignal'
+import './state';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  useSolidMachine();
   return (
-    <div className="App">
+    <div id="app" className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
+          {/* <button type="button" onClick={setOurCountFunction}>
+            count is: {ourCount}
+          </button> */}
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
