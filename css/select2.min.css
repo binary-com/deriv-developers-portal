@@ -85,6 +85,7 @@
   padding: 6px;
   user-select: none;
   -webkit-user-select: none;
+  color: #000;
 }
 .select2-results__option[aria-selected] {
   cursor: pointer;
