@@ -1,21 +1,23 @@
 import logo from './logo.svg'
 import './App.css'
-import { useSolidMachine } from './stateSignal'
-import './state';
+import './stateSignal';
+import { send } from './stateSignal';
+
 
 function App() {
-  useSolidMachine();
+  const setOurCountFunction = () => {
+    send('LOGIN');
+  };
+
   return (
     <div id="app" className="App">
-      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
-        <p>
-          {/* <button type="button" onClick={setOurCountFunction}>
-            count is: {ourCount}
-          </button> */}
-        </p>
+          <button type="button" onClick={setOurCountFunction}>
+            LOGIN
+          </button>
+          <div className='logged-in'>You are logged in!</div>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>

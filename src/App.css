@@ -40,3 +40,12 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+
+.logged-in {
+  display: none;
+}
+/* css when [data-state] includes logged_in */
+[data-state~="registration.logged_in"] .logged-in {
+  display: block;
+}
