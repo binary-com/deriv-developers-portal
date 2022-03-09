@@ -512,9 +512,6 @@ button:focus {
         h1 {
           margin-bottom: 0 !important;
         }
-        ul{
-          margin-left: 40px
-        }
         .benefits{
           flex-wrap: wrap;
           h3{
@@ -1207,7 +1204,7 @@ ol > p {
     width: 486px;
   }
   img{
-    margin-bottom: 40px
+    margin-bottom: 20px
   };
   ul {
     margin-left: 0px;
@@ -1227,7 +1224,6 @@ ol > p {
     }
   }
   .api-features-description{
-    margin-left: 40px;
     h3 {
       font-size: 48px;
     }
@@ -1235,15 +1231,33 @@ ol > p {
       font-size: 16px;
       line-height: 2rem;
     }
+    .check-icon-mobile{
+      display: none;
+    }
+    .check-icon-desktop{
+      display: block;
+    }
+  }
+  .api-features-image {
+    min-width: 320px;
   }
   @media (max-width: 480px) {
     .api-features-description {
       margin: 0;
+      h3{
+        text-align: center;
+      }
       p{
         font-size: 16px;
       }
       h3{
         font-size: 22px;
+      }
+      .check-icon-desktop{
+        display: none;
+      }
+      .check-icon-mobile{
+        display: block;
       }
     }
     img{
