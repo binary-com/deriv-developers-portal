@@ -46,7 +46,6 @@ permalink: docs/app-registration/
                                 <input type="text" id="api_token_input" class="api-token-input" placeholder=" " />
                                 <label>API token (Required)</label>
                             </div>
-                            <p class="helper-text">max. 50 characters</p>
                             <div class="api-token-warning">
                             </div>
                             <div class="first">
@@ -118,7 +117,6 @@ permalink: docs/app-registration/
                                 <p>Bear in mind that you generally need only
                                     <b>'Trade'</b> and
                                     <b>'Trading information'</b> access.
-                                    <b>'Admin'</b> access is usually not required.
                                 </p>
                             </div>
                             <div class="scopes-field">
@@ -135,14 +133,9 @@ permalink: docs/app-registration/
                                 <label for="trading_information-scope">Trading information: View users’ trading
                                     information, including balance information</label>
                             </div>
-                            <div class="scopes-field">
+                            <div class="scopes-field mb-0">
                                 <input id="payments-scope" type="checkbox" value="payments" />
                                 <label for="payments-scope">Payments: Cashier (deposit and withdrawal)</label>
-                            </div>
-                            <div class="scopes-field mb-0">
-                                <input id="admin-scope" type="checkbox" value="admin" />
-                                <label for="admin-scope">Admin: Full account access, including the access to manage
-                                    security tokens</label>
                             </div>
                         </div>
                         <div class="terms-of-conditions-register">
@@ -166,8 +159,8 @@ permalink: docs/app-registration/
                     <div class="dialog-body dialog-body-register">
                         <img class="dialog-success" src="/img/success.svg" alt="Success!" />
                         <h3>Success!</h3>
-                        <p class="dialog-question">You have successfully registered your application. You can now start
-                            using Deriv API</p>
+                        <div class="dialog-question">You have successfully registered your application. You can now start
+                            using Deriv API</div>
                     </div>
                     <div class="dialog-footer">
                         <button class="dialog-btn-cancel" id="register_got_it">Got it</button>
@@ -220,7 +213,7 @@ permalink: docs/app-registration/
                         <img class="dialog-warning" src="/img/warning.png" alt="Warning!" />
                         <!-- Add "Delete app" bold text in the center -->
                         <h3>Delete app</h3>
-                        <p class="dialog-question">Are you sure you want to delete this app?</p>
+                        <div class="dialog-question">Are you sure you want to delete this app?</div>
                     </div>
                     <div class="dialog-footer">
                         <button class="dialog-btn-cancel" id="delete_app_keep">No, keep it</button>
@@ -237,8 +230,8 @@ permalink: docs/app-registration/
                     <div class="dialog-body dialog-body-modal">
                         <img class="dialog-warning" src="/img/success.svg" alt="Success!" />
                         <h3>Success!</h3>
-                        <p class="dialog-question">You have successfully registered your application. You can now start
-                            using Deriv API.</p>
+                        <div class="dialog-question">You have successfully registered your application. You can now start
+                            using Deriv API.</div>
                     </div>
                     <div class="dialog-footer">
                         <button class="dialog-btn-cancel" id="modal_got_it">Got it</button>

@@ -21,8 +21,8 @@ $slider-height: 248px;
 * {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html, body {
@@ -150,11 +150,16 @@ button:focus {
 @media (max-width: 480px) {
   .ul-paragraph {
     margin-bottom: 24px;
-  }
+   }
   .benefits img{
     margin-bottom: 0px ;
   }
 }
+.doc-title{
+  font-size: 32px;
+  
+}
+
 @media (max-width: 992px) {
   .nav > .top-nav,
   .nav > .top-nav > .top-nav-container,
@@ -215,6 +220,7 @@ button:focus {
   .docson .title {
     font-size: 18px;
   }
+
   .docson .box {
     padding-bottom: 0 !important;
   }
@@ -379,6 +385,7 @@ button:focus {
   #frmNewApplication > .form-content {
     width: 100%;
     padding-left: unset;
+    margin-right: inherit;
   }
   .row-container {
     .single-container > h2 {
@@ -396,13 +403,16 @@ button:focus {
     flex-direction: row;
   }
   .doc-content {
+    
     .page-wrapper {
       width: 100% !important;
 
       .page-content {
+        
         .doc-main-title {
-          font-size: 32px;
+          font-size: 32px; 
         }
+      
         .doc-sub-title {
           font-size: 24px;
           text-align: left;
@@ -722,8 +732,8 @@ button:focus {
     width: unset;
     min-height: calc(88vh - 54px);
     justify-content: unset;
+    align-items: center;  
   }
-
   .docson .type-enum {
     margin: 8px 6px 0 0 !important;
   }
@@ -751,7 +761,7 @@ button:focus {
   }
 }
 
-@media (max-width: 1078px) {
+@media (max-width: 1424px) {
   .playground {
     &-page-wrapper {
       flex-direction: column;
@@ -838,7 +848,8 @@ p {
 }
 .content-with-navigator {
   @media (min-width: 480px) {
-    margin-right: 160px;
+    width:100%;
+    margin-right: 160px; 
   }
 }
 .short-margin {
@@ -847,6 +858,7 @@ p {
 .qute-left {
   padding-left: 4rem;
   @media (max-width: 480px) {
+    visibility: visible;
     padding-left: 1rem;
   }
 }
@@ -1131,14 +1143,16 @@ ol > p {
 .api-features {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  width: 90%;
-  div{
-    width: 486px;
+  justify-content: space-evenly;
+  width: 100%;
+  .api-features-description,
+  .api-features-image {
+    min-width: 320px;
+    margin-bottom: 40px;
   }
-  img{
-    margin-bottom: 40px
-  };
+  img {
+    margin-bottom: 40px;
+  }
   ul {
     margin-left: 0px;
 
@@ -1351,11 +1365,16 @@ blockquote{
 }
 .text-block {
   margin-bottom: 40px;
+  margin-right: inherit;
 
   .sub-title {
     font-size: 32px;
     text-align: left;
     margin-bottom: 8px;
+  }
+  @media(max-width: 480px){
+    width: 100%;
+    display: block; 
   }
 
   p {
@@ -1423,7 +1442,7 @@ blockquote{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  width: 80%;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
@@ -1690,10 +1709,8 @@ ul {
 .cta {
   width: auto;
   margin: 24px 0 !important;
-  padding-left: 24px;
   border-radius: 4px;
   border-left: 1px solid var(--app-sidebar-border-color);
-  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1735,7 +1752,6 @@ ul {
       display: flex;
       flex-direction: column;
       align-items: center;
-      //   padding: 40px 0;
       .h2-margin {
         margin-bottom: 24px;
       }
@@ -1787,9 +1803,9 @@ ul {
   }
 }
 fieldset {
-  width: 80%;
-  margin: 0 auto;
   border: none;
+  padding: 0rem;
+  width: 80%;
 
   input[type="text"] {
     width: 60%;
@@ -1850,9 +1866,9 @@ fieldset {
 textarea {
   width: calc(100% - 16px);
   min-height: 119px;
-  padding: 10px;
   border-radius: 4px;
   border: solid 1px #d6dadb;
+  margin-top: 1.5rem;
 }
 
 .json-btn-wrapper {
@@ -1978,6 +1994,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .main-docs {
@@ -2042,7 +2059,7 @@ button {
   flex-direction: column;
 }
 .doc-content {
-  padding: 105px 0 80px;
+  padding: 105px 120px 80px;
   display: flex;
   justify-content: center;
   min-height: 95vh;
@@ -2052,14 +2069,14 @@ button {
   min-height: 95vh;
 }
 #content > .documentation {
-  width: 80%;
+  width: 100%;
   margin-top: 20px;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1000px) {
     width: 90%;
   }
 
-  @media (max-width: 1164px) {
+  @media (max-width: 1000px) {
     width: 95%;
   }
 }
@@ -2239,9 +2256,15 @@ a.align-end {
   box-sizing: border-box;
   padding: 1rem;
   
-  @media (max-width: 480px) {
-    display: none;
-  }
+    @media(max-width:992px){
+      position: relative;
+      line-height: 1;
+      max-width: unset;
+      width: 100%;
+      right: unset;
+      padding:16px;
+    }
+    
   a {
     padding: 4px 0;
     
@@ -2256,6 +2279,18 @@ a.align-end {
 .api-guide-image {
   @media (max-width: 480px) {
     width: 90%;
+  }
+}
+@media(max-width:992px){
+.api-guide-mobile{
+  position: relative;
+  }
+}
+
+@media(min-width:992px){
+  .api-guide-desktop{
+    position: relative;
+    display: flex;
   }
 }
 .sidebar-title {
@@ -2537,6 +2572,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
 .playground {
   display: flex;
   justify-content: center;
@@ -2544,10 +2580,18 @@ pre {
   flex-wrap: wrap;
   height: fit-content;
   width: 100%;
-
+  .select2{
+    width: 124% !important;
+  }
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  color: #000;
+  }
   &-page-wrapper {
     display: flex;
     width: 95%;
+    gap:2rem;
 
     @media (max-width: 480px) {
       width: 100%;
@@ -2567,8 +2611,6 @@ pre {
     .playground-box {
       border-radius: 6px;
       border: none;
-      padding: 24px 24px 82px 24px;
-      margin-bottom: 40px;
       position: relative;
 
       #playground-console {
@@ -2629,12 +2671,12 @@ pre {
 
       textarea {
         min-height: 200px;
-        padding: 10px 12px;
         border: 1px solid #D6DADB;
         border-radius: 4px;
         color: #5D5381;
         resize: none;
-
+        padding-top: 1rem;
+        width: 100%;
         @media (max-width: 480px) {
           font-size: 14px;
         }
@@ -2646,19 +2688,18 @@ pre {
       flex-wrap: nowrap;
       border-radius: 4px;
       background-color: #f8fafb;
-      padding: 0px 24px;
-      margin-bottom: 48px;
+      padding: 1rem 2rem 0rem 0.5rem;
       margin-top: 16px;
+      justify-content: space-between;
+      box-sizing: border-box;
+      gap:1rem;
 
       fieldset {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
-        margin-right: 24px;
-        margin: 0 24px 0 0;
         justify-content: flex-start;
-        min-width: calc(60% + 10px);
-
+        min-width: 60%; 
         input[type="text"] {
           border: 1px solid #D6DADB;
           border-radius: 4px;
@@ -2680,14 +2721,15 @@ pre {
         flex-direction: column;
         flex-wrap: nowrap;
         font-size: 14px;
-        width: 70%;
         margin-bottom: unset;
-
+        white-space: nowrap;
         .title {
           font-weight: bold;
           line-height: 1.43;
           text-align: center;
           color: #333333;
+          white-space: nowrap;
+          overflow: hidden;
         }
 
         a {
@@ -2710,6 +2752,9 @@ pre {
     display: flex;
     flex-direction: column;
     width: 50%;
+    @media(max-width:1440) {
+      padding-left: 25px;
+    }
   }
 
   fieldset {
@@ -2738,7 +2783,7 @@ pre {
 .select2-container--default
   .select2-selection--single
   .select2-selection__rendered {
-  color: #999999 !important;
+  color: #999999;
 }
 .select2-results {
   color: #999999;
@@ -3124,6 +3169,18 @@ footer {
       }
     }
   }
+}
+
+[data-view~="laptop"] .api-token {
+  flex-wrap: wrap;
+}
+
+[data-view~="laptop"] .doc-content {
+  padding: 105px 0px 80px ;
+}
+
+[data-view~="laptop"] .playground-page-wrapper {
+  flex-direction: row;
 }
 
 @import "monokai.css";

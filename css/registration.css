@@ -89,14 +89,11 @@
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 
 .dialog-delete {
     width: 320px;
-    height: 483px;
 }
 
 .dialog-update {
@@ -150,6 +147,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 24px;
     margin-bottom: 37px;
 }
 
@@ -158,6 +156,7 @@
 .dialog-btn-submit {
     background-color: var(--app-registration-tab-active-underline);
     color: white;
+    font-weight: bold;
     height: 40px;
     border: none;
     border-radius: 4px;
@@ -172,6 +171,7 @@
 .dialog-btn-cancel {
     background-color: white;
     color: black;
+    font-weight: bold;
     border: 1px solid #999999;
     height: 40px;
     border-radius: 4px;
@@ -190,7 +190,6 @@
 }
 
 .dialog-question {
-    padding: 20px;
     text-align: center;
 }
 
@@ -343,6 +342,7 @@
     width: 1px !important;
     padding: 0;
     white-space: nowrap;
+    padding-left: 5%;
 }
 
 /* set padding-left of first column to 32px */
@@ -600,7 +600,6 @@
 
     .dialog-delete {
         width: 433px;
-        height: 383px;
     }
 
     .dialog-update {

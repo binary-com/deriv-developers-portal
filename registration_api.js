@@ -135,7 +135,9 @@ createMachine({
               states: {
                 loadingDelete: {
                   invoke: {
-                    src: "removeApp",
+                    src: async (_, event) => {
+                      await removeApp(event.data);
+                  },
                     onDone: [
                       {
                         target:
@@ -242,15 +244,6 @@ createMachine({
           await api.authorize(token1);
           await api.send({ app_register: 1, name, redirect_uri, scopes, verification_uri, app_markup_percentage });
         },
-        removeApp: async (_context, event) => {
-          const { app_id } = event.data;
-          const endpoint = getEndpoint();
-          const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
-          const token1 = getStorageToken();
-          await api.authorize(token1);
-          await api.appDelete(app_id);
-          send({ type: 'FETCH_APP_LIST' });
-        },
         getAppList: async () => {
           const app_id = getSessionAppId();
           const endpoint = getEndpoint();
@@ -309,6 +302,14 @@ createMachine({
         },
     },
 });
+const removeApp = async (app_id) => {
+  const endpoint = getEndpoint();
+  const api = new DerivAPIBasic({ endpoint, lang: 'EN', app_id });
+  const token1 = getStorageToken();
+  await api.authorize(token1);
+  await api.appDelete(app_id);
+  send({ type: 'FETCH_APP_LIST' });
+}
 const isStorageSupported = storage => {
     if (typeof storage === 'undefined') {
         return false;
