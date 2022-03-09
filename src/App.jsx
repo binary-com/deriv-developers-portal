@@ -1,13 +1,13 @@
 import logo from './logo.svg'
-import { useState } from 'react'
 import './App.css'
-import { useSolidMachine, solidState } from './stateSignal'
+import { useSolidMachine } from './stateSignal'
 import './state';
 
 function App() {
   useSolidMachine();
   return (
     <div id="app" className="App">
+      
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
