@@ -1,52 +1,18 @@
 import { createMachine } from 'xstate';
 
 export const stateMachine = 
-/** @xstate-layout N4IgpgJg5mDOIC5QDkwHcAEBZAhgYwAsBLAOzADoAnOABwHsTYiA3MAYgHEB5AfQBkAggAUAKlyH9EoekwAuRBlJAAPRAE4AHACZyarRoBsARgAsWgKwGNRoxoA0IAJ6IAtFqMBmXQZM2ADB5aAOzmJhpBWgC+kQ6omLiEpBTUsPSMLOzc-MJiQkoyRPKKSCrq2rr6xmaW1rYOzgguBt4mfgYeHn5+JsZGakbRsejY+MRkVLQMTKycvADKAMIASgCiK8gmANL5dHIKJEqqCJo6eoamFlY29k6u+qc+fhomHkaXrUGDIHEjieMpaWmmV4WC4ACEAJJ8FaSEoFIoHEpHE4Vc7VK51W4IAw6ALmNRBQJaPzmIJhMlfH4JMbJSbpGZZUGQ6E8LA7PbFUDI8pnKqXWo3BqeIzkPEE56EgxdCKU4bUpITVJTDKzVngqEwubswr7Q5lU6VC41a71VymEwtTztaodDwaWXxUYKgHKhm8EQCMHQkTahF6448w3ogWmxohFp+NQnUwErQGB2-GkTKBEWCySg4BHkAA2dCgMAgPDoAFdZGw+FwOBDkL7dUjEBYwuR8XGPIT8TY1KHXhaxScPCZND2E-L-mAU2mM1nc-nIDxSMnU7IwJQeLIcAAjcgAMzo2Ygc93lAAtmwxBwOCyAGJcJZsuG7HWc0oIGxGPy6DSBYwacwaL9+EEoZGOYtjkB4BhqK8RgRB45jmBYI5OmOE7ppm+w5nmBbziQi5piua6buQxYkLu+6HnQJ7kLAxYbsehTyCQUA8NQqFThhuY4BApDMaxS7sQwbAQAwFCkMwdAANYUFSyG0mx6EMJhs6FgufH4au65biRZEHoWR7HtRtH0bIjG8eO-EKbhnHcUxLHmZOlkIGJdB4JZADafgALq1s+RxGD4IqgSYoHmBBTwmEEgqIDB+jgZB+gRJGLyITE3xyrJeFodOWFzqp9nLhpRHaXuuk8Pphl0QxPF2fJ2VcdValZfsbArpQlHkDQ2aZuVMl-HJFnZcpOGZQRmnEaRJUUVRNGVSZDX5QJVl0PVtmNYtTkkOJrkIh53kPhyiJctFAXNqYIVhRKUWvtoOiGHoxiQRFEFIX1mWLUp2F5aho1FRN5F6ZRBkzcZpk1QNzULBWcwwqsVZzCIKxLDwAAiEICBWHA+YdL6eIY4FmDidqgR0zzAQYpJxXoVM4mSPgvUma2WR9uW4Y1P1aX9pX6WelaXjCN53lj-paPc5C2I8hJBG0wUGMBWitJTrz4kEUp+H09POgtTMzp9rP5ez406VNp5zAAqmCWAQiIPCwxC8NLAIIgQlwNb7U+2NHO4BjNJ4aiDlBoE4uTwEeFBivdD0UFkgMqW9QzWuDbrI2FRu5aVlwps+m7fr1ggFiBM2wUq1B7QgR0wGhBo5B3Vo-RqDi-lRhrKHg4pOss8nhGp1gAjIAIHAwuefM8B6YJC7nOJqKKnRvs8JhmO4wEhFXEF6FLpJhOY3TN-1DmJx3x44CQOAwF3mErVAAg0DQsDnzZUBCSJ5DOVJ5Bx5rtUcTlKm4Yfx+n2NayPEr43zvjxDaW13JeXHkdPOfhTgITaH+DQUYEJWGAj0KuNcCRBBAmEO0O83ra2-sNP+J8wBnyAUxEBt8qEP1au1Tq3VAZv3Sq9Rm+8f7kDIQAoidCaFgKYhAlyUC9rSEfDnWBxJzC6EQS8cIERCRwRDlGaukFAhtk6JgjwhCOFfyGguHhFDAHLXvgIsAx4aCyEcGwW28NEYj15iyUeMCXyE2nmreCd1IqAQweESmwQyShWsHBXRCd9FJyMZQ0xwDr6wFVGIHgKwsCiAAJo8Hho7FYrijguDeHFboA5-DdEJCLCuCtsF9AbpBNQYTP5txIYYo+5Cz4HmzGAUyIDBFQGRmAdpy5H7jBftJNh8d6lLQMb-ZpvCtxtI6bEmg3Ten9LAMI7a+xdo5OikEKeLwfB-laF0ImHhgKeBkcSYIFgghS0KXU1uEzInTOMUROZnTr5LL6R09gDDKAdS6rIHqoyP73OZlwqJY1XkLI+SstZoitmvh2eQPZwVnhdACL+E5WI3jdHIBcmpIQt5-h0bHIFLc94RIPk8rutiVhwwRkjIezjPTwvcQETxf5II+KAli+CIpV61yqV7JuJLHTsPCQ0yZ3CqWaTYFeFYIgFgAAkeDCAkHwO2WdxEHX9G4WKIT4LGCeK8L8V0QKxX5XXapwqhiirGSC9uYLpWbjYMjFY3oYSqvhbqrBZzLDvi-LYO0pymzGADh0CIoQtDEptYmYF5KJWPP-s81OWRTZCGRlktUrqWVRo8SBDl4pfFYg5dPfEEpLnwJMHc+NDyO7FhoBATMFDjx0APMRBtTaul0NNh2gZwkhmbUkiM21camoJrrb25traKD1sbcuLtMSmI9rnas5y6yGCbOznWWBNhCRi0MK0AtkUjChjUAhZsYU4IhHJmez4IrY1krHbWrhs6m08BbW219873ndsnS1SgbVflMIBSw9+j73oOuGl+qdn7J0LovsuptsKdrQK3b5aKMEvDi0Pd46wwF4GBTCpGaOhran3tHLvJ9oKoOTvfdOtgZsLZWxtrSjVDsnYu3hSBeu4EbDVH-J4QC5hQxlovWWiKFa4zVqo5B0gaduCZ3hfnHQoRSTqNLqFTFQpjC3XUdLdecY70xoo0QzhOE2A9z7gPRxF4mVjzQx7Vwg4dD3ECP5GKIVuVCjeCKTscFw2NijdEVKJBp3wBKGB2kSp6QUC6lYugNA+Bce46KUK+ICRhGCoOUMbgbARjUF0cm4R7TkYyi6GLOYcDxZoMl-EqW4JRjJM8UIXYsQuAtPXXwJIN61FsOYMJ0WgTUTwNQMAJATASVq1PEkDWMvNey21-QH5OvSxJE8KCA4BuAgyNwugG4iDtKSw5-0Ng6szfS01rLrWGg+FLVBJKOJ5b-i266CgLb9vtPvFq92J2Uvnca5llrIcvBigMLTCIxgXsVfewdsAWpju51O9NtLAP5vXbNGYS0-knhPCDv10rYrBs7c0v0qb9WLuA4Ww0Fwe7OsXEjAcwkMdjNlbpECeFZ6q68iNBiK6LgIJBAjCgywXjNDSYgyQkssglPexkb+bQ2g2zS0sBXUKis3giztK0eMBO7U1uo19JcBsjYAxPPClBOhBz-muf5uCoQMEqwvarKNxIwfi+IZKtmKdDaTVN0DIyVVVriqWhfMGNauO+AtOTUCfQBzhHnqayKOgpZxlsJzhC7uzOG-UmfYq-0yosOBoHsy4zTP7B4DRPAeA4Dhe+5InGBWp4p-gf+KwOJfxL06OHMkuD3yBEzxSrhXvc+c2NhVEG81S96IYDwH5XHG-kGb-oQwhh9DCaxTsqe-LrAy2uDrlnYrS+yb1t9b3eeuaF4D3NIPpe8C5lgHOafJAeDcRwDOLjJ0grnSlJdMmdXV6vBEjzwwQD7jpD76xn6j5+7j7F5h5PpcYQQ6ADhxhRq-ieBa4VwRDq4oLXJM5RC66joS6e4QEj4m4F5m4I47okz4woFEzoGkxYqdAryQQ44DjwLLygHPrDTD6aTm5WBIqaAKK27wQmCnJg6Ky+BRiRgHqcEG5TJJrRIXwCJ0Jerviig7K2BxiRiaE7KiGMFhwBCqxlp+yDhGZpQjrgYe6JotImJKFxLkAWJWINB17bovhRoihW5+ztBQQa7248qY53SvAiyoHa6yHH5SoKG2FmL2GV7V6wC14gDwiuFHChyC7PCGYJS3rhAO4fiBEwQ4J4JVoEGWFZ7yE2F8KLqXz2Fz6UEvipHVwEwRDhBZFebRStAiiBEvBRjuChxhGNJlEzLdI0JeoQQFIvC+DvglKBAhxPDTxSiBBdDzzIF9GSrgovKfJvKLJ0LLJfKqFIFSjjHFJPRlJYr+S9hhSkhqz-hmDRrmEPqUZEHWGDGQrULvKxE147HLjwr+aihrxJSFamCmqeCC4XK0wBAwSmArFPHJrkAvFVGLI-KfFgDfFq6RjBD-FtCAlyxtC4rsHEhqxg61xQmUqRHrH9ILIjHNBhSHGTHHH4Y4i4nBCgSRRbzBBFEH564yb9ERHlEbheoWC3S+qGoBomqnpxiMnXJg5RgvCkjEkvq0YfozpwY-qVGIZfG1HIgUxW5CGaYiGnrWCKxg5dChR+wlYcmEFWETorp0awYrpdLvHxFqnIkanRRK6L4dC1wJTez1zo7HChBO4khSiaHey3GRZl5gE0bWmKntp2nvI-JOkIFSzumBBnAqyQSQT4a5qhTzFoqBDWD753EmZP5yExlvrRnQYgIc4dACHW7tgdB6lYjNEBnGDXIgQaDwJymRllnToc6Rg1k6n1l+ENDExib-iWBSxnRmmFms5H79FeqBy4qK5eweb+ShhmBVwo42BWDEwkicHzkKyubLkRqrlYjywiiGGVryxRhg5TmRbzm3aHnubHmyxtbzzLaPDtDwRtAkggTBaRBAA */
+/** @xstate-layout N4IgpgJg5mDOIC5QEMAOqB0AnMUCWsALlsoXgPYB2GANuVDBAPrkCuhAxADIDyA4gEkAcolCpysPGSqiQAD0QAmAAwAWAIwYAHAGZVAdlXLlANmU7FW1QBoQAT0QBaRSZ0YT6neoCsB74pcTKwBfYNs0TBx8IhJpajoGSCY8aiiCQjAsJkJkACMMADNyGggkoqwAWw4AFX4+LgBRJgAxHgAlAFlZcUk42QUEdUNvDFVLE0UdXTNPRVsHBBMJjABOJd1lbxNvLW91LVDw9GxcdNiKePpGZNTTokzsvIxWSiKSsvJKjFhWXIqpMiUKBMNIxUgXWjkZAQFLA0HEcFUDgQKhgDApABu5AA1miIidogi4pDEswUgT0g8cvkXm9SsxyhVvr9-oRAXC7kSIXRobCQZzzlQEJjyABjRGUADaygAut0JFILv1EOpNsoMPo1ootuojOptt55iqxittCshitlPoTPodv5DiB8fDBZdSTcKfcstTnq9ivSmIzmX8AXznRLIbygfzCS6OJksJ8MKgaKRA06BeGEtdyfCqU9aX6Pl8fsG2aGM8SeTCo2G4sLKFjxXFpXKkCAeoqZG2BqrvOrNRMdXqDUbBn3VBhFNatMZvDoLL2HemY5mrkkc5y8zTfe8GZ8mSXWezo2cJRwAMK8ADKTTaDUEV+qDTaTAAIgIAIK8Pjy3pK7uIJqIwTKoqhaFo+pWp4Nj2CqOjbBgfZBFatr6MoKz6IoS7HLW3JrmStyEluPp0kWVS1Hw9RNK0nS-p2lDKoMwyjOMkzTMosyjt4KxaKs6xWFaHjavo2GRBWeFuhuRFevmO7+oyHBXgAqgAQh0AjVEwd4PtUbQftUAg8CIbYdn0AGDKovgYMoATeIYqgrCsvibKO6huRO+jwWsUymKo84HGEjo4eJVAktmhGUjJuTcPwPBKdUdFmaAAwqNqGrgRxASeDscywYMpi8Z5QSWeaSzuaJHpcqFWbrhFnqPNFHQfkIH58E0FFUUw1QfipiX-sliBGIoGA+Ds+xjEJlmuTo-iTlsWiTAEDluRVuHVfh7oVMglDIDADURtWUAfugsAHbCyKouiDY4niwUrpWG3kltO17d6VawsdqCne9QL1o2Eotn1XYDQgppaPo0zcboPkuDoo6OSMM36k5QTbEM6irSFrrhRgz27WA+0-UdJ1nUCcZYAmWBJimhBpndp4PZJ1B469TxE5931Qodf1igDspAwx5nqMN4MLbs+gWiYKzzjBCzS5oSOGOaayauhmP3RJOMswTb1cx9JNgBUqCEHYHDaQIj7Pl1dSNF1PUC4xOhrCN3hjUMOieUYpiucY+iTvBWiORN4G+OrDOa7VuPbfjhN60CHMcHwPDW0wDQdAACtUACaTCPvpDQO+ZzibKMehqkYQT6voPtmBq8HWpMBXKLoYdgozWvR6z+SlDQYDsp9pNQK+YC9xkF2UGiIq4hgy7h+tTNRy9OtPD3ff65gRPD6PYA802FyAyZCpJfITgmBO4PGIollTuaagmKOUt+2NSwrKoSxgVOrdVdjkfa-tq-92OJvEefcwDk0ptTVM+4Z70zbhHAii8Y7egAevQeW9QG7z5q2MQR9+onwQI4M+2g0I2WvpqVUb9RzWk0GNCGXhbQQW8F-F0YVf6d2XtFc2lsXwdVtt1Xqh8-zA3wU7EwLs3aeU9sYe+eVVQS39sVbi+oPC6mYauBef9qQcGaA0ao54AASTAPzp3TkwLgFsEqCPooxRwYxNDgQlphUwV8r6ux9mBBRDcdBN12Go9ubCl4NQ4K+BojQnxGJMYXEGtjFD2PBkMFQIFXGGjyhLYa6gVb6ldq7Nifj4GbXYUEpOTAlLp1fPnJgHQeAhKiSI52o0ILuykd7PKjh9jWU8vqKuew7Q6DyfPHGrBUAQFIATCo5BSjPGGaMgeRMlLTLHiiCeV0sTT1nnAgZkchkjIyEwcZkztkzKAXHKA8ydk7xFHvKgB8cFCMFiDQObgDBn31PE7Y6FRzzhGBkoI4MnJbESf0n+CDDm7P2WiUFYBZknLOaM8BiZkxQK+Os7+rCQULLGRMiFGLoWRlORizBzZ+ZWOPgMR5oxrQaCCBLd5KxPmORGmsXQoFLJ6CWCJQKKKWE1XRecvZWLFKqXUppLhul9KGWMrc6xQsXCmgyf4OyQwbJTFygsRwIw7JeA8DaHpuwvBArRTcGKSd4q1JSjZEYEMZzC1iTNBarlZh1xtCsK+ph5yGANTyo1TUWptWtpRPh9sSV4IGIQ3YGAZrcW1BXCCNoH5WHcGsVwihX52RUCsTGsBxCUEkBiMBxSuDGNqKYrgZrECuE0KlRypD0LahSQsfYNprJv1tKqLQrhMIBSOGJLNVBc35uToWzOPB05lsWF4ScNlq2updW4vKKhuLNptD4DCFq5yZuzf2xOycrznjvA0IQqgADSY6K2TpTZaGddbXIzjcHfBu5Dhgbr7XgPN27Kk8BUgIW2pbg3CIGGeqtl6jCzvrUoYWd6W1qBcGBFunLgq9pza+gdH6v22y6H++5+DANTuA7WudCxYngyXVLOtTlVQmGfUht9xSqloaaFeU9E6gM1tA65eWS7PLSwgsYNQVGt3FP4WEpjlbcOsevbIhGnGpw6omNaUIgVKBYvgG2Ll6jrhsEIGO2Ji7VRqB4uxTisirRgz2DOaWTkrBrE9Y9OqGQoqFELHuSoY6fCahGlZiWDkAjJofsYCNxgMmmF8BYLC8GxIa02Qg3MDmCy7gDNAw8IYaxY0HieDZWHTIhsQKLUugcthfIMBBVyH8RqqjkW5XUpgOXdsqty2zlViJxfkollkyWOSRbsy6JgPxRSijgCpqVpKVTajcBYcb9cXWWBK1MRC1XfBXyCItGzC8Yv7Wa2RIMR5yydbqxKJg8ZPiudGxGxa85nUBC0CV1+k5rT6EkRDK0FgVs4zW96DbzmDxtbLCl3boo6CwCSGtSgTAYTIASK5tUGotRDg4iOWRHsJzCyGGk+CXywu1eB4aqSkV1tyU20ln7HW56Zdwf+wC8iQKwcghLPQrlLDqiQuBHiUxdgZvC3t-x0XNyxfx59sdhg-ZU-AjT6CPsU11zQpZcCEEUYvcjm9vIAvJjuCvtTswtPZaIAVXxKWZU7IOMoxzrHXqnqFN1nijmg8x1tL2NZPQfgIJ6FfoYeG85EL7CmLfXQKgatBQiyT7HzNzdsxOVbw2xsFhDeywgOc7h-C6AoRDGYaga6miRuZp2OwHKqHlwgzRofLck16-12Ag32xk6w+ajyQRV3mjQlOLYPtzC68MFOW0rs4OY9S6b4PgSLeHXDxTI7mHGIqBr4HNC9ebK2hkXLJ2rfJGVd2Ln43PeGsF-yOzE6NuAimj8kYccBUq6jisGIjPXgpy7H8Oz7vu3e+IK7hgFB8djl4vQRkXfJcD-l2P3GvKUspohgugLqPEEMPgRud+geD+m+z+ICgCmAJeA2H+YAkOhU7algi0Oq2SVCpgjKy6BoOSUweeBS-eK88BqCh2WAKBaB6UEwC0Fg2BBGFO6oPyhgSwrsmwfSa+9+G+Ie3cFBr+qAu+EuP+R+lc-+CwIEiEsaKg0iTk1mPB0BfBZBuQNuoEIwDiCSziYwlkYGCAsGMhEBXGagehfuamXO7okK-KByOKb+h0sKn+o+5knk6owusaUEdOeU7qEarg-gyeEsfY3BUBGWQeUyfK4K4RRyiBrAfWA2jhqBzhIMqo5o1kkwngM4KaHgFgnyfk2gbkIuTkV8AcJB5I1hkRkKA8VBCRkOqRyqGRU62Rqqg0Vo+RnuGEKaYEEwpR1A5RWKURGQn0AueB7houXhhGywPyugVmZgGETCShoRD+fRpQp6C0quoEIuGuYurSloiEnSrKZ85gysPRNuU+Earss6MaJ+rSQwGqnSr8DBAKHsQKpx7ukalxf+1crS527gngGRoE7kto-GyGtAaAhA5AqAv60e5OCAM4fsFgA4HEGgoiWugw4MwEHgtoVoLguwpgwJeaoJxsEJY6cJp2iJuongawqJiSQumJEBci84+JaIsAooOAYAlAqg2IJJrRCJawSJlJZ8N6bk7gmJIEoWkwTJuM5AuQeAvcUJFedyjEpJvJMwyJVJo4tqmgZUaETsXBHgkp4yMpvcGG0JVeOWPJN8qpAp1J8qIpyMsSjkBm8x3eiG-aUpRpYAjGSR+Cyplp-JKJ7GC+2pupsSRWwR-uJwrpIJ1Io83J8JfpFJAZ86xgbg2pU4WqvYzpEZOAUZeap6rRLGV6zBTE7Sd8VgYEnkSEt+-upxdk5xUazkEhXxaqIGvxl+tql8saCmwQQAA */
 createMachine({
-  id: "New Machine",
+  id: "app",
   type: "parallel",
   states: {
-    responsive: {
-      states: {
-        laptopL: {},
-        laptop: {},
-        screen4k: {},
-        mobileL: {},
-        mobileM: {},
-        mobileS: {},
-        tablet: {},
-      },
-      on: {
-        GO_LAPTOP_L: {
-          target: "#New Machine.responsive.laptopL",
-        },
-        GO_LAPTOP: {
-          target: "#New Machine.responsive.laptop",
-        },
-        GO_SCREEN4K: {
-          target: "#New Machine.responsive.screen4k",
-        },
-        GO_MOBILE_L: {
-          target: "#New Machine.responsive.mobileL",
-        },
-        GO_MOBILE_M: {
-          target: "#New Machine.responsive.mobileM",
-        },
-        GO_MOBILE_S: {
-          target: "#New Machine.responsive.mobileS",
-        },
-        GO_TABLET: {
-          target: "#New Machine.responsive.tablet",
-        },
-      },
-    },
     registration: {
       initial: "logged_out",
       states: {
         logged_out: {
           on: {
             LOGIN: {
-              target: "#New Machine.registration.logged_in",
+              target: "#app.registration.logged_in",
             },
           },
         },
@@ -63,7 +29,7 @@ createMachine({
                   on: {
                     TOGGLE_FORM: {
                       target:
-                        "#New Machine.registration.logged_in.register_tab.unfolded_form",
+                        "#app.registration.logged_in.register_tab.unfolded_form",
                     },
                   },
                 },
@@ -78,13 +44,13 @@ createMachine({
                             onDone: [
                               {
                                 target:
-                                  "#New Machine.registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_success",
+                                  "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_success",
                               },
                             ],
                             onError: [
                               {
                                 target:
-                                  "#New Machine.registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_error",
+                                  "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_error",
                               },
                             ],
                           },
@@ -100,7 +66,7 @@ createMachine({
                       on: {
                         CLOSE_REGISTER_DIALOG: {
                           target:
-                            "#New Machine.registration.logged_in.register_tab.unfolded_form.submitting_registration.closed_registration_dialog",
+                            "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration.closed_registration_dialog",
                         },
                       },
                     },
@@ -108,21 +74,21 @@ createMachine({
                   on: {
                     TOGGLE_FORM: {
                       target:
-                        "#New Machine.registration.logged_in.register_tab.folded_form",
+                        "#app.registration.logged_in.register_tab.folded_form",
                     },
                     SUBMIT_REGISTRATION: {
                       target:
-                        "#New Machine.registration.logged_in.register_tab.unfolded_form.submitting_registration",
+                        "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration",
                     },
                   },
                 },
               },
               on: {
                 LOGOUT: {
-                  target: "#New Machine.registration.logged_out",
+                  target: "#app.registration.logged_out",
                 },
                 MANAGE_TOGGLE_TAB: {
-                  target: "#New Machine.registration.logged_in.manage_tab",
+                  target: "#app.registration.logged_in.manage_tab",
                 },
               },
             },
@@ -141,13 +107,13 @@ createMachine({
                         onDone: [
                           {
                             target:
-                              "#New Machine.registration.logged_in.manage_tab.loadingApps.success",
+                              "#app.registration.logged_in.manage_tab.loadingApps.success",
                           },
                         ],
                         onError: [
                           {
                             target:
-                              "#New Machine.registration.logged_in.manage_tab.loadingApps.error",
+                              "#app.registration.logged_in.manage_tab.loadingApps.error",
                           },
                         ],
                       },
@@ -155,8 +121,7 @@ createMachine({
                     empty: {
                       on: {
                         REGISTER_TOGGLE_TAB: {
-                          target:
-                            "#New Machine.registration.logged_in.register_tab",
+                          target: "#app.registration.logged_in.register_tab",
                         },
                       },
                     },
@@ -166,7 +131,7 @@ createMachine({
                   on: {
                     GO_TO_EMPTY_STATE: {
                       target:
-                        "#New Machine.registration.logged_in.manage_tab.loadingApps.empty",
+                        "#app.registration.logged_in.manage_tab.loadingApps.empty",
                     },
                   },
                 },
@@ -181,13 +146,13 @@ createMachine({
                         onDone: [
                           {
                             target:
-                              "#New Machine.registration.logged_in.manage_tab.deletingApp.successDelete",
+                              "#app.registration.logged_in.manage_tab.deletingApp.successDelete",
                           },
                         ],
                         onError: [
                           {
                             target:
-                              "#New Machine.registration.logged_in.manage_tab.deletingApp.errorDelete",
+                              "#app.registration.logged_in.manage_tab.deletingApp.errorDelete",
                           },
                         ],
                       },
@@ -199,18 +164,16 @@ createMachine({
               },
               on: {
                 REGISTER_TOGGLE_TAB: {
-                  target: "#New Machine.registration.logged_in.register_tab",
+                  target: "#app.registration.logged_in.register_tab",
                 },
                 FETCH_APP_LIST: {
-                  target:
-                    "#New Machine.registration.logged_in.manage_tab.loadingApps",
+                  target: "#app.registration.logged_in.manage_tab.loadingApps",
                 },
                 DELETE_APP: {
-                  target:
-                    "#New Machine.registration.logged_in.manage_tab.deletingApp",
+                  target: "#app.registration.logged_in.manage_tab.deletingApp",
                 },
                 GO_UPDATE_MODE: {
-                  target: "#New Machine.registration.logged_in.update_mode",
+                  target: "#app.registration.logged_in.update_mode",
                 },
               },
             },
@@ -225,13 +188,13 @@ createMachine({
                         onDone: [
                           {
                             target:
-                              "#New Machine.registration.logged_in.update_mode.updateApp.successUpdate",
+                              "#app.registration.logged_in.update_mode.updateApp.successUpdate",
                           },
                         ],
                         onError: [
                           {
                             target:
-                              "#New Machine.registration.logged_in.update_mode.updateApp.errorUpdate",
+                              "#app.registration.logged_in.update_mode.updateApp.errorUpdate",
                           },
                         ],
                       },
@@ -243,20 +206,53 @@ createMachine({
               },
               on: {
                 SUBMIT_REGISTRATION: {
-                  target:
-                    "#New Machine.registration.logged_in.update_mode.updateApp",
+                  target: "#app.registration.logged_in.update_mode.updateApp",
                 },
               },
             },
           },
           on: {
             LOGOUT: {
-              target: "#New Machine.registration.logged_out",
+              target: "#app.registration.logged_out",
             },
             MANAGE_TOGGLE_TAB: {
-              target: "#New Machine.registration.logged_in.manage_tab",
+              target: "#app.registration.logged_in.manage_tab",
             },
           },
+        },
+      },
+    },
+    responsive: {
+      states: {
+        laptopL: {},
+        laptop: {},
+        screen4k: {},
+        mobileL: {},
+        mobileM: {},
+        mobileS: {},
+        tablet: {},
+      },
+      on: {
+        GO_LAPTOP_L: {
+          target: "#app.responsive.laptopL",
+        },
+        GO_LAPTOP: {
+          target: "#app.responsive.laptop",
+        },
+        GO_SCREEN4K: {
+          target: "#app.responsive.screen4k",
+        },
+        GO_MOBILE_L: {
+          target: "#app.responsive.mobileL",
+        },
+        GO_MOBILE_M: {
+          target: "#app.responsive.mobileM",
+        },
+        GO_MOBILE_S: {
+          target: "#app.responsive.mobileS",
+        },
+        GO_TABLET: {
+          target: "#app.responsive.tablet",
         },
       },
     },
