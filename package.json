@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@deriv/deriv-api": "^1.0.9",
     "@tanstack/react-location": "^3.6.5",
     "@tanstack/react-location-devtools": "^3.4.4",
     "@tanstack/react-location-jsurl": "^3.4.4",

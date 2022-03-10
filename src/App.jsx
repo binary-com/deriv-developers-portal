@@ -3,8 +3,9 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import logo from './logo.svg'
 import './App.css'
 import './stateSignal';
-import Example from './QueryExample';
 import { send } from './stateSignal';
+import Example from './QueryExample';
+import Balance from './AuthorizeApi';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           <p>Hello Vite + React!</p>
           <Example />
+          <Balance />
           <button type="button" onClick={setOurCountFunction}>
             LOGIN
           </button>
