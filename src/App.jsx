@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import logo from './logo.svg'
 import './App.css'
 import './stateSignal';
+import Example from './QueryExample';
 import { send } from './stateSignal';
 
 
@@ -19,6 +20,7 @@ function App() {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Hello Vite + React!</p>
+          <Example />
           <button type="button" onClick={setOurCountFunction}>
             LOGIN
           </button>
