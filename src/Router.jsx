@@ -1,14 +1,14 @@
-import React from 'react';
+import { lazy } from 'react';
 import {Router,ReactLocation,MakeGenerics} from '@tanstack/react-location'
 import { ReactLocationDevtools } from '@tanstack/react-location-devtools';
-const HomePage = React.lazy(()=>import('./Homepage'));
-const Docs = React.lazy(()=>import('./Docs'));
-const ApiExplorer = React.lazy(()=>import('./ApiExplorer'));
-const AppRegistration = React.lazy(()=>import('./AppRegistration'));
-const ApiGuide = React.lazy(()=>import('./ApiGuide'));
-const Faq = React.lazy(()=>import('./Faq'));
-const Json = React.lazy(()=>import('./Json'));
-const BugBounty = React.lazy(()=>import('./Bugbounty'));
+const HomePage = lazy(()=>import('./Homepage'));
+const Docs = lazy(()=>import('./Docs'));
+const ApiExplorer = lazy(()=>import('./ApiExplorer'));
+const AppRegistration = lazy(()=>import('./AppRegistration'));
+const ApiGuide = lazy(()=>import('./ApiGuide'));
+const Faq = lazy(()=>import('./Faq'));
+const Json = lazy(()=>import('./Json'));
+const BugBounty = lazy(()=>import('./Bugbounty'));
 
 export const routes=[
   {
