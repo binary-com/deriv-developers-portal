@@ -7,7 +7,7 @@ export const [state, setState] = createSignal('');
 export const { send } = interpret(stateMachine).onTransition(currentState => {
     createEffect(() => {
         const joinedState = currentState.toStrings().join(' ');
-        const app = document && document.querySelector("#app");
+        const app = document && document.querySelector("body");
         app && app.setAttribute("data-state", joinedState);
         setState(joinedState);
     });
