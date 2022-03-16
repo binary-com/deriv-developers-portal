@@ -1,5 +1,5 @@
 import {lazy} from 'react';
-import {Route,ReactLocation} from '@tanstack/react-location'
+import {ReactLocation} from '@tanstack/react-location'
 import React from 'react';
 const HomePage = lazy(()=>import('./Homepage'));
 const Docs = lazy(()=>import('./Docs'));
@@ -17,7 +17,7 @@ export const routes=[
     element: <HomePage/>
   },
   {
-    path:"/docs",
+    path:"docs",
     children:[
       {
         path:"/",
