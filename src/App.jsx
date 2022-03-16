@@ -1,32 +1,32 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Suspense } from 'react';
-
 import './App.css'
 import './stateSignal';
 import { send } from './stateSignal';
-import { Router,Outlet,Link,useMatch
- } from '@tanstack/react-location';
-// import { routes,location } from './Router';
+import { Router,Outlet,Link,useMatch} from '@tanstack/react-location';
+import { routes,location } from './Router';
+import { Suspense } from 'react';
 
-const Documentation=() =>{
-  const params=useMatch();
-}
 
 function App() {
-  // alert('aleert us');
-  const setOurCountFunction = () => {
-    send('LOGIN');
-  };
+  
 
   const queryClient = new QueryClient()
 
   return (
-      <QueryClientProvider client={queryClient}>
-        <div id="app" className="App">
-          <div className='links'>
-            <div>ABCDE</div>
+     
+    <QueryClientProvider client={queryClient}>
+        <Router routes={routes} location={location}>
+          <div id="app" className="App">
+            <div className='Our Header'>
+              <Suspense fallback={<div>loading</div>}>
+                <Link to="/">HomePage</Link>
+                <Link to="/docs">Documantation</Link>
+                <Link to="/docs/api-explorer">ApiExplorer</Link>
+              </Suspense>
+            </div>
+            <Outlet/>
           </div>
-        </div>
+        </Router>
     </QueryClientProvider>
   )
 }

@@ -1,6 +1,6 @@
-import { lazy } from 'react';
-import {Router,ReactLocation,MakeGenerics} from '@tanstack/react-location'
-import { ReactLocationDevtools } from '@tanstack/react-location-devtools';
+import {lazy} from 'react';
+import {Route,ReactLocation} from '@tanstack/react-location'
+import React from 'react';
 const HomePage = lazy(()=>import('./Homepage'));
 const Docs = lazy(()=>import('./Docs'));
 const ApiExplorer = lazy(()=>import('./ApiExplorer'));
@@ -10,7 +10,8 @@ const Faq = lazy(()=>import('./Faq'));
 const Json = lazy(()=>import('./Json'));
 const BugBounty = lazy(()=>import('./Bugbounty'));
 
-export const routes=[
+
+export const routes=[               
   {
     path:"/",
     element: <HomePage/>
@@ -20,33 +21,39 @@ export const routes=[
     children:[
       {
         path:"/",
-        element: ()=> import("./Homepage").then((module)=><module.default/>)
+        element:<HomePage/>
       },
       {
         path:"api_explorer",
-        element: ()=> import("./ApiExplorer").then((module)=><module.default/>)
+        element: <ApiExplorer/>
       },
       {
         path:"app_registeration",
-        element: ()=> import("./AppRegistration").then((module)=><module.default/>)
+        element: <AppRegistration/>
       },
       {
         path:"api_guide",
-        element: ()=> import("./ApiGuide").then((module)=><module.default/>)
+        element: <ApiGuide/>
       },
       {
         path:"FAQ",
-        element: ()=> import("./Faq").then((module)=><module.default/>)
+        element: <Faq/>
       },
       {
         path:"JSON",
-        element: ()=> import("./Json").then((module)=><module.default/>)
+        element: <Json/>
       },
       {
         path:"bug_bounty",
-        element: ()=> import("./BugBounty").then((module)=><module.default/>)
+        element: <BugBounty/>
       },
     ]
+  },
+  {
+    path:"api_explorer",
+    element: <ApiExplorer/>
   }
 ];
-export const location= new ReactLocation<LocationGenerics>[];
+export const location= new ReactLocation();
+
+
