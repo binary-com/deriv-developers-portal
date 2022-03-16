@@ -102,7 +102,7 @@ export default function HomePage() {
               </a>
             </div>
             <span className="term-conditions">By using our API, you confirm that you have read and agreed to our
-              <a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank" rel="noopener noreferrer">terms and conditions.</a>
+              <a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank" rel="noopener noreferrer"> terms and conditions.</a>
             </span>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function HomePage() {
             <h2>We’re here to help</h2>
             <p>
               Email us at
-              <a href="mailto: api-support@deriv.com">api-support@deriv.com</a><br />
+              <a href="mailto: api-support@deriv.com"> api-support@deriv.com</a><br />
               if you have any questions.
             </p>
           </div>
