@@ -13,9 +13,9 @@ function App() {
           <Router routes={routes} location={location}>
             <div id="app" className="App">
               <div className='Our Header'>
-                  <Link to="/">HomePage</Link>
-                  <Link to="/docs">Documantation</Link>
-                  <Link to="/docs/api-explorer">ApiExplorer</Link>
+                  <Link to="/">Home</Link>
+                  <Link to="docs">Documentation</Link>
+                  <Link to="api-explorer">API Explorer</Link>
               </div>
               <Outlet/>
             </div>
