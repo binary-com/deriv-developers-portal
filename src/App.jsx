@@ -1,16 +1,12 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
-import './App.css'
 import './stateSignal';
-import { Router,Outlet,Link,useMatch} from '@tanstack/react-location';
+import { Router,Outlet,Link} from '@tanstack/react-location';
 import { routes,location } from './Router';
 import { Suspense } from 'react';
 
 
 function App() {
-  
-
   const queryClient = new QueryClient()
-
   return (
     <Suspense fallback={<div>loading</div>}>
       <QueryClientProvider client={queryClient}>
