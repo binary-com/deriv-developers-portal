@@ -15,15 +15,16 @@ export default function HomePage() {
           <h1 className="benefits-title">Benefits of using Deriv API</h1>
           <div className="container benefits-icons">
             <div className="single-container">
-              <img src="/img/automation.svg" alt="automation icon" width={72} height={72} />
+              <div class="automation-icon" />
               <p>Automation</p>
             </div>
             <div className="single-container">
-              <img src="/img/integration.svg" alt="integration icon" width={72} height={72} />
+              {/* replace to div integration icon */}
+              <div className="integration-icon" />
               <p>Easy integration</p>
             </div>
             <div className="single-container">
-              <img src="/img/execution.svg" alt="execution icon" width={72} height={72} />
+              <div className="execution-icon" />
               <p>Fast execution</p>
             </div>
           </div>

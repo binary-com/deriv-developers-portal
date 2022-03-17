@@ -6303,3 +6303,23 @@ pre .variable.class,
 pre .variable.instance {
   color: #3e853f;
 }
+
+.benefits-icons .single-container > div {
+  background-size: contain;
+  width: 72px;
+  height: 72px;
+  display: inline-block;
+  margin: 8px;
+}
+
+.automation-icon {
+  background: url("/img/automation.svg") no-repeat;
+}
+
+.integration-icon {
+  background: url("/img/integration.svg") no-repeat;
+}
+
+.execution-icon {
+  background: url("/img/execution.svg") no-repeat;
+}
