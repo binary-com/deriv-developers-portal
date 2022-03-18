@@ -1,5 +1,7 @@
+import React from "react";
 import styles from "./Header.module.scss";
 import { Link } from "@tanstack/react-location";
+import { Navigation } from "./child_components/Navigation";
 
 export default function Header() {
     return (
@@ -13,20 +15,7 @@ export default function Header() {
             </div>
             <header className={styles.header}>
                 <div className={styles.headerContainer}>
-                    <div id="hamburger" className={styles.hamburger}>
-                        <div className={styles.hamburger} />
-                    </div>
-                    <Link to="/">
-                        <a className={styles.flexContainer}>
-                            <div className={styles.logo} />
-                            <h1 className={styles.branding}>API</h1>
-                        </a>
-                    </Link>
-                    <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
-                            <Link to="/">Home</Link>
-                            <Link to="docs">Documentation</Link>
-                            <Link to="api_explorer">API Explorer</Link>
-                    </nav>
+                    <Navigation />
                 </div>
             </header>
         </div>

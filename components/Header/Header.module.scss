@@ -115,12 +115,6 @@
                     cursor: pointer;
                 }
             }
-
-            .navbar {
-                @media (max-width: 992px) {
-                    display: none;
-                }
-            }
         }
     }
 }
@@ -129,6 +123,12 @@
 [data-state~="responsive.mobileM"], 
 [data-state~="responsive.mobileL"],
 [data-state~="responsive.tablet"]  {
+    .showHamburgerNav {
+        display: inline-block;
+    }
+    .hideHamburgerNav {
+        display: none;
+    }
     .topNav {
         display: none;
     }
