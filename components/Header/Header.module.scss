@@ -31,6 +31,10 @@
         }
     }
 
+    .hamburgerNavigation {
+        display: none;
+    }
+
     .selected {
         &::before {
             width: 20px;
@@ -123,13 +127,15 @@
 [data-state~="responsive.mobileM"], 
 [data-state~="responsive.mobileL"],
 [data-state~="responsive.tablet"]  {
+    .hamburgerNavigation {
+        display: inline-block;
+    }
     .showHamburgerNav {
         display: inline-block;
     }
-    .hideHamburgerNav {
-        display: none;
-    }
-    .topNav {
+    .hideHamburgerNav, 
+    .topNav,
+    .navbar {
         display: none;
     }
 }

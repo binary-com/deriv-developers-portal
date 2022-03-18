@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "@tanstack/react-location";
+import { HamburgerNavigation } from "./HamburgerNavigation";
+
 export const Navigation = ({ styles }) => {
     const [nav_burger_style, setNavBurgerStyle] = React.useState(`${styles.hideHamburgerNav}`);
 
@@ -11,6 +13,7 @@ export const Navigation = ({ styles }) => {
             setNavBurgerStyle(`${styles.hideHamburgerNav}`);
         }
     }
+
     return (
         <>
             <div id="hamburger" className={styles.hamburger} onClick={toggleHamburgerMenu} />
@@ -20,10 +23,8 @@ export const Navigation = ({ styles }) => {
                     <h1 className={styles.branding}>API</h1>
                 </div>
             </Link>
-            <nav 
-                id="navbar" 
-                className={`${styles.flexContainer} ${styles.navbar} ${nav_burger_style}`}
-            >
+            <HamburgerNavigation styles={styles} nav_burger_style={nav_burger_style} />
+            <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
                     <Link to="/">Home</Link>
                     <Link to="docs">Documentation</Link>
                     <Link to="api_explorer">API Explorer</Link>
