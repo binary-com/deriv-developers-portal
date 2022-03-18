@@ -15,7 +15,7 @@ export default function HomePage() {
           <h1 className="benefits-title">Benefits of using Deriv API</h1>
           <div className="container benefits-icons">
             <div className="single-container">
-              <div class="automation-icon" />
+              <div className="automation-icon" />
               <p>Automation</p>
             </div>
             <div className="single-container">

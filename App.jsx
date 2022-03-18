@@ -1,8 +1,9 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
 import './stateSignal';
-import { Router,Outlet,Link} from '@tanstack/react-location';
+import { Router,Outlet} from '@tanstack/react-location';
 import { routes,location } from './Router';
 import { Suspense } from 'react';
+import MainNav from './components/MainNav';
 
 
 function App() {
@@ -11,13 +12,7 @@ function App() {
     <Suspense fallback={<div>loading</div>}>
       <QueryClientProvider client={queryClient}>
           <Router routes={routes} location={location}>
-            <header id="app" className="header">
-              <div className='header-container'>
-                  <Link to="/">Home</Link>
-                  <Link to="docs">Documentation</Link>
-                  <Link to="api_explorer">API Explorer</Link>
-              </div>
-            </header>
+            <MainNav />
             <Outlet/>
           </Router>
       </QueryClientProvider>
