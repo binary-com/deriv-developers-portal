@@ -11,6 +11,7 @@
   --brand-secondary: #85acb0;
   --border-normal: #d6dadb;
   --label-background: #ffffff;
+  --background: #0e0e0e;
 }
 * {
   font-family: IBM Plex Sans, sans-serif;
@@ -928,19 +929,6 @@ p {
   .main-page-card {
     padding: 28px 16px 24px;
   }
-}
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 73px;
-  background-color: #0e0e0e;
-}
-header .header-container {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  width: 80%;
 }
 ul {
   margin-left: 20px;

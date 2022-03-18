@@ -1,9 +1,9 @@
 import { Link } from '@tanstack/react-location';
-import styles from './mainNav.module.css';
+import styles from './mainNav.module.scss';
 
 export default function MainNav () {
     return (
-    <div className={styles.mainNav}>
+    <div className={styles.nav}>
         <div className="top-nav">
         </div>
         <header id="app" className="header">
