@@ -68,7 +68,10 @@
                 font-size: 12px;
                 line-height: 1.5;
                 color: #c2c2c2;
-                text-decoration: none;
+
+                &::before {
+                    visibility: hidden;
+                }
             }
         }
     }
