@@ -15,7 +15,7 @@ export default function Header() {
             </div>
             <header className={styles.header}>
                 <div className={styles.headerContainer}>
-                    <Navigation />
+                    <Navigation styles={styles}/>
                 </div>
             </header>
         </div>

@@ -1,7 +1,6 @@
 import React from "react";
-import styles from "../Header.module.scss";
 import { Link } from "@tanstack/react-location";
-export const Navigation = () => {
+export const Navigation = ({ styles }) => {
     const [nav_burger_style, setNavBurgerStyle] = React.useState(`${styles.hideHamburgerNav}`);
 
     const toggleHamburgerMenu = () => {
