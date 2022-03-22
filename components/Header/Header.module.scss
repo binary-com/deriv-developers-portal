@@ -31,6 +31,7 @@
         }
     }
 
+
     .selected {
         &::before {
             width: 20px;
@@ -41,9 +42,13 @@
     .flexContainer {
         display: flex;
         align-items: center;
+        &::before{
+           --app-registration-tab-active-underline: var(--background);
+        }
         .branding {
             display: inline;
             font-size: 24px;
+            padding-top: 2.5rem;
             font-weight: normal;
             color: #ffffff;
             margin-left: 24px;
@@ -130,13 +135,17 @@
         display: none;
     }
 }
-
-@media (max-width: 992px) {
-    .logo {
+.logo{
+    background-image: url(/img/deriv.svg);
+    width: 180px;
+    height: 73px;
+    [data-view~='laptop']{
+        .logo{
         width: 84px;
         height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-    }
+      }
+   } 
 }

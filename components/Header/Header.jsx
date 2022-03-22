@@ -16,11 +16,10 @@ export default function Header() {
                     <div id="hamburger" className={styles.hamburger}>
                         <div className={styles.hamburger} />
                     </div>
-                    <Link to="/">
-                        <a className={styles.flexContainer}>
-                            <div className={styles.logo} />
-                            <h1 className={styles.branding}>API</h1>
-                        </a>
+                    <Link to="/" className={styles.flexContainer}>
+                        <div className={styles.logo}/>
+                        <h1 className={styles.branding}>API</h1>
+                        
                     </Link>
                     <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
                             <Link to="/">Home</Link>
