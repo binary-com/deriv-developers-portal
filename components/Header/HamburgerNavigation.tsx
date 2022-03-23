@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-location";
-export default function HamburgerNavigation({ styles, nav_burger_style }) {
+import styles from "./Header.module.scss";
+export default function HamburgerNavigation() {
     return (
         <div className={styles.hamburgerNavigation}>
             <nav 
                 id="navbar"
-                className={`${styles.flexContainer} ${nav_burger_style}`}
+                className={`${styles.flexContainer}`}
             >
                     <Link to="/">Home</Link>
                     <button>Documentation</button>
