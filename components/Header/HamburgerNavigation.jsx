@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "@tanstack/react-location";
-export const HamburgerNavigation = ({ styles, nav_burger_style }) => {
+export default function HamburgerNavigation({ styles, nav_burger_style }) {
     return (
         <div className={styles.hamburgerNavigation}>
             <nav 

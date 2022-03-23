@@ -1,9 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "@tanstack/react-location";
-import { HamburgerNavigation } from "./HamburgerNavigation";
+import HamburgerNavigation from "./HamburgerNavigation";
 
-export const Navigation = ({ styles }) => {
-    const [nav_burger_style, setNavBurgerStyle] = React.useState(`${styles.hideHamburgerNav}`);
+export default function Navigation({ styles }) {
+    const [nav_burger_style, setNavBurgerStyle] = useState(`${styles.hideHamburgerNav}`);
 
     const toggleHamburgerMenu = () => {
         const hamburger_menu_hidden = nav_burger_style === `${styles.hideHamburgerNav}`;
@@ -25,9 +25,9 @@ export const Navigation = ({ styles }) => {
             </Link>
             <HamburgerNavigation styles={styles} nav_burger_style={nav_burger_style} />
             <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
-                    <Link to="/">Home</Link>
-                    <Link to="docs">Documentation</Link>
-                    <Link to="api_explorer">API Explorer</Link>
+                <Link to="/">Home</Link>
+                <Link to="docs">Documentation</Link>
+                <Link to="api_explorer">API Explorer</Link>
             </nav>
         </>
     );
