@@ -9,6 +9,7 @@ const ApiGuide = lazy(()=>import('./ApiGuide'));
 const Faq = lazy(()=>import('./Faq'));
 const Json = lazy(()=>import('./Json'));
 const BugBounty = lazy(()=>import('./Bugbounty'));
+const Quickstart = lazy(()=>import('./Quickstart'));
 
 
 export const routes=[               
@@ -18,10 +19,12 @@ export const routes=[
   },
   {
     path:"docs",
+    element:<Docs/>,
+  
     children:[
       {
         path:"/",
-        element:<HomePage/>
+        element:<Quickstart/>
       },
       {
         path:"api_explorer",
