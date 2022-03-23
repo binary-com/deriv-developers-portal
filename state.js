@@ -217,7 +217,7 @@ createMachine({
         mobileL: {},
         mobileM: {},
         mobileS: {},
-        tablet: {},
+        mobileTablet: {},
       },
       on: {
         GO_LAPTOP_L: {
@@ -239,7 +239,7 @@ createMachine({
           target: ".mobileS",
         },
         GO_TABLET: {
-          target: ".tablet",
+          target: ".mobileTablet",
         },
       },
     },

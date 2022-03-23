@@ -103,7 +103,6 @@
             }
 
             .hamburger {
-                // add background image hamburger_icon.svg
                 width: 16px;
                 height: 16px;
                 background-image: url(/img/hamburger_menu.svg);
@@ -123,17 +122,18 @@
     }
 }
 
-[data-state~="responsive.mobileS"],
-[data-state~="responsive.mobileM"], 
-[data-state~="responsive.mobileL"],
-[data-state~="responsive.tablet"]  {
-    .hamburgerNavigation {
-        display: inline-block;
+[data-state*="responsive.mobile"] {
+    &[data-state~="hamburger.hamburger_closed"] {
+        .hamburgerNavigation {
+            display: none;
+        }
     }
-    .showHamburgerNav {
-        display: inline-block;
+    &[data-state~="hamburger.hamburger_open"] {
+        .hamburgerNavigation {
+            display: inline-block;
+        }
     }
-    .hideHamburgerNav, 
+    .hamburgerNavigation, 
     .topNav,
     .navbar {
         display: none;
