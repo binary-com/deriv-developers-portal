@@ -1,4 +1,4 @@
-import { createSignal, onCleanup, createEffect } from 'solid-js';
+import { createSignal, createEffect } from 'solid-js';
 import { interpret } from 'xstate';
 import { stateMachine } from './state';
 
