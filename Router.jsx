@@ -19,7 +19,7 @@ export const routes=[
   },
   {
     path:"docs",
-    element:<Docs/>
+    element:<Docs/>,
     children:[
       {
         path:"/",
