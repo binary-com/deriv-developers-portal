@@ -1,17 +1,18 @@
-import { Router,Outlet, Link} from '@tanstack/react-location';
-import { routes,location } from './Router';
+import {Outlet} from '@tanstack/react-location';
 import { Suspense } from 'react';
-import Sidepanel from './Sidepanel';
+import Sidebar from './Sidebar';
+
 
 
 function Docs() {
   return (
     <Suspense fallback={<div>loading</div>}>
-      <Sidepanel>
-        <Router routes={routes} location={location}>
-            <Outlet/> 
-        </Router>
-      </Sidepanel>
+      <div style={{display:"flex"}}>
+        <Sidebar/>
+        <div style={{paddingTop:"115px"}}>
+        <Outlet/>
+        </div>
+      </div>
     </Suspense>
   )
 }

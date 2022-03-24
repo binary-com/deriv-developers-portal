@@ -12,7 +12,7 @@ function App() {
     <Suspense fallback={<div>loading</div>}>
       <QueryClientProvider client={queryClient}>
           <Router routes={routes} location={location}>
-            <Header />
+            <Header/>
             <Outlet/>
           </Router>
       </QueryClientProvider>

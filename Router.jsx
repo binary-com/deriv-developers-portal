@@ -19,11 +19,14 @@ export const routes=[
   },
   {
     path:"docs",
-    element:<Docs/>,
-  
+    element:<Docs/>
     children:[
       {
         path:"/",
+        element:<Quickstart/>
+      },
+      {
+        path:'quickstart',
         element:<Quickstart/>
       },
       {
@@ -31,7 +34,7 @@ export const routes=[
         element: <ApiExplorer/>
       },
       {
-        path:"app_registeration",
+        path:"app_registration",
         element: <AppRegistration/>
       },
       {
