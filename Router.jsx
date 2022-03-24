@@ -30,15 +30,15 @@ export const routes=[
         element:<Quickstart/>
       },
       {
-        path:"api_explorer",
+        path:"api-explorer",
         element: <ApiExplorer/>
       },
       {
-        path:"app_registration",
+        path:"app-registration",
         element: <AppRegistration/>
       },
       {
-        path:"api_guide",
+        path:"api-guide",
         element: <ApiGuide/>
       },
       {
@@ -50,13 +50,13 @@ export const routes=[
         element: <Json/>
       },
       {
-        path:"bug_bounty",
+        path:"bug-bounty",
         element: <BugBounty/>
       },
     ]
   },
   {
-    path:"api_explorer",
+    path:"api-explorer",
     element: <ApiExplorer/>
   }
 ];
