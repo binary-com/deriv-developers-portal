@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
 import './stateSignal';
+import './resizeEffect';
 import { Router,Outlet} from '@tanstack/react-location';
 import { routes,location } from './Router';
 import { Suspense } from 'react';
@@ -12,7 +13,7 @@ function App() {
     <Suspense fallback={<div>loading</div>}>
       <QueryClientProvider client={queryClient}>
           <Router routes={routes} location={location}>
-            <Header />
+            <Header/>
             <Outlet/>
           </Router>
       </QueryClientProvider>
