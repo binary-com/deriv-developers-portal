@@ -9,7 +9,7 @@ export default function Navigation() {
             <div 
                 id="hamburger"
                 className={styles.hamburger}
-                onClick={() => send('TOGGLE_HAMBURGER')} 
+                onClick={() => send('TOGGLE_HAMBURGER')}
             />
             <Link to="/">
                 <div className={styles.flexContainer}>

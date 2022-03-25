@@ -7,17 +7,19 @@ export default function HamburgerNavigation() {
                 id="navbar"
                 className={`${styles.flexContainer}`}
             >
-                    <Link to="/">Home</Link>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
                     <button>Documentation</button>
                     <section className={styles.documentationSection}>
-                        <Link to="/">Quickstart</Link>
-                        <Link to="/">App Registration</Link>
-                        <Link to="/">API Explorer</Link>
-                        <Link to="/">API Guide</Link>
-                        <Link to="/">FAQ</Link>
-                        <Link to="/">JSON Schemas</Link>
-                        <Link to="/">Bug Bounty</Link>
+                        <li><Link to="/docs/">Quickstart</Link></li>
+                        <li><Link to="/docs/app-registration/">App Registration</Link></li>
+                        <li><Link to="/api-explorer/">API Explorer</Link></li>
+                        <li><Link to="/docs/api-guide/">API Guide</Link></li>
+                        <li><Link to="/docs/faq/">FAQ</Link></li>
+                        <li><Link to="/docs/json-schemas/">JSON Schemas</Link></li>
+                        <li><Link to="/docs/bug-bounty/">Bug Bounty</Link></li>
                     </section>
+                </ul>
             </nav>
         </div>
     )

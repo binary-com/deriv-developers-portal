@@ -31,9 +31,18 @@
         }
     }
 
-    .hamburgerNavigation {
-        display: none;
-    }
+    // .hamburgerNavigation {
+    //     display: inline-block;
+    //     visibility: hidden;
+    //     position: fixed;
+    //     left: 0;
+    //     height: 100%;
+    //     top: 48px;
+    //     bottom: 0;
+    //     width: var(--hamburger-menu-width);
+    //     background-color: white;
+    //     transition: left .4s ease-in-out;
+    // }
 
     .selected {
         &::before {
@@ -122,18 +131,67 @@
     }
 }
 
+.hamburgerNavigation {
+    display: inline-block;
+    position: fixed;
+    left: -260px;
+    height: 100%;
+    top: 48px;
+    bottom: 0;
+    width: var(--hamburger-menu-width);
+    background-color: white;
+    transition: left .4s ease-in;
+    .flexContainer {
+        flex-direction: column;
+        padding: 24px 16px 24px 16px;
+        ul {
+            margin-left: 0;
+            width: 100%;
+            li {
+                list-style: none;
+                height: 40px;
+                background: #577A9214;
+                display: flex;
+                align-items: center;
+                padding: 0 10px;
+                border-radius: 0px 4px 4px 0px;
+                position: relative;
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    position: absolute;
+                    height: 40px;
+                    width: 4px;
+                    border-radius: 4px 0 0 4px;
+                    left: 0;
+                    background-color: #FF444F;
+                }
+            }
+        }
+        a {
+            color: black;
+        }
+    }
+}
+
+[data-state*="responsive.laptop"],
+[data-state~="responsive.sceen4k"] {
+    .hamburgerNavigation {
+        visibility: hidden;
+    }
+}
+
 [data-state*="responsive.mobile"] {
     &[data-state~="hamburger.hamburger_closed"] {
         .hamburgerNavigation {
-            display: none;
+            left: -260px;
         }
     }
     &[data-state~="hamburger.hamburger_open"] {
         .hamburgerNavigation {
-            display: inline-block;
+            left: 0;
         }
     }
-    .hamburgerNavigation, 
     .topNav,
     .navbar {
         display: none;
