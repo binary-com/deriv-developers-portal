@@ -1,5 +1,6 @@
 import './AppRegistration.scss';
 import { oauthUrl } from './appRegistrationEffects';
+import { send } from './stateSignal';
 
 export default function AppRegistration() {
   return (
@@ -20,10 +21,10 @@ export default function AppRegistration() {
             business purposes</h4>
         </div>
         <div className="registered-apps-tabs">
-          <button id="register_button" className="register-button">
+          <button onClick={() => send('REGISTER_TOGGLE_TAB')} id="register_button" className="register-button">
             Register your application
           </button>
-          <button id="manage_button" className="manage-button">
+          <button onClick={() => send('MANAGE_TOGGLE_TAB')} id="manage_button" className="manage-button">
             Manage existing applications
           </button>
         </div>

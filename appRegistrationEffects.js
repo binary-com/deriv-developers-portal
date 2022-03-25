@@ -1,6 +1,7 @@
 import { createEffect, createSignal } from 'solid-js';
 
-import { app_id, server_url } from './storageSignals.js';
+import { app_id, server_url, token1 } from './storageSignals.js';
+import { send } from './stateSignal.js';
 
 export const [oauthUrl, setOauthUrl] = createSignal('');
 
@@ -17,4 +18,7 @@ createEffect(() => {
     return `https://oauth.deriv.com/oauth2/authorize?app_id=${app_id()}&l=EN&brand=deriv`;
   };
   setOauthUrl(loginUrl());
+  if (token1()) {
+    send('LOGIN');
+  }
 });
