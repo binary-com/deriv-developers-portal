@@ -997,3 +997,18 @@ textarea {
 .execution-icon {
   background: url(/img/execution.svg) no-repeat;
 }
+[data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"] nav a.active {
+  background-color: #577A9214;
+  font-weight: bold;
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 40px;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+    left: 0;
+    background-color: #FF444F;
+    visibility: visible;
+  }
+}

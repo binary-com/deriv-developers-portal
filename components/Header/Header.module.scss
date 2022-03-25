@@ -123,6 +123,7 @@
 }
 
 .hamburgerNavigation {
+    box-shadow: rgb(0 0 0 / 10%) 0 16px 20px 0;
     display: inline-block;
     position: fixed;
     left: -260px;
@@ -135,32 +136,38 @@
     .flexContainer {
         flex-direction: column;
         padding: 24px 16px 24px 16px;
+        ul > li a {
+            font-weight: bold;
+        }
         ul {
             margin-left: 0;
             width: 100%;
             li {
                 list-style: none;
+                a {
+                    height: 40px;
+                    width: inherit;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 10px;
+                    border-radius: 0px 4px 4px 0px;
+                    position: relative;
+                }
+            }
+            button {
+                font-weight: bold;
+                width: inherit;
                 height: 40px;
-                background: #577A9214;
+                color: black;
                 display: flex;
                 align-items: center;
                 padding: 0 10px;
                 border-radius: 0px 4px 4px 0px;
                 position: relative;
-                &::before {
-                    content: "";
-                    display: inline-block;
-                    position: absolute;
-                    height: 40px;
-                    width: 4px;
-                    border-radius: 4px 0 0 4px;
-                    left: 0;
-                    background-color: #FF444F;
-                }
+                background-color: transparent;
+                border: none;
             }
-        }
-        a {
-            color: black;
         }
     }
 }
@@ -181,6 +188,16 @@
     &[data-state~="hamburger.hamburger_open"] {
         .hamburgerNavigation {
             left: 0;
+        }
+        &[data-state*="documentation_closed"] {
+            .hamburgerNavigation section {
+                display: none;
+            }
+        }
+        &[data-state*="documentation_open"] {
+            .hamburgerNavigation section {
+                display: inline-block;
+            }
         }
     }
     .topNav,
