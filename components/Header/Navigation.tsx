@@ -21,7 +21,7 @@ export default function Navigation() {
             <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
                 <Link to="/">Home</Link>
                 <Link to="docs">Documentation</Link>
-                <Link to="api_explorer">API Explorer</Link>
+                <Link to="api-explorer">API Explorer</Link>
             </nav>
         </>
     );
