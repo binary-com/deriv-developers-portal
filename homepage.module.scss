@@ -8,6 +8,33 @@
     justify-content: center;
     align-items: center;
     padding-top: 40px;
+    .heroContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 160px 0;
+        width: 1008px;
+        .heroHeader {
+            max-width: 775px;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.25;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .heroText {
+            font-size: 24px;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 0;
+        }
+    }
 }
 
 .benefitsContainer {
@@ -101,7 +128,51 @@
     }
 }
 
+.waysWrapper {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    h1 {
+        text-align: center;
+        max-width: 384px;
+    }
+    .ways {
+        display: flex;
+        align-items: center;
+        width: unset;
+        max-width: 628px;
+        margin: 20px 12px;
+        padding: 16px;
+        p {
+            margin-bottom: 0;
+            margin-left: 16px;
+        }
+        > div {
+            background-image: url(/img/checklist-icon-red.svg);
+            background-repeat: no-repeat;
+            width: 32px;
+            height: 32px;
+            background-size: 32px 32px;
+            padding-right: 16px;
+        }
+    }
+}
+
 [data-state*="responsive.mobile"] {
+    .heroImage {
+        margin-top: 47px;
+        padding-top: unset;
+        .heroContainer {
+            width: 100%;
+            padding: 80px 20px;
+            .heroHeader {
+                max-width: unset;
+            }
+        }
+    }
     .benefitsContainer {
         .benefitsIcons {
             margin-top: 30px;
@@ -132,7 +203,7 @@
                     width: 90% !important;
                     margin: 0 auto 30px;
                     h3 {
-                        font-size: 22px;
+                        font-size: 24px;
                     }
                 }
             }
@@ -143,17 +214,24 @@
                     width: 90% !important;
                     margin: 0 auto;
                     h3 {
-                        font-size: 22px;
+                        font-size: 24px;
                     }
                 }
             }
         }
     }
     
-    .personalisationImage,
-    .earnMoreImage {
+    .benefitsContainer .benefits .personalisationImage,
+    .benefitsContainer .benefits .earnMoreImage {
         max-width: 486px;
         height: 220px;
+    }
+
+    .waysWrapper .ways {
+        max-width: 328px;
+        > div {
+            padding-right: 24px;
+        }
     }
 
     .earnMoreImage {
@@ -161,15 +239,25 @@
     }
 }
 
-[data-state~="responsive.mobileS"] {
-    .personalisationImage,
-    .earnMoreImage {
-        max-width: 486px;
-        height: 150px;
-    }
-}
-
+[data-state~="responsive.mobileS"],
 [data-state~="responsive.mobileM"] {
+    .heroImage {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)), url(/img/header-mobile.png);
+        .heroContainer {
+            padding: 80px 16px;
+            .heroHeader {
+                font-size: 32px;
+                text-align: left;
+                width: 100%;
+            }
+            .heroText {
+                font-size: 20px;
+                margin-bottom: 12px;
+                text-align: left;
+            }
+        }
+    }
+
     .benefitsContainer {
         .benefits {
             img {
@@ -195,5 +283,19 @@
                 }
             }
         }
+    }
+
+    .waysWrapper h1 {
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+[data-state~="responsive.mobileS"] {
+    .benefitsContainer .benefits .personalisationImage,
+    .benefitsContainer .benefits .earnMoreImage {
+        max-width: 486px;
+        height: 150px;
     }
 }

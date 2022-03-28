@@ -4,9 +4,9 @@ export default function HomePage() {
   return (
     <div className="main-content">
       <div className={styles.heroImage}>
-        <div className="hero-container">
-          <h1 className="hero-header">Deriv API</h1>
-          <h2 className="hero-text">
+        <div className={styles.heroContainer}>
+          <h1 className={styles.heroHeader}>Deriv API</h1>
+          <h2 className={styles.heroText}>
             Use our powerful, flexible, and free API to build a custom trading <br />
             platform – for yourself or for your business.
           </h2>
@@ -48,22 +48,22 @@ export default function HomePage() {
         </div>
       </div>
       <div className="main-page-row gray">
-        <div className="column-container">
-          <div className="ways-container">
+        <div className={`column-container ${styles.waysContainer}`}>
+          <div className={styles.waysWrapper}>
             <div>
               <h1>Ways to earn with Deriv API</h1>
             </div>
             <div>
-              <div href="/docs/api-guide/" className="main-page-card ways">
-                <img src="/img/checklist-icon.svg" alt="sign up icon" width={32} height={32} />
+              <div className={`main-page-card ${styles.ways}`}>
+                <div src="/img/checklist-icon-red.svg" />
                 <p>Register your app with Deriv, and add a percentage markup to the contract prices to profit from every purchased contract.</p>
               </div>
-              <div href="/docs/api-guide/" className="main-page-card ways">
-                <img src="/img/checklist-icon.svg" alt="sign up icon" width={32} height={32} />
+              <div className={`main-page-card ${styles.ways}`}>
+                <div src="/img/checklist-icon-red.svg" />
                 <p>Sign up as an affiliate, build your app, and get commissions on trades completed via your app and the affiliate plan you select.</p>
               </div>
-              <div href="/docs/api-guide/" className="main-page-card ways">
-                <img src="/img/checklist-icon.svg" alt="sign up icon" width={32} height={32} />
+              <div className={`main-page-card ${styles.ways}`}>
+                <div src="/img/checklist-icon-red.svg" />
                 <p>Sign up as a payment agent, build your own custom payment website, and use our API to earn commission on every payment you process for Deriv’s clients.</p>
               </div>
             </div>
@@ -117,27 +117,27 @@ export default function HomePage() {
                 <p>With our API, you'll be able to:</p>
                 <ul>
                   <li>
-                    <img src="/img/checklist-icon.svg" alt="check list icon" width={24} height={24} />
+                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
                     <p>Trade digital options and multipliers</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon.svg" alt="check list icon" width={24} height={24} />
+                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
                     <p>Monitor real-time pricing</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon.svg" alt="check list icon" width={24} height={24} />
+                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
                     <p>Buy/sell contracts</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon.svg" alt="check list icon" width={24} height={24} />
+                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
                     <p>Manage users' accounts</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon.svg" alt="check list icon" width={24} height={24} />
+                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
                     <p>Monitor existing contracts</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon.svg" alt="check list icon" width={24} height={24} />
+                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
                     <p>View users' historical transactions</p>
                   </li>
                 </ul>
