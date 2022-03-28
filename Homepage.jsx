@@ -1,5 +1,4 @@
 import styles from "./Homepage.module.scss";
-//reset netlify
 
 export default function HomePage() {
   return (
