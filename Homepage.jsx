@@ -1,3 +1,5 @@
+import styles from "./Homepage.module.scss";
+
 export default function HomePage() {
   return (
     <div className="main-content">
@@ -28,17 +30,17 @@ export default function HomePage() {
               <p>Fast execution</p>
             </div>
           </div>
-          <div className="benefits">
-            <div className="personalisation-container">
-              <img className="personalisation-image" src="/img/personalisation.png" alt="personalisation icon" width="486px" height="260px" />
-              <div className="personalisation">
+          <div className={styles.benefits}>
+            <div className={styles.personalisationContainer}>
+              <div className={styles.personalisationImage} />
+              <div className={styles.personalisation}>
                 <h3>Personalise your trading</h3>
                 <p>Personalise your trading apps to match your needs. Create charts and views the way you like them. Develop your trading app using any common programming language and extend your trading opportunities.</p>
               </div>
             </div>
-            <div className="earn-more-container">
-              <img className="earn-more-image" src="/img/build-business.png" alt="build business icon" width="486px" height="260px" />
-              <div className="earn-more">
+            <div className={styles.earnMoreContainer}>
+              <div className={styles.earnMoreImage} />
+              <div className={styles.earnMore}>
                 <h3>Build a business and earn more</h3>
                 <p>Create your own trading apps by taking advantage of the power of Deriv's trading services. Share your apps with fellow traders or customers, and get a chance to earn more or build your own business.</p>
               </div>

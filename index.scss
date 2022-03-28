@@ -28,11 +28,6 @@ body {
 button:focus {
   outline: none;
 }
-@media (max-width: 480px) {
-  .benefits img {
-    margin-bottom: 0;
-  }
-}
 @media (max-width: 992px) {
   #sidebar {
     display: none;
@@ -82,15 +77,6 @@ button:focus {
   }
   .main-content .main-page-row .column-container h1 {
     margin-bottom: 0 !important;
-  }
-  .main-content .main-page-row .column-container .benefits {
-    flex-wrap: wrap;
-  }
-  .main-content .main-page-row .column-container .benefits h3 {
-    margin: 16px 0;
-  }
-  .main-content .main-page-row .column-container .benefits div {
-    width: 100%;
   }
   .main-content .main-page-row .column-container .ways {
     max-width: 328px;
@@ -153,11 +139,6 @@ button:focus {
   }
 }
 @media (max-width: 992px) {
-  .main-content .benefits img {
-    height: auto;
-  }
-}
-@media (max-width: 992px) {
   .main-content .container {
     flex-direction: column;
   }
@@ -170,9 +151,6 @@ button:focus {
   }
 }
 @media (max-width: 1499px) {
-  .benefits div {
-    width: 100%;
-  }
   .personalisation {
     order: 2;
   }
@@ -229,100 +207,6 @@ li {
 }
 .benefits-icons .single-container p {
   font-size: 22px;
-}
-.benefits {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 100%;
-}
-.benefits .earn-more-container,
-.benefits .personalisation-container {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  margin: 40px 0 0;
-}
-@media (max-width: 992px) {
-  .benefits .earn-more-container {
-    flex-direction: column;
-  }
-}
-@media (max-width: 992px) {
-  .benefits .earn-more-container .earn-more {
-    width: 90% !important;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 486px) {
-  .benefits .earn-more-container .earn-more-image {
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-.benefits .personalisation-container {
-  flex-direction: row-reverse;
-}
-@media (max-width: 992px) {
-  .benefits .personalisation-container {
-    flex-direction: column-reverse;
-  }
-}
-@media (max-width: 992px) {
-  .benefits .personalisation-container .personalisation {
-    width: 90% !important;
-    margin: 0 auto 30px;
-  }
-}
-@media (max-width: 486px) {
-  .benefits .personalisation-container .personalisation-image {
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-.benefits div {
-  width: 486px;
-}
-.benefits img {
-  margin-bottom: 40px;
-}
-.benefits .personalisation {
-  margin-right: 40px;
-}
-.benefits .personalisation p {
-  font-size: 22px;
-  line-height: 2rem;
-}
-.benefits .earn-more {
-  margin-left: 40px;
-}
-.benefits .earn-more p {
-  font-size: 22px;
-  line-height: 2rem;
-}
-@media (max-width: 480px) {
-  .benefits .personalisation,
-  .benefits .earn-more {
-    margin: 0;
-  }
-  .benefits .personalisation p,
-  .benefits .earn-more p {
-    font-size: 20px;
-  }
-  .benefits .personalisation h3,
-  .benefits .earn-more h3 {
-    font-size: 22px;
-  }
-  .benefits img {
-    margin-bottom: 0;
-  }
-}
-@media (max-width: 992px) {
-  .benefits {
-    width: 90%;
-  }
 }
 .api-features {
   display: flex;
