@@ -3,7 +3,7 @@ import styles from "./homepage.module.scss";
 export default function HomePage() {
   return (
     <div className="main-content">
-      <div className="hero-image">
+      <div className={styles.heroImage}>
         <div className="hero-container">
           <h1 className="hero-header">Deriv API</h1>
           <h2 className="hero-text">
@@ -13,20 +13,19 @@ export default function HomePage() {
         </div>
       </div>
       <div className="main-page-row">
-        <div className="column-container">
-          <h1 className="benefits-title">Benefits of using Deriv API</h1>
-          <div className="container benefits-icons">
+        <div className={`column-container ${styles.benefitsContainer}`}>
+          <h1 className={styles.benefitsTitle}>Benefits of using Deriv API</h1>
+          <div className={`container ${styles.benefitsIcons}`}>
             <div className="single-container">
-              <div className="automation-icon" />
+              <div className={`${styles.automationIcon} ${styles.image}`} />
               <p>Automation</p>
             </div>
             <div className="single-container">
-              {/* replace to div integration icon */}
-              <div className="integration-icon" />
+              <div className={`${styles.integrationIcon} ${styles.image}`} />
               <p>Easy integration</p>
             </div>
             <div className="single-container">
-              <div className="execution-icon" />
+              <div className={`${styles.executionIcon} ${styles.image}`} />
               <p>Fast execution</p>
             </div>
           </div>

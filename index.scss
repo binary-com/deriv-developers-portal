@@ -127,18 +127,6 @@ button:focus {
   }
 }
 @media (max-width: 992px) {
-  .main-content .benefits-icons {
-    margin-top: 30px;
-  }
-  .main-content .benefits-icons img {
-    width: 48px;
-    height: 48px;
-  }
-  .main-content .benefits-icons p {
-    font-size: 10px;
-  }
-}
-@media (max-width: 992px) {
   .main-content .container {
     flex-direction: column;
   }
@@ -167,17 +155,6 @@ button:focus {
 li {
   margin-top: 16px;
 }
-.hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)), url(/img/header.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-}
 @media (max-width: 480px) {
   .hero-text {
     font-size: 20px;
@@ -193,20 +170,6 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-.benefits-title {
-  margin-bottom: 10px;
-}
-.benefits-icons {
-  width: 65%;
-  flex-wrap: nowrap;
-  margin-bottom: 20px;
-}
-.benefits-icons .single-container img {
-  margin: 8px;
-}
-.benefits-icons .single-container p {
-  font-size: 22px;
 }
 .api-features {
   display: flex;
@@ -864,22 +827,6 @@ textarea {
 }
 .mb-16p {
   margin-bottom: 16px;
-}
-.benefits-icons .single-container > div {
-  background-size: contain;
-  width: 72px;
-  height: 72px;
-  display: inline-block;
-  margin: 8px;
-}
-.automation-icon {
-  background: url(/img/automation.svg) no-repeat;
-}
-.integration-icon {
-  background: url(/img/integration.svg) no-repeat;
-}
-.execution-icon {
-  background: url(/img/execution.svg) no-repeat;
 }
 [data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"] nav a.active {
   background-color: #577A9214;
