@@ -142,31 +142,46 @@
         ul {
             margin-left: 0;
             width: 100%;
+            section {
+                width: inherit;
+            }
             li {
                 list-style: none;
                 a {
                     height: 40px;
-                    width: inherit;
+                    width: 100%;
                     color: black;
                     display: flex;
                     align-items: center;
-                    padding: 0 10px;
+                    text-indent: 22px;
                     border-radius: 0px 4px 4px 0px;
                     position: relative;
+                    font-size: 14px;
                 }
             }
             button {
+                position: relative;
                 font-weight: bold;
-                width: inherit;
+                font-size: 14px;
+                width: 100%;
                 height: 40px;
                 color: black;
                 display: flex;
                 align-items: center;
-                padding: 0 10px;
+                text-indent: 22px;
                 border-radius: 0px 4px 4px 0px;
-                position: relative;
                 background-color: transparent;
                 border: none;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    background-image: url(/img/arrow_down.svg);
+                    background-size: cover;
+                    right: 16px;
+                    transition: transform .25s;
+                }
             }
         }
     }
@@ -190,8 +205,13 @@
             left: 0;
         }
         &[data-state*="documentation_closed"] {
-            .hamburgerNavigation section {
-                display: none;
+            .hamburgerNavigation {
+                section {
+                    display: none;
+                }
+                ul button::after {
+                    transform: rotate(-180deg);
+                }
             }
         }
         &[data-state*="documentation_open"] {
@@ -205,12 +225,12 @@
         display: none;
     }
 }
-.logo{
+.logo {
     background-image: url(/img/deriv.svg);
     width: 180px;
     height: 73px;
-    [data-view~='laptop']{
-        .logo{
+    [data-view~='laptop'] {
+        .logo {
         width: 84px;
         height: auto;
         display: flex;
