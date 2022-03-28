@@ -108,7 +108,7 @@
     }
 }
 
-[data-state*="responsive.mobileS"] {
+[data-state~="responsive.mobileS"] {
     .personalisationImage,
     .earnMoreImage {
         max-width: 486px;
@@ -116,7 +116,7 @@
     }
 }
 
-[data-state*="responsive.mobileM"] {
+[data-state~="responsive.mobileM"] {
     .benefits {
         img {
             margin-bottom: 0;
