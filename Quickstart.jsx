@@ -1,5 +1,5 @@
 import styles from "./Quickstart.module.scss";
-import CodeBlock from "./Codeblock";
+import CodeBlock from "./CodeBlock";
 
 
 
