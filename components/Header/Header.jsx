@@ -22,8 +22,8 @@ export default function Header() {
                     </Link>
                     <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
                             <Link to="/">Home</Link>
-                            <Link to="docs">Documentation</Link>
-                            <Link to="./docs/api_explorer">API Explorer</Link>
+                            <Link to="docs/">Documentation</Link>
+                            <Link to="api-explorer/">API Explorer</Link>
                     </nav>
                 </div>
             </header>

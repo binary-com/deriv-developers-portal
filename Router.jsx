@@ -5,7 +5,7 @@ const HomePage = lazy(()=>import('./Homepage'));
 const Docs = lazy(()=>import('./Docs'));
 const ApiExplorer = lazy(()=>import('./ApiExplorer'));
 const AppRegistration = lazy(()=>import('./AppRegistration'));
-const ApiGuide = lazy(()=>import('./ApiGuide'));
+const ApiGuide= lazy(()=>import('./ApiGuide'));
 const Faq = lazy(()=>import('./Faq'));
 const Json = lazy(()=>import('./Json'));
 const BugBounty = lazy(()=>import('./Bugbounty'));
@@ -26,27 +26,23 @@ export const routes=[
         element:<Quickstart/>
       },
       {
-        path:'quickstart',
-        element:<Quickstart/>
+        path:"app-registration",
+        element: <AppRegistration/>
       },
       {
         path:"api-explorer",
-        element: <ApiExplorer/>
-      },
-      {
-        path:"app-registration",
-        element: <AppRegistration/>
+        element:<ApiExplorer/>
       },
       {
         path:"api-guide",
         element: <ApiGuide/>
       },
       {
-        path:"FAQ",
+        path:"faq",
         element: <Faq/>
       },
       {
-        path:"JSON",
+        path:"json-schemas",
         element: <Json/>
       },
       {
