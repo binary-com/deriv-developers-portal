@@ -19,7 +19,6 @@
   font-size: 16px;
   margin: 0;
   padding: 0;
-  z-index: 10;
 }
 html,
 body {
@@ -291,48 +290,6 @@ textarea {
   align-items: center;
   margin-bottom: 1rem;
 }
-.lib-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.lib-links .logo-and-link {
-  padding: 10px 20px;
-}
-.library-go-to {
-  display: flex;
-  align-items: center;
-}
-.library-go-to label {
-  cursor: pointer;
-}
-.library-chevron {
-  background-image: url(/img/library-chevron.svg);
-  background-repeat: no-repeat;
-  width: 12px;
-  height: 12px;
-  margin-left: 13px;
-}
-.logo-javascript {
-  background-image: url(/img/js.svg);
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-.logo-python {
-  background-image: url(/img/py.svg);
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-* {
-  font-family: IBM Plex Sans, sans-serif;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
-}
 @media (max-width: 992px) {
   #sidebar {
     display: none;
@@ -356,10 +313,6 @@ textarea {
 @media (max-width: 992px) {
   .row-container .single-container > h2 {
     font-size: 24px;
-  }
-  .row-container .single-container > .max-js-div {
-    max-width: 290px;
-    margin-bottom: 8px;
   }
 }
 @media (max-width: 992px) {
@@ -618,6 +571,7 @@ textarea {
 .mb-16p {
   margin-bottom: 16px;
 }
+
 [data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"] nav a.active {
   background-color: #577A9214;
   font-weight: bold;

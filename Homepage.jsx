@@ -55,15 +55,15 @@ export default function HomePage() {
             </div>
             <div>
               <div className={`main-page-card ${styles.ways}`}>
-                <div src="/img/checklist-icon-red.svg" />
+                <div className={styles.checklistIcon} />
                 <p>Register your app with Deriv, and add a percentage markup to the contract prices to profit from every purchased contract.</p>
               </div>
               <div className={`main-page-card ${styles.ways}`}>
-                <div src="/img/checklist-icon-red.svg" />
+                <div className={styles.checklistIcon} />
                 <p>Sign up as an affiliate, build your app, and get commissions on trades completed via your app and the affiliate plan you select.</p>
               </div>
               <div className={`main-page-card ${styles.ways}`}>
-                <div src="/img/checklist-icon-red.svg" />
+                <div className={styles.checklistIcon} />
                 <p>Sign up as a payment agent, build your own custom payment website, and use our API to earn commission on every payment you process for Deriv’s clients.</p>
               </div>
             </div>
@@ -117,27 +117,27 @@ export default function HomePage() {
                 <p>With our API, you'll be able to:</p>
                 <ul>
                   <li>
-                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
+                    <div className={styles.checklistIcon} />
                     <p>Trade digital options and multipliers</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
+                    <div className={styles.checklistIcon} />
                     <p>Monitor real-time pricing</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
+                    <div className={styles.checklistIcon} />
                     <p>Buy/sell contracts</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
+                    <div className={styles.checklistIcon} />
                     <p>Manage users' accounts</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
+                    <div className={styles.checklistIcon} />
                     <p>Monitor existing contracts</p>
                   </li>
                   <li>
-                    <img src="/img/checklist-icon-red.svg" alt="check list icon" width={24} height={24} />
+                    <div className={styles.checklistIcon} />
                     <p>View users' historical transactions</p>
                   </li>
                 </ul>
@@ -194,28 +194,28 @@ export default function HomePage() {
         </div>
         <div className="main-page-row gray take-to-lib">
           <div className="row-container">
-            <div className="single-container gray">
+            <div className={`single-container gray ${styles.clientLibrary}`}>
               <img src="/img/js-library.svg" alt="javascript library icon" width={64} height={64} />
-              <h1 className="max-js-div">
+              <h1>
                 Comprehensive all-in-one client library
               </h1>
               <p className="subheader">
                 Simplify your development processes and get your app up and running <br />
                 faster with the client library of your choice.
               </p>
-              <div className="lib-links">
-                <div className="logo-and-link">
-                  <a href="https://binary-com.github.io/deriv-api/" className="library-go-to">
-                    <div className="logo-javascript" />
+              <div className={styles.libraryLinks}>
+                <div className={styles.logoAndLink}>
+                  <a href="https://binary-com.github.io/deriv-api/" className={styles.libraryGoTo}>
+                    <div className={styles.logoJavascript}/>
                     <label>Go to the JavaScript library</label>
-                    <div className="library-chevron" />
+                    <div className={styles.libraryChevron} />
                   </a>
                 </div>
-                <div className="logo-and-link">
-                  <a href="https://binary-com.github.io/python-deriv-api/" className="library-go-to">
-                    <div className="logo-python" />
+                <div className={styles.logoAndLink}>
+                  <a href="https://binary-com.github.io/python-deriv-api/" className={styles.libraryGoTo}>
+                    <div className={styles.logoPython} />
                     <label>Go to the Python library</label>
-                    <div className="library-chevron" />
+                    <div className={styles.libraryChevron} />
                   </a>
                 </div>
               </div>
