@@ -1,0 +1,157 @@
+.page_content{
+    padding: 105px 0 80px;
+}
+.doc_main_title {
+    margin-bottom: 40px;
+    font-size: 48px;
+    text-align: center;
+    color: #333333;
+
+    @media (max-width: 992px) {
+        font-size: 32px;
+    }
+}
+
+.quick_start_intro {
+    p {
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+    ul {
+        padding-left: 20px;
+
+        li {
+            margin-bottom: 16px;
+        }
+    }
+}
+.api_sub_title {
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 8px;
+    color: #333333;
+
+    @media (max-width: 992px) {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+        width: 100%;
+    }
+    @media (max-width: 480px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+.bullet {
+    list-style-type: bullet;
+}
+
+@media (max-width: 992px) {
+    .quick_start_intro {
+        p {
+            line-height: 28px;
+            margin-bottom: 16px;
+        }
+        ul {
+            padding-left: 20px;
+
+            li {
+                margin-bottom: 16px;
+            }
+        }
+    }
+    .bullet {
+        list-style-type: bullet;
+    }
+}
+
+.pre {
+    max-width: 100%;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #fff;
+    border-radius: 4px;
+    padding: 24px;
+    margin-bottom: 16px;
+    background: #1d1f20;
+    font-size: inherit;
+    word-wrap: inherit;
+  }
+
+  .codeBlock{
+    margin-bottom: 40px;
+  
+    .sub_title {
+      font-size: 32px;
+      text-align: left;
+      margin-bottom: 8px;
+    }
+  
+    p {
+      code {
+        font-weight: normal;
+        color: #ff444f;
+      }
+    }
+  
+    ol {
+      li {
+        a {
+          font-weight: normal;
+        }
+        code {
+          font-weight: normal;
+          color: #ff444f;
+        }
+      }
+    }
+  }
+
+  .codeBlockTitle {
+    font-size: 32px;
+    margin-bottom: 12px;
+    text-align: left;
+    width: 100%;
+  
+    @media (max-width: 480px) {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  }
+  .codeBlockDesc{
+    line-height: 28px;
+    margin-bottom: 16px;
+  }
+
+  .card {
+    border-radius: 6px;
+    background-color: #1d1f20;
+  
+    &_header {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      border-radius: 6px;
+      background-color: #0e0e0e;
+      border-bottom: 1px solid rgba(242, 243, 244, 0.2);
+      color: #d6d6d6;
+      line-height: 1.5;
+  
+      &_title {
+        width: 100%;
+        margin-bottom: unset;
+        padding-left: 24px;
+      }
+      select {
+        background-color: inherit;
+        border: #0e0e0e;
+        color: #d6d6d6;
+      }
+      option{
+        color: #0e0e0e;
+      }
+    }
+  }
