@@ -152,91 +152,6 @@ li {
   align-items: center;
   justify-content: center;
 }
-.api-features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 100%;
-}
-.api-features .api-features-description,
-.api-features .api-features-image {
-  min-width: 320px;
-  margin-bottom: 40px;
-}
-.api-features img {
-  margin-bottom: 40px;
-}
-.api-features .api-features-description {
-  margin-left: 40px;
-}
-@media (max-width: 480px) {
-  .api-features .api-features-description {
-    margin: 0;
-  }
-  .api-features .api-features-description p {
-    font-size: 16px;
-  }
-  .api-features .api-features-description h3 {
-    font-size: 22px;
-  }
-  .api-features img {
-    margin-bottom: 0;
-  }
-}
-.api-features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 90%;
-}
-.api-features div {
-  width: 486px;
-}
-.api-features img {
-  margin-bottom: 20px;
-}
-.api-features ul {
-  margin-left: 0;
-}
-.api-features ul li {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-}
-.api-features ul li p {
-  margin-bottom: 0;
-}
-.api-features ul li img {
-  margin-right: 20px;
-  margin-bottom: 0;
-}
-.api-features .api-features-description h3 {
-  font-size: 48px;
-}
-.api-features .api-features-description p {
-  font-size: 16px;
-  line-height: 2rem;
-}
-.api-features .api-features-image {
-  min-width: 320px;
-}
-@media (max-width: 480px) {
-  .api-features .api-features-description {
-    margin: 0;
-  }
-  .api-features .api-features-description h3 {
-    text-align: center;
-  }
-  .api-features .api-features-description p {
-    font-size: 16px;
-  }
-  .api-features .api-features-description h3 {
-    font-size: 22px;
-  }
-  .api-features img {
-    margin-bottom: 0;
-  }
-}
 .take-to-lib {
   padding: 80px 0 0;
 }
@@ -611,11 +526,12 @@ p {
   margin: 0 12px;
 }
 .main-page-card .header {
-  display: inline-block;
+  display: flex;
   width: 100%;
 }
 .main-page-card .header img {
   float: right;
+  padding-left: 10px;
 }
 .main-page-card .header h3 {
   font-size: 24px;
@@ -623,6 +539,7 @@ p {
   color: #333;
   margin-bottom: 8px;
   float: left;
+  width: 100%;
 }
 .main-page-card .content {
   font-size: 16px;

@@ -110,8 +110,8 @@ export default function HomePage() {
         </div>
         <div className="main-page-row white">
           <div className="column-container">
-            <div className="api-features">
-              <div className="api-features-description">
+            <div className={styles.apiFeatures}>
+              <div className={styles.apiFeaturesDescription}>
                 <h3>Deriv API features</h3>
                 <p>Deriv API gives you full access to all the trading functionalities of DTrader and allows you to build your own comprehensive trading systems and analysis tools.</p>
                 <p>With our API, you'll be able to:</p>
@@ -142,7 +142,7 @@ export default function HomePage() {
                   </li>
                 </ul>
               </div>
-              <img className="api-features-image" src="/img/api-featutes.png" alt="api features" width="600px" height="auto" />
+              <div className={styles.apiFeaturesImage} />
             </div>
           </div>
         </div>

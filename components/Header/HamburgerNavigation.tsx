@@ -12,7 +12,7 @@ export default function HamburgerNavigation() {
                     <li><Link to="/">Home</Link></li>
                     <button onClick={() => send('TOGGLE_DOCUMENTATION') }>Documentation</button>
                     <section className={styles.documentationSection}>
-                        <li><Link to="/docs/quickstart">Quickstart</Link></li>
+                        <li><Link to="/docs/">Quickstart</Link></li>
                         <li><Link to="/docs/app-registration">App Registration</Link></li>
                         <li><Link to="/api-explorer">API Explorer</Link></li>
                         <li><Link to="/docs/api-guide">API Guide</Link></li>
