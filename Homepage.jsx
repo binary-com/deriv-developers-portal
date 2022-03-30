@@ -8,7 +8,7 @@ export default function HomePage() {
           <h1 className={styles.heroHeader}>Deriv API</h1>
           <h2 className={styles.heroText}>
             Use our powerful, flexible, and free API to build a custom trading <br />
-            platform – for yourself or for your business.
+            platform - for yourself or for your business.
           </h2>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default function HomePage() {
               <a target="_blank" href="https://deriv.com/signup/" rel="noopener noreferrer" className="main-page-card">
                 <div className="header">
                   <h3>1. Sign up</h3>
-                  <img src="/img/sign-up.svg" alt="sign up icon" width={32} height={32} />
+                  <div className={styles.signUpIcon} />
                 </div>
                 <div className="content hide-on-mobile">
                   Create a free Deriv account to access<br />
@@ -89,14 +89,14 @@ export default function HomePage() {
               <a href="/docs/app-registration" className="main-page-card">
                 <div className="header">
                   <h3>2. Register your app</h3>
-                  <img src="/img/register-your-app.svg" alt="sign up icon" width={32} height={32} />
+                  <div className={styles.registerYourAppIcon} />
                 </div>
                 <div className="content">Fill out the registration form to start using Deriv API.</div>
               </a>
               <a href="/docs/api-guide/" className="main-page-card">
                 <div className="header">
                   <h3>3. Read our guide</h3>
-                  <img src="/img/guide.svg" alt="sign up icon" width={32} height={32} />
+                  <div className={styles.guideIcon} />
                 </div>
                 <div className="content">
                   Our API quick start guide covers the essentials you need to start building your app right away.
@@ -195,7 +195,7 @@ export default function HomePage() {
         <div className="main-page-row gray take-to-lib">
           <div className="row-container">
             <div className={`single-container gray ${styles.clientLibrary}`}>
-              <img src="/img/js-library.svg" alt="javascript library icon" width={64} height={64} />
+              <div className={styles.iconJsLibrary} />
               <h1>
                 Comprehensive all-in-one client library
               </h1>
@@ -233,7 +233,7 @@ export default function HomePage() {
             <a target="_blank" href="https://binary.vanillacommunity.com/" className="community-btn" rel="noreferrer noopener">Join our community</a>
           </div>
           <div className="single-container dark">
-            <h2>We’re here to help</h2>
+            <h2>We're here to help</h2>
             <p>
               Email us at
               <a href="mailto: api-support@deriv.com"> api-support@deriv.com</a><br />

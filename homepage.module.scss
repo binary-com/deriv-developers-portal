@@ -1,3 +1,24 @@
+.guideIcon,
+.signUpIcon,
+.registerYourAppIcon {
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.guideIcon {
+    background-image: url(/img/guide.svg);
+}
+
+.signUpIcon {
+    background-image: url(/img/sign-up.svg);
+}
+
+.registerYourAppIcon {
+    background-image: url(/img/register-your-app.svg);
+}
+
 .heroImage {
     background-image: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)), url(/img/header.png);
     background-position: center;
@@ -77,6 +98,14 @@
         img {
             margin-bottom: 40px;
         }
+        .personalisationImage,
+        .earnMoreImage {
+            background-size: 100% auto; 
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 486px;
+            height: 260px;
+        }
         .earnMoreContainer,
         .personalisationContainer {
             display: flex;
@@ -84,15 +113,6 @@
             justify-content: space-around;
             align-items: center;
             margin: 40px 0;
-        }
-        .personalisationImage,
-        .earnMoreImage {
-            background-image: url(/img/personalisation.png);
-            width: 486px; 
-            height: 260px;
-            background-size: 100% auto; 
-            background-repeat: no-repeat;
-            background-position: center;
         }
         .earnMoreContainer {
             .earnMoreImage {
@@ -155,6 +175,7 @@
             .checklistIcon {
                 background-image: url(/img/checklist-icon-red.svg);
                 background-repeat: no-repeat;
+                background-position: center;
                 width: 32px;
                 height: 32px;
                 background-size: 32px 32px;
@@ -196,6 +217,7 @@
                 .checklistIcon {
                     background-image: url(/img/checklist-icon-red.svg);
                     background-repeat: no-repeat;
+                    background-position: center;
                     margin-right: 10px;
                     margin-bottom: 0;
                     width: 24px;
@@ -219,6 +241,13 @@
 }
 
 .clientLibrary {
+    .iconJsLibrary {
+        background-image: url(/img/js-library.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 64px;
+        height: 64px;
+    }
     .libraryLinks {
         display: flex;
         flex-wrap: wrap;
@@ -237,6 +266,7 @@
                 .logoJavascript,
                 .logoPython {
                     background-repeat: no-repeat;
+                    background-position: center;
                     width: 40px;
                     height: 40px;
                     margin-right: 10px;
@@ -244,6 +274,7 @@
                 .libraryChevron {
                     background-image: url(/img/library-chevron.svg);
                     background-repeat: no-repeat;
+                    background-position: center;
                     width: 12px;
                     height: 12px;
                     margin-left: 13px;
@@ -349,6 +380,8 @@
 [data-state~="responsive.mobileM"] {
     .heroImage {
         background-image: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)), url(/img/header-mobile.png);
+        background-repeat: no-repeat;
+        background-position: center;
         .heroContainer {
             padding: 80px 16px;
             .heroHeader {
