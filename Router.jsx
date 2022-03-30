@@ -5,10 +5,11 @@ const HomePage = lazy(()=>import('./Homepage'));
 const Docs = lazy(()=>import('./Docs'));
 const ApiExplorer = lazy(()=>import('./ApiExplorer'));
 const AppRegistration = lazy(()=>import('./AppRegistration'));
-const ApiGuide = lazy(()=>import('./ApiGuide'));
+const ApiGuide= lazy(()=>import('./ApiGuide'));
 const Faq = lazy(()=>import('./Faq'));
 const Json = lazy(()=>import('./Json'));
 const BugBounty = lazy(()=>import('./Bugbounty'));
+const Quickstart = lazy(()=>import('./Quickstart'));
 
 
 export const routes=[               
@@ -18,39 +19,40 @@ export const routes=[
   },
   {
     path:"docs",
+    element:<Docs/>,
     children:[
       {
         path:"/",
-        element:<HomePage/>
+        element:<Quickstart/>
       },
       {
-        path:"api_explorer",
-        element: <ApiExplorer/>
-      },
-      {
-        path:"app_registeration",
+        path:"app-registration",
         element: <AppRegistration/>
       },
       {
-        path:"api_guide",
+        path:"api-explorer",
+        element:<ApiExplorer/>
+      },
+      {
+        path:"api-guide",
         element: <ApiGuide/>
       },
       {
-        path:"FAQ",
+        path:"faq",
         element: <Faq/>
       },
       {
-        path:"JSON",
+        path:"json-schemas",
         element: <Json/>
       },
       {
-        path:"bug_bounty",
+        path:"bug-bounty",
         element: <BugBounty/>
       },
     ]
   },
   {
-    path:"api_explorer",
+    path:"api-explorer",
     element: <ApiExplorer/>
   }
 ];

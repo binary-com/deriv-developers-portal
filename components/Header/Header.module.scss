@@ -31,6 +31,7 @@
         }
     }
 
+
     .selected {
         &::before {
             width: 20px;
@@ -170,7 +171,6 @@
         visibility: hidden;
     }
 }
-
 [data-state*="responsive.mobile"] {
     .header {
         height: 48px;

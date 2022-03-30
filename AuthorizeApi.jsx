@@ -1,15 +1,16 @@
 import DerivAPIBasic from '@deriv/deriv-api/dist/DerivAPIBasic';
 import { useQuery } from 'react-query';
 
+import { token1, app_id, server_url } from './storageSignals';
+
 export default function AuthorizeAPI() {
     const balance = useAccountBalance();
     return <div>{balance}</div>
 }
 
 const getBalance = async () => {
-    const api = new DerivAPIBasic({ endpoint: 'frontend.binaryws.com', lang: 'EN', app_id: 1089 }); 
-    // TODO connect to login and get token from localStorage
-    await api.authorize('');
+    const api = new DerivAPIBasic({ endpoint: server_url(), lang: 'EN', app_id: app_id() }); 
+    await api.authorize(token1());
     const balanceData= await api.balance();
     return balanceData.balance.balance;
 }
