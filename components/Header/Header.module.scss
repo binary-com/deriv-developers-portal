@@ -41,9 +41,13 @@
     .flexContainer {
         display: flex;
         align-items: center;
+        &::before{
+           --app-registration-tab-active-underline: var(--background);
+        }
         .branding {
             display: inline;
             font-size: 24px;
+            padding-top: 2.5rem;
             font-weight: normal;
             color: #ffffff;
             margin-left: 24px;
@@ -68,7 +72,10 @@
                 font-size: 12px;
                 line-height: 1.5;
                 color: #c2c2c2;
-                text-decoration: none;
+
+                &::before {
+                    visibility: hidden;
+                }
             }
         }
     }
@@ -96,7 +103,6 @@
             }
 
             .hamburger {
-                // add background image hamburger_icon.svg
                 width: 16px;
                 height: 16px;
                 background-image: url(/img/hamburger_menu.svg);
@@ -112,31 +118,124 @@
                     cursor: pointer;
                 }
             }
+        }
+    }
+}
 
-            .navbar {
-                @media (max-width: 992px) {
-                    display: none;
+.hamburgerNavigation {
+    box-shadow: rgb(0 0 0 / 10%) 0 16px 20px 0;
+    display: inline-block;
+    position: fixed;
+    left: -260px;
+    height: 100%;
+    top: 48px;
+    bottom: 0;
+    width: var(--hamburger-menu-width);
+    background-color: white;
+    transition: left .4s ease-in;
+    .flexContainer {
+        flex-direction: column;
+        padding: 24px 16px 24px 16px;
+        ul > li a {
+            font-weight: bold;
+        }
+        ul {
+            margin-left: 0;
+            width: 100%;
+            section {
+                width: inherit;
+            }
+            li {
+                list-style: none;
+                a {
+                    height: 40px;
+                    width: 100%;
+                    color: black;
+                    display: flex;
+                    align-items: center;
+                    text-indent: 22px;
+                    border-radius: 0px 4px 4px 0px;
+                    position: relative;
+                    font-size: 14px;
+                }
+            }
+            button {
+                position: relative;
+                font-weight: bold;
+                font-size: 14px;
+                width: 100%;
+                height: 40px;
+                color: black;
+                display: flex;
+                align-items: center;
+                text-indent: 22px;
+                border-radius: 0px 4px 4px 0px;
+                background-color: transparent;
+                border: none;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    background-image: url(/img/arrow_down.svg);
+                    background-size: cover;
+                    right: 16px;
+                    transition: transform .25s;
                 }
             }
         }
     }
 }
 
-[data-state~="responsive.mobileS"],
-[data-state~="responsive.mobileM"], 
-[data-state~="responsive.mobileL"],
-[data-state~="responsive.tablet"]  {
-    .topNav {
-        display: none;
+[data-state*="responsive.laptop"],
+[data-state~="responsive.sceen4k"] {
+    .hamburgerNavigation {
+        visibility: hidden;
     }
 }
 
-@media (max-width: 992px) {
-    .logo {
+[data-state*="responsive.mobile"] {
+    &[data-state~="hamburger.hamburger_closed"] {
+        .hamburgerNavigation {
+            left: -260px;
+        }
+    }
+    &[data-state~="hamburger.hamburger_open"] {
+        .hamburgerNavigation {
+            left: 0;
+        }
+        &[data-state*="documentation_closed"] {
+            .hamburgerNavigation {
+                section {
+                    display: none;
+                }
+                ul button::after {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+        &[data-state*="documentation_open"] {
+            .hamburgerNavigation section {
+                display: inline-block;
+            }
+        }
+    }
+    .topNav,
+    .navbar {
+        display: none;
+    }
+}
+.logo {
+    background-image: url(/img/deriv.svg);
+    width: 180px;
+    height: 73px;
+    [data-view~='laptop'] {
+        .logo {
         width: 84px;
         height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-    }
+      }
+   } 
 }
