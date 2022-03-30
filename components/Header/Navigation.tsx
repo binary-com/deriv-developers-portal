@@ -11,7 +11,7 @@ export default function Navigation() {
                 className={styles.hamburger}
                 onClick={() => send('TOGGLE_HAMBURGER')}
             />
-            <Link to="/">
+            <Link className={styles.logoLink} to="/">
                 <div className={styles.flexContainer}>
                     <div className={styles.logo} />
                     <h1 className={styles.branding}>API</h1>
