@@ -7,9 +7,9 @@ import Sidebar from './Sidebar';
 function Docs() {
   return (
     <Suspense fallback={<div>loading</div>}>
-      <div style={{display:"flex",padding:"90px 50px"}}>
+      <div style={{display:"flex"}}>
         <Sidebar/>
-        <div style={{padding:"105px 80px"}}>
+        <div>
         <Outlet/>
         </div>
       </div>

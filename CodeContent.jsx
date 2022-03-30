@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from "react";
 import Prism from "prismjs";
+import './prism.css'
 import "prismjs/components/prism-markup-templating.js";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-python";
