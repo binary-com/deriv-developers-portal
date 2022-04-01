@@ -169,6 +169,9 @@
     flex-shrink: 0;
 
     &_image {
+      background-image: url(/img/copy.svg);
+      width: 15px;
+      height: 16px;
       margin: 0 9px 0 3px;
     }
 

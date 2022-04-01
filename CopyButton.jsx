@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./Quickstart.module.scss"
 
-const CopyButton = ({ size = "16",content_to_copy,className = "copy_button"}) => {
+const CopyButton = ({content_to_copy,className = "copy_button"}) => {
   const fallbackCopyTextToClipboard = () => {
     const dummy = document.createElement("textarea")
     document.body.appendChild(dummy)
@@ -23,11 +23,8 @@ const CopyButton = ({ size = "16",content_to_copy,className = "copy_button"}) =>
       className={styles[`${className}`]}
       onClick={handleCopyButtonClick}
     >
-      <img
+      <div
         className={styles.copy_button_image}
-        src="/copy.svg"
-        width={size}
-        height={size}
         alt="copy code icon"
       />
       <div className={styles.copy_button_text}> Copy </div>
