@@ -135,12 +135,12 @@
         display: none;
     }
 }
-.logo{
+.logo {
     background-image: url(/img/deriv.svg);
     width: 180px;
     height: 73px;
     [data-view~='laptop']{
-        .logo{
+        .logo {
         width: 84px;
         height: auto;
         display: flex;

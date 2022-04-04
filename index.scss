@@ -27,6 +27,33 @@ body {
 button:focus {
   outline: none;
 }
+// When a new slide is added, add here a new value for that slide.
+// Desktop slide = 588px, mobile slide = 248px per step.
+#slides {
+  transition: left .75s;
+  &.alessandro {
+    left: 0 !important;
+  }
+  &.thiago {
+    left: -588px !important;
+  }
+  &.josh {
+    left: -1176px !important;
+  }
+}
+[data-state*="responsive.mobile"] {
+  #slides {
+    &.alessandro {
+      left: 0 !important;
+    }
+    &.thiago {
+      left: -248px !important;
+    }
+    &.josh {
+      left: -496px !important;
+    }
+  }
+}
 @media (max-width: 480px) {
   .benefits img {
     margin-bottom: 0;
@@ -93,14 +120,6 @@ button:focus {
   }
   .main-content .main-page-row .column-container .ways {
     max-width: 328px;
-  }
-  .main-content .main-page-row .column-container .slider,
-  .main-content .main-page-row .column-container .wrapper,
-  .main-content .main-page-row .column-container .slide {
-    width: 248px;
-  }
-  .main-content .main-page-row .column-container .slides {
-    left: -248px;
   }
   .main-content .main-page-row .column-container .prev {
     left: -50px;
@@ -411,31 +430,12 @@ li {
 .take-to-lib {
   padding: 80px 0 0;
 }
-.slider {
-  top: 50%;
-  left: 50%;
-  transform: translate(0);
-  width: 588px;
-  height: 248px;
-}
-@media (max-width: 480px) {
-  .slider {
-    height: 190px;
-  }
-}
 .wrapper {
   overflow: hidden;
   position: relative;
   width: 588px;
   height: 248px;
   z-index: 1;
-}
-.slides {
-  display: flex;
-  position: relative;
-  top: 0;
-  left: -588px;
-  width: 10000px;
 }
 .slide {
   width: 588px;

@@ -1,0 +1,47 @@
+.slider {
+    top: 50%;
+    left: 50%;
+    transform: translate(0);
+    width: 588px;
+    height: 248px;
+    .slides {
+        display: flex;
+        position: relative;
+        top: 0;
+        left: -588px;
+        width: 10000px;
+        .slide {
+            width: 588px;
+            height: 248px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 1s;
+            position: relative;
+        }
+    }
+}
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"] {
+    .slider {
+        height: 190px;
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .slider {
+        width: 248px;
+        .sliderWrapper {
+            width: 248px;
+            .slides {
+                left: -248px; 
+                .slide {
+                    width: 248px;
+                }
+            }
+        }
+    }
+}
