@@ -20,6 +20,11 @@
             align-items: center;
             transition: all 1s;
             position: relative;
+            blockquote,
+            hr,
+            p {
+                pointer-events: none;
+            }
         }
     }
 }

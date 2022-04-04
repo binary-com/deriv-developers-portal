@@ -3,20 +3,18 @@ import styles from "./HomepageSlider.module.scss";
 import Slide from './Slide';
 
 export default function HomepageSlider() {
-    // If a new author (slide) has to be added, add a new author name to the 'authors' list here.
-    // When adding a new slide component, make sure it is in the same order as the authors list.
-    // When a new slide is added, add in the CSS for the author name a new slide value.
-    const authors = ["alessandro", "thiago", "josh"];
+    const slide_amount = 2 // starts at 0
+    const [slide_size, setSlideSize] = useState(0);
+    const [slide_distance, setSlideDistance] = useState(0);
     const [slide_position, setSlidePosition] = useState(0);
     const [mouse_down_start, setMouseDownStart] = useState(0);
-    const [slide_class, setSlideClass] = useState("alessandro");
     const [slide_card, setSlideCard] = useState(false); 
 
     const nextOrPrevSlide = (direction:string) => {
         if (direction === "previous" && !(slide_position <= 0)) {
             setSlidePosition(slide_position - 1);
         }
-        if (direction === "next" && !(slide_position >= (authors.length - 1))) {
+        if (direction === "next" && !(slide_position >= slide_amount)) {
             setSlidePosition(slide_position + 1);
         }
     }
@@ -25,7 +23,7 @@ export default function HomepageSlider() {
         const mouse_moves_right = (mouse_x >= (mouse_down_start + 10));
         const mouse_moves_left = (mouse_x <= (mouse_down_start - 10));
         const slide_right = slide_card && mouse_moves_right && !(slide_position <= 0);
-        const slide_left = slide_card && mouse_moves_left && !(slide_position >= (authors.length - 1));
+        const slide_left = slide_card && mouse_moves_left && !(slide_position >= slide_amount);
         if (slide_right) {
             setSlidePosition(slide_position - 1);
             setSlideCard(false);
@@ -38,25 +36,28 @@ export default function HomepageSlider() {
     }
 
     useEffect(() => {
-        setSlideClass(authors[slide_position]);
-    }, [slide_position]);
+        setSlideDistance(slide_size * slide_position);
+    }, [slide_size, slide_position])
     
     return (
         <div id="slider" className={`${styles.slider} loaded`}>
             <div className={`${styles.sliderWrapper} wrapper`}>
                 <div 
                     id="slides"
-                    className={`${styles.slides} ${slide_class}`}
+                    className={`${styles.slides}`}
+                    style={{left: slide_distance}}
                     onMouseUp={() => setSlideCard(false)}
                     onMouseDown={(event) => {
                         setSlideCard(true)
                         setMouseDownStart(event.clientX);
+                        setSlideSize(event.target.clientWidth * -1);
                     }}
                     onMouseMove={(event) => slideCard(event.clientX)}
                     onTouchEnd={() => setSlideCard(false)}
                     onTouchStart={(event) => {
                         setSlideCard(true);
                         setMouseDownStart(event.targetTouches[0].clientX);
+                        setSlideSize(event.target.clientWidth * -1);
                     }}
                     onTouchMove={(event) =>  slideCard(event.targetTouches[0].clientX)}
                 >
@@ -74,8 +75,22 @@ export default function HomepageSlider() {
                     />
                 </div>
             </div>
-            <div id="prev" className="control prev" onClick={() => nextOrPrevSlide("previous")} />
-            <div id="next" className="control next" onClick={() => nextOrPrevSlide("next")} />
+            <div 
+                id="prev"
+                className="control prev"
+                onClick={(event) => {
+                    setSlideSize(event.target.parentElement.children[0].clientWidth * -1);
+                    nextOrPrevSlide("previous")
+                }} 
+            />
+            <div 
+                id="next"
+                className="control next"
+                onClick={(event) => {
+                    setSlideSize(event.target.parentElement.children[0].clientWidth * -1);
+                    nextOrPrevSlide("next")
+                }} 
+            />
         </div>
     );
 }
