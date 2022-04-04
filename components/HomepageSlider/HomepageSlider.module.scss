@@ -5,6 +5,7 @@
     width: 588px;
     height: 248px;
     .slides {
+        transition: left .75s;
         display: flex;
         position: relative;
         top: 0;

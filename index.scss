@@ -27,33 +27,6 @@ body {
 button:focus {
   outline: none;
 }
-// When a new slide is added, add here a new value for that slide.
-// Desktop slide = 588px, mobile slide = 248px per step.
-#slides {
-  transition: left .75s;
-  &.alessandro {
-    left: 0 !important;
-  }
-  &.thiago {
-    left: -588px !important;
-  }
-  &.josh {
-    left: -1176px !important;
-  }
-}
-[data-state*="responsive.mobile"] {
-  #slides {
-    &.alessandro {
-      left: 0 !important;
-    }
-    &.thiago {
-      left: -248px !important;
-    }
-    &.josh {
-      left: -496px !important;
-    }
-  }
-}
 @media (max-width: 480px) {
   .benefits img {
     margin-bottom: 0;
