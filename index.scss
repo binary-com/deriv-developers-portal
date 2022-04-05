@@ -436,11 +436,11 @@ li {
   cursor: pointer;
 }
 .prev {
-  background-image: url(../img/arrow_left.svg);
+  background-image: url(/img/arrow_left.svg);
   left: -100px;
 }
 .next {
-  background-image: url(../img/arrow_right.svg);
+  background-image: url(/img/arrow_right.svg);
   right: -100px;
 }
 .prev:active,
