@@ -42,7 +42,7 @@ export default function HomepageSlider() {
     }, [slide_size, slide_position])
 
     useEffect(() => {
-        if (window_resize) {
+        if (window_resize && slide_distance !== 0) {
             setSlideDistance(0);
             setSlidePosition(0);
         }

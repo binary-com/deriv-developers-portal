@@ -1,5 +1,16 @@
 import { useState, useEffect } from "react";
 
+function debounce(func, milliseconds) {
+    let timer
+    return () => {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+        timer = null
+        func.apply(this, arguments)
+        }, milliseconds)
+    };
+}
+
 export const useOnWindowResize = () => {
     const [dimensions, setDimensions] = useState({ 
         height: window.innerHeight,
@@ -7,15 +18,15 @@ export const useOnWindowResize = () => {
     })
 
     useEffect(() => {  
-        const handleResize = () => {
+        const debounceHandleResize = debounce(() => {
             setDimensions({
                 height: window.innerHeight,
                 width: window.innerWidth
             })
-        }
-        window.addEventListener('resize', handleResize);
+        }, 250)
+        window.addEventListener('resize', debounceHandleResize);
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', debounceHandleResize);
         }
     })
     return dimensions;
