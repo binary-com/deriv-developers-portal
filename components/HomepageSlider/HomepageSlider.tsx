@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useOnWindowResize } from '../../custom_hooks/useOnWindowResize';
 import styles from "./HomepageSlider.module.scss";
 import Slide from './Slide';
 
@@ -7,8 +8,9 @@ export default function HomepageSlider() {
     const [slide_size, setSlideSize] = useState(0);
     const [slide_distance, setSlideDistance] = useState(0);
     const [slide_position, setSlidePosition] = useState(0);
+    const [slide_card, setSlideCard] = useState(false);
     const [mouse_down_start, setMouseDownStart] = useState(0);
-    const [slide_card, setSlideCard] = useState(false); 
+    const window_resize = useOnWindowResize();
 
     const nextOrPrevSlide = (direction:string) => {
         if (direction === "previous" && !(slide_position <= 0)) {
@@ -38,7 +40,14 @@ export default function HomepageSlider() {
     useEffect(() => {
         setSlideDistance(slide_size * slide_position);
     }, [slide_size, slide_position])
-    
+
+    useEffect(() => {
+        if (window_resize) {
+            setSlideDistance(0);
+            setSlidePosition(0);
+        }
+    }, [window_resize])
+
     return (
         <div id="slider" className={`${styles.slider} loaded`}>
             <div className={`${styles.sliderWrapper} wrapper`}>
