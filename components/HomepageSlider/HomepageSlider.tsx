@@ -50,14 +50,14 @@ export default function HomepageSlider() {
                     onMouseDown={(event) => {
                         setSlideCard(true)
                         setMouseDownStart(event.clientX);
-                        setSlideSize(event.target.clientWidth * -1);
+                        setSlideSize((event.target as HTMLElement).clientWidth * -1);
                     }}
                     onMouseMove={(event) => slideCard(event.clientX)}
                     onTouchEnd={() => setSlideCard(false)}
                     onTouchStart={(event) => {
                         setSlideCard(true);
                         setMouseDownStart(event.targetTouches[0].clientX);
-                        setSlideSize(event.target.clientWidth * -1);
+                        setSlideSize((event.target as HTMLElement).clientWidth * -1);
                     }}
                     onTouchMove={(event) =>  slideCard(event.targetTouches[0].clientX)}
                 >
@@ -79,7 +79,7 @@ export default function HomepageSlider() {
                 id="prev"
                 className="control prev"
                 onClick={(event) => {
-                    setSlideSize(event.target.parentElement.children[0].clientWidth * -1);
+                    setSlideSize((event.target as HTMLElement).parentElement.children[0].clientWidth * -1);
                     nextOrPrevSlide("previous")
                 }} 
             />
@@ -87,7 +87,7 @@ export default function HomepageSlider() {
                 id="next"
                 className="control next"
                 onClick={(event) => {
-                    setSlideSize(event.target.parentElement.children[0].clientWidth * -1);
+                    setSlideSize((event.target as HTMLElement).parentElement.children[0].clientWidth * -1);
                     nextOrPrevSlide("next")
                 }} 
             />
