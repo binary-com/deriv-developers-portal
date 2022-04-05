@@ -5,8 +5,8 @@ function debounce(func, milliseconds) {
     return () => {
         clearTimeout(timer)
         timer = setTimeout(() => {
-        timer = null
-        func.apply(this, arguments)
+            timer = null
+            func.apply(this, arguments)
         }, milliseconds)
     };
 }
