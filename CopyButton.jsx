@@ -3,12 +3,12 @@ import styles from "./Quickstart.module.scss"
 
 const CopyButton = ({content_to_copy,className = "copy_button"}) => {
   const fallbackCopyTextToClipboard = () => {
-    const dummy = document.createElement("textarea")
-    document.body.appendChild(dummy)
-    dummy.value = content_to_copy
-    dummy.select()
+    const copy_snippet = document.createElement("textarea")
+    document.body.appendChild(copy_snippet)
+    copy_snippet.value = content_to_copy
+    copy_snippet.select()
     document.execCommand("copy")
-    document.body.removeChild(dummy)
+    document.body.removeChild(copy_snippet)
   }
   const handleCopyButtonClick = () => {
     if (!navigator.clipboard) {
