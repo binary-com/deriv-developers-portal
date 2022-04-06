@@ -1,7 +1,9 @@
 .page_content{
-    padding: 165px 80px;
+    padding-left: 80px;
+    width: 72%;
     @media (max-width: 992px) {
-      padding:55px 15px 15px;
+      padding-left: unset;
+      width: unset;
   }
 }
 .doc_main_title {

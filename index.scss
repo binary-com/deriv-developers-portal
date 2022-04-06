@@ -26,6 +26,15 @@ html,
 body {
   overflow-x: hidden;
 }
+.doc-content{
+  padding: 175px 0 80px;
+  display: flex;
+  min-height: 95vh;
+  @media (max-width: 992px) {
+    padding:75px 15px 40px;;
+  }
+
+}
 button:focus {
   outline: none;
 }

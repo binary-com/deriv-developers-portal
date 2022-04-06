@@ -1,5 +1,4 @@
 .sidebarleft {
-    padding-top: 175px;
     display: flex;
     flex:'1 auto';
     flex-direction: column;
@@ -46,20 +45,22 @@
               opacity: 1.5;
             }
           }
-        }
-
-        .selected {
-          background-color: var(--app-sidebar-border-color);
-          font-size: 16px;
-          font-weight: bolder;
-          line-height: 1.88;
-          opacity: 1;
-
+    
+    }    
+    .selected{
+        background-color: var(--app-sidebar-border-color);
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.88;
+        opacity: 1;
+        
           &::before {
             visibility: visible;
             height: 100%;
           }
         }
+      
+      
 }
 
 .sidebartitle {
@@ -69,3 +70,12 @@
     color: #333333;
     font-weight: bold;
 } 
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"], 
+[data-state~="responsive.mobileL"],
+[data-state~="responsive.tablet"]  {
+    .sidebarleft {
+      display: none;
+    }
+}

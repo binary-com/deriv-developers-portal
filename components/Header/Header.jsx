@@ -1,7 +1,10 @@
 import styles from "./Header.module.scss";
-import { Link } from "@tanstack/react-location";
+import { Link,useLocation, useRouter } from "@tanstack/react-location";
 
 export default function Header() {
+    const router= useRouter();
+    const location = useLocation();
+
     return (
         <div id="main-nav" className={styles.nav}>
             <div className={`${styles.topNav} ${styles.flexContainer}`}>
@@ -21,10 +24,21 @@ export default function Header() {
                         <h1 className={styles.branding}>API</h1>
                     </Link>
                     <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
-                            <Link to="/">Home</Link>
-                            <Link to="docs/">Documentation</Link>
-                            <Link to="api-explorer/">API Explorer</Link>
-                    </nav>
+                    {[
+                        ["/","Home"],
+                        ["/docs/","Documentation"],
+                        ["/api-explorer/","Api Explorer"],
+                    ].map(([to,label])=>{
+                        return (
+                        <div key={to}>
+                            <Link to={to} className={to===location.current.pathname ? styles.selected : ''}
+                            >
+                      {label}
+                    </Link>
+                    </div>
+                        )
+                        })};
+                </nav>
                 </div>
             </header>
         </div>
