@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useOnWindowResize } from '../../custom_hooks/useOnWindowResize';
 import styles from "./HomepageSlider.module.scss";
 import Slide from './Slide';
