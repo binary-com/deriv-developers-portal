@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useOnWindowResize } from '../../custom_hooks/useOnWindowResize';
 import styles from "./HomepageSlider.module.scss";
 import Slide from './Slide';
@@ -10,10 +10,10 @@ export default function HomepageSlider() {
     const FIRST_SLIDE = 'first_slide';
     const slide_amount = 4; // starts at 0
     const window_resize = useOnWindowResize();
+    const slide_size = { small: 248, big: 588 };
     const [is_holding_card, setIsHoldingCard] = useState(false);
     const [in_slide_transition, setInSlideTransition] = useState(false);
     const [enable_slide_animation, setEnableSlideAnimation] = useState(true);
-    const [slide_size, setSlideSize] = useState(0);
     const [slide_distance, setSlideDistance] = useState(0);
     const [mouse_down_position, setMouseDownPosition] = useState(0);
     const [slide_position, setSlidePosition] = useState(1);
@@ -50,18 +50,12 @@ export default function HomepageSlider() {
     }
 
     useEffect(() => {
-        setSlideDistance(slide_size * slide_position);
-    }, [slide_size, slide_position])
-
-    useEffect(() => {
         if (window_resize.width >= 768) {
-            setSlidePosition(1);
-            setSlideDistance(-588);
+            setSlideDistance((slide_size.big * slide_position) * -1);
         } else if (window_resize.width <= 768) {
-            setSlidePosition(1);
-            setSlideDistance(-248);
+            setSlideDistance((slide_size.small * slide_position) * -1);
         }
-    }, [window_resize])
+    }, [slide_position, window_resize])
 
     const slideRight = () => {
         // slide_position is lagging a number behind, as the previous value is always being read.
@@ -119,17 +113,6 @@ export default function HomepageSlider() {
         }
     }
 
-    const enableSliding = (event_type:string, event:any) => {
-        setIsHoldingCard(true)
-        if (event_type === "mouse") {
-            setMouseDownPosition(event.clientX);
-            setSlideSize((event.target as HTMLElement).children[0].clientWidth * -1);
-        } else if (event_type === "touch") {
-            setMouseDownPosition(event.targetTouches[0].clientX);
-            setSlideSize((event.target as HTMLElement).children[0].clientWidth * -1);
-        }
-    }
-
     return (
         <div id="slider" className={`${styles.slider} loaded`}>
             <div className={`${styles.sliderWrapper} wrapper`}>
@@ -138,10 +121,10 @@ export default function HomepageSlider() {
                     className={styles.slides}
                     style={{left: slide_distance, transition: enable_slide_animation ? "left 0.5s" : "none"}}
                     onMouseUp={() => setIsHoldingCard(false)}
-                    onMouseDown={(event) => enableSliding("mouse", event)}
+                    onMouseDown={(event) => setMouseDownPosition(event.clientX)}
                     onMouseMove={(event) => slideCard(event.clientX)}
                     onTouchEnd={() => setIsHoldingCard(false)}
-                    onTouchStart={(event) => enableSliding("touch", event)}
+                    onTouchStart={(event) => setMouseDownPosition(event.targetTouches[0].clientX)}
                     onTouchMove={(event) => slideCard(event.targetTouches[0].clientX)}
                 >
                     <SlidePortal portal_entry={LAST_SLIDE}/>
@@ -157,18 +140,12 @@ export default function HomepageSlider() {
             <div 
                 id="prev"
                 className="control prev"
-                onClick={(event) => {
-                    setSlideSize((event.target as HTMLElement).parentElement.children[0].clientWidth * -1);
-                    nextOrPrevSlide(PREVIOUS)
-                }} 
+                onClick={() => nextOrPrevSlide(PREVIOUS)} 
             />
             <div 
                 id="next"
                 className="control next"
-                onClick={(event) => {
-                    setSlideSize((event.target as HTMLElement).parentElement.children[0].clientWidth * -1);
-                    nextOrPrevSlide(NEXT)
-                }} 
+                onClick={() => nextOrPrevSlide(NEXT)} 
             />
         </div>
     );
