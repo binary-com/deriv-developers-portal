@@ -2,6 +2,7 @@
     padding-left: 80px;
     width: 72%;
     border-left: 2px solid var(--app-sidebar-border-color);
+    color: #333333;
     
     @media (max-width: 992px) {
       padding-left: unset;
@@ -15,7 +16,6 @@
     font-size: 48px;
     text-align: center;
     color: #333333;
-
     @media (max-width: 992px) {
         font-size: 32px;
     }

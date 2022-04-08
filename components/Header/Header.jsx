@@ -31,7 +31,7 @@ export default function Header() {
             {[
               ["/", "Home"],
               ["/docs/", "Documentation"],
-              ["/api-explorer/", "Api Explorer"],
+              ["/api-explorer/", "API Explorer"],
             ].map(([to, label], i) => {
               return i != 2 ? (
                 <div key={to}>
