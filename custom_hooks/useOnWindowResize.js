@@ -28,6 +28,6 @@ export const useOnWindowResize = () => {
         return () => {
             window.removeEventListener('resize', debounceHandleResize);
         }
-    })
+    }, [])
     return dimensions;
 }

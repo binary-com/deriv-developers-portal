@@ -9,7 +9,6 @@
         display: flex;
         position: relative;
         top: 0;
-        left: -588px;
         width: 10000px;
         .slide {
             width: 588px;
@@ -21,6 +20,7 @@
             align-items: center;
             transition: all 1s;
             position: relative;
+            pointer-events: none;
             blockquote,
             hr,
             p {
@@ -42,11 +42,8 @@
         width: 248px;
         .sliderWrapper {
             width: 248px;
-            .slides {
-                left: -248px; 
-                .slide {
-                    width: 248px;
-                }
+            .slides .slide {
+                width: 248px;
             }
         }
     }
