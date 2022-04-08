@@ -4,12 +4,12 @@ import styles from "./HomepageSlider.module.scss";
 import Slide from './Slide';
 
 export default function HomepageSlider() {
+    const window_resize = useOnWindowResize();
     const NEXT = 'next';
     const PREVIOUS = 'previous';
     const LAST_SLIDE = 'last_slide';
     const FIRST_SLIDE = 'first_slide';
     const slide_amount = 4; // starts at 0
-    const window_resize = useOnWindowResize();
     const slide_size = { small: 248, big: 588 };
     const [is_holding_card, setIsHoldingCard] = useState(false);
     const [in_slide_transition, setInSlideTransition] = useState(false);
@@ -18,6 +18,14 @@ export default function HomepageSlider() {
     const [mouse_down_position, setMouseDownPosition] = useState(0);
     const [slide_position, setSlidePosition] = useState(1);
     
+    useEffect(() => {
+        if (window_resize.width >= 768) {
+            setSlideDistance((slide_size.big * slide_position) * -1);
+        } else if (window_resize.width <= 768) {
+            setSlideDistance((slide_size.small * slide_position) * -1);
+        }
+    }, [slide_position, window_resize])
+
     const FirstSlide = () => {
         return (
             <Slide 
@@ -48,14 +56,6 @@ export default function HomepageSlider() {
             );
         }
     }
-
-    useEffect(() => {
-        if (window_resize.width >= 768) {
-            setSlideDistance((slide_size.big * slide_position) * -1);
-        } else if (window_resize.width <= 768) {
-            setSlideDistance((slide_size.small * slide_position) * -1);
-        }
-    }, [slide_position, window_resize])
 
     const slidingTo = (direction:string) => {
         // slide_position is lagging a number behind, as the previous value is always being read.
