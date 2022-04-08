@@ -30,6 +30,7 @@ body {
   padding: 175px 120px 80px;
   display: flex;
   min-height: 95vh;
+  justify-content: center;
 
   @media (max-width: 992px) {
     padding:75px 15px 40px;;
