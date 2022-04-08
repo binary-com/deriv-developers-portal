@@ -1,11 +1,14 @@
 .page_content{
     padding-left: 80px;
     width: 72%;
+    border-left: 2px solid var(--app-sidebar-border-color);
+    
     @media (max-width: 992px) {
       padding-left: unset;
       width: unset;
+      border-left: unset;
   }
-  border-left: 2px solid var(--app-sidebar-border-color);
+  
 }
 .doc_main_title {
     margin-bottom: 40px;
