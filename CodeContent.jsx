@@ -14,7 +14,7 @@ const CodeContent = ({ lang, data }) => {
     const useIsMounted = () => {
       const is_mounted = React.useRef(false);
     
-      React.useEffect(() => {
+      useEffect(() => {
           is_mounted.current = true;
     
           return () => {
