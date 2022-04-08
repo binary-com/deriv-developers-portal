@@ -10,10 +10,10 @@
         position: relative;
         top: 0;
         width: 10000px;
+        cursor: pointer;
         .slide {
             width: 588px;
             height: 248px;
-            cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: center;
