@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useOnWindowResize } from '../../custom_hooks/useOnWindowResize';
 import styles from "./HomepageSlider.module.scss";
 import Slide from './Slide';
@@ -57,32 +57,28 @@ export default function HomepageSlider() {
         }
     }, [slide_position, window_resize])
 
-    const slideRight = () => {
+    const slidingTo = (direction:string) => {
         // slide_position is lagging a number behind, as the previous value is always being read.
-        const portal_slide = slide_position === 1;
-        setSlidePosition(slide_position - 1);
-        setInSlideTransition(true);
-        setTimeout(() => {
-            setIsHoldingCard(false);
-            setInSlideTransition(false);
-            if (portal_slide) {
-                setEnableSlideAnimation(false);
-                setSlidePosition(slide_amount - 1);
-            }
-        }, 500)
-    }
+        let portal_slide:boolean;
 
-    const slideLeft = () => {
-        // slide_position is lagging a number behind, as the previous value is always being read.
-        const portal_slide = slide_position === slide_amount - 1;
-        setSlidePosition(slide_position + 1);
+        if (direction === PREVIOUS) {
+            portal_slide = slide_position === 1
+            setSlidePosition(slide_position - 1);
+        } else if (direction === NEXT) {
+            portal_slide = slide_position === slide_amount - 1;
+            setSlidePosition(slide_position + 1);
+        }
         setInSlideTransition(true);
         setTimeout(() => {
             setIsHoldingCard(false);
             setInSlideTransition(false);
             if (portal_slide) {
                 setEnableSlideAnimation(false);
-                setSlidePosition(1);
+                if (direction === PREVIOUS) {
+                    setSlidePosition(slide_amount - 1);
+                } else if (direction === NEXT) {
+                    setSlidePosition(1);
+                }
             }
         }, 500)
     }
@@ -92,9 +88,9 @@ export default function HomepageSlider() {
         const next_slide = !!(direction === NEXT && !(slide_position > slide_amount) && !in_slide_transition);
         if (!enable_slide_animation) setEnableSlideAnimation(true);
         if (previous_slide) {
-            slideRight();
+            slidingTo(PREVIOUS);
         } else if (next_slide) {
-            slideLeft();
+            slidingTo(NEXT);
         }
     }
 
@@ -106,10 +102,19 @@ export default function HomepageSlider() {
         if (!enable_slide_animation && is_holding_card) setEnableSlideAnimation(true);
         if (slide_right) {
             setIsHoldingCard(false);
-            slideRight();
+            slidingTo(PREVIOUS);
         } else if (slide_left) {
             setIsHoldingCard(false);
-            slideLeft();
+            slidingTo(NEXT);
+        }
+    }
+
+    const enableSliding = (event_type:string, event:any) => {
+        setIsHoldingCard(true)
+        if (event_type === "mouse") {
+            setMouseDownPosition(event.clientX);
+        } else if (event_type === "touch") {
+            setMouseDownPosition(event.targetTouches[0].clientX);
         }
     }
 
@@ -121,10 +126,10 @@ export default function HomepageSlider() {
                     className={styles.slides}
                     style={{left: slide_distance, transition: enable_slide_animation ? "left 0.5s" : "none"}}
                     onMouseUp={() => setIsHoldingCard(false)}
-                    onMouseDown={(event) => setMouseDownPosition(event.clientX)}
+                    onMouseDown={(event) => enableSliding("mouse", event)}
                     onMouseMove={(event) => slideCard(event.clientX)}
                     onTouchEnd={() => setIsHoldingCard(false)}
-                    onTouchStart={(event) => setMouseDownPosition(event.targetTouches[0].clientX)}
+                    onTouchStart={(event) => enableSliding("touch", event)}
                     onTouchMove={(event) => slideCard(event.targetTouches[0].clientX)}
                 >
                     <SlidePortal portal_entry={LAST_SLIDE}/>
