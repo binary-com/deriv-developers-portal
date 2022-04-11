@@ -232,4 +232,13 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; 
+    [data-view~='laptop'] {
+        .logo {
+        width: 84px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+   } 
 }
