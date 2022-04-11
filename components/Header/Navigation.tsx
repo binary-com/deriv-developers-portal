@@ -1,9 +1,12 @@
-import { Link } from "@tanstack/react-location";
+import { Link, useLocation } from "@tanstack/react-location";
 import { send } from "../../stateSignal";
 import styles from "./Header.module.scss";
 import HamburgerNavigation from "./HamburgerNavigation";
 
 export default function Navigation() {
+    const location = useLocation();
+    const address = location.current.pathname;
+    const docaddress = location.current.pathname.substring(0, 6);
     return (
         <>
             <div 
@@ -19,9 +22,31 @@ export default function Navigation() {
             </Link>
             <HamburgerNavigation />
             <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
-                <Link to="/">Home</Link>
-                <Link to="docs/">Documentation</Link>
-                <Link to="api-explorer/">API Explorer</Link>
+                {[
+                    ["/", "Home"],
+                    ["/docs/", "Documentation"],
+                    ["/api-explorer/", "API Explorer"],
+                    ].map(([to, label], i) => {
+                    return i != 2 ? (
+                        <div key={to}>
+                        <Link
+                            to={to}
+                            className={to === docaddress ? styles.selected : ""}
+                        >
+                            {label}
+                        </Link>
+                        </div>
+                    ) : (
+                        <div key={to}>
+                        <Link
+                            to={to}
+                            className={to === address ? styles.selected : ""}
+                        >
+                            {label}
+                        </Link>
+                        </div>
+                    );
+                })}
             </nav>
         </>
     );

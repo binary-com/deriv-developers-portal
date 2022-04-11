@@ -12,10 +12,12 @@
   --border-normal: #d6dadb;
   --label-background: #ffffff;
   --background: #0e0e0e;
+  --copy-hover:#424242;
+  --copy-color:#c2c2c2;
   --hamburger-menu-width: 260px;
 }
 * {
-  font-family: IBM Plex Sans, sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -23,6 +25,17 @@
 html,
 body {
   overflow-x: hidden;
+}
+.doc-content{
+  padding: 188px 80px;
+  display: flex;
+  min-height: 95vh;
+  justify-content: center;
+
+  @media (max-width: 992px) {
+    padding:75px 15px 40px;;
+  }
+
 }
 button:focus {
   outline: none;
@@ -602,4 +615,9 @@ textarea {
     background-color: #FF444F;
     visibility: visible;
   }
+}
+[data-state~="responsive.laptop"] {
+    .doc-content{
+      padding: 188px 50px;
+    }
 }

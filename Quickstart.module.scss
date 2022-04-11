@@ -1,12 +1,22 @@
 .page_content{
-    padding: 105px 0 80px;
+    padding-left: 42px;
+    width: 68%;
+    border-left: 2px solid var(--app-sidebar-border-color);
+    color: #333333;
+    
+    @media (max-width: 992px) {
+      padding-left: unset;
+      width: unset;
+      border-left: unset;
+  }
+  
 }
 .doc_main_title {
     margin-bottom: 40px;
     font-size: 48px;
+    padding-left: 8px;
     text-align: center;
     color: #333333;
-
     @media (max-width: 992px) {
         font-size: 32px;
     }
@@ -32,6 +42,7 @@
     width: 100%;
     margin-bottom: 8px;
     color: #333333;
+    margin: 24px 0;
 
     @media (max-width: 992px) {
         font-size: 20px;
@@ -135,7 +146,7 @@
       flex-wrap: nowrap;
       align-items: center;
       border-radius: 6px;
-      background-color: #0e0e0e;
+      background-color: var(--background);
       border-bottom: 1px solid rgba(242, 243, 244, 0.2);
       color: #d6d6d6;
       line-height: 1.5;
@@ -152,6 +163,57 @@
       }
       option{
         color: #0e0e0e;
+      }
+    }
+  }
+  .copy_button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--copy-color);
+    border-left: rgba(229, 229, 229, 0.4) 1px solid;
+    padding: 8px 16px;
+    cursor: copy;
+    flex-shrink: 0;
+
+    &_image {
+      background-image: url(/img/copy.svg);
+      width: 15px;
+      height: 16px;
+    }
+
+    >div {
+      margin-left: 9px;
+    }
+
+    &:hover {
+      background-color:var(--copy-hover);
+      border-top-right-radius: 6px;
+    }
+
+
+    &--card{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: fit-content;
+      height: 100%;
+      font-weight: 400;
+      border-left: rgba(229, 229, 229, 0.4) 1px solid;
+      padding: 16px 24px;
+      cursor: copy;
+      color: #333;
+      flex-shrink:0;
+      &_image {
+        margin: 0 9px 0 3px;
+      }
+
+      >div {
+        margin-left: 9px;
+      }
+      @media (max-width: 480px) {
+        flex-direction: column-reverse;
+        padding: 8px;
       }
     }
   }

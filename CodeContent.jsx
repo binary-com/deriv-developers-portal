@@ -1,5 +1,6 @@
-import React,{ useState, useEffect } from "react";
+import React from "react";
 import Prism from "prismjs";
+import './prism.css'
 import "prismjs/components/prism-markup-templating.js";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-python";
@@ -23,9 +24,9 @@ const CodeContent = ({ lang, data }) => {
       return () => is_mounted.current;
     };
   
-    const [showdata, setshowdata] = useState(false)
+    const [showdata, setshowdata] = React.useState(false)
     const isMounted = useIsMounted()
-    useEffect(() => {
+    React.useEffect(() => {
       if (isMounted()) {
         setshowdata(true)
         Prism.highlightAll()

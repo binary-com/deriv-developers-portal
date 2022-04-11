@@ -17,7 +17,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             background-color: var(--app-registration-tab-active-underline);
             visibility: hidden;
@@ -32,13 +32,15 @@
         &::before {
             width: 20px;
             visibility: visible;
+            line-height: 1.5;
         }
     }
     .flexContainer {
         display: flex;
         align-items: center;
+        margin-right: 5%;
         &::before{
-           --app-registration-tab-active-underline: var(--background);
+           --app-registration-tab-active-underline: none;
         }
         .branding {
             display: inline;
@@ -51,6 +53,7 @@
     }
     .topNav {
         height: 32px;
+        padding-left: 11px;
         justify-content: center;
         box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
         &Container {
