@@ -1,11 +1,9 @@
 import styles from "./Sidebar.module.scss"
 import React from 'react'
-import { Link,useLocation, useRouter } from '@tanstack/react-location'
-import { useEffect } from "react";
+import { Link,useLocation } from '@tanstack/react-location'
 
 const Sidebar = () => {
 
-    const router= useRouter();
     const location= useLocation();
 
   return (
