@@ -10,7 +10,7 @@ export default function HomepageSlider() {
     const LAST_SLIDE = 'last_slide';
     const FIRST_SLIDE = 'first_slide';
     const slide_amount = 4; // starts at 0
-    const slide_size = { small: 248, big: 588 };
+    const slide_size = { small: 70, big: 33 };
     const [is_holding_card, setIsHoldingCard] = useState(false);
     const [in_slide_transition, setInSlideTransition] = useState(false);
     const [enable_slide_animation, setEnableSlideAnimation] = useState(true);
@@ -124,7 +124,7 @@ export default function HomepageSlider() {
                 <div 
                     id="slides"
                     className={styles.slides}
-                    style={{left: slide_distance, transition: enable_slide_animation ? "left 0.5s" : "none"}}
+                    style={{left: `${slide_distance}vw`, transition: enable_slide_animation ? "left 0.5s" : "none"}}
                     onMouseUp={() => setIsHoldingCard(false)}
                     onMouseDown={(event) => enableSliding("mouse", event)}
                     onMouseMove={(event) => slideCard(event.clientX)}
