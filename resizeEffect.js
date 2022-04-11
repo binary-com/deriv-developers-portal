@@ -1,35 +1,36 @@
 import { createSignal, createEffect, onCleanup } from 'solid-js';
 import { send } from './stateSignal';
+import { devices } from './devices';
 
 const [windowWidth, setWindowWidth] = createSignal();
 
 const screenSizesEnum = {
     screen4k: {
-        width: 2560,
+        width: devices.screen4k, // 2560px
         name: 'screen4k',
     },
     laptopL: {
-        width: 1440,
+        width: devices.laptopL, // 1440px
         name: 'laptopL',
     },
     laptop: {
-        width: 1024,
+        width: devices.laptop, // 1024px
         name: 'laptop',
     },
     tablet: {
-        width: 768,
+        width: devices.tablet, // 768px
         name: 'tablet',
     },
     mobileL: {
-        width: 425,
+        width: devices.mobileL, // 425px
         name: 'mobileL',
     },
     mobileM: {
-        width: 375,
+        width: devices.mobileM, // 375px
         name: 'mobileM',
     },
     mobileS: {
-        width: 320,
+        width: devices.mobileS, // 320px
         name: 'mobileS',
     },
 };

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useOnWindowResize } from '../../custom_hooks/useOnWindowResize';
+import { devices } from '../../devices';
 import styles from "./HomepageSlider.module.scss";
 import Slide from './Slide';
 
@@ -19,9 +20,9 @@ export default function HomepageSlider() {
     const [slide_position, setSlidePosition] = useState(1);
     
     useEffect(() => {
-        if (window_resize.width >= 768) {
+        if (window_resize.width >= devices.tablet) {
             setSlideDistance((slide_size.big * slide_position) * -1);
-        } else if (window_resize.width <= 768) {
+        } else if (window_resize.width <= devices.tablet) {
             setSlideDistance((slide_size.small * slide_position) * -1);
         }
     }, [slide_position, window_resize])
