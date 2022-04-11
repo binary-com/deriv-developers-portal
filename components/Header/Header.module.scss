@@ -19,14 +19,13 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             background-color: var(--app-registration-tab-active-underline);
             visibility: hidden;
             transition: all 0.2s ease-in-out;
         }
         &:hover:before {
-            visibility: visible;
             width: 20px;
         }
     }
