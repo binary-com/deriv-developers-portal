@@ -15,8 +15,8 @@ const Sidebar = () => {
               {[
                 ["/docs/","Quickstart"],
                 ["/docs/app-registration/","App registration"],
-                ["/api-explorer/","Api explorer"],
-                ["/docs/api-guide/","Api guide"],
+                ["/api-explorer/","API explorer"],
+                ["/docs/api-guide/","API guide"],
                 ["/docs/faq/","FAQ"],
                 ["/docs/json-schemas/","JSON Schemas"],
                 ["/docs/bug-bounty/","Bug Bounty"],

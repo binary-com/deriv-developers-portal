@@ -1,6 +1,6 @@
 .page_content{
-    padding-left: 80px;
-    width: 72%;
+    padding-left: 42px;
+    width: 66%;
     border-left: 2px solid var(--app-sidebar-border-color);
     color: #333333;
     
@@ -14,6 +14,7 @@
 .doc_main_title {
     margin-bottom: 40px;
     font-size: 48px;
+    padding-left: 8px;
     text-align: center;
     color: #333333;
     @media (max-width: 992px) {
@@ -41,6 +42,7 @@
     width: 100%;
     margin-bottom: 8px;
     color: #333333;
+    margin: 24px 0;
 
     @media (max-width: 992px) {
         font-size: 20px;
@@ -138,6 +140,7 @@
   .card {
     border-radius: 6px;
     background-color: #1d1f20;
+    width: 83.5rem;
   
     &_header {
       display: flex;
@@ -178,7 +181,6 @@
       background-image: url(/img/copy.svg);
       width: 15px;
       height: 16px;
-      margin: 0 9px 0 3px;
     }
 
     >div {
