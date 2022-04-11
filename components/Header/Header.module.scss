@@ -31,7 +31,6 @@
         }
     }
 
-
     .selected {
         &::before {
             width: 20px;
@@ -120,7 +119,6 @@
                     cursor: pointer;
                 }
             }
-
             .navbar {
                 @media (max-width: 992px) {
                     display: none;
@@ -138,12 +136,12 @@
         display: none;
     }
 }
-.logo{
+.logo {
     background-image: url(/img/deriv.svg);
     width: 180px;
     height: 73px;
-    [data-view~='laptop']{
-        .logo{
+    [data-view~='laptop'] {
+        .logo {
         width: 84px;
         height: auto;
         display: flex;
