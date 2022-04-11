@@ -26,6 +26,7 @@
             transition: all 0.2s ease-in-out;
         }
         &:hover:before {
+            visibility: visible;
             width: 20px;
         }
     }
@@ -44,7 +45,7 @@
         align-items: center;
         margin-right: 5%;
         &::before{
-           --app-registration-tab-active-underline: var(--background);
+           --app-registration-tab-active-underline: none;
         }
         .branding {
             display: inline;
