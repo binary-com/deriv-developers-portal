@@ -1,7 +1,7 @@
 import { createMachine } from 'xstate';
 
 export const stateMachine = 
-/** @xstate-layout N4IgpgJg5mDOIC5QEMAOqB0AnMUCWsALlsoXgPYB2GANuVDBAPrkCuhAxADIDyA4gEkAcolCpysPGSqiQAD0QAmRQFYA7BjUAWLQEZFagAwA2AJy7DulQBoQAT0QBaRaYAcGY7tdqLpgMxaJp4AvsG2aJg4+EQk0tR0DJBMeNRRBIRgWEyEyABGGABm5DQQSUVYALYcACr8fFwAokwAYjwASgCysuKScbIKCLqmnhh+fq6Whq46aq7GWrYOCMYGGMP62uOBKorGoeHo2LjpsRTx9IzJqcdEmdl5GKyURSVl5JUYsKy5FVJklFAmGkYqQzrRyMgIClAcDiKCqBwIFQwBgUgA3cgAaxRESO0ThcXBiWYKTx6TuOXyTxepWY5Qqn2+v0I-xhNwJYLokOhQPZpyoCHR5AAxvDKABtQwAXW6EikZ36iH0xmMmkMKnmfl0Wlc-jmiyVflMWgwrjmigCKlc6jm+xAuNh-POxKuZNuWUpj2exVpTHpjJ+fx5jrF4O5AN5+KdHEyWHeGFQNFI-odfNDCUupNhFIe1J9bw+X0DLODacJXKhEZDcUFlAxorikplSBAPXlMhbA2VqqMGq0Wp1euMBsGWjMGAM+h0fhU2t0ujtqaj6YuSSz7JzVO9rzp7wZReZrMjJzFHAAwrwAMpNNoNQSX6oNNpMAAiAgAgrw+LLegrO0rLF0DAVDGbxZzMHUVRHXQxkMYDLFUKw1B2UxZkXQ5q05VcSWufFNy9GkCyqWo+HqJpWk6H920oRVBnWUZxkmaYtFmeYRw1Pw1k8PwDF1ftdi0dDIjLLCXXXPCPVzbdfXpDhLwAVQAIQ6ARqiYW972qNp32qAQeBEFs2z6f9BhVUw1i1dYVCmLU-GHewALUcy1AHQw1BWMcAkEsJ7QwkSqCJTNcPJSTcm4fgeHk6oqOM0ABmUPQPFQo1TGUC0VBsBzBkMMZNC1RRdRcnV9CEt0OQCjM12C917jCjp3yEd8+CaEiyKYap30UmK-zixBPHcEwdnVftB3c6CtQ0RDdiMft5ysUrMIq7DXQqZBKGQGBarDSsoHfdBYG26FEWRVE6yxHE-OXctltJVb1s2z0K2hPbUAOp6AVresxSbbqO16hBlBUTRvGQlxUqsAI-BHYY4ICbjTGsljdCchb-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-e-yMzfaw7HAwWAqfFUiOo1S5VUsGRQE4YuCQshTUnuVqZ9gX-b+y8DmIIyF5uCecxhPqGH2UuWUVQmm0AVOyBbSweYK-W6G-eeO-eBXPAbJ-MAYdaPJKDUMwMYDKAqQhJYcvICJJKnHKNJHfUAjPHJCAgeeBA7LAWA+A0+RAsyFAnYbwEcFyWVG3FtFyVQR7DlPbLTI3bvOBCOdADfLfHYMcKPNwGlVlQ-RAK0cyW+NyJbfsEuAgrvBhDfZQcySJLVWxWJGPH2WbdyKHNyWWZCdtDgwHdPbFUFcFbZDZXFHaWFZ-AfEyY0EhAXKnIXDXJYWWe2SvVCKna0GcCwPYRfLg9ZY5TFCFaww4aA-POwuAhwm5WWVUfwCLayCNOYCQhAWWdwBbHiDpEwVJDURQ3lMIqwnFQ4MgmIrzBIiyZIqlOHdI1Je2BbAAqXO9FNEwtLeXIoyw8wqFVAXnZQFXMCVwyCeHZQMtcwAqbwdKcuAqQojFSws9J3fOIY9XeHTfCuG0YWSrbYJNAgjfeWTiMNV1SNMQtYv5OCTYr5WcKwQzQI9ozrDfWcDQI4iNUQ+QhpVJc1LwHwB5ZHBfdo99GjWgNAQgcgVAf9IPEnbKC0T2IqHwObdpDjdVfhTwF9H2dUWRAE6jbNYE-WMEl-GEitAIeE4AhGfDHKe2FExdMWWHVJATTdHE2AYUHAMASgLQTEAk5xVJYkm41w21JUKxVUFEx9VQGlC0O4mXTtbElEEZXIPADuCEwvK5WiCwQk7kpGBEskmdOuIUjUbUStGcTwaXVMQEnE2U+UsAdDSE4vACNUuE3kxEmdHAjwPUuySwGRXUekntTGcgOUjuRjOIzBVUrk+0zU-kuiGlF0-qAA4YWYeuSjU0lESkAeTk2EnksM6CYYdwKk8jSGEwL0mjM9GEi9Cda9WnevTiBdRNDKYYXYeDVNR4xKF4p+N46NVVHQE0fqYhfmavOk5TIAA */
+/** @xstate-layout N4IgpgJg5mDOIC5QEMAOqB0AnMUCWsALlsoXgPYB2GANuVDBAPrkCuhAxADIDyA4gEkAcolCpysPGSqiQAD0QBmAAwAWRRgCsATkXaAjNoBsizZqMAOADQgAnon0B2dRm1uLAJlXbVy5Rc0AX0CbNEwcfCISaWo6BkgmPGoIgkIwLCZCZAAjDAAzchoIBIKsAFsOABV+Pi4AUSYAMR4AJQBZWXFJGNkFBH0jTQ1tC1UhzVUjfQ8jR30bewQPCxGMRXWPRw89C0UBx2DQ9GxcVOiKWPpGROTTonTMnIxWSgKikvJyjFhWbLKpMiUKBMFJRUgXWjkZAQJLA0HEcFUDgQKhgDBJABu5AA1miwidIgiYpD4swkgTUg8srkXm9isxSmVvr9-oRAXC7kSIXRobCQZzzlQEJjyABjRGUADaygAup0JFILr1EB59JoPFo1Y5tI4AkZlh4FkplKt1ntFDN1EZVBYDiEQPj4YLLqSbhT7hlqc9XoV6UxGcy-gC+U6JZDeUD+YTnRx0lhPhhUDRSAHHQKw3FruT4VSnrTfR8vj8g2yQ+niTyYZHQzFhZQseKYtK5UgQF1FTJW31VerNZptbrzAajQg9toNbs9uqZrsdUF7Wnoxmrgls5zczSfe8GZ8mcXWeyo2cJRwAMK8ADKDRadUEF8qdRaTAAIgIAIK8Pjy7pKrsOAwaIo6jjnsJhGMoRjaCOKimGs6xOLMqiqB4EGqIcDrHDW3IrmStyEhu3p0oWFTVHwtQNM07Tfh2lDKks2oaPotpzP2KxmNYdgqtaqhwSo6geJoTFqvORzhOW2Gumu+GenmW5+oyHAXgAqgAQm0AiVEwN53pULRvpUAg8CIrbtj0f5LLMjgYPoviOLqDEWIYjgjpsjm8cskw2U4yh2qJ7pclQJJZnhlIydk3D8DwSmVNRZmgH0KibFoqiOMoQG7B58ycUsujaBgk7KIJgweDqijoYux4Vjhbo5mFHBtG+QhvnwDSkeRTCVG+Kmxb+8UOExFgYGlNnbMoAm6lB2XmoNk5MZaMzmOVmHiYFmartQZTIJQyAwI8uSVrCb7oLA4ZVlAyKoui9Y4niy1LlVkkbVtO1gHtp2Hcd71AnWDYSs2PWdn1CB2VZ2hDB4Mz6PoyhOG4LkWLM+UbIV4EWGN-hLWJ90ScFGCbdtu1egdQJHagJ3E+dcYJkmKa7hgFVgg9uP4y9b0U6T5NQmdP1in9soA7R5m6sorjg8higZQEk2LJsqyTqqSGaDDuyY-5zpBetePPYTTzs59YBlKghC2Bw2kCPej4dTU9QdV1At0VDnhDea2hqNq-bOdlyw+HBJVGPqKiGB4qtYat1XkizOv7VzH1kxwfA8FbTB1G0AAKlQAJpMPe+l1Pb5nmDx46GJBENl5sLm6PoSMqEV6qlSHK0usz2uvV6xQ0GA7Kk19UDPmAndpBdlBoiKuL03dlU45rkdt08Hdd7Hvf94PYA842Fz-SZCpxfIiCOErQ26oYozjihQwuRMGpuDq+gWmYyFjI32Nh49WsE3PuQL93xwUyvXdgFjFgeMWBEzJkIKmSejNp64XfqzduA9F4k1-jHIE-80jrz5i2MQO9ep72BofHyjkRjeAhoVRQLkpjVxvgfXQvglYWGflPV+LcP57VNrec2D4nxtRtp1bq28fyA3wY7DUw09BuzBnZSuyFeIDDVD5SYZUFxQICs3Gerd2GNDqJUU8AAJJgb5U6pyYFwLh+cgaKGtBgSYKwoYH3GmDSuhg5FTCVs4EwTDoEsI0Ww6kHBnx1HqA+QxxiLH4KsTxWxBgnDqn7E4r2ExBqaF2FDVQCEhijC8WojWsDZ7sITkwJSqdny5yYG0HggTwl9FEc7O+rsUpSM9jLPwoM3DuzSm4DGKisbMPUbA1gqAICkFemUcgxRnhDJGT3CmSkplDxRCPK6WJx4MxyWtAZ8zRnjLRIM4ZaQZmoKgHM-Za8RQbyoFvHBQjBZAycAMaytpLAmh8KqaYLlFCOEAvBHQxg9DpOyerDZbo9kjKYGMiZoKDkoIjMcrZQCQFgNpl8NZQLw7UChdsyFWzDmwpOSMzBTZ+aCJog7OYRhHmOGeW4ZCUNDReyQhqM0ao6VOEYT0tWy436YvBTsxSql1KaTNvePSBkjLVJVNMQC0xLBWLBp8gSLl0Y2PaWDTprs7KAq5cFCKCdooStHGNKyExUrpQtKMLKMsRhWXlpMXQY0kJaqZuteqjVmqtWtq1O2JLd41KcJfVUQ1UleSpZkxusBxCUEkBiQBhSuBGOqCYrgBq1QQzWG7BGJg1DEJckhVwN8rEmC6QJIw4bI3RtjYneN6ceCpxTdOdNKVM18RzVNO++a3BAX9pExCZaqAVvjonC8p4bx1CEKoAA0vWtNfFdTduzYYaCTsb4+BGOqYShU+1RrwDGwd5SeAqQEDbZNPq8E1IbbO5tC7paIDGNQm+TaD4rAMFugdhSKmHpth0U9wjz0zozfOm0i7srqhFiuiR6wvlUtfTuyt+7P0NAvNOplAGs1AZvQgFJeVwMwwMP2KYMHd2FP4cE5Dja51odbYsWJHbdCCQyijVWAALZAZRsisCwDAUBLG2Mca4ywVAYBqAolFKwMoQmsgxAE0JqonqXw8FPEpNoY7OpiuMtc0l5kbLgTWGuyw3gsM2RHNMCCHaEafNSvqSYzHWPsc4+kDAPG7P8fIIJ4TYoxMSYlEwUUdBYCQFk2RG2z4FNKZU-pQy6m2y4N-Q4SYIsdjmFPoZ1Qxm1SDRvqMVKEFn2+QwpgJzfGHOFfsxkVzMneEND0W+NoKklItBai0FNa6MCbFMNse+KwvkjipfekhOoAjbABRykrXHHO2aKxkXzEgAuVaYNV2r9XGvNYCK1r56oNhYe69lNG2H3ACVMO1wSmM90AEUlICFPBOnOLQYo-tufg5CxmFVmfFqlTwL6el7qMSY4VukIvivu3RJ72URpgfcOk4wOptAncKUYgQycAAaqdeA3ia0D8yIPqO2Ne0rGGpqRL5e+6nBHfALtVIx0DLHDghhtJIdaFJvgfKw8To0N8p2DXU-6OBClmWUmqj0OxFnTAABSF4jLZ30SnN8SHKciMgloccFhHJUvSek7Yxmedmf5-UoXX3Cl1b4EwFSUUhCZ2nTYiRMN6F+DcPS6jSWMBTCrnOWxnj9eJz0TwZTnP7cOAtEXdw-s0YHfZfaSgOz4CtlRdqhIbBCAGr2HmqWoH9SQW8JXKxciZheFdv7QnMfnWwNqm9IiO5ygpvUJoLQfgBg327eseGNoVWdpshBJii0OWh36TVdcYVCIFnL3uFkwZqxN17kebxD3TJnv-AJJ3hcbLISmLsIw0El9O-z4JWGMw0pOpgb36Sb18zbn9HTfco+OQvxClPpgPxRSijgFHjTvqVTIRFqasc6wnkYZUOOORG20w3gB8++Pixefex+ckxEgYB4ZY1+nKUmVMWABqXgKEGAn+hg3+VKv+8ivE-gAQ6gJo+goBPeUkoUkBZeZ+RYI+pYY+8B02-mzA3eTAMIyAcQKBqafYA4eow4U0Y0eUzKxg6Stc6oJBuSh+5BXoJ+8k5+NBh43eKayuAhwE2wAwViEEGGJUeaZoagbs6UxBXe4+wKZBHoFBg+VBZQihgwawKhoE6hkElCxgvEZquwHswchh8BxhN+aQYUleUMNeMMkEbgDeFCiScwciPkY00wEMBeqiaKb8+SRMRyHMvcBqhcrgqoUO5cEMzSKouoww7gAwAkORWSHhfS4hEcmiSRsKKRBsRsiwL+s+wMqweO0Mg4KwVolc8+s0jkCEew7hfk3eFRT0fiusyRn09+j+sAz+0WNydEYMFKowEsdkvg44XylqKoCM1cs0pq3gVmeWheB+lRox0cNR+swCnwBqCx+U6gzEqxbWGx9E-+s0qBDOwhYhXhcCUcvcHMaRvgGRJcZ85cuRFkqwmWaMURlgsRvSU+wxXxn8GA38S8f8iCaQaR1ixcWR2RIJxRg0AwYEEOoaaEZRsJnxiR88qJS8kxT+6CYAVxPk6BQE6S+ogkPgwGMsQwvOwRdk7SY0pRgxRh6K8Jb0SJyCmASBtJ9JVkXySERRrJkOlChUHaWwvgngUMTgHxQp5JX8lJYpfxYGmRpc2JuaZg1k-s6gnyEwTgAx+WCBRxIx8COQie-x0S9icS7sHyLi+J6wPk7Wlgmp3KWyvK2KpyuKZ0+KaJcu56fgARdewRJgjeXspgg03gIw+JugBoAZuMPKEKuyOKxw1J0xEZdJUZDgXWjJYwWGegiUa+SZiMzKXgqUD80JdpYBIKQZuZkyoZxwSBxZihOoFZ7EuUNZuaWezKqU2oEEywpaJJ6yQpOZOyXZ0y6AleVKsZQRxgCZoRMsyw1eqZdkEE-gJ8M5Apnh85HZOylevYrRG5IRxmdGLezgbENoXgWZ60Vx25ZZh8+5fJkEzgm6s5zoBqDhoOsw4OIwyuqUq6hghGaIyYRsrmJ6jRsW3OTsyE0OQkEMJCHyGWBaBgwEtoMwsFtAaAhArmKalgGo6F2omFJUow0EDJ4G5KdkSeLZOAEa-asG3wooOAQmqg2IFFaFJUNFjkWF9FU0a54GrJNkB87uApHF26MaeM5A2QeAncSFsxmmdylFNiwlBgoldFqW2UistGTOvRAkxJ8l5aXFYyqlnc36yFD2NSOl1F+l0R2FIGNktG-REsfy7KVlnFSltlalYAsujlDsLleltFHliwKSBRdu2wxgIelltp7F1lQVKlIVlQOQg8glVFUVBlMVDgCu4GyEEwkGohhhClFalepoqGLa7JiAowplf+1obgUMNmvGpW42XVLmbmiJHm4mlAkmFw0m0+MWTlDgEM1cd8WhswmwJgRl1GAwCW8EXy6hvgBhfko2xWE2pWY1A1omQ1I1VAPmfmkAKacwBpA2Jc+mugaW+oNchg6ZL5J5tpO13Ge1fVQmKaTk1kFoPg81VKQExm-g1efOjOeed8nVzmu1vVDwDBF1pZ-Qqu+UngmaVmNo5gPWJgABD80MTEKV+IH1v1Xy-1c1WwwNS1iAlguFa6CMbWUiqsqAL0jm5A4mieEiawOgPNjkow1uxmAk4N7gQw6glZBGHKLNMAGAAAjqwHgKKNiEQMgFgAnsjesK7NzWDGDHzZtdTf0AHtrjZHFX4Mon5FLbdKgJPmopzZraYNrSkoTQLaDtWa9pDFMMsczazWgHgEwGAHIEmJ8OkLbQljzTrU7UZqDpMNfO4JBl8jqHMF7dLT7UwFAPLcUCHVrbzRHfrWqHsNroleVZ4EnWiHkMgDLZnfbdnfzZHdRuBOBUsWYBaFSm9fiBbRgAAFawCnWwCihMYGzIAzEz4oUa2h0O263O110lUQ6jDoUzBm22nt3sbAjZBsDDUNGaWv6jhc1V3h01251fJ00BBmjjSt3HAW2c3+xZ17161pbLpB45GzBOAHErnI1MQjgAC0IsfgfgNo7eGtKggwUFdowQQAA */
 createMachine({
   id: "app",
   type: "parallel",
@@ -12,7 +12,7 @@ createMachine({
         logged_out: {
           on: {
             LOGIN: {
-              target: "#app.registration.logged_in",
+              target: "logged_in",
             },
           },
         },
@@ -28,8 +28,7 @@ createMachine({
                   },
                   on: {
                     TOGGLE_FORM: {
-                      target:
-                        "#app.registration.logged_in.register_tab.unfolded_form",
+                      target: "unfolded_form",
                     },
                   },
                 },
@@ -43,14 +42,12 @@ createMachine({
                             src: "registerApp",
                             onDone: [
                               {
-                                target:
-                                  "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_success",
+                                target: "registration_success",
                               },
                             ],
                             onError: [
                               {
-                                target:
-                                  "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_error",
+                                target: "registration_error",
                               },
                             ],
                           },
@@ -65,20 +62,17 @@ createMachine({
                       },
                       on: {
                         CLOSE_REGISTER_DIALOG: {
-                          target:
-                            "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration.closed_registration_dialog",
+                          target: ".closed_registration_dialog",
                         },
                       },
                     },
                   },
                   on: {
                     TOGGLE_FORM: {
-                      target:
-                        "#app.registration.logged_in.register_tab.folded_form",
+                      target: "folded_form",
                     },
                     SUBMIT_REGISTRATION: {
-                      target:
-                        "#app.registration.logged_in.register_tab.unfolded_form.submitting_registration",
+                      target: ".submitting_registration",
                     },
                   },
                 },
@@ -88,7 +82,7 @@ createMachine({
                   target: "#app.registration.logged_out",
                 },
                 MANAGE_TOGGLE_TAB: {
-                  target: "#app.registration.logged_in.manage_tab",
+                  target: "manage_tab",
                 },
               },
             },
@@ -106,14 +100,12 @@ createMachine({
                         src: "getAppList",
                         onDone: [
                           {
-                            target:
-                              "#app.registration.logged_in.manage_tab.loadingApps.success",
+                            target: "success",
                           },
                         ],
                         onError: [
                           {
-                            target:
-                              "#app.registration.logged_in.manage_tab.loadingApps.error",
+                            target: "error",
                           },
                         ],
                       },
@@ -130,8 +122,7 @@ createMachine({
                   },
                   on: {
                     GO_TO_EMPTY_STATE: {
-                      target:
-                        "#app.registration.logged_in.manage_tab.loadingApps.empty",
+                      target: ".empty",
                     },
                   },
                 },
@@ -145,14 +136,12 @@ createMachine({
                         },
                         onDone: [
                           {
-                            target:
-                              "#app.registration.logged_in.manage_tab.deletingApp.successDelete",
+                            target: "successDelete",
                           },
                         ],
                         onError: [
                           {
-                            target:
-                              "#app.registration.logged_in.manage_tab.deletingApp.errorDelete",
+                            target: "errorDelete",
                           },
                         ],
                       },
@@ -164,16 +153,16 @@ createMachine({
               },
               on: {
                 REGISTER_TOGGLE_TAB: {
-                  target: "#app.registration.logged_in.register_tab",
+                  target: "register_tab",
                 },
                 FETCH_APP_LIST: {
-                  target: "#app.registration.logged_in.manage_tab.loadingApps",
+                  target: ".loadingApps",
                 },
                 DELETE_APP: {
-                  target: "#app.registration.logged_in.manage_tab.deletingApp",
+                  target: ".deletingApp",
                 },
                 GO_UPDATE_MODE: {
-                  target: "#app.registration.logged_in.update_mode",
+                  target: "update_mode",
                 },
               },
             },
@@ -187,14 +176,12 @@ createMachine({
                         src: "appUpdate",
                         onDone: [
                           {
-                            target:
-                              "#app.registration.logged_in.update_mode.updateApp.successUpdate",
+                            target: "successUpdate",
                           },
                         ],
                         onError: [
                           {
-                            target:
-                              "#app.registration.logged_in.update_mode.updateApp.errorUpdate",
+                            target: "errorUpdate",
                           },
                         ],
                       },
@@ -206,17 +193,17 @@ createMachine({
               },
               on: {
                 SUBMIT_REGISTRATION: {
-                  target: "#app.registration.logged_in.update_mode.updateApp",
+                  target: ".updateApp",
                 },
               },
             },
           },
           on: {
             LOGOUT: {
-              target: "#app.registration.logged_out",
+              target: "logged_out",
             },
             MANAGE_TOGGLE_TAB: {
-              target: "#app.registration.logged_in.manage_tab",
+              target: ".manage_tab",
             },
           },
         },
@@ -230,29 +217,29 @@ createMachine({
         mobileL: {},
         mobileM: {},
         mobileS: {},
-        tablet: {},
+        mobileTablet: {},
       },
       on: {
         GO_LAPTOP_L: {
-          target: "#app.responsive.laptopL",
+          target: ".laptopL",
         },
         GO_LAPTOP: {
-          target: "#app.responsive.laptop",
+          target: ".laptop",
         },
         GO_SCREEN4K: {
-          target: "#app.responsive.screen4k",
+          target: ".screen4k",
         },
         GO_MOBILE_L: {
-          target: "#app.responsive.mobileL",
+          target: ".mobileL",
         },
         GO_MOBILE_M: {
-          target: "#app.responsive.mobileM",
+          target: ".mobileM",
         },
         GO_MOBILE_S: {
-          target: "#app.responsive.mobileS",
+          target: ".mobileS",
         },
         GO_TABLET: {
-          target: "#app.responsive.tablet",
+          target: ".mobileTablet",
         },
       },
     },
