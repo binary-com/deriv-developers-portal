@@ -31,7 +31,6 @@
         }
     }
 
-
     .selected {
         &::before {
             width: 20px;
@@ -101,7 +100,6 @@
             }
 
             .hamburger {
-                // add background image hamburger_icon.svg
                 width: 16px;
                 height: 16px;
                 background-image: url(/img/hamburger_menu.svg);
@@ -117,7 +115,6 @@
                     cursor: pointer;
                 }
             }
-
             .navbar {
                 @media (max-width: 992px) {
                     display: none;
@@ -135,12 +132,12 @@
         display: none;
     }
 }
-.logo{
+.logo {
     background-image: url(/img/deriv.svg);
     width: 180px;
     height: 73px;
-    [data-view~='laptop']{
-        .logo{
+    [data-view~='laptop'] {
+        .logo {
         width: 84px;
         height: auto;
         display: flex;
