@@ -1,5 +1,4 @@
 .sidebarleft {
-    padding-top: 115px;
     display: flex;
     flex:'1 auto';
     flex-direction: column;
@@ -10,14 +9,12 @@
     z-index: 10;
     background: white;
     left: 0;
-    padding-left: 10px;
-    border-right: 2px solid var(--app-sidebar-border-color);
     a {
         position: relative;
         opacity: 0.72;
         margin-bottom: 14px;
         line-height: 1.88;
-        color: #0e0e0e;
+        color: #333333;
         padding: 0 24px 0 17px;
         height: 44px;
         display: flex;
@@ -46,20 +43,22 @@
               opacity: 1.5;
             }
           }
-        }
-
-        .selected {
-          background-color: var(--app-sidebar-border-color);
-          font-size: 16px;
-          font-weight: bolder;
-          line-height: 1.88;
-          opacity: 1;
-
+    
+    }    
+    .selected{
+        background-color: var(--app-sidebar-border-color);
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.88;
+        opacity: 1;
+        
           &::before {
             visibility: visible;
             height: 100%;
           }
         }
+      
+      
 }
 
 .sidebartitle {
@@ -69,3 +68,12 @@
     color: #333333;
     font-weight: bold;
 } 
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"], 
+[data-state~="responsive.mobileL"],
+[data-state~="responsive.tablet"]  {
+    .sidebarleft {
+      display: none;
+    }
+}

@@ -1,17 +1,16 @@
 import {Outlet} from '@tanstack/react-location';
 import { Suspense } from 'react';
 import Sidebar from './Sidebar';
+import './index.scss'
 
 
 
 function Docs() {
   return (
     <Suspense fallback={<div>loading</div>}>
-      <div style={{display:"flex",padding:"90px 50px"}}>
+      <div id="content" className='doc-content'>
         <Sidebar/>
-        <div style={{padding:"105px 80px"}}>
         <Outlet/>
-        </div>
       </div>
     </Suspense>
   )
