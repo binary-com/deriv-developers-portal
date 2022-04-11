@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { useOnWindowResize } from '../../custom_hooks/useOnWindowResize';
 import { devices } from '../../devices';
 import styles from "./HomepageSlider.module.scss";
@@ -12,20 +12,20 @@ export default function HomepageSlider() {
     const FIRST_SLIDE = 'first_slide';
     const slide_amount = 4; // starts at 0
     const slide_size = { small: 70, big: 33 };
-    const [is_holding_card, setIsHoldingCard] = useState(false);
-    const [in_slide_transition, setInSlideTransition] = useState(false);
-    const [enable_slide_animation, setEnableSlideAnimation] = useState(true);
-    const [slide_distance, setSlideDistance] = useState(0);
-    const [mouse_down_position, setMouseDownPosition] = useState(0);
-    const [slide_position, setSlidePosition] = useState(1);
+    const [is_holding_card, setIsHoldingCard] = React.useState(false);
+    const [in_slide_transition, setInSlideTransition] = React.useState(false);
+    const [enable_slide_animation, setEnableSlideAnimation] = React.useState(true);
+    const [slide_distance, setSlideDistance] = React.useState(0);
+    const [mouse_down_position, setMouseDownPosition] = React.useState(0);
+    const [slide_position, setSlidePosition] = React.useState(1);
     
-    useEffect(() => {
+    React.useEffect(() => {
         if (window_resize.width >= devices.tablet) {
             setSlideDistance((slide_size.big * slide_position) * -1);
         } else if (window_resize.width <= devices.tablet) {
             setSlideDistance((slide_size.small * slide_position) * -1);
         }
-    }, [slide_position, window_resize])
+    }, [slide_position, window_resize, devices, slide_size])
 
     const FirstSlide = () => {
         return (
