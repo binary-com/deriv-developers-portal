@@ -99,7 +99,7 @@
 }
 
 .hamburgerNavigation {
-    box-shadow: rgb(0 0 0 / 10%) 0 16px 20px 0;
+    box-shadow: rgb(0, 0, 0, 0.1) 0 16px 20px 0;
     display: inline-block;
     position: fixed;
     left: -260px;
@@ -164,7 +164,7 @@
 }
 
 [data-state*="responsive.laptop"],
-[data-state~="responsive.sceen4k"] {
+[data-state~="responsive.screen4k"] {
     .hamburgerNavigation {
         visibility: hidden;
     }

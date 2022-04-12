@@ -6,7 +6,7 @@ import HamburgerNavigation from "./HamburgerNavigation";
 export default function Navigation() {
     const location = useLocation();
     const address = location.current.pathname;
-    const docaddress = location.current.pathname.substring(0, 6);
+    const docAddress = location.current.pathname.substring(0, 6);
     return (
         <>
             <div 
@@ -31,7 +31,7 @@ export default function Navigation() {
                         <div key={to}>
                         <Link
                             to={to}
-                            className={to === docaddress ? styles.selected : ""}
+                            className={to === docAddress ? styles.selected : ""}
                         >
                             {label}
                         </Link>
