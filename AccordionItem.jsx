@@ -7,24 +7,24 @@ const AccordionItem = ({ children, title }) => {
     setContentVisible(!is_content_visible)
   }
   return (
-    <div className={styles["accordion-wrapper"]}>
+    <div className={styles.accordionWrapper}>
       <div
-        data-testid="accordion-header"
-        className={styles["accordion-header"]}
+        data-testid="accordionHeader"
+        className={styles.accordionHeader}
         onClick={togglePanel}
       >
-        <div className={styles["accordion-text bold"]}>{title}</div>
+        <div className={styles.accordionText}>{title}</div>
         <div
           className={
             is_content_visible
-              ? styles["accordion-button--minus"]
-              : styles["accordion-button--plus"]
+              ? styles.accordionButtonMinus
+              : styles.accordionButtonPlus
           }
           alt="expand"
         />
       </div>
       {is_content_visible && (
-        <div className={styles["accordion-panel"]}>{children}</div>
+        <div className={styles.accordionPanel}>{children}</div>
       )}
     </div>
   )

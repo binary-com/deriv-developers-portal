@@ -1,4 +1,4 @@
-.page-content{
+.pageContent{
     width: 70%;
     padding-left: 42px;
     border-left: 2px solid var(--app-sidebar-border-color);
@@ -8,7 +8,7 @@
         border-left: unset;
     }
 }    
-.with-bg {
+.withBg {
     background-image: url("/img/pattern-left.svg"), url("/img/pattern-right.svg");
     background-size: 46%, 50%;
     background-repeat: no-repeat, no-repeat;
@@ -20,13 +20,13 @@
         padding-left: 75px;
     }
 
-    .accordion-wrapper {
+    .accordionWrapper {
         display: flex;
         flex-direction: column;
         width: 100%;
         margin-bottom: 24px;
 
-        .accordion-header {
+        .accordionHeader {
             display: inline-flex;
             min-height: 56px;
             align-items: center;
@@ -45,19 +45,19 @@
             > div {
                 margin-right: 16px;
             }
-            .accordion-text {
+            .accordionText {
                 font-size: 16px;
                 margin-right: 16px;
                 color: #333333;
             }
 
-            .accordion-button--plus {
+            .accordionButtonPlus {
                 background-image: url("/img/plus.svg");
                 width: 16px;
                 height:16px;
                 margin-left: auto;
             }
-            .accordion-button--minus {
+            .accordionButtonMinus {
                 background-image: url("/img/minus.svg");
                 width: 16px;
                 height: 16px;
@@ -66,12 +66,12 @@
             }
         }
 
-        .accordion-header :nth-child(2) {
+        .accordionHeader :nth-child(2) {
             margin-left: auto !important;
             flex-shrink: 0;
         }
 
-        .accordion-panel {
+        .accordionPanel {
             height: fit-content;
             padding: 24px 40px;
             background-color: rgba(87, 122, 146, 0.04);

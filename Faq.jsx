@@ -7,9 +7,9 @@ import CodeContent from './CodeContent';
 const FAQ = () => {
  
   return (
-    <div className={styles["page-content"]}>
-      <div className={styles["with-bg"]}>
-        <h1 className={styles["doc-main-title"]}>FAQ</h1>
+    <div className={styles.pageContent}>
+      <div className={styles.withBg}>
+        <h1 className={styles.docmMainTitle}>FAQ</h1>
         <Accordion>
           <AccordionItem title="What is the easiest way to get started with Deriv API?">
             <p>
@@ -76,7 +76,7 @@ const FAQ = () => {
               <li>
                 Insert your affiliate token into the{" "}
                 <a href={`playgound/#new_account_virtual`} passHref={true}>
-                  <code className={styles["code"]}>new_account_virtual</code>
+                  <code className={styles.code}>new_account_virtual</code>
                 </a>{" "}
                 call in your app.
               </li>
@@ -149,7 +149,7 @@ const FAQ = () => {
           </AccordionItem>
           <AccordionItem title="How do I subscribe to server status notifications?">
             <p>
-              This JavaScript code opens a WebSocket a nd makes a subscription
+              This JavaScript code opens a WebSocket and makes a subscription
               for server status notifications. When a message is received, it
               sends the website status message, if available:
             </p>
