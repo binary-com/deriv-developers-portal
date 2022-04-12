@@ -7,7 +7,10 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -56,9 +59,9 @@ module.exports = {
         "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
     
         // import rules
-        // "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/__tests__/**/*.js", "**/test*.js", "**/*.test.js*", "**/*.spec.js", "**/*.spec.jsx"] }],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/__tests__/**/*.js", "**/test*.js", "**/*.test.js*", "**/*.spec.js", "**/*.spec.jsx"] }],
     
-        // "import/no-useless-path-segments": "error",
+        "import/no-useless-path-segments": "error",
         "import/order": [
           0, // TODO: we should turn this to error after we sorted our import orders.
           {
@@ -67,7 +70,7 @@ module.exports = {
           },
         ],
         "import/prefer-default-export": 0,
-        // "import/extensions": ["warn", "never", { jsx: "always", json: "always" }],
+        "import/extensions": ["warn", "never", { jsx: "always", json: "always" }],
         "no-sequences": ["warn"],
     
         // react rules
