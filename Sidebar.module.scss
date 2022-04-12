@@ -9,6 +9,9 @@
     z-index: 10;
     background: white;
     left: 0;
+    @media (max-width: 992px) {
+      display: none;
+    }
     a {
         position: relative;
         opacity: 0.72;
@@ -77,3 +80,4 @@
       display: none;
     }
 }
+
