@@ -36,29 +36,29 @@ module.exports = {
         // "keyword-spacing"                   : ["error", { after: true }],
         "lines-between-class-members": 0,
         "indent": 0,
-        // "max-len"                           : ["error", { code: 120, "ignoreComments": true }],
-        // "no-extra-semi"                     : "error",
+        "max-len": ["error", { code: 120, "ignoreComments": true }],
+        "no-extra-semi": "error",
         "no-console": "error",
         "no-else-return": ["error", { allowElseIf: true }],
         "no-multi-assign": 0,
-        // "no-multi-spaces"                   : [2, { exceptions: { "BinaryExpression": true, "VariableDeclarator": true, "ImportDeclaration": true } }],
+        "no-multi-spaces": [2, { exceptions: { "BinaryExpression": true, "VariableDeclarator": true, "ImportDeclaration": true } }],
         "no-param-reassign": ["error", { props: false }],
         "no-restricted-globals": 0,
         "no-script-url": 0,
         // "no-trailing-spaces"                : ["error", { skipBlankLines: true }],
-        // "object-curly-spacing"              : ["error", "always", { arraysInObjects: true, objectsInObjects: true }],
+        "object-curly-spacing": ["error", "always", { arraysInObjects: true, objectsInObjects: true }],
         "one-var": ["error", { initialized: "never", uninitialized: "always" }],
         "prefer-destructuring": 0,
         "quotes": 0,
         // "space-in-parens"                   : ["error", "never"],
         "space-infix-ops": "error",
         // "space-unary-ops"                   : "error",
-        // "no-multiple-empty-lines"           : ["error", { "max": 1, "maxEOF": 1 }],
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
     
         // import rules
-        "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/__tests__/**/*.js", "**/test*.js", "**/*.test.js*", "**/*.spec.js", "**/*.spec.jsx"] }],
+        // "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/__tests__/**/*.js", "**/test*.js", "**/*.test.js*", "**/*.spec.js", "**/*.spec.jsx"] }],
     
-        "import/no-useless-path-segments": "error",
+        // "import/no-useless-path-segments": "error",
         "import/order": [
           0, // TODO: we should turn this to error after we sorted our import orders.
           {
@@ -67,7 +67,7 @@ module.exports = {
           },
         ],
         "import/prefer-default-export": 0,
-        "import/extensions": ["warn", "never", { jsx: "always", json: "always" }],
+        // "import/extensions": ["warn", "never", { jsx: "always", json: "always" }],
         "no-sequences": ["warn"],
     
         // react rules
