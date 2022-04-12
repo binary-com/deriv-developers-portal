@@ -6,7 +6,6 @@ import CodeContent from './CodeContent';
 
 const FAQ = () => {
  
-
   return (
     <div className={styles["page-content"]}>
       <div className={styles["with-bg"]}>
@@ -28,7 +27,7 @@ const FAQ = () => {
             </p>
             <ol>
               <li>
-                Open a <a href="https://www.github.com">GitHub</a>{" "}
+                Open a <a href="https://www.github.com">GitHub</a> {" "}
                 account.
               </li>
               <li>
@@ -87,10 +86,10 @@ const FAQ = () => {
             <p>Here are some ways:</p>
             <ol>
               <li>
-                Sign up as a{" "}
+                Sign up as a {" "}
                 <a href="https://deriv.com/partners/payment-agent/">
                   payment agent
-                </a>{" "}
+                </a> {" "}
                 to process local payments for our clients in your country. You
                 may automate your payment agent facility using the
                 <a href=" /playground/#paymentagent_transfer">
@@ -135,16 +134,16 @@ const FAQ = () => {
               the trader’s past performance.
             </p>
             <p>
-              To start copying, use the{" "}
+              To start copying, use the {" "}
               <a href="/playground/#copy_start">copy start</a> call. To
-              stop copying, use{" "}
+              stop copying, use {" "}
               <a href="/playground/#copy_stop">copy stop</a>.
             </p>
           </AccordionItem>
           <AccordionItem title="How do I check for server status updates?">
             <p>
               Use the{" "}
-              <a href="/playground/#website_status">website status</a>{" "}
+              <a href="/playground/#website_status">website status</a> {" "}
               call to check whether the website is online or not.
             </p>
           </AccordionItem>
@@ -155,32 +154,33 @@ const FAQ = () => {
               sends the website status message, if available:
             </p>
             <CodeContent lang="javascript" 
-              data={` const WebSocket = require('ws');
-              const ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=EN&app_id=1089');
-              
-              ws.on('open', function open() {
-                  ws.send(JSON.stringify({
-                      website_status: 1,
-                      subscribe: 1
-                  }));
-              });
-              
-              ws.on('message', function incoming(data) {
-                  data = JSON.parse(data);
-                  console.log('website status: %s', data.website_status.site_status);
-                  if (data.website_status.message) {
-                      console.log('status message: %s', data.website_status.message);
-                  }
-              });
+              data={` 
+                const WebSocket = require('ws');
+                const ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=EN&app_id=1089');
+                
+                ws.on('open', function open() {
+                    ws.send(JSON.stringify({
+                        website_status: 1,
+                        subscribe: 1
+                    }));
+                });
+                
+                ws.on('message', function incoming(data) {
+                    data = JSON.parse(data);
+                    console.log('website status: %s', data.website_status.site_status);
+                    if (data.website_status.message) {
+                        console.log('status message: %s', data.website_status.message);
+                    }
+                });
               `}
              />
           </AccordionItem>
           <AccordionItem title="How do I get help?">
             Visit our{" "}
-            <a href="https://binary.vanillacommunity.com/">dev forum</a>{" "}
+            <a href="https://binary.vanillacommunity.com/">dev forum</a> {" "}
             or email
             <a href="mailto:api-support@deriv.com?subject=API+Question:+">
-              {" "}
+               {" "}
               api-support@deriv.com
             </a>
             .
