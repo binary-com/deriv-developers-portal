@@ -150,6 +150,7 @@
                 border: none;
                 &::after {
                     content: "";
+                    display: inline-block;
                     position: absolute;
                     width: 15px;
                     height: 15px;

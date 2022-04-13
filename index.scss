@@ -489,7 +489,7 @@ p {
   max-width: 316px;
   padding: 32px 24px;
   border-radius: 4px;
-  box-shadow: 0 4px 8px var(--background);
+  box-shadow: 0 4px 8px 0 rgb(14, 14, 14, 0.1);
   background-color: var(--label-background);
   margin: 0 12px;
 }
@@ -586,7 +586,6 @@ textarea {
 .mb-16p {
   margin-bottom: 16px;
 }
-
 [data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"] nav a.active {
   background-color: var(--hamburger-active-link);
   font-weight: bold;
@@ -598,22 +597,7 @@ textarea {
     width: 4px;
     border-radius: 4px 0 0 4px;
     left: 0;
-    background-color: var(--app-registration-tab-active-underline);
-    visibility: visible;
-  }
-}
-
-[data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"] nav a.active {
-  background-color: var(--hamburger-active-link);
-  font-weight: bold;
-  &::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    height: 40px;
-    width: 4px;
-    border-radius: 4px 0 0 4px;
-    left: 0;
+    bottom: 0;
     background-color: var(--app-registration-tab-active-underline);
     visibility: visible;
   }
