@@ -53,7 +53,7 @@ const FAQ = () => {
               <li>
                 For SSL and website acceleration for your app, open a free
                 account on
-                <a href="https://www.cloudflare.com/">Cloudflare</a>.
+                <a href="https://www.cloudflare.com/"> Cloudflare</a>.
               </li>
             </ol>
           </AccordionItem>
@@ -88,19 +88,19 @@ const FAQ = () => {
               <li>
                 Sign up as a {" "}
                 <a href="https://deriv.com/partners/payment-agent/">
-                  payment agent
+                payment agent
                 </a> {" "}
                 to process local payments for our clients in your country. You
-                may automate your payment agent facility using the
-                <a href=" /playground/#paymentagent_transfer">
-                  <code>paymentagent_transfer</code>
+                may automate your payment agent facility using the {" "}
+                <a href={"/playground/#paymentagent_transfer"} passHref={true}>
+                 <code className={styles.code}>paymentagent_transfer</code>
                 </a>{" "}
                 API call.
               </li>
               <li>
                 If you are prepared to offer higher contract prices than ours,
                 you may add a <strong>markup percentage</strong> when you
-                <a href="/docs/app-registration">register</a> your app. This is
+                <a href="/docs/app-registration"> register</a> your app. This is
                 a percentage of contract payouts, and it’s added to all contract
                 prices in your app. At every month-end, the aggregate markup is
                 paid to you. Sign up as our affiliate and contact your Affiliate
