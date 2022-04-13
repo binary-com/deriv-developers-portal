@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
     "env": {
         "browser": true,
@@ -10,7 +11,8 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:import/recommended",
         "plugin:import/errors",
-        "plugin:import/warnings"
+        "plugin:import/warnings",
+        "plugin:import/typescript"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -40,7 +42,7 @@ module.exports = {
         // "keyword-spacing"                   : ["error", { after: true }],
         "lines-between-class-members": 0,
         "indent": 0,
-        "max-len": ["error", { code: 120, "ignoreComments": true }],
+        // "max-len": ["error", { code: 120, "ignoreComments": true }],
         "no-extra-semi": "error",
         "no-console": "error",
         "no-else-return": ["error", { allowElseIf: true }],
@@ -71,7 +73,7 @@ module.exports = {
           },
         ],
         "import/prefer-default-export": 0,
-        "import/extensions": ["warn", "never", { jsx: "always", json: "always" }],
+        "import/extensions": ["warn", "never", { jsx: "never", json: "always" }],
         "no-sequences": ["warn"],
     
         // react rules
