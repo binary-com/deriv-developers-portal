@@ -58,7 +58,7 @@ export default function AppRegistration() {
                 </div></fieldset>
               <div className="expand-form">
                 <input id="expand_form" className="expand-form-checkbox" type="checkbox" autoComplete="off" />
-                <label htmlFor="admin-scope">I&apos;d like to use OAuth or monetise my app</label>
+                <label htmlFor="admin-scope">I'd like to use OAuth or monetise my app</label>
               </div>
               <div className="expandable-form">
                 <fieldset>
@@ -114,8 +114,8 @@ export default function AppRegistration() {
                       </div>
                     </div>
                     <p>Bear in mind that you generally need only
-                      <b>&apos;Trade&apos;</b> and
-                      <b>&apos;Trading information&apos;</b> access.
+                      <b>'Trade'</b> and
+                      <b>'Trading information'</b> access.
                     </p>
                   </div>
                   <div className="scopes-field">
