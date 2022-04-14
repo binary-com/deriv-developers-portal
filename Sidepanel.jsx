@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link} from '@tanstack/react-location'
+import { Link } from '@tanstack/react-location'
 
 const Sidepanel = () => {
   return (

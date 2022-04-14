@@ -4,7 +4,7 @@ import { Link,useLocation } from '@tanstack/react-location'
 
 const Sidebar = () => {
 
-    const location= useLocation();
+    const location = useLocation();
 
   return (
     <div className={styles.sidebarleft}>
@@ -21,7 +21,7 @@ const Sidebar = () => {
               ].map(([to,label])=>{
                 return (
                   <div key={to}>
-                    <Link to={to} className={to===location.current.pathname ? styles.selected : ''}
+                    <Link to={to} className={to === location.current.pathname ? styles.selected : ''}
                     >
                       {label}
                     </Link>

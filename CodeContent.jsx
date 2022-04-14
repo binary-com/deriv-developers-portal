@@ -1,13 +1,13 @@
 import React from "react";
 import Prism from "prismjs";
 import './prism.css'
-import "prismjs/components/prism-markup-templating.js";
+import "prismjs/components/prism-markup-templating";
 import "prismjs/components/prism-javascript";
 import "prismjs/components/prism-python";
 import "prismjs/components/prism-csharp";
 import "prismjs/components/prism-php";
 import "prismjs/components/prism-json";
-import "prismjs/plugins/custom-class/prism-custom-class.js";
+import "prismjs/plugins/custom-class/prism-custom-class";
 import styles from "./Quickstart.module.scss";
 
 const CodeContent = ({ lang, data }) => {
@@ -57,6 +57,3 @@ const CodeContent = ({ lang, data }) => {
   }
   
   export default CodeContent
-
-
-

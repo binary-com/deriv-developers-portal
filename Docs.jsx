@@ -1,9 +1,7 @@
-import {Outlet} from '@tanstack/react-location';
+import { Outlet } from '@tanstack/react-location';
 import { Suspense } from 'react';
 import Sidebar from './Sidebar';
 import './index.scss'
-
-
 
 function Docs() {
   return (
