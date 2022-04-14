@@ -1,21 +1,19 @@
-import {lazy} from 'react';
-import {ReactLocation} from '@tanstack/react-location'
 import React from 'react';
-const HomePage = lazy(()=>import('./Homepage'));
-const Docs = lazy(()=>import('./Docs'));
-const ApiExplorer = lazy(()=>import('./ApiExplorer'));
-const AppRegistration = lazy(()=>import('./AppRegistration'));
-const ApiGuide= lazy(()=>import('./ApiGuide'));
-const Faq = lazy(()=>import('./Faq'));
-const Json = lazy(()=>import('./Json'));
-const BugBounty = lazy(()=>import('./Bugbounty'));
-const Quickstart = lazy(()=>import('./Quickstart'));
+import { ReactLocation } from '@tanstack/react-location'
+const HomePage = React.lazy(()=>import('./Homepage'));
+const Docs = React.lazy(()=>import('./Docs'));
+const ApiExplorer = React.lazy(()=>import('./ApiExplorer'));
+const AppRegistration = React.lazy(()=>import('./AppRegistration'));
+const ApiGuide = React.lazy(()=>import('./ApiGuide'));
+const Faq = React.lazy(()=>import('./Faq'));
+const Json = React.lazy(()=>import('./Json'));
+const BugBounty = React.lazy(()=>import('./Bugbounty'));
+const Quickstart = React.lazy(()=>import('./Quickstart'));
 
-
-export const routes=[               
+export const routes = [               
   {
     path:"/",
-    element: <HomePage/>
+    element:<HomePage/>
   },
   {
     path:"docs",
@@ -56,6 +54,4 @@ export const routes=[
     element: <ApiExplorer/>
   }
 ];
-export const location= new ReactLocation();
-
-
+export const location = new ReactLocation();

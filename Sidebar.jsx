@@ -1,19 +1,33 @@
 import styles from "./Sidebar.module.scss"
 import React from 'react'
-import { Link} from '@tanstack/react-location'
+import { Link,useLocation } from '@tanstack/react-location'
 
 const Sidebar = () => {
+
+    const location = useLocation();
+
   return (
-    <div id="sidebar" className={styles.sidebarleft}>
+    <div className={styles.sidebarleft}>
             <p className={styles.sidebartitle}>Deriv API</p>
             <div>
-            <Link to="/docs/" >Quickstart</Link>
-            <Link to="/docs/app-registration/">App registration</Link>
-            <Link to="/api-explorer/">API explorer</Link>
-            <Link to="/docs/api-guide/">API guide</Link>
-            <Link to="/docs/faq/">FAQ</Link>
-            <Link to="/docs/json-schemas/">JSON Schemas</Link>
-            <Link to="/docs/bug-bounty/">Bug Bounty</Link>
+              {[
+                ["/docs/","Quickstart"],
+                ["/docs/app-registration/","App registration"],
+                ["/api-explorer/","API explorer"],
+                ["/docs/api-guide/","API guide"],
+                ["/docs/faq/","FAQ"],
+                ["/docs/json-schemas/","JSON Schemas"],
+                ["/docs/bug-bounty/","Bug Bounty"],
+              ].map(([to,label])=>{
+                return (
+                  <div key={to}>
+                    <Link to={to} className={to === location.current.pathname ? styles.selected : ''}
+                    >
+                      {label}
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import CodeContent from "./CodeContent"
+import CopyButton from './CopyButton'
 import styles from "./Quickstart.module.scss"
 
 const CodeBlock = ({ id, title, desc, subdesc }) => {
@@ -44,7 +45,7 @@ const CodeBlock = ({ id, title, desc, subdesc }) => {
               <option value="python">Python</option>
             </select>
           </p>
-          {/* <CopyButton size="16" content_to_copy={file_content} /> */}
+          <CopyButton size="16" content_to_copy={file_content} />
         </div>
         <CodeContent lang={lang} data={file_content} />
       </div>

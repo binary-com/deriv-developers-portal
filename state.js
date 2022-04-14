@@ -6,6 +6,42 @@ createMachine({
   id: "app",
   type: "parallel",
   states: {
+    hamburger: {
+      initial: "hamburger_closed",
+      states: {
+        hamburger_open: {
+          initial: "documentation_open",
+          states: {
+            documentation_open: {
+              on: {
+                TOGGLE_DOCUMENTATION: {
+                  target: "documentation_closed",
+                },
+              },
+            },
+            documentation_closed: {
+              on: {
+                TOGGLE_DOCUMENTATION: {
+                  target: "documentation_open",
+                },
+              },
+            },
+          },
+          on: {
+            TOGGLE_HAMBURGER: {
+              target: "hamburger_closed",
+            },
+          },
+        },
+        hamburger_closed: {
+          on: {
+            TOGGLE_HAMBURGER: {
+              target: "hamburger_open",
+            },
+          },
+        },
+      },
+    },
     registration: {
       initial: "logged_out",
       states: {
