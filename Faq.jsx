@@ -103,7 +103,7 @@ const FAQ = () => {
                 <a href="/docs/app-registration"> register</a> your app. This is
                 a percentage of contract payouts, and it’s added to all contract
                 prices in your app. At every month-end, the aggregate markup is
-                paid to you. Sign up as our affiliate and contact your Affiliate
+                paid to you around the 15th of every month. Sign up as our affiliate and contact your Affiliate
                 Manager to learn more.
               </li>
             </ol>
