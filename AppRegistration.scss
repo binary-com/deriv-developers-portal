@@ -28,12 +28,12 @@
 }
 
 [data-state~="registration.logged_in.update_mode"] .custom-text-input .api-token-input[readonly=true] {
-    color: var(--app-registration-tab-tooltip-background);
+    color: var(--border-normal);
     cursor: not-allowed;  
 }
 
 [data-state~="registration.logged_in.update_mode"] .custom-text-input .api-token-input[readonly=true]~label {
-    color: var(--app-registration-tab-tooltip-background) !important;
+    color: var(--border-normal) !important;
 }
 
 .app-btn span {
@@ -263,7 +263,7 @@
 }
 
 .info-icon:hover .tooltip {
-    background-color: var(--app-registration-tab-tooltip-background);
+    background-color: var(--border-normal);
     border-radius: 4px;
     color: var(--app-registration-tab-active-font);
     font-size: 12px;
@@ -286,7 +286,7 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid var(--app-registration-tab-tooltip-background);
+    border-top: 8px solid var(--border-normal);
     left: 30px;
     transform: translateX(-50%);
     position: absolute;
@@ -672,7 +672,7 @@
         right: 174px;
         top: 43px;
         z-index: 100;
-        color: var(--app-registration-text-submit);
+        color: var(--label-background);
         background-color: transparent;
     }
 }
