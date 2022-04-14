@@ -41,7 +41,7 @@ export default function HomePage() {
               <div className={styles.earnMoreImage} />
               <div className={styles.earnMore}>
                 <h3>Build a business and earn more</h3>
-                <p>Create your own trading apps by taking advantage of the power of Deriv&apos;s trading services. Share your apps with fellow traders or customers, and get a chance to earn more or build your own business.</p>
+                <p>Create your own trading apps by taking advantage of the power of Deriv's trading services. Share your apps with fellow traders or customers, and get a chance to earn more or build your own business.</p>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function HomePage() {
               <div className={styles.apiFeaturesDescription}>
                 <h3>Deriv API features</h3>
                 <p>Deriv API gives you full access to all the trading functionalities of DTrader and allows you to build your own comprehensive trading systems and analysis tools.</p>
-                <p>With our API, you&apos;ll be able to:</p>
+                <p>With our API, you'll be able to:</p>
                 <ul>
                   <li>
                     <div className={styles.checklistIcon} />
@@ -130,7 +130,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <div className={styles.checklistIcon} />
-                    <p>Manage users&apos; accounts</p>
+                    <p>Manage users' accounts</p>
                   </li>
                   <li>
                     <div className={styles.checklistIcon} />
@@ -138,7 +138,7 @@ export default function HomePage() {
                   </li>
                   <li>
                     <div className={styles.checklistIcon} />
-                    <p>View users&apos; historical transactions</p>
+                    <p>View users' historical transactions</p>
                   </li>
                 </ul>
               </div>
@@ -233,7 +233,7 @@ export default function HomePage() {
             <a target="_blank" href="https://binary.vanillacommunity.com/" className="community-btn" rel="noreferrer noopener">Join our community</a>
           </div>
           <div className="single-container dark">
-            <h2>We&apos;re here to help</h2>
+            <h2>We're here to help</h2>
             <p>
               Email us at
               <a href="mailto: api-support@deriv.com"> api-support@deriv.com</a><br />

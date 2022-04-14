@@ -87,6 +87,7 @@ module.exports = {
         // "react/jsx-tag-spacing"             : ["error", { closingSlash: "never", beforeSelfClosing: "always" }],
         "react/prop-types": 0,
         "react/self-closing-comp": "error",
+        "react/no-unescaped-entities": 0,
         // "react/sort-prop-types"             : ["error", { ignoreCase: true, sortShapeProp: true }],
     },
 }
