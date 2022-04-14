@@ -109,8 +109,15 @@ export default function HomepageSlider() {
             slidingTo(NEXT);
         }
     }
+    
+    interface touchEvent {
+        targetTouches: unknown;
+    }
+    interface slideEventValue extends touchEvent {
+        clientX: number;
+    }
 
-    const enableSliding = (event_type:string, event:any) => {
+    const enableSliding = (event_type:string, event:slideEventValue) => {
         setIsHoldingCard(true)
         if (event_type === "mouse") {
             setMouseDownPosition(event.clientX);
@@ -125,7 +132,7 @@ export default function HomepageSlider() {
                 <div 
                     id="slides"
                     className={styles.slides}
-                    style={{left: `${slide_distance}vw`, transition: enable_slide_animation ? "left 0.5s" : "none"}}
+                    style={{ left: `${slide_distance}vw`, transition: enable_slide_animation ? "left 0.5s" : "none" }}
                     onMouseUp={() => setIsHoldingCard(false)}
                     onMouseDown={(event) => enableSliding("mouse", event)}
                     onMouseMove={(event) => slideCard(event.clientX)}
