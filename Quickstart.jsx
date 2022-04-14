@@ -1,8 +1,6 @@
 import styles from "./Quickstart.module.scss";
 import CodeBlock from "./CodeBlock";
 
-
-
 const codeSampleData = [
     {
         id: "buy-contract",
@@ -33,9 +31,7 @@ const codeSampleData = [
 
 ]
 
-
-
-const QuickStart= () => (
+const QuickStart = () => (
         <div className={styles.page_content}>
             <h1 className={styles.doc_main_title}>Quickstart to Deriv API</h1>
             <div>

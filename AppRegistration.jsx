@@ -48,8 +48,7 @@ export default function AppRegistration() {
                     <input type="text" id="api_token_input" className="api-token-input" placeholder=" " />
                     <label>API token (Required)</label>
                   </div>
-                  <div className="api-token-warning">
-                  </div>
+                  <div className="api-token-warning" />
                   <div className="first">
                     <div className="custom-text-input" id="custom-text-input">
                       <input type="text" id="app_name" name="app_name" pattern="^[\w\s-]{1,48}$" placeholder=" " required />
@@ -141,7 +140,7 @@ export default function AppRegistration() {
                 <div className="terms-of-conditions-register">
                   <span>By registering your application, you acknowledge that you’ve read and accepted the
                     Deriv API </span>
-                  <a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank">
+                  <a href="https://deriv.com/tnc/business-partners-api-user.pdf" target="_blank" rel="noreferrer">
                     <span>terms and conditions</span></a><span>.</span>
                 </div>
                 <button className="primary-btn-submit register-app-button" id="btnRegister"><span>Register new

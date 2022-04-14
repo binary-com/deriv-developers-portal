@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "./Quickstart.module.scss"
 
-const CopyButton = ({content_to_copy,className = "copy_button"}) => {
+const CopyButton = ({ content_to_copy,className = "copy_button" }) => {
   const fallbackCopyTextToClipboard = () => {
     const copy_snippet = document.createElement("textarea")
     document.body.appendChild(copy_snippet)
