@@ -22,4 +22,4 @@ exclude:
     - modules
     - Dockerfile
     - developers.com.conf
-    - ruby
+    - [vendor]
