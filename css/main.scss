@@ -726,6 +726,7 @@ button:focus {
   }
   .show-canvas {
     left: 0;
+    z-index: 101;
   }
   .main-content > .doc-content {
     flex-direction: column;
