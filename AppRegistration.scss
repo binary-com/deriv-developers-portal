@@ -301,6 +301,12 @@
 .login-image {
     margin-top: 95px;
     margin-bottom: 16px;
+    background-image: url(/img/login.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 128px;
+    height: 128px;
 }
 
 .login-title {
