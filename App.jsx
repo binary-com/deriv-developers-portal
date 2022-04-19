@@ -9,14 +9,14 @@ import Header from './components/Header/Header';
 function App() {
   const queryClient = new QueryClient()
   return (
-    <Suspense fallback={<div>loading</div>}>
-      <QueryClientProvider client={queryClient}>
-          <Router routes={routes} location={location}>
-            <Header/>
-            <Outlet/>
-          </Router>
-      </QueryClientProvider>
-    </Suspense>
+    <QueryClientProvider client={queryClient}>
+      <Router routes={routes} location={location}>
+        <Header />
+        <Suspense fallback={<div>loading</div>}>
+          <Outlet />
+        </Suspense>
+      </Router>
+    </QueryClientProvider>
   )
 }
 
