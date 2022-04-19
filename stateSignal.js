@@ -4,7 +4,7 @@ import { stateMachine } from './state';
 
 export const [state, setState] = createSignal('');
 
-export const { send } = interpret(stateMachine).onTransition(currentState => {
+export const stateService = interpret(stateMachine).onTransition(currentState => {
     createEffect(() => {
         const joinedState = currentState.toStrings().join(' ');
         const app = document && document.querySelector("body");
@@ -12,3 +12,5 @@ export const { send } = interpret(stateMachine).onTransition(currentState => {
         setState(joinedState);
     });
 }).start();
+
+export const { send } = stateService;
