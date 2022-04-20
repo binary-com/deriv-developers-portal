@@ -3,11 +3,11 @@
 :root {
   --app-sidebar-border-color: #f0f1f3a3;
   --app-registration-tab-active-font: #333333;
-  --app-registration-tab-active-underline: #ff444f;
+  --red-01: #ff444f;
   --app-registration-tab-secondary: #999999;
   --app-registration-tab-light-grey: #e6e9e9;
   --app-registration-tab-table-row-grey: #fbfbfb;
-  --background: #0e0e0e;
+  --black-01: #0e0e0e;
   --blockquote-separator-color: #f5f7fa;
   --blockquote-text-color: #f2f3f4;
   --border-normal: #d6dadb;
@@ -17,7 +17,9 @@
   --community-btn-border: #6e6e6e;
   --hamburger-active-link: #577A9214;
   --hamburger-menu-width: 260px;
-  --label-background: #ffffff;
+  --white-01: #ffffff;
+  --btn-background: var(--red-01);
+  --btn-text-color: var(--white-01);
 }
 * {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -271,7 +273,7 @@ blockquote:after {
   background-color: var(--blockquote-separator-color);
 }
 .white {
-  background-color: var(--label-background);
+  background-color: var(--white-01);
 }
 .subheader {
   font-size: 24px;
@@ -362,7 +364,7 @@ textarea {
   }
 }
 a {
-  color: var(--app-registration-tab-active-underline);
+  color: var(--red-01);
   text-decoration: none;
 }
 h1 {
@@ -418,7 +420,7 @@ p {
   text-align: center;
 }
 .single-container p a {
-  color: var(--app-registration-tab-active-underline);
+  color: var(--red-01);
 }
 .single-container h1 {
   width: 80%;
@@ -439,7 +441,7 @@ p {
 .single-container > h2 {
   font-size: 32px;
   margin-bottom: 8px;
-  color: var(--label-background);
+  color: var(--white-01);
 }
 .with-pattern {
   background-image: url(/img/pattern.svg);
@@ -479,7 +481,7 @@ p {
   padding: 32px 24px;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgb(14, 14, 14, 0.1);
-  background-color: var(--label-background);
+  background-color: var(--white-01);
   margin: 0 12px;
 }
 .main-page-card .header {
@@ -559,12 +561,12 @@ textarea {
   margin: 0 auto;
 }
 .dark {
-  color: var(--label-background);
-  background-color: var(--background);
+  color: var(--white-01);
+  background-color: var(--black-01);
 }
 .dark .selected,
 .dark a {
-  color: var(--label-background);
+  color: var(--white-01);
 }
 .dark p {
   color: var(--copy-color);
@@ -587,7 +589,7 @@ textarea {
     border-radius: 4px 0 0 4px;
     left: 0;
     bottom: 0;
-    background-color: var(--app-registration-tab-active-underline);
+    background-color: var(--red-01);
     visibility: visible;
   }
 }

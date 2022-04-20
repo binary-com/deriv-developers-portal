@@ -158,7 +158,7 @@
 
 /* red "No, keep it" button with white text */
 .dialog-btn-submit {
-    background-color: var(--app-registration-tab-active-underline);
+    background-color: var(--red-01);
     color: white;
     font-weight: bold;
     height: 40px;
@@ -389,7 +389,7 @@
 [data-state~="registration.logged_in.register_tab"] .register-button {
     font-weight: bold;
     color: var(--app-registration-tab-active-font);
-    border-bottom: 3px solid var(--app-registration-tab-active-underline);
+    border-bottom: 3px solid var(--red-01);
 }
 
 [data-state~="registration.logged_in.update_mode"] .expandable-form .register-app-button span {
@@ -416,7 +416,7 @@
     content: "Update your application";
     font-weight: bold;
     color: var(--app-registration-tab-active-font);
-    border-bottom: 3px solid var(--app-registration-tab-active-underline);
+    border-bottom: 3px solid var(--red-01);
     position: absolute;
     padding: 10px 0;
     width: 100%;
@@ -501,10 +501,6 @@
     font-size: 12px;
 }
 
-.app-registration-signout {
-    display: none;
-}
-
 @media screen and (min-width: 480px) {
     .dialog {
         width: 440px; 
@@ -577,15 +573,5 @@
 
     .register-form-header {
         font-size: 16px;
-    }
-
-    [data-state~="registration.logged_in"] .app-registration-signout {
-        display: block;
-        position: fixed;
-        right: 174px;
-        top: 43px;
-        z-index: 100;
-        color: var(--label-background);
-        background-color: transparent;
     }
 }

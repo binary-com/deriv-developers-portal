@@ -169,7 +169,6 @@ export default function AppRegistration() {
         </div>
         <AppManagement />
       </div>
-      <button id="logout" className="app-registration-signout gray-btn-submit">Sign out</button>
     </div>
   )
 }

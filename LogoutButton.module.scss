@@ -1,0 +1,17 @@
+.signOut {
+    --btn-background: var(--black-01);
+    display: block;
+    position: fixed;
+    right: 174px;
+    top: 43px;
+    z-index: 100;
+    color: var(--white-01);
+    background-color: transparent;
+    border: solid 2px var(--app-registration-tab-secondary);
+    border-radius: 4px;
+}
+
+[data-state*="mobile"] .signOut {
+    right: 19px;
+    top: 2px;
+}
