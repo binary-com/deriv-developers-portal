@@ -317,13 +317,6 @@
     text-align: center;
 }
 
-[data-state~="registration.logged_in.manage_tab"] .manage-apps {
-    display: inline-block;
-    overflow: auto;
-    width: 100%;
-    max-height: 500px;
-}
-
 .main-register-btn {
     padding: 10px 16px;
     border-radius: 4px;
@@ -331,48 +324,6 @@
     text-decoration: none;
     font-weight: 700;
     color: #fff;
-}
-
-.manage-apps {
-    display: none;
-}
-
-.manage-apps table {
-    border-spacing: 0;
-    width: calc(100% - 125px);
-}
-
-.manage-apps thead {
-    background-color: var(--app-registration-tab-light-grey);
-    height: 50px;
-    text-align: left;
-}
-
-.manage-apps th,
-.manage-apps td {
-    padding: 16px;
-    min-width: 120px;
-}
-
-/* Set width of last two table columns to 40px */
-.manage-apps td:last-child,
-.manage-apps th:last-child {
-    min-width: 1px !important;
-    width: 1px !important;
-    padding: 0;
-    white-space: nowrap;
-    padding-left: 5%;
-}
-
-/* set padding-left of first column to 32px */
-.manage-apps td:first-child,
-.manage-apps th:first-child {
-    padding-left: 32px;
-}
-
-/* set width of last table column to 20px */
-.manage-apps tbody tr:nth-child(even) {
-    background-color: var(--app-registration-tab-table-row-grey);
 }
 
 .no-apps {
@@ -401,10 +352,6 @@
 [data-state~="registration.logged_in.manage_tab.loadingApps.empty"] .no-apps-wrapper {
     display: inline-block;
     visibility: visible;
-}
-
-[data-state~="registration.logged_in.manage_tab.loadingApps.empty"] .manage-apps {
-    visibility: hidden;
 }
 
 .no-apps-wrapper {
@@ -531,41 +478,6 @@
     margin-top: 40px;
 }
 
-.skeleton {
-    background-image: linear-gradient(to right, white, #E6E6E6, #E6E6E6);
-    padding: 10px;
-    height: 20px;
-    margin-bottom: 16px;
-    width: 100px;
-    position: relative;
-}
-
-.skeleton:before {
-    content: ' ';
-    background-image: linear-gradient(to right, #E6E6E6, #E6E6E6, white);
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation-name: loading-skeleton;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-@keyframes loading-skeleton {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 .terms-of-conditions-register {
     margin-top: 35px;
 }
@@ -642,11 +554,6 @@
     .login-title {
         font-size: 20px;
         margin-bottom: 24px;
-    }
-
-
-    [data-state~="registration.logged_in.manage_tab"] .manage-apps {
-        margin-left: 125px;
     }
 
     .no-apps-wrapper {
