@@ -1,0 +1,43 @@
+.manageApps {
+    display: none;
+    table {
+        border-spacing: 0;
+        width: calc(100% - 125px);
+    }
+    thead {
+        background-color: var(--app-registration-tab-light-grey);
+        height: 50px;
+        text-align: left;
+    }
+    th, td {
+        padding: 16px;
+        min-width: 120px;
+    }
+    td:last-child,
+    th:last-child {
+        min-width: 1px !important;
+        width: 1px !important;
+        padding: 0;
+        white-space: nowrap;
+        padding-left: 5%;
+    }
+    td:first-child,
+    th:first-child {
+        padding-left: 32px;
+    }
+    tbody tr:nth-child(even) {
+        background-color: var(--app-registration-tab-table-row-grey);
+    }
+}
+
+[data-state~="registration.logged_in.manage_tab"] .manageApps {
+    display: inline-block;
+    overflow: auto;
+    width: 100%;
+    max-height: 500px;
+    margin-left: 125px;
+}
+
+[data-state~="registration.logged_in.manage_tab.loadingApps.empty"] .manageApps {
+    visibility: hidden;
+}

@@ -1,0 +1,15 @@
+.btn {
+    background-color: var(--btn-background);
+    color: var(--btn-text-color);
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    cursor: pointer;
+}
