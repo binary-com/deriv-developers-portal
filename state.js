@@ -240,9 +240,9 @@ createMachine({
     },
     responsive: {
       states: {
-        laptopL: {},
-        laptop: {},
-        screen4k: {},
+        desktopLaptopL: {},
+        desktopLaptopM: {},
+        desktopScreen4k: {},
         mobileL: {},
         mobileM: {},
         mobileS: {},
@@ -250,13 +250,13 @@ createMachine({
       },
       on: {
         GO_LAPTOP_L: {
-          target: ".laptopL",
+          target: ".desktopLaptopL",
         },
         GO_LAPTOP: {
-          target: ".laptop",
+          target: ".desktopLaptopM",
         },
         GO_SCREEN4K: {
-          target: ".screen4k",
+          target: ".desktopScreen4k",
         },
         GO_MOBILE_L: {
           target: ".mobileL",

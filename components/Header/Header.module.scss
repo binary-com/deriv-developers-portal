@@ -164,8 +164,7 @@
     }
 }
 
-[data-state*="responsive.laptop"],
-[data-state~="responsive.screen4k"] {
+[data-state*="responsive.desktop"] {
     .hamburgerNavigation {
         visibility: hidden;
     }
@@ -236,7 +235,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; 
-    [data-view~='laptop'] {
+    [data-view~='desktopLaptopM'] {
         .logo {
         width: 84px;
         height: auto;

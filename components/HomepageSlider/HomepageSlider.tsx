@@ -20,9 +20,9 @@ export default function HomepageSlider() {
     const [slide_position, setSlidePosition] = React.useState(1);
     
     React.useEffect(() => {
-        if (window_resize.width >= devices.laptop) {
+        if (window_resize.width >= devices.desktopLaptopM) {
             setSlideDistance((slide_size.big * slide_position) * -1);
-        } else if (window_resize.width <= devices.laptop) {
+        } else if (window_resize.width <= devices.desktopLaptopM) {
             setSlideDistance((slide_size.small * slide_position) * -1);
         }
     }, [slide_position, window_resize, devices, slide_size])
