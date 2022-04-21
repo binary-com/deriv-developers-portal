@@ -3,6 +3,7 @@ import { interpret } from 'xstate';
 import { stateMachine } from './state';
 
 export const [state, setState] = createSignal('');
+export const [updatingRow, setUpdatingRow] = createSignal();
 
 export const stateService = interpret(stateMachine).onTransition(currentState => {
     createEffect(() => {
@@ -14,3 +15,7 @@ export const stateService = interpret(stateMachine).onTransition(currentState =>
 }).start();
 
 export const { send } = stateService;
+
+createEffect(() => {
+    window.send = send;
+});

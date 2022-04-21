@@ -14,10 +14,16 @@ export default function LogoutButton() {
     return (
         <Suspense fallback={<div />}>
             <div className={styles.signOut}>
-                <LazyButton onClick={() => stateService.send('LOGOUT')}>
+                <LazyButton onClick={logout}>
                     Sign out
                 </LazyButton>
             </div>
         </Suspense>
     );
+}
+
+const logout = () => {
+    stateService.send('LOGOUT');
+    sessionStorage.removeItem('token1');
+    location.replace('/docs/app-registration/');
 }

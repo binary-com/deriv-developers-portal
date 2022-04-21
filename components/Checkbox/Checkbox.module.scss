@@ -1,0 +1,25 @@
+input[type=checkbox] {
+    display: none;
+    margin-right: 16px;
+    transform: scale(1.23);
+    padding: 9px;
+}
+
+.customCheckbox {
+    background-image: url(/img/check.svg);
+    background-repeat: no-repeat;
+    display: inline-block;
+    border: 2px solid var(--app-registration-tab-secondary);
+    min-width: 11px;
+    height: 11px;
+    position: relative;
+    top: 1px;
+    margin-right: 8px;
+    border-radius: 2px;
+    transition: background-color .25s,border-color .25s;
+}
+
+.activeCheckbox {
+    background-color: var(--red-01);
+    border-color: var(--red-01);
+}

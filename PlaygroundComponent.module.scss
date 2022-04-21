@@ -1,0 +1,315 @@
+.playgroundContent {
+    min-height: 95vh;
+    width: 100%;
+    border-left: 2px solid var(--app-sidebar-border-color);
+
+    .headerTitle h1 {
+        text-align: center;
+        font-size: 48px;
+        margin-bottom: 40px;
+    }
+
+    .pageWrapper {
+        display: flex;
+        color: var(--black-03);
+
+        .playground {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: fit-content;
+            width: 100%;
+            margin-bottom: 160px;
+
+            .playgroundPageWrapper {
+                display: flex;
+                width: 95%;
+            }
+        }
+    }
+}
+
+.playgroundApiJson {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+
+    .apiToken {
+        display: flex;
+        flex-wrap: nowrap;
+        border-radius: 4px;
+        background-color: var(--gray-13);
+        padding: 0 24px;
+        margin-bottom: 48px;
+        margin-top: 16px;
+
+        fieldset {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 0 12px;
+            font-size: 14px;
+            line-height: 1.43;
+            border: none;
+            color: var(--black-03);
+            margin: 0 24px 0 0;
+            padding: 10px 0;
+        }
+    }
+
+    .apiRequest {
+        display: flex;
+        flex-wrap: nowrap;
+        border-radius: 4px;
+        margin-bottom: 24px;
+        border: 0.5px solid var(--gray-10);
+        width: 100%
+    }
+
+    .cta {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        font-size: 14px;
+        width: 100%;
+        margin-bottom: unset;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+        border-left: 1px solid var(--app-sidebar-border-color);
+
+        &-button button{
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 4px;
+            border: solid 2px var(--gray-04);
+            color: var(--black-03);
+
+            &:hover {
+                background-color: var(--gray-13);
+            }
+        }
+
+        .title {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.43;
+            text-align: center;
+            color: var(--black-03);
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.playgroundApiDocs {
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    display: block;
+}
+
+.btnAuthenticate {
+    width: 118px;
+    height: 42px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background-color: var(--red-01);
+    font-size: 14px;
+    line-height: 1.43;
+    color: var(--white-01);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.playgroundBox {
+    border-radius: 6px;
+    border: none;
+    padding: 24px 24px 82px 24px;
+    margin-bottom: 40px;
+    position: relative;
+
+    .playgroundConsole {
+        width: 100%;
+
+        .progress {
+            margin: 0 auto;
+        }
+        pre .key {
+            color: #f92672;
+        }
+        pre .string {
+            color: #e6db74;
+        }
+        pre .number {
+            color: #ae81ff;
+        }
+        pre.req, pre.res, pre.err {
+            padding: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color:var(--black-01);
+            color: var(--copy-color);
+            line-height: 24px;
+            max-width: 100%;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-bottom: 16px;
+        }
+    }
+
+    .inlineLabel {
+        position: absolute;
+        top: 17px;
+        left: 30px;
+        font-size: 10px;
+        padding: 2px 4px;
+
+       
+    }
+
+    .jsonBtnWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 26px 0 40px;
+
+        .btnSubmit {
+            background-color: var(--black-04);
+            border: var(--gray-04) 2px solid;
+            color: var(--white-01);
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1.43;
+            padding: 8px 16px;
+            margin: 0 8px 0 0;
+        }
+
+        #playground-reset-btn {
+            .btnReset {
+                color: var(--white-01);
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 1.43;
+                background-color: var(--red-01);
+                padding: 10px 16px;
+
+                &:hover {
+                    background-color: rgba(255, 68, 79, 0.68);
+                }
+            }
+        }
+    }
+
+    textarea {
+        min-height: 200px;
+        padding: 10px 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--black-01);
+        color: var(--copy-color);
+        resize: none;
+    }
+}
+
+.playgroundReqSchema{
+    margin-bottom: 10px;
+}
+
+.playgroundResSchema{
+    margin: 10px 0;
+}
+
+.apiRequest {
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    border: 0.5px var(--gray-10);
+}
+.select2 {
+    width: 100% !important;
+    color: var(--gray-05);
+    border: solid 1px var(--border-normal) !important;
+    display: block;
+    padding-left: 8px;
+    padding-right: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 28px;
+
+}
+.option {
+    border: none;
+    border-radius: 3.5px !important;
+    border: solid 1px var(--border-normal) !important;
+    color: var(--gray-05) !important;
+
+}
+
+[data-state~="responsive.desktopLaptopM"] {
+    .playground{
+        .playgroundPageWrapper{
+            display: flex;
+            flex-direction: row;
+    }
+    }
+    .apiToken{
+        flex-direction: column-reverse;
+    }
+}
+
+[data-state*="responsive.mobile"]{
+        .headerTitle h1{
+            font-size: 32px;
+        }
+        .playgroundApiJson{
+            width: 100%;
+        }
+        .apiToken{
+            fieldset{
+                    margin-top: 24px;
+                    flex-wrap: nowrap;
+                }
+        }
+        .cta{
+            width: 100%;
+            margin-bottom: 24px;
+        }
+        .playgroundApiDocs{
+            width: 100%;
+        }
+        .playgroundBox{
+            .playgroundConsole{
+                    max-height: 400px;
+            }
+            .inlineLabel{
+                    top: 16px;
+                    left: 23px;
+            }
+            textarea{
+                font-size: 14px;
+            }
+        }
+        .playgroundContent {
+            padding: 80px 5px;
+            width: 100%;
+        }
+        .playground{
+            .playgroundPageWrapper{
+                flex-direction: column;
+        }
+        }
+}

@@ -12,4 +12,27 @@
     letter-spacing: normal;
     text-align: center;
     cursor: pointer;
+    &:hover {
+        --btn-background: var(--red-02);
+    }
+    &.secondary {
+        --btn-background: transparent;
+        --btn-text-color: var(--black-01);
+        border: solid 2px var(--gray-05);
+        border-radius: 4px;
+        width: fit-content;
+        padding: 8px 16px;
+        &:hover {
+            --btn-background: var(--gray-05);
+        }
+    } 
+}
+
+button[disabled] {
+    background-color: var(--btn-background-disabled);
+    color: var(--btn-text-color-disabled);
+    cursor: not-allowed;
+    &:hover {
+        background-color: var(--btn-background-disabled);
+    }
 }

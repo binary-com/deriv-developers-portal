@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useOutsideClick } from "../../custom_hooks/useClickOutsideElement";
+import { stateService } from "../../stateSignal";
 import styles from "./Header.module.scss";
 import Navigation from "./Navigation";
 
 export default function Header() {
+    const ref = useRef(null);
+    useOutsideClick(ref, () => {
+        stateService.send('CLICK_OUTSIDE');
+    });
     return (
         <div id="main-nav" className={styles.nav}>
             <div className={`${styles.topNav} ${styles.flexContainer}`}>
@@ -12,7 +18,7 @@ export default function Header() {
                     <a href="https://deriv.com/contact-us">Contact us</a>
                 </div>
             </div>
-            <header className={styles.header}>
+            <header ref={ref} className={styles.header}>
                 <div className={styles.headerContainer}>
                     <Navigation />
                 </div>

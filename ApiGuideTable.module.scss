@@ -1,0 +1,36 @@
+.apiGuideTable {
+    width: 75%;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--gray-02);
+    th {
+        background-color: var(--gray-02);
+        padding: 1.5rem 2rem;
+        text-align: left;
+    }
+    td {
+        padding: 1.5rem 2rem;
+        box-shadow: inset 0 -1px 0 var(--white-03);
+    }
+}
+
+[data-state*="responsive.mobile"] .apiGuideTable {
+    width: 100%;
+    th, td {
+        padding: 4px;
+    }
+}
+
+[data-state*="responsive.mobileTablet"] .apiGuideTable {
+    width: 80%;
+    th, td {
+        padding: 1.5rem 2rem;
+    }
+}
+
+[data-state~="responsive.desktopLaptopM"] .apiGuideTable {
+    width: 60%;
+    th, td {
+        padding: 10px 15px;
+    }
+}
