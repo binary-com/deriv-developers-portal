@@ -4,6 +4,7 @@ import './AppRegistration.scss';
 import styles from './AppManagement.module.scss';
 import { useApps } from './useApps';
 import SkeletonText from './components/SkeletonText/SkeletonText';
+import AppManagementEmptyLazy from './AppManagementEmptyLazy';
 
 const columns = [
     {
@@ -26,7 +27,7 @@ const columns = [
 ];
 
 export default function AppManagement() {
-    const { data, isLoading } = useApps();
+    const { data, isFetching } = useApps();
     const table_data = useMemo(() => data?.app_list || [], [data]);
     const {
         getTableProps,
@@ -39,6 +40,7 @@ export default function AppManagement() {
         data: table_data,
     }, useSortBy);
     return (
+        <>
         <div className={styles.manageApps}>
             <table {...getTableProps()}>
                 <thead>
@@ -60,7 +62,7 @@ export default function AppManagement() {
                     ))}
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {isLoading && <SkeletonRows />}
+                    {isFetching && <SkeletonRows />}
                     {rows.map((row, i) => {
                         prepareRow(row);
                         return (
@@ -74,6 +76,8 @@ export default function AppManagement() {
                 </tbody>
             </table>
         </div>
+        <AppManagementEmptyLazy />
+        </>
     );
 }
 

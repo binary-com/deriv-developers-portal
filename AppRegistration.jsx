@@ -1,4 +1,4 @@
-import AppManagement from './AppManagement';
+import AppManagementLazy from './AppManagementLazy';
 import './AppRegistration.scss';
 import { oauthUrl } from './appRegistrationEffects';
 import { send } from './stateSignal';
@@ -167,7 +167,7 @@ export default function AppRegistration() {
             </div>
           </dialog>
         </div>
-        <AppManagement />
+        <AppManagementLazy />
       </div>
     </div>
   )

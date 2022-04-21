@@ -17,12 +17,14 @@ export const useApps = () => {
     const isLoadingApps = useSelector(stateService, isLoadingAppsSelector);
     return useQuery('apps', getApps, {
         enabled: isLoadingApps,
-        onSuccess: () => stateService.send('SUCCESS'),
-        onError: () => stateService.send('ERROR'),
-        onSettled: (data) => {
-            if (data?.app_list?.length === 0) {
+        onSuccess: (data) => {
+            const isEmpty = data?.app_list?.length === 0;
+            if (isEmpty) {
                 stateService.send('EMPTY');
+            } else {
+                stateService.send('SUCCESS');
             }
         },
+        onError: () => stateService.send('ERROR'),
     });
 }

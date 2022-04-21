@@ -1,0 +1,54 @@
+.noAppsWrapper {
+    width: calc(100% - 32px);
+}
+
+.noApps {
+    padding-top: 72px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(320px - 32px);
+    position: relative;
+    margin: 0 auto;
+}
+
+.noAppsIcon {
+    margin-top: 16px;
+    margin-bottom: 20px;
+    background-image: url(/img/table-empty.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+}
+
+.noAppsText {
+    text-align: center;
+}
+
+[data-state*="responsive.desktop"] {
+    .noAppsWrapper {
+        width: calc(100% - 125px);
+        position: relative;
+    }
+    .noApps {
+        padding-top: 72px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .noAppsText {
+        width: 390px;
+    }
+}
+
+.emptyButton {
+    --btn-background: var(--white-01);
+    --btn-text-color: var(--black-01);
+    background-color: transparent;
+    border: solid 2px var(--app-registration-tab-secondary);
+    border-radius: 4px;
+}
