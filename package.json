@@ -1,0 +1,23 @@
+{
+    "name": "deriv-developers-portal",
+    "version": "1.0.0",
+    "description": "This repository is the source for http://developers.deriv.com",
+    "main": "code.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "build": "bundle exec jekyll build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yashim-deriv/deriv-developers-portal.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/yashim-deriv/deriv-developers-portal/issues"
+    },
+    "homepage": "https://github.com/yashim-deriv/deriv-developers-portal#readme"
+}
