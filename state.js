@@ -43,7 +43,7 @@ createMachine({
       },
     },
     registration: {
-      initial: "logged_out", // set back to logged_out after implementing the form;
+      initial: "logged_in", // set back to logged_out after implementing the form;
       states: {
         logged_out: {
           on: {
@@ -56,7 +56,7 @@ createMachine({
           initial: "register_tab",
           states: {
             register_tab: {
-              initial: "folded_form",
+              initial: "unfolded_form",
               states: {
                 folded_form: {
                   invoke: {
