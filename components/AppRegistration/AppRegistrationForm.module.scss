@@ -1,0 +1,125 @@
+.formContent {
+    margin-bottom: 0;
+    .expandForm {
+        width: 80%;
+        left: 0;
+        display: flex;
+        padding: 40px 0 10px;
+        .expandFormCheckbox {
+            margin-right: 16px;
+            transform: scale(1.23);
+            padding: 9px;
+            top: 1px;
+            position: relative;
+        }
+    }
+    .expandableForm {
+        display: none;
+        width: 80%;
+        fieldset {
+            width: 100%;
+        }
+        .registerAppButton {
+            padding: 12px 32.5px;
+        }
+    }
+    .formHeaderContainer {
+        display: flex;
+        padding: 10px 0;
+        .registerFormHeader {
+            font-size: 16px;
+            margin-right: 5px;
+            line-height: 20px
+        }
+        .infoIcon {
+            position: relative;
+            top: 2px !important;
+            .infoIconImage {
+                background-image: url(/img/info-icon.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            .tooltip .tooltipLink {
+                font-size: 12px;
+            }
+            &:hover .tooltip {
+                background-color: var(--border-normal);
+                border-radius: 4px;
+                color: var(--app-registration-tab-active-font);
+                font-size: 12px;
+                left: 50%;
+                line-height: 18px;
+                padding: 8px;
+                position: absolute;
+                display: inline-block;
+                width: 140px;
+                transform: translate(-19%, calc(-100% - 10px));
+                &:hover {
+                    display: inline-block;
+                }
+                &:before {
+                    content: ' ';
+                    width: 0;
+                    height: 0;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-top: 8px solid var(--border-normal);
+                    left: 30px;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    bottom: -5px;
+                }
+            }
+        }
+    }
+}
+
+[data-state~="registration.logged_in.register_tab.unfolded_form"] .expandableForm {
+    display: flex;
+    flex-direction: column;
+
+}
+
+[data-state~="registration.logged_in.register_tab.folded_form"] .expandableForm {
+    display: none;
+}
+
+[data-state~="registration.logged_in.update_mode"] .expandableForm { 
+    .registerAppButton span {
+        visibility: hidden;
+        position: relative;
+        &:after {
+            visibility: visible;
+            content: "Update application";
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+}
+
+[data-state~="registration.logged_in.update_mode"] .customTextInput .apiTokenInput[readonly=true] {
+    color: var(--border-normal);
+    cursor: not-allowed;
+    &~label {
+        color: var(--border-normal) !important;
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .formContent {
+        .expandableForm .registerAppButton {
+            padding: 12px 20px;
+        }
+    }
+    .registerFormHeader {
+        font-size: 16px;
+    }
+    .infoIcon:hover .tooltip {
+        width: 280px;
+        transform: translate(-50%, calc(-100% - 10px));   
+        &:before {
+            left: 50%;
+        }
+    }
+}

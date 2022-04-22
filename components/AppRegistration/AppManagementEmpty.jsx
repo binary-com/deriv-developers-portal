@@ -1,6 +1,6 @@
 import styles from './AppManagementEmpty.module.scss';
-import Button from './components/Button/Button';
-import { send } from './stateSignal';
+import Button from '../Button/Button';
+import { send } from '../../stateSignal';
 
 export default function AppManagementEmpty() {
     return (
