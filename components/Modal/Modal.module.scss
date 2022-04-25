@@ -1,0 +1,70 @@
+.modalHeader {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.closeModal {
+    margin: 26px 18px;
+    cursor: pointer;
+    background-image: url(/img/close_dialog.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+}
+
+.modalContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin modalImage {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+}
+
+.modalImageSuccess {
+    background-image: url(/img/success.svg);
+    @include modalImage;
+}
+
+.modalImageWarning {
+    background-image: url(/img/warning.png);
+    @include modalImage;
+}
+
+.modalTitle {
+    margin-bottom: 16px;
+    font-size: 24px;
+    text-align: left;
+    line-height: 1.5;
+    color: var(--text-01);
+    font-weight: bold;
+}
+
+.modalDescription {
+    text-align: center;
+}
+
+.modalFooter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 37px;
+}
+
+.modalSecondary {
+    margin-right: 24px;
+}

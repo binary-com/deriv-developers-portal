@@ -287,7 +287,7 @@
 [data-state~="registration.logged_in.manage_tab"] .manage-button,
 [data-state~="registration.logged_in.register_tab"] .register-button {
     font-weight: bold;
-    color: var(--app-registration-tab-active-font);
+    color: var(--text-01);
     border-bottom: 3px solid var(--red-01);
 }
 
@@ -301,7 +301,7 @@
     visibility: visible;
     content: "Update your application";
     font-weight: bold;
-    color: var(--app-registration-tab-active-font);
+    color: var(--text-01);
     border-bottom: 3px solid var(--red-01);
     position: absolute;
     padding: 10px 0;
