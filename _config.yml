@@ -21,5 +21,9 @@ exclude:
     - Gemfile.lock
     - modules
     - Dockerfile
-    - developers.com.conf
+    - developers.deriv.com.conf
     - vendor
+    - package.json
+    - LICENSE
+    - README.md
+    - *.env

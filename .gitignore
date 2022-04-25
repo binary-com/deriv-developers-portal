@@ -3,3 +3,5 @@ _site/**
 .sass-cache
 .idea/
 Gemfile.lock
+.DS_Store
+.env
