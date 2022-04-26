@@ -5,7 +5,7 @@
         width: calc(100% - 125px);
     }
     thead {
-        background-color: var(--app-registration-tab-light-grey);
+        background-color: var(--gray-02);
         height: 50px;
         text-align: left;
     }
@@ -23,7 +23,7 @@
         padding-left: 32px;
     }
     tbody tr:nth-child(even) {
-        background-color: var(--app-registration-tab-table-row-grey);
+        background-color: var(--gray-03);
     }
 }
 

@@ -1,7 +1,10 @@
 .buttonSecondary {
-    --btn-background: var(--white-01);
+    --btn-background: transparent;
     --btn-text-color: var(--black-01);
-    background-color: transparent;
-    border: solid 2px var(--app-registration-tab-secondary);
+    border: solid 2px var(--gray-05);
     border-radius: 4px;
+    width: fit-content;
+    &:hover {
+        --btn-background: var(--gray-05);
+    }
 }

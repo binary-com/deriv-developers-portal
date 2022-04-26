@@ -15,7 +15,7 @@ const JsonSchemas = () => {
 
     return (
         <div className={`${style["page-container"]} page-content`}>
-            <h1 className="doc-main-title">JSON Schemas</h1>
+            <h1>JSON Schemas</h1>
             <p>
                 Our API is defined by
                 <Link href={json_navigation[0].path} target="_blank" rel="noreferrer"> {json_navigation[0].title}</Link>.
