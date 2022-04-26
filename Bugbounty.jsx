@@ -1,7 +1,7 @@
-import styles from './Bugbounty.module.scss';
+import styles from './BugBounty.module.scss';
 import ButtonSecondary from './components/ButtonSecondary/ButtonSecondary';
 
-export default function Bugbounty() {
+export default function BugBounty() {
   return (
   <div className="page-content">
     <h1>Bug bounty</h1>
