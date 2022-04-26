@@ -1,14 +1,16 @@
 .sidebarleft {
-    display: flex;
-    flex:'1 auto';
-    flex-direction: column;
-    min-width: 220px;
-    width: 220px;
-    position: relative;
-    height: 100%;
-    z-index: 10;
-    background: white;
-    left: 0;
+  display: flex;
+  flex: 1 auto;
+  flex-direction: column;
+  min-width: 220px;
+  width: 220px;
+  position: relative;
+  height: 100%;
+  z-index: 10;
+  background: white;
+  border-right: 2px solid var(--app-sidebar-border-color);
+  margin-right: 42px;
+  padding: 0px 0 0 125px;
     @media (max-width: 992px) {
       display: none;
     }

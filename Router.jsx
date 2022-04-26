@@ -6,7 +6,7 @@ const ApiExplorer = React.lazy(()=>import('./ApiExplorer'));
 const AppRegistration = React.lazy(()=>import('./AppRegistration'));
 const ApiGuide = React.lazy(()=>import('./ApiGuide'));
 const Faq = React.lazy(()=>import('./Faq'));
-const Json = React.lazy(()=>import('./Json'));
+const Json = React.lazy(()=>import('./JsonSchemas'));
 const BugBounty = React.lazy(()=>import('./Bugbounty'));
 const Quickstart = React.lazy(()=>import('./Quickstart'));
 
