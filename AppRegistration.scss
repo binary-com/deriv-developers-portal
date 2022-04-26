@@ -196,6 +196,15 @@
     width: 100%;
 }
 
+fieldset {
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+    .first {
+        margin-top: 20px;
+    }
+}
+
 .form-subtitle {
     font-weight: normal;
     line-height: 24px;
@@ -350,14 +359,6 @@
     cursor: pointer;
 }
 
-.scopes {
-    margin-top: 40px;
-}
-
-.terms-of-conditions-register {
-    margin-top: 35px;
-}
-
 .tooltip {
     display: none;
 }
@@ -436,9 +437,5 @@
     
     .expandable-form .register-app-button {
         padding: 12px 20px;
-    }
-
-    .register-form-header {
-        font-size: 16px;
     }
 }

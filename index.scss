@@ -4,6 +4,7 @@
   --app-sidebar-border-color: #f0f1f3a3;
   --text-01: #333333;
   --red-01: #ff444f;
+  --red-02: #d43e47;
   --app-registration-tab-secondary: #999999;
   --app-registration-tab-light-grey: #e6e9e9;
   --app-registration-tab-table-row-grey: #fbfbfb;
@@ -175,6 +176,12 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+.error-message {
+  color: var(--red-01);
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 10px;
 }
 .take-to-lib {
   padding: 80px 0 0;
