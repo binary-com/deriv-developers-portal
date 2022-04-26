@@ -15,11 +15,8 @@
     }
     td:last-child,
     th:last-child {
-        min-width: 1px !important;
-        width: 1px !important;
-        padding: 0;
         white-space: nowrap;
-        padding-left: 5%;
+        padding: 0 10px;
     }
     td:first-child,
     th:first-child {
@@ -33,11 +30,35 @@
 [data-state~="registration.logged_in.manage_tab"] .manageApps {
     display: inline-block;
     overflow: auto;
-    width: 100%;
+    width: calc(100% - 125px);
     max-height: 500px;
-    margin-left: 125px;
 }
 
 [data-state~="registration.logged_in.manage_tab.loadingApps.empty"] .manageApps {
     visibility: hidden;
+}
+
+@mixin actionIcon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    padding: 0 8px;
+}
+
+.deleteApp {
+    background-image: url(/img/delete.svg);
+    @include actionIcon;
+}
+
+.updateApp {
+    background-image: url(/img/edit.svg);
+    @include actionIcon;
+}
+
+.appActions {
+    display: flex;
+    justify-content: center;
 }

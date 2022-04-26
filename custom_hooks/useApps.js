@@ -1,8 +1,8 @@
 import DerivAPIBasic from '@deriv/deriv-api/dist/DerivAPIBasic';
 import { useSelector } from '@xstate/react';
 import { useQuery } from 'react-query';
-import { stateService } from './stateSignal';
-import { token1, app_id, server_url } from './storageSignals';
+import { stateService } from '../stateSignal';
+import { token1, app_id, server_url } from '../storageSignals';
 
 const isLoadingAppsSelector = (state) => state.matches('registration.logged_in.manage_tab.loadingApps.loading');
 

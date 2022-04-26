@@ -26,12 +26,7 @@ export default function Dialog({ closeOnOutsideClick, onRequestClose, open, ...p
 
 const useDialogOpening = (dialogRef, open) => {
   const lastActiveElement = useRef(null);
-  const firstRender = useRef(true);
   useEffect(() => {
-    // polyfill will throw an error since we are not using the `open` attribute
-    if (firstRender.current) {
-      firstRender.current = false;
-    } else {
       const dialogNode = dialogRef.current;
       if (open) {
         lastActiveElement.current = document.activeElement;
@@ -40,7 +35,6 @@ const useDialogOpening = (dialogRef, open) => {
         dialogNode.close();
         lastActiveElement.current.focus();
       }
-    }
   }, [open]);
 };
 

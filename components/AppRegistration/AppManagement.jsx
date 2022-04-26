@@ -1,36 +1,57 @@
 /* eslint-disable react/jsx-key */ 
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useTable, useSortBy } from 'react-table';
 import '../../AppRegistration.scss';
 import styles from './AppManagement.module.scss';
-import { useApps } from '../../useApps';
+import { useApps } from '../../custom_hooks/useApps';
 import SkeletonText from '../SkeletonText/SkeletonText';
 import AppManagementEmptyLazy from './AppManagementEmptyLazy';
-
-const columns = [
-    {
-        Header: "Users",
-        accessor: "name",
-    },
-    {
-        Header: "Application ID",
-        accessor: "app_id",
-    },
-    {
-        Header: "Scopes",
-        accessor: "scopes",
-        Cell: ({ cell: { value } }) => (value.join(', '))
-    },
-    {
-        Header: "Redirect URL",
-        accessor: "redirect_uri",
-    }
-];
+import DeleteAppDialog from './DeleteAppDialog';
+import { useDeleteApp } from '../../custom_hooks/useDeleteApp';
+import { stateService } from '../../stateSignal';
 
 export default function AppManagement() {
-    const { data, isFetching } = useApps();
+    const [app_id, setAppId] = useState(null);
+    const { deleteApp } = useDeleteApp(app_id);
+    const { data, isLoading } = useApps();
     const table_data = useMemo(() => data?.app_list || [], [data]);
+    const columns = useMemo(() => ([
+        {
+            Header: "Users",
+            accessor: "name",
+        },
+        {
+            Header: "Application ID",
+            accessor: "app_id",
+        },
+        {
+            Header: "Scopes",
+            accessor: "scopes",
+            Cell: ({ cell: { value } }) => (value.join(', '))
+        },
+        {
+            Header: "Redirect URL",
+            accessor: "redirect_uri",
+        },
+        {
+            Header: "",
+            accessor: "actions",
+            disableSortBy: true,
+            Cell: ({ row }) => {
+                const app_id = row.original.app_id;
+                const triggerModal = () => {
+                    setAppId(app_id);
+                    stateService.send('DELETE_APP');
+                }
+                return (<div className={styles.appActions}>
+                    <div onClick={() => stateService.send('GO_UPDATE_MODE')} className={styles.updateApp} />
+                    <div onClick={triggerModal} className={styles.deleteApp} />
+                </div>)
+            }
+        },
+    ]), []);
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -41,9 +62,10 @@ export default function AppManagement() {
         columns,
         data: table_data,
     }, useSortBy);
+
     return (
         <>
-        <div className={styles.manageApps}>
+    <div className={styles.manageApps}>
             <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -64,7 +86,7 @@ export default function AppManagement() {
                     ))}
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {isFetching && <SkeletonRows />}
+                    {isLoading && <SkeletonRows />}
                     {rows.map((row, i) => {
                         prepareRow(row);
                         return (
@@ -78,6 +100,7 @@ export default function AppManagement() {
                 </tbody>
             </table>
         </div>
+        <DeleteAppDialog deleteApp={deleteApp} />
         <AppManagementEmptyLazy />
         </>
     );
