@@ -8,17 +8,21 @@ github_username: binary-com
 markdown: kramdown
 
 defaults:
-  - scope:
-      path: "/img/"
-    values:
-      image: true
+    - scope:
+          path: "/img/"
+      values:
+          image: true
 collections:
-  pages:
-    output: true
-    permalink: /:path/
+    pages:
+        output: true
+        permalink: /:path/
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - modules
-  - Dockerfile
-  - developers.com.conf
+    - Gemfile
+    - Gemfile.lock
+    - modules
+    - Dockerfile
+    - developers.deriv.com.conf
+    - vendor
+    - package.json
+    - LICENSE
+    - README.md
