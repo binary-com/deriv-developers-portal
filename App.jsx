@@ -14,7 +14,7 @@ function App() {
       <Router routes={routes} location={location}>
         <Header />
         <LogoutButton />
-        <Suspense fallback={<div>loading</div>}>
+        <Suspense fallback={<div />}>
           <Outlet />
         </Suspense>
       </Router>

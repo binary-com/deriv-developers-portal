@@ -37,16 +37,11 @@ body {
   display: flex;
   min-height: 95vh;
   justify-content: space-between;
-
-  @media (max-width: 992px) {
-    padding:75px 15px 40px;;
-  }
-
 }
 button:focus {
   outline: none;
 }
-@media (max-width: 992px) {
+[data-state*="responsive.mobile"] {
   #sidebar {
     display: none;
   }
@@ -72,7 +67,20 @@ button:focus {
     font-size: 24px;
     margin-top: 43px;
   }
+  .doc-content{
+    padding:75px 15px 40px;;
+  }
+  h3 {
+    font-size: 18px;
+  }
 }
+
+[data-state~="responsive.desktopLaptopM"] {
+  .doc-content{
+    padding: 188px 50px;
+  }
+}
+
 @media (max-width: 992px) {
   .main-content .main-page-row {
     padding: 40px 0;
@@ -304,26 +312,6 @@ textarea {
   margin-bottom: 1rem;
 }
 @media (max-width: 992px) {
-  #sidebar {
-    display: none;
-  }
-  .row-container {
-    flex-direction: column;
-  }
-  .dark h1,
-  h1 {
-    font-size: 32px;
-  }
-  .single-container > p {
-    text-align: center;
-    margin-bottom: 24px !important;
-  }
-  body > #content > h1 {
-    font-size: 24px;
-    margin-top: 43px;
-  }
-}
-@media (max-width: 992px) {
   .row-container .single-container > h2 {
     font-size: 24px;
   }
@@ -394,11 +382,7 @@ h3 {
   line-height: 1.5;
   color: var(--text-01);
 }
-@media (max-width: 480px) {
-  h3 {
-    font-size: 18px;
-  }
-}
+
 p {
   line-height: 28px;
   margin-bottom: 16px;
@@ -603,9 +587,4 @@ textarea {
     background-color: var(--red-01);
     visibility: visible;
   }
-}
-[data-state~="responsive.desktopLaptopM"] {
-    .doc-content{
-      padding: 188px 50px;
-    }
 }

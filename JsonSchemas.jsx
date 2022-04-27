@@ -14,12 +14,12 @@ const JsonSchemas = () => {
     ];
 
     return (
-        <div className={`${style["page-container"]} page-content`}>
+        <div className={style["page-container"]}>
             <h1>JSON Schemas</h1>
             <p>
                 Our API is defined by
                 <Link href={json_navigation[0].path} target="_blank" rel="noreferrer"> {json_navigation[0].title}</Link>.
-                Get updates by looking for JSON Schema Update in the
+                Get updates by looking for "JSON Schema Update" in the
                 <Link href={json_navigation[1].path} target="_blank" rel="noreferrer"> {json_navigation[1].title}</Link>.
             </p>
             <h3>Useful tools:</h3>
