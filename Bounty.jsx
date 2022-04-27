@@ -1,4 +1,4 @@
-import styles from './BugBounty.module.scss';
+import styles from './Bounty.module.scss';
 import ButtonSecondary from './components/ButtonSecondary/ButtonSecondary';
 
 export default function BugBounty() {
