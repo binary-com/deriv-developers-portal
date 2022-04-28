@@ -1,0 +1,56 @@
+@import "./colors.module";
+
+.json-btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 26px 0 40px;
+
+    .btn-reset button {
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 4px;
+        margin-right: 8px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .btn-reset-playground button {
+        background-color: #fff;
+        color: #333;
+        padding: 10px 16px;
+        border: $dark-grey-color-1 1px solid;
+    }
+
+    .gray-btn-submit button{
+        padding: 8px 16px;
+        border: solid 2px $dark-grey-color;
+        background-color: $white-color;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: center;
+        color: $black-color;
+    }
+
+    .btn-submit button {
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: $red-color;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: center;
+        color: $white-color;
+    
+        &:hover {
+            background-color: $red-color-2;
+        }
+    }
+}
