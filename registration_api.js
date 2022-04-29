@@ -384,6 +384,11 @@ CookieStorage.prototype = {
     },
 };
 
+const sanitizedURL = () => {
+  const current_url = window.location.href;
+  const split_url = current_url.split('?');
+  return split_url[0];
+}
 
 let sessionState = sessionStorage.getItem('app_registration_state') || 'logged_out';
 const urlParams = new URLSearchParams(window.location.search);
@@ -392,6 +397,7 @@ if (token1_in_url) {
     sessionStorage.setItem('token1', token1_in_url);
     sessionStorage.setItem('app_registration_state', 'logged_in');
     sessionState = 'logged_in';
+    window.location.href = sanitizedURL();
 }
 
 
