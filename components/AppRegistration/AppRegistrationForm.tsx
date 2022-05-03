@@ -1,6 +1,4 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
-import Checkbox from '../Checkbox/Checkbox';
 import Button from '../Button/Button';
 import styles from './AppRegistrationForm.module.scss';
 
@@ -18,11 +16,7 @@ interface FormData {
 }
 
 export default function AppRegistrationForm () {
-    const [is_expanded, setIsExpanded] = React.useState(false);
-    const toggleFormExpand = () => is_expanded ? setIsExpanded(false) : setIsExpanded(true);
-
     const { register, handleSubmit, formState: {errors} } = useForm<FormData>();
-
     return (
         <form className={styles.frmNewApplication} id="frmNewApplication" onSubmit={handleSubmit((data) => {console.log(data)} )}>
             <div className={styles.formContent}>
@@ -84,15 +78,7 @@ export default function AppRegistrationForm () {
                         </div>
                     </div>
                 </fieldset>
-                <div className={styles.expandForm}>
-                    <Checkbox
-                        id="expand-form"
-                        label="I'd like to use OAuth or monetise my app"
-                        value=""
-                        onClickFunction={() => toggleFormExpand()}
-                    />
-                </div>
-                <div style={{ display: is_expanded ? "inline-block" : "none" }} className={styles.expandableForm}>
+                <div className={styles.expandableForm}>
                     <fieldset>
                         <div className={styles.formHeaderContainer}>
                             <h4 className={styles.registerFormHeader}>Markup</h4>
@@ -197,44 +183,41 @@ export default function AppRegistrationForm () {
                             </p>
                         </div>
                         <div className={styles.scopesField}>
-                            <Checkbox 
-                                name={register("read_scope")} 
-                                id="read-scope"
-                                label="Read all: Full access to users' information, including private information"
-                                value="read"
-                            />
+                            <div className={styles.customCheckboxContainer}>
+                                <input {...register("read_scope")} id="read-scope" type="checkbox" />
+                                <span className={styles.customCheckbox} />
+                            </div>
+                            <label htmlFor="read-scope">Read all: Full access to users’ information, including private
+                                information</label>
                         </div>
                         <div className={styles.scopesField}>
-                            <Checkbox 
-                                name={register("trade_scope")}
-                                id="trade-scope"
-                                label="Trade: Buy and sell contracts on the users' behalf"
-                                value="trade"
-                            />
+                            <div className={styles.customCheckboxContainer}>
+                                <input {...register("trade_scope")} id="trade-scope" type="checkbox" />
+                                <span className={styles.customCheckbox} />
+                            </div>
+                            <label htmlFor="trade-scope">Trade: Buy and sell contracts on the users’ behalf</label>
                         </div>
                         <div className={styles.scopesField}>
-                            <Checkbox 
-                                name={register("trading_information_scope")}
-                                id="trading_information-scope"
-                                label="Trading information: View users' trading information, including balance information"
-                                value="trading_information"
-                            />
+                            <div className={styles.customCheckboxContainer}>
+                                <input {...register("trading_information_scope")} id="trading_information-scope" type="checkbox" />
+                                <span className={styles.customCheckbox} />
+                            </div>
+                            <label htmlFor="trading_information-scope">Trading information: View users’ trading
+                                information, including balance information</label>
                         </div>
                         <div className={styles.scopesField}>
-                            <Checkbox 
-                                name={register("payments_scope")}
-                                id="payments-scope"
-                                label="Payments: Cashier (deposit and withdrawal)"
-                                value="payments"
-                            />
+                            <div className={styles.customCheckboxContainer}>
+                                <input {...register("payments_scope")} id="payments-scope" type="checkbox" />
+                                <span className={styles.customCheckbox} />
+                            </div>
+                            <label htmlFor="payments-scope">Payments: Cashier (deposit and withdrawal)</label>
                         </div>
                         <div className={`${styles.scopesField} mb-0`}>
-                            <Checkbox 
-                                name={register("admin_scope")} 
-                                id="admin-scope"
-                                label="Admin: Full account access, including the access to manage security tokens"
-                                value="admin"
-                            />
+                            <div className={styles.customCheckboxContainer}>
+                                <input {...register("admin_scope")} id="admin-scope" type="checkbox" />
+                                <span className={styles.customCheckbox} />
+                            </div>
+                            <label htmlFor="admin-scope">Admin: Full account access, including the access to manage security tokens</label>
                         </div>
                     </div>
                     {errors.admin_scope && <span className="error-message">{errors.admin_scope.message}</span>}

@@ -219,3 +219,41 @@
         transform: translate(-19%, calc(-100% - 10px)); 
     }
 }
+
+input[type=checkbox] {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.customCheckboxContainer {
+    position: relative;
+    height: 11px;
+    min-width: 11px;
+    margin-right: 15px;
+    top: 1px;
+    z-index: 0;
+    .customCheckbox {
+        position: absolute;
+        background-image: url(/img/check.svg);
+        background-repeat: no-repeat;
+        display: inline-block;
+        border: 2px solid var(--app-registration-tab-secondary);
+        min-width: 11px;
+        height: 11px;
+        border-radius: 2px;
+        transition: background-color .25s,border-color .25s;
+        z-index: 1;
+    }
+    input:checked + .customCheckbox {
+        background-color: var(--red-01);
+        border-color: var(--red-01);
+    }
+}
