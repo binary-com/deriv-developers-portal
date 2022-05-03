@@ -44,8 +44,11 @@ export default function AppManagement() {
                     setAppId(app_id);
                     stateService.send('DELETE_APP');
                 }
+                const updateAppTrigger = () => {
+                    stateService.send('GO_UPDATE_MODE');
+                };
                 return (<div className={styles.appActions}>
-                    <div onClick={() => stateService.send('GO_UPDATE_MODE')} className={styles.updateApp} />
+                    <div onClick={updateAppTrigger} className={styles.updateApp} />
                     <div onClick={triggerModal} className={styles.deleteApp} />
                 </div>)
             }
