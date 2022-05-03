@@ -6,6 +6,9 @@ import styles from './Modal.module.scss';
 export default function Modal({ 
     onRequestClose, open, type, title, description,
     primaryButtonText,secondaryButtonText, onPrimaryButtonClick, onSecondaryButtonClick 
+}: {
+    onRequestClose: () => void, open: boolean, type: 'success' | 'warning', title: string, description: string,
+    primaryButtonText?: string, secondaryButtonText: string, onPrimaryButtonClick?: () => void, onSecondaryButtonClick: () => void
 }) {
     return (
         <Dialog onRequestClose={onRequestClose} open={open} closeOnOutsideClick>
@@ -22,9 +25,8 @@ export default function Modal({
                 <div className={styles.modalSecondary}>
                     <ButtonSecondary onClick={onSecondaryButtonClick}>{secondaryButtonText}</ButtonSecondary>
                 </div>
-                <Button onClick={onPrimaryButtonClick}>{primaryButtonText}</Button>
+                { primaryButtonText && <Button onClick={onPrimaryButtonClick}>{primaryButtonText}</Button> }
             </div>
         </Dialog>
     );
 }
-

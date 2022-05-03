@@ -2,7 +2,7 @@ import './AppRegistration.scss';
 import AppManagementLazy from './components/AppRegistration/AppManagementLazy';
 import AppRegistrationForm from './components/AppRegistration/AppRegistrationForm';
 import AppRegistrationLogin from './components/AppRegistration/AppRegistrationLogin';
-import RegisterAppDialog from './components/AppRegistration/RegisterAppDialog';
+import RegisterAppDialogSuccess from './components/AppRegistration/RegisterAppDialogSuccess';
 import RegisteredAppTabs from './components/AppRegistration/RegisteredAppTabs';
 
 export default function AppRegistration() {
@@ -18,7 +18,7 @@ export default function AppRegistration() {
         <RegisteredAppTabs />
         <div className="register-app">
           <AppRegistrationForm />
-          <RegisterAppDialog />
+          <RegisterAppDialogSuccess />
         </div>
         <AppManagementLazy />
       </div>

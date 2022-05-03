@@ -24,6 +24,8 @@
   --white-01: #ffffff;
   --btn-background: var(--red-01);
   --btn-text-color: var(--white-01);
+  --btn-background-disabled: var(--gray-02);
+  --btn-text-color-disabled: var(--white-01);
 }
 * {
   font-family: 'IBM Plex Sans', sans-serif;
