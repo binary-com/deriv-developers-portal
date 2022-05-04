@@ -9,7 +9,7 @@ import SkeletonText from '../SkeletonText/SkeletonText';
 import AppManagementEmptyLazy from './AppManagementEmptyLazy';
 import DeleteAppDialog from './DeleteAppDialog';
 import { useDeleteApp } from '../../custom_hooks/useDeleteApp';
-import { stateService } from '../../stateSignal';
+import { setUpdatingRow, stateService } from '../../stateSignal';
 
 export default function AppManagement() {
     const [app_id, setAppId] = useState(null);
@@ -46,6 +46,7 @@ export default function AppManagement() {
                 }
                 const updateAppTrigger = () => {
                     stateService.send('GO_UPDATE_MODE');
+                    setUpdatingRow(row.original);
                 };
                 return (<div className={styles.appActions}>
                     <div onClick={updateAppTrigger} className={styles.updateApp} />

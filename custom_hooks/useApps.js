@@ -10,6 +10,7 @@ const getApps = async () => {
     const api = new DerivAPIBasic({ endpoint: server_url(), lang: 'EN', app_id: app_id() }); 
     await api.authorize(token1());
     const apps = await api.appList();
+    await api.disconnect();
     return apps;
 }
 

@@ -1,5 +1,10 @@
+import { useSelector } from '@xstate/react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useRegisterApp } from '../../custom_hooks/useRegisterApp';
+import { useRegisterOrUpdateApp } from '../../custom_hooks/useRegisterOrUpdate';
+import { isUpdateModeSelector } from '../../selectors';
+import { stateService, updatingRow } from '../../stateSignal';
+import { token1 } from '../../storageSignals';
 import Button from '../Button/Button';
 import styles from './AppRegistrationForm.module.scss';
 import RegisterAppDialogError from './RegisterAppDialogError';
@@ -10,16 +15,40 @@ interface FormData {
     app_markup_percentage: number;
     app_redirect_uri: string;
     app_verification_uri: string;
-    read_scope: string;
-    trade_scope: string;
-    trading_information_scope: string;
-    payments_scope: string;
-    admin_scope: string;
+    read_scope: boolean;
+    trade_scope: boolean;
+    trading_information_scope: boolean;
+    payments_scope: boolean;
+    admin_scope: boolean;
 }
 
 export default function AppRegistrationForm() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ mode: 'onBlur' });
-    const { registerApp, isLoading, error } = useRegisterApp();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>({ mode: 'onBlur' });
+    const { registerApp, isLoading, error } = useRegisterOrUpdateApp();
+    const isUpdateMode = useSelector(stateService, isUpdateModeSelector);
+    useEffect(() => {
+        if (isUpdateMode) {
+            const {
+                name,
+                app_markup_percentage,
+                redirect_uri,
+                verification_uri,
+                scopes
+            } = updatingRow();
+            setValue('api_token_input', token1());
+            setValue('app_name', name);
+            setValue('app_markup_percentage', app_markup_percentage);
+            setValue('app_redirect_uri', redirect_uri);
+            setValue('app_verification_uri', verification_uri);
+            setValue('read_scope', scopes.includes('read') ? true : false);
+            setValue('trade_scope', scopes.includes('trade') ? true : false);
+            setValue('trading_information_scope', scopes.includes('trading_information') ? true : false);
+            setValue('payments_scope', scopes.includes('payments') ? true : false);
+            setValue('admin_scope', scopes.includes('admin') ? true : false);
+        }
+    }, [isUpdateMode]);
+    const registerButtonMessage = isUpdateMode ? 'Update application' : 'Register new application';
+
     return (
         <>
             <form className={styles.frmNewApplication} id="frmNewApplication" onSubmit={handleSubmit((data) => {
@@ -54,6 +83,7 @@ export default function AppRegistrationForm() {
                                     type="text"
                                     id="api_token_input"
                                     className={styles.apiTokenInput}
+                                    readOnly={isUpdateMode}
                                     placeholder=" "
                                 />
                                 <label>API token (Required)</label>
@@ -241,7 +271,7 @@ export default function AppRegistrationForm() {
                             <span>.</span>
                         </div>
                         <div className={styles.registerAppButtonContainer}>
-                            <Button disabled={isLoading || Object.keys(errors)?.length > 0} onClick={null}>Register new Application</Button>
+                            <Button disabled={isLoading || Object.keys(errors)?.length > 0} onClick={null}>{registerButtonMessage}</Button>
                         </div>
                     </div>
                 </div>

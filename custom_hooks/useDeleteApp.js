@@ -8,6 +8,7 @@ const appDelete = async (app_id) => {
     const api = new DerivAPIBasic({ endpoint: server_url(), lang: 'EN', app_id });
     await api.authorize(token1());
     await api.appDelete(app_id);
+    await api.disconnect();
 };
 
 export const useDeleteApp = (app_id) => {

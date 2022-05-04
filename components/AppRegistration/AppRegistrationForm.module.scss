@@ -195,11 +195,7 @@
 
 }
 
-[data-state~="registration.logged_in.register_tab.folded_form"] .expandableForm {
-    display: none;
-}
-
-[data-state~="registration.logged_in.update_mode"] .customTextInput .apiTokenInput[readonly=true] {
+[data-state~="registration.logged_in.update_mode"] .customTextInput .apiTokenInput[readonly] {
     color: var(--border-normal);
     cursor: not-allowed;
     &~label {
