@@ -1,5 +1,5 @@
 import styles from './Bounty.module.scss';
-import ButtonSecondary from './components/ButtonSecondary/ButtonSecondary';
+import Button from './components/Button/Button';
 
 export default function BugBounty() {
   return (
@@ -17,7 +17,7 @@ export default function BugBounty() {
       <div className={styles.columnContainer}>
         <div className={`${styles.title} ${styles.centerText}`}>Explore our bounty programme</div>
         <a rel="noreferrer" target="_blank" href="https://deriv.com/bug-bounty">
-          <ButtonSecondary>Go to Bug Bounty</ButtonSecondary>
+          <Button type='secondary'>Go to Bug Bounty</Button>
         </a>
       </div>
       <div className={styles.columnContainer}>

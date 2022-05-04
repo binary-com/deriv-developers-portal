@@ -1,5 +1,4 @@
 import Button from "../Button/Button";
-import ButtonSecondary from "../ButtonSecondary/ButtonSecondary";
 import Dialog from "../Dialog/Dialog";
 import styles from './Modal.module.scss';
 

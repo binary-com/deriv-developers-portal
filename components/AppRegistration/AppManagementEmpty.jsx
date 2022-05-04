@@ -1,6 +1,6 @@
 import styles from './AppManagementEmpty.module.scss';
 import { send } from '../../stateSignal';
-import ButtonSecondary from '../ButtonSecondary/ButtonSecondary';
+import Button from '../Button/Button';
 
 export default function AppManagementEmpty() {
     return (
@@ -10,7 +10,7 @@ export default function AppManagementEmpty() {
                 <div className={styles.noAppsText}>
                     <p>To see your details reflected, please register your app via the registration form.</p>
                 </div>
-                <ButtonSecondary onClick={() => send('REGISTER_TOGGLE_TAB')}>Register now</ButtonSecondary>
+                <Button type='secondary' onClick={() => send('REGISTER_TOGGLE_TAB')}>Register now</Button>
             </div>
         </div>
     );
