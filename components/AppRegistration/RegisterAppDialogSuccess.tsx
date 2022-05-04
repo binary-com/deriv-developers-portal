@@ -10,6 +10,7 @@ export default function RegisterAppDialogSuccess() {
     const isUpdateMode = useSelector(stateService, isUpdateModeSelector);
     const description = isUpdateMode ? 'Your app has been updated successfully.' :
     'You have successfully registered your application. You can now start using Deriv API.';
+    const primaryButtonText = isUpdateMode ? null : 'Manage application';
     if (!isModalOpen) {
         return null;
     }
@@ -22,7 +23,7 @@ export default function RegisterAppDialogSuccess() {
             open={isModalOpen}
             title="Success!"
             description={description}
-            primaryButtonText="Manage application"
+            primaryButtonText={primaryButtonText}
             secondaryButtonText="Got it"
             type="success"
             onRequestClose={closeModal}

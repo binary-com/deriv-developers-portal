@@ -22,9 +22,7 @@ export default function Modal({
             <div className={styles.modalDescription}>{description}</div>
             </div>
             <div className={styles.modalFooter}>
-                <div className={styles.modalSecondary}>
-                    <ButtonSecondary onClick={onSecondaryButtonClick}>{secondaryButtonText}</ButtonSecondary>
-                </div>
+                <Button type="secondary" onClick={onSecondaryButtonClick}>{secondaryButtonText}</Button>
                 { primaryButtonText && <Button onClick={onPrimaryButtonClick}>{primaryButtonText}</Button> }
             </div>
         </Dialog>
