@@ -13,7 +13,7 @@ export default function RegisterAppDialogSuccess() {
     if (!isModalOpen) {
         return null;
     }
-    const closeAndInvalidate = () => {
+    const closeModal = () => {
         stateService.send('CLOSE_MODAL');
     };
     return (
@@ -25,11 +25,11 @@ export default function RegisterAppDialogSuccess() {
             primaryButtonText="Manage application"
             secondaryButtonText="Got it"
             type="success"
-            onRequestClose={closeAndInvalidate}
+            onRequestClose={closeModal}
             onPrimaryButtonClick={() => {
                 stateService.send('MANAGE_TOGGLE_TAB');
             }}
-            onSecondaryButtonClick={closeAndInvalidate}
+            onSecondaryButtonClick={closeModal}
             />
         </Suspense>
     );

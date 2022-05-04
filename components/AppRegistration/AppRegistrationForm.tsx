@@ -23,10 +23,11 @@ interface FormData {
 }
 
 export default function AppRegistrationForm() {
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>({ mode: 'onBlur' });
+    const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm<FormData>({ mode: 'onBlur' });
     const { registerApp, isLoading, error } = useRegisterOrUpdateApp();
     const isUpdateMode = useSelector(stateService, isUpdateModeSelector);
     useEffect(() => {
+        reset();
         if (isUpdateMode) {
             const {
                 name,
@@ -271,6 +272,7 @@ export default function AppRegistrationForm() {
                             <span>.</span>
                         </div>
                         <div className={styles.registerAppButtonContainer}>
+                            { isUpdateMode && <Button type='secondary' onClick={() => stateService.send('REGISTER_TOGGLE_TAB')}>Cancel</Button> }
                             <Button disabled={isLoading || Object.keys(errors)?.length > 0} onClick={null}>{registerButtonMessage}</Button>
                         </div>
                     </div>
