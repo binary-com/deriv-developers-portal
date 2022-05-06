@@ -1,35 +1,5 @@
 import styles from "./Quickstart.module.scss";
-import CodeBlock from "./CodeBlock";
-
-const codeSampleData = [
-    {
-        id: "buy-contract",
-        title: "Buy contract",
-        description: "A contract is an agreement to buy or sell an asset at an agreed-upon price. This example shows you how to buy a contract using Deriv API."
-    },
-    {
-        id: "ticks",
-        title: "Ticks",
-        description: "A tick is a measure of minimum upward or downward movement in the price of a trading commodity. This example shows you how to collect ticks for your trading app using Deriv’s API."
-    },
-    {
-        id: "balance",
-        title: "Account balance",
-        description: "This example shows you how to use the Deriv API to retrieve account balance information."
-    },
-    {
-        id: "proposal",
-        title: "Proposal",
-        description: "This example is for getting a contract proposal. You’ll be able to get the price, payout and spot value for your contract.",
-        subdescription: "To keep this connection alive in case of inactivity timeouts, see the example for Keep alive."
-    },
-    {
-        id: "keep-alive",
-        title: "Keep alive",
-        description: "In this example you’ll see how to keep a connection alive when getting contract proposals via the Deriv API. This example keeps the connection alive by sending a ping every 30 seconds."
-    }
-
-]
+import CodeBlock from "./components/CodeBlock/CodeBlock";
 
 const QuickStart = () => (
         <div className="page-content">
@@ -48,10 +18,22 @@ const QuickStart = () => (
                 <p>Instructions for setting up your environment and running the examples in your desired programming
                 language are given as comments in the code samples.</p>
             </div>
-            {codeSampleData.map((data,index) =>
-                <CodeBlock key={index} id={data.id} title={data.title} desc={data.description} subdesc={data.subdescription} />
-            )
-            }
+                <h2>Buy contract</h2>
+                <p>A contract is an agreement to buy or sell an asset at an agreed-upon price. This example shows you how to buy a contract using Deriv API.</p>
+                <CodeBlock id={"buy-contract"} />
+                <h2>Ticks</h2>
+                <p>A tick is a measure of minimum upward or downward movement in the price of a trading commodity. This example shows you how to collect ticks for your trading app using Deriv's API.</p>
+                <CodeBlock id={"ticks"} />
+                <h2>Account balance</h2>
+                <p>This example shows you how to use the Deriv API to retrieve account balance information.</p>
+                <CodeBlock id={"balance"} />
+                <h2>Proposal</h2>
+                <p>This example is for getting a contract proposal. You’ll be able to get the price, payout and spot value for your contract.</p>
+                <p>To keep this connection alive in case of inactivity timeouts, see the example for Keep alive.</p>
+                <CodeBlock id={"proposal"} />
+                <h2>Keep alive</h2>
+                <p>In this example you’ll see how to keep a connection alive when getting contract proposals via the Deriv API. This example keeps the connection alive by sending a ping every 30 seconds.</p>
+                <CodeBlock id={"keep-alive"} />
      </div>   
 );
 

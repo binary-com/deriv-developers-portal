@@ -8,7 +8,7 @@ import "prismjs/components/prism-csharp";
 import "prismjs/components/prism-php";
 import "prismjs/components/prism-json";
 import "prismjs/plugins/custom-class/prism-custom-class";
-import styles from "./Quickstart.module.scss";
+import styles from "./CodeBlock.module.scss";
 
 const CodeContent = ({ lang, data }) => {
     const useIsMounted = () => {

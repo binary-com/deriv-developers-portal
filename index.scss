@@ -9,19 +9,24 @@
   --gray-03: #fbfbfb;
   --gray-04: #6e6e6e;
   --gray-05: #999999;
+  --gray-06: #577A9214;
+  --gray-07: #d6d6d6;
   --app-registration-tab-secondary: #999999;
   --app-registration-tab-light-grey: #e6e9e9;
   --app-registration-tab-table-row-grey: #fbfbfb;
   --black-01: #0e0e0e;
-  --blockquote-separator-color: #f5f7fa;
-  --blockquote-text-color: #f2f3f4;
+  --black-02: #1d1f20;
   --border-normal: #d6dadb;
   --brand-secondary: #85acb0;
   --copy-hover:#424242;
   --copy-color:#c2c2c2;
-  --hamburger-active-link: #577A9214;
+  --hamburger-active-link: var(--gray-06);
   --hamburger-menu-width: 260px;
   --white-01: #ffffff;
+  --white-02: #f5f7fa;
+  --white-03: #f2f3f4;
+  --blockquote-separator-color: var(--white-02);
+  --blockquote-text-color: var(--white-03);
   --btn-background: var(--red-01);
   --btn-text-color: var(--white-01);
   --btn-background-disabled: var(--gray-02);
@@ -32,10 +37,51 @@
   font-size: 16px;
   margin: 0;
   padding: 0;
+  scroll-margin-top: 100px;
 }
 html,
 body {
   overflow-x: hidden;
+}
+a {
+  color: var(--red-01);
+  text-decoration: none;
+}
+@mixin header {
+  margin-bottom: 16px;
+  color: var(--text-01);
+}
+h1 {
+  @include header;
+  font-size: 48px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+h2 {
+  @include header;
+  font-size: 32px;
+  line-height: 1.5;
+}
+h3 {
+  @include header;
+  font-size: 24px;
+  line-height: 1.5;
+}
+h4 {
+  @include header;
+  font-size: 20px;
+}
+p {
+  line-height: 28px;
+  margin-bottom: 16px;
+}
+.inline-code {
+  font-weight: 400;
+  color: var(--red-01);
+  border-radius: 4px;
+  padding: 2px 4px;
+  background-color: var(--gray-01);
+  border: 1px solid var(--gray-02);
 }
 .doc-content{
   padding: 188px 80px;
@@ -60,9 +106,17 @@ button:focus {
     font-size: 13px;
     margin-top: 0;
   }
-  .dark h1,
   h1 {
     font-size: 32px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
   }
   .single-container > p {
     text-align: center;
@@ -74,9 +128,6 @@ button:focus {
   }
   .doc-content{
     padding:75px 15px 40px;;
-  }
-  h3 {
-    font-size: 18px;
   }
 }
 
@@ -362,35 +413,6 @@ textarea {
     width: unset;
     padding: 40px 16px 0;
   }
-}
-a {
-  color: var(--red-01);
-  text-decoration: none;
-}
-h1 {
-  margin-bottom: 40px;
-  font-size: 48px;
-  text-align: center;
-  color: var(--text-01);
-}
-h2 {
-  margin-bottom: 16px;
-  font-size: 36px;
-  line-height: 1.5;
-  text-align: center;
-  color: var(--text-01);
-}
-h3 {
-  margin-bottom: 16px;
-  font-size: 24px;
-  text-align: left;
-  line-height: 1.5;
-  color: var(--text-01);
-}
-
-p {
-  line-height: 28px;
-  margin-bottom: 16px;
 }
 .main-page-row {
   display: flex;

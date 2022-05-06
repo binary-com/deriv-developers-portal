@@ -1,0 +1,27 @@
+{
+    "get_account_status": {
+        "authentication": {
+            "attempts": {
+                "count": 0,
+                "history": [],
+                "latest": {}
+            },
+            "document": {
+                "status": "none"
+            },
+            "identity": {
+                "services": {
+                    "idv": {
+                        "last_rejected": [],
+                        "reported_properties": {},
+                        "status": "none",
+                        "submbissions_left": 0
+                    },
+                    "manual": {
+                        "status": "none"
+                    }
+                }
+            }
+        }
+    }
+}
