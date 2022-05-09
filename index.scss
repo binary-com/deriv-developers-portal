@@ -84,7 +84,7 @@ p {
   border: 1px solid var(--gray-02);
 }
 .doc-content{
-  padding: 188px 80px;
+  padding: 188px 80px 0 80px;
   display: flex;
   min-height: 95vh;
   justify-content: space-between;
@@ -133,7 +133,7 @@ button:focus {
 
 [data-state~="responsive.desktopLaptopM"] {
   .doc-content{
-    padding: 188px 50px;
+    padding: 188px 50px 0 50px;
   }
 }
 
