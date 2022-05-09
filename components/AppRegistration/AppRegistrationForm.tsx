@@ -144,6 +144,7 @@ export default function AppRegistrationForm() {
                                             id="app_markup_percentage"
                                             className="last"
                                             placeholder=" "
+                                            // eslint-disable-next-line
                                             onWheel={(e:any) => e.target.blur()}
                                         />
                                         <label>Markup percentage</label>
@@ -173,7 +174,7 @@ export default function AppRegistrationForm() {
                                             message: "Your website URL cannot exceed more than 255 characters."
                                         },
                                         pattern: {
-                                            value: /^[a-z][a-z0-9.+\-]*:\/\/[0-9a-zA-Z\.-]+[\%\/\w \.-]*$/,
+                                            value: /^[a-z][a-z0-9.+-]*:\/\/[0-9a-zA-Z.-]+[%/\w .-]*$/,
                                             message: "Please correct your link formatting. (example: https://www.deriv.com)"
                                         }
                                     })}
@@ -196,7 +197,7 @@ export default function AppRegistrationForm() {
                                             message: "Your verification URL cannot exceed more than 255 characters."
                                         },
                                         pattern: {
-                                            value: /^[a-z][a-z0-9.+\-]*:\/\/[0-9a-zA-Z\.-]+[\%\/\w \.-]*$/,
+                                            value: /^[a-z][a-z0-9.+-]*:\/\/[0-9a-zA-Z.-]+[%/\w .-]*$/,
                                             message: "Please correct your link formatting. (example: https://www.deriv.com)"
                                         }
                                     })}

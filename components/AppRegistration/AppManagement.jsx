@@ -91,7 +91,7 @@ export default function AppManagement() {
                 </thead>
                 <tbody {...getTableBodyProps()}>
                     {isLoading && <SkeletonRows />}
-                    {rows.map((row, i) => {
+                    {rows.map((row) => {
                         prepareRow(row);
                         return (
                             <tr {...row.getRowProps()}>
