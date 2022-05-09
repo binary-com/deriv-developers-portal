@@ -7,7 +7,6 @@
     position: relative;
     width: 100%;
     box-sizing: border-box;
-    margin-top: 15px;
     &:focus-within {
         border-color: var(--brand-secondary);
     }
@@ -64,6 +63,14 @@
         align-items: center;
         justify-content: center;
         width: 80%;
+        input[type=number] {
+            appearance: none;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
         fieldset input[type=text] {
             padding: 0;
             width: 100%;
@@ -133,7 +140,7 @@
             }
             .infoIcon {
                 position: relative;
-                top: 2px !important;
+                top: 1px !important;
                 .infoIconImage {
                     background-image: url(/img/info-icon.svg);
                     background-position: center;
@@ -238,6 +245,7 @@ input[type=checkbox] {
     margin-right: 15px;
     top: 1px;
     z-index: 0;
+    margin-bottom: 5px;
     .customCheckbox {
         position: absolute;
         background-image: url(/img/check.svg);
