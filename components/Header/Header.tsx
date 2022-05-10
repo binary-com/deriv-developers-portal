@@ -7,7 +7,7 @@ import Navigation from "./Navigation";
 export default function Header() {
     const ref = useRef(null);
     useOutsideClick(ref, () => {
-        stateService.send('TOGGLE_HAMBURGER');
+        stateService.send('CLICK_OUTSIDE');
     });
     return (
         <div id="main-nav" className={styles.nav}>
