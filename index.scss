@@ -438,6 +438,9 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 80px 0;
+  &.ways-row {
+    padding: 0;
+  }
 }
 .page-content {
   width: 100%;

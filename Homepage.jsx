@@ -13,6 +13,36 @@ export default function HomePage() {
           </h2>
         </div>
       </div>
+      <div className="main-page-row gray take-to-lib">
+          <div className="row-container">
+            <div className={`single-container gray ${styles.clientLibrary}`}>
+              <div className={styles.iconJsLibrary} />
+              <h1>
+                Comprehensive all-in-one client library
+              </h1>
+              <p className="subheader">
+                Simplify your development processes and get your app up and running <br />
+                faster with the client library of your choice.
+              </p>
+              <div className={styles.libraryLinks}>
+                <div className={styles.logoAndLink}>
+                  <a href="https://binary-com.github.io/deriv-api/" className={styles.libraryGoTo}>
+                    <div className={styles.logoJavascript}/>
+                    <label>Go to the JavaScript library</label>
+                    <div className={styles.libraryChevron} />
+                  </a>
+                </div>
+                <div className={styles.logoAndLink}>
+                  <a href="https://binary-com.github.io/python-deriv-api/" className={styles.libraryGoTo}>
+                    <div className={styles.logoPython} />
+                    <label>Go to the Python library</label>
+                    <div className={styles.libraryChevron} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <div className="main-page-row">
         <div className={`column-container ${styles.benefitsContainer}`}>
           <h1 className={styles.benefitsTitle}>Benefits of using Deriv API</h1>
@@ -48,7 +78,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="main-page-row gray">
+      <div className="main-page-row gray ways-row">
         <div className={`column-container ${styles.waysContainer}`}>
           <div className={styles.waysWrapper}>
             <div>
@@ -151,36 +181,6 @@ export default function HomePage() {
           <h1 className="clients-opinion">See what our clients say</h1>
           <div className="column-container">
             <HomepageSlider />
-          </div>
-        </div>
-        <div className="main-page-row gray take-to-lib">
-          <div className="row-container">
-            <div className={`single-container gray ${styles.clientLibrary}`}>
-              <div className={styles.iconJsLibrary} />
-              <h1>
-                Comprehensive all-in-one client library
-              </h1>
-              <p className="subheader">
-                Simplify your development processes and get your app up and running <br />
-                faster with the client library of your choice.
-              </p>
-              <div className={styles.libraryLinks}>
-                <div className={styles.logoAndLink}>
-                  <a href="https://binary-com.github.io/deriv-api/" className={styles.libraryGoTo}>
-                    <div className={styles.logoJavascript}/>
-                    <label>Go to the JavaScript library</label>
-                    <div className={styles.libraryChevron} />
-                  </a>
-                </div>
-                <div className={styles.logoAndLink}>
-                  <a href="https://binary-com.github.io/python-deriv-api/" className={styles.libraryGoTo}>
-                    <div className={styles.logoPython} />
-                    <label>Go to the Python library</label>
-                    <div className={styles.libraryChevron} />
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
