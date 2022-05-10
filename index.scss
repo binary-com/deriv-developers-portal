@@ -25,6 +25,10 @@
   --white-01: #ffffff;
   --white-02: #f5f7fa;
   --white-03: #f2f3f4;
+  --json-purple: #8860e8;
+  --json-magenta: #de5ea0;
+  --json-gold: #f3ca5e;
+  --json-midnight: #282a35;
   --blockquote-separator-color: var(--white-02);
   --blockquote-text-color: var(--white-03);
   --btn-background: var(--red-01);
@@ -81,6 +85,18 @@ p {
   padding: 2px 4px;
   background-color: var(--gray-01);
   border: 1px solid var(--gray-02);
+}
+.language-json { 
+  .token.string,
+  .token.number {
+    color: var(--json-purple) !important;
+  }
+  .token.punctuation {
+    color: var(--json-gold) !important;
+  }
+  .token.property {
+    color: var(--json-magenta) !important;
+  }
 }
 .doc-content{
   padding: 188px 80px 0 80px;

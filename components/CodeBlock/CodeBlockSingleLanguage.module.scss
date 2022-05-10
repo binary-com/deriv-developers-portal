@@ -1,10 +1,4 @@
-.copyButtonHeader {
+.codeBlockSingleLanguage {
     background-color: var(--black-02);
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    .copyButtonImage {
-        position: absolute;
-        right: 0;
-        width: fit-content;
-    }
+    border-radius: 4px;
 }
