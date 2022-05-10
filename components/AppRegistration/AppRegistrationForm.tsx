@@ -2,7 +2,7 @@ import { useSelector } from '@xstate/react';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRegisterOrUpdateApp } from '../../custom_hooks/useRegisterOrUpdate';
-import { isUpdateModeSelector } from '../../selectors';
+import { isUpdateModeSelector, isRegisterTabIdleSelector } from '../../selectors';
 import { stateService, updatingRow } from '../../stateSignal';
 import { token1 } from '../../storageSignals';
 import Button from '../Button/Button';
@@ -26,8 +26,9 @@ export default function AppRegistrationForm() {
     const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm<FormData>({ mode: 'onBlur' });
     const { registerApp, isLoading, error } = useRegisterOrUpdateApp();
     const isUpdateMode = useSelector(stateService, isUpdateModeSelector);
+    const isOnRegisterTab = useSelector(stateService, isRegisterTabIdleSelector);
     useEffect(() => {
-        reset();
+        if (isOnRegisterTab) reset();
         if (isUpdateMode) {
             const {
                 name,
@@ -47,7 +48,8 @@ export default function AppRegistrationForm() {
             setValue('payments_scope', scopes.includes('payments') ? true : false);
             setValue('admin_scope', scopes.includes('admin') ? true : false);
         }
-    }, [isUpdateMode]);
+    }, [isUpdateMode, isOnRegisterTab]);
+
     const registerButtonMessage = isUpdateMode ? 'Update application' : 'Register new application';
 
     return (
@@ -186,8 +188,8 @@ export default function AppRegistrationForm() {
                                 </div>
                                 <p className={styles.helperText}>*Please note that this URL will be used as the OAuth redirect
                                     URL for the OAuth authorisation</p>
-                                {errors.app_redirect_uri && <span className="error-message">{errors.app_redirect_uri.message}</span>}
                             </div>
+                            {errors.app_redirect_uri && <span className="error-message">{errors.app_redirect_uri.message}</span>}
                             <div className="input-container">
                                 <div className={styles.customTextInput} id="custom-text-input">
                                     <input {...register(
@@ -207,8 +209,8 @@ export default function AppRegistrationForm() {
                                     />
                                     <label>Verification URL</label>
                                 </div>
-                                {errors.app_verification_uri && <span className="error-message">{errors.app_verification_uri.message}</span>}
                             </div>
+                            {errors.app_verification_uri && <span className="error-message">{errors.app_verification_uri.message}</span>}
                         </fieldset>
                         <div className={styles.scopes} id="register_scopes">
                             <div>
