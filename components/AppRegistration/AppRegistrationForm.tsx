@@ -76,11 +76,11 @@ export default function AppRegistrationForm() {
                                     "api_token_input", {
                                     required: {
                                         value: true,
-                                        message: "You require an API token to register an app."
+                                        message: "Enter your API token (with the Admin scope) to register your app."
                                     },
                                     maxLength: {
                                         value: 255,
-                                        message: "You cannot write more than 255 characters."
+                                        message: "Your API token cannot exceed 255 characters."
                                     }
                                 })}
                                     type="text"
@@ -99,11 +99,11 @@ export default function AppRegistrationForm() {
                                         "app_name", {
                                         required: {
                                             value: true,
-                                            message: "An app name is required.",
+                                            message: "Enter your app name.",
                                         },
                                         maxLength: {
                                             value: 48,
-                                            message: "Your app name cannot exceed more than 48 characters.",
+                                            message: "Your app name cannot exceed 48 characters.",
                                         }
                                     })}
                                         type="text"
@@ -134,11 +134,11 @@ export default function AppRegistrationForm() {
                                             "app_markup_percentage", {
                                             pattern: {
                                                 value: /^((([0-4]\.([0-9]([0-9])?)?))||([5]\.([0]([0])?)?)||([0-5]))$/,
-                                                message: "Please choose a markup value between 0.00 and 5.00",
+                                                message: "Your markup value cannot be above 5.00.",
                                             },
                                             maxLength: {
                                                 value: 4,
-                                                message: "Markup cannot exceed more than 4 characters.",
+                                                message: "Enter your markup value in 2 decimals.",
                                             }
                                         })}
                                             type="number"
@@ -169,15 +169,15 @@ export default function AppRegistrationForm() {
                                         "app_redirect_uri", {
                                         required: {
                                             value: true,
-                                            message: "A Website URL is required.",
+                                            message: "Enter your website URL.",
                                         }, 
                                         maxLength: {
                                             value: 255,
-                                            message: "Your website URL cannot exceed more than 255 characters."
+                                            message: "Your website URL cannot exceed 255 characters."
                                         },
                                         pattern: {
                                             value: /^[a-z][a-z0-9.+-]*:\/\/[0-9a-zA-Z.-]+[%/\w .-]*$/,
-                                            message: "Please correct your link formatting. (example: https://www.deriv.com)"
+                                            message: "Enter a valid URL. (Example: https://www.[yourname].com)"
                                         }
                                     })}
                                         id="app_redirect_uri"
@@ -196,11 +196,11 @@ export default function AppRegistrationForm() {
                                         "app_verification_uri", {
                                         maxLength: {
                                             value: 255,
-                                            message: "Your verification URL cannot exceed more than 255 characters."
+                                            message: "Your website URL cannot exceed 255 characters."
                                         },
                                         pattern: {
                                             value: /^[a-z][a-z0-9.+-]*:\/\/[0-9a-zA-Z.-]+[%/\w .-]*$/,
-                                            message: "Please correct your link formatting. (example: https://www.deriv.com)"
+                                            message: "Enter a valid URL. (Example: https://www.[yourname].com)"
                                         }
                                     })}
                                         id="app_verification_uri"
