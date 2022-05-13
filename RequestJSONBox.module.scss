@@ -1,0 +1,121 @@
+.playgroundBox {
+    border-radius: 6px;
+    border: none;
+    padding: 24px 15px;
+    position: relative;
+
+    .inlineLabel {
+        position: absolute;
+        top: 39px;
+        left: 30px;
+        font-size: 10px;
+        padding: 2px 4px;
+        background-color: var(--white-01);
+    }
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+
+    .appRegistrationSubheader {
+        align-self: flex-start;
+        margin-bottom: 16px;
+        font-size: 24px;
+        text-align: left;
+        line-height: 1.5;
+        color: var(--black-03);
+    }
+}
+
+.textareaRequest {
+    width: 100%;
+    border-radius: 4px;
+    resize: none;
+}
+
+.playgroundRequest {
+    min-height: 200px;
+    padding: 10px 12px;
+    border: none;
+    color: var(--copy-color);
+    border: 1px solid var(--border-normal);
+}
+
+.registrationRequest {
+    min-height: 119px;
+    padding: 10px;
+    border: solid 1px var(--border-normal);
+    font-size: 16px;
+}
+
+.jsonBtnWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 26px 0 40px;
+
+    .btnReset button {
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 4px;
+        margin-right: 8px;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .btnResetPlayground button {
+        background-color: var(--black-04);
+        color: var(--white-01);
+        padding: 10px 16px;
+        border: var(--gray-04) 2px solid;
+    }
+
+    .grayBtnSubmit button{
+        padding: 8px 16px;
+        border: solid 2px var(--gray-09);
+        background-color: var(--white-01);
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: center;
+        color: var(--black-03);
+    }
+
+    .btnSubmit button {
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--red-01);
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: center;
+        color: var(--white-01);
+    
+        &:hover {
+            background-color: var(--red-02);
+        }
+    }
+}
+
+.playgroundConsole {
+    margin-top: 2px;
+    max-height: 60vh;
+    overflow-y: auto;
+    width: 100%;
+}
+
+[data-state~="responsive.mobileM"]{
+    .formContent{
+        width: 100%;
+    }
+}

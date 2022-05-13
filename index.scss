@@ -11,11 +11,24 @@
   --gray-05: #999999;
   --gray-06: #577A9214;
   --gray-07: #d6d6d6;
+  --gray-08: #c2c2c2;
+  --gray-09: #999;
+  --gray-10: #252525b8;
+  --gray-11: #1f1f1f;
+  --gray-12: #303536;
+  --gray-13: #f8fafb; 
+  --blue-01: #85acb0;
+  --blue-03: #85acb0;
+  --green-01: #556b2f;
+  --green-02: #9ed178;
+  --green-03:#21d169;
   --app-registration-tab-secondary: #999999;
   --app-registration-tab-light-grey: #e6e9e9;
   --app-registration-tab-table-row-grey: #fbfbfb;
   --black-01: #0e0e0e;
   --black-02: #1d1f20;
+  --black-03: #333;
+  --black-04: #151717;
   --border-normal: #d6dadb;
   --brand-secondary: #85acb0;
   --copy-hover:#424242;
@@ -99,10 +112,9 @@ p {
   }
 }
 .doc-content{
-  padding: 188px 80px 0 80px;
+  padding: 188px 50px;
   display: flex;
   min-height: 95vh;
-  justify-content: space-between;
 }
 button:focus {
   outline: none;
