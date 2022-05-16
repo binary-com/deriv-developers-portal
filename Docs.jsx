@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Sidebar from './Sidebar';
 import './index.scss'
 import MobilePageSelectLazy from './MobilePageSelectLazy';
+import DelayedFallback from './components/DelayedFallback/DelayedFallback';
 
 function Docs() {
   return (
@@ -10,7 +11,7 @@ function Docs() {
       <Sidebar />
       <div className="page-content">
         <MobilePageSelectLazy />
-        <Suspense fallback={<div>loading</div>}>
+        <Suspense fallback={<DelayedFallback />}>
           <Outlet />
         </Suspense>
       </div>

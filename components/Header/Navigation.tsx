@@ -25,7 +25,7 @@ export default function Navigation() {
                 {[
                     ["/", "Home"],
                     ["/docs/", "Documentation"],
-                    ["/api-explorer/", "API Explorer"],
+                    ["/docs/api-explorer/", "API Explorer"],
                     ].map(([to, label], i) => {
                     return i != 2 ? (
                         <div key={to}>

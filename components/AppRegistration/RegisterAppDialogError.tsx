@@ -2,6 +2,7 @@ import { useSelector } from '@xstate/react';
 import { lazy, Suspense } from 'react';
 import { isRegisterErrorSelector } from '../../selectors';
 import { stateService } from '../../stateSignal';
+import DelayedFallback from '../DelayedFallback/DelayedFallback';
 
 const Modal = lazy(() => import('../Modal/Modal'));
 
@@ -11,7 +12,7 @@ export default function RegisterAppDialogError({ error }) {
         return null;
     }
     return (
-        <Suspense fallback={<div />}>
+        <Suspense fallback={<DelayedFallback />}>
             <Modal 
                 open={isModalOpen}
                 title="Error!"

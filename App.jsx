@@ -5,6 +5,7 @@ import { Suspense } from 'react';
 import Header from './components/Header/Header';
 import LogoutButton from './LogoutButton';
 import { routes } from './Router';
+import DelayedFallbackHomepage from './components/DelayedFallbackHomepage/DelayedFallbackHomepage';
 
 function App() {
   const element = useRoutes(routes);
@@ -12,7 +13,7 @@ function App() {
     <>
         <Header />
         <LogoutButton />
-        <Suspense fallback={<div />}>
+        <Suspense fallback={<DelayedFallbackHomepage />}>
           { element }
         </Suspense>
     </>
