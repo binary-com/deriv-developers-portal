@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;400;500;700&display=swap');
 :root {
   --text-01: #333333;
+  --brown-01: #311912;
+  --brown-02: #443e39;
   --red-01: #ff444f;
   --red-02: #d43e47;
   --gray-01: #f0f1f3a3;
@@ -48,6 +50,8 @@
   --btn-text-color: var(--white-01);
   --btn-background-disabled: var(--gray-02);
   --btn-text-color-disabled: var(--white-01);
+  --spinner-height: 100px;
+  --spinner-width: 100px;
 }
 * {
   font-family: 'IBM Plex Sans', sans-serif;

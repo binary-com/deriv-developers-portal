@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-location';
+import { Link } from 'react-router-dom';
 import { useSelector } from '@xstate/react';
 import styles from './ApiGuide.module.scss';
 import Navigator from './components/Navigator/Navigator';

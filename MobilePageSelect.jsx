@@ -1,9 +1,9 @@
 import styles from './MobilePageSelect.module.scss';
-import { useNavigate, useLocation } from '@tanstack/react-location'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function MobilePageSelect() {
     const location = useLocation();
-    const currentPath = location.current.pathname;
+    const currentPath = location.pathname;
     const navigate = useNavigate();
     const onSelectChange = (event) => {
         const selectedPage = event.target.value;

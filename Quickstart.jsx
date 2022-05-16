@@ -7,7 +7,7 @@ const QuickStart = () => (
             <div>
                 <p>On this page, you&#39;ll find code samples in various programming languages showing you how to work
                 with the Deriv API to perform some of the most important operations.</p>
-                <p>You can find all of the other available calls in the  <a href="{{ branch }}/api-explorer/">API Explorer</a>.</p>
+                <p>You can find all of the other available calls in the  <a href="/docs/api-explorer/">API Explorer</a>.</p>
                 <h3 className={styles.api_sub_title}>Before you begin</h3>
                 <ul className="bullet">
                     <li>Open a <a href="https://deriv.com/">Deriv account</a> (either a demo or real account).</li>

@@ -1,5 +1,3 @@
-import React from "react"
-import { Link } from "@tanstack/react-location"
 import style from "./JsonSchemas.module.scss"
 
 const JsonSchemas = () => {
@@ -18,16 +16,16 @@ const JsonSchemas = () => {
             <h1>JSON Schemas</h1>
             <p>
                 Our API is defined by
-                <Link href={json_navigation[0].path} target="_blank" rel="noreferrer"> {json_navigation[0].title}</Link>.
+                <a href={json_navigation[0].path} target="_blank" rel="noreferrer"> {json_navigation[0].title}</a>.
                 Get updates by looking for "JSON Schema Update" in the
-                <Link href={json_navigation[1].path} target="_blank" rel="noreferrer"> {json_navigation[1].title}</Link>.
+                <a href={json_navigation[1].path} target="_blank" rel="noreferrer"> {json_navigation[1].title}</a>.
             </p>
             <h3>Useful tools:</h3>
             {json_navigation.map(
                 ({ id, title, path }, i) =>
                     i > 1 && (
                         <p key={id}>
-                            <Link key={id} href={path} target="_blank" rel="noreferrer">{title}</Link>
+                            <a key={id} href={path} target="_blank" rel="noreferrer">{title}</a>
                         </p>
                     )
             )}
