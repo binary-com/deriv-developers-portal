@@ -109,19 +109,14 @@ export default function HomepageSlider() {
             slidingTo(NEXT);
         }
     }
-    
-    interface touchEvent {
-        targetTouches: unknown;
-    }
-    interface slideEventValue extends touchEvent {
-        clientX: number;
-    }
 
-    const enableSliding = (event_type:string, event:slideEventValue) => {
+    type sliderEvent = React.MouseEvent<HTMLElement>|React.TouchEvent<HTMLElement>;
+
+    const enableSliding = (event_type:string, event:sliderEvent):void => {
         setIsHoldingCard(true)
-        if (event_type === "mouse") {
+        if (event_type === "mouse" && "clientX" in event) {
             setMouseDownPosition(event.clientX);
-        } else if (event_type === "touch") {
+        } else if (event_type === "touch" && "targetTouches" in event) {
             setMouseDownPosition(event.targetTouches[0].clientX);
         }
     }

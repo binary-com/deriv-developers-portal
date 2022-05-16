@@ -1,0 +1,58 @@
+.apiGuide {
+    display: flex;
+    flex-direction: column;
+    h2 {
+        text-align: left;
+    }
+}
+
+.apiGuideContent {
+    width: 100%;
+    .textBlock {
+        margin-bottom: 40px;
+    }
+    .markupCalc li {
+        margin-left: 30px;
+    }
+}
+
+.apiGuideImage {
+    margin-bottom: 24px;
+    img {
+        width: 80%;
+    }
+}
+
+.apiCodeBlock {
+       width: 100%; 
+}
+
+.apiGuideTableContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+[data-state~="responsive.mobileL"],
+[data-state~="responsive.mobileM"],
+[data-state~="responsive.mobileS"] {
+    .apiGuideImage {
+        overflow: auto;
+        img {
+            width: 900px;
+        }
+    }
+}
+
+[data-state*="responsive.desktop"] {
+    .apiGuideContent {
+        width: calc(100% - 270px);
+    }
+
+    .apiCodeBlock {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}

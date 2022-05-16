@@ -1,7 +1,7 @@
 .pageContent{
     width: 70%;
     padding-left: 42px;
-    border-left: 2px solid var(--app-sidebar-border-color);
+    border-left: 2px solid var(--gray-01);
 
     @media (max-width: 992px) {
         width: 100% !important;

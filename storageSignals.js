@@ -1,4 +1,5 @@
 import { createEffect, createSignal } from 'solid-js';
+import { sanitizeURL } from './global_functions/sanitizeURL';
 
 export const [token1, setToken1] = createSignal('');
 export const [app_id, setAppId] = createSignal('');
@@ -16,7 +17,9 @@ createEffect(() => {
     const token1 = sessionStorage.getItem('token1');
     const app_id_from_storage = localStorage.getItem('app_id');
     const server_url_from_storage = localStorage.getItem('server_url');
+
     setToken1(token1);
     setAppId(app_id_from_storage);
     setServerUrl(server_url_from_storage);
+    sanitizeURL();
 });

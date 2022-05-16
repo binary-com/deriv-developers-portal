@@ -27,15 +27,6 @@
     width: 32px;
 }
 
-[data-state~="registration.logged_in.update_mode"] .custom-text-input .api-token-input[readonly=true] {
-    color: var(--border-normal);
-    cursor: not-allowed;  
-}
-
-[data-state~="registration.logged_in.update_mode"] .custom-text-input .api-token-input[readonly=true]~label {
-    color: var(--border-normal) !important;
-}
-
 .app-btn span {
     visibility: hidden;
 }
@@ -205,92 +196,18 @@
     width: 100%;
 }
 
-[data-state~="registration.logged_in.register_tab.unfolded_form"] .expandable-form {
-    display: flex;
-    flex-direction: column;
-
-}
-
-[data-state~="registration.logged_in.register_tab.folded_form"] .expandable-form {
-    display: none;
-}
-
-.expandable-form {
-    display: none;
+fieldset {
     width: 80%;
-}
-
-.expandable-form fieldset {
-    width: 100%;
-}
-
-.expand-form {
-    width: 80%;
-    left: 0;
-    display: flex;
-    padding: 40px 0 10px;
-}
-
-.expand-form-checkbox {
-    margin-right: 16px;
-    transform: scale(1.23);
-    padding: 9px;
-    top: 1px;
-    position: relative;
-}
-
-.form-content h4 {
-    margin-bottom: 0;
-}
-
-.form-header-container {
-    display: flex;
-    padding: 10px 0;
+    margin: 0 auto;
+    border: none;
+    .first {
+        margin-top: 20px;
+    }
 }
 
 .form-subtitle {
     font-weight: normal;
     line-height: 24px;
-}
-
-.info-icon-tooltip {
-    position: relative;
-}
-
-.info-icon {
-    position: relative;
-    top: 2px !important;
-}
-
-.info-icon:hover .tooltip {
-    background-color: var(--border-normal);
-    border-radius: 4px;
-    color: var(--app-registration-tab-active-font);
-    font-size: 12px;
-    left: 50%;
-    line-height: 18px;
-    padding: 8px;
-    position: absolute;
-    display: inline-block;
-    width: 140px;
-    transform: translate(-19%, calc(-100% - 10px));
-}
-
-.info-icon:hover .tooltip:hover {
-    display: inline-block;
-}
-
-.info-icon:hover .tooltip:before {
-    content: ' ';
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid var(--border-normal);
-    left: 30px;
-    transform: translateX(-50%);
-    position: absolute;
-    bottom: -5px;
 }
 
 .input-container {
@@ -336,15 +253,6 @@
     margin: 0 auto;
 }
 
-.no-apps-icon {
-    margin-top: 16px;
-    margin-bottom: 20px;
-}
-
-.no-apps-text {
-    text-align: center;
-}
-
 .no-apps-wrapper {
     display: none;
 }
@@ -380,29 +288,16 @@
 .registered-apps-tabs button {
     border: none;
     background-color: transparent;
-    color: var(--app-registration-tab-secondary);
-    border-bottom: 1px solid var(--app-registration-tab-secondary);
+    color: var(--gray-05);
+    border-bottom: 1px solid var(--gray-05);
     padding: 10px 20px;
 }
 
 [data-state~="registration.logged_in.manage_tab"] .manage-button,
 [data-state~="registration.logged_in.register_tab"] .register-button {
     font-weight: bold;
-    color: var(--app-registration-tab-active-font);
+    color: var(--text-01);
     border-bottom: 3px solid var(--red-01);
-}
-
-[data-state~="registration.logged_in.update_mode"] .expandable-form .register-app-button span {
-    visibility: hidden;
-    position: relative;
-}
-
-[data-state~="registration.logged_in.update_mode"] .expandable-form .register-app-button span:after {
-    visibility: visible;
-    content: "Update application";
-    position: absolute;
-    left: 0;
-    right: 0;
 }
 
 [data-state~="registration.logged_in.update_mode"] .register-button {
@@ -415,7 +310,7 @@
     visibility: visible;
     content: "Update your application";
     font-weight: bold;
-    color: var(--app-registration-tab-active-font);
+    color: var(--text-01);
     border-bottom: 3px solid var(--red-01);
     position: absolute;
     padding: 10px 0;
@@ -435,16 +330,6 @@
 [data-state~="registration.logged_in.update_mode"] .expandable-form {
     display: flex;
     flex-direction: column;
-}
-
-.expandable-form .register-app-button {
-    padding: 12px 32.5px;
-}
-
-.register-form-header {
-    font-size: 16px;
-    margin-right: 5px;
-    line-height: 20px
 }
 
 .register-app fieldset input[type="text"] {
@@ -474,14 +359,6 @@
     cursor: pointer;
 }
 
-.scopes {
-    margin-top: 40px;
-}
-
-.terms-of-conditions-register {
-    margin-top: 35px;
-}
-
 .tooltip {
     display: none;
 }
@@ -497,8 +374,8 @@
     padding: 0 8px;
 }
 
-.tooltip-link {
-    font-size: 12px;
+.app-registration-signout {
+    display: none;
 }
 
 @media screen and (min-width: 480px) {
@@ -538,15 +415,6 @@
         margin-bottom: 24px;
     }
 
-    .info-icon:hover .tooltip:before {
-        left: 50%;
-    }
-
-    .info-icon:hover .tooltip {
-        width: 280px;
-        transform: translate(-50%, calc(-100% - 10px));
-    }
-
     .login-title {
         font-size: 20px;
         margin-bottom: 24px;
@@ -566,12 +434,8 @@
     .no-apps-text {
         width: 390px;
     }
-
+    
     .expandable-form .register-app-button {
         padding: 12px 20px;
-    }
-
-    .register-form-header {
-        font-size: 16px;
     }
 }

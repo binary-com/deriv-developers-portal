@@ -2,12 +2,11 @@ import React from 'react';
 import Accordion from "./Accordion";
 import AccordionItem from "./AccordionItem";
 import styles from "./Faq.module.scss";
-import CodeContent from './CodeContent';
+import CodeContent from './components/CodeBlock/CodeContent';
 
 const FAQ = () => {
- 
   return (
-    <div className={styles.pageContent}>
+    <div className="page-content">
       <div className={styles.withBg}>
         <h1 className={styles.docmMainTitle}>FAQ</h1>
         <Accordion>

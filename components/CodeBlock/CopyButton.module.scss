@@ -1,0 +1,33 @@
+.copyButtonHeader {
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  display: flex;
+  justify-content: end;
+  background-color: var(--json-midnight);
+
+  .copyButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--copy-color);
+    padding: 8px 16px;
+    cursor: copy;
+    flex-shrink: 0;
+    width: fit-content;
+
+    .copyButtonImage {
+      background-image: url(/img/copy.svg);
+      width: 15px;
+      height: 16px;
+    }
+
+    > div {
+      margin-left: 9px;
+    }
+
+    &:hover {
+      background-color:var(--copy-hover);
+      border-top-right-radius: 6px;
+    }
+  }
+}
