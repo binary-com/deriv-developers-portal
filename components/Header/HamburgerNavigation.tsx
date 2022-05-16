@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-location";
+import { Link } from "react-router-dom";
 import { send } from "../../stateSignal";
 import styles from "./Header.module.scss";
 export default function HamburgerNavigation() {

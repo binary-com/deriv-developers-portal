@@ -1,6 +1,6 @@
 import styles from "./Sidebar.module.scss"
 import React from 'react'
-import { Link,useLocation } from '@tanstack/react-location'
+import { Link,useLocation } from 'react-router-dom'
 
 const Sidebar = () => {
 
@@ -21,7 +21,7 @@ const Sidebar = () => {
               ].map(([to,label])=>{
                 return (
                   <div key={to}>
-                    <Link to={to} className={to === location.current.pathname ? styles.selected : ''}
+                    <Link to={to} className={to === location.pathname ? styles.selected : ''}
                     >
                       {label}
                     </Link>

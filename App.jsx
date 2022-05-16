@@ -1,24 +1,21 @@
-import { QueryClient, QueryClientProvider } from 'react-query'
 import './stateSignal';
 import './resizeEffect';
-import { Router, Outlet } from '@tanstack/react-location';
-import { routes, location } from './Router';
+import { useRoutes } from "react-router-dom";
 import { Suspense } from 'react';
 import Header from './components/Header/Header';
 import LogoutButton from './LogoutButton';
+import { routes } from './Router';
 
 function App() {
-  const queryClient = new QueryClient()
+  const element = useRoutes(routes);
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router routes={routes} location={location}>
+    <>
         <Header />
         <LogoutButton />
         <Suspense fallback={<div />}>
-          <Outlet />
+          { element }
         </Suspense>
-      </Router>
-    </QueryClientProvider>
+    </>
   )
 }
 

@@ -1,4 +1,4 @@
-import { Outlet } from '@tanstack/react-location';
+import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import Sidebar from './Sidebar';
 import './index.scss'

@@ -1,12 +1,12 @@
-import { Link, useLocation } from "@tanstack/react-location";
+import { Link, useLocation } from "react-router-dom";
 import { send } from "../../stateSignal";
 import styles from "./Header.module.scss";
 import HamburgerNavigation from "./HamburgerNavigation";
 
 export default function Navigation() {
     const location = useLocation();
-    const address = location.current.pathname;
-    const docAddress = location.current.pathname.substring(0, 6);
+    const address = location.pathname
+    const docAddress = location.pathname.substring(0, 6);
     return (
         <>
             <div 

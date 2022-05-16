@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReactLocation } from '@tanstack/react-location'
 const HomePage = React.lazy(()=>import('./Homepage'));
 const Docs = React.lazy(()=>import('./Docs'));
 const ApiExplorer = React.lazy(()=>import('./ApiExplorer'));
@@ -20,7 +19,7 @@ export const routes = [
     element:<Docs/>,
     children:[
       {
-        path:"/",
+        path:"",
         element:<Quickstart/>
       },
       {
@@ -54,4 +53,3 @@ export const routes = [
     element: <ApiExplorer/>
   }
 ];
-export const location = new ReactLocation();

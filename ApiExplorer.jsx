@@ -3,7 +3,6 @@ import { PlaygroundComponent } from "./PlaygroundComponent"
 import React from "react"
 import style from "./PlaygroundComponent.module.scss"
 import Sidebar from "./Sidebar"
-import './index.scss'
 
 const ApiExplorer = () => {
   return (
