@@ -11,12 +11,21 @@ export default function RegisterAppDialogError({ error }) {
     if (!isModalOpen) {
         return null;
     }
+    const catchError = () => {
+        if (error && error.error?.code === "InvalidToken") {
+            return "Enter your API token (with the Admin scope) to register your app.";
+        } else if (error) {
+            return error.error?.message;
+        } else {
+            return;
+        }
+    }
     return (
         <Suspense fallback={<DelayedFallback />}>
             <Modal 
                 open={isModalOpen}
                 title="Error!"
-                description={error?.error?.message}
+                description={catchError()}
                 secondaryButtonText="Got it"
                 type="warning"
                 onRequestClose={() => stateService.send('CLOSE_MODAL')}
