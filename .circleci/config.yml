@@ -18,7 +18,6 @@ commands:
             sudo gem install bundler
             mkdir -p ~/.ssh
             ssh-keyscan github.com >> ~/.ssh/known_hosts
-            echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ== ' >> ~/.ssh/known_hosts
             # Fetch tags if git cache is present
             if [ -e /home/circleci/project/.git ]
             then
@@ -33,6 +32,8 @@ commands:
           key: source-v1-{{ .Branch }}-{{ .Revision }}
           paths:
             - ".git"
+
+  # TODO: Remove when upgrade branch is ready
   bundle_install:
     description: "Bundle install"
     steps:
@@ -124,19 +125,13 @@ commands:
           webhook: ${SLACK_WEBHOOK}
 jobs:
   build:
-    docker:
-      - image: circleci/ruby:2.6.5
-    steps:
-      - git_checkout_from_cache
-      - bundle_install
-      - build
   release_staging:
     docker:
-      - image: circleci/ruby:2.6.5
+      - image: circleci/node:14.17.1-stretch
     steps:
       - git_checkout_from_cache
-      - bundle_install
-      - build
+      - npm install
+      - npm run build
       - tag
       - docker_build_push
       - k8s_deploy
@@ -168,7 +163,7 @@ workflows:
           context: binary-frontend-artifact-upload
           filters:
             branches:
-              only: /^master$/
+              only: /^upgrade$/
   release_production:
     jobs:
       - release_production:
