@@ -132,6 +132,10 @@ export default function AppRegistrationForm() {
                                     <div className={styles.customTextInput} id="custom-text-input">
                                         <input {...register(
                                             "app_markup_percentage", {
+                                            required: {
+                                                value: true,
+                                                message: "Enter a markup value.",
+                                            },
                                             pattern: {
                                                 value: /^((([0-4]\.([0-9]([0-9])?)?))||([5]\.([0]([0])?)?)||([0-5]))$/,
                                                 message: "Your markup value cannot be above 5.00.",
@@ -194,6 +198,10 @@ export default function AppRegistrationForm() {
                                 <div className={styles.customTextInput} id="custom-text-input">
                                     <input {...register(
                                         "app_verification_uri", {
+                                        required: {
+                                            value: true,
+                                            message: "Enter a URL."
+                                        },
                                         maxLength: {
                                             value: 255,
                                             message: "Your website URL cannot exceed 255 characters."
@@ -207,7 +215,7 @@ export default function AppRegistrationForm() {
                                         type="text"
                                         placeholder=" "
                                     />
-                                    <label>Verification URL</label>
+                                    <label>Verification URL (Required)</label>
                                 </div>
                             </div>
                             {errors.app_verification_uri && <span className="error-message">{errors.app_verification_uri.message}</span>}
