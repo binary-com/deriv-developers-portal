@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
 import { send } from "../../stateSignal";
 import styles from "./Header.module.scss";
+import HamburgerLink from "./HamburgerLink";
+
 export default function HamburgerNavigation() {
     return (
         <div className={styles.hamburgerNavigation}>
@@ -9,16 +10,16 @@ export default function HamburgerNavigation() {
                 className={`${styles.flexContainer}`}
             >
                 <ul>
-                    <li><Link to="/">Home</Link></li>
+                    <li><HamburgerLink location="/" name="Home" /></li>
                     <button onClick={() => send('TOGGLE_DOCUMENTATION') }>Documentation</button>
                     <section className={styles.documentationSection}>
-                        <li><Link to="/docs/">Quickstart</Link></li>
-                        <li><Link to="/docs/app-registration/">App Registration</Link></li>
-                        <li><Link to="/docs/api-explorer/">API Explorer</Link></li>
-                        <li><Link to="/docs/api-guide/">API Guide</Link></li>
-                        <li><Link to="/docs/faq/">FAQ</Link></li>
-                        <li><Link to="/docs/json-schemas/">JSON Schemas</Link></li>
-                        <li><Link to="/docs/bug-bounty/">Bug Bounty</Link></li>
+                        <li><HamburgerLink location="/docs/" name="Quickstart" /></li>
+                        <li><HamburgerLink location="/docs/app-registration/" name="App Registration" /></li>
+                        <li><HamburgerLink location="/docs/api-explorer/" name="API Explorer" /></li>
+                        <li><HamburgerLink location="/docs/api-guide/" name="API Guide" /></li>
+                        <li><HamburgerLink location="/docs/faq/" name="FAQ" /></li>
+                        <li><HamburgerLink location="/docs/json-schemas/" name="JSON Schemas" /></li>
+                        <li><HamburgerLink location="/docs/bug-bounty/" name="Bug Bounty" /></li>
                     </section>
                 </ul>
             </nav>
