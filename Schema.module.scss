@@ -75,6 +75,7 @@
         line-height: 1.43;
         color: var(--green-03);
         border: none;
+        margin: 8px 8px 0 0;
         padding: 6px 8px;
         white-space: nowrap;
         border-radius: 4px;
@@ -106,7 +107,9 @@
         }
 
         .schemaPatternType{
-          color: var(--green-02);
+          color: var(--green-03);
+          font-size: 14px;
+          font-weight: 400;
         }
       }
     }

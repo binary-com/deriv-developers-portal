@@ -102,13 +102,13 @@ p {
 .language-json { 
   .token.string,
   .token.number {
-    color: var(--json-purple) !important;
+    color: var(--#e6db74) !important;
   }
   .token.punctuation {
-    color: var(--json-gold) !important;
+    color: var(--copy-color) !important;
   }
   .token.property {
-    color: var(--json-magenta) !important;
+    color: #f92672 !important;
   }
 }
 .doc-content{
