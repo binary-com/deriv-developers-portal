@@ -8,7 +8,7 @@ export default function MobilePageSelect() {
     const onSelectChange = (event) => {
         const selectedPage = event.target.value;
         if (selectedPage) {
-            navigate({ to: selectedPage, replace: true })
+            navigate(selectedPage)
         }
     };
     return (
