@@ -15,7 +15,7 @@ export default function MobilePageSelect() {
         <select className={styles.mobilePageSelect} onChange={onSelectChange} value={currentPath}>
             <option value="/docs/">Quickstart</option>
             <option value="/docs/app-registration/">App Registration</option>
-            <option value="/playground/">API Playground</option>
+            <option value="/docs/api-explorer/">API Playground</option>
             <option value="/docs/api-guide/">API Guide</option>
             <option value="/docs/faq/">FAQ</option>
             <option value="/docs/json-schemas/">JSON Schemas</option>
