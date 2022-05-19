@@ -151,8 +151,10 @@ jobs:
           version_name: production
       - docker_build_push:
           docker_image_latest_tag: latest
+          docker_image_tag: ${CIRCLE_SHA1}
       - k8s_deploy:
-          k8s_namespace: "deriv-app-production"
+          k8s_namespace: "deriv-com-api-production"
+          k8s_version: ${CIRCLE_SHA1}
       - notify_slack
     environment:
       NODE_ENV: production
