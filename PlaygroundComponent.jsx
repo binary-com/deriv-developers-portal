@@ -24,6 +24,8 @@ export const PlaygroundComponent = () => {
 
     useEffect(() => {
       const placeholder = text_data.selected_value === "Select API Call - Version 3"
+      const url_value = window.location.hash.split("#")[1];
+      console.log(url_value);
       if (text_data.selected_value && !placeholder) {
         import(`./config/v3/${text_data.selected_value}/send.json`).then((data) => {
           setRequestInfo(data);
