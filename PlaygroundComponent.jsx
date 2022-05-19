@@ -8,6 +8,7 @@ import { playground_requests } from "./Playground_Requests";
 import Title from "./Title";
 import data_get_api_token from "./data-app-registration";
 import styles from "./PlaygroundComponent.module.scss";
+import useSettingsDropdownEffect from "./useSettingsDropdownEffect";
 
 export const PlaygroundComponent = () => {
     const [current_api, setCurrentAPI] = useState(api)
@@ -21,6 +22,7 @@ export const PlaygroundComponent = () => {
       selected_value: "Select API Call - Version 3",
       token: ""
     })
+    useSettingsDropdownEffect();
 
     useEffect(() => {
       const placeholder = text_data.selected_value === "Select API Call - Version 3"
@@ -79,7 +81,6 @@ export const PlaygroundComponent = () => {
           selected_value: "Authorize",
           request: JSON.stringify({ authorize: inserted_token }, null, 2)
         }
-        sessionStorage.setItem("session_data", JSON.stringify(new_text_data))
         Promise.resolve(setTextData({ ...new_text_data })).then(() => {
           sendRequest()
         })
@@ -89,6 +90,7 @@ export const PlaygroundComponent = () => {
   
     const handleSelectChange = useCallback(
       event => {
+        // console.log('select account settings ', event.target.value);
         event.preventDefault()
         const request_body = playground_requests.find(
           el => el.name === event.currentTarget.value
@@ -99,14 +101,6 @@ export const PlaygroundComponent = () => {
           request: JSON.stringify(request_body?.body, null, 4)
         }
         setTextData({ ...new_text_data })
-  
-        sessionStorage.setItem(
-          "session_data",
-          JSON.stringify({
-            ...new_text_data,
-            selected_value: request_body?.title
-          })
-        )
       },
       [text_data]
     )

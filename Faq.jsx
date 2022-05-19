@@ -120,7 +120,7 @@ const FAQ = () => {
             <p>
               To allow others to copy your trades, set the ‘allow_copiers’
               setting via the{" "}
-              <a href="/playground/#set_settings">set settings</a> call.
+              <a href="/docs/api-explorer#set_settings">set settings</a> call.
             </p>
             <p>
               The Trader may create a read-only API token and provide it to the
