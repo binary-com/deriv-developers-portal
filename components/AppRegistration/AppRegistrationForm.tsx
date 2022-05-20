@@ -138,11 +138,11 @@ export default function AppRegistrationForm() {
                                             },
                                             pattern: {
                                                 value: /^((([0-4]\.([0-9]([0-9])?)?))||([5]\.([0]([0])?)?)||([0-5]))$/,
-                                                message: "Your markup value cannot be above 5.00.",
+                                                message: "Your markup value must be above 0.00 and no more than 5.00.",
                                             },
                                             maxLength: {
                                                 value: 4,
-                                                message: "Enter your markup value in 2 decimals.",
+                                                message: "Your markup value cannot be more than 4 characters.",
                                             }
                                         })}
                                             type="number"
@@ -204,7 +204,7 @@ export default function AppRegistrationForm() {
                                         },
                                         maxLength: {
                                             value: 255,
-                                            message: "Your website URL cannot exceed 255 characters."
+                                            message: "Your verification URL cannot exceed 255 characters."
                                         },
                                         pattern: {
                                             value: /^[a-z][a-z0-9.+-]*:\/\/[0-9a-zA-Z.-]+[%/\w .-]*$/,
