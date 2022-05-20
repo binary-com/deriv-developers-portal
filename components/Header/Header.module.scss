@@ -124,12 +124,12 @@
             li {
                 list-style: none;
                 a {
+                    padding-left: 22px;
                     height: 40px;
                     width: calc(100% - 22px);
                     color: black;
                     display: flex;
                     align-items: center;
-                    padding-left: 22px;
                     border-radius: 0px 4px 4px 0px;
                     position: relative;
                     font-size: 14px;
@@ -244,4 +244,29 @@
         align-items: center;
       }
    } 
+}
+
+[data-state*="responsive.mobile"] {
+    .nav .selected {
+        &::before {
+            width: 20px;
+            visibility: visible;
+            line-height: 1.5;
+            height: 100%;
+            bottom: 0;
+            width: 4px;
+            border-radius: 4px 0 0 4px;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white-03);
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: 0 4px 4px 0;
+        }
+    }
 }
