@@ -33,11 +33,13 @@ export const PlaygroundComponent = () => {
           import(`./config/v3/${text_data.selected_value}/send.json`).then((data) => {
             setRequestInfo(data);
           }).catch((error) => {
+            // eslint-disable-next-line
             console.log(error);
           })
           import(`./config/v3/${text_data.selected_value}/receive.json`).then((data) => {
             setResponseInfo(data);
           }).catch((error) => {
+            // eslint-disable-next-line
             console.log(error);
           })
       }
@@ -55,11 +57,13 @@ export const PlaygroundComponent = () => {
         import(`./config/v3/${hash_value}/send.json`).then((data) => {
           setRequestInfo(data);
         }).catch((error) => {
+          // eslint-disable-next-line
           console.log(error);
         })
         import(`./config/v3/${hash_value}/receive.json`).then((data) => {
           setResponseInfo(data);
         }).catch((error) => {
+          // eslint-disable-next-line
           console.log(error);
         })
       }
