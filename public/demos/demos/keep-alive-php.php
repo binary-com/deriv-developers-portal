@@ -14,7 +14,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.
+// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
 $my_app_id = 1089; // Put your app_id here. 
 $loop = \React\EventLoop\Factory::create();
 $Connector = new React\Socket\Connector($loop, array(

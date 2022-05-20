@@ -8,7 +8,6 @@ import { playground_requests } from "./Playground_Requests";
 import Title from "./Title";
 import data_get_api_token from "./data-app-registration";
 import styles from "./PlaygroundComponent.module.scss";
-import useSettingsDropdownEffect from "./useSettingsDropdownEffect";
 
 export const PlaygroundComponent = () => {
     const [current_api, setCurrentAPI] = useState(api)
@@ -22,20 +21,72 @@ export const PlaygroundComponent = () => {
       selected_value: "Select API Call - Version 3",
       token: ""
     })
-    useSettingsDropdownEffect();
 
     useEffect(() => {
-      const placeholder = text_data.selected_value === "Select API Call - Version 3"
-      if (text_data.selected_value && !placeholder) {
-        import(`./config/v3/${text_data.selected_value}/send.json`).then((data) => {
+      const hash_value = window.location.hash.split("#")[1];
+      const request_body = playground_requests.find(
+        el => el.name === hash_value
+      )
+      const is_not_placeholder = text_data.selected_value === request_body?.name;
+
+      const dynamicImportJSON = () => {
+          import(`./config/v3/${text_data.selected_value}/send.json`).then((data) => {
+            setRequestInfo(data);
+          }).catch((error) => {
+            // eslint-disable-next-line
+            console.log(error);
+          })
+          import(`./config/v3/${text_data.selected_value}/receive.json`).then((data) => {
+            setResponseInfo(data);
+          }).catch((error) => {
+            // eslint-disable-next-line
+            console.log(error);
+          })
+      }
+
+      if (is_not_placeholder) dynamicImportJSON();
+
+    },[text_data.selected_value]);
+
+    // We need to dynamically import new data when the user selects a function
+    // through the link hash.
+    useEffect(() => {
+      const hash_value = window.location.hash.split("#")[1];
+
+      const dynamicImportJSON = () => {
+        import(`./config/v3/${hash_value}/send.json`).then((data) => {
           setRequestInfo(data);
+        }).catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
         })
-        import(`./config/v3/${text_data.selected_value}/receive.json`).then((data) => {
+        import(`./config/v3/${hash_value}/receive.json`).then((data) => {
           setResponseInfo(data);
+        }).catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
         })
       }
-    },[text_data.selected_value]);
-  
+
+      if (hash_value) dynamicImportJSON();
+
+    }, [window.location.hash])
+
+    // A new data object has to be created if the user updates the link hash,
+    // This way, new data will be displayed in the UI.
+    useEffect(() => {
+      if (window.location.hash) {
+        const hash_value = window.location.hash.split("#")[1];
+        const find_select_value = playground_requests.find(el => el.name === hash_value);
+        const hash_text_data = {
+          ...text_data,
+          request: JSON.stringify(find_select_value?.body, null, 2),
+          selected_value: find_select_value?.title,
+        }
+        setTextData(hash_text_data);
+      }
+    }, [window.location.hash, playground_requests])
+    
     const sendRequest = useCallback(() => {
       if (
         !request_input.current?.value &&
@@ -90,7 +141,6 @@ export const PlaygroundComponent = () => {
   
     const handleSelectChange = useCallback(
       event => {
-        // console.log('select account settings ', event.target.value);
         event.preventDefault()
         const request_body = playground_requests.find(
           el => el.name === event.currentTarget.value

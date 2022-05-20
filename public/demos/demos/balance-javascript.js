@@ -11,7 +11,7 @@
  */
 const WebSocket = require('ws');
 
-// You can register for an app_id here https://developers.deriv.com/docs/app-registration/.
+// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
 const app_id = 1089; // Replace with your app_id.
 const ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=' + app_id);
 

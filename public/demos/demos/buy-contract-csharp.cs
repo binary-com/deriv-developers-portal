@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 /*
  * This is an example of using C# to buy a contract.
  * This is a simple script as it does not check if the account has access to the
- * asset before placing the trade. You can use `asset_index` call https://developers.deriv.com/playground/#asset_index to check this.
+ * asset before placing the trade. You can use `asset_index` call https://api.deriv.com/docs/api-explorer/#asset_index to check this.
  * The example was originally written in dotnet version 5.0.  
  * It uses the Newtonsoft Json.net Library https://www.newtonsoft.com/json
  * This can be run on Windows/linux or Mac.
@@ -26,7 +26,7 @@ namespace DerivWSDemo
     class DerivWS
     {
         private ClientWebSocket ws = new ClientWebSocket();
-        private string app_id = "1089"; // Change this to yor app_id. Get it from here https://developers.deriv.com/docs/app-registration/.
+        private string app_id = "1089"; // Change this to yor app_id. Get it from here https://api.deriv.com/docs/app-registration/.
         public static string token = ""; // Change this to your token. Get it from here https://app.deriv.com/account/api-token.
         private string websocket_url = "wss://ws.binaryws.com/websockets/v3?app_id=";
 
