@@ -76,7 +76,7 @@ export const PlaygroundComponent = () => {
       inserted_token => {
         const new_text_data = {
           token: inserted_token,
-          selected_value: "Authorize",
+          selected_value: "authorize",
           request: JSON.stringify({ authorize: inserted_token }, null, 2)
         }
         sessionStorage.setItem("session_data", JSON.stringify(new_text_data))
