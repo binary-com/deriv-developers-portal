@@ -24,7 +24,7 @@ namespace DerivWSDemo
     class DerivWS
     {
         private ClientWebSocket ws = new ClientWebSocket();
-        // You can register for an app_id here https://developers.deriv.com/docs/app-registration/.
+        // You can register for an app_id here https://api.deriv.com/docs/app-registration/.
         private string app_id = "1089"; // Change this to yor app_id.
         // You can get your token here https://app.deriv.com/account/api-token.
         public static string token = ""; // Change this to the token you want to get the balance from. 

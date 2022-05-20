@@ -26,7 +26,7 @@ namespace DerivWSDemo
     class DerivWS
     {
         private ClientWebSocket ws = new ClientWebSocket();
-        // You can register for an app_id here https://developers.deriv.com/docs/app-registration/.        
+        // You can register for an app_id here https://api.deriv.com/docs/app-registration/.        
         private string app_id = "1089"; // Change this to yor app_id.
         private string websocket_url = "wss://ws.binaryws.com/websockets/v3?app_id=";
         private bool connected = false;
