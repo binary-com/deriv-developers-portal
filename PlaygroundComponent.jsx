@@ -8,11 +8,14 @@ import { playground_requests } from "./Playground_Requests";
 import Title from "./Title";
 import data_get_api_token from "./data-app-registration";
 import styles from "./PlaygroundComponent.module.scss";
+import { ticksSubject } from  './ticksSubject';
+import { createSignal } from "solid-js";
 
 export const PlaygroundComponent = () => {
     const [current_api, setCurrentAPI] = useState(api)
     const [is_initial_socket, setIsInitialSocket] = useState(true)
     const [messages, setMessages] = useState([])
+    const [messagesSignal, setMessagesSignal] = createSignal([]);
     const request_input = useRef(null)
     const [request_info, setRequestInfo] = useState({})
     const [response_info, setResponseInfo] = useState({})
@@ -52,7 +55,27 @@ export const PlaygroundComponent = () => {
         relevant_api = generateDerivApiInstance()
         setIsInitialSocket(true)
       }
-      _request &&
+      if (_request.ticks) {
+        ticksSubject.next(_request);
+        ticksSubject.subscribe({
+          next: (res) => {
+            setMessagesSignal([
+              ...messagesSignal(),
+              { body: _request, type: "req" },
+              { body: res, type: "res" }
+              ])
+              setMessages(messagesSignal())
+          },
+          error: (err) => {
+              setMessages([
+                  ...messages,
+                  { body: _request, type: "req" },
+                  { body: err, type: "err" }
+                  ])
+          }
+        });
+      }
+      if (_request && !_request.ticks) {
         relevant_api
           .send(_request)
           .then(res =>
@@ -69,6 +92,7 @@ export const PlaygroundComponent = () => {
               { body: err, type: "err" }
             ])
           )
+      }
       setCurrentAPI(relevant_api)
     }, [current_api, request_input, messages, is_initial_socket, text_data])
   

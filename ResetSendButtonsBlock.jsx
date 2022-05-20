@@ -1,11 +1,13 @@
 import Button from "./Button";
 import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
+import { ticksSubject } from "./ticksSubject";
 
 export const ResetSendButtonsBlock = React.memo(
     ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api }) => {
       const onClick = React.useCallback(() => {
         current_api.connection.close()
+        ticksSubject.unsubscribe();
         resetMessagesInConsole?.([])
       }, [resetMessagesInConsole, current_api])
   
