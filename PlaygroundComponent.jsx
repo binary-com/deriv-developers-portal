@@ -27,30 +27,45 @@ export const PlaygroundComponent = () => {
       const request_body = playground_requests.find(
         el => el.name === hash_value
       )
-      const is_not_placeholder = text_data.selected_value === request_body.name;
+      const is_not_placeholder = text_data.selected_value === request_body?.name;
 
-      if (is_not_placeholder) {
-        import(`./config/v3/${text_data.selected_value}/send.json`).then((data) => {
-          setRequestInfo(data);
-        })
-        import(`./config/v3/${text_data.selected_value}/receive.json`).then((data) => {
-          setResponseInfo(data);
-        })
+      const dynamicImportJSON = () => {
+          import(`./config/v3/${text_data.selected_value}/send.json`).then((data) => {
+            setRequestInfo(data);
+          }).catch((error) => {
+            console.log(error);
+          })
+          import(`./config/v3/${text_data.selected_value}/receive.json`).then((data) => {
+            setResponseInfo(data);
+          }).catch((error) => {
+            console.log(error);
+          })
       }
+
+      if (is_not_placeholder) dynamicImportJSON();
+
     },[text_data.selected_value]);
 
     // We need to dynamically import new data when the user selects a function
     // through the link hash.
     useEffect(() => {
       const hash_value = window.location.hash.split("#")[1];
-      if (hash_value) {
+
+      const dynamicImportJSON = () => {
         import(`./config/v3/${hash_value}/send.json`).then((data) => {
           setRequestInfo(data);
+        }).catch((error) => {
+          console.log(error);
         })
         import(`./config/v3/${hash_value}/receive.json`).then((data) => {
           setResponseInfo(data);
+        }).catch((error) => {
+          console.log(error);
         })
       }
+
+      if (hash_value) dynamicImportJSON();
+
     }, [window.location.hash])
 
     // A new data object has to be created if the user updates the link hash,
