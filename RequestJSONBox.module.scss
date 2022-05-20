@@ -3,6 +3,10 @@
     border: none;
     padding: 24px 15px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .inlineLabel {
         position: absolute;
