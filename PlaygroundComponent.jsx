@@ -42,34 +42,39 @@ export const PlaygroundComponent = () => {
         alert("Invalid JSON!")
         return
       }
-      const _request = request_input.current?.value && JSON.parse(request_input.current?.value)
-      const is_current_api_ready = current_api.connection.readyState === 1
-      let relevant_api = current_api
-      if (!is_current_api_ready && is_initial_socket) {
-        relevant_api = generateDerivApiInstance()
-        setIsInitialSocket(false)
-      } else if (current_api.connection.readyState !== 1 && !is_initial_socket) {
-        relevant_api = generateDerivApiInstance()
-        setIsInitialSocket(true)
+      try{
+        const _request = request_input.current?.value && JSON.parse(request_input.current?.value)
+        const is_current_api_ready = current_api.connection.readyState === 1
+        let relevant_api = current_api
+        if (!is_current_api_ready && is_initial_socket) {
+          relevant_api = generateDerivApiInstance()
+          setIsInitialSocket(false)
+        } else if (current_api.connection.readyState !== 1 && !is_initial_socket) {
+          relevant_api = generateDerivApiInstance()
+          setIsInitialSocket(true)
+        }
+        _request &&
+          relevant_api
+            .send(_request)
+            .then(res =>
+              setMessages([
+                ...messages,
+                { body: _request, type: "req" },
+                { body: res, type: "res" }
+              ])
+            )
+            .catch(err =>
+              setMessages([
+                ...messages,
+                { body: _request, type: "req" },
+                { body: err, type: "err" }
+              ])
+            )
+        setCurrentAPI(relevant_api)
+      } catch(error){
+        alert("Invalid JSON!")
       }
-      _request &&
-        relevant_api
-          .send(_request)
-          .then(res =>
-            setMessages([
-              ...messages,
-              { body: _request, type: "req" },
-              { body: res, type: "res" }
-            ])
-          )
-          .catch(err =>
-            setMessages([
-              ...messages,
-              { body: _request, type: "req" },
-              { body: err, type: "err" }
-            ])
-          )
-      setCurrentAPI(relevant_api)
+
     }, [current_api, request_input, messages, is_initial_socket, text_data])
   
     const handleAuthenticateClick = useCallback(

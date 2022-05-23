@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     margin-right: 24px;
+    width: 50%;
 
     .apiToken {
         display: flex;
@@ -109,6 +110,7 @@
 .playgroundApiDocs {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 #content {
@@ -259,6 +261,10 @@
 
 }
 
+.background{
+    background-color: var(--black-01);
+}
+
 [data-state~="responsive.desktopLaptopM"] {
     .playground{
         .playgroundPageWrapper{
@@ -276,6 +282,7 @@
             font-size: 32px;
         }
         .playgroundApiJson{
+            flex-wrap: wrap-reverse;
             width: 100%;
         }
         .apiToken{

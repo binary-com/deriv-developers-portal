@@ -16,11 +16,12 @@ const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
 
   const CodeString: React.FC<CodeStringProps> = ({ description }) => {
       const highlightCode = description.split(" ").map((desc, index) => {
-          return (/`([^`]*)`/.test(desc)) ?
+          const x = desc[desc.length - 1]
+            return (/`([^`]*)`/.test(desc)) ?
               <span
                   className={`${styles.schemaRole} ${styles.schemaCode}`}
                   key={index}
-              >{`${desc.slice(1, desc.length - 1)}`}
+              >{`${x === "`" ? desc.slice(1, desc.length - 1) : desc.slice(1, desc.length - 2)}`}
               </span>
               : ` ${desc} `;
       });
