@@ -282,10 +282,10 @@
             font-size: 32px;
         }
         .playgroundApiJson{
-            flex-wrap: wrap-reverse;
             width: 100%;
         }
         .apiToken{
+            flex-direction: column-reverse;
             fieldset{
                     margin-top: 24px;
                     flex-wrap: nowrap;

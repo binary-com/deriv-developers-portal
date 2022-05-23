@@ -53,8 +53,6 @@
 
 [data-state*="responsive.mobile"] {
     .api-token-fieldset .api-token-wrapper {
-        flex-direction: column;
-        gap: 20px;
         button,
         .api-token-input {
             border-radius: 4px;
