@@ -74,7 +74,7 @@ const FAQ = () => {
               </li>
               <li>
                 Insert your affiliate token into the{" "}
-                <a href={`playgound/#new_account_virtual`} passHref={true}>
+                <a href="/docs/api-explorer/#new_account_virtual" passHref={true}>
                   <code className={styles.code}>new_account_virtual</code>
                 </a>{" "}
                 call in your app.
@@ -91,7 +91,7 @@ const FAQ = () => {
                 </a> {" "}
                 to process local payments for our clients in your country. You
                 may automate your payment agent facility using the {" "}
-                <a href={"/docs/api-explorer/#paymentagent_transfer"} passHref={true}>
+                <a href="/docs/api-explorer/#paymentagent_transfer" passHref={true}>
                  <code className={styles.code}>paymentagent_transfer</code>
                 </a>{" "}
                 API call.
