@@ -47,6 +47,7 @@ export const PlaygroundComponent = () => {
       }
       const _request = request_input.current?.value && JSON.parse(request_input.current?.value)
       const is_current_api_ready = current_api.connection.readyState === 1
+      const subscribed_tick_history = _request.ticks_history && _request.subscribe === 1
       let relevant_api = current_api
       if (!is_current_api_ready && is_initial_socket) {
         relevant_api = generateDerivApiInstance()
@@ -55,7 +56,9 @@ export const PlaygroundComponent = () => {
         relevant_api = generateDerivApiInstance()
         setIsInitialSocket(true)
       }
-      if (_request.ticks) {
+      if (_request.ticks || subscribed_tick_history) {
+        ticksSubject.closed = false;
+        ticksSubject.isStopped = false;
         ticksSubject.next(_request);
         ticksSubject.subscribe({
           next: (res) => {
