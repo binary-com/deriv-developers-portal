@@ -2,6 +2,7 @@ import { ResetSendButtonsBlock } from "./ResetSendButtonsBlock";
 import React, { useEffect, useRef } from "react";
 import style from "./RequestJSONBox.module.scss";
 import ConsoleMessage from './ConsoleMessage'
+import { useOnScrollObject } from "./custom_hooks/useOnScrollObject";
 import "./appid"
 
 const RequestJSONBox = ({
@@ -16,7 +17,9 @@ const RequestJSONBox = ({
     isRegister,
     inputListText
   }) => {
-    const messagesRef = useRef(null)
+    
+    const messagesRef = useRef(null);
+
     useEffect(() => {
       setTimeout(() => {
         messagesRef.current?.scrollTo({
@@ -26,6 +29,9 @@ const RequestJSONBox = ({
         })
       }, 500)
     }, [messagesRef, messages])
+
+    useOnScrollObject(messagesRef);
+
     return (
       <div
         className={
