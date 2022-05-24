@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import Button from "./Button"
+import Button from "./components/Button/Button"
 import style from "./TokenInputField.module.scss"
 
 const TokenInputField = ({
@@ -40,11 +40,11 @@ const TokenInputField = ({
           onKeyPress={onEnter}
         />
         <Button
-          id="send-auth-manually-btn"
-          className={`${style["btn-authenticate"]} ${style.bold}`}
-          text="Authenticate"
-          clickHandler={() => sendTokenToJSON(_token)}
-        />
+          onClick={() => sendTokenToJSON(_token)}
+          className={style.btnAuthenticate}
+        >
+          Authenticate
+        </Button>
       </div>
     </fieldset>
   )
