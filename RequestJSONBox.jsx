@@ -26,7 +26,6 @@ const RequestJSONBox = ({
         })
       }, 500)
     }, [messagesRef, messages])
-  
     return (
       <div
         className={

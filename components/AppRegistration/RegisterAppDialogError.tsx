@@ -16,8 +16,6 @@ export default function RegisterAppDialogError({ error }) {
             return "Enter your API token (with the Admin scope) to register your app.";
         } else if (error) {
             return error.error?.message;
-        } else {
-            return;
         }
     }
     return (
