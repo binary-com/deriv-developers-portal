@@ -15,7 +15,7 @@ const SelectRequestInput = ({ handleChange, selected_value }) => {
     return (
       <fieldset className={styles.apiRequest}>
         <select
-          className={styles.select2}
+          className={`${styles.select2} ${selected_value != "Select API Call - Version 3" ? styles.selected : ""}`}
           onChange={handleChange}
           defaultValue={default_value}
         >

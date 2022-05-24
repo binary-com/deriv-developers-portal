@@ -15,7 +15,7 @@ export default function HamburgerNavigation() {
                     <section className={styles.documentationSection}>
                         <li><HamburgerLink location="/docs/" name="Quickstart" /></li>
                         <li><HamburgerLink location="/docs/app-registration/" name="App Registration" /></li>
-                        <li><HamburgerLink location="/docs/api-explorer/" name="API Explorer" /></li>
+                        <li><HamburgerLink location="/api-explorer/" name="API Explorer" /></li>
                         <li><HamburgerLink location="/docs/api-guide/" name="API Guide" /></li>
                         <li><HamburgerLink location="/docs/faq/" name="FAQ" /></li>
                         <li><HamburgerLink location="/docs/json-schemas/" name="JSON Schemas" /></li>

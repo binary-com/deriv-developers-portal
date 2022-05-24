@@ -251,14 +251,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: 28px;
-
+}
+.selected{
+    color: var(--black-03);
 }
 .option {
     border: none;
     border-radius: 3.5px !important;
     border: solid 1px var(--border-normal) !important;
     color: var(--gray-05) !important;
-
 }
 
 .background{
