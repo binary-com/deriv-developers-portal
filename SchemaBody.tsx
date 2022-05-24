@@ -16,12 +16,15 @@ const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
 
   const CodeString: React.FC<CodeStringProps> = ({ description }) => {
       const highlightCode = description.split(" ").map((desc, index) => {
-          return (/`([^`]*)`/.test(desc)) ?
+        const regex = /`([a-zA-Z_]*[a-zA-Z]_?)`/g;
+          return (regex.test(desc)) ?
+              <div key={`${index}-code`}>
               <span
                   className={`${styles.schemaRole} ${styles.schemaCode}`}
-                  key={index}
-              >{`${desc.slice(1, desc.length - 1)}`}
+              >{desc.split("`")[1]}
               </span>
+              <span>{desc.split("`")[2]}</span>
+                </div>
               : ` ${desc} `;
       });
       return (
@@ -30,11 +33,10 @@ const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
   }
 
   return (
-      <div>{names && names.map((name, idx) => {
+      <div>{names && names.map((name, index) => {
           const { type, description, pattern, enum: _enum } = properties[name];
-
           return (
-              <div className={styles.schemaBodySignature} key={idx}>
+              <div className={styles.schemaBodySignature} key={`${index}-signature`}>
                   <div className={styles.schemaBodyHeader}>
                       <p><strong>{name}</strong></p>
                       {_enum ? <div className={styles.schemaBodyType}>{type}
@@ -52,7 +54,6 @@ const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
               </div>
           );
       })}
-
       </div>
   )
 };
