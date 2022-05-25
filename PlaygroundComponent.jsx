@@ -98,62 +98,58 @@ export const PlaygroundComponent = () => {
       alert("Invalid JSON!")
       return
     }
-    try {
-      const _request = request_input.current?.value && JSON.parse(request_input.current?.value)
-      const is_current_api_ready = current_api.connection.readyState === 1
-      const subscribed_tick_history = _request.ticks_history && _request.subscribe === 1
-      let relevant_api = current_api
-      if (!is_current_api_ready && is_initial_socket) {
-        relevant_api = generateDerivApiInstance()
-        setIsInitialSocket(false)
-      } else if (current_api.connection.readyState !== 1 && !is_initial_socket) {
-        relevant_api = generateDerivApiInstance()
-        setIsInitialSocket(true)
-      }
-      if (_request.ticks || subscribed_tick_history) {
-        ticksSubject.closed = false;
-        ticksSubject.isStopped = false;
-        ticksSubject.next(_request);
-        ticksSubject.subscribe({
-          next: (res) => {
-            setMessagesSignal([
-              ...messagesSignal(),
-              { body: _request, type: "req" },
-              { body: res, type: "res" }
-            ])
-            setMessages(messagesSignal())
-          },
-          error: (err) => {
-            setMessages([
-              ...messages,
-              { body: _request, type: "req" },
-              { body: err, type: "err" }
-            ])
-          }
-        });
-      }
-      if (_request && !_request.ticks) {
-        relevant_api
-          .send(_request)
-          .then(res =>
-            setMessages([
-              ...messages,
-              { body: _request, type: "req" },
-              { body: res, type: "res" }
-            ])
-          )
-          .catch(err =>
-            setMessages([
-              ...messages,
-              { body: _request, type: "req" },
-              { body: err, type: "err" }
-            ])
-          )
-      }
-      setCurrentAPI(relevant_api)
-    } catch (error) {
-      alert("Invalid JSON!")
+    const _request = request_input.current?.value && JSON.parse(request_input.current?.value)
+    const is_current_api_ready = current_api.connection.readyState === 1
+    const subscribed_tick_history = _request.ticks_history && _request.subscribe === 1
+    let relevant_api = current_api
+    if (!is_current_api_ready && is_initial_socket) {
+      relevant_api = generateDerivApiInstance()
+      setIsInitialSocket(false)
+    } else if (current_api.connection.readyState !== 1 && !is_initial_socket) {
+      relevant_api = generateDerivApiInstance()
+      setIsInitialSocket(true)
     }
+    if (_request.ticks || subscribed_tick_history) {
+      ticksSubject.next(_request);
+      ticksSubject.subscribe({
+        next: (res) => {
+          setMessagesSignal([
+            ...messagesSignal(),
+            { body: _request, type: "req" },
+            { body: res, type: "res" }
+          ])
+          setMessages(messagesSignal())
+        },
+        error: (err) => {
+          setMessages([
+            ...messages,
+            { body: _request, type: "req" },
+            { body: err, type: "err" }
+          ])
+        }
+      });
+    }
+    if (_request && !_request.ticks) {
+      relevant_api
+        .send(_request)
+        .then(res => {
+          setMessages([
+            ...messages,
+            { body: _request, type: "req" },
+            { body: res, type: "res" }
+          ])
+        }
+        )
+        .catch(err => {
+          setMessages([
+            ...messages,
+            { body: _request, type: "req" },
+            { body: err, type: "err" }
+          ])
+        }
+        )
+    }
+    setCurrentAPI(relevant_api)
   }, [current_api, request_input, messages, is_initial_socket, text_data])
 
   const handleAuthenticateClick = useCallback(
@@ -172,6 +168,7 @@ export const PlaygroundComponent = () => {
 
   const handleSelectChange = useCallback(
     event => {
+      ticksSubject.complete();
       event.preventDefault()
       const request_body = playground_requests.find(
         el => el.name === event.currentTarget.value

@@ -1,5 +1,5 @@
 import { ResetSendButtonsBlock } from "./ResetSendButtonsBlock";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import style from "./RequestJSONBox.module.scss";
 import ConsoleMessage from './ConsoleMessage'
 import "./appid"
@@ -16,16 +16,39 @@ const RequestJSONBox = ({
     isRegister,
     inputListText
   }) => {
-    const messagesRef = useRef(null)
+    const [scroll_direction, setScrollDirection] = useState("down");
+    const [is_scrolling, setIsScrolling] = useState(true);
+    const messagesRef = useRef(null);
+
+    const onScrollRequest = (event) => {
+      const scroll_height = event.target.scrollHeight;
+      const scroll_top = event.target.scrollTop;
+      const client_height = event.target.clientHeight;
+      const reached_bottom = scroll_top + client_height >= scroll_height;
+      const scrolling_top = scroll_top + client_height <= scroll_height - (client_height * 1.1)
+
+      if (reached_bottom && scroll_direction === "down") {
+          setIsScrolling(true);
+          setScrollDirection("up");
+        }
+
+        if (scrolling_top && scroll_direction === "up") {
+          setIsScrolling(false);
+          setScrollDirection("down");
+        }
+    }
+
     useEffect(() => {
       setTimeout(() => {
-        messagesRef.current?.scrollTo({
-          top: messagesRef.current.scrollHeight,
-          left: 0,
-          behavior: "smooth"
-        })
+        if (is_scrolling) {
+            messagesRef.current?.scrollTo({
+            top: messagesRef.current.scrollHeight,
+            left: 0,
+            behavior: "smooth"
+          })
+        }
       }, 500)
-    }, [messagesRef, messages])
+    }, [messagesRef, messages, is_scrolling])
     return (
       <div
         className={
@@ -65,6 +88,7 @@ const RequestJSONBox = ({
             id="playground-console"
             className={style.playgroundConsole}
             ref={messagesRef}
+            onScroll={onScrollRequest}
           >
             {messages?.map((message, index) => (
               <ConsoleMessage key={"message" + index} message={message} />
@@ -75,4 +99,4 @@ const RequestJSONBox = ({
     )
   }
   
-  export default React.memo(RequestJSONBox)
+  export default memo(RequestJSONBox)
