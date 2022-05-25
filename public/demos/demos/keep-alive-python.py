@@ -15,7 +15,7 @@ import websockets
 import json
 import asyncio
 
-# You can register for an app_id here https://developers.deriv.com/docs/app-registration/.
+# You can register for an app_id here https://api.deriv.com/docs/app-registration/.
 app_id = '1089'  # Replace with your app_id.
 
 async def connect():
