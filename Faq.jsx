@@ -15,7 +15,7 @@ const FAQ = () => {
               View our <a href="https://api.deriv.com/docs/">code samples</a>.
               You can use these code snippets in your app to open a connection
               to our WebSocket API service. Explore our 
-              <a href="/docs/api-explorer/"> API playground</a> for the method calls you
+              <a href="/api-explorer/"> API playground</a> for the method calls you
               need for your app.
             </p>
           </AccordionItem>
@@ -74,7 +74,7 @@ const FAQ = () => {
               </li>
               <li>
                 Insert your affiliate token into the{" "}
-                <a href="/docs/api-explorer/#new_account_virtual" passHref={true}>
+                <a href="/api-explorer/#new_account_virtual" passHref={true}>
                   <code className={styles.code}>new_account_virtual</code>
                 </a>{" "}
                 call in your app.
@@ -91,7 +91,7 @@ const FAQ = () => {
                 </a> {" "}
                 to process local payments for our clients in your country. You
                 may automate your payment agent facility using the {" "}
-                <a href="/docs/api-explorer/#paymentagent_transfer" passHref={true}>
+                <a href="/api-explorer/#paymentagent_transfer" passHref={true}>
                  <code className={styles.code}>paymentagent_transfer</code>
                 </a>{" "}
                 API call.
@@ -134,15 +134,15 @@ const FAQ = () => {
             </p>
             <p>
               To start copying, use the {" "}
-              <a href="/docs/api-explorer/#copy_start">copy start</a> call. To
+              <a href="/api-explorer/#copy_start">copy start</a> call. To
               stop copying, use {" "}
-              <a href="/docs/api-explorer/#copy_stop">copy stop</a>.
+              <a href="/api-explorer/#copy_stop">copy stop</a>.
             </p>
           </AccordionItem>
           <AccordionItem title="How do I check for server status updates?">
             <p>
               Use the{" "}
-              <a href="/docs/api-explorer/#website_status">website status</a> {" "}
+              <a href="/api-explorer/#website_status">website status</a> {" "}
               call to check whether the website is online or not.
             </p>
           </AccordionItem>
