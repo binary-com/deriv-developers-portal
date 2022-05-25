@@ -50,6 +50,7 @@
   .schemaBodySignature{
     display: flex;
     flex-direction: column;
+    margin-bottom: 24px;
 
     .schemaBodyHeader{
       display: flex;
@@ -137,5 +138,6 @@
     display: flex;
     padding: 0 5px;
     flex-wrap: wrap;
+    gap: 8px;
   }
 }

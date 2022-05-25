@@ -25,7 +25,7 @@ const RequestJSONBox = ({
       const scroll_top = event.target.scrollTop;
       const client_height = event.target.clientHeight;
       const reached_bottom = scroll_top + client_height >= scroll_height;
-      const scrolling_top = scroll_top + client_height <= scroll_height - (client_height * 1.1)
+      const scrolling_top = scroll_top + client_height <= scroll_height;
 
       if (reached_bottom && scroll_direction === "down") {
           setIsScrolling(true);
@@ -47,7 +47,7 @@ const RequestJSONBox = ({
             behavior: "smooth"
           })
         }
-      }, 500)
+      }, 1)
     }, [messagesRef, messages, is_scrolling])
     return (
       <div

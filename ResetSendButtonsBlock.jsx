@@ -1,5 +1,5 @@
 import Button from "./Button";
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "./ticksSubject";
 
@@ -10,13 +10,6 @@ export const ResetSendButtonsBlock = React.memo(
         ticksSubject.complete();
         resetMessagesInConsole?.([])
       }, [resetMessagesInConsole, current_api])
-      
-      useEffect(() => {
-        return () => {
-          ticksSubject.complete();
-        }
-      }, [])
-  
       return (
         <div className={style["json-btn-wrapper"]}>
           <div

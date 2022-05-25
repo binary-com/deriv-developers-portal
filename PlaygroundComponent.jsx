@@ -98,7 +98,14 @@ export const PlaygroundComponent = () => {
       alert("Invalid JSON!")
       return
     }
-    const _request = request_input.current?.value && JSON.parse(request_input.current?.value)
+    let _request;
+    try {
+      _request = request_input.current?.value && JSON.parse(request_input.current?.value)
+    } catch (error) {
+      alert("Invalid JSON!")
+      return
+    }
+    
     const is_current_api_ready = current_api.connection.readyState === 1
     const subscribed_tick_history = _request.ticks_history && _request.subscribe === 1
     let relevant_api = current_api
@@ -168,7 +175,6 @@ export const PlaygroundComponent = () => {
 
   const handleSelectChange = useCallback(
     event => {
-      ticksSubject.complete();
       event.preventDefault()
       const request_body = playground_requests.find(
         el => el.name === event.currentTarget.value
