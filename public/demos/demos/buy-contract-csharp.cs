@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 /*
  * This is an example of using C# to buy a contract.
  * This is a simple script as it does not check if the account has access to the
- * asset before placing the trade. You can use `asset_index` call https://api.deriv.com/docs/api-explorer/#asset_index to check this.
+ * asset before placing the trade. You can use `asset_index` call https://api.deriv.com/api-explorer/#asset_index to check this.
  * The example was originally written in dotnet version 5.0.  
  * It uses the Newtonsoft Json.net Library https://www.newtonsoft.com/json
  * This can be run on Windows/linux or Mac.

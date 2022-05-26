@@ -45,22 +45,13 @@
             line-height: 1.43;
             border: 1px solid var(--border-normal);
             border-radius: 4px 0 0 4px;
-            color: var(--copy-color);
+            color: var(--black-03);
             background-color: var(--gray-13);
         }
     }
 }
 
-[data-state*="responsive.mobile"] {
-    .api-token-fieldset .api-token-wrapper {
-        flex-direction: column;
-        gap: 20px;
-        button,
-        .api-token-input {
-            border-radius: 4px;
-        }
-    }
-}
+
 
 [data-state~="responsive.desktopLaptopL"]{
     .api-token-fieldset{

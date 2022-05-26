@@ -1,6 +1,4 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
-
 const HomePage = React.lazy(()=>import('./Homepage'));
 const Docs = React.lazy(()=>import('./Docs'));
 const ApiExplorer = React.lazy(()=>import('./ApiExplorer'));
@@ -52,6 +50,12 @@ export const routes = [
   },
   {
     path:"api-explorer",
-    element: <Navigate to="/docs/api-explorer" />
+    element:<Docs/>,
+    children:[
+      {
+        path:"",
+        element:<ApiExplorer/>
+      },
+    ]
   }
 ];

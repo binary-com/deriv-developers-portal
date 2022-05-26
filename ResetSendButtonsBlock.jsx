@@ -7,10 +7,9 @@ export const ResetSendButtonsBlock = React.memo(
     ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api }) => {
       const onClick = React.useCallback(() => {
         current_api.connection.close()
-        ticksSubject.unsubscribe();
+        ticksSubject.complete();
         resetMessagesInConsole?.([])
       }, [resetMessagesInConsole, current_api])
-  
       return (
         <div className={style["json-btn-wrapper"]}>
           <div

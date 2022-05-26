@@ -13,7 +13,7 @@ const Sidebar = () => {
               {[
                 ["/docs/","Quickstart"],
                 ["/docs/app-registration/","App registration"],
-                ["/docs/api-explorer/","API explorer"],
+                ["/api-explorer/","API explorer"],
                 ["/docs/api-guide/","API guide"],
                 ["/docs/faq/","FAQ"],
                 ["/docs/json-schemas/","JSON Schemas"],

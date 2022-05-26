@@ -1,13 +1,17 @@
 .playgroundBox {
     border-radius: 6px;
     border: none;
-    padding: 24px 15px;
+    margin-left: 5px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     .inlineLabel {
         position: absolute;
-        top: 39px;
-        left: 30px;
+        top: 16px;
+        left: 10px;
         font-size: 10px;
         padding: 2px 4px;
         background-color: var(--white-01);
@@ -32,7 +36,6 @@
 }
 
 .textareaRequest {
-    width: 100%;
     border-radius: 4px;
     resize: none;
 }
@@ -41,7 +44,7 @@
     min-height: 200px;
     padding: 10px 12px;
     border: none;
-    color: var(--copy-color);
+    color: var(--blue-04);
     border: 1px solid var(--border-normal);
 }
 

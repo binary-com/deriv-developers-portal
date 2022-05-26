@@ -50,6 +50,7 @@
   .schemaBodySignature{
     display: flex;
     flex-direction: column;
+    margin-bottom: 24px;
 
     .schemaBodyHeader{
       display: flex;
@@ -76,7 +77,6 @@
         color: var(--green-03);
         border: none;
         padding: 6px 8px;
-        white-space: nowrap;
         border-radius: 4px;
         background-color: rgba(0,255,104,.16);
       }
@@ -106,7 +106,9 @@
         }
 
         .schemaPatternType{
-          color: var(--green-02);
+          color: var(--green-03);
+          font-size: 14px;
+          font-weight: 400;
         }
       }
     }
@@ -119,7 +121,7 @@
       margin-top: 3px;
       font-size: 14px;
       line-height: 2;
-      
+      word-wrap: break-word;
     }
     .schemaRole{
     background-color: rgba(255,255,255,.16);
@@ -136,5 +138,6 @@
     display: flex;
     padding: 0 5px;
     flex-wrap: wrap;
+    gap: 8px;
   }
 }

@@ -39,7 +39,7 @@ const SelectRequestInput = ({ handleChange, selected_value }) => {
     return (
       <fieldset className={styles.apiRequest}>
         <select
-          className={styles.select2}
+          className={`${styles.select2} ${selected_value != "Select API Call - Version 3" ? styles.selected : ""}`}
           onChange={handleChange}
           defaultValue={link_hash_value ? hash_value_title : default_value}
           id="settings-dropdown"
