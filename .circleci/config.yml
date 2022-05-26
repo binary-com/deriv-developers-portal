@@ -130,10 +130,8 @@ jobs:
       - image: circleci/node:14.17.1-stretch
     steps:
       - git_checkout_from_cache
-      - bundle_install
+      - npm_install_from_cache
       - build
-      - versioning:
-          version_name: staging
       - docker_build_push
       - k8s_deploy
       - notify_slack
@@ -147,10 +145,8 @@ jobs:
       - git_checkout_from_cache
       - npm_install_from_cache
       - build
-      - versioning:
-          version_name: production
       - docker_build_push:
-          docker_image_latest_tag: latest
+          docker_latest_image_tag: latest
           docker_image_tag: ${CIRCLE_SHA1}
       - k8s_deploy:
           k8s_namespace: "deriv-com-api-production"
