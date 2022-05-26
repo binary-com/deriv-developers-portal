@@ -130,7 +130,7 @@ jobs:
       - image: circleci/node:14.17.1-stretch
     steps:
       - git_checkout_from_cache
-      - bundle_install
+      - npm_install_from_cache
       - build
       - versioning:
           version_name: staging
