@@ -557,6 +557,29 @@ export const playground_requests = [
         },
     },
     {
+        name: "p2p_advertiser_payment_methods",
+        title: "P2P Advertiser Payment Methods",
+        body: {
+            p2p_advertiser_payment_methods: 1,
+            create: [
+                {
+                    account: "1234",
+                    bank_name: "some_bank",
+                    method: "bank_transfer"
+                }
+            ],
+            delete: [
+                101,
+                102
+            ],
+            update: {
+                103: {
+                    instructions: "phone first"
+                }
+            }
+        },
+    },
+    {
         name: "p2p_advertiser_relations",
         title: "P2P Advertiser Relations",
         body: {
