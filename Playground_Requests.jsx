@@ -628,6 +628,15 @@ export const playground_requests = [
         },
     },
     {
+        name:"p2p_order_dispute",
+        title:"P2P Order Dispute",
+        body:{
+            p2p_order_dispute: 1,
+            dispute_reason: "seller_not_released",
+            id: "1234"
+        }
+    },
+    {
         name: "p2p_order_info",
         title: "P2P Order Information",
         body: {
@@ -641,6 +650,23 @@ export const playground_requests = [
         body: {
             p2p_order_list: 1,
             advert_id: "1234",
+        },
+    },
+    {
+        name: "p2p_order_review",
+        title: "P2P Order Review",
+        body: {
+            p2p_order_review: 1,
+            order_id: "1234",
+            rating: 4,
+            recommended: 1
+        },
+    },
+    {
+        name: "p2p_payment_methods",
+        title: "P2P Payments Methods",
+        body: {
+            p2p_payment_methods: 1
         },
     },
     {
