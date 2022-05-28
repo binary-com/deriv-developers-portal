@@ -51,10 +51,10 @@ commands:
           name: Building Vite project
           command: npm run build
 
-  tag:
-    description: "Tagging"
+  versioning:
+    description: "Versioning the image"
     parameters:
-      target_branch:
+      version_name:
         type: string
         default: "staging"
     steps:
@@ -63,10 +63,10 @@ commands:
           at: _site
       - run:
           name: Tag build
-          command: echo "<< parameters.target_branch >> $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > _site/version
+          command: echo "<< parameters.version_name >> $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > _site/version
 
   docker_build_push:
-    description: "Build Docker image"
+    description: "Build and push Docker image to Docker Hub"
     parameters:
       docker_latest_image_tag:
         type: string
@@ -132,6 +132,7 @@ jobs:
       - git_checkout_from_cache
       - npm_install_from_cache
       - build
+      - versioning
       - docker_build_push
       - k8s_deploy
       - notify_slack
@@ -145,6 +146,8 @@ jobs:
       - git_checkout_from_cache
       - npm_install_from_cache
       - build
+     - versioning:
+          version_name: production
       - docker_build_push:
           docker_latest_image_tag: latest
           docker_image_tag: ${CIRCLE_SHA1}
@@ -163,7 +166,6 @@ workflows:
           filters:
             branches:
               only: /^master$/
-
   release_production:
     jobs:
       - release_production:
