@@ -146,7 +146,7 @@ jobs:
       - git_checkout_from_cache
       - npm_install_from_cache
       - build
-     - versioning:
+      - versioning:
           version_name: production
       - docker_build_push:
           docker_latest_image_tag: latest
