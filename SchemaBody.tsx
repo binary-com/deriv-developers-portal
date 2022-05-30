@@ -12,48 +12,9 @@ type CodeStringProps = {
 }
 
 const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
-    const names = properties ? Object.keys(properties) : [];
-
-  const CodeString: React.FC<CodeStringProps> = ({ description }) => {
-      const highlightCode = description.split(" ").map((desc, index) => {
-        const regex = /`([a-zA-Z_]*[a-zA-Z]_?)`/g;
-          return (regex.test(desc)) ?
-              <div key={`${index}-code`}>
-              <span
-                  className={`${styles.schemaRole} ${styles.schemaCode}`}
-              >{desc.split("`")[1]}
-              </span>
-              <span>{desc.split("`")[2]}</span>
-                </div>
-              : ` ${desc} `;
-      });
-      return (
-          <div className={styles.schemaBodyDescription}>{highlightCode}</div>
-      );
-  }
-
   return (
-      <div>{names && names.map((name, index) => {
-          const { type, description, pattern, enum: _enum } = properties[name];
-          return (
-              <div className={styles.schemaBodySignature} key={`${index}-signature`}>
-                  <div className={styles.schemaBodyHeader}>
-                      <p><strong>{name}</strong></p>
-                      {_enum ? <div className={styles.schemaBodyType}>{type}
-                          <div className={styles.enumFlex}>{_enum.map((el: string, i: number) => <div
-                              className={`${styles.schemaType} ${styles.schemaCode} ${styles.schemaEnums}`}
-                              key={i}>{el}</div>)}
-                          </div>
-                      </div> : null}
-                      {pattern ? <div className={styles.schemaRegexContainer}>
-                          <div className={styles.schemaPatternType}>{type}</div>
-                          <div className={styles.schemaBodyPattern}>{pattern}</div>
-                      </div> : null}
-                  </div>
-                  <CodeString description={description}/>
-              </div>
-          );
-      })}
+      <div>
+        <RecursiveProperties properties={properties} value={properties}/>
       </div>
   )
 };
@@ -67,3 +28,57 @@ const SchemaBody: React.FC<SchemaBodyProps> = ({ properties }) => {
 }
 
 export default SchemaBody;
+
+const CodeString: React.FC<CodeStringProps> = ({ description }) => {
+    const highlightCode = description.split(" ").map((desc, index) => {
+      const regex = /`([a-zA-Z_]*[a-zA-Z]_?)`/g;
+        return (regex.test(desc)) ?
+            <div key={`${index}-code`}>
+            <span
+                className={`${styles.schemaRole} ${styles.schemaCode}`}
+            >{desc.split("`")[1]}
+            </span>
+            <span>{desc.split("`")[2]}</span>
+              </div>
+            : ` ${desc} `;
+    });
+    return (
+        <div className={styles.schemaBodyDescription}>{highlightCode}</div>
+    );
+}
+
+const RecursiveProperties = ( { properties, value } : { properties: any, value: any}): any => {
+    const keys = properties && Object.keys(properties);
+    if (!keys) {
+        return <>
+            <CodeString description={value.description}/>
+            { value.description }
+        </>
+
+    }
+    return keys?.map((key, index) => {
+        const { type, description, pattern, enum: _enum } = properties[key];
+        const value = properties[key];
+        return (
+            <div className={styles.schemaBodySignature} key={`${index}-signature`}>
+                  <div className={styles.schemaBodyHeader}>
+                      <p><strong>{key}</strong></p>
+                      {_enum && <div className={styles.schemaBodyType}>{type}
+                          <div className={styles.enumFlex}>{_enum.map((el: string, i: number) => <div
+                              className={`${styles.schemaType} ${styles.schemaCode} ${styles.schemaEnums}`}
+                              key={i}>{el}</div>)}
+                          </div>
+                      </div> }
+                      {pattern && <div className={styles.schemaRegexContainer}>
+                          <div className={styles.schemaPatternType}>{type}</div>
+                          <div className={styles.schemaBodyPattern}>{pattern}</div>
+                      </div>}
+                      { type === "object" && <RecursiveProperties properties={value.properties} value={value}/> }
+                  </div>
+                { type !== "object" && <CodeString description={description}/> }
+              </div>
+            );
+    });
+}
+
+
