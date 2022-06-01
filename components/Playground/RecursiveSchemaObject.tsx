@@ -1,54 +1,8 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import React from "react";
+import CodeString from './CodeString';
+import SchemaObjectContent from './SchemaObjectContent';
 import styles from "./Schema.module.scss";
-import SchemaObjectContent from "./SchemaObjectContent";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type SchemaBodyProps = {
-  properties: Object;
-}
-
-type CodeStringProps = {
-  description: string;
-}
-
-const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
-  return (
-      <div>
-        <RecursiveProperties properties={properties} value={properties}/>
-      </div>
-  )
-};
-
-const SchemaBody: React.FC<SchemaBodyProps> = ({ properties }) => {
-  return (
-      <div className={styles.schemaBody}>
-          <Properities properties={properties}/>
-      </div>
-  );
-}
-
-export default SchemaBody;
-
-const CodeString: React.FC<CodeStringProps> = ({ description }) => {
-    const highlightCode = description?.split(" ").map((desc, index) => {
-      const regex = /`([a-zA-Z_]*[a-zA-Z]_?)`/g;
-        return (regex.test(desc)) ?
-            <div key={`${index}-code`}>
-            <span
-                className={`${styles.schemaRole} ${styles.schemaCode}`}
-            >{desc.split("`")[1]}
-            </span>
-            <span>{desc.split("`")[2]}</span>
-              </div>
-            : ` ${desc} `;
-    });
-    return (
-        <div className={styles.schemaBodyDescription}>{highlightCode}</div>
-    );
-}
-
-const RecursiveProperties = ( { properties, value } : { properties: any, value: any }): any => {
+export default function RecursiveProperties ( { properties, value } : { properties: any, value: any }): any {
     const keys = properties && Object.keys(properties);
     if (!keys) {
         return <>
@@ -104,5 +58,3 @@ const RecursiveProperties = ( { properties, value } : { properties: any, value: 
         );
     });
 }
-
-

@@ -1,11 +1,11 @@
 import { api, generateDerivApiInstance } from "./appid";
 import RequestJSONBox from "./RequestJSONBox";
 import SelectRequestInput from "./SelectRequestInput";
-import SchemaWrapper from "./SchemaWrapper";
+import SchemaWrapper from "./components/Playground/SchemaWrapper";
 import TokenInputField from "./TokenInputField";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { playground_requests } from "./Playground_Requests";
-import Title from "./Title";
+import SchemaTitle from "./components/Playground/SchemaTitle";
 import data_get_api_token from "./data-app-registration";
 import styles from "./PlaygroundComponent.module.scss";
 import { ticksSubject } from './ticksSubject';
@@ -218,9 +218,9 @@ export const PlaygroundComponent = () => {
           />
           <div />
           <div className={styles.cta}>
-            <Title headerSize="h3" className={styles.title}>
+            <SchemaTitle headerSize="h3" className={styles.title}>
               {data_get_api_token.textFocus}
-            </Title>
+            </SchemaTitle>
             <div className={styles["cta-button"]}>
               {data_get_api_token.button}
             </div>

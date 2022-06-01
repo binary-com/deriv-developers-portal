@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Schema.module.scss"
-import Title from "./Title";
+import SchemaTitle from "./SchemaTitle";
 
 type SchemaHeaderProps = {
     title: string;
@@ -27,7 +27,7 @@ const SchemaHeader:React.FC<SchemaHeaderProps> = ({ title, description, auth_req
 
     return (
         <div className={`${style.schemaHeader}`}>
-            <Title className={`${style.schemaTitle}`} headerSize={"h3"}>{title}</Title>
+            <SchemaTitle className={`${style.schemaTitle}`} headerSize={"h3"}>{title}</SchemaTitle>
             <div className={`${style.schemaDescription}`}>
                 <div className={auth_required ? `${style.schemaAuthRequired}` : ""}>
                     <div className={`${style.chemaSubText} `}>{description}</div>

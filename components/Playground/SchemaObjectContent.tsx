@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styles from "./Schema.module.scss";
-import { isUpdateModeSelector } from './selectors';
 
 export default function SchemaObjectContent({RecursiveProperties, key_value, properties}) {
     const [is_open_object, setIsOpenObject] = useState(false);
