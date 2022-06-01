@@ -1,4 +1,4 @@
-.schemaRole{
+.schemaRole {
   font-size: 14px;
   line-height: 1.43;
   color: var(--green-03);
@@ -10,49 +10,96 @@
   background-color: rgba(0,255,104,.16);
 }
 
-.schemaCode{
+.schemaCode {
   color: var(--white-01);
   font-size: 14px;
 }
 
-.schemaSubext{
+.schemaSubext {
   font-size: 14px;
 }
 
-.schemaHeader{
+.schemaHeader {
   padding: 24px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border: none;
   background: var(--black-04);
 
-  .schemaTitle{
+  .schemaTitle {
    font-size: 24px;
    color: var(--white-01);
   }
 
-  .schemaDescription{
+  .schemaDescription {
     padding: 5px 0;
     display: flex;
     justify-content: space-between;
     color: var(--white-01);
 
-    .schemaAuthRequired{
+    .schemaAuthRequired {
       width:40%;
     }
   }
 }
 
-.schemaBody{
+.schemaBodyKeyLabel {
+  color: white;
+}
+.schemaObjectHeader {
+  flex-direction: column !important;
+  .schemaBodyDescription {
+    font-weight: normal;
+  }
+  .schemaObjectContent {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    > div {
+      width: 50%;
+    }
+    button {
+      position: relative;
+      color: #9ed178 !important;
+      background-color: #0e0e0e;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+  }
+  .schemaObjectBody {
+    padding: 8px 16px;
+    background-color: rgba(37, 37, 37, 0.72) !important;
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+    opacity: 0;
+    display: none;
+    &.objectOpen {
+      display: inline-block;
+      opacity: 1;
+    }
+    .schemaObjectDescription {
+     font-weight: normal;
+     font-size: 14px; 
+    }
+    .schemaBodyHeader {
+      flex-direction: column;
+    }
+  }
+}
+
+.schemaBody {
   background-color: #282a35;
   padding: 28px 23px;
 
-  .schemaBodySignature{
+  .schemaBodySignature {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
 
-    .schemaBodyHeader{
+    .schemaBodyHeader {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -61,7 +108,7 @@
       margin: 0px 8px 0 0;
       font-weight: 700;
 
-      .schemaBodyType{
+      .schemaBodyType {
         display: flex;
         width: 60%;
         font-size: 14px;
@@ -71,7 +118,7 @@
         color: var(--green-03)
       }
 
-      .schemaEnums{
+      .schemaEnums {
         font-size: 14px;
         line-height: 1.43;
         color: var(--green-03);
@@ -81,7 +128,7 @@
         background-color: rgba(0,255,104,.16);
       }
 
-      .schemaItems{
+      .schemaItems {
         color: var(--green-02);
         font-size : 14px;
         line-height: 1.43;
@@ -93,19 +140,19 @@
         border-radius: 4px
       }
 
-      .schemaRegexContainer{
+      .schemaRegexContainer {
         width: 50%;
         display: flex;
         flex-direction: row;
 
-        .schemaBodyPattern{
+        .schemaBodyPattern {
           width: 100%;
           font-size: 11px;
           color:  var(--green-01);
           margin: 0 10px;
         }
 
-        .schemaPatternType{
+        .schemaPatternType {
           color: var(--green-03);
           font-size: 14px;
           font-weight: 400;
@@ -113,7 +160,7 @@
       }
     }
 
-    .schemaBodyDescription{
+    .schemaBodyDescription {
       color: var(--copy-color);
       float: left;
       max-width: 600px;
@@ -123,7 +170,7 @@
       line-height: 2;
       word-wrap: break-word;
     }
-    .schemaRole{
+    .schemaRole {
     background-color: rgba(255,255,255,.16);
     border: none;
     font-size: 14px;
@@ -134,7 +181,7 @@
     padding: 6px 8px;
   }
   }
-  .enumFlex{
+  .enumFlex {
     display: flex;
     padding: 0 5px;
     flex-wrap: wrap;
