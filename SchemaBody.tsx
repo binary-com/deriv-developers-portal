@@ -48,19 +48,18 @@ const CodeString: React.FC<CodeStringProps> = ({ description }) => {
     );
 }
 
-const RecursiveProperties = ( { properties, value } : { properties: any, value: any}): any => {
+const RecursiveProperties = ( { properties, value } : { properties: any, value: any }): any => {
     const keys = properties && Object.keys(properties);
     if (!keys) {
         return <>
             <CodeString description={value.description}/>
             { value.description }
         </>
-
     }
     return keys?.map((key, index) => {
-        const { type, description, pattern, enum: _enum } = properties[key];
-        const value = properties[key];
-        
+        const { type, items, description, pattern, enum: _enum } = properties[key];
+        // const nested_keys = items?.properties ? Object.keys(items);
+        // const {  } = items[nested_keys];
         return (
             <div className={styles.schemaBodySignature} key={`${index}-signature`}>
                 <div className={`${styles.schemaBodyHeader}${type === "object" ? ` ${styles.schemaObjectHeader}` : ''}`}>
@@ -72,8 +71,14 @@ const RecursiveProperties = ( { properties, value } : { properties: any, value: 
                         />
                         :
                         <p><strong>{key}</strong></p>
-                        
                     }
+                    {/* { type === "array" &&
+                        <SchemaObjectContent
+                            RecursiveProperties={RecursiveProperties}
+                            properties={items.properties}
+                            key_value={key}
+                        />
+                    } */}
                     { _enum && 
                         <div className={styles.schemaBodyType}>
                             {type}
@@ -93,13 +98,6 @@ const RecursiveProperties = ( { properties, value } : { properties: any, value: 
                             <div className={styles.schemaBodyPattern}>{pattern}</div>
                         </div>
                     }
-                    {/* { type === "object" && 
-                        <div className={`${type === "object" ? `${styles.schemaObjectBody}` : ''} ${object_toggle}`}>
-                            <p><strong>{key}</strong></p>
-                            <p>{description}</p>
-                            <RecursiveProperties properties={value.properties} value={value}/>
-                        </div>
-                    } */}
                 </div>
             { type !== "object" && <CodeString description={description}/> }
             </div>

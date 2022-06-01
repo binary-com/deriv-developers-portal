@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import styles from "./Schema.module.scss";
+import { isUpdateModeSelector } from './selectors';
 
 export default function SchemaObjectContent({RecursiveProperties, key_value, properties}) {
     const [is_open_object, setIsOpenObject] = useState(false);
     const { type, description, title, pattern, enum: _enum } = properties[key_value];
     const object_toggle = is_open_object ? styles.objectOpen : '';
     const value = properties[key_value];
-    console.log(properties);
+    console.log(value);
     return (
         <div>
             <div className={styles.schemaObjectContent}>
@@ -14,10 +15,7 @@ export default function SchemaObjectContent({RecursiveProperties, key_value, pro
                     <p><strong>{key_value}</strong></p>
                 </div>
                 <div>
-                    <button onClick={(event) => {
-                        setIsOpenObject(!is_open_object)
-                        console.dir(event.target.parentElement.parentElement.parentElement);
-                    }}>{title ? key_value : "object"}</button>
+                    <button onClick={() => setIsOpenObject(!is_open_object)}>{title ? key_value : "object"}</button>
                 </div>
             </div>
             <p className={styles.schemaBodyDescription}>{description}</p>
