@@ -194,9 +194,39 @@
   }
   }
   .enumFlex {
+    font-size: 14px;
     display: flex;
     padding: 0 5px;
     flex-wrap: wrap;
     gap: 8px;
+    .defaultValue {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .defaultValueLabel,
+    .schemaDefaultValue {
+      font-size: 14px;
+      color: #c2c2c2
+    }
+    .schemaDefaultValue {
+      border: 2px solid #c2c2c2;
+      border-radius: 4px;
+      padding: 3px;
+    }
+    .enumLabel {
+      font-size: 14px;
+      line-height: 1.43;
+      color: #c2c2c2;
+    }
+    .enumType {
+      font-size: 14px;
+    }
+    .enumLabel,
+    .enumType {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

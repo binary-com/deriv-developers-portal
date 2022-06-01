@@ -4,13 +4,9 @@ import styles from "./Schema.module.scss";
 
 export default function SchemaObjectContent({ key_value, properties }) {
     const [is_open_object, setIsOpenObject] = useState(false);
-    const { type, description, items, title, pattern, enum: _enum } = properties[key_value];
+    const { type, description, items, title } = properties[key_value];
     const object_toggle = is_open_object ? styles.objectOpen : "";
     const value = properties[key_value];
-    const is_not_nested = type !== "object" ||
-        type !== "array" ||
-        items?.type !== "object" ||
-        items?.type !== "array";
 
     return (
         <div>    
@@ -24,7 +20,7 @@ export default function SchemaObjectContent({ key_value, properties }) {
             </div>
             <p className={`${styles.schemaBodyDescription} ${object_toggle}`}>{description}</p>
             <div className={`${type === "object" || type === "array" ? `${styles.schemaObjectBody}` : ''} ${object_toggle}`}>
-                { is_not_nested &&
+                { type !== "object" || type !== "array" || items?.type !== "object" || items?.type !== "array" &&
                 <>
                     <p><strong>{key_value}</strong></p>
                     <p className={styles.schemaObjectDescription}>{description}</p>
