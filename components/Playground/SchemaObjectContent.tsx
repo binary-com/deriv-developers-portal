@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import RecursiveProperties from './RecursiveProperties';
 import styles from "./Schema.module.scss";
 
-export default function SchemaObjectContent({RecursiveProperties, key_value, properties}) {
+export default function SchemaObjectContent({ key_value, properties }) {
     const [is_open_object, setIsOpenObject] = useState(false);
     const { type, description, title, pattern, enum: _enum } = properties[key_value];
     const object_toggle = is_open_object ? styles.objectOpen : '';

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import React from "react";
 import styles from "./Schema.module.scss";
-import SchemaObjectContent from "./SchemaObjectContent";
+import RecursiveProperties from "./RecursiveProperties";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type SchemaBodyProps = {
