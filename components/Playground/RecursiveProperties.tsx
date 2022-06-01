@@ -7,32 +7,21 @@ export default function RecursiveProperties ( { properties, value } : { properti
     if (!keys) {
         return <>
             <CodeString description={value.description}/>
-            { value.description }
         </>
     }
     return keys?.map((key, index) => {
-        const { type, items, description, pattern, enum: _enum } = properties[key];
-        // const nested_keys = items?.properties ? Object.keys(items);
-        // const {  } = items[nested_keys];
+        const { type, description, pattern, enum: _enum } = properties[key];
         return (
             <div className={styles.schemaBodySignature} key={`${index}-signature`}>
                 <div className={`${styles.schemaBodyHeader}${type === "object" ? ` ${styles.schemaObjectHeader}` : ''}`}>
-                    { type === "object" ?
+                    { type === "object" || type === "array" ?
                         <SchemaObjectContent
-                            RecursiveProperties={RecursiveProperties}
                             properties={properties}
                             key_value={key}
                         />
                         :
                         <p><strong>{key}</strong></p>
                     }
-                    {/* { type === "array" &&
-                        <SchemaObjectContent
-                            RecursiveProperties={RecursiveProperties}
-                            properties={items.properties}
-                            key_value={key}
-                        />
-                    } */}
                     { _enum && 
                         <div className={styles.schemaBodyType}>
                             {type}
@@ -53,7 +42,7 @@ export default function RecursiveProperties ( { properties, value } : { properti
                         </div>
                     }
                 </div>
-            { type !== "object" && <CodeString description={description}/> }
+            { type !== "object" && type !== "array" && <CodeString description={description}/> }
             </div>
         );
     });

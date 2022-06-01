@@ -4,12 +4,16 @@ import styles from "./Schema.module.scss";
 
 export default function SchemaObjectContent({ key_value, properties }) {
     const [is_open_object, setIsOpenObject] = useState(false);
-    const { type, description, title, pattern, enum: _enum } = properties[key_value];
-    const object_toggle = is_open_object ? styles.objectOpen : '';
+    const { type, description, items, title, pattern, enum: _enum } = properties[key_value];
+    const object_toggle = is_open_object ? styles.objectOpen : "";
     const value = properties[key_value];
-    console.log(value);
+    const is_not_nested = type !== "object" ||
+        type !== "array" ||
+        items?.type !== "object" ||
+        items?.type !== "array";
+
     return (
-        <div>
+        <div>    
             <div className={styles.schemaObjectContent}>
                 <div>
                     <p><strong>{key_value}</strong></p>
@@ -18,11 +22,15 @@ export default function SchemaObjectContent({ key_value, properties }) {
                     <button onClick={() => setIsOpenObject(!is_open_object)}>{title ? key_value : "object"}</button>
                 </div>
             </div>
-            <p className={styles.schemaBodyDescription}>{description}</p>
-            <div className={`${type === "object" ? `${styles.schemaObjectBody}` : ''} ${object_toggle}`}>
-                <p><strong>{key_value}</strong></p>
-                <p className={styles.schemaObjectDescription}>{description}</p>
-                <RecursiveProperties properties={value.properties} value={key_value}/>
+            <p className={`${styles.schemaBodyDescription} ${object_toggle}`}>{description}</p>
+            <div className={`${type === "object" || type === "array" ? `${styles.schemaObjectBody}` : ''} ${object_toggle}`}>
+                { is_not_nested &&
+                <>
+                    <p><strong>{key_value}</strong></p>
+                    <p className={styles.schemaObjectDescription}>{description}</p>
+                </>
+                }
+                <RecursiveProperties properties={value.properties || value?.items?.properties} value={value}/>
             </div>
         </div>
     )
