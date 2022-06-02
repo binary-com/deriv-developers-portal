@@ -7,6 +7,12 @@ import styles from "./Schema.module.scss";
 // Header component
 
 const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, enum: _enum, title, is_open_object, setIsOpenObject }: any) => {
+    let typeClassName;
+    switch (type) {
+        case "number": typeClassName = styles.number; break;
+        case "array": typeClassName = styles.array; break;
+        default: typeClassName = styles.string; break;
+    }
     return (
         <div className={`${styles.schemaBodyHeader}${type === "object" ? ` ${styles.schemaObjectHeader}` : ''}`}>
                 <div className={styles.schemaBodyType}>
@@ -14,7 +20,7 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
                         <p><strong>{key_value}</strong></p>
                         <div className={styles.enumContainer}>
                             {type && type !== "object" && typeof (type) !== 'object' &&
-                                <span className={styles.enumType} style={type === "number" ? { color: "#8181cc" } : {}}>
+                                <span className={`${styles.enumType} ${typeClassName}`}>
                                     {type}
                                 </span>
                             }

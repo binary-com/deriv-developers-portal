@@ -1,3 +1,13 @@
+.array {
+  color: hotpink;
+}
+.number {
+  color: #8181cc
+}
+.string {
+  color: var(--green-03);
+}
+
 .schemaRole {
   font-size: 14px;
   line-height: 1.43;
@@ -117,7 +127,6 @@
         font-size: 14px;
         font-weight: 400;
         align-items: center;
-        color: var(--green-03);
         width: 100%
       }
 
