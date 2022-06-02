@@ -19,7 +19,7 @@ const SourceButton = ({ is_code_open, setIsCodeOpen }: any) => {
 }
 
 const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
-  const [ is_open_object, setIsOpenObject ] = React.useState(false);
+  const [ is_code_open, setIsCodeOpen ] = React.useState(false);
   let data;
   try {
     data = JSON.stringify(properties, null, 2);
@@ -29,9 +29,9 @@ const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
 
   return (
       <div>
-        <SourceButton is_code_open={is_open_object} setIsCodeOpen={setIsOpenObject} />
-        { is_open_object && <CodeContent lang="json" data={data} /> }
-        { !is_open_object && <RecursiveProperties is_open properties={properties} value={properties}/> }
+        <SourceButton is_code_open={is_code_open} setIsCodeOpen={setIsCodeOpen} />
+        { is_code_open && <CodeContent lang="json" data={data} /> }
+        { !is_code_open && <RecursiveProperties is_open properties={properties} value={properties}/> }
       </div>
   )
 };

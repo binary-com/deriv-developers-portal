@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RecursiveProperties from './RecursiveProperties';
 import SchemaDescription from './SchemaDescription';
+import CodeContent from "../CodeBlock/CodeContent";
 import styles from "./Schema.module.scss";
 
 // Header component
@@ -86,7 +87,12 @@ export default function SchemaObjectContent({ key_value, properties }) {
     const [is_code_open, setIsCodeOpen] = useState(false);
     const { type, description, default: defaultValue, pattern, examples, enum: _enum, title } = properties[key_value];
     const value = properties[key_value];
-
+    let data;
+    try {
+      data = JSON.stringify(value, null, 2);
+    } catch (_error) {
+      data = "";
+    }
     return (
         <div className={styles.schemaBodySignature} >
             <SourceButton is_code_open={is_code_open} setIsCodeOpen={setIsCodeOpen} />
@@ -107,7 +113,10 @@ export default function SchemaObjectContent({ key_value, properties }) {
                 description={description}
             />
             {/* RecursiveProperties */}
-            <RecursiveProperties is_open={is_open_object} properties={value.properties || value?.items?.properties} value={value} />
+            { is_code_open && <CodeContent lang="json" data={data} /> }
+            { !is_code_open && 
+                <RecursiveProperties is_open={is_open_object} properties={value.properties || value?.items?.properties} value={value} />
+            }
         </div>
     )
 }

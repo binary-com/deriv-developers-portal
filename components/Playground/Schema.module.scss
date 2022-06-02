@@ -68,7 +68,6 @@
   flex-direction: column !important;
   .schemaObjectBody {
     padding: 8px 16px;
-    background-color: rgba(37, 37, 37, 0.72) !important;
     width: 100%;
     box-sizing: border-box;
     height: fit-content;
@@ -100,7 +99,7 @@
     flex-direction: column;
     position: relative;
     .schemaBodySignature {
-      padding: 0 16px;
+      padding: 10px 16px;
     }
 
     .schemaBodyHeader {
@@ -172,8 +171,7 @@
       flex-wrap: wrap;
       color: var(--copy-color);
       float: left;
-      width: 100%;
-      margin-top: 3px;
+      margin-top: 10px;
       font-size: 14px;
       line-height: 2;
       margin-bottom: 24px;
@@ -245,8 +243,19 @@
 
 .schemaBodySignature {
   &:hover {
-    .sourceButton {
+    > .sourceButton {
       opacity: 1;
+    }
+  }
+  > .schemaBodySignature {
+    background-color: rgba(219, 219, 219, 0.05) !important;
+    border-radius: 4px;
+    .schemaBodyDescription + .schemaBodyDescription {
+      text-indent: 16px;
+      padding: 10px;
+      color: var(--white-01);
+      background-color: rgba(219, 219, 219, 0.05) !important;
+      border-radius: 4px;
     }
   }
 }
