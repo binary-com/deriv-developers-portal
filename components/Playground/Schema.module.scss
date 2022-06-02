@@ -5,7 +5,6 @@
   border: none;
   margin: 8px 8px 0 0;
   padding: 6px 8px;
-  white-space: nowrap;
   border-radius: 4px;
   background-color: rgba(0,255,104,.16);
 }
@@ -46,32 +45,27 @@
 .schemaBodyKeyLabel {
   color: white;
 }
+
+.schemaObjectContent {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  p {
+    color: var(--white-01);
+  }
+  button {
+    position: relative;
+    color: #9ed178 !important;
+    background-color: #0e0e0e;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+}
+
 .schemaObjectHeader {
   flex-direction: column !important;
-  .schemaBodyDescription {
-    font-weight: normal;
-  }
-  .schemaObjectContent {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    p {
-      color: var(--white-01);
-    }
-    > div {
-      width: 50%;
-    }
-    button {
-      position: relative;
-      color: #9ed178 !important;
-      background-color: #0e0e0e;
-      border: none;
-      padding: 10px;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-  }
   .schemaObjectBody {
     padding: 8px 16px;
     background-color: rgba(37, 37, 37, 0.72) !important;
@@ -104,6 +98,9 @@
   .schemaBodySignature {
     display: flex;
     flex-direction: column;
+    .schemaBodySignature {
+      padding: 0 16px;
+    }
 
     .schemaBodyHeader {
       display: flex;
@@ -112,14 +109,7 @@
       font-size: 16px;
       margin: 0px 8px 0 0;
       font-weight: 700;
-      > div {
-        width: 100%;
-      }
-      > p {
-        width: fit-content;
-        margin-right: 20%;
-        margin-bottom: 0;
-      }
+      width: 100%;
 
       .schemaBodyType {
         display: flex;
@@ -127,11 +117,13 @@
         font-size: 14px;
         font-weight: 400;
         align-items: center;
-        padding-left: 6px;
         color: var(--green-03);
+        width: 100%
       }
 
       .schemaEnums {
+        width: fit-content;
+        height: fit-content;
         font-size: 14px;
         line-height: 1.43;
         color: var(--green-03);
@@ -154,7 +146,7 @@
       }
 
       .schemaRegexContainer {
-        width: 50%;
+        width: fit-content;
         display: flex;
         flex-direction: row;
 
@@ -174,37 +166,43 @@
     }
 
     .schemaBodyDescription {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
       color: var(--copy-color);
       float: left;
-      max-width: 600px;
       width: 100%;
       margin-top: 3px;
       font-size: 14px;
       line-height: 2;
-      word-wrap: break-word;
+      margin-bottom: 24px;
       &.objectOpen {
         margin-bottom: 10px;
       }
     }
     .schemaRole {
-    background-color: rgba(255,255,255,.16);
-    border: none;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 2.5;
-    color: var(--white-01);
-    margin: 0 6px 0 0;
-    padding: 6px 8px;
-  }
+      background-color: rgba(255,255,255,.16);
+      border: none;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 2.5;
+      color: var(--white-01);
+      height: fit-content;
+      padding: 0 5px;
+      margin: 0 5px;
+    }
   }
   .enumFlex {
     font-size: 14px;
     display: flex;
-    padding: 0 5px;
-    flex-wrap: wrap;
     gap: 8px;
+    width: 100%;
     > p {
+      display: flex;
       color: white;
+      min-width: 35%;
+      margin-bottom: unset;
+      align-items: center;
     }
     .defaultValue {
       display: flex;
@@ -220,6 +218,12 @@
       border: 2px solid #c2c2c2;
       border-radius: 4px;
       padding: 3px;
+    }
+    .enumContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
     }
     .enumLabel {
       font-size: 14px;

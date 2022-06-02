@@ -4,20 +4,21 @@ type SchemaDescriptionTypes = {
     description: string;
 }
 
-export default function SchemaDescription ({ description }: SchemaDescriptionTypes) {
-    const highlightCode = description?.split(" ").map((desc, index) => {
-      const regex = /`([a-zA-Z_]*[a-zA-Z]_?)`/g;
-        return (regex.test(desc)) ?
-            <div key={`${index}-code`}>
-            <span
-                className={`${styles.schemaRole} ${styles.schemaCode}`}
-            >{desc.split("`")[1]}
-            </span>
-            <span>{desc.split("`")[2]}</span>
-              </div>
-            : ` ${desc} `;
-    });
+const HighlightCode = ({ description }: any) => {
+    const [ first, code, ...rest ] = description.split("`");
     return (
-        <div className={styles.schemaBodyDescription}>{highlightCode}</div>
+        <>
+            { first }
+            { code && <span className={`${styles.schemaRole} ${styles.schemaCode}`}>{code}</span> }
+            { rest.length > 0 && <HighlightCode description={rest.join("`")}/> }
+        </>
+    );
+}
+
+export default function SchemaDescription ({ description }: SchemaDescriptionTypes) {
+    return (
+        <span className={styles.schemaBodyDescription}>
+            <HighlightCode description={description}/>
+        </span>
     );
 }
