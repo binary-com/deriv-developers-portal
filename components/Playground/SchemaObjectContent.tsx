@@ -11,6 +11,7 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
     switch (type) {
         case "number": typeClassName = styles.number; break;
         case "array": typeClassName = styles.array; break;
+        case "integer": typeClassName = styles.integer; break;
         default: typeClassName = styles.string; break;
     }
     return (
