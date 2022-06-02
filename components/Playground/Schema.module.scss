@@ -250,14 +250,16 @@
   > .schemaBodySignature {
     background-color: rgba(219, 219, 219, 0.05) !important;
     border-radius: 4px;
-    .schemaBodyDescription + .schemaBodyDescription {
-      text-indent: 16px;
-      padding: 10px;
-      color: var(--white-01);
-      background-color: rgba(219, 219, 219, 0.05) !important;
-      border-radius: 4px;
-    }
+    margin-bottom: 10px;
   }
+}
+
+.schemaBodyDescription + .schemaBodyDescription {
+  text-indent: 16px;
+  padding: 10px;
+  color: var(--white-01);
+  background-color: rgba(219, 219, 219, 0.05) !important;
+  border-radius: 4px;
 }
 
 .sourceButton {
