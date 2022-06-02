@@ -2,7 +2,6 @@ import { useState } from 'react';
 import RecursiveProperties from './RecursiveProperties';
 import SchemaDescription from './SchemaDescription';
 import styles from "./Schema.module.scss";
-import { symbolObservable } from 'xstate/lib/utils';
 
 // Header component
 
@@ -73,13 +72,24 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
     )
 }
 
+const SourceButton = ({ is_code_open, setIsCodeOpen }: any) => {
+    return (
+        <div 
+            onClick={() => setIsCodeOpen(!is_code_open)}
+            className={styles.sourceButton} title="Source">{'{'}{'}'}
+        </div>
+    )
+}
+
 export default function SchemaObjectContent({ key_value, properties }) {
     const [is_open_object, setIsOpenObject] = useState(false);
+    const [is_code_open, setIsCodeOpen] = useState(false);
     const { type, description, default: defaultValue, pattern, examples, enum: _enum, title } = properties[key_value];
     const value = properties[key_value];
 
     return (
         <div className={styles.schemaBodySignature} >
+            <SourceButton is_code_open={is_code_open} setIsCodeOpen={setIsCodeOpen} />
             {/* Header */}
             <SchemaBodyHeader
                 key_value={key_value}
