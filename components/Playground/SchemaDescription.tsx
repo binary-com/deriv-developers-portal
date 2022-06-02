@@ -1,10 +1,10 @@
 import styles from "./Schema.module.scss";
 
-type CodeStringProps = {
+type SchemaDescriptionTypes = {
     description: string;
 }
 
-export default function CodeString ({ description }: CodeStringProps) {
+export default function SchemaDescription ({ description }: SchemaDescriptionTypes) {
     const highlightCode = description?.split(" ").map((desc, index) => {
       const regex = /`([a-zA-Z_]*[a-zA-Z]_?)`/g;
         return (regex.test(desc)) ?

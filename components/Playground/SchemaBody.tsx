@@ -11,7 +11,7 @@ type SchemaBodyProps = {
 const Properities: React.FC<SchemaBodyProps> = ({ properties }) => {
   return (
       <div>
-        <RecursiveProperties properties={properties} value={properties}/>
+        <RecursiveProperties is_open properties={properties} value={properties}/>
       </div>
   )
 };
