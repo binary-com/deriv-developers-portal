@@ -10,7 +10,8 @@ type SchemaBodyObject = {
 }
 
 type JSONSchematType = {
-  properties: Object,
+  properties: any,
+  default: Object,
 }
 
 const SourceButton = ({ is_code_open, setIsCodeOpen }: any) => {
@@ -29,7 +30,7 @@ const Properities: React.FC<SchemaBodyObject> = ({ jsonSchema }) => {
   const [ is_code_open, setIsCodeOpen ] = React.useState(false);
   let data;
   try {
-    data = JSON.stringify(jsonSchema, null, 2);
+    data = JSON.stringify(jsonSchema.default, null, 2);
   } catch (_error) {
     data = "";
   }
