@@ -1,4 +1,4 @@
-import Title from "./Title"
+import SchemaTitle from "./components/Playground/SchemaTitle"
 import { PlaygroundComponent } from "./PlaygroundComponent"
 import React from "react"
 import style from "./PlaygroundComponent.module.scss"
@@ -10,9 +10,9 @@ const ApiExplorer = () => {
             className={`${style.playgroundContent}`}
         >
             <div className={style.headerTitle}>
-                <Title headerSize="h1">
+                <SchemaTitle headerSize="h1">
                     API Explorer
-                </Title>
+                </SchemaTitle>
             </div>
             <div className={style.pageWrapper}>
                 <div className={style.playground}>
