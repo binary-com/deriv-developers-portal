@@ -84,7 +84,7 @@ const SourceButton = ({ is_code_open, setIsCodeOpen }: any) => {
     return (
         <div 
             onClick={() => setIsCodeOpen(!is_code_open)}
-            className={styles.sourceButton} title="Source">{'{'}{'}'}
+            className={styles.sourceButton} title="JSON">{'{'}{'}'}
         </div>
     )
 }
