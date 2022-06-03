@@ -13,7 +13,10 @@ export default function RecursiveProperties ( { is_open, properties, value } : {
     }
     return keys?.map((key, index) => {
         return (
-            <SchemaObjectContent key={index} key_value={key} properties={properties} />
+            <>
+                { index === 0 && value?.items?.description && <SchemaDescription description={value.items.description}/> }
+                <SchemaObjectContent key={index} key_value={key} properties={properties} />
+            </>
         );
     });
 }
