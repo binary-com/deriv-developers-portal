@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RecursiveProperties from './RecursiveProperties';
 import SchemaDescription from './SchemaDescription';
 import CodeContent from "../CodeBlock/CodeContent";
@@ -100,6 +100,11 @@ export default function SchemaObjectContent({ key_value, properties }) {
     } catch (_error) {
       data = "";
     }
+    useEffect(() => {
+        setIsCodeOpen(false);
+        setIsOpenObject(false);
+    }, [properties]);
+
     return (
         <div className={styles.schemaBodySignature} >
             <SourceButton is_code_open={is_code_open} setIsCodeOpen={setIsCodeOpen} />
