@@ -28,8 +28,9 @@
   font-size: 14px;
 }
 
-.schemaSubext {
-  font-size: 14px;
+.schemaSubText {
+  line-height: 1.5;
+  font-size: 16px;
 }
 
 .schemaHeader {
@@ -179,11 +180,9 @@
     }
 
     .schemaBodyDescription {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
+      display: inline-block;
+      white-space: break-spaces;
       color: var(--copy-color);
-      float: left;
       margin-top: 10px;
       font-size: 14px;
       line-height: 2;
@@ -200,7 +199,7 @@
       line-height: 2.5;
       color: var(--white-01);
       height: fit-content;
-      padding: 0 5px;
+      padding: 5px 5px;
       margin: 0 5px;
     }
   }

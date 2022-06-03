@@ -56,7 +56,7 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
                                     <div className={styles.schemaBodyPattern}>{pattern}</div>
                                 </div>
                             }
-                            {defaultValue &&
+                            {typeof(defaultValue) !== 'undefined' &&
                                 <div className={styles.defaultValue}>
                                     <span className={styles.defaultValueLabel}>default: </span>
                                     <span className={styles.schemaDefaultValue}>{defaultValue}</span>

@@ -3,7 +3,7 @@ import SchemaHeader from "./SchemaHeader"
 import SchemaBody from "./SchemaBody"
 
 const SchemaWrapper = ({ info }) => {
-  const { title, description, auth_required, auth_scopes, properties } = info
+  const { title, description, auth_required, auth_scopes } = info
 
   return Object.entries(info).length !== 0 ? (
     <>
@@ -13,7 +13,7 @@ const SchemaWrapper = ({ info }) => {
         auth_required={auth_required}
         auth_scopes={auth_scopes}
       />
-      <SchemaBody properties={properties} />
+      <SchemaBody jsonSchema={info} />
     </>
   ) : null
 }
