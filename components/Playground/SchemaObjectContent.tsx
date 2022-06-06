@@ -20,6 +20,21 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
                     <div className={styles.enumFlex}>
                         <p><strong>{key_value}</strong></p>
                         <div className={styles.enumContainer}>
+                            {_enum &&
+                                <>
+                                    <span className={styles.enumLabel}>
+                                        {_enum.length > 1 ? "enum" : "constant"}
+                                    </span> {' '}
+                                    <>{_enum.map((el: string, i: number) =>
+                                        <div
+                                            className={`${styles.schemaCode} ${styles.schemaEnums}`}
+                                            key={i}
+                                        >
+                                            {el}
+                                        </div>)}
+                                    </>
+                                </>
+                            }
                             {type && type !== "object" && typeof (type) !== 'object' &&
                                 <span className={`${styles.enumType} ${typeClassName}`}>
                                     {type}
@@ -35,21 +50,6 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
                                 </>
                                 :
                                 <></>
-                            }
-                            {_enum &&
-                                <>
-                                    <span className={styles.enumLabel}>
-                                        {_enum.length > 1 ? "enum" : "constant"}
-                                    </span> {' '}
-                                    <>{_enum.map((el: string, i: number) =>
-                                        <div
-                                            className={`${styles.schemaCode} ${styles.schemaEnums}`}
-                                            key={i}
-                                        >
-                                            {el}
-                                        </div>)}
-                                    </>
-                                </>
                             }
                             {pattern &&
                                 <div className={styles.schemaRegexContainer}>

@@ -304,3 +304,11 @@
   right: 24px;
   font-size: 16px
 }
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"],
+[data-state~="responsive.mobileL"] {
+  .enumFlex {
+    flex-wrap: wrap;
+  }
+}
