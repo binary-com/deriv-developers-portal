@@ -311,4 +311,13 @@
   .enumFlex {
     flex-wrap: wrap;
   }
+  .schemaHeader {
+    .schemaDescription {
+      flex-wrap: wrap;
+      gap: 20px;
+      .schemaAuthRequired {
+        width: unset;
+      }
+    }
+  }
 }
