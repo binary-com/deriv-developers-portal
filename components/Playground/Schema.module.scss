@@ -46,13 +46,14 @@
   }
 
   .schemaDescription {
-    padding: 5px 0;
     display: flex;
+    padding: 5px 0;
+    gap: 20px;
     justify-content: space-between;
     color: var(--white-01);
 
     .schemaAuthRequired {
-      width:40%;
+      width: 40%;
     }
   }
 }
@@ -314,7 +315,6 @@
   .schemaHeader {
     .schemaDescription {
       flex-wrap: wrap;
-      gap: 20px;
       .schemaAuthRequired {
         width: unset;
       }
