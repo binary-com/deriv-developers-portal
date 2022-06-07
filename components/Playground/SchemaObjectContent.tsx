@@ -14,17 +14,62 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
         case "integer": typeClassName = styles.integer; break;
         default: typeClassName = styles.string; break;
     }
+    if (Array.isArray(type)) {
+        type.map((item) => {
+            if (item !== "null") {
+                switch (item) {
+                    case "number": typeClassName = styles.number; break;
+                    case "array": typeClassName = styles.array; break;
+                    case "integer": typeClassName = styles.integer; break;
+                    default: typeClassName = styles.string; break;
+                }
+            }
+        });
+    }
+
+    const is_type_with_enumlabel = _enum && type && type !== "object" && typeof (type) !== 'object';
+    const is_only_type = !_enum && type && type !== "object" && typeof (type) !== 'object';
+
     return (
         <div className={`${styles.schemaBodyHeader}${type === "object" ? ` ${styles.schemaObjectHeader}` : ''}`}>
                 <div className={styles.schemaBodyType}>
                     <div className={styles.enumFlex}>
                         <p><strong>{key_value}</strong></p>
                         <div className={styles.enumContainer}>
-                            {type && type !== "object" && typeof (type) !== 'object' &&
+                            { is_type_with_enumlabel &&
+                                <>
+                                    <span className={styles.enumLabel}>
+                                        {_enum.length > 1 ? "enum" : "constant"}
+                                    </span> {' '}
+
+                                    <span className={`${styles.enumType} ${typeClassName}`}>
+                                        {type}
+                                    </span>
+
+                                    <>{_enum.map((el: string, i: number) =>
+                                        <div
+                                            className={`${styles.schemaCode} ${styles.schemaEnums}`}
+                                            key={i}
+                                        >
+                                            {el}
+                                        </div>)}
+                                    </>
+                                </>
+                            }
+                            { is_only_type &&
                                 <span className={`${styles.enumType} ${typeClassName}`}>
                                     {type}
                                 </span>
                             }
+
+                            { type && Array.isArray(type) && 
+                                <>
+                                    <span className={`${styles.enumType} ${typeClassName}`}>
+                                        {type[0]}, {type[1]}
+                                    </span>
+                                </>
+                            }
+
                             {type === "object" || type === "array" ?
                                 <>
                                     <div className={styles.schemaObjectContent}>
@@ -35,21 +80,6 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
                                 </>
                                 :
                                 <></>
-                            }
-                            {_enum &&
-                                <>
-                                    <span className={styles.enumLabel}>
-                                        {_enum.length > 1 ? "enum" : "constant"}
-                                    </span> {' '}
-                                    <>{_enum.map((el: string, i: number) =>
-                                        <div
-                                            className={`${styles.schemaCode} ${styles.schemaEnums}`}
-                                            key={i}
-                                        >
-                                            {el}
-                                        </div>)}
-                                    </>
-                                </>
                             }
                             {pattern &&
                                 <div className={styles.schemaRegexContainer}>
@@ -64,14 +94,18 @@ const SchemaBodyHeader = ({ key_value, type, defaultValue, pattern, examples, en
                             }
                             {/* take examples and map it to div elements with class styles.defaultValue */}
                             {examples &&
-                                examples.map((el: string, i: number) => {
-                                    return (
-                                        <div className={styles.defaultValue} key={i}>
-                                            <span className={styles.defaultValueLabel}>example: </span>
-                                            <span className={styles.schemaDefaultValue}>{el}</span>
-                                        </div>
-                                    )
-                                })
+                            <div className={styles.defaultValue}>
+                                <span className={styles.defaultValueLabel}>example: </span>
+                                {
+                                    examples.map((el: string, i: number) => {
+                                        return (
+                                            <div key={i}>
+                                                <span className={styles.schemaDefaultValue}>{el}</span>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
                             }
                         </div>
                     </div>
