@@ -1,15 +1,10 @@
-import styles from "./PlaygroundComponent.module.scss";
+import styles from "./SelectRequestInput.module.scss";
 import {  useState } from "react";
 import { playground_requests } from "./Playground_Requests";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCaretDown,faCaretUp } from "@fortawesome/free-solid-svg-icons";
 
 const SelectRequestInput = ({ selected, setSelected, handleChange }) => {
   const [isActive,setIsActive] = useState(false)
   const [toggle, setToggle] = useState(false)
-  library.add(faCaretDown);
-  library.add(faCaretUp);
   const [searchResults, setSearchResults] = useState("");
 
     return (
@@ -20,7 +15,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange }) => {
         setToggle(!toggle)
       }}>
         {selected}
-        {!isActive ? <FontAwesomeIcon icon="fa-solid fa-caret-down" /> : <FontAwesomeIcon icon="fa-solid fa-caret-up" /> }
+        <span className={`${styles.arrow} ${isActive ? styles.down : '' }`} />
       </div>
       {isActive && (
         <div className= {`${styles.dropdownContent} ${toggle ? styles.show : ''}`}>
