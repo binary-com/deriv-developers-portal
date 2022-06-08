@@ -9,7 +9,7 @@ const CodeBlock = ({ id }) => {
 
   useEffect(() => {
     const file_extension = {
-      javascript: "js",
+      javascript: "jscode", // do not treat as real javascript. Production will minify .js extensions
       csharp: "cs",
       php: "php",
       python: "py"
