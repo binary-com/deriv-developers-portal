@@ -37,7 +37,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange }) => {
                 setIsActive(false);
                 handleChange(e, option.name);
               }}
-              className= {`${styles.dropdownItem} ${ { selected } == option.title ? styles.select : ""}`}
+              className= {`${styles.dropdownItem}  ${selected === option.title ? styles.dropdownSelected : '' }`}
             >
               {option.title}
             </div>
