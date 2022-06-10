@@ -32,9 +32,6 @@ export const PlaygroundComponent = () => {
   const history = createBrowserHistory();
 
   useEffect(() => {
-    if (selected === "Select API Call - Version 3" && window.location.href.indexOf('#') > -1 ) {
-      history.push(`${location.pathname}`)
-    }
     const hash_value = window.location.hash.split("#")[1];
     const request_body = playground_requests.find(
       el => el.name === hash_value

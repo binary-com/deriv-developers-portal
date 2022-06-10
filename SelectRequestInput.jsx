@@ -1,20 +1,13 @@
 /* eslint-disable no-import-assign */
 import styles from "./SelectRequestInput.module.scss";
-import {  useState,useEffect } from "react";
+import {  useState } from "react";
 import { playground_requests } from "./Playground_Requests";
 
-const SelectRequestInput = ({ selected, setSelected, handleChange }) => {
+const SelectRequestInput = ({ selected, setSelected, handleChange, selected_value }) => {
   const [isActive,setIsActive] = useState(false)
   const [toggle, setToggle] = useState(false)
   const [searchResults, setSearchResults] = useState("");
-  useEffect (() => {
-  const dropdown = new URLSearchParams(window.location.search);
-   const dropdown_active = dropdown.get('featureDropdown');
-    if(dropdown_active === 'on'){
-      setIsActive(true)
-    }
-  })
-
+  
     return (
     <fieldset>
       <div className={styles.dropdown}>
@@ -22,7 +15,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange }) => {
         setIsActive(!isActive); 
         setToggle(!toggle)
       }}>
-        {selected}
+        {selected_value}
         <span className={`${styles.arrow} ${isActive ? styles.down : '' }`} />
       </div>
       {isActive && (
