@@ -46,13 +46,14 @@
   }
 
   .schemaDescription {
-    padding: 5px 0;
     display: flex;
+    padding: 5px 0;
+    gap: 20px;
     justify-content: space-between;
     color: var(--white-01);
 
     .schemaAuthRequired {
-      width:40%;
+      width: 40%;
     }
   }
 }
@@ -113,6 +114,15 @@
     display: flex;
     flex-direction: column;
     position: relative;
+
+    .schemaBodyDescription + .schemaBodyDescription {
+      text-indent: 16px;
+      padding: 10px;
+      color: var(--white-01);
+      background-color: rgba(219, 219, 219, 0.05) !important;
+      border-radius: 4px;
+    }
+
     .schemaBodySignature {
       padding: 10px 16px;
     }
@@ -266,14 +276,6 @@
   }
 }
 
-.schemaBodyDescription + .schemaBodyDescription {
-  text-indent: 16px;
-  padding: 10px;
-  color: var(--white-01);
-  background-color: rgba(219, 219, 219, 0.05) !important;
-  border-radius: 4px;
-}
-
 .sourceButton {
   opacity: 0;
   color: var(--gray-01);
@@ -302,4 +304,20 @@
   top: 10px;
   right: 24px;
   font-size: 16px
+}
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"],
+[data-state~="responsive.mobileL"] {
+  .enumFlex {
+    flex-wrap: wrap;
+  }
+  .schemaHeader {
+    .schemaDescription {
+      flex-wrap: wrap;
+      .schemaAuthRequired {
+        width: unset;
+      }
+    }
+  }
 }

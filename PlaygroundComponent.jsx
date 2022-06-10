@@ -10,6 +10,9 @@ import data_get_api_token from "./data-app-registration";
 import styles from "./PlaygroundComponent.module.scss";
 import { ticksSubject } from './ticksSubject';
 import { createSignal } from "solid-js";
+import { useLocation } from "react-router-dom";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { createBrowserHistory } from "history";
 
 export const PlaygroundComponent = () => {
   const [current_api, setCurrentAPI] = useState(api)
@@ -24,6 +27,9 @@ export const PlaygroundComponent = () => {
     selected_value: "Select API Call - Version 3",
     token: ""
   })
+  const [selected, setSelected] = useState("Select API Call - Version 3");
+  const location = useLocation();
+  const history = createBrowserHistory();
 
   useEffect(() => {
     const hash_value = window.location.hash.split("#")[1];
@@ -171,11 +177,12 @@ export const PlaygroundComponent = () => {
       })
     },
     [setTextData, sendRequest]
-  )
+  ) 
 
   const handleSelectChange = useCallback(
-    event => {
+    (event, name) => {
       event.preventDefault()
+      history.push(`${location.pathname}#${name}`)
       const request_body = playground_requests.find(
         el => el.name === event.currentTarget.value
       )
@@ -210,6 +217,8 @@ export const PlaygroundComponent = () => {
         <SelectRequestInput
           selected_value={text_data.selected_value}
           handleChange={handleSelectChange}
+          selected= {selected}
+          setSelected ={setSelected}
         />
         <div className={styles.apiToken}>
           <TokenInputField

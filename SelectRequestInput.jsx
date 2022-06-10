@@ -1,59 +1,54 @@
-import styles from "./PlaygroundComponent.module.scss";
-import { useEffect, useState } from "react";
+/* eslint-disable no-import-assign */
+import styles from "./SelectRequestInput.module.scss";
+import {  useState } from "react";
 import { playground_requests } from "./Playground_Requests";
 
-const SelectRequestInput = ({ handleChange, selected_value }) => {
-    const [link_hash_value, setLinkHashValue] = useState("");
-    const [hash_value_title, setHashValueTitle] = useState("");
-    const request_body = playground_requests.find(
-      el => (el.name || el.title) === selected_value
-    )
-    const default_value = request_body?.title || "Select API Call - Version 3"
-    playground_requests.sort((a, b) => a.title.localeCompare(b.title))
-
-    // To explain about the useEffects below:
-    // If the user clicks a link with a hash that redirects to the api-explorer page,
-    // the hash in the link will be used to immediately display the specific data.
-    useEffect(() => {
-        if (window.location.hash) {
-          const hash_value = window.location.hash.split("#")[1];
-          setLinkHashValue(hash_value);
-        }
-    }, [window.location.hash])
-    
-    useEffect(() => {
-      if (link_hash_value.length > 0) {
-        const find_select_value = playground_requests.find(el => el.name === link_hash_value);
-        setHashValueTitle(find_select_value?.title);
-      }
-    }, [link_hash_value, playground_requests])
-
-    // This useEffect has mainly a UX purpose, so that the user can see
-    // what function they selected in the link (hash).
-    useEffect(() => {
-      if (selected_value && request_body) {
-        window.location.hash = request_body ? request_body.name : window.location.hash || "";
-      }
-    }, [selected_value, request_body, window.location.hash])
-
+const SelectRequestInput = ({ selected, setSelected, handleChange, selected_value }) => {
+  const [isActive,setIsActive] = useState(false)
+  const [toggle, setToggle] = useState(false)
+  const [searchResults, setSearchResults] = useState("");
+  
     return (
-      <fieldset className={styles.apiRequest}>
-        <select
-          className={`${styles.select2} ${selected_value != "Select API Call - Version 3" ? styles.selected : ""}`}
-          onChange={handleChange}
-          defaultValue={link_hash_value ? hash_value_title : default_value}
-          id="settings-dropdown"
-        >
-          <option disabled className={styles.option}>{link_hash_value ? hash_value_title : default_value}</option>
-          <optgroup label="All calls">
-            {playground_requests.map(el => (
-              <option value={el.name} key={el.name}>
-                {el.title}
-              </option>
-            ))}
-          </optgroup>
-        </select>
-      </fieldset>   
+    <fieldset>
+      <div className={styles.dropdown}>
+      <div className= {styles.dropdownBtn} onClick={() => {
+        setIsActive(!isActive); 
+        setToggle(!toggle)
+      }}>
+        {selected_value}
+        <span className={`${styles.arrow} ${isActive ? styles.down : '' }`} />
+      </div>
+      {isActive && (
+        <div className= {`${styles.dropdownContent} ${toggle ? styles.show : ''}`}>
+          <input type="text" id="myInput" className= {styles.dropdownSearch} onChange={event =>setSearchResults(event.target.value)}/>
+          <div className={styles.dropdownItem}> Select API Call - Version 3</div>
+          <div className={styles.dropdownStart}>ALL CALLS</div>
+          {playground_requests.filter(option =>{
+            if ( option.title.toLowerCase().includes(searchResults.toLowerCase())){
+              return option;
+            // eslint-disable-next-line no-else-return
+            } else{
+              return
+            }
+          }).map((option) => (
+            <div
+              key={option.name}
+              value= {option.title}
+              onClick={(e) => {
+                setSelected(option.title);
+                setIsActive(false);
+                handleChange(e, option.name);
+              }}
+              className= {`${styles.dropdownItem}  ${selected === option.title ? styles.dropdownSelected : '' }`}
+            >
+              {option.title}
+            </div>
+    
+          ))}
+        </div>
+      )}
+    </div>
+  </fieldset>
     )
   }
   

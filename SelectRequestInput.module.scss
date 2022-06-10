@@ -1,0 +1,92 @@
+fieldset {
+  border: none;
+  padding: 0rem;
+  width: 100%;
+  border-radius: 4px 0 0 4px;
+  border: solid 1px var(--border-normal);
+  line-height: 1.43;
+  overflow: auto;
+}
+
+.dropdown {
+  width: 100%;
+  user-select: none;
+  position: relative;
+  max-height: 700px;
+  overflow: auto;
+
+  .arrow {
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-image: url(/img/arrow_up.svg);
+    transform: rotate(-180deg);
+    transition: transform 0.2s;
+    width: 22px;
+    height: 22px;
+    &.down {
+      transform: rotate(0deg);
+    }
+  }
+
+  .dropdownBtn {
+    padding: 5px 5px;
+    background: var(--white-01);
+    color: var(--black-03);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    overflow-y: scroll;
+  }
+
+  .dropdownContent {
+    position: relative;
+    width: 100%;
+    top: 110%;
+    padding-top: 10px;
+    left: 0;
+    background: var(--white-01);
+    color: var(--black-03);
+    overflow: auto;
+    overflow-y: scroll;
+
+    .dropdownSearch {
+      padding: 4px;
+      margin: 10px;
+      width: 97%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+    }
+
+    .dropdownStart {
+      padding: 0;
+      margin: 5px;
+      font-weight: bold;
+      color: var(--gray-05);
+    }
+
+    .dropdownSelected{
+        background: #ccc;
+    }
+
+    .dropdownItem {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      padding: 6px;
+      user-select: none;
+      color: var(--gray-05);
+      cursor: pointer;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        background: #1e90ff;
+        color: var(--white-01);
+      }
+    }
+  }
+}
