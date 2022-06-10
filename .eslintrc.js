@@ -4,6 +4,8 @@ module.exports = {
     browser: true,
     es6: true,
     es2021: true,
+    node: true,
+    cypress: true,
   },
   extends: [
     "eslint:recommended",

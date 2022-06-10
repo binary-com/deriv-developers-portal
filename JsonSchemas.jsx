@@ -35,7 +35,7 @@ const JsonSchemas = () => {
   ];
 
   return (
-    <div className={style["page-container"]}>
+    <div data-id="json-schemas" className={style["page-container"]}>
       <h1>JSON Schemas</h1>
       <p>
         Our API is defined by

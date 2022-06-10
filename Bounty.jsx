@@ -3,8 +3,8 @@ import Button from "./components/Button/Button";
 
 export default function BugBounty() {
   return (
-    <>
-      <h1>Bug bounty</h1>
+    <div data-id="bug-bounty">
+      <h1 >Bug bounty</h1>
       <div className="text-block">
         <div className={styles.title}>
           Want to help us enhance our security?
@@ -39,6 +39,6 @@ export default function BugBounty() {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }

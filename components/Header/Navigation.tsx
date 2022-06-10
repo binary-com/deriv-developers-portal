@@ -21,14 +21,14 @@ export default function Navigation() {
         </div>
       </Link>
       <HamburgerNavigation />
-      <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`}>
+      <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`} data-id="navbar">
         {[
           ["/", "Home"],
           ["/docs/", "Documentation"],
           ["/api-explorer/", "API Explorer"],
         ].map(([to, label], i) => {
           return i != 2 ? (
-            <div key={to}>
+            <div data-id={to} key={to}>
               <Link
                 to={to}
                 className={to === docAddress ? styles.selected : ""}
@@ -37,7 +37,7 @@ export default function Navigation() {
               </Link>
             </div>
           ) : (
-            <div key={to}>
+            <div data-id={to} key={to}>
               <Link to={to} className={to === address ? styles.selected : ""}>
                 {label}
               </Link>
