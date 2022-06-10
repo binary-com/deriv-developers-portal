@@ -4,7 +4,7 @@ import styles from './Navigator.module.scss';
 export default function Navigator() {
     const [is_closed, setIsClosed] = useState(false);
     return (
-        <div id='navigator' className={styles.navigator}>
+        <div id='navigator' className={styles.navigator} data-id='navigator'>
             <div className={styles.navigatorTitleContainer}>
                 <p className={`${styles.navigatorTitle} ${styles.bold}`}>Table of contents</p>
                 <span

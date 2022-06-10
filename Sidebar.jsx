@@ -6,7 +6,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <div className={styles.sidebarleft}>
+    <div className={styles.sidebarleft} data-id="sidebarleft">
       <p className={styles.sidebartitle}>Deriv API</p>
       <div>
         {[
@@ -23,6 +23,7 @@ const Sidebar = () => {
               <Link
                 to={to}
                 className={to === location.pathname ? styles.selected : ""}
+                data-id={to}
               >
                 {label}
               </Link>

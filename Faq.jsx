@@ -6,7 +6,7 @@ import CodeContent from "./components/CodeBlock/CodeContent";
 
 const FAQ = () => {
   return (
-    <div className="page-content">
+    <div className="page-content" data-id="faq">
       <div className={styles.withBg}>
         <h1 className={styles.docmMainTitle}>FAQ</h1>
         <Accordion>
