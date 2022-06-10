@@ -1,11 +1,19 @@
+/* eslint-disable no-import-assign */
 import styles from "./SelectRequestInput.module.scss";
-import {  useState } from "react";
+import {  useState,useEffect } from "react";
 import { playground_requests } from "./Playground_Requests";
 
 const SelectRequestInput = ({ selected, setSelected, handleChange }) => {
   const [isActive,setIsActive] = useState(false)
   const [toggle, setToggle] = useState(false)
   const [searchResults, setSearchResults] = useState("");
+  useEffect (() => {
+  const dropdown = new URLSearchParams(window.location.search);
+   const dropdown_active = dropdown.get('featureDropdown');
+    if(dropdown_active === 'on'){
+      setIsActive(true)
+    }
+  })
 
     return (
     <fieldset>
@@ -23,10 +31,11 @@ const SelectRequestInput = ({ selected, setSelected, handleChange }) => {
           <div className={styles.dropdownItem}> Select API Call - Version 3</div>
           <div className={styles.dropdownStart}>ALL CALLS</div>
           {playground_requests.filter(option =>{
-            if(searchResults === ""){
+            if ( option.title.toLowerCase().includes(searchResults.toLowerCase())){
               return option;
-            } else if ( option.title.toLowerCase().includes(searchResults.toLowerCase())){
-              return option;
+            // eslint-disable-next-line no-else-return
+            } else{
+              return
             }
           }).map((option) => (
             <div
