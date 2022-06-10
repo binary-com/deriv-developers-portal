@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import Accordion from "./Accordion";
 import AccordionItem from "./AccordionItem";
 import styles from "./Faq.module.scss";
-import CodeContent from './components/CodeBlock/CodeContent';
+import CodeContent from "./components/CodeBlock/CodeContent";
 
 const FAQ = () => {
   return (
@@ -14,20 +14,19 @@ const FAQ = () => {
             <p>
               View our <a href="https://api.deriv.com/docs/">code samples</a>.
               You can use these code snippets in your app to open a connection
-              to our WebSocket API service. Explore our 
-              <a href="/api-explorer/"> API playground</a> for the method calls you
-              need for your app.
+              to our WebSocket API service. Explore our
+              <a href="/api-explorer/"> API playground</a> for the method calls
+              you need for your app.
             </p>
           </AccordionItem>
           <AccordionItem title="How do I build my own front-end app?">
             <p>
-              Simply copy our open-source code and  adapt it for your needs.
+              Simply copy our open-source code and adapt it for your needs.
               Follow these steps to get started:
             </p>
             <ol>
               <li>
-                Open a <a href="https://www.github.com">GitHub</a> {" "}
-                account.
+                Open a <a href="https://www.github.com">GitHub</a> account.
               </li>
               <li>
                 Download the{" "}
@@ -46,8 +45,7 @@ const FAQ = () => {
               <li>Make the code changes in your fork.</li>
               <li>
                 Publish your fork using the{" "}
-                <a href="https://pages.github.com/">GitHub Pages</a>{" "}
-                facility.
+                <a href="https://pages.github.com/">GitHub Pages</a> facility.
               </li>
               <li>
                 For SSL and website acceleration for your app, open a free
@@ -67,9 +65,7 @@ const FAQ = () => {
             <ol>
               <li>
                 Sign up as an{" "}
-                <a href="https://deriv.com/partners/affiliate-ib/">
-                  affiliate
-                </a>
+                <a href="https://deriv.com/partners/affiliate-ib/">affiliate</a>
                 .
               </li>
               <li>
@@ -85,14 +81,14 @@ const FAQ = () => {
             <p>Here are some ways:</p>
             <ol>
               <li>
-                Sign up as a {" "}
+                Sign up as a{" "}
                 <a href="https://deriv.com/partners/payment-agent/">
-                payment agent
-                </a> {" "}
+                  payment agent
+                </a>{" "}
                 to process local payments for our clients in your country. You
-                may automate your payment agent facility using the {" "}
+                may automate your payment agent facility using the{" "}
                 <a href="/api-explorer/#paymentagent_transfer" passHref={true}>
-                 <code className={styles.code}>paymentagent_transfer</code>
+                  <code className={styles.code}>paymentagent_transfer</code>
                 </a>{" "}
                 API call.
               </li>
@@ -101,9 +97,9 @@ const FAQ = () => {
                 you may add a <strong>markup percentage</strong> when you
                 <a href="/docs/app-registration"> register</a> your app. This is
                 a percentage of contract payouts, and it’s added to all contract
-                prices in your app. The aggregate markup is
-                paid to you around the 15th of every month. Sign up as our affiliate and contact your Affiliate
-                Manager to learn more.
+                prices in your app. The aggregate markup is paid to you around
+                the 15th of every month. Sign up as our affiliate and contact
+                your Affiliate Manager to learn more.
               </li>
             </ol>
           </AccordionItem>
@@ -133,16 +129,14 @@ const FAQ = () => {
               the trader’s past performance.
             </p>
             <p>
-              To start copying, use the {" "}
-              <a href="/api-explorer/#copy_start">copy start</a> call. To
-              stop copying, use {" "}
-              <a href="/api-explorer/#copy_stop">copy stop</a>.
+              To start copying, use the{" "}
+              <a href="/api-explorer/#copy_start">copy start</a> call. To stop
+              copying, use <a href="/api-explorer/#copy_stop">copy stop</a>.
             </p>
           </AccordionItem>
           <AccordionItem title="How do I check for server status updates?">
             <p>
-              Use the{" "}
-              <a href="/api-explorer/#website_status">website status</a> {" "}
+              Use the <a href="/api-explorer/#website_status">website status</a>{" "}
               call to check whether the website is online or not.
             </p>
           </AccordionItem>
@@ -152,7 +146,8 @@ const FAQ = () => {
               for server status notifications. When a message is received, it
               sends the website status message, if available:
             </p>
-            <CodeContent lang="javascript" 
+            <CodeContent
+              lang="javascript"
               data={` 
                 const WebSocket = require('ws');
                 const ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?l=EN&app_id=1089');
@@ -172,14 +167,14 @@ const FAQ = () => {
                     }
                 });
               `}
-             />
+            />
           </AccordionItem>
           <AccordionItem title="How do I get help?">
             Visit our{" "}
-            <a href="https://binary.vanillacommunity.com/">dev forum</a> {" "}
-            or email
+            <a href="https://binary.vanillacommunity.com/">dev forum</a> or
+            email
             <a href="mailto:api-support@deriv.com?subject=API+Question:+">
-               {" "}
+              {" "}
               api-support@deriv.com
             </a>
             .

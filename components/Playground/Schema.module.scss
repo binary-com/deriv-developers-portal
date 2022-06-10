@@ -2,7 +2,7 @@
   color: #ff8fc8;
 }
 .number {
-  color: #acb2ff
+  color: #acb2ff;
 }
 .string {
   color: var(--green-03);
@@ -20,7 +20,7 @@
   margin: 8px 8px 0 0;
   padding: 6px 8px;
   border-radius: 4px;
-  background-color: rgba(0,255,104,.16);
+  background-color: rgba(0, 255, 104, 0.16);
 }
 
 .schemaCode {
@@ -41,8 +41,8 @@
   background: var(--black-04);
 
   .schemaTitle {
-   font-size: 24px;
-   color: var(--white-01);
+    font-size: 24px;
+    color: var(--white-01);
   }
 
   .schemaDescription {
@@ -97,8 +97,8 @@
       flex-direction: column;
     }
     .schemaObjectDescription {
-     font-weight: normal;
-     font-size: 14px; 
+      font-weight: normal;
+      font-size: 14px;
     }
     .schemaBodyHeader {
       flex-direction: column;
@@ -142,7 +142,7 @@
         font-size: 14px;
         font-weight: 400;
         align-items: center;
-        width: 100%
+        width: 100%;
       }
 
       .schemaEnums {
@@ -154,19 +154,19 @@
         border: none;
         padding: 6px 8px;
         border-radius: 4px;
-        background-color: rgba(0,255,104,.16);
+        background-color: rgba(0, 255, 104, 0.16);
       }
 
       .schemaItems {
         color: var(--green-02);
-        font-size : 14px;
+        font-size: 14px;
         line-height: 1.43;
         color: var(--green-03);
         border: none;
         margin: 8px 8px 0 0;
         padding: 6px 8px;
         white-space: nowrap;
-        border-radius: 4px
+        border-radius: 4px;
       }
 
       .schemaRegexContainer {
@@ -177,7 +177,7 @@
         .schemaBodyPattern {
           width: 100%;
           font-size: 11px;
-          color:  var(--green-01);
+          color: var(--green-01);
           margin: 0 10px;
         }
 
@@ -202,7 +202,7 @@
       }
     }
     .schemaRole {
-      background-color: rgba(255,255,255,.16);
+      background-color: rgba(255, 255, 255, 0.16);
       border: none;
       font-size: 14px;
       font-weight: 400;
@@ -233,7 +233,7 @@
     .defaultValueLabel,
     .schemaDefaultValue {
       font-size: 14px;
-      color: #c2c2c2
+      color: #c2c2c2;
     }
     .schemaDefaultValue {
       border: 2px solid #c2c2c2;
@@ -279,7 +279,7 @@
 .sourceButton {
   opacity: 0;
   color: var(--gray-01);
-  font-family: lucida console,Monaco,monospace;
+  font-family: lucida console, Monaco, monospace;
   position: absolute;
   padding: 2px;
   margin-top: 3px;
@@ -289,7 +289,7 @@
   cursor: pointer;
   font-weight: 700;
   font-size: 10px;
-  transition: opacity .2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   &:hover {
     opacity: 1;
   }
@@ -303,7 +303,7 @@
   @extend .sourceButton;
   top: 10px;
   right: 24px;
-  font-size: 16px
+  font-size: 16px;
 }
 
 [data-state~="responsive.mobileS"],

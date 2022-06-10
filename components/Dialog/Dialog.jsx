@@ -1,9 +1,14 @@
 import React, { useEffect, useRef } from "react";
 
 import { useDialogPolyfill } from "./useDialogPolyfill";
-import styles from './Dialog.module.scss';
+import styles from "./Dialog.module.scss";
 
-export default function Dialog({ closeOnOutsideClick, onRequestClose, open, ...props }) {
+export default function Dialog({
+  closeOnOutsideClick,
+  onRequestClose,
+  open,
+  ...props
+}) {
   const dialogRef = useRef();
 
   useDialogPolyfill(dialogRef);
@@ -18,7 +23,11 @@ export default function Dialog({ closeOnOutsideClick, onRequestClose, open, ...p
   }
 
   return (
-    <dialog ref={dialogRef} className={styles.dialogWrapper} onClick={handleOutsideClick}>
+    <dialog
+      ref={dialogRef}
+      className={styles.dialogWrapper}
+      onClick={handleOutsideClick}
+    >
       <div className={styles.dialogContent} {...props} />
     </dialog>
   );
@@ -27,21 +36,21 @@ export default function Dialog({ closeOnOutsideClick, onRequestClose, open, ...p
 const useDialogOpening = (dialogRef, open) => {
   const lastActiveElement = useRef(null);
   useEffect(() => {
-      const dialogNode = dialogRef.current;
-      if (open) {
-        lastActiveElement.current = document.activeElement;
-        dialogNode.showModal();
-      } else {
-        dialogNode.close();
-        lastActiveElement.current.focus();
-      }
+    const dialogNode = dialogRef.current;
+    if (open) {
+      lastActiveElement.current = document.activeElement;
+      dialogNode.showModal();
+    } else {
+      dialogNode.close();
+      lastActiveElement.current.focus();
+    }
   }, [open]);
 };
 
 const useDialogClosing = (dialogRef, onRequestClose) => {
   useEffect(() => {
     const dialogNode = dialogRef.current;
-    const handleCancel = event => {
+    const handleCancel = (event) => {
       event.preventDefault();
       onRequestClose();
     };
