@@ -6,17 +6,17 @@ groups:
       - name: api_token
         title: API Token
       - name: app_delete
-        title: 'Application: Delete'
+        title: "Application: Delete"
       - name: app_get
-        title: 'Application: Get Details'
+        title: "Application: Get Details"
       - name: app_list
-        title: 'Application: List'
+        title: "Application: List"
       - name: app_markup_details
-        title: 'Application: Markup Details'
+        title: "Application: Markup Details"
       - name: app_register
-        title: 'Application: Register'
+        title: "Application: Register"
       - name: app_update
-        title: 'Application: Update'
+        title: "Application: Update"
       - name: asset_index
         title: Asset Index
       - name: authorize
@@ -38,13 +38,13 @@ groups:
       - name: contracts_for
         title: Contracts For Symbol
       - name: copy_start
-        title: 'Copy Trading: Start'
+        title: "Copy Trading: Start"
       - name: copy_stop
-        title: 'Copy Trading: Stop'
+        title: "Copy Trading: Stop"
       - name: copytrading_list
-        title: 'Copy Trading: List'
+        title: "Copy Trading: List"
       - name: copytrading_statistics
-        title: 'Copy Trading: Statistics'
+        title: "Copy Trading: Statistics"
       - name: crypto_config
         title: Cryptocurrency configurations
       - name: document_upload
@@ -78,25 +78,25 @@ groups:
       - name: logout
         title: Log Out
       - name: mt5_deposit
-        title: 'MT5: Deposit'
+        title: "MT5: Deposit"
       - name: mt5_get_settings
-        title: 'MT5: Get Setting'
+        title: "MT5: Get Setting"
       - name: mt5_login_list
-        title: 'MT5: Accounts List'
+        title: "MT5: Accounts List"
       - name: mt5_new_account
-        title: 'MT5: New Account'
+        title: "MT5: New Account"
       - name: mt5_password_change
-        title: 'MT5: Password Change'
+        title: "MT5: Password Change"
       - name: mt5_password_check
-        title: 'MT5: Password Check'
+        title: "MT5: Password Check"
       - name: mt5_password_reset
-        title: 'MT5: Password Reset'
+        title: "MT5: Password Reset"
       - name: mt5_withdrawal
-        title: 'MT5: Withdrawal'
+        title: "MT5: Withdrawal"
       - name: new_account_maltainvest
-        title: 'New Real-Money Account: Deriv Investment (Europe) Ltd'
+        title: "New Real-Money Account: Deriv Investment (Europe) Ltd"
       - name: new_account_real
-        title: 'New Real-Money Account: Default Landing Company'
+        title: "New Real-Money Account: Default Landing Company"
       - name: new_account_virtual
         title: New Virtual-Money Account
       - name: oauth_apps
@@ -148,11 +148,11 @@ groups:
       - name: paymentagent_details
         title: Payment agent details
       - name: paymentagent_list
-        title: 'Payment Agent: List'
+        title: "Payment Agent: List"
       - name: paymentagent_transfer
-        title: 'Payment Agent: Transfer'
+        title: "Payment Agent: Transfer"
       - name: paymentagent_withdraw
-        title: 'Payment Agent: Withdraw'
+        title: "Payment Agent: Withdraw"
       - name: payout_currencies
         title: Payout Currencies
       - name: ping
@@ -164,7 +164,7 @@ groups:
       - name: proposal
         title: Price Proposal
       - name: proposal_open_contract
-        title: 'Price Proposal: Open Contracts'
+        title: "Price Proposal: Open Contracts"
       - name: reality_check
         title: Reality Check
       - name: residence_list
@@ -174,7 +174,7 @@ groups:
       - name: sell
         title: Sell Contract
       - name: sell_contract_for_multiple_accounts
-        title: 'Sell Contracts: Multiple Accounts'
+        title: "Sell Contracts: Multiple Accounts"
       - name: sell_expired
         title: Sell Expired Contracts
       - name: set_account_currency
@@ -202,9 +202,9 @@ groups:
       - name: trading_durations
         title: Trading Durations
       - name: trading_platform_investor_password_reset
-        title: 'Trading Platform: Investor Password Reset'
+        title: "Trading Platform: Investor Password Reset"
       - name: trading_platform_password_reset
-        title: 'Trading Platform: Password Reset'
+        title: "Trading Platform: Password Reset"
       - name: trading_servers
         title: Server list
       - name: trading_times

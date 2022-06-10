@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react"
-import Button from "./components/Button/Button"
-import style from "./TokenInputField.module.scss"
+import React, { useEffect, useState } from "react";
+import Button from "./components/Button/Button";
+import style from "./TokenInputField.module.scss";
 
 const TokenInputField = ({
   isAppRegistration,
   label,
   sendTokenToJSON,
-  token
+  token,
 }) => {
-  const [_token, setToken] = useState(token)
+  const [_token, setToken] = useState(token);
 
   useEffect(() => {
     if (!_token) {
-      setToken(token)
+      setToken(token);
     }
-  }, [token])
+  }, [token]);
 
-  const onEnter = e => {
-    if (e.key === "Enter") sendTokenToJSON(_token)
-  }
+  const onEnter = (e) => {
+    if (e.key === "Enter") sendTokenToJSON(_token);
+  };
 
   return (
     <fieldset id="api-token-fieldset" className={style["api-token-fieldset"]}>
@@ -36,7 +36,7 @@ const TokenInputField = ({
           }
           placeholder="API Token"
           value={_token}
-          onChange={e => setToken(e.currentTarget.value)}
+          onChange={(e) => setToken(e.currentTarget.value)}
           onKeyPress={onEnter}
         />
         <Button
@@ -47,8 +47,7 @@ const TokenInputField = ({
         </Button>
       </div>
     </fieldset>
-  )
-}
+  );
+};
 
-export default React.memo(TokenInputField)
-
+export default React.memo(TokenInputField);

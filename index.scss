@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;400;500;700&display=swap");
 :root {
   --text-01: #333333;
   --brown-01: #311912;
@@ -11,20 +11,20 @@
   --gray-03: #fbfbfb;
   --gray-04: #6e6e6e;
   --gray-05: #999999;
-  --gray-06: #577A9214;
+  --gray-06: #577a9214;
   --gray-07: #d6d6d6;
   --gray-08: #c2c2c2;
   --gray-09: #999;
   --gray-10: #252525b8;
   --gray-11: #1f1f1f;
   --gray-12: #303536;
-  --gray-13: #f8fafb; 
+  --gray-13: #f8fafb;
   --blue-01: #85acb0;
   --blue-03: #85acb0;
   --blue-04: #5d5381;
   --green-01: #556b2f;
   --green-02: #9ed178;
-  --green-03:#21d169;
+  --green-03: #21d169;
   --app-registration-tab-secondary: #999999;
   --app-registration-tab-light-grey: #e6e9e9;
   --app-registration-tab-table-row-grey: #fbfbfb;
@@ -34,8 +34,8 @@
   --black-04: #151717;
   --border-normal: #d6dadb;
   --brand-secondary: #85acb0;
-  --copy-hover:#424242;
-  --copy-color:#c2c2c2;
+  --copy-hover: #424242;
+  --copy-color: #c2c2c2;
   --hamburger-active-link: var(--gray-06);
   --hamburger-menu-width: 260px;
   --white-01: #ffffff;
@@ -55,7 +55,7 @@
   --spinner-width: 100px;
 }
 * {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -104,7 +104,7 @@ p {
   background-color: var(--gray-01);
   border: 1px solid var(--gray-02);
 }
-.language-json { 
+.language-json {
   .token.string,
   .token.number {
     color: var(--json-purple) !important;
@@ -116,7 +116,7 @@ p {
     color: var(--json-magenta) !important;
   }
 }
-.doc-content{
+.doc-content {
   padding: 188px 50px;
   display: flex;
   min-height: 95vh;
@@ -158,13 +158,13 @@ button:focus {
     font-size: 24px;
     margin-top: 43px;
   }
-  .doc-content{
-    padding:75px 15px 40px;;
+  .doc-content {
+    padding: 75px 15px 40px;
   }
 }
 
 [data-state~="responsive.desktopLaptopM"] {
-  .doc-content{
+  .doc-content {
     padding: 188px 50px 0 50px;
   }
 }
@@ -635,7 +635,9 @@ textarea {
 .mb-16p {
   margin-bottom: 16px;
 }
-[data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"] nav a.active {
+[data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"]
+  nav
+  a.active {
   background-color: var(--hamburger-active-link);
   font-weight: bold;
   &::before {

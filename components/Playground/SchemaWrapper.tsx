@@ -1,9 +1,9 @@
-import React from "react"
-import SchemaHeader from "./SchemaHeader"
-import SchemaBody from "./SchemaBody"
+import React from "react";
+import SchemaHeader from "./SchemaHeader";
+import SchemaBody from "./SchemaBody";
 
 const SchemaWrapper = ({ info }) => {
-  const { title, description, auth_required, auth_scopes } = info
+  const { title, description, auth_required, auth_scopes } = info;
 
   return Object.entries(info).length !== 0 ? (
     <>
@@ -15,8 +15,7 @@ const SchemaWrapper = ({ info }) => {
       />
       <SchemaBody jsonSchema={info} />
     </>
-  ) : null
-}
+  ) : null;
+};
 
-export default SchemaWrapper
-
+export default SchemaWrapper;
