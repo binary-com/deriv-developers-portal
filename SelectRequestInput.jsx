@@ -1,6 +1,6 @@
 /* eslint-disable no-import-assign */
 import styles from "./SelectRequestInput.module.scss";
-import { useState } from "react";
+import { useState,useEffect,useRef } from "react";
 import { playground_requests } from "./Playground_Requests";
 
 const SelectRequestInput = ({
@@ -13,11 +13,27 @@ const SelectRequestInput = ({
   const [toggle, setToggle] = useState(false);
   const [searchResults, setSearchResults] = useState("");
 
+  const ref = useRef(null)
+
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+        setIsActive(false);
+    }
+};
+
+useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+        document.removeEventListener('click', handleClickOutside, true);
+    };
+}, []);
+
   return (
     <fieldset>
       <div className={styles.dropdown}>
         <div
           className={styles.dropdownBtn}
+          ref= {ref}
           onClick={() => {
             setIsActive(!isActive);
             setToggle(!toggle);
@@ -36,7 +52,7 @@ const SelectRequestInput = ({
               className={styles.dropdownSearch}
               onChange={(event) => setSearchResults(event.target.value)}
             />
-            <div className={styles.dropdownItem}>
+            <div className={styles.dropdownSelect}>
               {" "}
               Select API Call - Version 3
             </div>
