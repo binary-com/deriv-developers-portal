@@ -29,11 +29,10 @@ useEffect(() => {
 }, []);
 
   return (
-    <fieldset>
-      <div className={styles.dropdown}>
+    <div>
+      <div className={styles.dropdown} ref={ref}>
         <div
           className={styles.dropdownBtn}
-          ref= {ref}
           onClick={() => {
             setIsActive(!isActive);
             setToggle(!toggle);
@@ -89,7 +88,7 @@ useEffect(() => {
           </div>
         )}
       </div>
-    </fieldset>
+    </div>
   );
 };
 
