@@ -51,6 +51,7 @@ fieldset {
     color: var(--black-03);
     overflow: auto;
     overflow-y: scroll;
+    overflow-x: hidden;
 
     .dropdownSearch {
       padding: 4px;
@@ -58,6 +59,12 @@ fieldset {
       width: 97%;
       box-sizing: border-box;
       border: 1px solid #ccc;
+    }
+
+    .dropdownSelect{
+      padding: 0;
+      margin: 5px;
+      color: var(--gray-05);
     }
 
     .dropdownStart {
