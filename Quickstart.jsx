@@ -3,7 +3,7 @@ import CodeBlock from "./components/CodeBlock/CodeBlock";
 
 const QuickStart = () => (
   <div className="page-content">
-    <h1 className={styles.doc_main_title}>Quickstart to Deriv API</h1>
+    <h1 className={styles.doc_main_title}>Qickstart to Deriv API</h1>
     <div>
       <p>
         On this page, you&#39;ll find code samples in various programming
