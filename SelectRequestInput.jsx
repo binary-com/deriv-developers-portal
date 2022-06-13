@@ -38,6 +38,7 @@ useEffect(() => {
             setIsActive(!isActive);
             setToggle(!toggle);
           }}
+          data-testid="apiDropdown"
         >
           {selected_value}
           <span className={`${styles.arrow} ${isActive ? styles.down : ""}`} />
