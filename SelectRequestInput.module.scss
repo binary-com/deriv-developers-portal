@@ -1,5 +1,4 @@
 .dropdown {
-  width: 100%;
   user-select: none;
   border: 1px solid var(--border-normal);
   position: relative;
@@ -34,7 +33,6 @@
 
   .dropdownContent {
     position: relative;
-    width: 100%;
     top: 110%;
     padding-top: 10px;
     left: 0;
