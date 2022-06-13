@@ -131,13 +131,13 @@ const derivAPIStates = {
 
 // cypress check if the scroll is at the top of the page
 const checkScroll = () => {
-  cy.window()
-  .its("scrollY")
-  .should(($scrollY) => {
-    // expect($scrollY).to.have.value(0);
-    expect($scrollY).to.be.closeTo(0, 0);
-  });
-}
+    cy.window()
+        .its('scrollY')
+        .should($scrollY => {
+            // expect($scrollY).to.have.value(0);
+            expect($scrollY).to.be.closeTo(0, 0);
+        });
+};
 
 // recursive function that mutates derivAPISkeleton to add tests from derivAPIStates
 const addTests = (skeleton, testStates) => {
@@ -163,7 +163,11 @@ context('Deriv API full run', () => {
     const testPlans = derivAPIModel.getShortestPathPlans();
     testPlans.forEach(plan => {
         describe(plan.description, () => {
-            plan.paths.forEach(cy.itTests('/'));
+            plan.paths.forEach(path => {
+                it(path.description, function () {
+                    cy.visit('/').then(path.test);
+                });
+            });
         });
     });
 });
