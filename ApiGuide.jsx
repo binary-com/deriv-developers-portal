@@ -413,7 +413,7 @@ export default function ApiGuide() {
           <img src={signupUrl} alt="API Guide" loading="lazy" />
         </div>
         <p>
-          Once a user signs up, they will be redirected to the URL that you
+          Once a user signs up,they will be redirected to the URL that you
           entered as the Redirect URL. This URL will have arguments added to it
           with the user's session tokens, and will look similar to this:
         </p>
