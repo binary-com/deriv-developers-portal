@@ -246,7 +246,7 @@ export const PlaygroundComponent = () => {
         </div>
         <RequestJSONBox {...json_box_props} />
       </div>
-      <div id="playground" className={styles.playgroundApiDocs}>
+      <div id="playground" data-testid="playgroundDocs" className={styles.playgroundApiDocs}>
         <div className={styles.playgroundReqSchema}>
           <SchemaWrapper info={request_info} />
         </div>

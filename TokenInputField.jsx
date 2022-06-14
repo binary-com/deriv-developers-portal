@@ -38,6 +38,7 @@ const TokenInputField = ({
           value={_token}
           onChange={(e) => setToken(e.currentTarget.value)}
           onKeyPress={onEnter}
+          data-testid="apiTokenInput"
         />
         <Button
           onClick={() => sendTokenToJSON(_token)}

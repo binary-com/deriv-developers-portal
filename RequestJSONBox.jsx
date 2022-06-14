@@ -87,6 +87,7 @@ const RequestJSONBox = ({
           className={style.playgroundConsole}
           ref={messagesRef}
           onScroll={onScrollRequest}
+          data-testid="playgroundConsole"
         >
           {messages?.map((message, index) => (
             <ConsoleMessage key={"message" + index} message={message} />

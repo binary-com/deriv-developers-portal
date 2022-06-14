@@ -12,6 +12,7 @@ dist
 _site
 dist-ssr
 *.local
+cypress.env.json
 
 # Editor directories and files
 .vscode/*

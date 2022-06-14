@@ -83,6 +83,7 @@ useEffect(() => {
                   className={`${styles.dropdownItem}  ${
                     selected === option.title ? styles.dropdownSelected : ""
                   }`}
+                  data-testid={`apiDropdownItem${option.name}`}
                 >
                   {option.title}
                 </div>

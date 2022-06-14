@@ -18,3 +18,4 @@ jobs:
         uses: cypress-io/github-action@v2
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
+          DERIV_API_TOKEN: ${{ secrets.DERIV_API_TOKEN }}
