@@ -181,8 +181,10 @@ export const PlaygroundComponent = () => {
         selected_value: "authorize",
         request: JSON.stringify({ authorize: inserted_token }, null, 2),
       };
+      const old_text_data = { ...text_data };
       Promise.resolve(setTextData({ ...new_text_data })).then(() => {
         sendRequest();
+        setTextData(old_text_data);
       });
     },
     [setTextData, sendRequest]

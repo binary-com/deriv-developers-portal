@@ -1,16 +1,6 @@
-fieldset {
-  border: none;
-  padding: 0rem;
-  width: 100%;
-  border-radius: 4px 0 0 4px;
-  border: solid 1px var(--border-normal);
-  line-height: 1.43;
-  overflow: auto;
-}
-
 .dropdown {
-  width: 100%;
   user-select: none;
+  border: 1px solid var(--border-normal);
   position: relative;
   max-height: 700px;
   overflow: auto;
@@ -43,7 +33,6 @@ fieldset {
 
   .dropdownContent {
     position: relative;
-    width: 100%;
     top: 110%;
     padding-top: 10px;
     left: 0;
@@ -64,14 +53,14 @@ fieldset {
     .dropdownSelect{
       padding: 0;
       margin: 5px;
-      color: var(--gray-05);
+      color: var(--black-03);
     }
 
     .dropdownStart {
       padding: 0;
       margin: 5px;
       font-weight: bold;
-      color: var(--gray-05);
+      color: var(--black-03);
     }
 
     .dropdownSelected {
@@ -85,7 +74,7 @@ fieldset {
       cursor: pointer;
       padding: 6px;
       user-select: none;
-      color: var(--gray-05);
+      color: var(--black-03);
       cursor: pointer;
       padding: 10px;
       cursor: pointer;
