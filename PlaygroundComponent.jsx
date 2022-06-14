@@ -61,7 +61,7 @@ export const PlaygroundComponent = () => {
       (el) => el.name === hash_value
     );
     const is_not_placeholder = text_data.selected_value === request_body?.name;
-    if (is_not_placeholder) dynamicImportJson(text_data.selected_value);
+    if (is_not_placeholder) dynamicImportJSON(text_data.selected_value);
   }, [text_data.selected_value]);
 
   // We need to dynamically import new data when the user selects a function
