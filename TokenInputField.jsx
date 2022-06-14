@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "./components/Button/Button";
+import { send } from "./stateSignal";
 import style from "./TokenInputField.module.scss";
 
 const TokenInputField = ({
@@ -36,7 +37,11 @@ const TokenInputField = ({
           }
           placeholder="API Token"
           value={_token}
-          onChange={(e) => setToken(e.currentTarget.value)}
+          onChange={(e) => { 
+            setToken(e.currentTarget.value)
+            if (!e.currentTarget.value) send('EMPTY_TOKEN');
+            else send('FILL_TOKEN');
+          }}
           onKeyPress={onEnter}
           data-testid="apiTokenInput"
         />

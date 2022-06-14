@@ -30,27 +30,50 @@ const derivAPISkeleton = {
                 registration: {},
                 guide: {},
                 playground: {
-                    initial: 'notselected',
+                    initial: 'notselected_tokenEmpty',
                     states: {
-                        notselected: {
+                        notselected_tokenEmpty: {
                             on: {
-                                PLAYGROUND_SELECT: {
-                                    target: 'selected',
-                                },
                                 CLICK_AUTHENTICATE: {
-                                    target: 'authenticated',
+                                    target: 'displayAuthDoc',
+                                },
+                                FILL_TOKEN: {
+                                    target: 'notselected_tokenFilled',
+                                },
+                                SELECT_API: {
+                                    target: 'selected_tokenEmpty',
                                 },
                             },
                         },
-                        selected: {
+                        notselected_tokenFilled: {
                             on: {
                                 CLICK_AUTHENTICATE: {
-                                    target: 'authenticated',
+                                    target: 'displayAuthDoc',
                                 },
-                                PLAYGROUND_SELECT: {},
+                                SELECT_API: {
+                                    target: 'selected_tokenFilled',
+                                },
                             },
                         },
-                        authenticated: {},
+                        selected_tokenEmpty: {
+                            on: {
+                                CLICK_AUTHENTICATE: {
+                                    target: 'displayAuthDoc',
+                                },
+                                FILL_TOKEN: {
+                                    target: 'selected_tokenFilled',
+                                },
+                            },
+                        },
+                        selected_tokenFilled: {
+                            on: {
+                                CLICK_AUTHENTICATE: {
+                                    target: 'displaySelectedDoc',
+                                },
+                            },
+                        },
+                        displayAuthDoc: {},
+                        displaySelectedDoc: {},
                     },
                 },
                 home: {},
@@ -111,22 +134,16 @@ const derivAPIEvents = {
     CLICK_GUIDE: function () {
         cy.get('[data-id="/docs/api-guide/"]').click();
     },
-    CLICK_AUTHENTICATE: function () {
-        // get input api-token-input
+    FILL_TOKEN: function () {
         cy.get('[data-testid="apiTokenInput"]').type(Cypress.env('DERIV_API_TOKEN'));
-        // cy get by role button that has the text "Authenticate"
-        cy.get('button').contains('Authenticate').click();
-        // get playground-console
-        cy.get('[data-testid="playgroundConsole"]')
-            // get last child of playground-console
-            .children()
-            .last()
-            .contains('account_list');
     },
-    PLAYGROUND_SELECT: function () {
+    SELECT_API: function () {
         cy.get('[data-testid="apiDropdown').click();
         // select the first option in the dropdown starting with data-testid apiDropdownItem
         cy.get('[data-testid*="apiDropdownItem').first().click();
+    },
+    CLICK_AUTHENTICATE: function () {
+        cy.get('button').contains('Authenticate').click();
     },
 };
 
@@ -167,23 +184,47 @@ const derivAPIStates = {
         checkScroll();
         cy.get('[data-id=api-guide]').should('be.visible');
     },
-    notselected: () => {
+    notselected_tokenEmpty: () => {
         // cypress no playgroundDocs element exists
         cy.get('[data-testid=playgroundDocs]').should('not.exist');
         cy.get('[data-testid=apiDropdown]')
             .contains(/select api call/i)
             .should('be.visible');
     },
-    selected: () => {
-        cy.get('[data-testid=playgroundDocs]').should('be.visible');
+    notselected_tokenFilled: () => {
+        // input is filled with token
+        cy.get('[data-testid="apiTokenInput"]').should('have.value', Cypress.env('DERIV_API_TOKEN'));
+        cy.get('[data-testid=apiDropdown]')
+            .contains(/select api call/i)
+    },
+    selected_tokenEmpty: () => {
+        // apiTokenInput is empty
+        cy.get('[data-testid="apiTokenInput"]').should('have.value', '');
         cy.get('[data-testid=apiDropdown]')
             .contains(/select api call/i)
             .should('not.exist');
     },
-    authenticated: () => {
+    selected_tokenFilled: () => {
+        cy.get('[data-testid="apiTokenInput"]').should('have.value', Cypress.env('DERIV_API_TOKEN'));
         cy.get('[data-testid=apiDropdown]')
-            .contains(/authorize/i)
+            .contains(/select api call/i)
             .should('not.exist');
+    },
+    displayAuthDoc: () => {
+        cy.get('[data-testid=apiDropdown]')
+        .contains(/authorize/i)
+        cy.get('[data-testid=playgroundDocs]')
+            .should('be.visible')
+            .contains(/authorize/i);
+    },
+    displaySelectedDoc: () => {
+        cy.get('[data-testid=apiDropdown]')
+        .contains(/authorize/i)
+        .should('not.exist');
+        cy.get('[data-testid=playgroundDocs]')
+        .should('be.visible')
+        // should not contain authorize
+        .contains(/authorize/i).should('not.exist');
     },
 };
 
@@ -211,7 +252,7 @@ const addTests = (skeleton, testStates) => {
 addTests(derivAPISkeleton, derivAPIStates);
 
 export const derivApiMachine =
-    /** @xstate-layout N4IgpgJg5mDOIC5QTAJwJYDcD6BDADugHQAWA9gLZgDEAwgDICStA0tgAr0CCAmgOIAlAPIBVAHIARRKHxlY6AC7oyAO2kgAHogAsAViIBOAOy6AzKd0GAHHvNHTAGhABPHQEY3RUwDZtB0wAM2tr29hYAvuFOKBg4BMTkVHRMrNgSQrQiALIAomIAKlz5jEJi6rLySqrqWgh6hibmljZmpvZOrgg+pl5WblY+3gFuulbebpHRaFh4hEQQZADGAK5UKgq4VSpE+AA2uM5QqGTLKhBEKmQKsGC7YIsKkNScvIKiktgAyjn0ObT55TkimUaiQmkQRgMnjcBl0ACYAqY4W5zDC3B0dPVtFYTHCjAEjPjdEY3EZJiAYjN4vMlqswOtNiCdvtDsdTudLtdbvdHhBksw2FwRPkABJ5Yq0Io5QGVEE1RDGfR6AzeSwGAI2bx9DEIXTEwxNbTmbxw7wk0zkylxOYLFZrDZbZkHI4nM5EG53B5PBgC7BC0Xi5hSmXA6pg2qQuFEAn2bRmixwlXaHW+bxEM1GPHDOHmPraS3Ta3EW10hmOvbOtluj08p4vfjCcQSL4-P4AsEVUOg0C1IbaQwIvTaNyqtxwvE63QoohxqG+eEm3RmguxWbF2n2xmqfmpLjsdjYAQ5PiMT75ARFEplDtArbyroaogkk2J-o4qwBOE6tr6Kx9AbeEMIxjBMUQUoWa40na9IOiCO5sHwIiMBI0o3rKYY9oggRWE+I7jlCf5GB+X4uO4BpmAExKmCE1EGCuVI2huMFbio8FpBk2TipepQhne4ZYY+z74W+RGfjqI44eqBhwlYcJLhY+KmvRRZQaWsHbj6qT1m8Ta8XK-EPjhQmvoRxE6toOZEGMfiBMEoRNMpkElpuWxsQAYlwACKekYeChm4S+BHvmJpEIPGVnYp+Fn+COATeI51LOcxrmaWwABSnylF8tBilkXCfD53Z+dhAXCaZIWdDmRiGAEwyqrocbjLJ+ZgVaTlMWWcGpdgABCIh8L17z5DwhX3iVxlBaJJGdIEaZWFCtVuASw6fnCCWEGx2mNpIo0GQAtAM0YBOqWrIn+6pIpODVeEuIShJ+y6tRB8RsekmS5AU3HXjIt76ZhCAHT0tUnbJb4XdNiBwkaVnqjJKpEd40lGpEYGXCg8Bgm11KJGAu3-YDR0g2d82IhDXSqkQDWmGOGq5qYxjreu0GdaoqkuX9ICdnx-16gEM4NXqKI5lRVjiSaNVmDiBgGDZ0uM2zyVMqgYBQOgsAKKgLF435vP83oU5Igppii6FPgGFZhIywiSKwlR8tJSz2xQMs6AoNrtS60OguGyL376DFehjMigEgfbHXqdsFasq6HJXDWXoQO7CqIzO0tLjiJKjJC34pxnVuk7bZJPauiXhyxTrR+y7rcgnScIKDT5SSiRjeNT1OTnFhiqqawTBGMFrFwxTNqeXUculXuDLAoJAwegiybJAdfzVGJLzZCf5Tn4JudJmOF6oS4yIroBKJmHzMRxX49nHXox89JQQNSOU7jkYOqJnNOJxdRqrWNRA9TCXRi59y44zrj4KMlhqZ-hGMEVUOppaGH6PTWEH54TBzPiPR0AAzXAABHG+x89be2FvYbeiBALVRsMORMmZbDDAwezVmAArWAqhPiLBnhQXAGMfroSKh7QhXsDYkONm-amMMTT4mMOvIiVgGGK1ZgAI2WFAHqroFCdF4V2e8nsBbCKNmQh8fNCIjHpofCwdFB4qQdhHOuMl+wTREmZUKe0-DRksMOaWdCfB6EZnXPaS1qrAziqDc6pMdQBOou4z81hn54ksCjcIQA */
+    /** @xstate-layout N4IgpgJg5mDOIC5QTAJwJYDcD6BDADugHQAWA9gLZgDEAwgDICStA0tgAr0CCAmgOIAlAPIBVAHIARRKHxlY6AC7oyAO2kgAHogAsAViIBOAOy6AzKd0GAHHvNHTAGhABPHQEY3RUwDZtB0wAM2tr29hYAvuFOKBg4BMTkVHRMrNgSQrQiALIAomIAKlz5jEJi6rLySqrqWgh6hibmljZmpvZOrgg+pl5WblY+3gFuulbebpHRaFh4hEQQZADGAK5UKgq4VSpE+AA2uM5QqGTLKhBEKmQKsGC7YIsKkNgKZADWYCo5FPgKzsnMbC4InyAAk8sVaEUcuU5IplGokJpEG4AEyBIhGEweTHaHwotzaDo6FEojEogzefx9IzaNw0yYgGIzeLzJarD4bLY7faHY6nc6Xa63e6PCDPN4fL4-P4AMUY9Ho2HyQhYeRhlXhNUQNh63lMI28KNGOoMbiJdVxRF0wSMHmCphsxm0DKZcTmCxWa058O5ByOJzOFyuNzuDyeL3en2+v2oAGUcvQcrR8tguOxGOq4dVEbU3AErEYiLijOTdGiTAYAijzaNC0MjL4jFZ825vCYXdM3cQPez1psfXs-XzA4KQyLwxKVDL0Ls7hB-qkgaDwcwoZmtlqENjPLaC+SAqYDPiDAYa-miAWq25D6iDHorB3YrNu2yvf3VL7eQGBcHhWGxRGHzTrOkBxgmSYpmmGaIhUWYIqAtQ6oYQz6qifRHtWLiIE2+j5to4wono1oUhMUSMp2z6sp6HLvtsg5fvyRBjv+4qRlKMYMACqbAmCBSrvk0IwbCG45siFikiYljWmMISmNoVg1gWRD1pYDaUiY9Jka6lE9m+XL0f6jHMaKrGStGsryoqyqqmUQkatmCHIh4AREIRfgBN4MltjS5oNp4uj9GW2ImPipiPsy7qvjR+k8oZgbGROkbAXOC6AjxK6QgJ66aqJW6mOSrlBfiqIErohq+VYuE2L4hrWBhD5aRRLK6dF8Kpam7DsNgAg5HwjCxvkAhFCUtkyMJOWOV0562oa5L9AWzaYZ0bT6FYfQDN4QwjGMpFTE+zVRX2WztXwIiMBIgljfZ8FIlNVgYq2JKmmtTZVuatKGBYgS6PYsl+OFXZUb23qqO16SZLkBTDaU2UObdgT3TNT3za9S3Ip5hgBEeVhGnqP1Vt4AM6YdIMqO1nC8IIoiSLDN21AjD2zc9C1vVhdRohevj+EEslhLoRMHdRR1tZxqQylwACKtObgzSNzS9i3mm2PQ2It2jkvqQyE41+2RULpPtQAUrGpTYLGtBglkXCxtLuWy498ss2jCDlpjwzeLo1qbf0hEC3rwO0e1ABCIh8NgQfU-kPC25N9tMyjits4E3gXqaATDAENJ5iSfvoOT3D8MI4hSHZcGbgAtAMRDp5Wnn4mtlb5TW1peGVIShATRi52DGTZOC0OjSAsEiZNlc9DXHk4-NjfO4RKuViiVgUk2lJz5EZGXCg8CItpLKJGAMe3WP1dY5P9dLwezs+Po1r6ii+bmAMxi50Dek+i1wtw8PE23Z7Ll6ERa8aIfoOnNI9TGZgCwnj8IeAwL8P6kyIKgMAUB0CwAUKgWih9ah-yLNaT2QCLD2AUknSkF5MR3nvvlAwnt7DwJJrRIgUBljoBQNgxAuCAEEPykQ0BSd9D+FKmMfEm0dr0P1owgyw4fxClDCZQCUZpTsK3FWbQn0SxbW0JnA8jgk7yRPvhQ8+E1oa2dDrCKL4JExSHN+IMsjxwAUnMlSAyimxqM2sMNaP164hDPKSQYgQ7x3jbvhcRAdrEMXin+eRk52KdCumXXKeZKzKQCH-VEQwtFjCVqMIswwLB6j8KMVsYS34fikbYhKjikozjnMovMh4vDjDzM2B0Royzmigcpe+dJIHp3wl3cxgMEGSNitI+YaD6JcGWAoEgEglj1IdPda8YwPI0PknJEhnRdBViaXqLGfg9A1VKa1cpYzbEQEmTyWM0TIDzMWPUssBgLz5TSVWDykDfKe2rgSQpgQTADEGXtCxr9Tl0XOfyVxQxlJbS8SWfovi2YohMD8laQQjzBA8icz+2x97KLxFaQRa0RjBA9uaE8hh+iwNGGkkkJShnEysT6AAZrgAAjsozh+CAo8JAVsxAm1Cw2FpOSEsthhjYsQQAK1gKoWMiwSBgAoLgbeCSR6-x2XgwBvLiHmjRJ4JehojBYwoQtBqwLhkMK5AAI2WFAIOAZfics1VwnlwDdVJ3TheAsIxDzjAPJYSVWDS7qtqIvNRctmao3NOXPw1dLC4gDSEHp-MGXxGUeXPMhYJ512npfGN141FvP1P4VC+Y4HryAA */
     createMachine(derivAPISkeleton);
 
 const derivAPIModel = createModel(derivApiMachine, { events: derivAPIEvents });
