@@ -33,6 +33,10 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                         setToggle(!toggle);
                         setSearchResults('');
                     }}
+<<<<<<< HEAD
+=======
+                    data-testid="apiDropdown"
+>>>>>>> e001374c875a61761325b655f88a982c3f24735e
                 >
                     {selected_value}
                     <span className={`${styles.arrow} ${isActive ? styles.down : ''}`} />
@@ -70,6 +74,10 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                                     className={`${styles.dropdownItem}  ${
                                         selected === option.title ? styles.dropdownSelected : ''
                                     }`}
+<<<<<<< HEAD
+=======
+                                    data-testid={`apiDropdownItem${option.name}`}
+>>>>>>> e001374c875a61761325b655f88a982c3f24735e
                                 >
                                     {option.title}
                                 </div>

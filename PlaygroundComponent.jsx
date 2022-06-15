@@ -13,6 +13,7 @@ import { createSignal } from "solid-js";
 import { useLocation } from "react-router-dom";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createBrowserHistory } from "history";
+import { isDisplayAuthDoc, isDisplaySelectedDoc, send } from "./stateSignal";
 
 export const PlaygroundComponent = () => {
   const [current_api, setCurrentAPI] = useState(api);
@@ -31,60 +32,46 @@ export const PlaygroundComponent = () => {
   const location = useLocation();
   const history = createBrowserHistory();
 
+  const dynamicImportJSON = useCallback(
+    (selected_value) => {
+      import(`./config/v3/${selected_value}/send.json`)
+        .then((data) => {
+          setRequestInfo(data);
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+        });
+      import(`./config/v3/${selected_value}/receive.json`)
+        .then((data) => {
+          setResponseInfo(data);
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+        });
+    }
+    , [setRequestInfo, setResponseInfo]);
+
+    const displayAuthDoc = () => dynamicImportJSON('authorize');
+
   useEffect(() => {
     const hash_value = window.location.hash.split("#")[1];
     const request_body = playground_requests.find(
       (el) => el.name === hash_value
     );
     const is_not_placeholder = text_data.selected_value === request_body?.name;
-
-    const dynamicImportJSON = () => {
-      import(`./config/v3/${text_data.selected_value}/send.json`)
-        .then((data) => {
-          setRequestInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-      import(`./config/v3/${text_data.selected_value}/receive.json`)
-        .then((data) => {
-          setResponseInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-    };
-
-    if (is_not_placeholder) dynamicImportJSON();
+    if (is_not_placeholder) dynamicImportJSON(text_data.selected_value);
   }, [text_data.selected_value]);
 
   // We need to dynamically import new data when the user selects a function
   // through the link hash.
   useEffect(() => {
     const hash_value = window.location.hash.split("#")[1];
-
-    const dynamicImportJSON = () => {
-      import(`./config/v3/${hash_value}/send.json`)
-        .then((data) => {
-          setRequestInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-      import(`./config/v3/${hash_value}/receive.json`)
-        .then((data) => {
-          setResponseInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-    };
-
-    if (hash_value) dynamicImportJSON();
+    if (hash_value) {
+      dynamicImportJSON(hash_value);
+      send('SELECT_API');
+    }
   }, [window.location.hash]);
 
   // A new data object has to be created if the user updates the link hash,
@@ -181,9 +168,15 @@ export const PlaygroundComponent = () => {
         selected_value: "authorize",
         request: JSON.stringify({ authorize: inserted_token }, null, 2),
       };
+      const old_text_data = { ...text_data };
       Promise.resolve(setTextData({ ...new_text_data })).then(() => {
         sendRequest();
+        if (isDisplaySelectedDoc()) setTextData(old_text_data);
       });
+      send('CLICK_AUTHENTICATE');
+      if (isDisplayAuthDoc()) displayAuthDoc();
+
+      console.log(isDisplayAuthDoc(), isDisplaySelectedDoc());
     },
     [setTextData, sendRequest]
   );
@@ -201,6 +194,7 @@ export const PlaygroundComponent = () => {
         request: JSON.stringify(request_body?.body, null, 4),
       };
       setTextData({ ...new_text_data });
+      send('SELECT_API');
     },
     [text_data]
   );
@@ -246,7 +240,7 @@ export const PlaygroundComponent = () => {
         </div>
         <RequestJSONBox {...json_box_props} />
       </div>
-      <div id="playground" className={styles.playgroundApiDocs}>
+      <div id="playground" data-testid="playgroundDocs" className={styles.playgroundApiDocs}>
         <div className={styles.playgroundReqSchema}>
           <SchemaWrapper info={request_info} />
         </div>

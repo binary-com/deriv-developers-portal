@@ -1,6 +1,6 @@
 name: ci
 # https://docs.github.com/en/actions/reference/events-that-trigger-workflows
-on: [push, deployment, deployment_status]
+on: [deployment_status]
 jobs:
   e2e:
     # only runs this job on successful deploy
@@ -14,6 +14,11 @@ jobs:
           echo "$GITHUB_CONTEXT"
       - name: Checkout 🛎
         uses: actions/checkout@v1
+      - name: Write the cypress.env.json file 📝
+        # use quotes around the secret, as its value
+        # is simply inserted as a string into the command
+        run: |
+          echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v2
         env:
