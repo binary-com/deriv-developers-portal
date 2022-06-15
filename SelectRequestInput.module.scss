@@ -4,6 +4,7 @@
   position: relative;
   max-height: 700px;
   overflow: auto;
+  overflow-x: hidden;
 
   .arrow {
     background-size: 22px;
@@ -28,7 +29,6 @@
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
-    overflow-y: scroll;
   }
 
   .dropdownContent {
