@@ -53,12 +53,8 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                             <div className={styles.dropdownStart}>ALL CALLS</div>
                             {playground_requests
                                 .filter(option => {
-                                    if (option.title.toLowerCase().includes(searchResults.toLowerCase())) {
-                                        return option;
-                                        // eslint-disable-next-line no-else-return
-                                    } else {
-                                        return;
-                                    }
+                                    const result = (option.title.toLowerCase().includes(searchResults.toLowerCase())) ?  option  : null;
+                                    return result; 
                                 })
                                 .map(option => (
                                     <div
