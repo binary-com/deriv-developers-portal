@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useTable, useSortBy } from "react-table";
-import "../../src/AppRegistration.scss";
+import "../../AppRegistration.scss"
 import styles from "./AppManagement.module.scss";
 import { useApps } from "../../custom_hooks/useApps";
 import SkeletonText from "../SkeletonText/SkeletonText";

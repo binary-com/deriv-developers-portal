@@ -401,7 +401,6 @@ export default function AppRegistrationForm() {
               )}
               <Button
                 disabled={isLoading || Object.keys(errors)?.length > 0}
-                onClick={null}
               >
                 {registerButtonMessage}
               </Button>

@@ -1,14 +1,23 @@
 import React from "react";
 import styles from "./Checkbox.module.scss";
 
+interface Checkbox {
+  name: string;
+  id: string;
+  label: string;
+  className : string;
+  value : string;
+  onClickFunction : any;
+}
+
 export default function Checkbox({
-  name = null,
-  id = "",
-  label = "",
-  className = "",
+  name ,
+  id ,
+  label ,
+  className ,
   value,
-  onClickFunction = null,
-}) {
+  onClickFunction 
+}: Checkbox) {
   const [is_checked, setIsChecked] = React.useState(false);
   const checkbox_active = is_checked ? " " + styles.activeCheckbox : "";
   const new_class_name = className !== "" ? " " + className : "";
