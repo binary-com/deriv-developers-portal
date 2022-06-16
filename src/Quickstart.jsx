@@ -1,5 +1,5 @@
 import styles from "./Quickstart.module.scss";
-import CodeBlock from "./components/CodeBlock/CodeBlock";
+import CodeBlock from "../components/CodeBlock/CodeBlock";
 
 const QuickStart = () => (
   <div className="page-content">

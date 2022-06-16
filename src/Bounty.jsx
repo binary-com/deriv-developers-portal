@@ -1,5 +1,5 @@
 import styles from "./Bounty.module.scss";
-import Button from "./components/Button/Button";
+import Button from "../components/Button/Button";
 
 export default function BugBounty() {
   return (

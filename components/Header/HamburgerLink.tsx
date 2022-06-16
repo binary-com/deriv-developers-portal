@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { send } from "../../stateSignal";
+import { send } from "../../src/stateSignal";
 import styles from "./Header.module.scss";
 
 interface LinkProps {

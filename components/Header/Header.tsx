@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useOutsideClick } from "../../custom_hooks/useClickOutsideElement";
-import { stateService } from "../../stateSignal";
+import { stateService } from "../../src/stateSignal";
 import styles from "./Header.module.scss";
 import Navigation from "./Navigation";
 

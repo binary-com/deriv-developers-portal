@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Sidebar from "./Sidebar";
 import "./index.scss";
 import MobilePageSelectLazy from "./MobilePageSelectLazy";
-import DelayedFallback from "./components/DelayedFallback/DelayedFallback";
+import DelayedFallback from "../components/DelayedFallback/DelayedFallback";
 
 function Docs() {
   return (
