@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { useSelector } from "@xstate/react";
-import { isManageAppsEmptySelector } from "../../src/selectors";
-import { stateService } from "../../src/stateSignal";
+import { isManageAppsEmptySelector } from "../../selectors";
+import { stateService } from "../../stateSignal";
 import DelayedFallback from "../DelayedFallback/DelayedFallback";
 
 const LazyAppManagementEmpty = lazy(() => import("./AppManagementEmpty"));

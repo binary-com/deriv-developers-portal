@@ -1,4 +1,4 @@
-import { oauthUrl } from "../../src/appRegistrationEffects";
+import { oauthUrl } from "../../appRegistrationEffects";
 export default function AppRegistrationLogin() {
   return (
     <div className="app-registration-login">

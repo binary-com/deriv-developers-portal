@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { useSelector } from "@xstate/react";
 import { isMobileSelector } from "./selectors";
 import { stateService } from "./stateSignal";
-import DelayedFallback from "../components/DelayedFallback/DelayedFallback";
+import DelayedFallback from "./components/DelayedFallback/DelayedFallback";
 
 const MobilePageSelect = lazy(() => import("./MobilePageSelect"));
 

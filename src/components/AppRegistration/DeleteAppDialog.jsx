@@ -1,7 +1,7 @@
 import { useSelector } from "@xstate/react";
 import { lazy, Suspense } from "react";
-import { isDeletingAppModal } from "../../src/selectors";
-import { stateService } from "../../src/stateSignal";
+import { isDeletingAppModal } from "../../selectors";
+import { stateService } from "../../stateSignal";
 
 const Modal = lazy(() => import("../Modal/Modal"));
 

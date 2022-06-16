@@ -5,9 +5,9 @@ import { useRegisterOrUpdateApp } from "../../custom_hooks/useRegisterOrUpdate";
 import {
   isUpdateModeSelector,
   isRegisterTabIdleSelector,
-} from "../../src/selectors";
-import { stateService, updatingRow } from "../../src/stateSignal";
-import { token1 } from "../../src/storageSignals";
+} from "../../selectors";
+import { stateService, updatingRow } from "../../stateSignal";
+import { token1 } from "../../storageSignals";
 import Button from "../Button/Button";
 import styles from "./AppRegistrationForm.module.scss";
 import RegisterAppDialogError from "./RegisterAppDialogError";

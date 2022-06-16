@@ -1,11 +1,11 @@
 import { api, generateDerivApiInstance } from "./appid";
 import RequestJSONBox from "./RequestJSONBox";
 import SelectRequestInput from "./SelectRequestInput";
-import SchemaWrapper from "../components/Playground/SchemaWrapper";
+import SchemaWrapper from "./components/Playground/SchemaWrapper";
 import TokenInputField from "./TokenInputField";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { playground_requests } from "./Playground_Requests";
-import SchemaTitle from "../components/Playground/SchemaTitle";
+import SchemaTitle from "./components/Playground/SchemaTitle";
 import data_get_api_token from "./data-app-registration";
 import styles from "./PlaygroundComponent.module.scss";
 import { ticksSubject } from "./ticksSubject";
@@ -34,7 +34,7 @@ export const PlaygroundComponent = () => {
 
   const dynamicImportJSON = useCallback(
     (selected_value) => {
-      import(`./config/v3/${selected_value}/send.json`)
+      import(`../config/v3/${selected_value}/send.json`)
         .then((data) => {
           setRequestInfo(data);
         })
@@ -42,7 +42,7 @@ export const PlaygroundComponent = () => {
           // eslint-disable-next-line
           console.log(error);
         });
-      import(`./config/v3/${selected_value}/receive.json`)
+      import(`../config/v3/${selected_value}/receive.json`)
         .then((data) => {
           setResponseInfo(data);
         })

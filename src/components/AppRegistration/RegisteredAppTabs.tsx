@@ -1,4 +1,4 @@
-import { send } from "../../src/stateSignal";
+import { send } from "../../stateSignal";
 
 export default function RegisteredAppTabs() {
   return (

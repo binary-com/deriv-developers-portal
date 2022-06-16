@@ -1,5 +1,5 @@
 import styles from "./homepage.module.scss";
-import HomepageSlider from "../components/HomepageSlider/HomepageSlider";
+import HomepageSlider from "./components/HomepageSlider/HomepageSlider";
 
 export default function HomePage() {
   return (

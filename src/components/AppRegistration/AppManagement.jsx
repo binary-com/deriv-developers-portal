@@ -9,7 +9,7 @@ import SkeletonText from "../SkeletonText/SkeletonText";
 import AppManagementEmptyLazy from "./AppManagementEmptyLazy";
 import DeleteAppDialog from "./DeleteAppDialog";
 import { useDeleteApp } from "../../custom_hooks/useDeleteApp";
-import { setUpdatingRow, stateService } from "../../src/stateSignal";
+import { setUpdatingRow, stateService } from "../../stateSignal";
 
 export default function AppManagement() {
   const [app_id, setAppId] = useState(null);

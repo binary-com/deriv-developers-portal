@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { send } from "../../src/stateSignal";
+import { send } from "../../stateSignal";
 import styles from "./Header.module.scss";
 import HamburgerNavigation from "./HamburgerNavigation";
 

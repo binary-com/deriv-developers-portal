@@ -3,8 +3,8 @@ import { lazy, Suspense } from "react";
 import {
   isRegisterSuccessSelector,
   isUpdateModeSelector,
-} from "../../src/selectors";
-import { stateService } from "../../src/stateSignal";
+} from "../../selectors";
+import { stateService } from "../../stateSignal";
 
 const Modal = lazy(() => import("../Modal/Modal"));
 
