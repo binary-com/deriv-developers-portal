@@ -4,7 +4,7 @@ import { isLoggedInSelector } from "./selectors";
 import { stateService } from "./stateSignal";
 import styles from "./LogoutButton.module.scss";
 
-const LazyButton = lazy(() => import("./components/Button/Button"));
+const LazyButton = lazy(() => import("../components/Button/Button"));
 
 export default function LogoutButton() {
   const isLoggedIn = useSelector(stateService, isLoggedInSelector);

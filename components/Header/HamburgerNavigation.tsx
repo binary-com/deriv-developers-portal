@@ -1,4 +1,4 @@
-import { send } from "../../stateSignal";
+import { send } from "../../src/stateSignal";
 import styles from "./Header.module.scss";
 import HamburgerLink from "./HamburgerLink";
 

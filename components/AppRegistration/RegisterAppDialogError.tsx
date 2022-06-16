@@ -1,7 +1,7 @@
 import { useSelector } from "@xstate/react";
 import { lazy, Suspense } from "react";
-import { isRegisterErrorSelector } from "../../selectors";
-import { stateService } from "../../stateSignal";
+import { isRegisterErrorSelector } from "../../src/selectors";
+import { stateService } from "../../src/stateSignal";
 import DelayedFallback from "../DelayedFallback/DelayedFallback";
 
 const Modal = lazy(() => import("../Modal/Modal"));

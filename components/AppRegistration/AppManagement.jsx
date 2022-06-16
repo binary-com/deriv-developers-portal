@@ -2,14 +2,14 @@
 
 import { useMemo, useState } from "react";
 import { useTable, useSortBy } from "react-table";
-import "../../AppRegistration.scss";
+import "../../src/AppRegistration.scss";
 import styles from "./AppManagement.module.scss";
 import { useApps } from "../../custom_hooks/useApps";
 import SkeletonText from "../SkeletonText/SkeletonText";
 import AppManagementEmptyLazy from "./AppManagementEmptyLazy";
 import DeleteAppDialog from "./DeleteAppDialog";
 import { useDeleteApp } from "../../custom_hooks/useDeleteApp";
-import { setUpdatingRow, stateService } from "../../stateSignal";
+import { setUpdatingRow,stateService } from "../../src/stateSignal";
 
 export default function AppManagement() {
   const [app_id, setAppId] = useState(null);

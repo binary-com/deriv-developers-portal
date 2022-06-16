@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from "./components/Button/Button";
+import Button from "../components/Button/Button";
 import { send } from "./stateSignal";
 import style from "./TokenInputField.module.scss";
 

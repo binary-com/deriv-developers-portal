@@ -1,4 +1,4 @@
-import CodeContent from "./components/CodeBlock/CodeContent";
+import CodeContent from "../components/CodeBlock/CodeContent";
 import React from "react";
 import style from "./PlaygroundComponent.module.scss";
 

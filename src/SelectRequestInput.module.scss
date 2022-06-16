@@ -4,6 +4,7 @@
   position: relative;
   max-height: 700px;
   overflow: auto;
+  overflow-x: hidden;
 
   .arrow {
     background-size: 22px;
@@ -28,7 +29,6 @@
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
-    overflow-y: scroll;
   }
 
   .dropdownContent {
@@ -39,7 +39,6 @@
     background: var(--white-01);
     color: var(--black-03);
     overflow: auto;
-    overflow-y: scroll;
     overflow-x: hidden;
 
     .dropdownSearch {
@@ -53,7 +52,7 @@
     .dropdownSelect{
       padding: 0;
       margin: 5px;
-      color: var(--black-03);
+      color: var(--gray-05);
     }
 
     .dropdownStart {

@@ -113,4 +113,12 @@ module.exports = {
     "react/no-unescaped-entities": 0,
     // "react/sort-prop-types"             : ["error", { ignoreCase: true, sortShapeProp: true }],
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      }
+    },
+  }
 };

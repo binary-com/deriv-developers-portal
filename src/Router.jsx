@@ -1,6 +1,6 @@
 import React from "react";
 const HomePage = React.lazy(() => import("./Homepage"));
-const Docs = React.lazy(() => import("./src/Docs"));
+const Docs = React.lazy(() => import("./Docs"));
 const ApiExplorer = React.lazy(() => import("./ApiExplorer"));
 const AppRegistration = React.lazy(() => import("./AppRegistration"));
 const ApiGuide = React.lazy(() => import("./ApiGuide"));

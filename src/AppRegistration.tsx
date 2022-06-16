@@ -1,9 +1,9 @@
 import "./AppRegistration.scss";
-import AppManagementLazy from "./components/AppRegistration/AppManagementLazy";
-import AppRegistrationForm from "./components/AppRegistration/AppRegistrationForm";
-import AppRegistrationLogin from "./components/AppRegistration/AppRegistrationLogin";
-import RegisterAppDialogSuccess from "./components/AppRegistration/RegisterAppDialogSuccess";
-import RegisteredAppTabs from "./components/AppRegistration/RegisteredAppTabs";
+import AppManagementLazy from "../components/AppRegistration/AppManagementLazy"
+import AppRegistrationForm from "../components/AppRegistration/AppRegistrationForm";
+import AppRegistrationLogin from "../components/AppRegistration/AppRegistrationLogin";
+import RegisterAppDialogSuccess from "../components/AppRegistration/RegisterAppDialogSuccess";
+import RegisteredAppTabs from "../components/AppRegistration/RegisteredAppTabs";
 
 export default function AppRegistration() {
   return (

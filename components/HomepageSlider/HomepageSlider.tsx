@@ -1,6 +1,6 @@
 import React from "react";
 import { useOnWindowResize } from "../../custom_hooks/useOnWindowResize";
-import { devices } from "../../devices";
+import { devices } from "../../src/devices";
 import styles from "./HomepageSlider.module.scss";
 import Slide from "./Slide";
 

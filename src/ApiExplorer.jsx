@@ -1,4 +1,4 @@
-import SchemaTitle from "./components/Playground/SchemaTitle";
+import SchemaTitle from "../components/Playground/SchemaTitle";
 import { PlaygroundComponent } from "./PlaygroundComponent";
 import React from "react";
 import style from "./PlaygroundComponent.module.scss";

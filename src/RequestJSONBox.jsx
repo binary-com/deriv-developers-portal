@@ -1,8 +1,8 @@
-import { ResetSendButtonsBlock } from "../ResetSendButtonsBlock";
+import { ResetSendButtonsBlock } from "./ResetSendButtonsBlock";
 import { useEffect, useRef, useState, memo } from "react";
 import style from "./RequestJSONBox.module.scss";
-import ConsoleMessage from "../ConsoleMessage";
-import "../appid";
+import ConsoleMessage from "./ConsoleMessage";
+import "./appid";
 
 const RequestJSONBox = ({
   request_example,
