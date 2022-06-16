@@ -2,8 +2,6 @@
   user-select: none;
   border: 1px solid var(--border-normal);
   position: relative;
-  max-height: 700px;
-  overflow: auto;
   overflow-x: hidden;
 
   .arrow {
@@ -64,6 +62,11 @@
 
     .dropdownSelected {
       background: #ccc;
+    }
+
+    .dropdownList{
+      max-height: 700px;
+      overflow: auto;
     }
 
     .dropdownItem {
