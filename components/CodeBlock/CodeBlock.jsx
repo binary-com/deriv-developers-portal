@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react"
-import CodeContent from "./CodeContent"
-import CopyButton from './CopyButton'
-import styles from "./CodeBlock.module.scss"
+import React, { useState, useEffect } from "react";
+import CodeContent from "./CodeContent";
+import CopyButton from "./CopyButton";
+import styles from "./CodeBlock.module.scss";
 
 const CodeBlock = ({ id }) => {
-  const [file_content, setFileContent] = useState(" ")
-  const [lang, setLang] = useState("javascript")
+  const [file_content, setFileContent] = useState(" ");
+  const [lang, setLang] = useState("javascript");
 
   useEffect(() => {
     const file_extension = {
-      javascript: "js",
+      javascript: "jscode", // do not treat as real javascript. Production will minify .js extensions
       csharp: "cs",
       php: "php",
-      python: "py"
-    }
-    const file_ext = file_extension[`${lang}`]
-    const file_path = `/demos/demos/${id}-${lang}.${file_ext}`
+      python: "py",
+    };
+    const file_ext = file_extension[`${lang}`];
+    const file_path = `/demos/demos/${id}-${lang}.${file_ext}`;
     fetch(file_path)
-      .then(response => response.text())
-      .then(data => {
+      .then((response) => response.text())
+      .then((data) => {
         const formatted_code = data
           .replaceAll("&lt;", "<")
-          .replaceAll("&gt;", ">")
-        setFileContent(formatted_code)
-      })
-  }, [id, lang])
+          .replaceAll("&gt;", ">");
+        setFileContent(formatted_code);
+      });
+  }, [id, lang]);
 
   return (
     <div className={styles.codeBlock}>
@@ -34,7 +34,7 @@ const CodeBlock = ({ id }) => {
             <select
               id="demo-buy-contract"
               value={lang}
-              onChange={event => setLang(event.target.value)}
+              onChange={(event) => setLang(event.target.value)}
             >
               <option value="javascript">JavaScript</option>
               <option value="csharp">C#</option>
@@ -47,7 +47,7 @@ const CodeBlock = ({ id }) => {
         <CodeContent lang={lang} data={file_content} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CodeBlock
+export default CodeBlock;

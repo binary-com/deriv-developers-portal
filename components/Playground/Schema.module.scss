@@ -1,0 +1,323 @@
+.array {
+  color: #ff8fc8;
+}
+.number {
+  color: #acb2ff;
+}
+.string {
+  color: var(--green-03);
+}
+
+.integer {
+  color: #f8c272;
+}
+
+.schemaRole {
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--green-03);
+  border: none;
+  margin: 8px 8px 0 0;
+  padding: 6px 8px;
+  border-radius: 4px;
+  background-color: rgba(0, 255, 104, 0.16);
+}
+
+.schemaCode {
+  color: var(--white-01);
+  font-size: 14px;
+}
+
+.schemaSubText {
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.schemaHeader {
+  padding: 24px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border: none;
+  background: var(--black-04);
+
+  .schemaTitle {
+    font-size: 24px;
+    color: var(--white-01);
+  }
+
+  .schemaDescription {
+    display: flex;
+    padding: 5px 0;
+    gap: 20px;
+    justify-content: space-between;
+    color: var(--white-01);
+
+    .schemaAuthRequired {
+      width: 40%;
+    }
+  }
+}
+
+.schemaBodyKeyLabel {
+  color: white;
+}
+
+.schemaObjectContent {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  p {
+    color: var(--white-01);
+  }
+  button {
+    position: relative;
+    color: #9ed178 !important;
+    background-color: #0e0e0e;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+}
+
+.schemaObjectHeader {
+  flex-direction: column !important;
+  .schemaObjectBody {
+    padding: 8px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content;
+    opacity: 0;
+    display: none;
+    &.objectOpen {
+      opacity: 1;
+      gap: 24px;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .schemaObjectDescription {
+      font-weight: normal;
+      font-size: 14px;
+    }
+    .schemaBodyHeader {
+      flex-direction: column;
+    }
+  }
+}
+
+.schemaBody {
+  background-color: #282a35;
+  padding: 28px 23px;
+
+  .schemaBodySignature {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .schemaBodyDescription + .schemaBodyDescription {
+      text-indent: 16px;
+      padding: 10px;
+      color: var(--white-01);
+      background-color: rgba(219, 219, 219, 0.05) !important;
+      border-radius: 4px;
+    }
+
+    .schemaBodySignature {
+      padding: 10px 16px;
+    }
+
+    .schemaBodyHeader {
+      display: flex;
+      flex-direction: row;
+      color: var(--white-01);
+      font-size: 16px;
+      margin: 0px 8px 0 0;
+      font-weight: 700;
+      width: 100%;
+
+      .schemaBodyType {
+        display: flex;
+        width: fit-content;
+        font-size: 14px;
+        font-weight: 400;
+        align-items: center;
+        width: 100%;
+      }
+
+      .schemaEnums {
+        width: fit-content;
+        height: fit-content;
+        font-size: 14px;
+        line-height: 1.43;
+        color: var(--green-03);
+        border: none;
+        padding: 6px 8px;
+        border-radius: 4px;
+        background-color: rgba(0, 255, 104, 0.16);
+      }
+
+      .schemaItems {
+        color: var(--green-02);
+        font-size: 14px;
+        line-height: 1.43;
+        color: var(--green-03);
+        border: none;
+        margin: 8px 8px 0 0;
+        padding: 6px 8px;
+        white-space: nowrap;
+        border-radius: 4px;
+      }
+
+      .schemaRegexContainer {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+
+        .schemaBodyPattern {
+          width: 100%;
+          font-size: 11px;
+          color: var(--green-01);
+          margin: 0 10px;
+        }
+
+        .schemaPatternType {
+          color: var(--green-03);
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .schemaBodyDescription {
+      display: inline-block;
+      white-space: break-spaces;
+      color: var(--copy-color);
+      margin-top: 10px;
+      font-size: 14px;
+      line-height: 2;
+      margin-bottom: 24px;
+      &.objectOpen {
+        margin-bottom: 10px;
+      }
+    }
+    .schemaRole {
+      background-color: rgba(255, 255, 255, 0.16);
+      border: none;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 2.5;
+      color: var(--white-01);
+      height: fit-content;
+      padding: 5px 5px;
+      margin: 0 5px;
+    }
+  }
+  .enumFlex {
+    font-size: 14px;
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    > p {
+      display: flex;
+      color: white;
+      min-width: 35%;
+      margin-bottom: unset;
+      align-items: center;
+    }
+    .defaultValue {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .defaultValueLabel,
+    .schemaDefaultValue {
+      font-size: 14px;
+      color: #c2c2c2;
+    }
+    .schemaDefaultValue {
+      border: 2px solid #c2c2c2;
+      border-radius: 4px;
+      padding: 3px;
+    }
+    .enumContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .enumLabel {
+      font-size: 14px;
+      line-height: 1.43;
+      color: #c2c2c2;
+    }
+    .enumType {
+      font-size: 14px;
+    }
+    .enumLabel,
+    .enumType {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.schemaBodySignature {
+  &:hover {
+    > .sourceButton {
+      opacity: 1;
+    }
+  }
+  > .schemaBodySignature {
+    background-color: rgba(219, 219, 219, 0.05) !important;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+}
+
+.sourceButton {
+  opacity: 0;
+  color: var(--gray-01);
+  font-family: lucida console, Monaco, monospace;
+  position: absolute;
+  padding: 2px;
+  margin-top: 3px;
+  right: 2px;
+  width: 18px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10px;
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.schemaHeader:hover + .schemaBody .sourceButtonMain {
+  opacity: 1;
+}
+
+.sourceButtonMain {
+  @extend .sourceButton;
+  top: 10px;
+  right: 24px;
+  font-size: 16px;
+}
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"],
+[data-state~="responsive.mobileL"] {
+  .enumFlex {
+    flex-wrap: wrap;
+  }
+  .schemaHeader {
+    .schemaDescription {
+      flex-wrap: wrap;
+      .schemaAuthRequired {
+        width: unset;
+      }
+    }
+  }
+}

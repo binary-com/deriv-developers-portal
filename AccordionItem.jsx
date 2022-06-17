@@ -1,11 +1,11 @@
-import React from "react"
-import styles from "./Faq.module.scss"
+import React from "react";
+import styles from "./Faq.module.scss";
 
 const AccordionItem = ({ children, title }) => {
-  const [is_content_visible, setContentVisible] = React.useState(false)
+  const [is_content_visible, setContentVisible] = React.useState(false);
   const togglePanel = () => {
-    setContentVisible(!is_content_visible)
-  }
+    setContentVisible(!is_content_visible);
+  };
   return (
     <div className={styles.accordionWrapper}>
       <div
@@ -27,7 +27,7 @@ const AccordionItem = ({ children, title }) => {
         <div className={styles.accordionPanel}>{children}</div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default AccordionItem
+export default AccordionItem;

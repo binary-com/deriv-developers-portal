@@ -4,37 +4,37 @@ import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "./ticksSubject";
 
 export const ResetSendButtonsBlock = React.memo(
-    ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api }) => {
-      const onClick = React.useCallback(() => {
-        current_api.connection.close()
-        ticksSubject.complete();
-        resetMessagesInConsole?.([])
-      }, [resetMessagesInConsole, current_api])
-      return (
-        <div className={style["json-btn-wrapper"]}>
-          <div
-            id="playground-reset-btn"
-            className={
-              isAppRegistration
-                ? `${style["btn-reset"]} ${style["gray-btn-submit"]}`
-                : `${style["btn-reset"]} ${style["btn-reset-playground"]}`
-            }
-          >
-            <Button text={"Reset Connection"} clickHandler={onClick} />
-          </div>
-          <div className={style["btn-submit"]}>
-            <Button
-              id="playground-send-btn"
-              className={style["btn-submit"]}
-              text={"Send Request"}
-              clickHandler={sendRequest}
-            />
-          </div>
+  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api }) => {
+    const onClick = React.useCallback(() => {
+      current_api.connection.close();
+      ticksSubject.complete();
+      resetMessagesInConsole?.([]);
+    }, [resetMessagesInConsole, current_api]);
+    return (
+      <div className={style["json-btn-wrapper"]}>
+        <div
+          id="playground-reset-btn"
+          className={
+            isAppRegistration
+              ? `${style["btn-reset"]} ${style["gray-btn-submit"]}`
+              : `${style["btn-reset"]} ${style["btn-reset-playground"]}`
+          }
+        >
+          <Button text={"Reset Connection"} clickHandler={onClick} />
         </div>
-      )
-    }
-  )
-  
-  ResetSendButtonsBlock.displayName = "ResetSendButtonsBlock"
+        <div className={style["btn-submit"]}>
+          <Button
+            id="playground-send-btn"
+            className={style["btn-submit"]}
+            text={"Send Request"}
+            clickHandler={sendRequest}
+          />
+        </div>
+      </div>
+    );
+  }
+);
 
-  export default ResetSendButtonsBlock;
+ResetSendButtonsBlock.displayName = "ResetSendButtonsBlock";
+
+export default ResetSendButtonsBlock;
