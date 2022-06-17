@@ -53,7 +53,9 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                             <div className={styles.dropdownStart}>ALL CALLS</div>
                             {playground_requests
                                 .filter(option => {
-                                    return ( (option.title.toLowerCase().includes(searchResults.toLowerCase())) ?  option  : null );  
+                                    return option.title.toLowerCase().includes(searchResults.toLowerCase())
+                                        ? option
+                                        : null;
                                 })
                                 .map(option => (
                                     <div
