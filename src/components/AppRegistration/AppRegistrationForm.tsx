@@ -31,7 +31,7 @@ export default function AppRegistrationForm() {
         setValue,
     } = useForm<FormData>({ mode: 'onBlur' });
     const { registerApp, isLoading, error } = useRegisterOrUpdateApp();
-    const isUpdateMode = useSelector(stateService, isUpdateModeSelector);
+    const isUpdateMode: boolean = useSelector(stateService, isUpdateModeSelector);
     const isOnRegisterTab = useSelector(stateService, isRegisterTabIdleSelector);
     useEffect(() => {
         if (isOnRegisterTab) reset();
