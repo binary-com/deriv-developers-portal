@@ -33,7 +33,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                         setToggle(!toggle);
                         setSearchResults('');
                     }}
-                    data-testid="apiDropdown"
+                    data-testid='apiDropdown'
                 >
                     {selected_value}
                     <span className={`${styles.arrow} ${isActive ? styles.down : ''}`} />
@@ -48,34 +48,33 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                                 setSearchResults(event.target.value);
                             }}
                         />
-                        <div className={styles.dropdownSelect}> Select API Call - Version 3</div>
-                        <div className={styles.dropdownStart}>ALL CALLS</div>
-                        {playground_requests
-                            .filter(option => {
-                                if (option.title.toLowerCase().includes(searchResults.toLowerCase())) {
-                                    return option;
-                                    // eslint-disable-next-line no-else-return
-                                } else {
-                                    return;
-                                }
-                            })
-                            .map(option => (
-                                <div
-                                    key={option.name}
-                                    value={option.title}
-                                    onClick={e => {
-                                        setSelected(option.title);
-                                        setIsActive(false);
-                                        handleChange(e, option.name);
-                                    }}
-                                    className={`${styles.dropdownItem}  ${
-                                        selected === option.title ? styles.dropdownSelected : ''
-                                    }`}
-                                    data-testid={`apiDropdownItem${option.name}`}
-                                >
-                                    {option.title}
-                                </div>
-                            ))}
+                        <div className={styles.dropdownList}>
+                            <div className={styles.dropdownSelect}> Select API Call - Version 3</div>
+                            <div className={styles.dropdownStart}>ALL CALLS</div>
+                            {playground_requests
+                                .filter(option => {
+                                    return option.title.toLowerCase().includes(searchResults.toLowerCase())
+                                        ? option
+                                        : null;
+                                })
+                                .map(option => (
+                                    <div
+                                        key={option.name}
+                                        value={option.title}
+                                        onClick={e => {
+                                            setSelected(option.title);
+                                            setIsActive(false);
+                                            handleChange(e, option.name);
+                                        }}
+                                        className={`${styles.dropdownItem}  ${
+                                            selected === option.title ? styles.dropdownSelected : ''
+                                        }`}
+                                        data-testid={`apiDropdownItem${option.name}`}
+                                    >
+                                        {option.title}
+                                    </div>
+                                ))}
+                        </div>
                     </div>
                 )}
             </div>
