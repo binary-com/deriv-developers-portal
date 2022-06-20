@@ -8,7 +8,7 @@ export default function Button({
 }: {
   type?: string;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: () => void | undefined;
   children: React.ReactNode;
 }) {
   let classesNames = `${styles.btn}`;

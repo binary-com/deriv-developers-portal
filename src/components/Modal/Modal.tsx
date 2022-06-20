@@ -14,11 +14,11 @@ export default function Modal({
   onSecondaryButtonClick,
 }: {
   onRequestClose: () => void;
-  open: boolean;
+  open: any;
   type: "success" | "warning";
   title: string;
   description: string;
-  primaryButtonText?: string;
+  primaryButtonText?: any;
   secondaryButtonText: string;
   onPrimaryButtonClick?: () => void;
   onSecondaryButtonClick: () => void;

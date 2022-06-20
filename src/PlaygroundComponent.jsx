@@ -34,7 +34,7 @@ export const PlaygroundComponent = () => {
 
   const dynamicImportJSON = useCallback(
     (selected_value) => {
-      import(`./config/v3/${selected_value}/send.json`)
+      import(`../config/v3/${selected_value}/send.json`)
         .then((data) => {
           setRequestInfo(data);
         })
@@ -42,7 +42,7 @@ export const PlaygroundComponent = () => {
           // eslint-disable-next-line
           console.log(error);
         });
-      import(`./config/v3/${selected_value}/receive.json`)
+      import(`../config/v3/${selected_value}/receive.json`)
         .then((data) => {
           setResponseInfo(data);
         })
