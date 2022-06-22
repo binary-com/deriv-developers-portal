@@ -6,6 +6,7 @@
  * - Ensure you have NodeJs installed (https://nodejs.org/).
  * - Save this script to a directory on your computer as `buy_contract.js`.
  * - Run `npm install ws` to install the websocket library.
+ * - Run `npm install @deriv/deriv-api` to install the Deriv API library.
  * - Edit the example and change the app_id and the API token. 
  * - Then run `node buy_contract.js`.
  * 
