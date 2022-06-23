@@ -17,7 +17,7 @@ const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
 // To generate your app_id, go to https://api.deriv.com/docs/app-registration/.
 const app_id = 1089; // Replace with your app_id.
 const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
-const api       = new DerivAPIBasic({ connection });
+const api = new DerivAPIBasic({ connection });
 
 // The api token should be from the same account that the contract is to be purchased for.
 // You can get your token here https://app.deriv.com/account/api-token.
