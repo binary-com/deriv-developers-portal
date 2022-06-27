@@ -61,6 +61,23 @@ const QuickStart = () => (
       It is also possible to subscribe to the websocket to keep track of the past ticks.
     </p>
     <CodeBlock id={"ticks-history"} />
+    <h2>Proposal</h2>
+    <p>
+      This example is for getting a contract proposal. You’ll be able to get the
+      price, payout and spot value for your contract.
+    </p>
+    <p>
+      To keep this connection alive in case of inactivity timeouts, see the
+      example for Keep alive.
+    </p>
+    <CodeBlock id={"proposal"} />
+    <h2>Keep alive</h2>
+    <p>
+      In this example you’ll see how to keep a connection alive when getting
+      contract proposals via the Deriv API. This example keeps the connection
+      alive by sending a ping every 30 seconds.
+    </p>
+    <CodeBlock id={"keep-alive"} />
   </div>
 );
 
