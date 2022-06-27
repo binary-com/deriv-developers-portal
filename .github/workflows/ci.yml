@@ -19,6 +19,7 @@ jobs:
         # is simply inserted as a string into the command
         run: |
           echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
+          echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json2
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v2
         env:
