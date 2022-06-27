@@ -19,11 +19,9 @@ jobs:
         # is simply inserted as a string into the command
         run: |
           echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
-      # clear cypress cache before running tests
-      - name: Clear cypress cache
-        run: |
-          cypress cache prune
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v2
+        run: |
+          cypress cache prune
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
