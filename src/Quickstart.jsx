@@ -36,6 +36,13 @@ const QuickStart = () => (
         samples.
       </p>
     </div>
+    <h2>Authorize</h2>
+    <p>
+      While not always the case, most of the functionalities of the Deriv API requires you to authorize
+      first with an API token. This example shows how you can authorize before using specific functions.
+      In more of the code examples below, you can see aswell how the authorize function is utilized.
+    </p>
+    <CodeBlock id={"authorize"} />
     <h2>Buy contract</h2>
     <p>
       A contract is an agreement to buy or sell an asset at an agreed-upon
