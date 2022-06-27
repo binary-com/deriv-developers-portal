@@ -1,0 +1,34 @@
+const WebSocket = require('ws');
+const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
+
+// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
+const app_id = 1089; // Replace with your app_id.
+const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
+const api = new DerivAPIBasic({ connection });
+
+const ticks_history_request = {
+    "start": 1,
+    "count": 10,
+    "subscribe": 1,
+    "end": "latest",
+    "style": "ticks",
+    "adjust_start_time": 1,
+    "ticks_history": "R_50"
+}
+
+const ticksHistoryResponse = (res) => {
+    const data = JSON.parse(res.data);
+    console.log(data);
+    // After 15 seconds, will stop tick history response.
+    setTimeout(async () => {
+        connection.removeEventListener('message', ticksHistoryResponse, false);
+        await api.disconnect();
+    }, 15000)
+}
+
+const getTicksHistory = async () => {
+    connection.addEventListener('message', ticksHistoryResponse);
+    await api.ticksHistory(ticks_history_request);
+}
+
+getTicksHistory();

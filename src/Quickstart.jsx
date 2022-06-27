@@ -49,6 +49,12 @@ const QuickStart = () => (
       trading app using Deriv's API.
     </p>
     <CodeBlock id={"ticks"} />
+    <h2>Ticks history</h2>
+    <p>
+      With ticks history you are able to make a collection of past ticks.
+      It is also possible to subscribe to the websocket to keep track of the past ticks.
+    </p>
+    <CodeBlock id={"ticks-history"} />
     <h2>Account balance</h2>
     <p>
       This example shows you how to use the Deriv API to retrieve account
