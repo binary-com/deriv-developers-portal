@@ -49,6 +49,11 @@ const QuickStart = () => (
       price. This example shows you how to buy a contract using Deriv API.
     </p>
     <CodeBlock id={"buy-contract"} />
+    <h2>Contracts for symbol</h2>
+    <p>
+      For a given symbol, get the list of currently available contracts, and the latest barrier and duration limits for each contract.
+    </p>
+    <CodeBlock id={"contracts-for-symbol"} />
     <h2>Ticks</h2>
     <p>
       A tick is a measure of minimum upward or downward movement in the price of
