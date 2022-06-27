@@ -1,16 +1,3 @@
-/*
- * This is an example of using JavaScript with NodeJS to subscribe to balance of an account. 
- * To run this example using NodeJS
- * - Ensure you have NodeJs installed (https://nodejs.org/).
- * - Save this script to a directory on your computer as `account_balance.js`.
- * - Run `npm install ws` to install the websocket library.
- * - Run `npm install @deriv/deriv-api` to install the Deriv API library.
- * - Edit the example and change the app_id and the API token. 
- * - Then run `node account_balance.js`.
- * 
- * The api token should be from the same account that the balance is to be checked for.
- */
-
 const WebSocket = require('ws');
 const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
 
@@ -40,10 +27,10 @@ const accountBalanceResponse = async (res) => {
     await api.disconnect();
 }
 
-const accountBalance = async () => {
+const getAccountBalance = async () => {
     await api.authorize(token);
     connection.addEventListener('message', accountBalanceResponse);
     await api.send(balance_request);
 }
 
-accountBalance();
+getAccountBalance();

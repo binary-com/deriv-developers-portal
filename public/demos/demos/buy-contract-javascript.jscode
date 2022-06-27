@@ -1,25 +1,11 @@
-/*
- * This is an example of using JavaScript with NodeJS to buy a contract via the Deriv/Binary API.
- * This is a simple example where we do not check first if the user has the 
- * symbol available to buy. To check this you would use the active_symbols call.
- * To run this example using NodeJS
- * - Ensure you have NodeJs installed (https://nodejs.org/).
- * - Save this script to a directory on your computer as `buy_contract.js`.
- * - Run `npm install ws` to install the websocket library.
- * - Run `npm install @deriv/deriv-api` to install the Deriv API library.
- * - Edit the example and change the app_id and the API token. 
- * - Then run `node buy_contract.js`.
- * 
- */
 const WebSocket = require('ws');
 const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
 
 // To generate your app_id, go to https://api.deriv.com/docs/app-registration/.
-const app_id = 1089; // Replace with your app_id.
+const app_id = 1089; // Replace with your app_id or leave as 1089 for testing.
 const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
 const api = new DerivAPIBasic({ connection });
 
-// The api token should be from the same account that the contract is to be purchased for.
 // You can get your token here https://app.deriv.com/account/api-token.
 const token = '';
 
@@ -69,10 +55,10 @@ const buyContractResponse = async (res) => {
     }
 }
 
-const buyContract = async () => {
+const getBuyContract = async () => {
     await api.authorize(token);
-    await api.send(buy_contract_request);
+    await api.buy(buy_contract_request);
     connection.addEventListener('message', buyContractResponse);
 }
 
-buyContract();
+getBuyContract();
