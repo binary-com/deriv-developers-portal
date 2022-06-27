@@ -20,8 +20,6 @@ jobs:
         run: |
           echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
       - name: Run Cypress 🌲
-        uses: cypress-io/github-action@v2
-        run: |
-          cypress cache prune
+        uses: cypress-io/github-action@v4
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
