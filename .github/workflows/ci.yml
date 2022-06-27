@@ -23,10 +23,10 @@ jobs:
         uses: cypress-io/github-action@v4
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
-        - name: Download a Build Artifact
-          uses: actions/download-artifact@v3.0.0
-          with:
-            # Artifact name
-            name: index.html
-            # Destination path
-            path: coverage/lcov-report/
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v3.0.0
+        with:
+          # Artifact name
+          name: index.html
+          # Destination path
+          path: coverage/lcov-report/
