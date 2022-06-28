@@ -1,10 +1,13 @@
-name: ci
-# https://docs.github.com/en/actions/reference/events-that-trigger-workflows
-on: [deployment_status]
+name: Tests run
+
+on:
+  workflow_run:
+    workflows: ["Tests deployment check"]
+    types:
+      - completed
+
 jobs:
   e2e:
-    # only runs this job on successful deploy
-    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -20,6 +23,6 @@ jobs:
         run: |
           echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
       - name: Run Cypress 🌲
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         env:
           CYPRESS_BASE_URL: ${{ github.event.deployment_status.target_url }}
