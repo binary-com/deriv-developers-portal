@@ -1,8 +1,8 @@
-name: tests-run
+name: Tests run
 
 on:
   workflow_run:
-    workflows: ["tests-deployment-check"]
+    workflows: ["Tests deployment check"]
     types:
       - completed
 
