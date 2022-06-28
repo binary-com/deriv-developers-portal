@@ -72,6 +72,11 @@ const QuickStart = () => (
       example for Keep alive.
     </p>
     <CodeBlock id={"proposal"} />
+    <h2>Proposal: Open contract</h2>
+    <p>
+      Get latest price (and other information) for a contract in the user's portfolio.
+    </p>
+    <CodeBlock id={"proposal-open-contract"} />
     <h2>Keep alive</h2>
     <p>
       In this example you’ll see how to keep a connection alive when getting
