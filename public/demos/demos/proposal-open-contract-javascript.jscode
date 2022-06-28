@@ -1,0 +1,40 @@
+const WebSocket = require('ws');
+const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
+
+// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
+const app_id = 1089; // Replace with your app_id.
+const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
+const api = new DerivAPIBasic({ connection });
+
+// You can get your token here https://app.deriv.com/account/api-token. 
+const token = ''; // Replace with your API token.
+
+const openContractResponse = async (res) => {
+    const data = JSON.parse(res.data);
+
+    if (data.error !== undefined) {
+        console.log('Error : %o', data.error.message);
+        connection.removeEventListener('message', openContractResponse, false);
+        await api.disconnect();
+    }
+
+    if (data.msg_type === 'proposal_open_contract') {
+        const proposal_contract_empty = Object.keys(data.proposal_open_contract).length === 0;
+        if (proposal_contract_empty) {
+            console.log("no contracts available");
+        } else {
+            console.log(data.proposal_open_contract);
+        }
+    }
+    
+    connection.removeEventListener('message', openContractResponse, false)
+    await api.disconnect();
+}
+
+const getOpenContracts = async () => {
+    await api.authorize(token);
+    connection.addEventListener('message', openContractResponse)
+    await api.proposalOpenContract();
+}
+
+getOpenContracts();
