@@ -1,5 +1,5 @@
 import { app_id, server_url } from './storageSignals';
-import styles from './EndPoint.module.scss';
+import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
 
 interface EndpointData {
