@@ -16,13 +16,15 @@ const balance_request = {
 
 const accountBalanceResponse = async (res) => {
     const data = JSON.parse(res.data);
+    
     if (data.error !== undefined) {
         console.log('Error : %o', data.error.message);
-    } else if (data.msg_type == 'balance') {
-        console.log('Current Balance: %o', data.balance.balance);
-    } else {
-        console.log('Unknown Response %o', data);
     }
+
+    if (data.msg_type == 'balance') {
+        console.log('Current Balance: %o', data.balance.balance);
+    }
+
     connection.removeEventListener('message', accountBalanceResponse, false);
     await api.disconnect();
 }

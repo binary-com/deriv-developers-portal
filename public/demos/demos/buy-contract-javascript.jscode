@@ -25,19 +25,25 @@ const buy_contract_request = {
 }
 
 const buyContractResponse = async (res) => {
-    const res_data = JSON.parse(res.data);
-    const is_sold = res_data.proposal_open_contract?.is_sold;
+    const data = JSON.parse(res.data);
+    const is_sold = data.proposal_open_contract?.is_sold;
     
-    if (res_data.msg_type === 'buy') {
-        console.log(`Contract Id ${res_data.buy.contract_id} \n`);
-        console.log(`Details ${res_data.buy.longcode} \n`);
+    if (data.error !== undefined) {
+        console.log('Error : %o', data.error.message);
+        connection.removeEventListener('message', buyContractResponse, false);
+        await api.disconnect();
     }
 
-    if (res_data.msg_type === 'proposal_open_contract') {
+    if (data.msg_type === 'buy') {
+        console.log(`Contract Id ${data.buy.contract_id} \n`);
+        console.log(`Details ${data.buy.longcode} \n`);
+    }
+
+    if (data.msg_type === 'proposal_open_contract') {
         // If `is_sold` is true it means our contract has finished and we can see if we won or not.
         if (is_sold) {
-            const contract_status = res_data.proposal_open_contract.status;
-            const contract_profit = res_data.proposal_open_contract.profit;
+            const contract_status = data.proposal_open_contract.status;
+            const contract_profit = data.proposal_open_contract.profit;
             console.log(`Profit ${contract_profit} \n`);
             console.log(`Contract ${contract_status} \n`);
             connection.removeEventListener('message', buyContractResponse, false);
@@ -45,8 +51,8 @@ const buyContractResponse = async (res) => {
         } else {
             // We can track the status of our contract as updates to the spot price occur.
             let entry_spot = 0; 
-            const entry_tick = res_data.proposal_open_contract.entry_tick;
-            const current_spot = res_data.proposal_open_contract.current_spot;
+            const entry_tick = data.proposal_open_contract.entry_tick;
+            const current_spot = data.proposal_open_contract.current_spot;
             if (typeof (entry_tick) !== 'undefined') entry_spot = entry_tick;
             console.log(`Entry spot ${entry_spot} \n`);
             console.log(`Current spot ${current_spot} \n`);
@@ -55,10 +61,10 @@ const buyContractResponse = async (res) => {
     }
 }
 
-const getBuyContract = async () => {
+const buyContract = async () => {
     await api.authorize(token);
     await api.buy(buy_contract_request);
     connection.addEventListener('message', buyContractResponse);
 }
 
-getBuyContract();
+buyContract();
