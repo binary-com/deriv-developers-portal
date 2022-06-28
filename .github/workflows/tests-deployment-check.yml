@@ -1,0 +1,11 @@
+name: Tests deployment check
+# https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+on: [deployment_status]
+jobs:
+  check-deployment:
+    # only runs this job on successful deploy
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment Check 🔍
+        run: echo 'Deployed successfully!'
