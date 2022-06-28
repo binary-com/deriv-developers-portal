@@ -2,7 +2,7 @@ name: Tests run
 
 on:
   workflow_run:
-    workflows: ["Tests deployment check"]
+    workflows: ["Tests deployment check / check-deployment (deployment_status)"]
     types:
       - completed
 
