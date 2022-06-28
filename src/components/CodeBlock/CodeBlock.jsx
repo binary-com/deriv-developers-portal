@@ -22,7 +22,7 @@ const CodeBlock = ({ id }) => {
       <div className={styles.card}>
         <div className={styles.cardHeader}>
           <p className={styles.cardTitle}>
-            Javascript
+            JavaScript
           </p>
           <CopyButton size="16" content_to_copy={file_content} />
         </div>
