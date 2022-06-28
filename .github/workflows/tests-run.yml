@@ -27,7 +27,15 @@ jobs:
         # is simply inserted as a string into the command
         run: |
           echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
+        # download artifact deployment-url
+        # and store it in a variable
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: deployment-url
+          path: deployment-url.txt
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v4
         env:
-          CYPRESS_BASE_URL: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
+          # use the string value of the artifact as the Cypress URL
+          CYPRESS_BASE_URL: ${{ cat deployment-url.txt }}

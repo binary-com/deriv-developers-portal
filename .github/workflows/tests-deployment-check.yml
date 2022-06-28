@@ -9,3 +9,10 @@ jobs:
     steps:
       - name: Deployment Check 🔍
         run: echo 'Deployed successfully!'
+      # create file by echo github.event.deployment_status.target_url as artifact 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-url
+          path: deployment-check.txt
+          content: github.event.deployment_status.target_url
