@@ -2,7 +2,7 @@ name: Tests run
 
 on:
   workflow_run:
-    workflows: ["Tests deployment check"]
+    workflows: ["Tests deployment url"]
     types:
       - completed
 
@@ -25,10 +25,13 @@ jobs:
         # download artifact deployment-url
         # and store it in a variable
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: dawidd6/action-download-artifact@v2
         with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          # Required, workflow file name or ID
+          workflow: tests-deployment-url.yml
+          workflow_conclusion: success
           name: deployment-url
-          path: deployment-url.txt
       - name: Read deployment-url.txt and store it in a variable
         run: deployment_url=$(< deployment-url.txt)
       - name: Run Cypress 🌲
