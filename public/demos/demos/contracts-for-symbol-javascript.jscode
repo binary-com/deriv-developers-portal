@@ -18,7 +18,16 @@ const contracts_for_symbol_request = {
 
 const contractsForSymbolResponse = async (res) => {
     const data = JSON.parse(res.data);
-    console.log(data);
+    if (data.error !== undefined) {
+        console.log('Error : %o', data.error?.message);
+        connection.removeEventListener('message', contractsForSymbolResponse, false);
+        await api.disconnect();
+    }
+    
+    if (data.msg_type === 'contracts_for') {
+        console.log(data.contracts_for);
+    }
+
     connection.removeEventListener('message', contractsForSymbolResponse, false);
     await api.disconnect();
 }
