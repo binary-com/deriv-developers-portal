@@ -35,8 +35,7 @@ jobs:
           name: deployment-url
           path: deployment-url.txt
       - name: Read deployment-url.txt and store it in a variable
-        run: |
-          deployment_url=$(cat deployment-url.txt)
+        run: deployment_url=$(< deployment-url.txt)
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v4
         env:
