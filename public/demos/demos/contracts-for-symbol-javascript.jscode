@@ -18,6 +18,7 @@ const contracts_for_symbol_request = {
 
 const contractsForSymbolResponse = async (res) => {
     const data = JSON.parse(res.data);
+    
     if (data.error !== undefined) {
         console.log('Error : %o', data.error?.message);
         connection.removeEventListener('message', contractsForSymbolResponse, false);
