@@ -79,6 +79,11 @@ const QuickStart = () => (
       alive by sending a ping every 30 seconds.
     </p>
     <CodeBlock id={"keep-alive"} />
+    <h2>Sell expired contracts</h2>
+    <p>
+      This call will try to sell any expired contracts and return the number of sold contracts.
+    </p>
+    <CodeBlock id={"sell-expired-contracts"} />
   </div>
 );
 
