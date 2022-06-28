@@ -34,8 +34,11 @@ jobs:
         with:
           name: deployment-url
           path: deployment-url.txt
+      - name: Read deployment-url.txt and store it in a variable
+        run: |
+          deployment_url=$(cat deployment-url.txt)
       - name: Run Cypress 🌲
         uses: cypress-io/github-action@v4
         env:
-          # use the string value of the artifact as the Cypress URL
-          CYPRESS_BASE_URL: ${{ cat deployment-url.txt }}
+          # use the deployment_url variable to set the url
+          CYPRESS_BASE_URL: ${{ deployment_url }}
