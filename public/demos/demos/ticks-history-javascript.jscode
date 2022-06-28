@@ -16,10 +16,26 @@ const ticks_history_request = {
     "ticks_history": "R_50"
 }
 
-const ticksHistoryResponse = (res) => {
+const ticksHistoryResponse = async (res) => {
     const data = JSON.parse(res.data);
-    console.log(data);
-    // After 15 seconds, will stop tick history response.
+    
+    // This example returns an object with a selected amount of past ticks.
+    if (data.error !== undefined) {
+        console.log('Error : %o', data.error.message);
+        connection.removeEventListener('message', ticksHistoryResponse, false);
+        await api.disconnect();
+    }
+
+    if (data?.msg_type === 'history') {
+        console.log(data?.history);
+    }
+
+    // Allows you to monitor ticks.
+    if ( data?.msg_type === 'tick' ) {
+        console.log(data?.tick);
+    }
+
+    // After 15 seconds, will close the connection.
     setTimeout(async () => {
         connection.removeEventListener('message', ticksHistoryResponse, false);
         await api.disconnect();
