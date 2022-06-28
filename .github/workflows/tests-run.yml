@@ -15,11 +15,6 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
-      - name: Access vercel url
-        uses: binary-com/vercel-preview-url-action@master
-        id: vercel_preview_url
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout 🛎
         uses: actions/checkout@v1
       - name: Write the cypress.env.json file 📝
