@@ -40,4 +40,4 @@ jobs:
         uses: cypress-io/github-action@v4
         env:
           # use the deployment_url variable to set the url
-          CYPRESS_BASE_URL: ${{ deployment_url }}
+          CYPRESS_BASE_URL: $deployment_url
