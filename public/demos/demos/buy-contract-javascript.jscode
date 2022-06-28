@@ -6,60 +6,73 @@
  * - Ensure you have NodeJs installed (https://nodejs.org/).
  * - Save this script to a directory on your computer as `buy_contract.js`.
  * - Run `npm install ws` to install the websocket library.
+ * - Run `npm install @deriv/deriv-api` to install the Deriv API library.
  * - Edit the example and change the app_id and the API token. 
  * - Then run `node buy_contract.js`.
  * 
- * The api token should be from the same account that the contract is to be purchased for.
  */
 const WebSocket = require('ws');
+const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
 
-// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
-const app_id = 1089; // Replace with your app_id or leave as 1089 for testing.
+// To generate your app_id, go to https://api.deriv.com/docs/app-registration/.
+const app_id = 1089; // Replace with your app_id.
+const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
+const api = new DerivAPIBasic({ connection });
 
-const ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=' + app_id);
+// The api token should be from the same account that the contract is to be purchased for.
+// You can get your token here https://app.deriv.com/account/api-token.
+const token = '';
 
-// You can get your token here https://app.deriv.com/account/api-token. 
-const token = ''; // Replace with your API token.
+const buy_contract_request = {
+    "buy": 1,
+    "subscribe": 1,
+    "price": 10,
+    "parameters": { 
+        "amount": 10,
+        "duration": 1,
+        "basis": "stake",
+        "symbol": "R_10",
+        "currency": "USD",
+        "duration_unit": "m",
+        "contract_type": "CALL"
+    }
+}
 
-ws.onopen = function (evt) {
-    ws.send(JSON.stringify({ "authorize": token })) // First send an authorize call.
-};
+const buyContractResponse = async (res) => {
+    const res_data = JSON.parse(res.data);
+    const is_sold = res_data.proposal_open_contract?.is_sold;
+    
+    if (res_data.msg_type === 'buy') {
+        console.log(`Contract Id ${res_data.buy.contract_id} \n`);
+        console.log(`Details ${res_data.buy.longcode} \n`);
+    }
 
-ws.onmessage = function (msg) {
-    var data = JSON.parse(msg.data);
-    // console.log('Response: %o', data); // Uncomment this to see full response data. 
-    if (data.error !== undefined) {
-        console.log(data.error.message);
-        ws.close();
-    } else if (data.msg_type == 'authorize') {
-        /*
-        * Since we can not ensure calls to websocket are made in order we must wait for 
-        * the response to the authorize call before sending the buy request. 
-        */
-        ws.send(JSON.stringify({
-            "buy": 1,
-            "subscribe": 1,
-            "price": 10,
-            "parameters": { "amount": 10, "basis": "stake", "contract_type": "CALL", "currency": "USD", "duration": 1, "duration_unit": "m", "symbol": "R_10" }
-        }));
-    } else if (data.msg_type == 'buy') { // Our buy request was successful let's print the results. 
-        console.log("Contract Id " + data.buy.contract_id + "\n");
-        console.log("Details " + data.buy.longcode + "\n");
-    } else if (data.msg_type == 'proposal_open_contract') { // Because we subscribed to the buy request we will receive updates on our open contract. 
-        var isSold = data.proposal_open_contract.is_sold;
-        if (isSold) { // If `isSold` is true it means our contract has finished and we can see if we won or not.
-            console.log("Contract " + data.proposal_open_contract.status + "\n");
-            console.log("Profit " + data.proposal_open_contract.profit + "\n");
-            ws.close();
-        } else { // We can track the status of our contract as updates to the spot price occur. 
-            var currentSpot = data.proposal_open_contract.current_spot;
-            var entrySpot = 0;
-            if (typeof (data.proposal_open_contract.entry_tick) != 'undefined') {
-                entrySpot = data.proposal_open_contract.entry_tick;
-            }
-            console.log("Entry spot " + entrySpot + "\n");
-            console.log("Current spot " + currentSpot + "\n");
-            console.log("Difference " + (currentSpot - entrySpot) + "\n");
+    if (res_data.msg_type === 'proposal_open_contract') {
+        // If `is_sold` is true it means our contract has finished and we can see if we won or not.
+        if (is_sold) {
+            const contract_status = res_data.proposal_open_contract.status;
+            const contract_profit = res_data.proposal_open_contract.profit;
+            console.log(`Profit ${contract_profit} \n`);
+            console.log(`Contract ${contract_status} \n`);
+            connection.removeEventListener('message', buyContractResponse, false);
+            await api.disconnect();
+        } else {
+            // We can track the status of our contract as updates to the spot price occur.
+            let entry_spot = 0; 
+            const entry_tick = res_data.proposal_open_contract.entry_tick;
+            const current_spot = res_data.proposal_open_contract.current_spot;
+            if (typeof (entry_tick) !== 'undefined') entry_spot = entry_tick;
+            console.log(`Entry spot ${entry_spot} \n`);
+            console.log(`Current spot ${current_spot} \n`);
+            console.log(`Difference ${current_spot - entry_spot} \n`);
         }
     }
-};
+}
+
+const buyContract = async () => {
+    await api.authorize(token);
+    await api.send(buy_contract_request);
+    connection.addEventListener('message', buyContractResponse);
+}
+
+buyContract();

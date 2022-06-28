@@ -34,9 +34,6 @@ const derivAPISkeleton = {
                     states: {
                         notselected_tokenEmpty: {
                             on: {
-                                CLICK_AUTHENTICATE: {
-                                    target: 'displayAuthDoc',
-                                },
                                 FILL_TOKEN: {
                                     target: 'notselected_tokenFilled',
                                 },
@@ -47,9 +44,6 @@ const derivAPISkeleton = {
                         },
                         notselected_tokenFilled: {
                             on: {
-                                CLICK_AUTHENTICATE: {
-                                    target: 'displayAuthDoc',
-                                },
                                 SELECT_API: {
                                     target: 'selected_tokenFilled',
                                 },
@@ -57,9 +51,6 @@ const derivAPISkeleton = {
                         },
                         selected_tokenEmpty: {
                             on: {
-                                CLICK_AUTHENTICATE: {
-                                    target: 'displayAuthDoc',
-                                },
                                 FILL_TOKEN: {
                                     target: 'selected_tokenFilled',
                                 },
@@ -137,6 +128,9 @@ const derivAPIEvents = {
     FILL_TOKEN: function () {
         cy.get('[data-testid="apiTokenInput"]').type(Cypress.env('DERIV_API_TOKEN'));
     },
+    EMPTY_TOKEN: function () {
+        cy.get('[data-testid="apiTokenInput"]').clear();
+    },
     SELECT_API: function () {
         cy.get('[data-testid="apiDropdown').click();
         // select the first option in the dropdown starting with data-testid apiDropdownItem
@@ -145,70 +139,63 @@ const derivAPIEvents = {
     CLICK_AUTHENTICATE: function () {
         cy.get('button').contains('Authenticate').click();
     },
+    CLICK_MAIN_LOGO: function () {
+        cy.get('[data-testid="mainLogo"]').click();
+    }
 };
 
 const derivAPIStates = {
     home: () => {
+        isScrollOnTop();
         cy.contains(/deriv api/i).should('be.visible');
         cy.contains(/ways to earn with deriv api/i).should('be.visible');
         cy.contains(/register your app with deriv/i).should('be.visible');
         cy.contains(/sign up as an affiliate, build your app/i).should('be.visible');
-        cy.contains(/sign up as a payment agent/i).should('be.visible');
-        checkScroll();
+        cy.contains(/sign up as a payment agent/i).should('be.visible').scrollIntoView();
     },
     playground: () => {
         // checkScroll(); TODO children states cause scroll to not be at top
-        cy.get('[data-testid=apiPlayground]').should('be.visible');
+        cy.get('[data-testid=apiPlayground]').should('be.visible').scrollIntoView();
     },
     registration: () => {
-        checkScroll();
+        isScrollOnTop();
         cy.contains(/Log in to your Deriv account to get the API token and start using our API./i).should('be.visible');
     },
     documetnation: () => {
-        checkScroll();
-        cy.contains(/Quickstart to Deriv API/i).should('be.visible');
+        isScrollOnTop();
+        cy.contains(/Quickstart to Deriv API/i).should('be.visible').scrollIntoView();
+        cy.contains(/Keep alive/i).should('be.visible').scrollIntoView();
     },
     faq: () => {
-        checkScroll();
-        cy.get('[data-id=faq]').should('be.visible');
+        isScrollOnTop();
+        cy.get('[data-id=faq]').should('be.visible').scrollIntoView();
     },
     jsonSchemas: () => {
-        checkScroll();
-        cy.get('[data-id=json-schemas]').should('be.visible');
+        isScrollOnTop();
+        cy.get('[data-id=json-schemas]').should('be.visible').scrollIntoView();
     },
     bugBountry: () => {
-        checkScroll();
-        cy.get('[data-id=bug-bounty]').should('be.visible');
+        isScrollOnTop();
+        cy.get('[data-id=bug-bounty]').should('be.visible').scrollIntoView();
     },
     guide: () => {
-        checkScroll();
-        cy.get('[data-id=api-guide]').should('be.visible');
+        isScrollOnTop();
+        cy.get('[data-id=api-guide]').should('be.visible').scrollIntoView();
     },
     notselected_tokenEmpty: () => {
-        // cypress no playgroundDocs element exists
-        cy.get('[data-testid=playgroundDocs]').should('not.exist');
-        cy.get('[data-testid=apiDropdown]')
-            .contains(/select api call/i)
-            .should('be.visible');
+        // apiTokenInput should not have value
+        cy.get('[data-testid="apiTokenInput"]').should('have.value', '');
     },
     notselected_tokenFilled: () => {
         // input is filled with token
         cy.get('[data-testid="apiTokenInput"]').should('have.value', Cypress.env('DERIV_API_TOKEN'));
-        cy.get('[data-testid=apiDropdown]')
-            .contains(/select api call/i)
     },
     selected_tokenEmpty: () => {
         // apiTokenInput is empty
         cy.get('[data-testid="apiTokenInput"]').should('have.value', '');
-        cy.get('[data-testid=apiDropdown]')
-            .contains(/select api call/i)
-            .should('not.exist');
     },
     selected_tokenFilled: () => {
         cy.get('[data-testid="apiTokenInput"]').should('have.value', Cypress.env('DERIV_API_TOKEN'));
-        cy.get('[data-testid=apiDropdown]')
-            .contains(/select api call/i)
-            .should('not.exist');
     },
     displayAuthDoc: () => {
         cy.get('[data-testid=apiDropdown]')
@@ -229,7 +216,7 @@ const derivAPIStates = {
 };
 
 // cypress check if the scroll is at the top of the page
-const checkScroll = () => {
+const isScrollOnTop = () => {
     cy.window()
         .its('scrollY')
         .should($scrollY => {
@@ -252,7 +239,7 @@ const addTests = (skeleton, testStates) => {
 addTests(derivAPISkeleton, derivAPIStates);
 
 export const derivApiMachine =
-    /** @xstate-layout N4IgpgJg5mDOIC5QTAJwJYDcD6BDADugHQAWA9gLZgDEAwgDICStA0tgAr0CCAmgOIAlAPIBVAHIARRKHxlY6AC7oyAO2kgAHogAsAViIBOAOy6AzKd0GAHHvNHTAGhABPHQEY3RUwDZtB0wAM2tr29hYAvuFOKBg4BMTkVHRMrNgSQrQiALIAomIAKlz5jEJi6rLySqrqWgh6hibmljZmpvZOrgg+pl5WblY+3gFuulbebpHRaFh4hEQQZADGAK5UKgq4VSpE+AA2uM5QqGTLKhBEKmQKsGC7YIsKkNgKZADWYCo5FPgKzsnMbC4InyAAk8sVaEUcuU5IplGokJpEG4AEyBIhGEweTHaHwotzaDo6FEojEogzefx9IzaNw0yYgGIzeLzJarD4bLY7faHY6nc6Xa63e6PCDPN4fL4-P4AMUY9Ho2HyQhYeRhlXhNUQNh63lMI28KNGOoMbiJdVxRF0wSMHmCphsxm0DKZcTmCxWa058O5ByOJzOFyuNzuDyeL3en2+v2oAGUcvQcrR8tguOxGOq4dVEbU3AErEYiLijOTdGiTAYAijzaNC0MjL4jFZ825vCYXdM3cQPez1psfXs-XzA4KQyLwxKVDL0Ls7hB-qkgaDwcwoZmtlqENjPLaC+SAqYDPiDAYa-miAWq25D6iDHorB3YrNu2yvf3VL7eQGBcHhWGxRGHzTrOkBxgmSYpmmGaIhUWYIqAtQ6oYQz6qifRHtWLiIE2+j5to4wono1oUhMUSMp2z6sp6HLvtsg5fvyRBjv+4qRlKMYMACqbAmCBSrvk0IwbCG45siFikiYljWmMISmNoVg1gWRD1pYDaUiY9Jka6lE9m+XL0f6jHMaKrGStGsryoqyqqmUQkatmCHIh4AREIRfgBN4MltjS5oNp4uj9GW2ImPipiPsy7qvjR+k8oZgbGROkbAXOC6AjxK6QgJ66aqJW6mOSrlBfiqIErohq+VYuE2L4hrWBhD5aRRLK6dF8Kpam7DsNgAg5HwjCxvkAhFCUtkyMJOWOV0562oa5L9AWzaYZ0bT6FYfQDN4QwjGMpFTE+zVRX2WztXwIiMBIgljfZ8FIlNVgYq2JKmmtTZVuatKGBYgS6PYsl+OFXZUb23qqO16SZLkBTDaU2UObdgT3TNT3za9S3Ip5hgBEeVhGnqP1Vt4AM6YdIMqO1nC8IIoiSLDN21AjD2zc9C1vVhdRohevj+EEslhLoRMHdRR1tZxqQylwACKtObgzSNzS9i3mm2PQ2It2jkvqQyE41+2RULpPtQAUrGpTYLGtBglkXCxtLuWy498ss2jCDlpjwzeLo1qbf0hEC3rwO0e1ABCIh8NgQfU-kPC25N9tMyjits4E3gXqaATDAENJ5iSfvoOT3D8MI4hSHZcGbgAtAMRDp5Wnn4mtlb5TW1peGVIShATRi52DGTZOC0OjSAsEiZNlc9DXHk4-NjfO4RKuViiVgUk2lJz5EZGXCg8CItpLKJGAMe3WP1dY5P9dLwezs+Po1r6ii+bmAMxi50Dek+i1wtw8PE23Z7Ll6ERa8aIfoOnNI9TGZgCwnj8IeAwL8P6kyIKgMAUB0CwAUKgWih9ah-yLNaT2QCLD2AUknSkF5MR3nvvlAwnt7DwJJrRIgUBljoBQNgxAuCAEEPykQ0BSd9D+FKmMfEm0dr0P1owgyw4fxClDCZQCUZpTsK3FWbQn0SxbW0JnA8jgk7yRPvhQ8+E1oa2dDrCKL4JExSHN+IMsjxwAUnMlSAyimxqM2sMNaP164hDPKSQYgQ7x3jbvhcRAdrEMXin+eRk52KdCumXXKeZKzKQCH-VEQwtFjCVqMIswwLB6j8KMVsYS34fikbYhKjikozjnMovMh4vDjDzM2B0Royzmigcpe+dJIHp3wl3cxgMEGSNitI+YaD6JcGWAoEgEglj1IdPda8YwPI0PknJEhnRdBViaXqLGfg9A1VKa1cpYzbEQEmTyWM0TIDzMWPUssBgLz5TSVWDykDfKe2rgSQpgQTADEGXtCxr9Tl0XOfyVxQxlJbS8SWfovi2YohMD8laQQjzBA8icz+2x97KLxFaQRa0RjBA9uaE8hh+iwNGGkkkJShnEysT6AAZrgAAjsozh+CAo8JAVsxAm1Cw2FpOSEsthhjYsQQAK1gKoWMiwSBgAoLgbeCSR6-x2XgwBvLiHmjRJ4JehojBYwoQtBqwLhkMK5AAI2WFAIOAZfics1VwnlwDdVJ3TheAsIxDzjAPJYSVWDS7qtqIvNRctmao3NOXPw1dLC4gDSEHp-MGXxGUeXPMhYJ512npfGN141FvP1P4VC+Y4HryAA */
+    /** @xstate-layout N4IgpgJg5mDOIC5QTAJwJYDcD6BDADutmAExgB0AFgPYC2YAxAMIAyAkkwNLYAKLAggE0A4gCUA8gFUAcgBFEofNVjoALumoA7BSAAeiALQBWAGwB2cgEYSATjMBmEvZsAOAAxHLLgDQgAnoiWQeT2RgAsZmHuNm4RLpZGAL6JvigYOAREpBQ09MzsXNiy4kySALIAotIAKvzVbOLSOkoq6lo6+gjG5la2Dk6uHl6+AQgm9iFmlibhJGFhJjEuNsmpaFh4hMRk5BDUAMYArvSaqrhtmuT4ADa4flCo1IeaEOSa1KqwYNdg+6qQ2FU1AA1mBNBVaPhVH4GAAxNgsFjYariThVZrKNQabRIPSIFwuMLkDwmFwOcyRMJGEaGUnkcLxWIE+zTBIrFIgNIbTLbCh7I4nM4XK63e6PZ6vd6fb6-f4QQEgsEQqEwgDKFRYFSY1Ww-B4bAxrWxHXxhOJpjJ9gp82p-lpLnpUUsTJcLJMbNWnPWGS22V2B2OYKF2JFdweTxebw+Xx+fwBQNB4Mh0PyHG4-Ek1QAElV6kw6hVDVj2rjOmYzG5yISZuWbEZIuFbaMrZYrPYpv0bIsFp6uT6sjt+YHTucQzcw+LI1KY7L44rNLD0NcfhAGOrNdrdfqixcTQgCUSSZbrVSaV06QznVFXayjOy1ulNgO+QHBaOtKGxRHJdGZXH5QmYKLsukCpoUGbZrmHAFjuxqloEbjuOQZgkG4zixCYJhzGYNhnkY+HkGElhmMsphREYyz2L23pPry-oCkG76XOOX4SlG0qxnKCqJsBK4MBUZQ8NUgjIqi6K4i0xY4qAnQHuapLkuWNpngYF5Oi6boehyfa0X6Q5vsKLHhmxM7-txSrJjC8KIqJaJNBJmK7vB+5mkeimUk29qOoy16aXe1GPjyemvoxhmisZkamVxgFJiqYHppmOY1NB1SFg5RoljJgT2O2VgkZEzr2PEngkGeJCRMS9hhH09huCh7jmAF3K+oOIUjmFE7fuQUVzjxS58awaa6olUH5qlsGZXiCDWGYRhVl2FGIZYNg2CQJhhCpak+cyrLuk1-Z0fpoVjuFk6vD1AHzrxoECUJIkonZE3SVNcluVaSmnna54OpeGm3veXqBS1L4Me12LxVuPDYKIFTCGwqrVKIdQNPZiiOXBWVdLVRJFcyNjLUVHj2Ges1VlMMzVfMiyIQDOlBa1oPBloEPCJIbCyGlaMZc9nQGNjIQEq6+M2ITRjE19BgkBRxKRGSmEkCQ0xoVR2k0fTIPDkzmgQ8UpSVDUyONE9e45TYxIiy4a02PMHaeVjbhm66AxeG4TiKyrD7Nc+9Ga0xEN8EIYhSHIxvOXzsQC3jBPuGLZ7WBMLjhLLDuxCRCT7bpDO+xcEOwvwACKoeY+HOOC840dE2e7YJ+2hIE1hFMZ+rPsGeDg2FAAUqqjTYKqTA5mU-CqkXU0l5HQsV7HEtYVYzpuNMjLlYsJhN8DLfHcz7fcAAQpIwjYNvwfCSPvP87jE8W5XX0mFW7jxGSxGoYsJGr97R1g5vBTcIPbDSNgLDiGEOIE+hgKIWFCCLeeBIZg5XFqMSwVoBblSiDhRChIzAr1VkDZ8-sBAiAkDIeQ6UpJ7lUl2WeRErQmHnhECiZVwghAWLYIw88cpTEJK-XkOsSjlFzIbVGIBJJOWLsvChCDMI0Nmj4CWphZ6uFWuYS2rslKcOyBDH+f8AFAJAeeaWToYikkcE7XCEsFiHiKlIqWKEqTp09O8FA8BcR0zXrkCgsB9iPGXAqfAOiDDLErORROJBmSkjQipawlZUHz1mrNa2zpaZqxcXQMAvj8ZEkCUYYJrpQlwMMATZC0Q3AzEyY4VwYRVFZ1bh+d+WsdGKwCfMLwFZbBrVJFXBh4xHBVRys6ZY5SsFe0Om1LW5BUBgCgOgWAqhUBMV8TPGYQwKx3nntMExoxFhVgpHecw1DqFiwqRrKplwoCHHQCgOZJByALM8EsmIQRFgqTWoefKTgHCZNaQc9eH9mKnS6tOP80V5zKmhLsSZLF+CHFUJQWQBwdFYUrNQqBngRZETmHhOqkwrFS1CPMds-TPYHWCozJin4Io-g4rOS6iZgV+CjNgfkcLUJXLcEigmqKNpfUWiEcYCwEhBCdkkAZhLKkbx+Z1Ni-zOK9QsiqHR2zmWspRdYDlowl5WCYYsJ+5hEKfJqSSoyZ12IXXMgufqkBQWwHBZC6FsLiHCKmr0yJqF0ILCwhENZiB3RzTCCygxixHDrRcLq4Z+rfkSt-FKqlQEzU-npbarmJDnKOuQs6mIrrsIerGASEI+McKmGXmLTBBLM6HNFaSw1krKUmuuhAHRzpZEoTQmm+W7qzwRACeVFlmEUKoQ8MG4lHVWKRQBdK2KIKIBgtFBCqFML9h1rYXlMkRE0LFWsFXKqxJiK1VdMi0wOV+3ZxOuK4dkaTU0rpQyu1GMHULuIkuwqq7SpfR9RYFl8Q7BGKqp4A9Rzy1dWNTFGl86EGLoKiuvlT74HLGJGEKqiEco02Wj+stBr-0jqjaakCrwJ2WtFKqdDs663lTmssGYd9loKJVYYH6CyLZFXInYINQqS1fJGahky6Hq0xovfGwR6NJqdBmiRha5GVpPLPOtQiVi6wINQeVJjxbm56sHWS7qnGYo1qI54eaZGlpifWuEsW9IiorSKnefCaEzDIe+X+iUcqUIKq8MiqqyrHlrXpLYAkFZE4uyLYDQZRLD0flcb4qWlZPBeHcAreIqE7aSxZebO95UMHV1iNZkZAAzXAABHC5VyWE3I8Hc1ZVceiumcBEd6PK6zpZJQAK1gFoVU+xKBgFoLgRxCb7W83mQV4iRWVkPOng6II5dZP+P6LV4UAAjQ4UBt4RmhHl65-Xln3MzZWOWdglZER9Zqj2-nhWlu+b4ox49y6XynqMPm1sqxuyWURSxB3nHPlSUVQiicgkhPcLkro4Qzauy7FhKqs1nXJGSEAA */
     createMachine(derivAPISkeleton);
 
 const derivAPIModel = createModel(derivApiMachine, { events: derivAPIEvents });

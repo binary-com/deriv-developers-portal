@@ -1,0 +1,19 @@
+name: Tests deployment url
+# https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+on: [deployment_status]
+jobs:
+  check-deployment:
+    # only runs this job on successful deploy
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment Check 🔍
+        run: echo 'Deployed successfully!'
+      # create file by echo github.event.deployment_status.target_url as artifact 
+      - name: Create artifact
+        run: echo '${{ github.event.deployment_status.target_url }}' > deployment-url.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-url
+          path: deployment-url.txt

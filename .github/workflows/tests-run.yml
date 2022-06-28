@@ -1,0 +1,41 @@
+name: Tests run
+
+on:
+  workflow_run:
+    workflows: ["Tests deployment url"]
+    types:
+      - completed
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+      - name: Checkout 🛎
+        uses: actions/checkout@v1
+      - name: Write the cypress.env.json file 📝
+        # use quotes around the secret, as its value
+        # is simply inserted as a string into the command
+        run: |
+          echo '${{ secrets.CYPRESS_ENV_CI }}' > cypress.env.json
+        # download artifact deployment-url
+        # and store it in a variable
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          # Required, workflow file name or ID
+          workflow: tests-deployment-url.yml
+          workflow_conclusion: success
+          name: deployment-url
+      - name: Read deployment-url.txt and store it in a variable
+        run: deployment_url=$(< deployment-url.txt)
+      - name: Run Cypress 🌲
+        uses: cypress-io/github-action@v4
+        env:
+          # use the deployment_url variable to set the url
+          CYPRESS_BASE_URL: ${{ deployment_url }}

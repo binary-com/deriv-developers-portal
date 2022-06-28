@@ -18,8 +18,8 @@ export const stateService = interpret(stateMachine)
 
 export const { send } = stateService;
 
-export const isDisplayAuthDoc = () => state().includes("playground.displayAuthDoc");
-export const isDisplaySelectedDoc = () => state().includes("playground.displaySelectedDoc");
+export const isDisplayAuthDoc = () => state().includes("displayAuthDoc");
+export const isDisplaySelectedDoc = () => state().includes("displaySelectedDoc");
 
 createEffect(() => {
   window.send = send;
