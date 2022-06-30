@@ -68,9 +68,14 @@ const QuickStart = () => (
       It is also possible to subscribe to the websocket to keep track of the past ticks.
     </p>
     <CodeBlock id={"ticks-history"} />
+    <h2>Profit table</h2>
+    <p>
+      This example will retrieve a summary of your account Profit Table.
+    </p>
+    <CodeBlock id={"profit-table"} />
     <h2>Proposal</h2>
     <p>
-      This example is for getting a contract proposal. You’ll be able to get the
+      This example is for getting a contract proposal. You'll be able to get the
       price, payout and spot value for your contract.
     </p>
     <p>
