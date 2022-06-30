@@ -1,0 +1,41 @@
+const WebSocket = require('ws');
+const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
+
+// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
+const app_id = 1089; // Replace with your app_id.
+const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
+const api = new DerivAPIBasic({ connection });
+
+// You can get your token here https://app.deriv.com/account/api-token. 
+const token = ''; // Replace with your API token.
+
+const portfolioResponse = async (res) => {
+    const data = JSON.parse(res.data);
+
+    if (data.error !== undefined) {
+        console.log('Error : %o', data.error.message);
+        connection.removeEventListener('message', portfolioResponse, false);
+        await api.disconnect();
+    }
+
+    if (data.msg_type === 'portfolio') {
+        const contracts = data.portfolio?.contracts
+        if (contracts.length === 0) {
+            console.log('No portfolio items available.')
+        } else {
+            console.log(contracts);
+        }
+    }
+
+    connection.removeEventListener('message', portfolioResponse, false)
+    await api.disconnect();
+}
+
+const getPortfolio = async () => {
+    await api.authorize(token);
+    connection.addEventListener('message', portfolioResponse);
+    await api.portfolio();
+    // Rest of your code here.
+}
+
+getPortfolio();

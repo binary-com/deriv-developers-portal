@@ -62,6 +62,11 @@ const QuickStart = () => (
       balance information.
     </p>
     <CodeBlock id={"balance"} />
+    <h2>Portfolio</h2>
+    <p>
+      Receive information about current portfolio with outstanding options.
+    </p>
+    <CodeBlock id={"portfolio"} />
     <h2>Proposal</h2>
     <p>
       This example is for getting a contract proposal. You’ll be able to get the
