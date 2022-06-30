@@ -1,0 +1,43 @@
+const WebSocket = require('ws');
+const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
+
+// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
+const app_id = 1089; // Replace with your app_id.
+const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
+const api = new DerivAPIBasic({ connection });
+
+// You can get your token here https://app.deriv.com/account/api-token. 
+const token = ''; // Replace with your API token.
+
+const profit_table_request = {
+    "profit_table": 1,
+    "description": 1,
+    "limit": 25,
+    "offset": 25,
+    "sort": "ASC"
+}
+
+const profitTableResponse = async (res) => {
+    const data = JSON.parse(res.data);
+
+    if (data.error !== undefined) {
+        console.log('Error : %o', data.error.message);
+    }
+
+
+    if (data.msg_type === 'profit_table') {
+        console.log(data.profit_table?.transactions);
+        console.log("Amount of table elements: ", data.profit_table?.count)
+    }
+    
+    connection.removeEventListener('message', profitTableResponse);
+    await api.disconnect();
+}
+
+const getProfitTable = async () => {
+    await api.authorize(token);
+    connection.addEventListener('message', profitTableResponse);
+    await api.profitTable(profit_table_request);
+}
+
+getProfitTable();

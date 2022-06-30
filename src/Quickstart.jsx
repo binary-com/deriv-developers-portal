@@ -62,9 +62,14 @@ const QuickStart = () => (
       balance information.
     </p>
     <CodeBlock id={"balance"} />
+    <h2>Profit table</h2>
+    <p>
+      This example will retrieve a summary of your account Profit Table.
+    </p>
+    <CodeBlock id={"profit-table"} />
     <h2>Proposal</h2>
     <p>
-      This example is for getting a contract proposal. You’ll be able to get the
+      This example is for getting a contract proposal. You'll be able to get the
       price, payout and spot value for your contract.
     </p>
     <p>
