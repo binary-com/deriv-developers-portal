@@ -33,6 +33,7 @@
         }
         .customTextInput {
             border-radius: 4px;
+            align-items: center;
             display: flex;
             flex-direction: column;
             line-height: 1.43;
@@ -73,6 +74,7 @@
             .inlineLabel {
                 right: 11rem;
                 top: 10px;
+                position: relative;
                 padding: 4px 2px;
                 display: flex;
                 font-size: 16px;
@@ -97,6 +99,24 @@
                 font-size: 14px;
                 font-weight: 400;
                 padding-left: 10px;
+            }
+        }
+        .url {
+            display: flex;
+            flex-direction: row;
+            font-size: 20px;
+            padding: 10px;
+            .urlLabel {
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .urlId {
+                border-radius: 4px;
+                padding: 2px 4px;
+                color: #c7254e;
+                font-size: 90%;
+                border: 1px solid #eceff1;
+                font-weight: 400;
             }
         }
         .buttons {

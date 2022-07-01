@@ -1,25 +1,26 @@
-import { app_id, server_url } from './storageSignals';
+import { useLocalStorage } from './useLocalStorage';
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
 
-interface EndpointData {
-    app_id: number;
-    server_url: string;
-}
-
 export default function EndPoint() {
-    console.log('Value: ', app_id(), server_url());
     const {
         register,
         formState: { errors },
         setValue,
         handleSubmit,
-    } = useForm<EndpointData>();
+    } = useForm();
 
     const params = new URLSearchParams(window.location.search);
 
-    setValue('app_id', app_id());
-    setValue('server_url', server_url());
+    const [server_url, setServerUrl] = useLocalStorage('server_url', 'https://blue.binaryws.com');
+    const language: string = 'EN';
+    const [app_id, setAppId] = useLocalStorage('app_id', '31063');
+    const brand_name: string = 'deriv';
+
+    const [socket_url, setSocketUrl] = useLocalStorage(
+        'socket_url',
+        `wss://${server_url}/websockets/v3?app_id=${app_id}&l=${language}&brand=${brand_name}`
+    );
 
     return (
         <>
@@ -37,13 +38,14 @@ export default function EndPoint() {
                                     },
                                 })}
                                 name='server_url'
-                                defaultValue={server_url}
+                                value={server_url}
+                                onChange={el => setServerUrl(el.target.value)}
                                 placeholder='e.g. frontend.binaryws.com'
                                 className={styles.textInput}
                                 required
                             />
-                            {errors.server_url && (
-                                <span className={styles.errorMessage}>{errors.server_url.message}</span>
+                            {errors.socket_url && (
+                                <span className={styles.errorMessage}>{errors.socket_url.message}</span>
                             )}
                             <div className={styles.inlineLabel}>App_id</div>
                             <input
@@ -59,19 +61,31 @@ export default function EndPoint() {
                                 })}
                                 name='app_id'
                                 className={styles.textInput}
-                                defaultValue={app_id}
+                                value={app_id}
+                                onChange={el => setAppId(el.target.value)}
                                 placeholder='e.g. 9999'
                                 onClick={() => {
                                     if (server_url) localStorage.setItem('server_url', server_url);
-                                    if (app_id && !isNaN(app_id)) localStorage.setItem('app_id', app_id);
+                                    if (app_id) localStorage.setItem('app_id', app_id);
                                 }}
                                 required
                             />
                         </div>
                         {errors.app_id && <span className={styles.errorMessage}>{errors.app_id.message}</span>}
-
+                        <div className={styles.url}>
+                            <span className={styles.urlLabel}>Connected to :</span>{' '}
+                            <div className={styles.urlId}> {socket_url}</div>
+                        </div>
                         <div className={styles.buttons}>
-                            <button type='submit' className={styles.submitButton}>
+                            <button
+                                type='submit'
+                                className={styles.submitButton}
+                                onClick={() => {
+                                    if (server_url) localStorage.setItem('server_url', server_url);
+                                    if (app_id) localStorage.setItem('app_id', app_id);
+                                    if (socket_url) localStorage.setItem('server_url', socket_url);
+                                }}
+                            >
                                 Submit
                             </button>
                             <span style={{ marginLeft: '1.6rem' }} />
@@ -80,6 +94,7 @@ export default function EndPoint() {
                                 onClick={() => {
                                     localStorage.removeItem('app_id');
                                     localStorage.removeItem('server_url');
+                                    localStorage.removeItem('socket_url');
                                     window.history.replaceState({}, document.title, window.location.pathname);
                                     window.location.reload();
                                 }}

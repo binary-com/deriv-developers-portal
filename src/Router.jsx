@@ -1,5 +1,5 @@
 import React from 'react';
-import Endpoint from './Endpoint';
+const Endpoint = React.lazy(() => import('./Endpoint'));
 const HomePage = React.lazy(() => import('./Homepage'));
 const Docs = React.lazy(() => import('./Docs'));
 const ApiExplorer = React.lazy(() => import('./ApiExplorer'));
