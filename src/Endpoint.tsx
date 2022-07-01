@@ -44,7 +44,7 @@ export default function EndPoint() {
                                 className={styles.textInput}
                                 required
                             />
-                            {errors.socket_url && (
+                            {errors.server_url && (
                                 <span className={styles.errorMessage}>{errors.socket_url.message}</span>
                             )}
                             <div className={styles.inlineLabel}>App_id</div>
@@ -64,10 +64,6 @@ export default function EndPoint() {
                                 value={app_id}
                                 onChange={el => setAppId(el.target.value)}
                                 placeholder='e.g. 9999'
-                                onClick={() => {
-                                    if (server_url) localStorage.setItem('server_url', server_url);
-                                    if (app_id) localStorage.setItem('app_id', app_id);
-                                }}
                                 required
                             />
                         </div>
@@ -77,15 +73,7 @@ export default function EndPoint() {
                             <div className={styles.urlId}> {socket_url}</div>
                         </div>
                         <div className={styles.buttons}>
-                            <button
-                                type='submit'
-                                className={styles.submitButton}
-                                onClick={() => {
-                                    if (server_url) localStorage.setItem('server_url', server_url);
-                                    if (app_id) localStorage.setItem('app_id', app_id);
-                                    if (socket_url) localStorage.setItem('server_url', socket_url);
-                                }}
-                            >
+                            <button type='submit' className={styles.submitButton}>
                                 Submit
                             </button>
                             <span style={{ marginLeft: '1.6rem' }} />
