@@ -2,12 +2,12 @@ const WebSocket = require('ws');
 const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
 
 // You can register for an app_id here https://api.deriv.com/docs/app-registration/.
-const app_id = 31635; // Replace with your app_id.
+const app_id = 1089; // Replace with your app_id.
 const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
 const api = new DerivAPIBasic({ connection });
 
 // You can get your token here https://app.deriv.com/account/api-token. 
-const token = '3DwG8iZet26fHaV'; // Replace with your API token.
+const token = ''; // Replace with your API token.
 
 const statement_request = {
     "statement": 1,
