@@ -320,6 +320,5 @@ createMachine({
                 },
             },
         },
-        home: {},
     },
 });
