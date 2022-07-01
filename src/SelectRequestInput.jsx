@@ -43,7 +43,6 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                 {isActive && (
                     <div className={`${styles.dropdownContent} ${toggle ? styles.show : ''}`}>
                         <input
-                            autoFocus
                             type='text'
                             data-testid='searchInput'
                             className={styles.dropdownSearch}
