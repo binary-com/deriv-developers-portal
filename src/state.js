@@ -320,18 +320,6 @@ createMachine({
                 },
             },
         },
-        home: {
-            initial: 'isTop1',
-            states: {
-                isTop1: {
-                    on: {
-                        CLICK_LOGO: {
-                            target: 'isTop2',
-                        },
-                    },
-                },
-                isTop2: {},
-            },
-        },
+        home: {},
     },
 });
