@@ -4,7 +4,6 @@ import { useRoutes } from 'react-router-dom';
 import { Suspense } from 'react';
 import Header from './components/Header/Header';
 import LogoutButton from './LogoutButton';
-//import './storageSignals';
 import { routes } from './Router';
 import DelayedFallbackHomepage from './components/DelayedFallbackHomepage/DelayedFallbackHomepage';
 
