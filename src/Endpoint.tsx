@@ -10,17 +10,12 @@ export default function EndPoint() {
         handleSubmit,
     } = useForm();
 
-    const params = new URLSearchParams(window.location.search);
-
     const [server_url, setServerUrl] = useLocalStorage('server_url', 'https://blue.binaryws.com');
     const language: string = 'EN';
     const [app_id, setAppId] = useLocalStorage('app_id', '31063');
     const brand_name: string = 'deriv';
 
-    const [socket_url, setSocketUrl] = useLocalStorage(
-        'socket_url',
-        `wss://${server_url}/websockets/v3?app_id=${app_id}&l=${language}&brand=${brand_name}`
-    );
+    const socket_url = `wss://${server_url}/websockets/v3?app_id=${app_id}&l=${language}&brand=${brand_name}`;
 
     return (
         <>
@@ -73,7 +68,18 @@ export default function EndPoint() {
                             <div className={styles.urlId}> {socket_url}</div>
                         </div>
                         <div className={styles.buttons}>
-                            <button type='submit' className={styles.submitButton}>
+                            <button
+                                type='submit'
+                                className={styles.submitButton}
+                                onClick={() => {
+                                    {
+                                        el => {
+                                            setServerUrl(el.target.value);
+                                            setAppId(el.target.value);
+                                        };
+                                    }
+                                }}
+                            >
                                 Submit
                             </button>
                             <span style={{ marginLeft: '1.6rem' }} />
