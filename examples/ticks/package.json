@@ -1,17 +1,29 @@
 {
-    "name": "node-js",
+    "name": "static",
     "version": "1.0.0",
-    "description": "",
-    "main": "src/index.js",
+    "description": "This is a static template with no bundling",
+    "main": "index.html",
     "scripts": {
-      "start": "nodemon index.js"
+      "start": "serve",
+      "build": "echo This is a static template, there is no bundler or bundling involved!"
     },
-    "dependencies": {
-      "@deriv/deriv-api": "1.0.11",
-      "express": "4.16.4",
-      "nodemon": "2.0.18",
-      "ws": "8.8.0"
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/codesandbox-app/static-template.git"
     },
-    "keywords": []
+    "keywords": [
+      "static",
+      "template",
+      "codesandbox"
+    ],
+    "author": "Ives van Hoorne",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/codesandbox-app/static-template/issues"
+    },
+    "homepage": "https://github.com/codesandbox-app/static-template#readme",
+    "devDependencies": {
+      "serve": "^11.2.0"
+    }
   }
   
