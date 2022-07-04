@@ -101,6 +101,11 @@ const QuickStart = () => (
       This call will try to sell any expired contracts and return the number of sold contracts.
     </p>
     <CodeBlock id={"sell-expired-contracts"} />
+    <h2>Website status</h2>
+    <p>
+      Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
+    </p>
+    <CodeBlock id={"website-status"} />
   </div>
 );
 
