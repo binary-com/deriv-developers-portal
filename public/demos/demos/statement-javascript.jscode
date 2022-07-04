@@ -18,7 +18,6 @@ const statement_request = {
 
 const statementResponse = async (res) => {
     const data = JSON.parse(res.data);
-    console.log(data);
 
     if (data.error !== undefined) {
         console.log('Error : %o', data.error.message);
