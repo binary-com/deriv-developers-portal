@@ -1,4 +1,4 @@
-const WebSocket = require("isomorphic-ws");
+const WebSocket = require("ws");
 const DerivAPIBasic = require("@deriv/deriv-api/dist/DerivAPIBasic");
 const app_id = 1089; // Replace with your app_id or leave as 1089 for testing.
 const connection = new WebSocket(
