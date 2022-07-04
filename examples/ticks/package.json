@@ -1,0 +1,18 @@
+{
+    "name": "ticks-example",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+      "@deriv/deriv-api": "1.0.11",
+      "deriv-api-ts": "1.0.7",
+      "isomorphic-ws": "5.0.0"
+    },
+    "scripts": {
+      "start": "node index.js"
+    },
+    "devDependencies": {
+      "@types/node": "^17.0.21"
+    }
+  }
+  
