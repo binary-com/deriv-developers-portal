@@ -1,5 +1,6 @@
 import styles from "./Quickstart.module.scss";
 import CodeBlock from "./components/CodeBlock/CodeBlock";
+import { SandboxIframe, sandboxes } from "../codesandbox/balance/sandbox";
 
 const QuickStart = () => (
   <div className="page-content">
@@ -61,7 +62,7 @@ const QuickStart = () => (
       a trading commodity. This example shows you how to collect ticks for your
       trading app using Deriv's API.
     </p>
-    <CodeBlock id={"ticks"} />
+    <SandboxIframe sandbox={sandboxes.ticks} />
     <h2>Ticks history</h2>
     <p>
       With ticks history you are able to make a collection of past ticks.
