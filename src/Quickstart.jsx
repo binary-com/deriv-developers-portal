@@ -83,7 +83,7 @@ const QuickStart = () => (
       With ticks history you are able to make a collection of past ticks.
       It is also possible to subscribe to the websocket to keep track of the past ticks.
     </p>
-    <CodeBlock id={"ticks-history"} />
+    <SandboxIframe sandbox={sandboxes.ticks_history} />
     <h2>Portfolio</h2>
     <p>
       Receive information about your portfolio with outstanding options.
