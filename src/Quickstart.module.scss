@@ -1,78 +1,80 @@
 .page_content {
-  padding-left: 42px;
-  width: 68%;
-  border-left: 2px solid var(--gray-01);
-  color: #333333;
+    padding-left: 42px;
+    width: 68%;
+    border-left: 2px solid var(--gray-01);
+    color: #333333;
+    height: 100vh;
+    width: 100vw;
 
-  @media (max-width: 992px) {
-    padding-left: unset;
-    width: unset;
-    border-left: unset;
-  }
+    @media (max-width: 992px) {
+        padding-left: unset;
+        width: unset;
+        border-left: unset;
+    }
 }
 .doc_main_title {
-  margin-bottom: 40px;
-  font-size: 48px;
-  padding-left: 8px;
-  text-align: center;
-  color: #333333;
-  @media (max-width: 992px) {
-    font-size: 32px;
-  }
+    margin-bottom: 40px;
+    font-size: 48px;
+    padding-left: 8px;
+    text-align: center;
+    color: #333333;
+    @media (max-width: 992px) {
+        font-size: 32px;
+    }
 }
 
 .quick_start_intro {
-  p {
-    line-height: 28px;
-    margin-bottom: 16px;
-  }
-  ul {
-    padding-left: 20px;
-
-    li {
-      margin-bottom: 16px;
+    p {
+        line-height: 28px;
+        margin-bottom: 16px;
     }
-  }
+    ul {
+        padding-left: 20px;
+
+        li {
+            margin-bottom: 16px;
+        }
+    }
 }
 .api_sub_title {
-  font-size: 24px;
-  line-height: 1.5;
-  text-align: left;
-  width: 100%;
-  margin-bottom: 8px;
-  color: #333333;
-  margin: 24px 0;
-
-  @media (max-width: 992px) {
-    font-size: 20px;
-    line-height: 25px;
+    font-size: 24px;
+    line-height: 1.5;
     text-align: left;
     width: 100%;
-  }
-  @media (max-width: 480px) {
-    font-size: 16px;
-    line-height: 24px;
-  }
+    margin-bottom: 8px;
+    color: #333333;
+    margin: 24px 0;
+
+    @media (max-width: 992px) {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+        width: 100%;
+    }
+    @media (max-width: 480px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
 }
 .bullet {
-  list-style-type: bullet;
+    list-style-type: bullet;
 }
 
 @media (max-width: 992px) {
-  .quick_start_intro {
-    p {
-      line-height: 28px;
-      margin-bottom: 16px;
-    }
-    ul {
-      padding-left: 20px;
+    .quick_start_intro {
+        p {
+            line-height: 28px;
+            margin-bottom: 16px;
+        }
+        ul {
+            padding-left: 20px;
 
-      li {
-        margin-bottom: 16px;
-      }
+            li {
+                margin-bottom: 16px;
+            }
+        }
     }
-  }
-  .bullet {
-    list-style-type: bullet;
-  }
+    .bullet {
+        list-style-type: bullet;
+    }
 }

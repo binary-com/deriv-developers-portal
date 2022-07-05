@@ -1,25 +1,35 @@
 import { useLocalStorage } from './useLocalStorage';
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
-
+import { useRef } from 'react';
+import { app_id, server_url } from './storageSignals';
+import './useLocalStorage';
 export default function EndPoint() {
     const {
         register,
         formState: { errors },
         setValue,
         handleSubmit,
-    } = useForm();
+    } = useForm({ mode: 'onSubmit' });
 
-    const [server_url, setServerUrl] = useLocalStorage('server_url', 'https://blue.binaryws.com');
-    const language: string = 'EN';
-    const [app_id, setAppId] = useLocalStorage('app_id', '31063');
-    const brand_name: string = 'deriv';
-
+    const inputServerRef = useRef();
+    const inputAppRef = useRef();
+    export const [server_url, setServerUrl] = useLocalStorage('server_url', 'https://blue.binaryws.com');
+    const language = 'EN';
+    export const [app_id, setAppId] = useLocalStorage('app_id', '31063');
+    const brand_name = 'deriv';
     const socket_url = `wss://${server_url}/websockets/v3?app_id=${app_id}&l=${language}&brand=${brand_name}`;
+
+    const handleClick = () => {
+        const updatedAppId = inputAppRef.current.value;
+        const updatedServerUrl = inputServerRef.current.value;
+        setAppId(updatedAppId);
+        setServerUrl(updatedServerUrl);
+    };
 
     return (
         <>
-            <form>
+            <form onSubmit={handleClick}>
                 <div className={styles.pageContent}>
                     <div className={styles.header}>Change API endpoint</div>
                     <div className={styles.content}>
@@ -33,8 +43,9 @@ export default function EndPoint() {
                                     },
                                 })}
                                 name='server_url'
-                                value={server_url}
-                                onChange={el => setServerUrl(el.target.value)}
+                                defaultValue={server_url}
+                                ref={inputServerRef}
+                                //onChange={el => setServerUrl(el.target.value)}
                                 placeholder='e.g. frontend.binaryws.com'
                                 className={styles.textInput}
                                 required
@@ -56,9 +67,10 @@ export default function EndPoint() {
                                 })}
                                 name='app_id'
                                 className={styles.textInput}
-                                value={app_id}
-                                onChange={el => setAppId(el.target.value)}
+                                id='app_id'
+                                defaultValue={app_id}
                                 placeholder='e.g. 9999'
+                                ref={inputAppRef}
                                 required
                             />
                         </div>
@@ -68,18 +80,7 @@ export default function EndPoint() {
                             <div className={styles.urlId}> {socket_url}</div>
                         </div>
                         <div className={styles.buttons}>
-                            <button
-                                type='submit'
-                                className={styles.submitButton}
-                                onClick={() => {
-                                    {
-                                        el => {
-                                            setServerUrl(el.target.value);
-                                            setAppId(el.target.value);
-                                        };
-                                    }
-                                }}
-                            >
+                            <button type='submit' className={styles.submitButton}>
                                 Submit
                             </button>
                             <span style={{ marginLeft: '1.6rem' }} />
