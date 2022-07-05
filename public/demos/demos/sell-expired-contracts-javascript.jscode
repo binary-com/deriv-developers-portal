@@ -1,4 +1,4 @@
-const WebSocket = require('ws');
+const WebSocket = require('isomorphic');
 const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
 
 // You can register for an app_id here https://api.deriv.com/docs/app-registration/.
@@ -9,30 +9,27 @@ const api = new DerivAPIBasic({ connection });
 // You can get your token here https://app.deriv.com/account/api-token. 
 const token = ''; // Replace with your API token.
 
-const balance_request = {
-    "balance": 1,
-    "subscribe": 1 
-}
-
-const accountBalanceResponse = async (res) => {
+const expiredContractsResponse = async (res) => {
     const data = JSON.parse(res.data);
-    
+
     if (data.error !== undefined) {
         console.log('Error : %o', data.error.message);
-    }
+        connection.removeEventListener('message', expiredContractsResponse, false);
+        await api.disconnect();
+      }
 
-    if (data.msg_type == 'balance') {
-        console.log('Current Balance: %o', data.balance.balance);
+    if (data.msg_type === 'sell_expired') {
+        console.log('amount of expired contracts sold: ', data.sell_expired?.count)
     }
-
-    connection.removeEventListener('message', accountBalanceResponse, false);
+    
+    connection.addEventListener('message', expiredContractsResponse, false);
     await api.disconnect();
 }
 
-const getAccountBalance = async () => {
+const sellExpiredContracts = async () => {
     await api.authorize(token);
-    connection.addEventListener('message', accountBalanceResponse);
-    await api.send(balance_request);
+    connection.addEventListener('message', expiredContractsResponse);
+    await api.sellExpired();
 }
 
-getAccountBalance();
+sellExpiredContracts();

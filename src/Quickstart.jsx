@@ -43,6 +43,12 @@ const QuickStart = () => (
       In more of the code examples below, you can see aswell how the authorize function is utilized.
     </p>
     <CodeBlock id={"authorize"} />
+    <h2>Account balance</h2>
+    <p>
+      This example shows you how to use the Deriv API to retrieve account
+      balance information.
+    </p>
+    <CodeBlock id={"balance"} />
     <h2>Buy contract</h2>
     <p>
       A contract is an agreement to buy or sell an asset at an agreed-upon
@@ -56,15 +62,25 @@ const QuickStart = () => (
       trading app using Deriv's API.
     </p>
     <CodeBlock id={"ticks"} />
-    <h2>Account balance</h2>
+    <h2>Ticks history</h2>
     <p>
-      This example shows you how to use the Deriv API to retrieve account
-      balance information.
+      With ticks history you are able to make a collection of past ticks.
+      It is also possible to subscribe to the websocket to keep track of the past ticks.
     </p>
-    <CodeBlock id={"balance"} />
+    <CodeBlock id={"ticks-history"} />
+    <h2>Portfolio</h2>
+    <p>
+      Receive information about your portfolio with outstanding options.
+    </p>
+    <CodeBlock id={"portfolio"} />
+    <h2>Profit table</h2>
+    <p>
+      This example will retrieve a summary of your account Profit Table.
+    </p>
+    <CodeBlock id={"profit-table"} />
     <h2>Proposal</h2>
     <p>
-      This example is for getting a contract proposal. You’ll be able to get the
+      This example is for getting a contract proposal. You'll be able to get the
       price, payout and spot value for your contract.
     </p>
     <p>
@@ -79,6 +95,16 @@ const QuickStart = () => (
       alive by sending a ping every 30 seconds.
     </p>
     <CodeBlock id={"keep-alive"} />
+    <h2>Sell expired contracts</h2>
+    <p>
+      This call will try to sell any expired contracts and return the number of sold contracts.
+    </p>
+    <CodeBlock id={"sell-expired-contracts"} />
+    <h2>Website status</h2>
+    <p>
+      Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
+    </p>
+    <CodeBlock id={"website-status"} />
   </div>
 );
 

@@ -16,6 +16,12 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
         }
     };
 
+    const handleToggleDropdown = () => {
+        setIsActive(!isActive);
+        setToggle(!toggle);
+        setSearchResults('');
+    };
+
     useEffect(() => {
         document.addEventListener('click', handleClickOutside, true);
         return () => {
@@ -28,11 +34,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
             <div className={styles.dropdown} ref={ref}>
                 <div
                     className={styles.dropdownBtn}
-                    onClick={() => {
-                        setIsActive(!isActive);
-                        setToggle(!toggle);
-                        setSearchResults('');
-                    }}
+                    onClick={handleToggleDropdown}
                     data-testid='apiDropdown'
                 >
                     {selected_value}
@@ -41,8 +43,9 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                 {isActive && (
                     <div className={`${styles.dropdownContent} ${toggle ? styles.show : ''}`}>
                         <input
+                            autoFocus
                             type='text'
-                            id='myInput'
+                            data-testid='searchInput'
                             className={styles.dropdownSearch}
                             onChange={event => {
                                 setSearchResults(event.target.value);

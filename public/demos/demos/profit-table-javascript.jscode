@@ -9,30 +9,35 @@ const api = new DerivAPIBasic({ connection });
 // You can get your token here https://app.deriv.com/account/api-token. 
 const token = ''; // Replace with your API token.
 
-const balance_request = {
-    "balance": 1,
-    "subscribe": 1 
+const profit_table_request = {
+    "profit_table": 1,
+    "description": 1,
+    "limit": 25,
+    "offset": 25,
+    "sort": "ASC"
 }
 
-const accountBalanceResponse = async (res) => {
+const profitTableResponse = async (res) => {
     const data = JSON.parse(res.data);
-    
+
     if (data.error !== undefined) {
         console.log('Error : %o', data.error.message);
     }
 
-    if (data.msg_type == 'balance') {
-        console.log('Current Balance: %o', data.balance.balance);
-    }
 
-    connection.removeEventListener('message', accountBalanceResponse, false);
+    if (data.msg_type === 'profit_table') {
+        console.log(data.profit_table?.transactions);
+        console.log("Amount of table elements: ", data.profit_table?.count)
+    }
+    
+    connection.removeEventListener('message', profitTableResponse);
     await api.disconnect();
 }
 
-const getAccountBalance = async () => {
+const getProfitTable = async () => {
     await api.authorize(token);
-    connection.addEventListener('message', accountBalanceResponse);
-    await api.send(balance_request);
+    connection.addEventListener('message', profitTableResponse);
+    await api.profitTable(profit_table_request);
 }
 
-getAccountBalance();
+getProfitTable();
