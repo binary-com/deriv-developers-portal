@@ -49,6 +49,16 @@ const QuickStart = () => (
       balance information.
     </p>
     <CodeBlock id={"balance"} />
+    <h2>Active symbols</h2>
+    <p>
+      Retrieve a list of all currently active symbols (underlying markets upon which contracts are available for trading).
+    </p>
+    <p>
+      This example retrieves all avaiable active symbols. 
+      In case you want to retrieve active symbols for a specific landing company,
+      you can add <code className="inline-code">landing_company</code> to the request object.
+    </p>
+    <CodeBlock id={"active-symbols"} />
     <h2>Buy contract</h2>
     <p>
       A contract is an agreement to buy or sell an asset at an agreed-upon
