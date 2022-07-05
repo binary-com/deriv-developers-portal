@@ -1,6 +1,6 @@
 import styles from "./Quickstart.module.scss";
 import CodeBlock from "./components/CodeBlock/CodeBlock";
-import { SandboxIframe, sandboxes } from "../codesandbox/balance/sandbox";
+import { SandboxIframe, sandboxes } from "../codesandbox/sandbox";
 
 const QuickStart = () => (
   <div className="page-content">
