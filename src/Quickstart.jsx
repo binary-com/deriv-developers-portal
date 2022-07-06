@@ -1,5 +1,6 @@
 import styles from "./Quickstart.module.scss";
 import CodeBlock from "./components/CodeBlock/CodeBlock";
+import { SandboxIframe, sandboxes } from "../codesandbox/sandbox";
 
 const QuickStart = () => (
   <div className="page-content">
@@ -49,19 +50,34 @@ const QuickStart = () => (
       balance information.
     </p>
     <CodeBlock id={"balance"} />
+    <h2>Active symbols</h2>
+    <p>
+      Retrieve a list of all currently active symbols (underlying markets upon which contracts are available for trading).
+    </p>
+    <p>
+      This example retrieves all avaiable active symbols. 
+      In case you want to retrieve active symbols for a specific landing company,
+      you can add <code className="inline-code">landing_company</code> to the request object.
+    </p>
+    <CodeBlock id={"active-symbols"} />
     <h2>Buy contract</h2>
     <p>
       A contract is an agreement to buy or sell an asset at an agreed-upon
       price. This example shows you how to buy a contract using Deriv API.
     </p>
     <CodeBlock id={"buy-contract"} />
+    <h2>Contracts for symbol</h2>
+    <p>
+      For a given symbol, get the list of currently available contracts, and the latest barrier and duration limits for each contract.
+    </p>
+    <CodeBlock id={"contracts-for-symbol"} />
     <h2>Ticks</h2>
     <p>
       A tick is a measure of minimum upward or downward movement in the price of
       a trading commodity. This example shows you how to collect ticks for your
       trading app using Deriv's API.
     </p>
-    <CodeBlock id={"ticks"} />
+    <SandboxIframe sandbox={sandboxes.ticks} />
     <h2>Ticks history</h2>
     <p>
       With ticks history you are able to make a collection of past ticks.
@@ -88,6 +104,11 @@ const QuickStart = () => (
       example for Keep alive.
     </p>
     <CodeBlock id={"proposal"} />
+    <h2>Proposal: Open contract</h2>
+    <p>
+      Get latest price (and other information) for a contract in the user's portfolio.
+    </p>
+    <CodeBlock id={"proposal-open-contract"} />
     <h2>Keep alive</h2>
     <p>
       In this example you’ll see how to keep a connection alive when getting
@@ -100,6 +121,11 @@ const QuickStart = () => (
       This call will try to sell any expired contracts and return the number of sold contracts.
     </p>
     <CodeBlock id={"sell-expired-contracts"} />
+    <h2>Statement</h2>
+    <p>
+      Retrieve a summary of account transactions, according to given search criteria.
+    </p>
+    <CodeBlock id={"statement"} />
     <h2>Website status</h2>
     <p>
       Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
