@@ -117,10 +117,10 @@ p {
   }
 }
 .doc-content {
-  padding: 188px 50px;
+  padding: 188px 50px 50px 0;
   display: flex;
   min-height: 95vh;
-  height: 100vh;
+  //height: 100vh;
 }
 button:focus {
   outline: none;
