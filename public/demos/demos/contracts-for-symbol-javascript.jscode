@@ -1,0 +1,42 @@
+const WebSocket = require('ws');
+const DerivAPIBasic = require('@deriv/deriv-api/dist/DerivAPIBasic');
+
+// You can register for an app_id here https://api.deriv.com/docs/app-registration/.
+const app_id = 1089; // Replace with your app_id.
+const connection = new WebSocket(`wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`);
+const api = new DerivAPIBasic({ connection });
+
+// You can get your token here https://app.deriv.com/account/api-token. 
+const token = ''; // Replace with your API token.
+
+const contracts_for_symbol_request = {
+    "contracts_for": "R_50",
+    "currency": "USD",
+    "landing_company": "svg",
+    "product_type": "basic"
+}
+
+const contractsForSymbolResponse = async (res) => {
+    const data = JSON.parse(res.data);
+    
+    if (data.error !== undefined) {
+        console.log('Error : %o', data.error?.message);
+        connection.removeEventListener('message', contractsForSymbolResponse, false);
+        await api.disconnect();
+    }
+    
+    if (data.msg_type === 'contracts_for') {
+        console.log(data.contracts_for);
+    }
+
+    connection.removeEventListener('message', contractsForSymbolResponse, false);
+    await api.disconnect();
+}
+
+const getContractsForSymbol = async () => {
+    await api.authorize(token);
+    connection.addEventListener('message', contractsForSymbolResponse);
+    await api.contractsFor(contracts_for_symbol_request);
+}
+
+getContractsForSymbol();
