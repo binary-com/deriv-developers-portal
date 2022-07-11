@@ -14,6 +14,17 @@ const derivAPISkeleton = {
     },
     states: {
         home: {
+            initial: 'isDown',
+            states: {
+                isDown: {
+                    on: {
+                        CLICK_LOGO: {
+                            target: 'isTop',
+                        },
+                    },
+                },
+                isTop: {},
+            },
             on: {
                 CLICK_PLAYGROUND: {
                     target: '#deriv_api.documentation.playground',
@@ -71,7 +82,6 @@ const derivAPISkeleton = {
                         selecting_api: {},
                     },
                 },
-                home: {},
                 faq: {},
                 jsonSchemas: {},
                 bugBounty: {},
@@ -148,6 +158,9 @@ const derivAPIEvents = {
     },
     CLICK_MAIN_LOGO: function () {
         cy.get('[data-testid="mainLogo"]').click();
+    },
+    CLICK_LOGO: function () {
+        cy.get('[data-testid="home_logo"]').click();
     }
 };
 
