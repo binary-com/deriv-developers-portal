@@ -51,6 +51,9 @@ const derivAPISkeleton = {
                                 SELECT_API: {
                                     target: 'selected_tokenEmpty',
                                 },
+                                CLICK_DROPDOWN: {
+                                    target: 'selecting_api',
+                                },
                             },
                         },
                         notselected_tokenFilled: {
@@ -76,6 +79,7 @@ const derivAPISkeleton = {
                         },
                         displayAuthDoc: {},
                         displaySelectedDoc: {},
+                        selecting_api: {},
                     },
                 },
                 faq: {},
@@ -145,6 +149,9 @@ const derivAPIEvents = {
         cy.get('[data-testid="apiDropdown').click();
         // select the first option in the dropdown starting with data-testid apiDropdownItem
         cy.get('[data-testid*="apiDropdownItem').first().click();
+    },
+    CLICK_DROPDOWN: function () {
+        cy.get('[data-testid="apiDropdown').click();
     },
     CLICK_AUTHENTICATE: function () {
         cy.get('button').contains('Authenticate').click();
@@ -226,6 +233,10 @@ const derivAPIStates = {
         // should not contain authorize
         .contains(/authorize/i).should('not.exist');
     },
+    selecting_api: () => {
+        // data-testid searchInput should be in focus
+        cy.get('[data-testid="searchInput"]').should('have.focus');
+    }
 };
 
 // cypress check if the scroll is at the top of the page
@@ -252,7 +263,7 @@ const addTests = (skeleton, testStates) => {
 addTests(derivAPISkeleton, derivAPIStates);
 
 export const derivApiMachine =
-    /** @xstate-layout N4IgpgJg5mDOIC5QTAJwJYDcD6BDADugHQAWA9gLZhHqwAqZ+AjAMQDCAMgJJsDS2HAPIBxQYlD4ysdABd0ZAHbiQAD0QBmACwB2Ik3XbtATgBMTIwDZ1+pgBoQAT0SaDRIwA4mABgsBWf+pGvkxMAL6h9igYOATE5FTs3HzYAAocAIIAmsIASoIAqgByACLKktJyispqCCZmRNqBXu4m6uoWmia+2u72TggevkSaXr4W7qaBvl4m4ZFoWHiEpJRgiTz8xYJs+QCyAKKFdOl0XIKFZVKy8kpIqoh1TA1NLW0dXT19iAC05kbDniYLiCQKYFhmcxAUUWsSIEDIAGMAK5UBQyXCVBREfAAG1wDigqDISIUECICjIMlgYBxYARMkg2BkZAA1mAFPsKPgZA4WAAxLgcDjYOiCXiHS4VG7VRDaLwNFq+DzGLydbSaOyOH5aTREAxaYLaEyadwGIyQ6ExZbw5Go9GY7F4glEklkilUml0hkQJms9mc7m8gDK+w4+zYdGw6RSXEl1yqdxqcoVXWVRlVJnVmv630CJj1jU0huNpuMFoWVuINpR7PtN0d+MJxNJ5Mp1Np9MZzLZCj56BxtIgLBDYYjUZjccxMoQHSI7lVHUMIwsdUaXwQ3xM7gsDXTIRMXje2m62nL0SWVcRNbRGPruMbLpb7a9Xb9HK5PP5guFovFFzu5TxrcoA1Jo-wtEY3jHsYJpGJBmjrpuJj-AeFiGK0nTBO0FhnjC1pXnat6KA2zrNmSz6dj63bsn2A6QOsyTpPkdAABKHKcbAnPsk7SomzjqHOSrbqYHitHBQKIUw2hPCuWjqCYfj6ME-i4ZWcIEbWREKAx-DRik2A5PswhcEGdA5CcZz-hIVxTnxG7Ie4RAWOYmh+Mh6heEamgIVqG7pv8TDGsYvguIEQQ4REUIVhe6m2ppmI6dgwj5FwxTcQBNm8SBPxML4AkWJBcodPOYKeIhcHytueXuEWx41foqkxdWhEJZwGzYFsOwHEcFnnDxCbZRujnaFYRg6BYaEKQYny+b8nn5uCSqNNJI3uKekWWk1Gk3q1ST8GkWS5AUJT9cB9wIPoO5guogJAmMIy+L0s0hCFequWMW5KnlmaNbCzXxTciV8ukACKp3TluTxeJBYxwY9IVgT5OaBe0RDNNJvgHl4+g9Jov34XFO2A21yQAFJBuc2BBmwbG7OkQbg3ZnQ7tjRjyWt0neWzknWLoLRLiELh1HjG3RX9211ooiUAEL5MI2DS8ddCZIzg3dPKY1ymtj0uHl2g83BRBjKaHmfT4Hj4+giUHdkeRFKUGVSgNs2tAJjyNB5bMKVJJj2KBr3TEF5itC0niW4lnV7OxvVWSAgG2aAObWLqlitHUrTBJ5Pk1Eq-wuDMHmNGh8m+OEkUUig8B3JtsLxNQtAMMwqvneYAnQwe6YjGBFUWOuLhPDo2Med0gyGOt8znrXqw0PQjAmM3Oe5YJmPY6NmZoX31jDHK+ijMY7gnpbKxUAviBgv87fQ6qqpwemve+eoj3b1YB8TOY5ijEf-1E8R3+S2d8csrnW+GBfMI0RjqhGG0NmSMcrOT0O4RBHRwTGn8CaL+EstJEFQGAKAtAZCoC0qfDcRoApmDZkac+XhRiSQ8HoFcOhrAeEQZ4CKE88KXkJv-IgUAkToBQMQ744x8rkKYWnboT0cxGF0CabwbQdBFi3GNDBXCsH3lIq6VsHoOzel9D2AMPJBGZkqrDJBIRIJWEQjqAsBofYmjNCo683D1FNk0e6CiujqK9n7IOIxyYD4FTMe-SxLt1ROXZpYGGCloKOJaneJ0rinyekono-0H5+jWSdmdGom5-GmO3OY66iEDy6gmK0TyhgtBmG3LEgGxEXGPnIskzxb5aK+MdkBacuSTGBIKcE9QPMhi5Skkwbc1hujOTYVFSeBMnFqISY0uEtB1HpCRDIEgxRER+J6cw5y-TEJ+GGCEaG+g1QSNqT-LEDSyJLNgOooMzTICbIRNswSvS9kWIGb5XU8kxpWFcuMQKWELnOIWWRIxY03m7MKSEnM709RoWukabo5iQVYIAGa4AAI6CJXDucSu8QreHBPffork3BCR8P4Y0QIISixmZwuZDoABWsBFBBgRCQMAFBcBV0yZ0uyQjAj0I6CFGlAT1yBRQqMNo0l9Bbk-vSjhsUmX1gAEZIigNLZshiOkJ2AVYJ4a0FLSNaKMqS646gX08mMQKGFynj2mcqv+RC9VAJyceASgVW6UIKtQ3wkkTS6g+t4MYRUejmiVZWQRY89CiN9emGhz1YZG38Ig7yiKRizDLkAA */
+    /** @xstate-layout N4IgpgJg5mDOIC5QTAJwJYDcD6BDADugHQAWA9gLZhHqwAiZA7gHYDEAwgDICS7A0tk4B5AOJDEofGVjoALujLMJIAJ6IALAAYAbEXUB2bQGYAHAFYTATgCMNy5rMAaEAA9EAJmvui7y5-tmZtb6ZvomAL7hzigYOATE5FQcPPzYAAqcAIIAmiIASkIAqgBydMpSMvKKym4I7p5E+kb2Ju5GRtrq7qEmzmoIluZ6DtpWbZZmmu6R0WhYeISklGDJvAJ0QuyFALIAosUAKpkH3ELF5dJyCkpIrh4NTS1tHV09fYgAtLaWeibW1upmkF1NZtFMZiAYvN4kQIGQAMYAVyozFkuCqzCI+AANrgVFBUGREcwIERmGRZLAwNiwPDZJBsLIyABrMDMXYUfCyFSsABi3E4nGwByEfH2F0q1xqiH0mkarTMg309i6+hB7wQHyM6nURCMTXUQX07nUJn1lghULiizhSJRaIxWNx+MJxNJ5Mp1Np9IgjJZbI5XJ5AGVdpxduwDthMmluBKrtVbrVZfLukqVe41dYNVq-HqDUaTWblZa5tbiLbkWyHdcnXiCUSSWSKVSaXSGUzWezOdzVqk6AU0hsAOrnW4VBM3UC1L5y4wmZVp6w6TN-HOGuXWUI6HTaTNmfWl2ILCsIquo9G1nH111Nj2t70d-3MXnobE0iCsUPhyPR2PxjFpQQToiBMTR1E6fQ1RXTMjBzdwTF0ZVNH+dxNHabQQigo9oRtM97UvRQ6xdRtSQfdtfU7AMex5flBWFUVxXHS5AKTDQflaGxNCwyxTUsGx1Hg3wfB0KC2leawOm0HDy1hfDq0IzFrxIt0iHIn0-S7V930gPsBEyQoDgACX2E52GOXYAKlNiEEBUDFUQvxBnGASc2CawiD3bUjHcbQgiMIJAhkk85LtBSMT0v80mwPJdhEbhgwOPJjlOMdJBY6zp0+XwTE82wILMXwjG4k1BNUT57B+LwDAmQFmgmaSokhMsQsrAiIq4NZsBEQpuDoSzmMlRMss1LcjE8mxZU6MDQTXcrNX4uVEIPExDRCVbJOCmE2vC65Io2LY9kOFKzis4a7k1XLDGaAxtEw3z9TCNySs8hxLCafRglGfQtrwsKLw6lIBAyHJ8iKUozqnC7JN0UFTH+AEzE6Bxenmr4t11bU-L3cwJh8n6mqtVr5IBvbOtSXlMgARUhoCEI8zQbCR-iLDMHVeLctpdE0BctzQlD9VW37T3+mtFEigApYMzmwYN2BM7ZMmDWmbK6bnbB8hdPvZuC0ck4JQMzLMAR8k1hdC88xbYcmBAAIUKERsFt8GDmyFWRu3IheNlBcLEBA99Dc+qiCRs1ioQyZtEGYXIpB3IChKMpBsnZR+g+Z4fE8JpissHztGCdxnFqQ1dUmE1Pr8Ux6Zjm3sAOnZTJOtKQAnVjQDTowAS9rz6jaIJuLK2pFR+QEpmKppMJ8sxIia8kUHgW4iZhRJqFoBgWHdi7NA1LRdFu0wLDsWwHHNleaFgA4yHwTfam3+aINy5oQgQgxNHArRp8Jlrl+WG-srK-o7RxqmhNBMbiiFjDdHNjtUmREYFWz-pqdQeZDBaDVFodoucAGfFBB5awJgCGdDBCaQIppoEkytkQVAYAoC0FkKgRSiCPjGiqv4fUngo5vycHrQYRBQTl07oMAhfxGqzGPNtChikiBQEROgFATDRjjT3BrWwbRuhPTRu9X4y52gGENAhXi5DRZSOUg2VS94vQUU0tRIMTDO76CIFMYE6Esb5wcOuTCXtGaWHzsgqO+oIJGMtiY50Zi7wtksRpKiL43wfiYZmJazNCH-BsMYeCapPKax8UzXyWEgntSvKE28ZFIlPi7IGbk8SUzmCjsk2wcN4LgVApXbiUFtSeEQvk3aRFTHFLUqUyiz5tJxOTm3C66dqlJMQikhpesAp8KNPg4wW5DCgi6bApSRTSKwloMpTIiJZAkAYPCKpiTanTPqWktGfk9D-EZpJVUPR1mUN6dsiAuznTBgGcc059lzn50ubrfomNfAQVcX8bom0v7iL+sEx0rzVLqXQMwKAJ5EFtDlIMQqXhAh3W6OuJGnlRgoV7saQIRhnkhJvKROxIJHGQowa45c3C05s0xehTCe4HChC8JSx0AAzXAABHBRvkvY2Ekg4EEO5tA710BMQYOhAgmgBOCaFuERZwtrAAK1gIoYM8ISBgAoLgBe6UhpQxnMYKqd0S4qpqRqLwPw0IHn1P8TWJ91WyXgVIgARoiKAttGyVNGZlcZyzQLGijsaTufxA7zXqD8N+IR871HaePPlYbW5hpnCEcaXgNbGlBPYdxetTSly5fYAEC5tQRC9Wi0N51c1QT4WwotnDS1py3FHEOgRzBvy8PVOtkQgA */
     createMachine(derivAPISkeleton);
 
 const derivAPIModel = createModel(derivApiMachine, { events: derivAPIEvents });
