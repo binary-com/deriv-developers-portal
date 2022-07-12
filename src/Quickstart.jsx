@@ -81,7 +81,6 @@ const QuickStart = () => (
         <h2>Sell expired contracts</h2>
         <p>This call will try to sell any expired contracts and return the number of sold contracts.</p>
         <CodeBlock id={'sell-expired-contracts'} />
-    </div>
     <h2>Authorize</h2>
     <p>
       While not always the case, most of the functionalities of the Deriv API requires you to authorize
