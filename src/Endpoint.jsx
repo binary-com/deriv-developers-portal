@@ -1,10 +1,9 @@
-import { useLocalStorage } from './useLocalStorage';
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
-import { useRef } from 'react';
-import { app_id, server_url } from './storageSignals';
-import './useLocalStorage';
-export default function EndPoint() {
+import { useRef, useEffect } from 'react';
+import { app_id, server_url, setAppId, setServerUrl } from './storageSignals';
+
+const EndPoint = () => {
     const {
         register,
         formState: { errors },
@@ -12,11 +11,11 @@ export default function EndPoint() {
 
     const inputServerRef = useRef();
     const inputAppRef = useRef();
-    const [config_server_url, setServerUrl] = useLocalStorage('server_url', server_url());
     const language = 'EN';
-    const [config_app_id, setAppId] = useLocalStorage('app_id', app_id());
     const brand_name = 'deriv';
-    const socket_url = `wss://${config_server_url}/websockets/v3?app_id=${config_app_id}&l=${language}&brand=${brand_name}`;
+    const server_url_ui = server_url();
+    const app_id_ui = app_id();
+    const socket_url = `wss://${server_url()}/websockets/v3?app_id=${app_id()}&l=${language}&brand=${brand_name}`;
 
     const handleClick = () => {
         const updatedAppId = inputAppRef.current.value;
@@ -24,6 +23,10 @@ export default function EndPoint() {
         setAppId(updatedAppId);
         setServerUrl(updatedServerUrl);
     };
+
+    useEffect(() => {
+        // window.location.reload();
+    }, []);
 
     return (
         <>
@@ -41,9 +44,8 @@ export default function EndPoint() {
                                     },
                                 })}
                                 name='server_url'
-                                defaultValue={config_server_url}
+                                defaultValue={server_url_ui}
                                 ref={inputServerRef}
-                                //onChange={el => setServerUrl(el.target.value)}
                                 placeholder='e.g. frontend.binaryws.com'
                                 className={styles.textInput}
                                 required
@@ -66,7 +68,7 @@ export default function EndPoint() {
                                 name='app_id'
                                 className={styles.textInput}
                                 id='app_id'
-                                defaultValue={config_app_id}
+                                defaultValue={app_id_ui}
                                 placeholder='e.g. 9999'
                                 ref={inputAppRef}
                                 required
@@ -101,4 +103,6 @@ export default function EndPoint() {
             </form>
         </>
     );
-}
+};
+
+export default EndPoint;
