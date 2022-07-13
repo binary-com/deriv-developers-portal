@@ -1,6 +1,7 @@
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
 import { useRef, useEffect } from 'react';
+import { stateService } from './stateSignal';
 import { app_id, server_url, setAppId, setServerUrl } from './storageSignals';
 
 const EndPoint = () => {
@@ -22,6 +23,9 @@ const EndPoint = () => {
         const updatedServerUrl = inputServerRef.current.value;
         setAppId(updatedAppId);
         setServerUrl(updatedServerUrl);
+        stateService.send('LOGOUT');
+        sessionStorage.removeItem('token1');
+        location.replace('/docs/app-registration/');
     };
 
     useEffect(() => {
@@ -51,7 +55,7 @@ const EndPoint = () => {
                                 required
                             />
                             {errors.server_url && (
-                                <span className={styles.errorMessage}>{errors.socket_url.message}</span>
+                                <span className={styles.errorMessage}>{errors.server_url?.message}</span>
                             )}
                             <div className={styles.inlineLabel}>App_id</div>
                             <input
@@ -74,7 +78,7 @@ const EndPoint = () => {
                                 required
                             />
                         </div>
-                        {errors.app_id && <span className={styles.errorMessage}>{errors.app_id.message}</span>}
+                        {errors.app_id && <span className={styles.errorMessage}>{errors.app_id?.message}</span>}
                         <div className={styles.url}>
                             <span className={styles.urlLabel}>Connected to :</span>{' '}
                             <div className={styles.urlId}> {socket_url}</div>
@@ -91,6 +95,9 @@ const EndPoint = () => {
                                     localStorage.removeItem('server_url');
                                     localStorage.removeItem('socket_url');
                                     window.history.replaceState({}, document.title, window.location.pathname);
+                                    stateService.send('LOGOUT');
+                                    sessionStorage.removeItem('token1');
+                                    location.replace('/docs/app-registration/');
                                     window.location.reload();
                                 }}
                                 className={styles.resetButton}
