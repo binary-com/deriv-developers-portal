@@ -1,8 +1,8 @@
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { stateService } from './stateSignal';
-import { app_id, server_url, setAppId, setServerUrl } from './storageSignals';
+import { app_id, server_url, setAppId, setServerUrl, socket_url } from './storageSignals';
 
 const EndPoint = () => {
     const {
@@ -11,12 +11,10 @@ const EndPoint = () => {
     } = useForm({ mode: 'onSubmit' });
 
     const inputServerRef = useRef();
-    const inputAppRef = useRef();
-    const language = 'EN';
-    const brand_name = 'deriv';
+    const inputAppRef = useRef()
     const server_url_ui = server_url();
     const app_id_ui = app_id();
-    const socket_url = `wss://${server_url()}/websockets/v3?app_id=${app_id()}&l=${language}&brand=${brand_name}`;
+    const socket_url_ui = socket_url();
 
     const handleClick = () => {
         const updatedAppId = inputAppRef.current.value;
@@ -27,10 +25,6 @@ const EndPoint = () => {
         sessionStorage.removeItem('token1');
         location.replace('/docs/app-registration/');
     };
-
-    useEffect(() => {
-        // window.location.reload();
-    }, []);
 
     return (
         <>
@@ -81,7 +75,7 @@ const EndPoint = () => {
                         {errors.app_id && <span className={styles.errorMessage}>{errors.app_id?.message}</span>}
                         <div className={styles.url}>
                             <span className={styles.urlLabel}>Connected to :</span>{' '}
-                            <div className={styles.urlId}> {socket_url}</div>
+                            <div className={styles.urlId}> {socket_url_ui}</div>
                         </div>
                         <div className={styles.buttons}>
                             <button type='submit' className={styles.submitButton}>

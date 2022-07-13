@@ -2,6 +2,7 @@ import { createEffect, createSignal } from 'solid-js';
 export const [token1, setToken1] = createSignal(sessionStorage.getItem('token1'));
 export const [app_id, setAppId] = createSignal(localStorage.getItem('app_id'));
 export const [server_url, setServerUrl] = createSignal(localStorage.getItem('server_url'));
+export const socket_url = () => `wss://${server_url()}/websockets/v3?app_id=${app_id()}&l=EN&brand=deriv`;
 
 createEffect(() => {
     const app_id_in_local = localStorage.getItem('app_id') || '31063';
@@ -34,9 +35,9 @@ createEffect(() => {
 });
 
 createEffect(() => {
-    localStorage.setItem('app_id', app_id());
-    localStorage.setItem('server_url', server_url());
-    sessionStorage.setItem('token1', token1());
+    if(app_id()) localStorage.setItem('app_id', app_id());
+    if(server_url()) localStorage.setItem('server_url', server_url());
+    if(token1()) sessionStorage.setItem('token1', token1());
 });
 
 createEffect(() => {
