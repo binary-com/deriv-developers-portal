@@ -2,7 +2,6 @@ import Button from "./Button";
 import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "./ticksSubject";
-import {} from "./RequestJSONBox"
 
 export const ResetSendButtonsBlock = React.memo(
   ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api, setScrollDirection,setIsScrolling,messagesRef }) => {
