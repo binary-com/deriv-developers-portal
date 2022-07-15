@@ -120,6 +120,7 @@ p {
   padding: 188px 50px 0 50px;
   display: flex;
   min-height: 95vh;
+  overflow-y: auto;
 }
 button:focus {
   outline: none;
@@ -459,8 +460,9 @@ textarea {
     padding: 0;
   }
 }
-.page-content {
+.pageWrapper {
   width: 100%;
+  margin-left: 24rem;
   color: var(--text-01);
   padding-bottom: 20px;
 }
@@ -651,5 +653,23 @@ textarea {
     bottom: 0;
     background-color: var(--red-01);
     visibility: visible;
+  }
+}
+
+[data-state*="responsive.mobile"] {
+  .pageWrapper {
+    margin-left:0;
+  }
+}
+
+[data-state*="responsive.mobile"] {
+  .pageWrapper {
+    margin-left:0;
+  }
+}
+
+[data-state~="responsive.desktopLaptopM"] {
+  .pageWrapper{
+    margin-left: 15rem;
   }
 }
