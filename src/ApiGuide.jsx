@@ -393,7 +393,7 @@ export default function ApiGuide() {
           <li>
             <p>
               Specify the URL that will be used as the OAuth Redirect URL on the{" "}
-              <a href="https://developers.binary.com/applications/">
+              <a href="https://api.deriv.com/docs/app-registration/">
                 API registration
               </a>{" "}
               page in the 'Website URL' field.
