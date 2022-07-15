@@ -662,12 +662,6 @@ textarea {
   }
 }
 
-[data-state*="responsive.mobile"] {
-  .pageWrapper {
-    margin-left:0;
-  }
-}
-
 [data-state~="responsive.desktopLaptopM"] {
   .pageWrapper{
     margin-left: 15rem;
