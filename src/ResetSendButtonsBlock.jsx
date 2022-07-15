@@ -3,17 +3,17 @@ import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "./ticksSubject";
 
-export const ResetSendButtonsBlock = React.memo(
+export const ResetSendButtonsBlock = (
   ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api, setScrollDirection,setIsScrolling,messagesRef }) => {
-    const onClick = React.useCallback(() => {
+    const onClick = () => {
       current_api.connection.close();
       ticksSubject.complete();
       resetMessagesInConsole?.([]);
-      setScrollDirection("down")
-      setIsScrolling("true")
-      messagesRef='null'
-    }, [resetMessagesInConsole, current_api]);
-    return (
+      setScrollDirection?.("down")
+      setIsScrolling?.("true")
+      if(messagesRef?.current) messagesRef.current=null
+    }
+       return (
       <div className={style["json-btn-wrapper"]}>
         <div
           id="playground-reset-btn"

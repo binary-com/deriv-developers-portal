@@ -21,9 +21,9 @@ const RequestJSONBox = ({
   const messagesRef = useRef(null);
 
   const onScrollRequest = (event) => {
-    const scroll_height = event.target.scrollHeight;
-    const scroll_top = event.target.scrollTop;
-    const client_height = event.target.clientHeight;
+    const scroll_height = event?.target?.scrollHeight;
+    const scroll_top = event?.target?.scrollTop;
+    const client_height = event?.target?.clientHeight;
     const reached_bottom = scroll_top + client_height >= scroll_height;
     const scrolling_top = scroll_top + client_height <= scroll_height;
 
