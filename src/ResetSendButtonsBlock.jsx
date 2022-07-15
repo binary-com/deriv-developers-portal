@@ -2,13 +2,17 @@ import Button from "./Button";
 import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "./ticksSubject";
+import {} from "./RequestJSONBox"
 
 export const ResetSendButtonsBlock = React.memo(
-  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api }) => {
+  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api, setScrollDirection,setIsScrolling,messagesRef }) => {
     const onClick = React.useCallback(() => {
       current_api.connection.close();
       ticksSubject.complete();
       resetMessagesInConsole?.([]);
+      setScrollDirection("down")
+      setIsScrolling("true")
+      messagesRef='null'
     }, [resetMessagesInConsole, current_api]);
     return (
       <div className={style["json-btn-wrapper"]}>
@@ -20,7 +24,7 @@ export const ResetSendButtonsBlock = React.memo(
               : `${style["btn-reset"]} ${style["btn-reset-playground"]}`
           }
         >
-          <Button text={"Reset Connection"} clickHandler={onClick} />
+          <Button text={"Reset Connection"} clickHandler={onClick}  />
         </div>
         <div className={style["btn-submit"]}>
           <Button
