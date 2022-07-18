@@ -182,7 +182,7 @@ export default function ApiGuide() {
             <p>With the markup (e.g. 2%), a client pays:</p>
             <li>Client's stake with the markup = Stake + (payout x markup)</li>
             <li>
-              Client's stake with the markup = 1.07 USD (2 USD x 2%) ={" "}
+              Client's stake with the markup = 1.07 USD + (2 USD x 2%) ={" "}
               <b>1.11 USD</b>
             </li>
           </ul>
