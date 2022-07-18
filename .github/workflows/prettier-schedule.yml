@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v1
+      - name: Npm install 📦
+        run: |
+          npm install
       - name: Use prettier
         run: |
           npm run format
