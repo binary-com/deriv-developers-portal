@@ -36,8 +36,6 @@ const RequestJSONBox = ({
       setIsScrolling(false);
       setScrollDirection("down");
     }
-
-    console.log('function working')
   };
 
   useEffect(() => {
