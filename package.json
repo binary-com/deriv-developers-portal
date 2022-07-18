@@ -46,5 +46,8 @@
         "vite": "^3.0.1",
         "vite-plugin-istanbul": "^2.9.0",
         "xstate": "^4.32.1"
+    },
+    "devDependencies": {
+        "terser": "^5.14.2"
     }
 }
