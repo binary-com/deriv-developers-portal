@@ -10,7 +10,6 @@ export const ResetSendButtonsBlock = (
       ticksSubject.complete();
       resetMessagesInConsole?.([]);
       onScroll?.([])
-      window.location.reload()
       setScrollDirection?.("down")
       setIsScrolling?.("true")
       if(messagesRef?.current) messagesRef.current=null
