@@ -43,12 +43,13 @@ const RequestJSONBox = ({
       if (is_scrolling) {
         messagesRef.current?.scrollTo({
           top: messagesRef.current.scrollHeight,
-          left: 0,
+          left: messagesRef.current.scrollHeight,
           behavior: "smooth",
         });
       }
     }, 1);
   }, [messagesRef, messages, is_scrolling]);
+
   return (
     <div
       className={isAppRegistration ? style.formContent : style.playgroundBox}
@@ -88,7 +89,7 @@ const RequestJSONBox = ({
           id="playground-console"
           className={style.playgroundConsole}
           ref={messagesRef}
-          onScroll={onScrollRequest}
+          onLoad={onScrollRequest}
           data-testid="playgroundConsole"
         >
           {messages?.map((message, index) => (
@@ -100,4 +101,4 @@ const RequestJSONBox = ({
   );
 };
 
-export default memo(RequestJSONBox);
+export default RequestJSONBox;
