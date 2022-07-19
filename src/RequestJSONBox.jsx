@@ -80,6 +80,8 @@ const RequestJSONBox = ({
         sendRequest={sendRequest}
         resetMessagesInConsole={setMessages}
         current_api={current_api}
+        scrollHeight='null'
+        scrollTop='null'
       />
       {messages.length > 1 && (
         <div

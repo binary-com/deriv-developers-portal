@@ -4,15 +4,14 @@ import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "./ticksSubject";
 
 export const ResetSendButtonsBlock = (
-  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api, setScrollDirection,setIsScrolling,messagesRef,onScroll }) => {
-    const onClick = () => {
+  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api, setScrollDirection,setIsScrolling,messagesRef,onScrollRequest,onScroll,scrollHeight,scrollTop }) => {
+    const onClick = (event) => {
       current_api.connection.close();
       ticksSubject.complete();
       resetMessagesInConsole?.([]);
-      onScroll?.([])
+      onScroll?.(onScrollRequest)
       setScrollDirection?.("down")
       setIsScrolling?.("true")
-      if(messagesRef?.current) messagesRef.current=null
     }
        return (
       <div className={style["json-btn-wrapper"]}>
@@ -32,6 +31,7 @@ export const ResetSendButtonsBlock = (
             className={style["btn-submit"]}
             text={"Send Request"}
             clickHandler={sendRequest}
+            onClick={onScrollRequest}
           />
         </div>
       </div>
