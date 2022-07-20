@@ -1,1 +1,7 @@
 packages/components/stories/icon/icons.js
+node_modules/
+_site/
+_data/
+config/
+examples/
+public/
