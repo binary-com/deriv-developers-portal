@@ -1,5 +1,5 @@
 import { ResetSendButtonsBlock } from "./ResetSendButtonsBlock";
-import { useEffect, useRef, useState, memo } from "react";
+import { useEffect, useRef, useState } from "react";
 import style from "./RequestJSONBox.module.scss";
 import ConsoleMessage from "./ConsoleMessage";
 import "./appid";
@@ -19,8 +19,17 @@ const RequestJSONBox = ({
   const [scroll_direction, setScrollDirection] = useState("down");
   const [is_scrolling, setIsScrolling] = useState(true);
   const messagesRef = useRef(null);
+  const [isActive, setIsActive] = useState(false)
+   
+  useEffect(() => {
+    if(isActive==true){
+    setIsScrolling(true)
+    }
+  },[])
+
 
   const onScrollRequest = (event) => {
+    setIsActive(true)
     const scroll_height = event?.target?.scrollHeight;
     const scroll_top = event?.target?.scrollTop;
     const client_height = event?.target?.clientHeight;
@@ -81,15 +90,14 @@ const RequestJSONBox = ({
         sendRequest={sendRequest}
         resetMessagesInConsole={setMessages}
         current_api={current_api}
-        scrollHeight='null'
-        scrollTop='null'
+        setIsScrolling={setIsScrolling}
       />
       {messages.length > 1 && (
         <div
           id="playground-console"
           className={style.playgroundConsole}
           ref={messagesRef}
-          onLoad={onScrollRequest}
+          onScroll={onScrollRequest}
           data-testid="playgroundConsole"
         >
           {messages?.map((message, index) => (
