@@ -6,22 +6,18 @@ on:
 
 jobs:
     generate_app_id:
-        timeout-minutes: 5
         runs-on: ubuntu-latest
         steps:
             - name: Capture Vercel preview URL
-              id: vercel_preview_url
               uses: binary-com/vercel-preview-url-action@v1.0.5
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Generate Deriv App ID for deployment Preview URL
-              id: generate_app_id
               uses: binary-com/deriv-app-id-action@v1
               with:
                   DERIV_API_TOKEN: ${{ secrets.DERIV_API_TOKEN }}
                   DERIV_APP_ID: ${{ secrets.DERIV_APP_ID }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  max_retries: 5
                   vercel_preview_url: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
             - name: Comment on pull request with App ID and URLs
               if: steps.generate_app_id.outputs.should_post_comment
@@ -31,7 +27,7 @@ jobs:
                   number: ${{github.event.issue.number}}
                   header: deriv-app-id-action
                   message: |
-                      A production App ID was automatically generated for this PR. ([log](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}))
+                      Production App ID : ([log](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}))
 
                       - **PR**: [${{ steps.generate_app_id.outputs.pr_url }}](${{ steps.generate_app_id.outputs.pr_url }})
                       - **URLs**:
