@@ -2,15 +2,18 @@ import Button from "./Button";
 import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "./ticksSubject";
+import { useState } from "react";
 
-export const ResetSendButtonsBlock = React.memo(
-  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api }) => {
-    const onClick = React.useCallback(() => {
+export const ResetSendButtonsBlock = (
+  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api,setIsScrolling }) => {
+
+    const onClick = () => {
       current_api.connection.close();
       ticksSubject.complete();
       resetMessagesInConsole?.([]);
-    }, [resetMessagesInConsole, current_api]);
-    return (
+      setIsScrolling?.(true)
+    }
+       return (
       <div className={style["json-btn-wrapper"]}>
         <div
           id="playground-reset-btn"
@@ -20,7 +23,7 @@ export const ResetSendButtonsBlock = React.memo(
               : `${style["btn-reset"]} ${style["btn-reset-playground"]}`
           }
         >
-          <Button text={"Reset Connection"} clickHandler={onClick} />
+          <Button text={"Reset Connection"} clickHandler={onClick}  />
         </div>
         <div className={style["btn-submit"]}>
           <Button

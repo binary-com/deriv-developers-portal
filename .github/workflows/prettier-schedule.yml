@@ -1,0 +1,27 @@
+# add github actions workflows that run prettier on a schedule through 'npm run format'
+name: Prettier schedule
+
+# manually trigger
+on: [workflow_dispatch]
+
+# jobs
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v1
+      - name: Npm install 📦
+        run: |
+          npm install
+      - name: Use prettier
+        run: |
+          npm run format
+      - name: Commit prettier changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'deriv-fe@users.noreply.github.com'
+          git add -A
+          git commit -am "Prettified"
+          git push
+      

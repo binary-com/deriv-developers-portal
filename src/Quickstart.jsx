@@ -1,6 +1,6 @@
-import styles from "./Quickstart.module.scss";
-import CodeBlock from "./components/CodeBlock/CodeBlock";
-import { SandboxIframe, sandboxes } from "../codesandbox/sandbox";
+import styles from './Quickstart.module.scss';
+import CodeBlock from './components/CodeBlock/CodeBlock';
+import { SandboxIframe, sandboxes } from '../codesandbox/sandbox';
 
 const QuickStart = () => (
   <div className="page-content">
@@ -12,8 +12,7 @@ const QuickStart = () => (
         the most important operations.
       </p>
       <p>
-        You can find all of the other available calls in the{" "}
-        <a href="/api-explorer/">API Explorer</a>.
+          You can find all of the other available calls in the <a href='/api-explorer/'>API Explorer</a>.
       </p>
       <h3 className={styles.api_sub_title}>Before you begin</h3>
       <ul className="bullet">

@@ -9,7 +9,7 @@ function Docs() {
   return (
     <div id="content" className="doc-content">
       <Sidebar />
-      <div className="page-content">
+      <div className="pageWrapper">
         <MobilePageSelectLazy />
         <Suspense fallback={<DelayedFallback />}>
           <Outlet />
