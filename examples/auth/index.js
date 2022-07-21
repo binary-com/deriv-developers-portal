@@ -4,7 +4,7 @@ const token1 = url.searchParams.get("token1");
 const login_button = document.getElementById("loginButton");
 const buttonResponse = () => {
   window.open(
-    "https://qa10.deriv.dev/oauth2/authorize?app_id=1029&l=EN&brand=deriv",
+    "https://oauth.deriv.com/oauth2/authorize?app_id=32396&l=EN&brand=deriv",
     "newwindow",
     "width=320,height=800"
   );
