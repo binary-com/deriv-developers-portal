@@ -3,7 +3,7 @@ import React from 'react';
 export const sandboxes = {
     ticks: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/ticks?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     ticks_history: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/ticks_history?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
-    website_status: '',
+    website_status: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/website_status?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     sell_expired_contracts: '',
     balance: '',
     buy_contract: '',

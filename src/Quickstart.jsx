@@ -129,7 +129,7 @@ const QuickStart = () => (
     <p>
       Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
     </p>
-    <CodeBlock id={"website-status"} />
+    <SandboxIframe sandbox={sandboxes.website_status} />
   </div>
 );
 
