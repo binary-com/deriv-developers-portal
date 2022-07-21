@@ -1,5 +1,5 @@
 import { ResetSendButtonsBlock } from "./ResetSendButtonsBlock";
-import { useEffect, useRef, useState, memo } from "react";
+import { useEffect, useRef, useState } from "react";
 import style from "./RequestJSONBox.module.scss";
 import ConsoleMessage from "./ConsoleMessage";
 import "./appid";
@@ -19,11 +19,20 @@ const RequestJSONBox = ({
   const [scroll_direction, setScrollDirection] = useState("down");
   const [is_scrolling, setIsScrolling] = useState(true);
   const messagesRef = useRef(null);
+  const [isActive, setIsActive] = useState(false)
+   
+  useEffect(() => {
+    if(isActive==true){
+    setIsScrolling(true)
+    }
+  },[])
+
 
   const onScrollRequest = (event) => {
-    const scroll_height = event.target.scrollHeight;
-    const scroll_top = event.target.scrollTop;
-    const client_height = event.target.clientHeight;
+    setIsActive(true)
+    const scroll_height = event?.target?.scrollHeight;
+    const scroll_top = event?.target?.scrollTop;
+    const client_height = event?.target?.clientHeight;
     const reached_bottom = scroll_top + client_height >= scroll_height;
     const scrolling_top = scroll_top + client_height <= scroll_height;
 
@@ -43,12 +52,13 @@ const RequestJSONBox = ({
       if (is_scrolling) {
         messagesRef.current?.scrollTo({
           top: messagesRef.current.scrollHeight,
-          left: 0,
+          left: messagesRef.current.scrollHeight,
           behavior: "smooth",
         });
       }
     }, 1);
   }, [messagesRef, messages, is_scrolling]);
+
   return (
     <div
       className={isAppRegistration ? style.formContent : style.playgroundBox}
@@ -80,6 +90,7 @@ const RequestJSONBox = ({
         sendRequest={sendRequest}
         resetMessagesInConsole={setMessages}
         current_api={current_api}
+        setIsScrolling={setIsScrolling}
       />
       {messages.length > 1 && (
         <div
@@ -98,4 +109,4 @@ const RequestJSONBox = ({
   );
 };
 
-export default memo(RequestJSONBox);
+export default RequestJSONBox;
