@@ -1,5 +1,6 @@
 import './stateSignal';
 import './resizeEffect';
+import './storageSignals';
 import { useRoutes } from 'react-router-dom';
 import { Suspense } from 'react';
 import Header from './components/Header/Header';
