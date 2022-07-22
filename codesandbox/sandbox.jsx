@@ -5,7 +5,7 @@ export const sandboxes = {
     ticks_history: '',
     website_status: '',
     sell_expired_contracts: '',
-    balance: '',
+    balance: "https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/balance?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark",
     buy_contract: '',
     portfolio: '',
     profit_table: '',
