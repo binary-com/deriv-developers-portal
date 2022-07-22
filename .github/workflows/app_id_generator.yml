@@ -3,7 +3,6 @@ name: Deriv App ID Generator
 on:
     issue_comment:
         types: [edited]
-        # comment for pushing to private rep
 
 jobs:
     generate_app_id:
@@ -36,11 +35,11 @@ jobs:
                           - **Original**: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
                       - **App ID**: `${{ steps.generate_app_id.outputs.app_id }}`
 
-            - name: Store generated URL in artifact
-              run: echo "HOME_URL=${{ steps.vercel_preview_url.outputs.vercel_preview_url }}?qa_server=frontend.binaryws.com&app_id=${{ steps.generate_app_id.outputs.app_id }}" >> ${{ github.workspace }}/url.txt
-            - name: Upload artifact
-              uses: actions/upload-artifact@v2
-              if: always()
-              with:
-                  name: generated_url
-                  path: ${{ github.workspace }}/url.txt
+            # - name: Store generated URL in artifact
+            #   run: echo "HOME_URL=${{ steps.vercel_preview_url.outputs.vercel_preview_url }}?qa_server=frontend.binaryws.com&app_id=${{ steps.generate_app_id.outputs.app_id }}" >> ${{ github.workspace }}/url.txt
+            # - name: Upload artifact
+            #   uses: actions/upload-artifact@v2
+            #   if: always()
+            #   with:
+            #       name: generated_url
+            #       path: ${{ github.workspace }}/url.txt
