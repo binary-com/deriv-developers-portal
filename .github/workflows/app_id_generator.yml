@@ -3,7 +3,8 @@ name: Deriv App ID Generator
 on:
     issue_comment:
         types: [edited]
-        # comment for pushing to private rep
+        # test workflow
+        
 
 jobs:
     generate_app_id:
