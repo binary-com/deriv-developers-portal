@@ -18,7 +18,7 @@ jobs:
               uses: binary-com/deriv-app-id-action@v1
               with:
                   DERIV_API_TOKEN: ${{ secrets.DERIV_API_TOKEN }}
-                  DERIV_APP_ID: ${{ secrets.DERIV_APP_ID }}
+#                   DERIV_APP_ID: ${{ secrets.DERIV_APP_ID }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   vercel_preview_url: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
             - name: Comment on pull request with App ID and URLs
