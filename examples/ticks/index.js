@@ -14,7 +14,9 @@ const tickResponse = async (res) => {
     connection.removeEventListener("message", tickResponse, false);
     await api.disconnect();
   }
-  console.log(data.tick);
+  if (data.msg_type === "tick") {
+    console.log(data.tick);
+  }
 };
 
 const subscribeTicks = async () => {
