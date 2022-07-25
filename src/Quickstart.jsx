@@ -54,7 +54,7 @@ const QuickStart = () => (
       Retrieve a list of all currently active symbols (underlying markets upon which contracts are available for trading).
     </p>
     <p>
-      This example retrieves all avaiable active symbols. 
+      This example retrieves all available active symbols. 
       In case you want to retrieve active symbols for a specific landing company,
       you can add <code className="inline-code">landing_company</code> to the request object.
     </p>
