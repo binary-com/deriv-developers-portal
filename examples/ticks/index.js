@@ -5,7 +5,7 @@ const connection = new WebSocket(
   `wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`
 );
 const api = new DerivAPIBasic({ connection });
-const tick_stream = api.subscribe({ ticks: "R_100" });
+const tickStream = () => api.subscribe({ ticks: "R_100" });
 
 const tickResponse = async (res) => {
   const data = JSON.parse(res.data);
@@ -20,13 +20,13 @@ const tickResponse = async (res) => {
 };
 
 const subscribeTicks = async () => {
-  await tick_stream;
+  await tickStream();
   connection.addEventListener("message", tickResponse);
 };
 
 const unsubscribeTicks = async () => {
   connection.removeEventListener("message", tickResponse, false);
-  tick_stream.unsubscribe();
+  tickStream().unsubscribe();
 };
 
 const ticks_button = document.querySelector("#ticks");
