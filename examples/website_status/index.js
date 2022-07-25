@@ -19,7 +19,6 @@ const websiteStatusResponse = async (res) => {
   }
 
   connection.removeEventListener("message", websiteStatusResponse, false);
-  await api.disconnect();
 };
 
 const getWebsiteStatus = async () => {

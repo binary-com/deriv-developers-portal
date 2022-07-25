@@ -69,7 +69,7 @@ const QuickStart = () => (
     <p>
       For a given symbol, get the list of currently available contracts, and the latest barrier and duration limits for each contract.
     </p>
-    <CodeBlock id={"contracts-for-symbol"} />
+    <SandboxIframe sandbox={sandboxes.contracts_for_symbol} />
     <h2>Ticks</h2>
     <p>
       A tick is a measure of minimum upward or downward movement in the price of
