@@ -1,12 +1,13 @@
 import DerivAPIBasic from "https://cdn.skypack.dev/@deriv/deriv-api/dist/DerivAPIBasic";
-const app_id = 32421; // Replace with your app_id or leave as 1089 for testing.
+const app_id = 32421; // Replace with your app_id or leave the current test app_id.
 const connection = new WebSocket(
   `wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`
 );
 const api = new DerivAPIBasic({ connection });
-// You can get your token here https://app.deriv.com/account/api-token.
 
-let token = ""; // Replace with your API token.
+// You can get your token here https://app.deriv.com/account/api-token.
+// WARNING: Be careful to not leak your token here in the sandbox.
+let token = "";
 
 const contracts_for_symbol_request = {
   contracts_for: "R_50",
@@ -42,5 +43,5 @@ const getContractsForSymbol = async () => {
   await api.contractsFor(contracts_for_symbol_request);
 };
 
-const unsubscribe_button = document.querySelector("#contractsForSymbol");
-unsubscribe_button.addEventListener("click", getContractsForSymbol);
+const symbol_button = document.querySelector("#contractsForSymbol");
+symbol_button.addEventListener("click", getContractsForSymbol);
