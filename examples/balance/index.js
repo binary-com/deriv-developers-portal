@@ -6,8 +6,8 @@ const connection = new WebSocket(
 );
 const api = new DerivAPIBasic({ connection });
 
-// You can get your token here https://app.deriv.com/account/api-token.
-let token = ""; // Replace with your API token.
+// WARNING: Be careful to not leak your token here in the sandbox.
+let token = "";
 
 const balance_request = {
   balance: 1,
