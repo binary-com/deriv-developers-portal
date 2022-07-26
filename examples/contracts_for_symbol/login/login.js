@@ -1,6 +1,6 @@
 const url = new URL(window.location.href);
 const bc = new BroadcastChannel("auth");
-const token1 = url.searchParams.get("token1");
+const login_token = url.searchParams.get("token1");
 const login_button = document.querySelector("#loginButton");
 const authorized_message = document.querySelector("#authorized");
 const unauthorized_message = document.querySelector("#unauthorized");
@@ -27,16 +27,16 @@ const buttonResponse = () => {
 login_button.addEventListener("click", buttonResponse);
 
 window.onload = () => {
-  const localstore_token = localStorage.getItem("token1");
+  const localstore_token = localStorage.getItem("login_token");
   if (localstore_token.length >= 0) {
     updateElementStyles();
   }
 };
 
 bc.onmessage = function (event) {
-  if (event.data.token1) {
+  if (event.data.login_token) {
     bc.postMessage("close");
-    localStorage.setItem("token1", event.data.token1);
+    localStorage.setItem("login_token", event.data.login_token);
   }
   if (event.data === "close") {
     bc.postMessage("login_success");
@@ -47,6 +47,6 @@ bc.onmessage = function (event) {
   }
 };
 
-if (token1) {
-  bc.postMessage({ token1 });
+if (login_token) {
+  bc.postMessage({ login_token });
 }
