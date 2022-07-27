@@ -8,16 +8,18 @@ jobs:
     generate_app_id:
         runs-on: ubuntu-latest
         steps:
-            - name: Dump GitHub context
-              env:
-                GITHUB_CONTEXT: ${{ toJson(github) }}
-              run: |
-                echo "$GITHUB_CONTEXT"
             - name: Capture Vercel preview URL
               id: vercel_preview_url
               uses: binary-com/vercel-preview-url-action@v1.0.5
               with:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Generate Deriv App ID for deployment Preview URL
+              uses: binary-com/deriv-app-id-action@v1
+              with:
+                  DERIV_API_TOKEN: ${{ secrets.DERIV_API_TOKEN }}
+                  DERIV_APP_ID: ${{ secrets.DERIV_APP_ID }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  vercel_preview_url: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}     
             - name: Comment on pull request with App ID and URLs
               if: steps.generate_app_id.outputs.should_post_comment
               uses: marocchino/sticky-pull-request-comment@v2
@@ -45,18 +47,11 @@ jobs:
                         - **App ID**: `${{ steps.generate_app_id.outputs.app_id }}`
                         ```
                       </details>
-            - name: Generate Deriv App ID for deployment Preview URL
-              uses: binary-com/deriv-app-id-action@v1
-              with:
-                  DERIV_API_TOKEN: ${{ secrets.DERIV_API_TOKEN }}
-                  DERIV_APP_ID: ${{ secrets.DERIV_APP_ID }}
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  vercel_preview_url: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}         
             - name: Store generated URL in artifact
               run: echo "HOME_URL=${{ steps.vercel_preview_url.outputs.vercel_preview_url }}?qa_server=frontend.binaryws.com&app_id=${{ steps.generate_app_id.outputs.app_id }}" >> ${{ github.workspace }}/url.txt
             - name: Upload artifact
-              uses: actions/upload-artifact@v2
-              if: always()
+              uses: actions/upload-artifact@master
               with:
                   name: generated_url
                   path: ${{ github.workspace }}/url.txt
+                  retention-days: 1
