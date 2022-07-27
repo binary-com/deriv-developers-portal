@@ -21,7 +21,6 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   vercel_preview_url: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}     
             - name: Comment on pull request with App ID and URLs
-              if: steps.generate_app_id.outputs.should_post_comment
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
