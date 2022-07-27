@@ -6,7 +6,7 @@ export const sandboxes = {
     website_status: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/website_status?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     sell_expired_contracts: '',
     balance: '',
-    buy_contract: '',
+    buy_contract: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/buy_contract?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     contracts_for_symbol: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/contracts_for_symbol?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     portfolio: '',
     profit_table: '',
