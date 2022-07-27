@@ -6,4 +6,4 @@ Build: `npm run build`
 
 Deploy directory: `_site`
 
-Update 2
+Update 3
