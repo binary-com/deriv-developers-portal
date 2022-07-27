@@ -36,13 +36,14 @@ jobs:
                         <summary>Click here to copy & paste above information.</summary>
 
                         ```
-                        - **PR**: [${{ steps.generate_app_id.outputs.pr_url }}](${{ steps.generate_app_id.outputs.pr_url }})
+                        - **PR**: [${{ steps.generate_app_id.outputs }}](${{ steps.generate_app_id.outputs }})
                         - **URLs**:
                             - **w/ App ID + Server**: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}?server_url=frontend.binaryws.com&app_id=${{ steps.generate_app_id.outputs.app_id }}
                             - **Original**: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
                         - **App ID**: `${{ steps.generate_app_id.outputs.app_id }}`
                         ```
                       </details>
+                      
             - name: Store generated URL in artifact
               run: echo "HOME_URL=${{ steps.vercel_preview_url.outputs.vercel_preview_url }}?server_url=frontend.binaryws.com&app_id=${{ steps.generate_app_id.outputs.app_id }}" >> ${{ github.workspace }}/url.txt
             - name: Upload artifact
