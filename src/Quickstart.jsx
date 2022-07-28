@@ -92,7 +92,7 @@ const QuickStart = () => (
     <p>
       This example will retrieve a summary of your account Profit Table.
     </p>
-    <CodeBlock id={"profit-table"} />
+    <SandboxIframe sandbox={sandboxes.profit_table} />
     <h2>Proposal</h2>
     <p>
       This example is for getting a contract proposal. You'll be able to get the
