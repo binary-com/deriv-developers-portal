@@ -18,7 +18,7 @@ export default function HomePage() {
         <div className="row-container">
           <div className={`single-container gray ${styles.clientLibrary}`}>
             <div className={styles.iconJsLibrary} />
-            <h1>Comprehensive all-in-one client library</h1>
+            <h2 className="header">Comprehensive all-in-one client library</h2>
             <p className="subheader">
               Simplify your development processes and get your app up and
               running <br />
@@ -51,7 +51,7 @@ export default function HomePage() {
       </div>
       <div className="main-page-row">
         <div className={`column-container ${styles.benefitsContainer}`}>
-          <h1 className={styles.benefitsTitle}>Benefits of using Deriv API</h1>
+          <h2 className={styles.benefitsTitle}>Benefits of using Deriv API</h2>
           <div className={`container ${styles.benefitsIcons}`}>
             <div className="single-container">
               <div className={`${styles.automationIcon} ${styles.image}`} />
@@ -98,7 +98,7 @@ export default function HomePage() {
         <div className={`column-container ${styles.waysContainer}`}>
           <div className={styles.waysWrapper}>
             <div>
-              <h1>Ways to earn with Deriv API</h1>
+              <h2>Ways to earn with Deriv API</h2>
             </div>
             <div>
               <div className={`main-page-card ${styles.ways}`}>
@@ -129,7 +129,7 @@ export default function HomePage() {
         </div>
         <div className="main-page-row with-pattern">
           <div className="column-container">
-            <h1>Get started with our API in 3 simple steps:</h1>
+            <h2>Get started with our API in 3 simple steps:</h2>
             <div className="card-container">
               <a
                 target="_blank"
@@ -188,7 +188,7 @@ export default function HomePage() {
           <div className="column-container">
             <div className={styles.apiFeatures}>
               <div className={styles.apiFeaturesDescription}>
-                <h3>Deriv API features</h3>
+                <h2>Deriv API features</h2>
                 <p>
                   Deriv API gives you full access to all the trading
                   functionalities of DTrader and allows you to build your own
@@ -227,7 +227,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="main-page-row white">
-          <h1 className="clients-opinion">See what our clients say</h1>
+          <h2 className="clients-opinion">See what our clients say</h2>
           <div className="column-container">
             <HomepageSlider />
           </div>

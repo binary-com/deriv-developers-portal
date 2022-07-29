@@ -474,6 +474,9 @@ textarea {
   align-items: center;
   justify-content: center;
   width: 80%;
+  .header{
+    color: var(--text-01);
+  }
 }
 .single-container p {
   margin-bottom: 32px;
