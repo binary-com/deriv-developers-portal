@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script type="module" src="./index.js" defer></script>
+    <script type="module" src="./getDemoAccountId.js" defer></script>
     <script type="module" src="./login/login.js" defer></script>
     <title>Static Template</title>
   </head>
@@ -20,6 +21,12 @@
       Successfully authorized
     </p>
     <br />
+    <p>Fill in the account ID you want to trade with</p>
+    <p>
+      <b>Suggestion:</b> Fill your demo account id below to test, it might be
+      autofilled for you already (VRTC account).
+    </p>
+    <input id="accountInput" type="text" />
     <button
       id="buyContract"
       style="opacity: 0.5; pointer-events: none; cursor: not-allowed;"

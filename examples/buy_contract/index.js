@@ -9,13 +9,14 @@ const api = new DerivAPIBasic({ connection });
 // Use a demo account token to test with demo currency.
 // WARNING: Be careful to not leak your token here in the sandbox.
 let token = "";
+const account_input = document.querySelector("#accountInput");
 
 const buy_contract_request = {
   buy: 1,
   subscribe: 1,
   price: 10,
   parameters: {
-    amount: 10,
+    amount: 1,
     duration: 1,
     basis: "stake",
     symbol: "R_10",
@@ -62,8 +63,25 @@ const buyContractResponse = async (res) => {
   }
 };
 
+const getAccountToken = () => {
+  try {
+    let selected_account_token;
+    const token_data_object = localStorage.getItem("token_data_object");
+    const token_data = JSON.parse(token_data_object);
+    const account = account_input.value;
+    Object.values(token_data).forEach((item) => {
+      if (account === item.account) {
+        selected_account_token = item.token;
+      }
+    });
+    return selected_account_token;
+  } catch (error) {
+    console.log(error.error.message);
+  }
+};
+
 const buyContract = async () => {
-  token = localStorage.getItem("login_token");
+  token = getAccountToken();
   await api.authorize(token);
   connection.addEventListener("message", buyContractResponse);
   await api.buy(buy_contract_request);
