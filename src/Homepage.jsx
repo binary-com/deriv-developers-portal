@@ -129,7 +129,7 @@ export default function HomePage() {
         </div>
         <div className="main-page-row with-pattern">
           <div className="column-container">
-            <h2>Get started with our API in 3 simple steps:</h2>
+            <h2 className="header_h2">Get started with our API in 3 simple steps:</h2>
             <div className="card-container">
               <a
                 target="_blank"

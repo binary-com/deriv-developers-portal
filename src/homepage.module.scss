@@ -64,6 +64,10 @@
 .benefitsContainer {
   .benefitsTitle {
     margin-bottom: 10px;
+    color: var(--text-01);
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
   }
   .benefitsIcons {
     width: 65%;
@@ -160,9 +164,13 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    h1 {
+    h2 {
       text-align: center;
       max-width: 384px;
+      color: var(--text-01);
+      font-size: 48px;
+      margin-bottom: 40px;
+      text-align: center;
     }
     .ways {
       display: flex;
@@ -204,7 +212,7 @@
     margin-left: 40px;
     padding: 0 10px;
     box-sizing: border-box;
-    h3 {
+    h2 {
       font-size: 48px;
     }
     p {
