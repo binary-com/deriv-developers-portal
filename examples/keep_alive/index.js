@@ -35,8 +35,8 @@ const keepAliveRes = async (res) => {
   } else if (data.msg_type === "proposal") {
     console.log("Details: %s", data.proposal.longcode);
     console.log("Ask Price: %s", data.proposal.display_value);
-    console.log("Payout: %s", data.proposal.payout);
-    console.log("Spot: %s", data.proposal.spot);
+    console.log("Payout: %f", data.proposal.payout);
+    console.log("Spot: %f", data.proposal.spot);
   } else if (data.msg_type === "ping") {
     console.log("ping");
   }
