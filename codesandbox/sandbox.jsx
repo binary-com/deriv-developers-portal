@@ -11,6 +11,7 @@ export const sandboxes = {
     portfolio: '',
     profit_table: '',
     proposal: '',
+    keep_alive:'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/keep_alive?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark'
 }
 
 export const SandboxIframe = ({ sandbox }) => {
