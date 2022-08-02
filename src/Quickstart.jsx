@@ -61,7 +61,7 @@ const QuickStart = () => (
       A contract is an agreement to buy or sell an asset at an agreed-upon
       price. This example shows you how to buy a contract using Deriv API.
     </p>
-    <CodeBlock id={"buy-contract"} />
+    <SandboxIframe sandbox={sandboxes.buy_contract} />
     <h2>Contracts for symbol</h2>
     <p>
       For a given symbol, get the list of currently available contracts, and the latest barrier and duration limits for each contract.
