@@ -114,7 +114,7 @@ const QuickStart = () => (
       contract proposals via the Deriv API. This example keeps the connection
       alive by sending a ping every 30 seconds.
     </p>
-    <CodeBlock id={"keep-alive"} />
+    <SandboxIframe sandbox={sandboxes.keep_alive} />
     <h2>Sell expired contracts</h2>
     <p>
       This call will try to sell any expired contracts and return the number of sold contracts.
@@ -129,7 +129,7 @@ const QuickStart = () => (
     <p>
       Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
     </p>
-    <SandboxIframe sandbox={sandboxes.website_status} />
+    
   </div>
 );
 
