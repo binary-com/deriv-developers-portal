@@ -102,7 +102,7 @@ const QuickStart = () => (
       To keep this connection alive in case of inactivity timeouts, see the
       example for Keep alive.
     </p>
-    <CodeBlock id={"proposal"} />
+    <SandboxIframe sandbox={sandboxes.proposal} />
     <h2>Proposal: Open contract</h2>
     <p>
       Get latest price (and other information) for a contract in the user's portfolio.
