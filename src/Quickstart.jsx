@@ -107,7 +107,7 @@ const QuickStart = () => (
     <p>
       Get latest price (and other information) for a contract in the user's portfolio.
     </p>
-    <CodeBlock id={"proposal-open-contract"} />
+    <SandboxIframe sandbox={sandboxes.open_contracts} />
     <h2>Keep alive</h2>
     <p>
       In this example you’ll see how to keep a connection alive when getting
