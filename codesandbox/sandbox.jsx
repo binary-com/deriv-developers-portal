@@ -4,6 +4,7 @@ export const sandboxes = {
     ticks: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/ticks?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     ticks_history: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/ticks_history?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     website_status: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/website_status?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
+    active_symbols: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/active_symbols?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     balance: "https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/balance?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark",
     sell_expired_contracts: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/website_status?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     buy_contract: '',

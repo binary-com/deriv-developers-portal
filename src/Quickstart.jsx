@@ -55,7 +55,7 @@ const QuickStart = () => (
       In case you want to retrieve active symbols for a specific landing company,
       you can add <code className="inline-code">landing_company</code> to the request object.
     </p>
-    <CodeBlock id={"active-symbols"} />
+    <SandboxIframe sandbox={sandboxes.active_symbols} />
     <h2>Buy contract</h2>
     <p>
       A contract is an agreement to buy or sell an asset at an agreed-upon
