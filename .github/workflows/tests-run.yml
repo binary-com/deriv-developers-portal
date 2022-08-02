@@ -13,15 +13,6 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "$GITHUB_CONTEXT"
-      - name: Add comment to PR
-        id: loading_comment_to_pr
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            number: ${{ github.event.issue.number }}
-            header: cypress
-            message: |
-                Running Cypress e2e tests...
       - name: Capture Vercel preview URL
         id: vercel_preview_url
         uses: binary-com/vercel-preview-url-action@v1.0.5
@@ -54,3 +45,12 @@ jobs:
         with:
           name: cypress-videos
           path: cypress/videos
+      - name: Add comment to PR
+        id: loading_comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            number: ${{ github.event.issue.number }}
+            header: cypress
+            message: |
+                E2E tests passed
