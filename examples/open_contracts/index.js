@@ -1,6 +1,6 @@
 import DerivAPIBasic from "https://cdn.skypack.dev/@deriv/deriv-api/dist/DerivAPIBasic";
 
-const app_id = 32486; // Replace with your app_id or leave as 1089 for testing.
+const app_id = 32486; // Replace with your app_id  for testing.
 const connection = new WebSocket(
   `wss://ws.binaryws.com/websockets/v3?app_id=${app_id}`
 );
@@ -12,7 +12,7 @@ const openContractResponse = async (res) => {
   const data = JSON.parse(res.data);
 
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
     connection.removeEventListener("message", openContractResponse, false);
     await api.disconnect();
   }
