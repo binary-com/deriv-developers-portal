@@ -44,11 +44,8 @@ const QuickStart = () => (
     </p>
     <CodeBlock id={"authorize"} />
     <h2>Account balance</h2>
-    <p>
-      This example shows you how to use the Deriv API to retrieve account
-      balance information.
-    </p>
-    <CodeBlock id={"balance"} />
+    <p>This example shows you how to use the Deriv API to retrieve account balance information.</p>
+    <SandboxIframe sandbox={sandboxes.balance} />
     <h2>Active symbols</h2>
     <p>
       Retrieve a list of all currently active symbols (underlying markets upon which contracts are available for trading).
@@ -87,12 +84,12 @@ const QuickStart = () => (
     <p>
       Receive information about your portfolio with outstanding options.
     </p>
-    <CodeBlock id={"portfolio"} />
+    <SandboxIframe sandbox={sandboxes.portfolio} />
     <h2>Profit table</h2>
     <p>
       This example will retrieve a summary of your account Profit Table.
     </p>
-    <CodeBlock id={"profit-table"} />
+    <SandboxIframe sandbox={sandboxes.profit_table} />
     <h2>Proposal</h2>
     <p>
       This example is for getting a contract proposal. You'll be able to get the
@@ -102,34 +99,34 @@ const QuickStart = () => (
       To keep this connection alive in case of inactivity timeouts, see the
       example for Keep alive.
     </p>
-    <CodeBlock id={"proposal"} />
+    <SandboxIframe sandbox={sandboxes.proposal} />
     <h2>Proposal: Open contract</h2>
     <p>
       Get latest price (and other information) for a contract in the user's portfolio.
     </p>
-    <CodeBlock id={"proposal-open-contract"} />
+    <SandboxIframe sandbox={sandboxes.open_contracts} />
     <h2>Keep alive</h2>
     <p>
       In this example you’ll see how to keep a connection alive when getting
       contract proposals via the Deriv API. This example keeps the connection
       alive by sending a ping every 30 seconds.
     </p>
-    <CodeBlock id={"keep-alive"} />
+    <SandboxIframe sandbox={sandboxes.keep_alive} />
     <h2>Sell expired contracts</h2>
     <p>
       This call will try to sell any expired contracts and return the number of sold contracts.
     </p>
-    <CodeBlock id={"sell-expired-contracts"} />
+    <SandboxIframe sandbox={sandboxes.sell_expired_contracts} />
     <h2>Statement</h2>
     <p>
       Retrieve a summary of account transactions, according to given search criteria.
     </p>
-    <CodeBlock id={"statement"} />
+    <SandboxIframe sandbox={sandboxes.statement} />
     <h2>Website status</h2>
     <p>
       Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
     </p>
-    <SandboxIframe sandbox={sandboxes.website_status} />
+    
   </div>
 );
 

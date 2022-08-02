@@ -4,14 +4,17 @@ export const sandboxes = {
     ticks: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/ticks?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     ticks_history: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/ticks_history?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     website_status: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/website_status?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
-    sell_expired_contracts: '',
-    balance: '',
     active_symbols: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/active_symbols?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
+    balance: "https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/balance?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark",
+    sell_expired_contracts: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/website_status?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     buy_contract: '',
     contracts_for_symbol: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/contracts_for_symbol?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
-    portfolio: '',
-    profit_table: '',
-    proposal: '',
+    profit_table: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/profit_table?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
+    portfolio: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/portfolio?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
+    keep_alive:'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/keep_alive?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
+    proposal_open_contract: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/open_contracts?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
+    proposal: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/proposal?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
+    statement: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/statement?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark'
 }
 
 export const SandboxIframe = ({ sandbox }) => {
