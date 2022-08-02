@@ -87,7 +87,7 @@ const QuickStart = () => (
     <p>
       Receive information about your portfolio with outstanding options.
     </p>
-    <CodeBlock id={"portfolio"} />
+    <SandboxIframe sandbox={sandboxes.portfolio} />
     <h2>Profit table</h2>
     <p>
       This example will retrieve a summary of your account Profit Table.
@@ -102,7 +102,7 @@ const QuickStart = () => (
       To keep this connection alive in case of inactivity timeouts, see the
       example for Keep alive.
     </p>
-    <CodeBlock id={"proposal"} />
+    <SandboxIframe sandbox={sandboxes.proposal} />
     <h2>Proposal: Open contract</h2>
     <p>
       Get latest price (and other information) for a contract in the user's portfolio.
@@ -119,12 +119,12 @@ const QuickStart = () => (
     <p>
       This call will try to sell any expired contracts and return the number of sold contracts.
     </p>
-    <CodeBlock id={"sell-expired-contracts"} />
+    <SandboxIframe sandbox={sandboxes.sell_expired_contracts} />
     <h2>Statement</h2>
     <p>
       Retrieve a summary of account transactions, according to given search criteria.
     </p>
-    <CodeBlock id={"statement"} />
+    <SandboxIframe sandbox={sandboxes.statement} />
     <h2>Website status</h2>
     <p>
       Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
