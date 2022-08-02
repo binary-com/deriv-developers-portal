@@ -87,7 +87,7 @@ const QuickStart = () => (
     <p>
       Receive information about your portfolio with outstanding options.
     </p>
-    <CodeBlock id={"portfolio"} />
+    <SandboxIframe sandbox={sandboxes.portfolio} />
     <h2>Profit table</h2>
     <p>
       This example will retrieve a summary of your account Profit Table.
