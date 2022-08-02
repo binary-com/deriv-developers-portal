@@ -44,11 +44,8 @@ const QuickStart = () => (
     </p>
     <CodeBlock id={"authorize"} />
     <h2>Account balance</h2>
-    <p>
-      This example shows you how to use the Deriv API to retrieve account
-      balance information.
-    </p>
-    <CodeBlock id={"balance"} />
+    <p>This example shows you how to use the Deriv API to retrieve account balance information.</p>
+    <SandboxIframe sandbox={sandboxes.balance} />
     <h2>Active symbols</h2>
     <p>
       Retrieve a list of all currently active symbols (underlying markets upon which contracts are available for trading).
