@@ -10,7 +10,7 @@ export const sandboxes = {
     contracts_for_symbol: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/contracts_for_symbol?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     portfolio: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/portfolio?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     profit_table: '',
-    proposal: '',
+    proposal: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/proposal?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
     statement: 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/statement?autoresize=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=dark',
 }
 
