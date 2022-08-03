@@ -29,7 +29,6 @@ const profitTableResponse = async (res) => {
   }
 
   connection.removeEventListener("message", profitTableResponse);
-  await api.disconnect();
 };
 
 const getProfitTable = async () => {
@@ -38,8 +37,6 @@ const getProfitTable = async () => {
   connection.addEventListener("message", profitTableResponse);
   await api.profitTable(profit_table_request);
 };
-
-getProfitTable();
 
 const symbol_button = document.querySelector("#profit_table");
 symbol_button.addEventListener("click", getProfitTable);

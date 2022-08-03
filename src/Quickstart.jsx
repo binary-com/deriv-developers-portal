@@ -104,7 +104,7 @@ const QuickStart = () => (
     <p>
       Get latest price (and other information) for a contract in the user's portfolio.
     </p>
-    <SandboxIframe sandbox={sandboxes.open_contracts} />
+    <SandboxIframe sandbox={sandboxes.proposal_open_contract} />
     <h2>Keep alive</h2>
     <p>
       In this example you’ll see how to keep a connection alive when getting
@@ -126,7 +126,7 @@ const QuickStart = () => (
     <p>
       Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.
     </p>
-    
+    <SandboxIframe sandbox={sandboxes.website_status} />
   </div>
 );
 
