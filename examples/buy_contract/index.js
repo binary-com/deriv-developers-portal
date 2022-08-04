@@ -28,7 +28,6 @@ const buy_contract_request = {
 
 const buyContractResponse = async (res) => {
   const data = JSON.parse(res.data);
-  console.log(data);
   const is_sold = data.proposal_open_contract?.is_sold;
   if (data.error !== undefined) {
     console.log("Error : %o", data.error.message);
@@ -37,6 +36,7 @@ const buyContractResponse = async (res) => {
   }
 
   if (data.msg_type === "buy") {
+    console.log(data);
     console.log(`Contract Id ${data.buy.contract_id} \n`);
     console.log(`Details ${data.buy.longcode} \n`);
   }

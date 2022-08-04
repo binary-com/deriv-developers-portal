@@ -23,8 +23,6 @@ const buttonResponse = () => {
   );
 };
 
-login_button.addEventListener("click", buttonResponse);
-
 window.onload = () => {
   const localstore_token = localStorage.getItem("login_token");
   if (localstore_token.length >= 0) {
@@ -49,3 +47,5 @@ bc.onmessage = function (event) {
 if (login_token) {
   bc.postMessage({ login_token });
 }
+
+login_button.addEventListener("click", buttonResponse);
