@@ -1,6 +1,7 @@
 const url_base = 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/';
 
 export const sandboxes = {
+    auth: `${url_base}auth`,
     ticks: `${url_base}ticks`,
     ticks_history: `${url_base}ticks_history`,
     website_status: `${url_base}website_status`,
@@ -24,7 +25,7 @@ export const SandboxIframe = ({ sandbox }) => {
             <iframe
                 className="sandbox-iframe"
                 src={`${sandbox}${sandbox_url_attributes}`}
-                style={{ width:"100%", height:"500px", border:"0", borderRadius:"4px", overflow: "hidden" }}
+                style={{ width:"100%", height:"500px", border:"0", borderRadius:"4px", overflow: "hidden", marginBottom: "50px" }}
                 title="static"
                 sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
                 loading="lazy"

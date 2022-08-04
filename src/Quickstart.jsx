@@ -40,9 +40,13 @@ const QuickStart = () => (
     <p>
       While not always the case, most of the functionalities of the Deriv API requires you to authorize
       first with an API token. This example shows how you can authorize before using specific functions.
-      In more of the code examples below, you can see aswell how the authorize function is utilized.
     </p>
-    <CodeBlock id={"authorize"} />
+    <p>
+      In order to authorize, the user needs to login to receive a token which will be stored in the localstorage.
+      Then this token can be used to connect to the websocket to retrieve data that requires token authorization.
+    </p>
+    <p>In more of the code examples below, you can see aswell how the authorize function is utilized.</p>
+    <SandboxIframe sandbox={sandboxes.auth} />
     <h2>Account balance</h2>
     <p>This example shows you how to use the Deriv API to retrieve account balance information.</p>
     <SandboxIframe sandbox={sandboxes.balance} />
