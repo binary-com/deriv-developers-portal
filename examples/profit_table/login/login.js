@@ -17,7 +17,7 @@ const updateElementStyles = () => {
 
 const buttonResponse = () => {
   window.open(
-    "https://oauth.deriv.com/oauth2/authorize?app_id=32449&l=EN&brand=deriv",
+    "https://oauth.deriv.com/oauth2/authorize?app_id=32450&l=EN&brand=deriv",
     "newwindow",
     "width=320,height=800"
   );
