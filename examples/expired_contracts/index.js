@@ -10,7 +10,6 @@ let token = "";
 
 const expiredContractsResponse = async (res) => {
   const data = JSON.parse(res.data);
-  console.log(data);
 
   if (data.error !== undefined) {
     console.log("Error : ", data.error.message);
@@ -19,6 +18,7 @@ const expiredContractsResponse = async (res) => {
   }
 
   if (data.msg_type === "sell_expired") {
+    console.log(data);
     console.log("amount of expired contracts sold: ", data.sell_expired?.count);
   }
 

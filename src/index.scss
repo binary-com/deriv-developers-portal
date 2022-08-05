@@ -459,6 +459,12 @@ textarea {
   &.ways-row {
     padding: 0;
   }
+  .clients-opinion{
+    color: var(--text-01);
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
 }
 .pageWrapper {
   width: 100%;
@@ -474,6 +480,12 @@ textarea {
   align-items: center;
   justify-content: center;
   width: 80%;
+  .header{
+    color: var(--text-01);
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
 }
 .single-container p {
   margin-bottom: 32px;
@@ -527,6 +539,12 @@ textarea {
   width: 80%;
   align-items: center;
   justify-content: center;
+  .header_h2{
+    color: var(--text-01);
+    font-size: 48px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
 }
 .row-container {
   display: flex;

@@ -15,6 +15,7 @@ bc.onmessage = function (event) {
   if (event.data.token1) {
     bc.postMessage("close");
     localStorage.setItem("token1", event.data.token1);
+    console.log('Successfully authorized!')
   }
   if (event.data === "close") {
     window.close();
