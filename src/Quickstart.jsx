@@ -15,7 +15,7 @@ const QuickStart = () => (
         <a href="/api-explorer/">API Explorer</a>.
       </p>
       <h3 className={styles.api_sub_title}>Before you begin</h3>
-      <ul className="bullet">
+      <ul className={styles.number}>
         <li>
           Open a <a href="https://deriv.com/">Deriv account</a> (either a demo
           or real account).
