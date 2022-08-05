@@ -25,14 +25,29 @@ export default function ApiGuide() {
   const nestedContent = JSON.stringify(nestedJSON, null, 2);
   const statusContent = JSON.stringify(statusJSON, null, 2);
   const schemaContent = JSON.stringify(schemaJSON, null, 2);
+
+  const nav_object = {
+    what_is_api: "What is API?",
+    the_deriv_api: "The Deriv API",
+    what_can_you_do: "What can you do with te Deriv API?",
+    how_can_you_earn: "How can you earn with the Deriv API?",
+    technical_specifications: "Technical specifications of the Deriv API",
+    websockets: "WebSockets",
+    json: "JSON",
+    json_schemas: "JSON Schemas",
+    authorisation: "Authorisation",
+    performing_trades: "Performing trades via Deriv API",
+    table_mapping: "Table mapping"
+  }
+
   return (
     <div className={styles.apiGuide} data-id="api-guide">
-      {!isMobile && <Navigator />}
+      {!isMobile && <Navigator nav_object={nav_object} />}
       <div className={styles.apiGuideContent}>
         <h1>API guide</h1>
-        {isMobile && <Navigator />}
+        {isMobile && <Navigator nav_object={nav_object} />}
         <div className={styles.textBlock}>
-          <h2 id="what-is-api">What is API?</h2>
+          <h2 id="what_is_api">What is API?</h2>
           <p>
             API stands for Application Programming Interface - a software that
             allows 2 or more computer programs to communicate with each other.
@@ -114,8 +129,8 @@ export default function ApiGuide() {
           </p>
         </div>
         <div className={styles.textBlock}>
-          <h2 id="the-deriv-api">The Deriv API</h2>
-          <h3 id="what-can-you-do-with-the-deriv-api">
+          <h2 id="the_deriv_api">The Deriv API</h2>
+          <h3 id="what_can_you_do">
             What can you do with the Deriv API?
           </h3>
           <p>
@@ -144,7 +159,7 @@ export default function ApiGuide() {
               <p>Automate services as payment agents.</p>
             </li>
           </ul>
-          <h3 id="how-can-you-earn-with-deriv-api">
+          <h3 id="how_can_you_earn">
             How can you earn with Deriv API?
           </h3>
           <ul>
@@ -205,7 +220,7 @@ export default function ApiGuide() {
           </p>
         </div>
         <div className={styles.textBlock}>
-          <h2 id="technical-specifications-of-the-deriv-api">
+          <h2 id="technical_specifications">
             Technical specifications of the Deriv API
           </h2>
           <p>
@@ -283,7 +298,7 @@ export default function ApiGuide() {
         <div className={styles.apiCodeBlock}>
           <CodeBlockSingleLanguage lang="json" content={statusContent} />
         </div>
-        <h2 id="json-schemas">JSON Schemas</h2>
+        <h2 id="json_schemas">JSON Schemas</h2>
         <p>
           JSON Schema is a defined format for the JSON messages used to describe
           their structure to Deriv API users. In a nutshell, it’s a standardised
@@ -434,7 +449,7 @@ export default function ApiGuide() {
             actions on behalf of the account.
           </li>
         </ul>
-        <h2 id="performing-trades-via-deriv-api">
+        <h2 id="performing_trades">
           Performing trades via Deriv API
         </h2>
         <p>
@@ -476,7 +491,7 @@ export default function ApiGuide() {
             lost.
           </li>
         </ul>
-        <h2 id="table-mapping">Table mapping</h2>
+        <h2 id="table_mapping">Table mapping</h2>
         <h3>Deriv website contract types to API parameter names</h3>
         <p>
           If you would like to copy certain contract types from our websites,

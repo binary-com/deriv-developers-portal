@@ -21,7 +21,7 @@ export default function NavigatorContent({ nav_object }) {
             </>
         )
     }
-    
+
     return (
         <GenerateLinks />
     )
