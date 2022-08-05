@@ -1,3 +1,8 @@
+
+.quickstartContent {
+    padding-right: 300px;
+}
+
 .page_content {
     padding-left: 42px;
     width: 68%;
@@ -73,5 +78,14 @@
                 margin-bottom: 16px;
             }
         }
+    }
+}
+
+[data-state~="responsive.mobileTablet"],
+[data-state~="responsive.mobileL"],
+[data-state~="responsive.mobileM"],
+[data-state~="responsive.mobileS"] {
+    .quickstartContent {
+        padding-right: 0;
     }
 }
