@@ -6,7 +6,7 @@ const unauthorized_message = document.querySelector("#unauthorized");
 const buy_contract_button = document.querySelector("#buyContract");
 const search_parameters = url.searchParams;
 
-let token_data_object = {};
+let token_data_object;
 let account_value;
 let token_value;
 let currency_value;
