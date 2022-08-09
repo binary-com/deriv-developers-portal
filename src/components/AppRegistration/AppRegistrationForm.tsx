@@ -65,7 +65,7 @@ export default function AppRegistrationForm() {
                     <fieldset>
                         <div className={styles.formHeaderContainer}>
                             <h4 className={styles.registerFormHeader}>App information</h4>
-                            <div>Paste your API token with the admin scope here</div>
+                            <div className={styles.description}>Paste your API token with the admin scope here</div>
                         </div>
                         <div className='api-token-wrapper'>
                             <div className={styles.customTextInput} id='custom-text-input'>
@@ -120,7 +120,7 @@ export default function AppRegistrationForm() {
                         <fieldset>
                             <div className={styles.formHeaderContainer}>
                                 <h4 className={styles.registerFormHeader}>Markup</h4>
-                                <div>
+                                <div className={styles.description}>
                                     You can earn commission by adding a markup to the price of each trade. Enter your
                                     markup percentage here:
                                 </div>
@@ -165,7 +165,7 @@ export default function AppRegistrationForm() {
                             </div>
                             <div className={styles.formHeaderContainer}>
                                 <h4 className={styles.registerFormHeader}>OAuth Details</h4>
-                                <div>
+                                <div className={styles.description}>
                                     This allows clients to log in to your app using their Deriv accounts without an API
                                     token.
                                 </div>
@@ -233,7 +233,7 @@ export default function AppRegistrationForm() {
                             <div>
                                 <div className={styles.formHeaderContainer}>
                                     <h4 className={styles.registerFormHeader}>Scope of Authorisation</h4>
-                                    <div>Select the scope for your app:</div>
+                                    <div className={styles.description}>Select the scope for your app:</div>
                                 </div>
                             </div>
                             <div className={styles.scopesField}>
