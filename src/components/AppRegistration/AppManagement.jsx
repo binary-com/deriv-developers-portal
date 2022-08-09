@@ -53,12 +53,12 @@ export default function AppManagement() {
             <div className={styles.appActions}>
               <div onClick={updateAppTrigger} className={`${styles.updateApp} ${styles.tooltip}`} >
                   <span className={styles.tooltipText}>
-                     Update Application   
+                     Edit application
                   </span>
               </div>
               <div onClick={triggerModal}  className={`${styles.deleteApp} ${styles.tooltip}`} > 
                     <span className={styles.tooltipText}>
-                     Delete Application   
+                     Delete application   
                     </span>
               </div>
             </div>

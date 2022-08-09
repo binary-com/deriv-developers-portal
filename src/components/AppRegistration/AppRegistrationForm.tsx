@@ -165,7 +165,10 @@ export default function AppRegistrationForm() {
                             </div>
                             <div className={styles.formHeaderContainer}>
                                 <h4 className={styles.registerFormHeader}>OAuth Details</h4>
-                                <div></div>
+                                <div>
+                                    This allows clients to log in to your app using their Deriv accounts without an API
+                                    token.
+                                </div>
                             </div>
                             <div className='input-container'>
                                 <div className={styles.customTextInput} id='custom-text-input'>
@@ -191,8 +194,8 @@ export default function AppRegistrationForm() {
                                     <label>Authorisation URL</label>
                                 </div>
                                 <p className={styles.helperText}>
-                                    This allows clients to log in to your app using their Deriv accounts without an API
-                                    token.
+                                    *Please note that this URL will be used as the OAuth redirect URL for the OAuth
+                                    authorisation.
                                 </p>
                             </div>
                             {errors.app_redirect_uri && (

@@ -78,7 +78,7 @@
 .appActions {
     display: flex;
     justify-content: center;
-    margin: 28px;
+    margin: 30px;
 }
 
 .tooltip {
@@ -98,7 +98,7 @@
         bottom: 125%;
         font-size: 12px;
         left: 50%;
-        margin-left: -60px;
+        margin-left: -55px;
         opacity: 0;
         transition: opacity 1s;
         &::after {
