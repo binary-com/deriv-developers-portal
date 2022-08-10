@@ -53,7 +53,7 @@ export default function AppManagement() {
             <div className={styles.appActions}>
               <div onClick={updateAppTrigger} className={`${styles.updateApp} ${styles.tooltip}`} >
                   <span className={styles.tooltipText}>
-                     Edit application
+                     Edit application details
                   </span>
               </div>
               <div onClick={triggerModal}  className={`${styles.deleteApp} ${styles.tooltip}`} > 
@@ -127,7 +127,7 @@ const Scopes = ({ values,idx }) => {
           <span key={idx} className={`${styles.scope}  ${
             scopes === 'admin' ? styles.adminScope : ''
         }`}>
-            {scopes}
+            {scopes.charAt(0).toUpperCase() + scopes.slice(1).replace("_"," ")}
           </span>
         );
       })}
