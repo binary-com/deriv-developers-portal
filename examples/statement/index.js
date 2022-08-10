@@ -19,7 +19,7 @@ const statementResponse = async (res) => {
   const data = JSON.parse(res.data);
 
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
     connection.removeEventListener("message", statementResponse, false);
     await api.disconnect();
   }

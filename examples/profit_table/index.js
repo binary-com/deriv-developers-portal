@@ -20,7 +20,7 @@ const profitTableResponse = async (res) => {
   const data = JSON.parse(res.data);
 
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
   }
 
   if (data.msg_type === "profit_table") {

@@ -17,7 +17,7 @@ const activeSymbolsResponse = async (res) => {
   const data = JSON.parse(res.data);
 
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error?.message);
+    console.log("Error : ", data.error?.message);
     connection.removeEventListener("message", activeSymbolsResponse, false);
     await api.disconnect();
   }
