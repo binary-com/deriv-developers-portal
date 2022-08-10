@@ -10,7 +10,7 @@ const tickStream = () => api.subscribe({ ticks: "R_100" });
 const tickResponse = async (res) => {
   const data = JSON.parse(res.data);
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
     connection.removeEventListener("message", tickResponse, false);
     await api.disconnect();
   }

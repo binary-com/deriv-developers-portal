@@ -20,12 +20,12 @@ const ticks_request = {
   subscribe: 1
 };
 
-const tick_subscriber = api.subscribe(ticks_request);
+const tickSubscriber = () => api.subscribe(ticks_request);
 
 const ticksHistoryResponse = async (res) => {
   const data = JSON.parse(res.data);
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
     connection.removeEventListener("message", ticksHistoryResponse, false);
     await api.disconnect();
   }
@@ -39,7 +39,7 @@ const ticksResponse = async (res) => {
   const data = JSON.parse(res.data);
   // This example returns an object with a selected amount of past ticks.
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
     connection.removeEventListener("message", ticksResponse, false);
     await api.disconnect();
   }
@@ -49,14 +49,14 @@ const ticksResponse = async (res) => {
   }
 };
 
-const getTicks = async () => {
+const subscribeTicks = async () => {
   connection.addEventListener("message", ticksResponse);
-  await tick_subscriber;
+  await tickSubscriber();
 };
 
 const unsubscribeTicks = async () => {
   connection.removeEventListener("message", ticksResponse, false);
-  await tick_subscriber.unsubscribe();
+  await tickSubscriber().unsubscribe();
 };
 
 const getTicksHistory = async () => {
@@ -65,7 +65,7 @@ const getTicksHistory = async () => {
 };
 
 const subscribe_ticks_button = document.querySelector("#ticks");
-subscribe_ticks_button.addEventListener("click", getTicks);
+subscribe_ticks_button.addEventListener("click", subscribeTicks);
 
 const unsubscribe_ticks_button = document.querySelector("#ticks-unsubscribe");
 unsubscribe_ticks_button.addEventListener("click", unsubscribeTicks);
