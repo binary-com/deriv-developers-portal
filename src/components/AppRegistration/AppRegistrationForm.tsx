@@ -121,7 +121,7 @@ export default function AppRegistrationForm() {
                             <div className={styles.formHeaderContainer}>
                                 <h4 className={styles.registerFormHeader}>Markup</h4>
                                 <div className={styles.description}>
-                                    You can earn commission by adding a markup to the price of each trade, Enter your
+                                    You can earn commission by adding a markup to the price of each trade. Enter your
                                     markup percentage here.
                                 </div>
                             </div>
