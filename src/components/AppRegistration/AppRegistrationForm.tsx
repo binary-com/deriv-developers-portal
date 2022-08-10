@@ -122,7 +122,7 @@ export default function AppRegistrationForm() {
                                 <h4 className={styles.registerFormHeader}>Markup</h4>
                                 <div className={styles.description}>
                                     You can earn commission by adding a markup to the price of each trade, Enter your
-                                    markup percentage here:
+                                    markup percentage here.
                                 </div>
                             </div>
                             <div className='input-container'>
@@ -156,7 +156,7 @@ export default function AppRegistrationForm() {
                                     </div>
                                     <p className={styles.helperText}>
                                         If you don’t want to earn a markup, enter 0 here. Otherwise, enter a number up
-                                        to 5. Maximum: 5.00%
+                                        to 5. Maximum: 5.00%.
                                     </p>
                                     {errors.app_markup_percentage && (
                                         <span className='error-message'>{errors.app_markup_percentage.message}</span>
@@ -242,7 +242,7 @@ export default function AppRegistrationForm() {
                                     <span className={styles.customCheckbox} />
                                 </div>
                                 <label htmlFor='read-scope'>
-                                    <b>Read</b>: You’ll have full access to your clients’ information
+                                    <b>Read</b>: You’ll have full access to your clients’ information.
                                 </label>
                             </div>
                             <div className={styles.scopesField}>
@@ -251,7 +251,7 @@ export default function AppRegistrationForm() {
                                     <span className={styles.customCheckbox} />
                                 </div>
                                 <label htmlFor='trade-scope'>
-                                    <b>Trade</b>: You’ll be able to buy and sell contracts on your clients’ behalf
+                                    <b>Trade</b>: You’ll be able to buy and sell contracts on your clients’ behalf.
                                 </label>
                             </div>
                             <div className={styles.scopesField}>
@@ -265,7 +265,7 @@ export default function AppRegistrationForm() {
                                 </div>
                                 <label htmlFor='trading_information-scope'>
                                     <b>Trading information</b>: You’ll be able to view your clients’ trading
-                                    information, including their account balance
+                                    information, including their account balance.
                                 </label>
                             </div>
                             <div className={styles.scopesField}>
@@ -275,7 +275,7 @@ export default function AppRegistrationForm() {
                                 </div>
                                 <label htmlFor='payments-scope'>
                                     <b>Payments</b>: You’ll be able to perform deposits and withdrawals on your clients’
-                                    behalf
+                                    behalf.
                                 </label>
                             </div>
                             <div className={`${styles.scopesField} mb-0`}>
@@ -284,7 +284,7 @@ export default function AppRegistrationForm() {
                                     <span className={styles.customCheckbox} />
                                 </div>
                                 <label htmlFor='admin-scope'>
-                                    <b>Admin</b>: Full account access, including the access to manage security tokens
+                                    <b>Admin</b>: Full account access, including the access to manage security tokens.
                                 </label>
                             </div>
                         </div>
