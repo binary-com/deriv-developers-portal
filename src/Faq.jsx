@@ -15,7 +15,7 @@ const FAQ = () => {
               View our <a href="https://api.deriv.com/docs/">code samples</a>.
               You can use these code snippets in your app to open a connection
               to our WebSocket API service. Explore our
-              <a href="/api-explorer/"> API playground</a> for the method calls
+              <a href="/api-explorer/"> API explorer</a> for the method calls
               you need for your app.
             </p>
           </AccordionItem>
