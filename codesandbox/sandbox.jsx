@@ -22,16 +22,15 @@ export const sandboxes = {
 }
 
 export const SandboxIframe = ({ sandbox }) => {
-    const [frameWidth,setFrameWidth]= useState(null)
 
-    const sandbox_url_attributes = "?autoresize=1&runonclick=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=darkveiw&view=preview"
+    const sandbox_url_attributes = "?autoresize=1&runonclick=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=darkveiw&view=split"
     return (
         <div className="sandbox-wrapper">
             <iframe
                 className="sandbox-iframe" 
                 onLoad={()=> setFrameWidth('1200px')}
                 src={`${sandbox}${sandbox_url_attributes}`}
-                style={{ width:frameWidth, height:"500px", border:"0", borderRadius:"4px", overflow: "hidden", marginBottom: "50px" }}
+                style={{ width:"100%", height:"500px", border:"0", borderRadius:"4px", overflow: "hidden", marginBottom: "50px" }}
                 title="static"
                 sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
                 loading="lazy"
