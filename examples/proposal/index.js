@@ -38,7 +38,7 @@ const getProposal = async () => {
   await api.proposal(proposal_request);
 };
 
-const unsubscribeProposal = async () => {
+const unsubscribeProposal = () => {
   connection.removeEventListener("message", proposalResponse, false);
 };
 
