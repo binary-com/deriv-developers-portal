@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { on } from "solid-js";
-
 const url_base = 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/';
 
 export const sandboxes = {
