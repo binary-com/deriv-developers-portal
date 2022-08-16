@@ -12,11 +12,9 @@ export default function AppRegistration() {
             <div className='app-registration-logged-in'>
                 <div className='app-registration-header'>
                     <h2 id='form-title' className='doc-sub-title form-title'>
-                        Your Apps
+                        Your apps
                     </h2>
-                    <h4 className='form-subtitle'>
-                        Register your app to get an app ID and start using Deriv API for personal or business purposes
-                    </h4>
+                    <h4 className='form-subtitle'>Register your app, get an app ID, and start using the Deriv API.</h4>
                 </div>
                 <RegisteredAppTabs />
                 <div className='register-app'>
