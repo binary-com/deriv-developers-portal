@@ -24,7 +24,7 @@ const subscribeTicks = async () => {
   connection.addEventListener("message", tickResponse);
 };
 
-const unsubscribeTicks = async () => {
+const unsubscribeTicks = () => {
   connection.removeEventListener("message", tickResponse, false);
   tickStream().unsubscribe();
 };
