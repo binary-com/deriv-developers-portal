@@ -96,7 +96,7 @@ export const playground_requests = [
     name: "authorize",
     title: "Authorize",
     body: {
-      authorize: "uw2mk7no3oktoRVVsB4Dz7TQncfABuFDgO95dlxfMxRuPUDz",
+      authorize: ".",
     },
   },
   {
