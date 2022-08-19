@@ -47,7 +47,7 @@ export default function HomePage() {
               </div>
               <div className={styles.logoAndLink}>
                 <a
-                  href="https://binary-com.github.io/deriv-api/"
+                  href="https://github.com/deriv-com/flutter-deriv-api"
                   className={styles.libraryGoTo}
                 >
                   <div className={styles.logoFlutter} />
