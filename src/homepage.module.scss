@@ -274,8 +274,12 @@
         .logoPython {
           background-image: url(/img/py.svg);
         }
+        .logoFlutter{
+          background-image: url(/img/flutter.svg);
+        }
         .logoJavascript,
-        .logoPython {
+        .logoPython,
+        .logoFlutter {
           background-repeat: no-repeat;
           background-position: center;
           width: 40px;
