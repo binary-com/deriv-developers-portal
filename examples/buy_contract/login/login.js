@@ -56,6 +56,7 @@ const browserCheck = () => {
     }
   );
 };
+browserCheck();
 
 const updateElementStyles = () => {
   login_button.style.display = "none";
