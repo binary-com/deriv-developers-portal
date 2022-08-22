@@ -6,7 +6,7 @@ export const socket_url = () => `wss://${server_url()}/websockets/v3?app_id=${ap
 
 createEffect(() => {
     const app_id_in_local = localStorage.getItem('app_id') || '31063';
-    const server_url_in_local = localStorage.getItem('server_url') || 'blue.binaryws.com';
+    const server_url_in_local = localStorage.getItem('server_url') || 'green.binaryws.com';
     const token_in_local = sessionStorage.getItem('token1');
 
     if (app_id_in_local) setAppId(app_id_in_local);
@@ -38,12 +38,4 @@ createEffect(() => {
     if(app_id()) localStorage.setItem('app_id', app_id());
     if(server_url()) localStorage.setItem('server_url', server_url());
     if(token1()) sessionStorage.setItem('token1', token1());
-});
-
-createEffect(() => {
-    const is_production = window.location.hostname === 'api.deriv.com';
-
-    if (is_production) {
-        setServerUrl('green.binaryws.com');
-    }
 });
