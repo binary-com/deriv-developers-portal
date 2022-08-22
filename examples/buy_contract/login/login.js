@@ -5,6 +5,7 @@ const authorized_message = document.querySelector("#authorized");
 const unauthorized_message = document.querySelector("#unauthorized");
 const buy_contract_button = document.querySelector("#buyContract");
 const search_parameters = url.searchParams;
+var incognito = true;
 
 let token_data_object;
 let account_value;
@@ -41,6 +42,21 @@ try {
   console.log(error.error.message);
 }
 
+const browserCheck = () => {
+  var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+  fs(
+    window.TEMPORARY,
+    100,
+    function (fs) {},
+    function (e) {
+      alert(
+        "You are in Incognito Mode. The Log in functionality will not work in the Code Sandbox"
+      );
+      incognito = false;
+    }
+  );
+};
+
 const updateElementStyles = () => {
   login_button.style.display = "none";
   authorized_message.style.display = "inline-block";
@@ -51,11 +67,14 @@ const updateElementStyles = () => {
 };
 
 const buttonResponse = () => {
-  window.open(
-    "https://oauth.deriv.com/oauth2/authorize?app_id=32436&l=EN&brand=deriv", // replace app_id in the link here with your own.
-    "newwindow",
-    "width=320,height=800"
-  );
+  browserCheck();
+  if (incognito === true) {
+    window.open(
+      "https://oauth.deriv.com/oauth2/authorize?app_id=32404&l=EN&brand=deriv",
+      "newwindow",
+      "width=320,height=800"
+    );
+  }
 };
 
 login_button.addEventListener("click", buttonResponse);
