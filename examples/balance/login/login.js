@@ -16,7 +16,7 @@ const browserCheck = () => {
     function (fs) {},
     function (e) {
       alert(
-        "You are in Incognito Mode. The Log in functionality will not work in the Code Sandbox"
+        "You are using Incognito mode. The Log in functionality for Code Sandbox will not work in Incognito mode."
       );
       incognito = false;
     }
