@@ -5,6 +5,24 @@ const login_button = document.querySelector("#loginButton");
 const authorized_message = document.querySelector("#authorized");
 const unauthorized_message = document.querySelector("#unauthorized");
 const expired_contracts_button = document.querySelector("#expiredContracts");
+var incognito = true;
+
+const browserCheck = () => {
+  var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+  fs(
+    window.TEMPORARY,
+    100,
+    function (fs) {},
+    function (e) {
+      alert(
+        "You are in Incognito Mode. The Log in functionality will not work in the Code Sandbox"
+      );
+      incognito = false;
+    }
+  );
+};
+
+browserCheck();
 const updateElementStyles = () => {
   login_button.style.display = "none";
   authorized_message.style.display = "inline-block";
@@ -15,11 +33,14 @@ const updateElementStyles = () => {
 };
 
 const buttonResponse = () => {
-  window.open(
-    "https://oauth.deriv.com/oauth2/authorize?app_id=32512&l=EN&brand=deriv",
-    "newwindow",
-    "width=320,height=800"
-  );
+  browserCheck();
+  if (incognito === true) {
+    window.open(
+      "https://oauth.deriv.com/oauth2/authorize?app_id=32404&l=EN&brand=deriv",
+      "newwindow",
+      "width=320,height=800"
+    );
+  }
 };
 
 login_button.addEventListener("click", buttonResponse);

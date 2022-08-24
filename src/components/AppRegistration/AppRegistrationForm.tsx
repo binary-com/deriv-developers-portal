@@ -50,7 +50,7 @@ export default function AppRegistrationForm() {
         }
     }, [isUpdateMode, isOnRegisterTab]);
 
-    const registerButtonMessage = isUpdateMode ? 'Update application' : 'Register new application';
+    const registerButtonMessage = isUpdateMode ? 'Update application' : 'Register as application';
 
     return (
         <>
@@ -64,17 +64,8 @@ export default function AppRegistrationForm() {
                 <div className={styles.formContent}>
                     <fieldset>
                         <div className={styles.formHeaderContainer}>
-                            <h4 className={styles.registerFormHeader}>General information</h4>
-                            <div className={styles.infoIcon}>
-                                <div className={styles.tooltip}>
-                                    Please create your API token{' '}
-                                    <a href='https://app.deriv.com/account/api-token' className={styles.tooltipLink}>
-                                        here
-                                    </a>
-                                    , and copy it into this field.
-                                </div>
-                                <div className={styles.infoIconImage} />
-                            </div>
+                            <h4 className={styles.registerFormHeader}>App information</h4>
+                            <div className={styles.description}>Paste your API token with the admin scope here.</div>
                         </div>
                         <div className='api-token-wrapper'>
                             <div className={styles.customTextInput} id='custom-text-input'>
@@ -96,7 +87,7 @@ export default function AppRegistrationForm() {
                                     readOnly={isUpdateMode}
                                     placeholder=' '
                                 />
-                                <label>API token (Required)</label>
+                                <label>API token (required)</label>
                             </div>
                             {errors.api_token_input && (
                                 <span className='error-message'>{errors.api_token_input.message}</span>
@@ -119,7 +110,7 @@ export default function AppRegistrationForm() {
                                         id='app_name'
                                         placeholder=' '
                                     />
-                                    <label>App name (Required)</label>
+                                    <label>App name (required)</label>
                                 </div>
                                 {errors.app_name && <span className='error-message'>{errors.app_name.message}</span>}
                             </div>
@@ -129,12 +120,9 @@ export default function AppRegistrationForm() {
                         <fieldset>
                             <div className={styles.formHeaderContainer}>
                                 <h4 className={styles.registerFormHeader}>Markup</h4>
-                                <div className={styles.infoIcon}>
-                                    <div className={styles.tooltip}>
-                                        For each trade performed on your app, you will receive a commission. Set a
-                                        markup percentage below to determine the commission you will make.
-                                    </div>
-                                    <div className={styles.infoIconImage} />
+                                <div className={styles.description}>
+                                    You can earn commission by adding a markup to the price of each trade. Enter your
+                                    markup percentage here.
                                 </div>
                             </div>
                             <div className='input-container'>
@@ -164,22 +152,22 @@ export default function AppRegistrationForm() {
                                             // eslint-disable-next-line
                                             onWheel={(e: any) => e.target.blur()}
                                         />
-                                        <label>Markup percentage</label>
+                                        <label>Markup percentage (requried)</label>
                                     </div>
-                                    <p className={styles.helperText}>(0.00-5.00%)</p>
+                                    <p className={styles.helperText}>
+                                        If you don’t want to earn a markup, enter 0 here. Otherwise, enter a number up
+                                        to 5. Maximum: 5.00%.
+                                    </p>
                                     {errors.app_markup_percentage && (
                                         <span className='error-message'>{errors.app_markup_percentage.message}</span>
                                     )}
                                 </div>
                             </div>
                             <div className={styles.formHeaderContainer}>
-                                <h4 className={styles.registerFormHeader}>Authorisation</h4>
-                                <div className={styles.infoIcon}>
-                                    <div className={styles.tooltip}>
-                                        To use OAuth, please fill out the following fields. These details can be changed
-                                        later using the app_update API call.
-                                    </div>
-                                    <div className={styles.infoIconImage} />
+                                <h4 className={styles.registerFormHeader}>OAuth details</h4>
+                                <div className={styles.description}>
+                                    This allows clients to log in to your app using their Deriv accounts without an API
+                                    token.
                                 </div>
                             </div>
                             <div className='input-container'>
@@ -188,7 +176,7 @@ export default function AppRegistrationForm() {
                                         {...register('app_redirect_uri', {
                                             required: {
                                                 value: true,
-                                                message: 'Enter your website URL.',
+                                                message: 'Enter your authorisation URL.',
                                             },
                                             maxLength: {
                                                 value: 255,
@@ -203,11 +191,11 @@ export default function AppRegistrationForm() {
                                         type='text'
                                         placeholder=' '
                                     />
-                                    <label>Website URL (Required)</label>
+                                    <label>Authorisation URL (required)</label>
                                 </div>
                                 <p className={styles.helperText}>
                                     *Please note that this URL will be used as the OAuth redirect URL for the OAuth
-                                    authorisation
+                                    authorisation.
                                 </p>
                             </div>
                             {errors.app_redirect_uri && (
@@ -234,7 +222,7 @@ export default function AppRegistrationForm() {
                                         type='text'
                                         placeholder=' '
                                     />
-                                    <label>Verification URL (Required)</label>
+                                    <label>Verification URL (required)</label>
                                 </div>
                             </div>
                             {errors.app_verification_uri && (
@@ -244,19 +232,9 @@ export default function AppRegistrationForm() {
                         <div className={styles.scopes} id='register_scopes'>
                             <div>
                                 <div className={styles.formHeaderContainer}>
-                                    <h4 className={styles.registerFormHeader}>OAuth authorisation levels</h4>
-                                    <div className={styles.infoIcon}>
-                                        <div className={styles.tooltip}>
-                                            Please select the level of access you would like clients to give to your
-                                            app.
-                                        </div>
-                                        <div className={styles.infoIconImage} />
-                                    </div>
+                                    <h4 className={styles.registerFormHeader}>Scope of authorisation</h4>
+                                    <div className={styles.description}>Select the scope for your app:</div>
                                 </div>
-                                <p>
-                                    Bear in mind that you generally need only <b>'Trade'</b> and{' '}
-                                    <b>'Trading information'</b> access. <b>'Admin'</b> access is usually not required.
-                                </p>
                             </div>
                             <div className={styles.scopesField}>
                                 <div className={styles.customCheckboxContainer}>
@@ -264,7 +242,7 @@ export default function AppRegistrationForm() {
                                     <span className={styles.customCheckbox} />
                                 </div>
                                 <label htmlFor='read-scope'>
-                                    Read all: Full access to users’ information, including private information
+                                    <b>Read</b>: You’ll have full access to your clients’ information.
                                 </label>
                             </div>
                             <div className={styles.scopesField}>
@@ -272,7 +250,9 @@ export default function AppRegistrationForm() {
                                     <input {...register('trade_scope')} id='trade-scope' type='checkbox' />
                                     <span className={styles.customCheckbox} />
                                 </div>
-                                <label htmlFor='trade-scope'>Trade: Buy and sell contracts on the users’ behalf</label>
+                                <label htmlFor='trade-scope'>
+                                    <b>Trade</b>: You’ll be able to buy and sell contracts on your clients’ behalf.
+                                </label>
                             </div>
                             <div className={styles.scopesField}>
                                 <div className={styles.customCheckboxContainer}>
@@ -284,7 +264,8 @@ export default function AppRegistrationForm() {
                                     <span className={styles.customCheckbox} />
                                 </div>
                                 <label htmlFor='trading_information-scope'>
-                                    Trading information: View users’ trading information, including balance information
+                                    <b>Trading information</b>: You’ll be able to view your clients’ trading
+                                    information, including their account balance.
                                 </label>
                             </div>
                             <div className={styles.scopesField}>
@@ -292,7 +273,10 @@ export default function AppRegistrationForm() {
                                     <input {...register('payments_scope')} id='payments-scope' type='checkbox' />
                                     <span className={styles.customCheckbox} />
                                 </div>
-                                <label htmlFor='payments-scope'>Payments: Cashier (deposit and withdrawal)</label>
+                                <label htmlFor='payments-scope'>
+                                    <b>Payments</b>: You’ll be able to perform deposits and withdrawals on your clients’
+                                    behalf.
+                                </label>
                             </div>
                             <div className={`${styles.scopesField} mb-0`}>
                                 <div className={styles.customCheckboxContainer}>
@@ -300,7 +284,7 @@ export default function AppRegistrationForm() {
                                     <span className={styles.customCheckbox} />
                                 </div>
                                 <label htmlFor='admin-scope'>
-                                    Admin: Full account access, including the access to manage security tokens
+                                    <b>Admin</b>: Full account access, including the access to manage security tokens.
                                 </label>
                             </div>
                         </div>

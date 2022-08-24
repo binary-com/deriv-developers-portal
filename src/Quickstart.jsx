@@ -1,5 +1,5 @@
-import styles from "./Quickstart.module.scss";
-import CodeBlock from "./components/CodeBlock/CodeBlock";
+import styles from './Quickstart.module.scss';
+import { SandboxIframe, sandboxes } from '../codesandbox/sandbox';
 
 const QuickStart = () => (
   <div className="page-content">
@@ -11,11 +11,10 @@ const QuickStart = () => (
         the most important operations.
       </p>
       <p>
-        You can find all of the other available calls in the{" "}
-        <a href="/api-explorer/">API Explorer</a>.
+          You can find all of the other available calls in the <a href='/api-explorer/'>API Explorer</a>.
       </p>
       <h3 className={styles.api_sub_title}>Before you begin</h3>
-      <ul className={styles.number}>
+      <ul className="bullet">
         <li>
           Open a <a href="https://deriv.com/">Deriv account</a> (either a demo
           or real account).
@@ -36,42 +35,47 @@ const QuickStart = () => (
         samples.
       </p>
     </div>
-    <h2>Buy contract</h2>
-    <p>
-      A contract is an agreement to buy or sell an asset at an agreed-upon
-      price. This example shows you how to buy a contract using Deriv API.
-    </p>
-    <CodeBlock id={"buy-contract"} />
     <h2>Ticks</h2>
     <p>
       A tick is a measure of minimum upward or downward movement in the price of
       a trading commodity. This example shows you how to collect ticks for your
       trading app using Deriv's API.
     </p>
-    <CodeBlock id={"ticks"} />
-    <h2>Account balance</h2>
     <p>
-      This example shows you how to use the Deriv API to retrieve account
-      balance information.
+      We start off with an example of ticks, because it is a fairly simple block of code to implement.
+      But, if you plan to develop for example a trading application, it is fundamentally also an important feature.
     </p>
-    <CodeBlock id={"balance"} />
+    <p>
+      We subscribe to the ticks functionality from the Deriv API websocket, which will return new tick data every second or so.
+      With this data you could for example create an interactive tick graph.
+    </p>
+    <SandboxIframe sandbox={sandboxes.ticks} />
     <h2>Proposal</h2>
     <p>
-      This example is for getting a contract proposal. You’ll be able to get the
+      This example is for getting a contract proposal. You'll be able to get the
       price, payout and spot value for your contract.
     </p>
     <p>
       To keep this connection alive in case of inactivity timeouts, see the
       example for Keep alive.
     </p>
-    <CodeBlock id={"proposal"} />
+    <SandboxIframe sandbox={sandboxes.proposal} />
     <h2>Keep alive</h2>
     <p>
       In this example you’ll see how to keep a connection alive when getting
       contract proposals via the Deriv API. This example keeps the connection
       alive by sending a ping every 30 seconds.
     </p>
-    <CodeBlock id={"keep-alive"} />
+    <SandboxIframe sandbox={sandboxes.keep_alive} />
+    <h2>Account balance</h2>
+    <p>This example shows you how to use the Deriv API to retrieve account balance information.</p>
+    <SandboxIframe sandbox={sandboxes.balance} />
+    <h2>Buy contract</h2>
+    <p>
+      A contract is an agreement to buy or sell an asset at an agreed-upon
+      price. This example shows you how to buy a contract using Deriv API.
+    </p>
+    <SandboxIframe sandbox={sandboxes.buy_contract} />
   </div>
 );
 

@@ -19,7 +19,7 @@ export default function AppManagement() {
   const columns = useMemo(
     () => [
       {
-        Header: "Users",
+        Header: "Application Name",
         accessor: "name",
       },
       {
@@ -29,7 +29,7 @@ export default function AppManagement() {
       {
         Header: "Scopes",
         accessor: "scopes",
-        Cell: ({ cell: { value } }) => value.join(", "),
+        Cell: ({ cell: { value } }) => <Scopes values={value}/>,
       },
       {
         Header: "Redirect URL",
@@ -51,8 +51,16 @@ export default function AppManagement() {
           };
           return (
             <div className={styles.appActions}>
-              <div onClick={updateAppTrigger} className={styles.updateApp} />
-              <div onClick={triggerModal} className={styles.deleteApp} />
+              <div onClick={updateAppTrigger} className={`${styles.updateApp} ${styles.tooltip}`} >
+                  <span className={styles.tooltipText}>
+                     Edit application details
+                  </span>
+              </div>
+              <div onClick={triggerModal}  className={`${styles.deleteApp} ${styles.tooltip}`} > 
+                    <span className={styles.tooltipText}>
+                     Delete application   
+                    </span>
+              </div>
             </div>
           );
         },
@@ -110,6 +118,21 @@ export default function AppManagement() {
     </>
   );
 }
+
+const Scopes = ({ values,idx }) => {
+  return (
+    <>
+      {values.map((scopes) => {
+        return (
+          <span key={idx} className={`${styles.scope}  ${
+            scopes === 'admin' ? styles.adminScope : ''
+        }`}>
+            {scopes.charAt(0).toUpperCase() + scopes.slice(1).replace("_"," ")}
+          </span>
+        );
+      })}
+    </>
+  )}
 
 const SkeletonRows = () => {
   const Skeleton = () => (

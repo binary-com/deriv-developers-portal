@@ -13,7 +13,7 @@ const portfolioResponse = async (res) => {
   console.log(data);
 
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
     connection.removeEventListener("message", portfolioResponse, false);
     await api.disconnect();
   }

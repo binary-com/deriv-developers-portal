@@ -47,7 +47,7 @@ const checkSignal = async () => {
   connection.addEventListener("message", keepAliveRes);
 };
 
-const endCall = async () => {
+const endCall = () => {
   connection.removeEventListener("message", keepAliveRes, false);
   keepAlive().unsubscribe();
 };

@@ -30,7 +30,7 @@ const buyContractResponse = async (res) => {
   const data = JSON.parse(res.data);
   const is_sold = data.proposal_open_contract?.is_sold;
   if (data.error !== undefined) {
-    console.log("Error : %o", data.error.message);
+    console.log("Error : ", data.error.message);
     connection.removeEventListener("message", buyContractResponse, false);
     await api.disconnect();
   }

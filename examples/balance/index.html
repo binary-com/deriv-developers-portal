@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script type="module" src="./index.js" defer></script>
     <script type="module" src="./login/login.js" defer></script>
+    <link rel="stylesheet" href="index.css">
     <title>Static Template</title>
   </head>
   <body>
-    <p>
+    <p class="loginTitle">
       Login first to make use of the functionality
     </p>
-    <button id="loginButton">Login</button>
+    <button id="loginButton" class="loginBtn">Log in</button>
     <p id="unauthorized" style="color: orangered; font-weight: bold;">
       Please authorize first by logging in
     </p>
@@ -23,12 +24,14 @@
     <button
       id="accountBalance"
       style="opacity: 0.5; pointer-events: none; cursor: not-allowed;"
+      class="submitBtn"
     >
       Subscribe Account Balance
     </button>
     <button
       id="unsubscribeAccountBalance"
       style="opacity: 0.5; pointer-events: none; cursor: not-allowed;"
+      class="resetBtn"
     >
       Unsubscribe
     </button>
