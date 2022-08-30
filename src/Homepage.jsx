@@ -45,6 +45,16 @@ export default function HomePage() {
                   <div className={styles.libraryChevron} />
                 </a>
               </div>
+              <div className={styles.logoAndLink}>
+                <a
+                  href="https://github.com/deriv-com/flutter-deriv-api"
+                  className={styles.libraryGoTo}
+                >
+                  <div className={styles.logoFlutter} />
+                  <label>Go to the Flutter library</label>
+                  <div className={styles.libraryChevron} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

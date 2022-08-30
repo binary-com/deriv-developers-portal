@@ -71,7 +71,7 @@ const buttonResponse = () => {
   browserCheck();
   if (incognito === true) {
     window.open(
-      "https://oauth.deriv.com/oauth2/authorize?app_id=32404&l=EN&brand=deriv",
+      "https://oauth.deriv.com/oauth2/authorize?app_id=32436&l=EN&brand=deriv",
       "newwindow",
       "width=320,height=800"
     );
