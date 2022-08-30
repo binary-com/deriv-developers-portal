@@ -29,6 +29,7 @@ export default function HomePage() {
                 <a
                   href="https://binary-com.github.io/deriv-api/"
                   className={styles.libraryGoTo}
+                  target="_blank"
                 >
                   <div className={styles.logoJavascript} />
                   <label>Go to the JavaScript library</label>
@@ -39,6 +40,7 @@ export default function HomePage() {
                 <a
                   href="https://binary-com.github.io/python-deriv-api/"
                   className={styles.libraryGoTo}
+                  target="_blank"
                 >
                   <div className={styles.logoPython} />
                   <label>Go to the Python library</label>
@@ -49,6 +51,7 @@ export default function HomePage() {
                 <a
                   href="https://github.com/deriv-com/flutter-deriv-api"
                   className={styles.libraryGoTo}
+                  target="_blank"
                 >
                   <div className={styles.logoFlutter} />
                   <label>Go to the Flutter library</label>
