@@ -7,8 +7,9 @@ export function useFeatureFlag({feature_toggle, NewFeature, children}) {
     }, [window.location.hash]);
 
     const FeatureFlagComponent = () => {
-        if (feature_hash === feature_toggle) {
-            const toggle_string = text.split("_")[1];
+        const toggle_string = feature_toggle.split("_")[1];
+        const feature_string = feature_toggle.split("_")[0];
+        if (feature_hash === feature_string) {
             if (toLowerCase(toggle_string) === 'on') {
                 <>
                     { NewFeature }
@@ -20,12 +21,11 @@ export function useFeatureFlag({feature_toggle, NewFeature, children}) {
                 </>
             }
         }
+        <>
+            { children }
+        </>
     }
 
-    return (
-        <>
-            <FeatureFlagComponent />
-        </>
-    )
+    return <FeatureFlagComponent />
 
 }
