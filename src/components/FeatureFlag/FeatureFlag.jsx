@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUrlParams } from '../../custom_hooks/useUrlParams';
 
-export default function FeatureFlag({children, feature_name, NewFeature}) {
+export default function FeatureFlag({children, feature_name}) {
     const [selected_child, setSelectedChild] = React.useState(0);
     const url_params = useUrlParams();
 
