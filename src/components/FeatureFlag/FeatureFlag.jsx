@@ -1,31 +1,27 @@
 import React from 'react';
+import { useUrlParams } from '../../custom_hooks/useUrlParams';
 
 export default function FeatureFlag({children, feature_name, NewFeature}) {
-    const [feature_hash, setFeatureHash] = React.useState('');
-    React.useEffect(() => {
-        setFeatureHash(window.location.hash.split("#")[1]);
-    }, [window.location.hash]);
+    const [selected_child, setSelectedChild] = React.useState(0);
+    const url_params = useUrlParams();
 
     const FeatureFlagComponent = () => {
-        const toggle_string = feature_hash.split("_")[1];
-        const feature_string = feature_hash.split("_")[0];
-        if (feature_name === feature_string) {
-            if (toggle_string.toLowerCase() === 'on') {
-                return <>
-                    <NewFeature />
-                </>
+        url_params.forEach(param => {
+            const param_name = param[0];
+            const toggle = param[1];
+            if (param_name === feature_name) {
+                if (toggle.toLowerCase() === 'on') {
+                    setSelectedChild(1);
+                }
+                if (toggle.toLowerCase() === 'off') {
+                    setSelectedChild(0);
+                }
             }
-            if (toggle_string.toLowerCase() === 'off') {
-                return <>
-                    {children}
-                </>
-            }
-        }
-        return (
-            <>
-                { children }
-            </>
-        )
+        })
+        return <>
+            { children[selected_child] }
+        </>
     }
+    
     return <FeatureFlagComponent />
 }

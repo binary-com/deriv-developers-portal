@@ -46,10 +46,13 @@ export default function ApiGuide() {
             allows 2 or more computer programs to communicate with each other.
             These 2 programs are usually referred to as server and client.
           </p>
-          <FeatureFlag is_feature feature_name="TestComponent" NewFeature={FlagTest}>
-            <h1>
-              Blablabla1234 testestest
-            </h1>
+          <FeatureFlag is_feature feature_name="TestComponent">
+            <div>
+              <h1>
+                Blablabla1234 testestest
+              </h1>
+            </div>
+            <FlagTest />
           </FeatureFlag>
           <ul>
             <li>
