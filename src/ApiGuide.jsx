@@ -18,7 +18,6 @@ import readAccessUrl from "../img/read-access.png";
 import howOauthWorksUrl from "../img/how-oauth-works.png";
 import signupUrl from "../img/signup.png";
 import ApiGuideTable from "./ApiGuideTable";
-import FeatureFlag from "./components/FeatureFlag/FeatureFlag";
 
 export default function ApiGuide() {
   const isMobile = useSelector(stateService, isMobileSelector);
@@ -26,12 +25,6 @@ export default function ApiGuide() {
   const nestedContent = JSON.stringify(nestedJSON, null, 2);
   const statusContent = JSON.stringify(statusJSON, null, 2);
   const schemaContent = JSON.stringify(schemaJSON, null, 2);
-
-  const FlagTest = () => {
-    return (
-      <h1>Hey, it works!!!! Yay!!!!</h1>
-    )
-  }
 
   return (
     <div className={styles.apiGuide} data-id="api-guide">
@@ -46,14 +39,6 @@ export default function ApiGuide() {
             allows 2 or more computer programs to communicate with each other.
             These 2 programs are usually referred to as server and client.
           </p>
-          <FeatureFlag is_feature feature_name="TestComponent">
-            <div>
-              <h1>
-                Blablabla1234 testestest
-              </h1>
-            </div>
-            <FlagTest />
-          </FeatureFlag>
           <ul>
             <li>
               <strong>Server</strong>
