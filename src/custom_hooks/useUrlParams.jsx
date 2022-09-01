@@ -1,6 +1,8 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 export function useUrlParams() {
+    const location = useLocation();
     const [url_params, setUrlParams] = React.useState([])
 
     React.useEffect(() => {
@@ -12,7 +14,7 @@ export function useUrlParams() {
             }
             setUrlParams(params_array);
         }
-    }, [window.location.search]);
+    }, [location.pathname]);
 
     return url_params;
 }
