@@ -10,9 +10,11 @@ export default function FeatureFlag({children, feature_name}) {
             const param_name = param[0];
             const toggle = param[1];
             if (param_name === feature_name) {
+                // The second child in the children array should always be the new feature component.
                 if (toggle.toLowerCase() === 'on') {
                     setSelectedChild(1);
                 }
+                // The first child should be the default (current) component.
                 if (toggle.toLowerCase() === 'off') {
                     setSelectedChild(0);
                 }
