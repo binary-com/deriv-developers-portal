@@ -20,9 +20,11 @@ export default function FeatureFlag({children, feature_name}) {
                 }
             }
         })
-        return <>
-            { children[selected_child] }
-        </>
+        return (
+            <React.Fragment>
+                { children[selected_child] }
+            </React.Fragment>
+        )
     }
     
     return <FeatureFlagComponent />
