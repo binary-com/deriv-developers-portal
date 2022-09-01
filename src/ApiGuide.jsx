@@ -29,6 +29,7 @@ export default function ApiGuide() {
     <div className={styles.apiGuide} data-id="api-guide">
       {!isMobile && <Navigator />}
       <div className={styles.apiGuideContent}>
+        <h1>API guide</h1>
         {isMobile && <Navigator />}
         <div className={styles.textBlock}>
           <h2 id="what-is-api">What is API?</h2>
