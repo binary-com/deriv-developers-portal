@@ -25,7 +25,6 @@ export default function ApiGuide() {
   const nestedContent = JSON.stringify(nestedJSON, null, 2);
   const statusContent = JSON.stringify(statusJSON, null, 2);
   const schemaContent = JSON.stringify(schemaJSON, null, 2);
-
   return (
     <div className={styles.apiGuide} data-id="api-guide">
       {!isMobile && <Navigator />}
