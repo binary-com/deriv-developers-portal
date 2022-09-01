@@ -7,14 +7,14 @@ export function useUrlParams() {
 
     React.useEffect(() => {
         let params_array = [];
-        if (window.location.search) {
-            const params = new URLSearchParams(window.location.search)
+        if (location.search) {
+            const params = new URLSearchParams(location.search)
             for (const param of params) {
                 params_array = [...params_array, param];
             }
             setUrlParams(params_array);
         }
-    }, [location.pathname]);
+    }, [location.search]);
 
     return url_params;
 }
