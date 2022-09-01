@@ -26,7 +26,7 @@ export default function ApiGuide() {
   const statusContent = JSON.stringify(statusJSON, null, 2);
   const schemaContent = JSON.stringify(schemaJSON, null, 2);
   return (
-    <div className={styles.apiGuide} is_feature data-id="api-guide">
+    <div className={styles.apiGuide} data-id="api-guide">
       {!isMobile && <Navigator />}
       <div className={styles.apiGuideContent}>
         <h1>API guide</h1>
