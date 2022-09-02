@@ -201,9 +201,9 @@ input[type='checkbox'] {
     height: 11px;
     min-width: 11px;
     margin-right: 15px;
-    top: 1px;
+    padding-top: 5px;
     z-index: 0;
-    margin-bottom: 5px;
+    margin-bottom: auto;
     .customCheckbox {
         position: absolute;
         background-image: url(/img/check.svg);
