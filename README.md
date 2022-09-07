@@ -16,7 +16,7 @@ Deriv API – Build and customise your trading app
 
 Before running or contribute to this project, you need to have the setup of the following packages in your environment
 
--   node >=14
+-   node >=16+
 -   npm >=6.14
 -   git (for `contribution`)
 
