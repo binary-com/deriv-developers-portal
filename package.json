@@ -45,7 +45,7 @@
         "solid-js": "^1.4.7",
         "terser": "^5.14.2",
         "typescript": "^4.7.4",
-        "vite": "^2.9.13",
+        "vite": "^3.0.9",
         "vite-plugin-istanbul": "^2.9.0",
         "xstate": "^4.32.1"
     }
