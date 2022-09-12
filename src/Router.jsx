@@ -9,6 +9,7 @@ const Faq = React.lazy(() => import('./Faq'));
 const Json = React.lazy(() => import('./JsonSchemas'));
 const BugBounty = React.lazy(() => import('./Bounty'));
 const Quickstart = React.lazy(() => import('./Quickstart'));
+const ApiReference = React.lazy(() => import('./ApiReference'));
 
 export const routes = [
     {
@@ -46,6 +47,10 @@ export const routes = [
             {
                 path: 'bug-bounty',
                 element: <BugBounty />,
+            },
+            {
+                path: 'api-reference',
+                element: <ApiReference />,
             },
         ],
     },

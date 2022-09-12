@@ -17,6 +17,7 @@ const Sidebar = () => {
           ["/docs/faq/", "FAQ"],
           ["/docs/json-schemas/", "JSON Schemas"],
           ["/docs/bug-bounty/", "Bug Bounty"],
+          ["/docs/api-reference/", "API Reference"],
         ].map(([to, label]) => {
           return (
             <div key={to}>
