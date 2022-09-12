@@ -1,7 +1,7 @@
 import { useSelector } from '@xstate/react';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useRegisterOrUpdateApp } from '../../custom_hooks/useRegisterOrUpdate';
+import { useRegisterOrUpdateApp } from '../../custom-hooks/useRegisterOrUpdate';
 import { isUpdateModeSelector, isRegisterTabIdleSelector } from '../../selectors';
 import { stateService, updatingRow } from '../../stateSignal';
 import { token1 } from '../../storageSignals';
