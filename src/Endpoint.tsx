@@ -68,7 +68,7 @@ const EndPoint = () => {
                                     },
                                     pattern: {
                                         value: /^(0|[1-9]\d*)(\.\d+)?$/,
-                                        message: 'Only Numbers Allowed',
+                                        message: 'App ID can only be a numercial value',
                                     },
                                 })}
                                 name='app_id'
