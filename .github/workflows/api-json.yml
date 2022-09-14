@@ -39,3 +39,4 @@ jobs:
           git add config-tree.json
           git commit -am "Config tree json file updated"
           git push
+          
