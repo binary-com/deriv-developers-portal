@@ -141,7 +141,7 @@ commands:
 jobs:
   build:
     docker:
-      - image: circleci/node:14.17.1-stretch
+      - image: circleci/node:16.13.1-stretch
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -149,7 +149,7 @@ jobs:
 
   release_staging:
     docker:
-      - image: circleci/node:14.17.1-stretch
+      - image: circleci/node:16.13.1-stretch
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -167,7 +167,7 @@ jobs:
 
   release_production:
     docker:
-      - image: circleci/node:14.17.1-stretch
+      - image: circleci/node:16.13.1-stretch
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
