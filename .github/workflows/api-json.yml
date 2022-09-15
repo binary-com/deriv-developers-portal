@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Clean install of dependencies including directory-tree
+        run: npm ci
       - name: Generate JSON file with Javascript
         uses: actions/github-script@v6
         with:
