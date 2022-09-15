@@ -36,7 +36,7 @@ jobs:
             });
       - name: Commit terminology
         run: |
-          git add config-tree.json
-          git commit config-tree.json -m "Config tree json file updated"
+          git add api-data/config-tree.json
+          git commit api-data/config-tree.json -m "Config tree json file updated"
           git push
           
