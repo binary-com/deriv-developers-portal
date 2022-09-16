@@ -1,1 +1,1968 @@
-
+{
+  "path": "./config/v3",
+  "name": "v3",
+  "children": [
+    {
+      "path": "config/v3/active_symbols",
+      "name": "active_symbols",
+      "children": [
+        {
+          "path": "config/v3/active_symbols/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/active_symbols/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/active_symbols/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/api_token",
+      "name": "api_token",
+      "children": [
+        {
+          "path": "config/v3/api_token/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/api_token/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/api_token/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/app_delete",
+      "name": "app_delete",
+      "children": [
+        {
+          "path": "config/v3/app_delete/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/app_delete/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/app_delete/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/app_get",
+      "name": "app_get",
+      "children": [
+        {
+          "path": "config/v3/app_get/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/app_get/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/app_get/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/app_list",
+      "name": "app_list",
+      "children": [
+        {
+          "path": "config/v3/app_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/app_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/app_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/app_markup_details",
+      "name": "app_markup_details",
+      "children": [
+        {
+          "path": "config/v3/app_markup_details/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/app_markup_details/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/app_markup_details/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/app_markup_statistics",
+      "name": "app_markup_statistics",
+      "children": [
+        {
+          "path": "config/v3/app_markup_statistics/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/app_markup_statistics/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/app_markup_statistics/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/app_register",
+      "name": "app_register",
+      "children": [
+        {
+          "path": "config/v3/app_register/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/app_register/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/app_register/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/app_update",
+      "name": "app_update",
+      "children": [
+        {
+          "path": "config/v3/app_update/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/app_update/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/app_update/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/asset_index",
+      "name": "asset_index",
+      "children": [
+        {
+          "path": "config/v3/asset_index/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/asset_index/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/asset_index/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/authorize",
+      "name": "authorize",
+      "children": [
+        {
+          "path": "config/v3/authorize/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/authorize/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/authorize/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/balance",
+      "name": "balance",
+      "children": [
+        {
+          "path": "config/v3/balance/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/balance/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/balance/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/buy",
+      "name": "buy",
+      "children": [
+        {
+          "path": "config/v3/buy/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/buy/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/buy/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/buy_contract_for_multiple_accounts",
+      "name": "buy_contract_for_multiple_accounts",
+      "children": [
+        {
+          "path": "config/v3/buy_contract_for_multiple_accounts/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/buy_contract_for_multiple_accounts/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/buy_contract_for_multiple_accounts/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/cancel",
+      "name": "cancel",
+      "children": [
+        {
+          "path": "config/v3/cancel/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/cancel/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/cancel/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/cashier",
+      "name": "cashier",
+      "children": [
+        {
+          "path": "config/v3/cashier/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/cashier/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/cashier/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/contract_update",
+      "name": "contract_update",
+      "children": [
+        {
+          "path": "config/v3/contract_update/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/contract_update/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/contract_update/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/contract_update_history",
+      "name": "contract_update_history",
+      "children": [
+        {
+          "path": "config/v3/contract_update_history/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/contract_update_history/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/contract_update_history/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/contracts_for",
+      "name": "contracts_for",
+      "children": [
+        {
+          "path": "config/v3/contracts_for/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/contracts_for/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/contracts_for/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/copy_start",
+      "name": "copy_start",
+      "children": [
+        {
+          "path": "config/v3/copy_start/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/copy_start/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/copy_start/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/copy_stop",
+      "name": "copy_stop",
+      "children": [
+        {
+          "path": "config/v3/copy_stop/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/copy_stop/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/copy_stop/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/copytrading_list",
+      "name": "copytrading_list",
+      "children": [
+        {
+          "path": "config/v3/copytrading_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/copytrading_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/copytrading_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/copytrading_statistics",
+      "name": "copytrading_statistics",
+      "children": [
+        {
+          "path": "config/v3/copytrading_statistics/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/copytrading_statistics/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/copytrading_statistics/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/crypto_config",
+      "name": "crypto_config",
+      "children": [
+        {
+          "path": "config/v3/crypto_config/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/crypto_config/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/crypto_config/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/document_upload",
+      "name": "document_upload",
+      "children": [
+        {
+          "path": "config/v3/document_upload/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/document_upload/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/document_upload/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/economic_calendar",
+      "name": "economic_calendar",
+      "children": [
+        {
+          "path": "config/v3/economic_calendar/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/economic_calendar/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/economic_calendar/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/exchange_rates",
+      "name": "exchange_rates",
+      "children": [
+        {
+          "path": "config/v3/exchange_rates/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/exchange_rates/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/exchange_rates/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/forget",
+      "name": "forget",
+      "children": [
+        {
+          "path": "config/v3/forget/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/forget/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/forget/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/forget_all",
+      "name": "forget_all",
+      "children": [
+        {
+          "path": "config/v3/forget_all/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/forget_all/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/forget_all/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/get_account_status",
+      "name": "get_account_status",
+      "children": [
+        {
+          "path": "config/v3/get_account_status/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/get_account_status/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/get_account_status/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/get_financial_assessment",
+      "name": "get_financial_assessment",
+      "children": [
+        {
+          "path": "config/v3/get_financial_assessment/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/get_financial_assessment/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/get_financial_assessment/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/get_limits",
+      "name": "get_limits",
+      "children": [
+        {
+          "path": "config/v3/get_limits/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/get_limits/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/get_limits/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/get_self_exclusion",
+      "name": "get_self_exclusion",
+      "children": [
+        {
+          "path": "config/v3/get_self_exclusion/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/get_self_exclusion/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/get_self_exclusion/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/get_settings",
+      "name": "get_settings",
+      "children": [
+        {
+          "path": "config/v3/get_settings/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/get_settings/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/get_settings/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/identity_verification_document_add",
+      "name": "identity_verification_document_add",
+      "children": [
+        {
+          "path": "config/v3/identity_verification_document_add/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/identity_verification_document_add/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/identity_verification_document_add/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/landing_company",
+      "name": "landing_company",
+      "children": [
+        {
+          "path": "config/v3/landing_company/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/landing_company/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/landing_company/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/landing_company_details",
+      "name": "landing_company_details",
+      "children": [
+        {
+          "path": "config/v3/landing_company_details/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/landing_company_details/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/landing_company_details/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/login_history",
+      "name": "login_history",
+      "children": [
+        {
+          "path": "config/v3/login_history/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/login_history/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/login_history/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/logout",
+      "name": "logout",
+      "children": [
+        {
+          "path": "config/v3/logout/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/logout/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/logout/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_deposit",
+      "name": "mt5_deposit",
+      "children": [
+        {
+          "path": "config/v3/mt5_deposit/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_deposit/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_deposit/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_get_settings",
+      "name": "mt5_get_settings",
+      "children": [
+        {
+          "path": "config/v3/mt5_get_settings/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_get_settings/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_get_settings/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_login_list",
+      "name": "mt5_login_list",
+      "children": [
+        {
+          "path": "config/v3/mt5_login_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_login_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_login_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_new_account",
+      "name": "mt5_new_account",
+      "children": [
+        {
+          "path": "config/v3/mt5_new_account/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_new_account/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_new_account/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_password_change",
+      "name": "mt5_password_change",
+      "children": [
+        {
+          "path": "config/v3/mt5_password_change/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_password_change/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_password_change/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_password_check",
+      "name": "mt5_password_check",
+      "children": [
+        {
+          "path": "config/v3/mt5_password_check/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_password_check/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_password_check/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_password_reset",
+      "name": "mt5_password_reset",
+      "children": [
+        {
+          "path": "config/v3/mt5_password_reset/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_password_reset/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_password_reset/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/mt5_withdrawal",
+      "name": "mt5_withdrawal",
+      "children": [
+        {
+          "path": "config/v3/mt5_withdrawal/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/mt5_withdrawal/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/mt5_withdrawal/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/new_account_maltainvest",
+      "name": "new_account_maltainvest",
+      "children": [
+        {
+          "path": "config/v3/new_account_maltainvest/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/new_account_maltainvest/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/new_account_maltainvest/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/new_account_real",
+      "name": "new_account_real",
+      "children": [
+        {
+          "path": "config/v3/new_account_real/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/new_account_real/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/new_account_real/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/new_account_virtual",
+      "name": "new_account_virtual",
+      "children": [
+        {
+          "path": "config/v3/new_account_virtual/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/new_account_virtual/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/new_account_virtual/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/oauth_apps",
+      "name": "oauth_apps",
+      "children": [
+        {
+          "path": "config/v3/oauth_apps/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/oauth_apps/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/oauth_apps/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advert_create",
+      "name": "p2p_advert_create",
+      "children": [
+        {
+          "path": "config/v3/p2p_advert_create/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_create/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_create/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advert_info",
+      "name": "p2p_advert_info",
+      "children": [
+        {
+          "path": "config/v3/p2p_advert_info/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_info/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_info/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advert_list",
+      "name": "p2p_advert_list",
+      "children": [
+        {
+          "path": "config/v3/p2p_advert_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advert_update",
+      "name": "p2p_advert_update",
+      "children": [
+        {
+          "path": "config/v3/p2p_advert_update/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_update/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advert_update/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advertiser_adverts",
+      "name": "p2p_advertiser_adverts",
+      "children": [
+        {
+          "path": "config/v3/p2p_advertiser_adverts/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_adverts/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_adverts/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advertiser_create",
+      "name": "p2p_advertiser_create",
+      "children": [
+        {
+          "path": "config/v3/p2p_advertiser_create/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_create/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_create/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advertiser_info",
+      "name": "p2p_advertiser_info",
+      "children": [
+        {
+          "path": "config/v3/p2p_advertiser_info/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_info/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_info/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advertiser_payment_methods",
+      "name": "p2p_advertiser_payment_methods",
+      "children": [
+        {
+          "path": "config/v3/p2p_advertiser_payment_methods/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_payment_methods/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_payment_methods/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advertiser_relations",
+      "name": "p2p_advertiser_relations",
+      "children": [
+        {
+          "path": "config/v3/p2p_advertiser_relations/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_relations/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_relations/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_advertiser_update",
+      "name": "p2p_advertiser_update",
+      "children": [
+        {
+          "path": "config/v3/p2p_advertiser_update/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_update/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_update/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_chat_create",
+      "name": "p2p_chat_create",
+      "children": [
+        {
+          "path": "config/v3/p2p_chat_create/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_chat_create/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_chat_create/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_order_cancel",
+      "name": "p2p_order_cancel",
+      "children": [
+        {
+          "path": "config/v3/p2p_order_cancel/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_order_cancel/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_order_cancel/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_order_confirm",
+      "name": "p2p_order_confirm",
+      "children": [
+        {
+          "path": "config/v3/p2p_order_confirm/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_order_confirm/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_order_confirm/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_order_create",
+      "name": "p2p_order_create",
+      "children": [
+        {
+          "path": "config/v3/p2p_order_create/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_order_create/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_order_create/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_order_dispute",
+      "name": "p2p_order_dispute",
+      "children": [
+        {
+          "path": "config/v3/p2p_order_dispute/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_order_dispute/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_order_dispute/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_order_info",
+      "name": "p2p_order_info",
+      "children": [
+        {
+          "path": "config/v3/p2p_order_info/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_order_info/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_order_info/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_order_list",
+      "name": "p2p_order_list",
+      "children": [
+        {
+          "path": "config/v3/p2p_order_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_order_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_order_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_order_review",
+      "name": "p2p_order_review",
+      "children": [
+        {
+          "path": "config/v3/p2p_order_review/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_order_review/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_order_review/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_payment_methods",
+      "name": "p2p_payment_methods",
+      "children": [
+        {
+          "path": "config/v3/p2p_payment_methods/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_payment_methods/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_payment_methods/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/p2p_ping",
+      "name": "p2p_ping",
+      "children": [
+        {
+          "path": "config/v3/p2p_ping/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_ping/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_ping/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/payment_methods",
+      "name": "payment_methods",
+      "children": [
+        {
+          "path": "config/v3/payment_methods/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/payment_methods/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/payment_methods/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/paymentagent_create",
+      "name": "paymentagent_create",
+      "children": [
+        {
+          "path": "config/v3/paymentagent_create/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/paymentagent_create/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/paymentagent_create/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/paymentagent_details",
+      "name": "paymentagent_details",
+      "children": [
+        {
+          "path": "config/v3/paymentagent_details/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/paymentagent_details/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/paymentagent_details/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/paymentagent_list",
+      "name": "paymentagent_list",
+      "children": [
+        {
+          "path": "config/v3/paymentagent_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/paymentagent_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/paymentagent_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/paymentagent_transfer",
+      "name": "paymentagent_transfer",
+      "children": [
+        {
+          "path": "config/v3/paymentagent_transfer/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/paymentagent_transfer/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/paymentagent_transfer/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/paymentagent_withdraw",
+      "name": "paymentagent_withdraw",
+      "children": [
+        {
+          "path": "config/v3/paymentagent_withdraw/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/paymentagent_withdraw/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/paymentagent_withdraw/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/payout_currencies",
+      "name": "payout_currencies",
+      "children": [
+        {
+          "path": "config/v3/payout_currencies/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/payout_currencies/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/payout_currencies/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/ping",
+      "name": "ping",
+      "children": [
+        {
+          "path": "config/v3/ping/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/ping/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/ping/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/portfolio",
+      "name": "portfolio",
+      "children": [
+        {
+          "path": "config/v3/portfolio/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/portfolio/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/portfolio/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/profit_table",
+      "name": "profit_table",
+      "children": [
+        {
+          "path": "config/v3/profit_table/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/profit_table/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/profit_table/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/proposal",
+      "name": "proposal",
+      "children": [
+        {
+          "path": "config/v3/proposal/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/proposal/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/proposal/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/proposal_open_contract",
+      "name": "proposal_open_contract",
+      "children": [
+        {
+          "path": "config/v3/proposal_open_contract/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/proposal_open_contract/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/proposal_open_contract/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/reality_check",
+      "name": "reality_check",
+      "children": [
+        {
+          "path": "config/v3/reality_check/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/reality_check/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/reality_check/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/residence_list",
+      "name": "residence_list",
+      "children": [
+        {
+          "path": "config/v3/residence_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/residence_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/residence_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/revoke_oauth_app",
+      "name": "revoke_oauth_app",
+      "children": [
+        {
+          "path": "config/v3/revoke_oauth_app/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/revoke_oauth_app/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/revoke_oauth_app/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/sell",
+      "name": "sell",
+      "children": [
+        {
+          "path": "config/v3/sell/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/sell/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/sell/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/sell_contract_for_multiple_accounts",
+      "name": "sell_contract_for_multiple_accounts",
+      "children": [
+        {
+          "path": "config/v3/sell_contract_for_multiple_accounts/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/sell_contract_for_multiple_accounts/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/sell_contract_for_multiple_accounts/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/sell_expired",
+      "name": "sell_expired",
+      "children": [
+        {
+          "path": "config/v3/sell_expired/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/sell_expired/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/sell_expired/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/set_account_currency",
+      "name": "set_account_currency",
+      "children": [
+        {
+          "path": "config/v3/set_account_currency/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/set_account_currency/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/set_account_currency/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/set_financial_assessment",
+      "name": "set_financial_assessment",
+      "children": [
+        {
+          "path": "config/v3/set_financial_assessment/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/set_financial_assessment/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/set_financial_assessment/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/set_self_exclusion",
+      "name": "set_self_exclusion",
+      "children": [
+        {
+          "path": "config/v3/set_self_exclusion/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/set_self_exclusion/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/set_self_exclusion/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/set_settings",
+      "name": "set_settings",
+      "children": [
+        {
+          "path": "config/v3/set_settings/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/set_settings/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/set_settings/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/statement",
+      "name": "statement",
+      "children": [
+        {
+          "path": "config/v3/statement/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/statement/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/statement/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/states_list",
+      "name": "states_list",
+      "children": [
+        {
+          "path": "config/v3/states_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/states_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/states_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/ticks",
+      "name": "ticks",
+      "children": [
+        {
+          "path": "config/v3/ticks/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/ticks/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/ticks/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/ticks_history",
+      "name": "ticks_history",
+      "children": [
+        {
+          "path": "config/v3/ticks_history/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/ticks_history/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/ticks_history/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/time",
+      "name": "time",
+      "children": [
+        {
+          "path": "config/v3/time/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/time/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/time/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/tnc_approval",
+      "name": "tnc_approval",
+      "children": [
+        {
+          "path": "config/v3/tnc_approval/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/tnc_approval/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/tnc_approval/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/topup_virtual",
+      "name": "topup_virtual",
+      "children": [
+        {
+          "path": "config/v3/topup_virtual/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/topup_virtual/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/topup_virtual/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/trading_durations",
+      "name": "trading_durations",
+      "children": [
+        {
+          "path": "config/v3/trading_durations/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/trading_durations/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/trading_durations/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/trading_platform_investor_password_reset",
+      "name": "trading_platform_investor_password_reset",
+      "children": [
+        {
+          "path": "config/v3/trading_platform_investor_password_reset/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/trading_platform_investor_password_reset/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/trading_platform_investor_password_reset/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/trading_platform_password_reset",
+      "name": "trading_platform_password_reset",
+      "children": [
+        {
+          "path": "config/v3/trading_platform_password_reset/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/trading_platform_password_reset/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/trading_platform_password_reset/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/trading_servers",
+      "name": "trading_servers",
+      "children": [
+        {
+          "path": "config/v3/trading_servers/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/trading_servers/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/trading_servers/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/trading_times",
+      "name": "trading_times",
+      "children": [
+        {
+          "path": "config/v3/trading_times/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/trading_times/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/trading_times/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/transaction",
+      "name": "transaction",
+      "children": [
+        {
+          "path": "config/v3/transaction/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/transaction/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/transaction/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/transfer_between_accounts",
+      "name": "transfer_between_accounts",
+      "children": [
+        {
+          "path": "config/v3/transfer_between_accounts/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/transfer_between_accounts/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/transfer_between_accounts/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/verify_email",
+      "name": "verify_email",
+      "children": [
+        {
+          "path": "config/v3/verify_email/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/verify_email/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/verify_email/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
+      "path": "config/v3/website_status",
+      "name": "website_status",
+      "children": [
+        {
+          "path": "config/v3/website_status/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/website_status/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/website_status/send.json",
+          "name": "send.json"
+        }
+      ]
+    }
+  ]
+}
