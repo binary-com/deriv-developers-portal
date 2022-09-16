@@ -21,8 +21,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Installing yarn
-        run: npm install --global yarn
       - name: Adding directory tree dependency
         run: yarn add directory-tree
       - name: Generate JSON file with Javascript
