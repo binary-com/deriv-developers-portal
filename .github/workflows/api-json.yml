@@ -38,6 +38,7 @@ jobs:
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'deriv-fe@users.noreply.github.com'
+          git restore yarn.lock
           git add -A
           git commit -m "Config tree json file updated"
           git push
