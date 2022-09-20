@@ -1,8 +1,8 @@
 import React from "react";
-import Accordion from "./components/global/Accordion/Accordion";
-import AccordionItem from "./components/global/Accordion/AccordionItem";
+import Accordion from "../../global/Accordion/Accordion";
+import AccordionItem from "../../global/Accordion/AccordionItem";
 import styles from "./Faq.module.scss";
-import CodeContent from "./components/global/CodeBlock/CodeContent";
+import CodeContent from "../../global/CodeBlock/CodeContent";
 
 const FAQ = () => {
   return (

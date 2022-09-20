@@ -6,9 +6,9 @@ const ApiExplorer = React.lazy(() => import('./components/playground/ApiExplorer
 const AppRegistration = React.lazy(() => import('./components/app-registration/AppRegistration/AppRegistration'));
 const ApiGuide = React.lazy(() => import('./components/api-guide/ApiGuide/ApiGuide'));
 const Faq = React.lazy(() => import('./Faq'));
-const Json = React.lazy(() => import('./JsonSchemas'));
-const BugBounty = React.lazy(() => import('./components/bounty/Bounty'));
-const Quickstart = React.lazy(() => import('./Quickstart'));
+const Json = React.lazy(() => import('./components/json-schemas/JsonSchemas'));
+const BugBounty = React.lazy(() => import('./components/bounty/Bounty/Bounty'));
+const Quickstart = React.lazy(() => import('./components/quickstart/Quickstart/Quickstart'));
 
 export const routes = [
     {

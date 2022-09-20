@@ -1,19 +1,19 @@
 import { api, generateDerivApiInstance } from "../../../global-functions/appid";
 import RequestJSONBox from "./RequestJSONBox/RequestJSONBox";
-import SelectRequestInput from "../../../SelectRequestInput";
+import SelectRequestInput from "./SelectRequestInput/SelectRequestInput";
 import SchemaWrapper from "../SchemaWrapper";
-import TokenInputField from "../../../TokenInputField";
+import TokenInputField from "./TokenInputField/TokenInputField";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { playground_requests } from "../../../Playground_Requests";
+import { playground_requests } from "../../../data-stores/playground_requests";
 import SchemaTitle from "../SchemaTitle";
 import { data_get_api_token } from "../../../data-stores/data-app-registration";
 import styles from "./PlaygroundComponent.module.scss";
-import { ticksSubject } from "../../../ticksSubject";
+import { ticksSubject } from "../../../global-functions/ticksSubject";
 import { createSignal } from "solid-js";
 import { useLocation } from "react-router-dom";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createBrowserHistory } from "history";
-import { isDisplayAuthDoc, isDisplaySelectedDoc, send } from "../../../stateSignal";
+import { isDisplayAuthDoc, isDisplaySelectedDoc, send } from "../../../state/stateSignal";
 
 export const PlaygroundComponent = () => {
   const [current_api, setCurrentAPI] = useState(api);

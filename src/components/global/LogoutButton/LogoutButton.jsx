@@ -1,10 +1,10 @@
 import { useSelector } from "@xstate/react";
 import { Suspense, lazy } from "react";
-import { isLoggedInSelector } from "./selectors";
-import { stateService } from "./stateSignal";
+import { isLoggedInSelector } from "../../../state/selectors";
+import { stateService } from "../../../state/stateSignal";
 import styles from "./LogoutButton.module.scss";
 
-const LazyButton = lazy(() => import("./components/global/Button/Button"));
+const LazyButton = lazy(() => import("../Button/Button"));
 
 export default function LogoutButton() {
   const isLoggedIn = useSelector(stateService, isLoggedInSelector);

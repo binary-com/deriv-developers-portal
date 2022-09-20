@@ -1,6 +1,6 @@
 import { createEffect, createSignal } from 'solid-js';
 import { app_id, server_url, token1 } from '../storageSignals';
-import { send } from '../stateSignal';
+import { send } from '../state/stateSignal';
 
 export const [oauthUrl, setOauthUrl] = createSignal('');
 

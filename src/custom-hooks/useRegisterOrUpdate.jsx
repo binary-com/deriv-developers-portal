@@ -1,8 +1,8 @@
 import DerivAPIBasic from "@deriv/deriv-api/dist/DerivAPIBasic";
 import { useSelector } from "@xstate/react";
 import { useMutation } from "react-query";
-import { isUpdateModeSelector } from "../selectors";
-import { stateService, updatingRow } from "../stateSignal";
+import { isUpdateModeSelector } from "../state/selectors";
+import { stateService, updatingRow } from "../state/stateSignal";
 import { server_url, app_id } from "../storageSignals";
 
 const appRegister = async ({

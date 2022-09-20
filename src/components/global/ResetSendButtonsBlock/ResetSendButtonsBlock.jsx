@@ -1,8 +1,7 @@
-import Button from "./Button";
+import Button from "../../../Button";
 import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
-import { ticksSubject } from "./ticksSubject";
-import { useState } from "react";
+import { ticksSubject } from "../../../global-functions/ticksSubject";
 
 export const ResetSendButtonsBlock = (
   ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api,setIsScrolling }) => {

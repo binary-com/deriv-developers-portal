@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
-import Sidebar from "../../../Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import "../../../index.scss";
 import MobilePageSelectLazy from "../../../MobilePageSelectLazy";
 import DelayedFallback from "../../global/DelayedFallback/DelayedFallback";

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "@xstate/react";
 import styles from "./ApiGuide.module.scss";
-import Navigator from "../Navigator/Navigator";
-import { isMobileSelector } from "../../../selectors";
-import { stateService } from "../../../stateSignal";
+import Navigator from "./Navigator/Navigator";
+import { isMobileSelector } from "../../../state/selectors";
+import { stateService } from "../../../state/stateSignal";
 import CodeBlockSingleLanguage from "../../global/CodeBlock/CodeBlockSingleLanguage";
 import ticksJSON from "../../../../public/demos/json/ticks.json";
 import nestedJSON from "../../../../public/demos/json/nested.json";
@@ -17,7 +17,7 @@ import apiTokenPageUrl from "../img/api-token-page.png";
 import readAccessUrl from "../img/read-access.png";
 import howOauthWorksUrl from "../img/how-oauth-works.png";
 import signupUrl from "../img/signup.png";
-import ApiGuideTable from "../ApiGuideTable/ApiGuideTable";
+import ApiGuideTable from "./ApiGuideTable/ApiGuideTable";
 
 export default function ApiGuide() {
   const isMobile = useSelector(stateService, isMobileSelector);

@@ -1,6 +1,6 @@
 import { createEffect, onCleanup } from "solid-js";
-import { send } from "./stateSignal";
-import { devices } from "./data-stores/devices";
+import { send } from "../state/stateSignal";
+import { devices } from "../data-stores/devices";
 
 const checkWidth = () => {
   if (window.outerWidth >= devices.desktopScreen4k) {

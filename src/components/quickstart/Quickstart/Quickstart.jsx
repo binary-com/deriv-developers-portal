@@ -1,5 +1,5 @@
 import styles from './Quickstart.module.scss';
-import { SandboxIframe, sandboxes } from '../codesandbox/sandbox';
+import { SandboxIframe, sandboxes } from '../../utility/SandboxIframe/SandboxIframe';
 
 const QuickStart = () => (
   <div className="page-content">

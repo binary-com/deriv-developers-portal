@@ -1,5 +1,5 @@
 import styles from "./AppManagementEmpty.module.scss";
-import { send } from "../../stateSignal";
+import { send } from "../../state/stateSignal";
 import Button from "../global/Button/Button";
 
 export default function AppManagementEmpty() {

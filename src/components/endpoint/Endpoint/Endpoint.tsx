@@ -1,8 +1,7 @@
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
-import { useRef } from 'react';
-import { stateService } from '../../stateSignal';
-import { app_id, server_url, setAppId, setServerUrl, socket_url } from '../../storageSignals';
+import { stateService } from '../../../state/stateSignal';
+import { app_id, server_url, setAppId, setServerUrl, socket_url } from '../../../global-functions/storageSignals';
 
 
 interface FormData {
