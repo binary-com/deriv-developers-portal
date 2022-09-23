@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "@xstate/react";
 import styles from "./ApiGuide.module.scss";
 import Navigator from "./Navigator/Navigator";
+import ApiGuideTable from "./ApiGuideTable/ApiGuideTable";
 import { isMobileSelector } from "../../../state/selectors";
 import { stateService } from "../../../state/stateSignal";
 import CodeBlockSingleLanguage from "../../global/CodeBlock/CodeBlockSingleLanguage";
@@ -10,14 +11,13 @@ import nestedJSON from "../../../../public/demos/json/nested.json";
 import statusJSON from "../../../../public/demos/json/status.json";
 import schemaJSON from "../../../../public/demos/json/schema.json";
 
-import howAPIWorksUrl from "../img/how-api-works.png";
-import apiPlaygroundUrl from "../img/api-playground.png";
-import showJSONSchemaUrl from "../img/show-json-schema.png";
-import apiTokenPageUrl from "../img/api-token-page.png";
-import readAccessUrl from "../img/read-access.png";
-import howOauthWorksUrl from "../img/how-oauth-works.png";
-import signupUrl from "../img/signup.png";
-import ApiGuideTable from "./ApiGuideTable/ApiGuideTable";
+import howAPIWorksUrl from "../../../../img/how-api-works.png";
+import apiPlaygroundUrl from "../../../../img/api-playground.png";
+import showJSONSchemaUrl from "../../../../img/show-json-schema.png";
+import apiTokenPageUrl from "../../../../img/api-token-page.png";
+import readAccessUrl from "../../../../img/read-access.png";
+import howOauthWorksUrl from "../../../../img/how-oauth-works.png";
+import signupUrl from "../../../../img/signup.png";
 
 export default function ApiGuide() {
   const isMobile = useSelector(stateService, isMobileSelector);

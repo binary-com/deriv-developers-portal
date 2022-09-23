@@ -1,5 +1,5 @@
 import DerivAPIBasic from "@deriv/deriv-api/dist/DerivAPIBasic";
-import { socket_url } from "../../storageSignals";
+import { socket_url } from "../state/storageSignals";
 
 const isBrowser = typeof window !== "undefined";
 

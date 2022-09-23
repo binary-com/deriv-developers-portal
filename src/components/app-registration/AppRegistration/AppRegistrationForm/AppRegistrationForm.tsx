@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useRegisterOrUpdateApp } from '../../../../custom-hooks/useRegisterOrUpdate';
 import { isUpdateModeSelector, isRegisterTabIdleSelector } from '../../../../state/selectors';
 import { stateService, updatingRow } from '../../../../state/stateSignal';
-import { token1 } from '../../../../global-functions/storageSignals';
+import { token1 } from '../../../../state/storageSignals';
 import Button from '../../../global/Button/Button';
 import styles from './AppRegistrationForm.module.scss';
 import RegisterAppDialogError from './RegisterAppDialogError/RegisterAppDialogError';

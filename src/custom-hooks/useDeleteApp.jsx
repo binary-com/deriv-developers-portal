@@ -1,7 +1,7 @@
 import DerivAPIBasic from "@deriv/deriv-api/dist/DerivAPIBasic";
 import { useMutation } from "react-query";
 import { stateService } from "../state/stateSignal";
-import { token1, server_url } from "../storageSignals";
+import { token1, server_url } from "../state/storageSignals";
 
 const appDelete = async (app_id) => {
   stateService.send("DELETE_APP");

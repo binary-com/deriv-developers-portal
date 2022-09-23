@@ -1,7 +1,7 @@
 /* eslint-disable no-import-assign */
-import styles from './SelectRequestInput.module.scss';
 import { useState, useEffect, useRef } from 'react';
 import { playground_requests } from '../../../../data-stores/playground_requests';
+import styles from './SelectRequestInput.module.scss';
 
 const SelectRequestInput = ({ selected, setSelected, handleChange, selected_value }) => {
     const [isActive, setIsActive] = useState(false);

@@ -1,6 +1,6 @@
-import CodeContent from "../../../global/CodeBlock/CodeContent";
 import React from "react";
-import style from "./PlaygroundComponent.module.scss";
+import CodeContent from "../../../global/CodeBlock/CodeContent";
+import style from "../PlaygroundComponent.module.scss";
 
 const ConsoleMessage = ({ message }) => {
   const payload = JSON.stringify(message.body, null, 4);

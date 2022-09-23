@@ -3,7 +3,7 @@ import { useSelector } from "@xstate/react";
 import { useMutation } from "react-query";
 import { isUpdateModeSelector } from "../state/selectors";
 import { stateService, updatingRow } from "../state/stateSignal";
-import { server_url, app_id } from "../storageSignals";
+import { server_url, app_id } from "../state/storageSignals";
 
 const appRegister = async ({
   token,

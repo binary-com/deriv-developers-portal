@@ -1,9 +1,9 @@
 import { useSelector } from "@xstate/react";
 import { lazy, Suspense } from "react";
-import { isDeletingAppModal } from "../../../../state/selectors";
-import { stateService } from "../../../../state/stateSignal";
+import { isDeletingAppModal } from "../../../../../state/selectors";
+import { stateService } from "../../../../../state/stateSignal";
 
-const Modal = lazy(() => import("../../../global/Modal/Modal"));
+const Modal = lazy(() => import("../../../../global/Modal/Modal"));
 
 export default function DeleteAppDialogLazy({ deleteApp }) {
   const isModalOpen = useSelector(stateService, isDeletingAppModal);

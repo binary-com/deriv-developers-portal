@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import "../../../index.scss";
-import MobilePageSelectLazy from "../../../MobilePageSelectLazy";
+import MobilePageSelectLazy from "./MobilePageSelect/MobilePageSelectLazy";
 import DelayedFallback from "../../global/DelayedFallback/DelayedFallback";
 
 function Docs() {

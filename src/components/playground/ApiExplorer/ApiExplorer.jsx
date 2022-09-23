@@ -1,7 +1,7 @@
-import SchemaTitle from "../SchemaTitle";
+import SchemaTitle from "../Schema/SchemaTitle";
 import { PlaygroundComponent } from "../PlaygroundComponent/PlaygroundComponent";
 import React from "react";
-import style from "./PlaygroundComponent.module.scss";
+import style from "../PlaygroundComponent/PlaygroundComponent.module.scss";
 
 const ApiExplorer = () => {
   return (

@@ -1,4 +1,4 @@
-import Button from "../../../Button";
+import Button from "../GeneralButton/GeneralButton";
 import React from "react";
 import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "../../../global-functions/ticksSubject";

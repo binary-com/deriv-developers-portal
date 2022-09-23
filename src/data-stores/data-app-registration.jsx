@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from "../components/global/GeneralButton/GeneralButton";
 
 export const data_get_api_token = {
   title: ["App registration"],
