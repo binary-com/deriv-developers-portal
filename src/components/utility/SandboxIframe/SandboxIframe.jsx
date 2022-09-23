@@ -24,8 +24,7 @@ export const SandboxIframe = ({ sandbox }) => {
     return (
         <div className="sandbox-wrapper">
             <iframe
-                className="sandbox-iframe" 
-                onLoad={()=> setFrameWidth('1200px')}
+                className="sandbox-iframe"
                 src={`${sandbox}${sandbox_url_attributes}`}
                 style={{ width:"100%", height:"500px", border:"0", borderRadius:"4px", overflow: "hidden", marginBottom: "50px" }}
                 title="static"

@@ -43,11 +43,11 @@ const EndPoint = () => {
                                     required: {
                                         value: true,
                                         message: 'Server is Required',
-                                    },
-                                    pattern:{
-                                        value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                                        message: 'You have entered an invalid email address!'
                                     }
+                                    // pattern:{
+                                    //     value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                                    //     message: 'You have entered an invalid email address!'
+                                    // }
                                 })}
                                 name='server_url'
                                 defaultValue={server_url_ui}

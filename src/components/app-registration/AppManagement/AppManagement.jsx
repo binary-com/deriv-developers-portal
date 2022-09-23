@@ -2,11 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { useTable, useSortBy } from "react-table";
-import "../AppRegistration.scss"
+import "../AppRegistration/AppRegistration.scss"
 import styles from "./AppManagement.module.scss";
 import { useApps } from "../../../custom-hooks/useApps";
 import SkeletonText from "../../global/SkeletonText/SkeletonText";
-import AppManagementEmptyLazy from "./AppManagementEmptyLazy";
+import AppManagementEmptyLazy from "./AppManagementEmpty/AppManagementEmptyLazy";
 import DeleteAppDialog from "../AppRegistration/AppRegistrationForm/DeleteAppDialog/DeleteAppDialog";
 import { useDeleteApp } from "../../../custom-hooks/useDeleteApp";
 import { setUpdatingRow, stateService } from "../../../state/stateSignal";
