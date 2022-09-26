@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./global-functions/ScrollToTop";
 
 const queryClient = new QueryClient();
 
