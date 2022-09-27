@@ -35,9 +35,9 @@ const QuickStart = () => (
         samples.
       </p>
     </div>
-    <h2>Ticks</h2>
+    <h3>Here is how our API works</h3>
     <p>
-      A tick is a measure of minimum upward or downward movement in the price of
+      Below, you see a code example on retrieving <b>tick data</b> from the API. A tick is a measure of minimum upward or downward movement in the price of
       a trading commodity. This example shows you how to collect ticks for your
       trading app using Deriv's API.
     </p>
@@ -49,33 +49,8 @@ const QuickStart = () => (
       We subscribe to the ticks functionality from the Deriv API websocket, which will return new tick data every second or so.
       With this data you could for example create an interactive tick graph.
     </p>
+    <h3>Ticks API call example</h3>
     <SandboxIframe sandbox={sandboxes.ticks} />
-    <h2>Proposal</h2>
-    <p>
-      This example is for getting a contract proposal. You'll be able to get the
-      price, payout and spot value for your contract.
-    </p>
-    <p>
-      To keep this connection alive in case of inactivity timeouts, see the
-      example for Keep alive.
-    </p>
-    <SandboxIframe sandbox={sandboxes.proposal} />
-    <h2>Keep alive</h2>
-    <p>
-      In this example you’ll see how to keep a connection alive when getting
-      contract proposals via the Deriv API. This example keeps the connection
-      alive by sending a ping every 30 seconds.
-    </p>
-    <SandboxIframe sandbox={sandboxes.keep_alive} />
-    <h2>Account balance</h2>
-    <p>This example shows you how to use the Deriv API to retrieve account balance information.</p>
-    <SandboxIframe sandbox={sandboxes.balance} />
-    <h2>Buy contract</h2>
-    <p>
-      A contract is an agreement to buy or sell an asset at an agreed-upon
-      price. This example shows you how to buy a contract using Deriv API.
-    </p>
-    <SandboxIframe sandbox={sandboxes.buy_contract} />
   </div>
 );
 
