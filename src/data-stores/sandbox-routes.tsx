@@ -4,6 +4,19 @@ import { url_base } from "../components/utility/SandboxIframe/SandboxIframe";
 let sandbox_routes : Object[] = [];
 const implement_now_sandboxes = ["active_symbols", "keep_alive", "proposal", "ticks", "ticks_history", "website_status"];
 
+export const sandboxRoutes = (type:string) => {
+    if (type === "implement_now") {
+        implementNowRoutes();
+    }
+    // if (type === "complex") {
+    //     //implement complex sandboxes
+    // }
+    // if (type === "all") {
+    //     // all sandboxes
+    // }
+    return sandbox_routes;
+}
+
 const implementNowRoutes = () => {
     for (const sandbox of implement_now_sandboxes) {
         // prep variables
@@ -24,17 +37,4 @@ const implementNowRoutes = () => {
                     />
         }];
     }
-}
-
-export const sandboxRoutes = (type:string) => {
-    if (type === "implement_now") {
-        implementNowRoutes();
-    }
-    // if (type === "complex") {
-    //     //implement complex sandboxes
-    // }
-    // if (type === "all") {
-    //     // all sandboxes
-    // }
-    return sandbox_routes;
 }
