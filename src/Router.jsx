@@ -1,5 +1,5 @@
 import React from 'react';
-import { sandboxRoutes } from './data-stores/sandbox-lists';
+import { sandboxRoutes } from './data-stores/sandbox-routes';
 const Endpoint = React.lazy(() => import('./components/endpoint/Endpoint/Endpoint'));
 const HomePage = React.lazy(() => import('./components/homepage/Homepage/Homepage'));
 const Docs = React.lazy(() => import('./components/docs/Docs/Docs'));
@@ -11,14 +11,6 @@ const Json = React.lazy(() => import('./components/json-schemas/JsonSchemas'));
 const BugBounty = React.lazy(() => import('./components/bounty/Bounty/Bounty'));
 const Quickstart = React.lazy(() => import('./components/quickstart/Quickstart/Quickstart'));
 
-const implement_now_routes = [];
-
-for ( const route of Object.values(sandboxRoutes("implement_now"))) {
-    console.log("route", route);
-    implement_now_routes.push(route);
-    console.log(implement_now_routes);
-}
-
 export const routes = [
     {
         path: '/',
@@ -28,7 +20,7 @@ export const routes = [
         path: 'docs',
         element: <Docs />,
         children: [
-            implement_now_routes,
+            ...sandboxRoutes("implement_now"),
             {
                 path: '',
                 element: <Quickstart />,

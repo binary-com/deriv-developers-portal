@@ -1,4 +1,4 @@
-const url_base = 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/';
+export const url_base = 'https://codesandbox.io/embed/github/binary-com/deriv-developers-portal/tree/master/examples/';
 
 export const sandboxes = {
     auth: `${url_base}auth`,
