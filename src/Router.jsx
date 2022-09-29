@@ -9,6 +9,13 @@ const Faq = React.lazy(() => import('./components/faq/Faq/Faq'));
 const Json = React.lazy(() => import('./components/json-schemas/JsonSchemas'));
 const BugBounty = React.lazy(() => import('./components/bounty/Bounty/Bounty'));
 const Quickstart = React.lazy(() => import('./components/quickstart/Quickstart/Quickstart'));
+const ImplementNow = React.lazy(() => import('./components/implement-now/ImplementNow/ImplementNow'));
+const StartYourApp = React.lazy(() => import('./components/start-your-app/StartYourApp/StartYourApp'));
+const Trading = React.lazy(() => import('./components/trading/Trading/Trading'));
+const MarketData = React.lazy(() => import('./components/market-data/MarketData/MarketData'));
+const AccountInformation = React.lazy(() => import('./components/account-information/AccountInformation/AccountInformation'));
+const Payemnts = React.lazy(() => import('./components/payments/Payments/Payments'));
+const Application = React.lazy(() => import('./components/application/Application/Application'));
 
 export const routes = [
     {
@@ -24,40 +31,75 @@ export const routes = [
                 element: <Quickstart />,
             },
             {
-                path: 'app-registration',
-                element: <AppRegistration />,
+                path:'getting-started',
+                children:[
+                    {
+                        path:'implement-now',
+                        element:<ImplementNow/>
+                    },
+                    {
+                        path:'start-your-app',
+                        element:<StartYourApp/>
+                    }
+                ]
             },
             {
-                path: 'api-explorer',
-                element: <ApiExplorer />,
+                path:'what-can-you-do',
+                children:[
+                    {
+                        path:'',
+                        element:<Trading/>
+                    },
+                    {
+                        path:'market-data',
+                        element:<MarketData/>
+                    },
+                    {
+                        path:'account-information',
+                        element:<AccountInformation/>
+                        
+                    },
+                    {
+                        path:'payments',
+                        element:<Payemnts/>
+                    },
+                    {
+                        path:'application',
+                        element:<Application/>
+                    }
+                ]
             },
             {
-                path: 'api-guide',
-                element: <ApiGuide />,
+                path:'resources',
+                children:[
+                    {
+                        path: 'api-guide',
+                        element: <ApiGuide />,
+                    },
+                    {
+                        path: 'faq',
+                        element: <Faq />,
+                    },
+                    {
+                        path: 'json-schemas',
+                        element: <Json />,
+                    },
+                    {
+                        path: 'bug-bounty',
+                        element: <BugBounty />,
+                    },
+                ],
             },
-            {
-                path: 'faq',
-                element: <Faq />,
-            },
-            {
-                path: 'json-schemas',
-                element: <Json />,
-            },
-            {
-                path: 'bug-bounty',
-                element: <BugBounty />,
-            },
-        ],
+        ]
     },
     {
         path: 'api-explorer',
-        element: <Docs />,
-        children: [
-            {
-                path: '',
-                element: <ApiExplorer />,
-            },
-        ],
+        element: <ApiExplorer />,
+         
+    },
+    {
+        path: 'app-registration',
+        element: <AppRegistration />,
     },
     {
         path: 'endpoint',

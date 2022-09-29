@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   min-width: 220px;
-  width: 220px;
+  width: 270px;
   position: fixed;
   height: 100%;
   z-index: 10;
   background: white;
   border-right: 2px solid var(--gray-01);
   margin-right: 42px;
-  padding: 0 0 0 125px;
   a {
     position: relative;
     opacity: 0.72;
