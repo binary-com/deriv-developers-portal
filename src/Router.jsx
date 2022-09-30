@@ -22,30 +22,37 @@ export const routes = [
             {
                 path: '',
                 element: <Quickstart />,
+                label: "Quickstart",
             },
             {
                 path: 'app-registration',
                 element: <AppRegistration />,
+                label: "App registration",
             },
             {
                 path: 'api-explorer',
                 element: <ApiExplorer />,
+                label: "Api explorer",
             },
             {
                 path: 'api-guide',
                 element: <ApiGuide />,
+                label: "Api guide",
             },
             {
                 path: 'faq',
                 element: <Faq />,
+                label: "FAQ",
             },
             {
                 path: 'json-schemas',
                 element: <Json />,
+                label: "JSON Schemas",
             },
             {
                 path: 'bug-bounty',
                 element: <BugBounty />,
+                Label: "Bug bounty",
             },
         ],
     },

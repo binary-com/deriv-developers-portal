@@ -1,6 +1,7 @@
 import styles from "./Sidebar.module.scss";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { getting_started, SidebarMenuItems } from "../../../../routes-data/sidebar-routes";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -30,6 +31,7 @@ const Sidebar = () => {
             </div>
           );
         })}
+        <SidebarMenuItems routes={getting_started} />
       </div>
     </div>
   );
