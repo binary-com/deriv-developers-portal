@@ -1,4 +1,5 @@
 import React from 'react';
+import { sidebar_routes } from './routes-data/sidebar-routes';
 const Endpoint = React.lazy(() => import('./components/endpoint/Endpoint/Endpoint'));
 const HomePage = React.lazy(() => import('./components/homepage/Homepage/Homepage'));
 const Docs = React.lazy(() => import('./components/docs/Docs/Docs'));
@@ -24,6 +25,7 @@ export const routes = [
                 element: <Quickstart />,
                 label: "Quickstart",
             },
+            ...sidebar_routes,
             {
                 path: 'app-registration',
                 element: <AppRegistration />,
