@@ -64,6 +64,7 @@ const rest = [
     }
 ];
 
+// Stitching all the arrays together to one route object for the Router.
 export const sidebar_routes = [...getting_started, ...what_can_you_do, ...resources, ...rest];
 
 function LinkComponent({route, path}) {
@@ -76,6 +77,8 @@ function LinkComponent({route, path}) {
             )
             }
             { route.children && route.children.map(child => {
+                // If there are children, recursively go over the nested children 
+                // till there are none anymore.
                 return (
                     <div> 
                         <LinkComponent route={child} path={`${path}/${child.path}`} /> 
