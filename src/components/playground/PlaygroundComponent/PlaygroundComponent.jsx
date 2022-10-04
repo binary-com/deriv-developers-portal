@@ -23,7 +23,6 @@ export const PlaygroundComponent = () => {
   const request_input = useRef(null);
   const [request_info, setRequestInfo] = useState({});
   const [response_info, setResponseInfo] = useState({});
-  const [visibility_listener, setVisibilityListener] = useState(true);
   const [scroll_direction, setScrollDirection] = useState("down");
   const [text_data, setTextData] = useState({
     request: "",
@@ -34,13 +33,20 @@ export const PlaygroundComponent = () => {
   const location = useLocation();
   const history = createBrowserHistory();
   
+  // add/remove event listeners on component mount/unmount
+  useEffect(() => {
+    // mounting
+    document.addEventListener("visibilitychange", documentVisibility);
+    // unmounting
+    return () => document.removeEventListener("visibilitychange", documentVisibility);
+  }, []);
+
   // If the user switches to a different tab, it will trigger the visibility state.
   const documentVisibility = () => {
     // If the visibility state is hidden, we will close the API.
     if (document.visibilityState === "hidden") {
       current_api.connection.close();
       ticksSubject.complete();
-      document.removeEventListener("visibilitychange", documentVisibility, false);
       setScrollDirection("down");
       setVisibilityListener(true);
     }
@@ -48,37 +54,7 @@ export const PlaygroundComponent = () => {
     setCurrentAPI(api);
   }
 
-  // Here we initialize the visibility listener.
-  useEffect(() => {
-    if (visibility_listener) {
-      setVisibilityListener(false);
-      document.addEventListener("visibilitychange", documentVisibility, false);
-    }
-  }, [visibility_listener])
-
-  const dynamicImportJSON = useCallback(
-    (selected_value) => {
-      import(`../../../../config/v3/${selected_value}/send.json`)
-        .then((data) => {
-          setRequestInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-      import(`../../../../config/v3/${selected_value}/receive.json`)
-        .then((data) => {
-          setResponseInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-    }
-    , [setRequestInfo, setResponseInfo]);
-
-    const displayAuthDoc = () => dynamicImportJSON('authorize');
-
+  // Dynamically import JSON to update the select value of the playground dropdown.
   useEffect(() => {
     const hash_value = window.location.hash.split("#")[1];
     const request_body = playground_requests.find(
@@ -114,6 +90,29 @@ export const PlaygroundComponent = () => {
       setTextData(hash_text_data);
     }
   }, [window.location.hash, playground_requests]);
+
+  const dynamicImportJSON = useCallback(
+    (selected_value) => {
+      import(`../../../../config/v3/${selected_value}/send.json`)
+        .then((data) => {
+          setRequestInfo(data);
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+        });
+      import(`../../../../config/v3/${selected_value}/receive.json`)
+        .then((data) => {
+          setResponseInfo(data);
+        })
+        .catch((error) => {
+          // eslint-disable-next-line
+          console.log(error);
+        });
+    }, [setRequestInfo, setResponseInfo]
+  );
+
+  const displayAuthDoc = () => dynamicImportJSON('authorize');
 
   const sendRequest = useCallback(() => {
     if (

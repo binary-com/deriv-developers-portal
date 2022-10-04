@@ -1,5 +1,7 @@
 import SchemaDescription from "./SchemaDescription";
 import SchemaObjectContent from "./SchemaObjectContent";
+import styles from "./Schema.module.scss";
+import React from "react";
 
 export default function RecursiveProperties({
   is_open,
@@ -23,16 +25,16 @@ export default function RecursiveProperties({
   }
   return keys?.map((key, index) => {
     return (
-      <>
+      <React.Fragment key={key}>
         {index === 0 && value?.items?.description && (
           <SchemaDescription description={value.items.description} />
         )}
         <SchemaObjectContent
-          key={index}
+          key={key}
           key_value={key}
           properties={properties}
         />
-      </>
+      </React.Fragment>
     );
   });
 }
