@@ -4,9 +4,10 @@ import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "../../../global-functions/ticksSubject";
 
 export const ResetSendButtonsBlock = (
-  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api,setIsScrolling }) => {
+  ({ isAppRegistration, sendRequest, resetMessagesInConsole, current_api, setIsScrolling, setScrollDirection }) => {
 
     const onClick = () => {
+      setScrollDirection("down");
       current_api.connection.close();
       ticksSubject.complete();
       resetMessagesInConsole?.([]);

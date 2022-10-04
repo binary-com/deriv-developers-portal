@@ -23,6 +23,8 @@ export const PlaygroundComponent = () => {
   const request_input = useRef(null);
   const [request_info, setRequestInfo] = useState({});
   const [response_info, setResponseInfo] = useState({});
+  const [visibility_listener, setVisibilityListener] = useState(true);
+  const [scroll_direction, setScrollDirection] = useState("down");
   const [text_data, setTextData] = useState({
     request: "",
     selected_value: "Select API Call - Version 3",
@@ -31,6 +33,28 @@ export const PlaygroundComponent = () => {
   const [selected, setSelected] = useState("Select API Call - Version 3");
   const location = useLocation();
   const history = createBrowserHistory();
+  
+  // If the user switches to a different tab, it will trigger the visibility state.
+  const documentVisibility = () => {
+    // If the visibility state is hidden, we will close the API.
+    if (document.visibilityState === "hidden") {
+      current_api.connection.close();
+      ticksSubject.complete();
+      document.removeEventListener("visibilitychange", documentVisibility, false);
+      setScrollDirection("down");
+      setVisibilityListener(true);
+    }
+    // When we switch back to the main window, initiate a new API call.
+    setCurrentAPI(api);
+  }
+
+  // Here we initialize the visibility listener.
+  useEffect(() => {
+    if (visibility_listener) {
+      setVisibilityListener(false);
+      document.addEventListener("visibilitychange", documentVisibility, false);
+    }
+  }, [visibility_listener])
 
   const dynamicImportJSON = useCallback(
     (selected_value) => {
@@ -212,6 +236,8 @@ export const PlaygroundComponent = () => {
     request_example: text_data.request,
     handleChange: handleTextAreaInput,
     request_input,
+    setScrollDirection,
+    scroll_direction,
   };
 
   return (
