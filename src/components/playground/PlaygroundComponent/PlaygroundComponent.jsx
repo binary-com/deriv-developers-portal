@@ -48,7 +48,6 @@ export const PlaygroundComponent = () => {
       current_api.connection.close();
       ticksSubject.complete();
       setScrollDirection("down");
-      setVisibilityListener(true);
     }
     // When we switch back to the main window, initiate a new API call.
     setCurrentAPI(api);
