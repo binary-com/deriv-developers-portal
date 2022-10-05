@@ -9,6 +9,7 @@ const Faq = React.lazy(() => import('./components/faq/Faq/Faq'));
 const Json = React.lazy(() => import('./components/json-schemas/JsonSchemas'));
 const BugBounty = React.lazy(() => import('./components/bounty/Bounty/Bounty'));
 const Quickstart = React.lazy(() => import('./components/quickstart/Quickstart/Quickstart'));
+const StartYourApp = React.lazy(() => import('./components/start-your-app/StartYourApp/StartYourApp'));
 
 export const routes = [
     {
@@ -22,6 +23,10 @@ export const routes = [
             {
                 path: '',
                 element: <Quickstart />,
+            },
+            {
+                path: 'start-your-app',
+                element: <StartYourApp />,
             },
             {
                 path: 'app-registration',
