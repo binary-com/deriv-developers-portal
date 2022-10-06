@@ -141,13 +141,14 @@ const ImplementDropdown = () => {
                     {implement_now.map(items => (
                         <Link
                             key={items.path}
-                            to={"getting-started/implement-now/"+items.path}
-                            className={`${styles.dropdownContent} ${items.path === location.pathname.split('/')[4] ? styles.selected : ""}`}
+                            to={'getting-started/implement-now/' + items.path}
+                            className={`${styles.dropdownContent} ${
+                                items.path === location.pathname.split('/')[4] ? styles.selected : ''
+                            }`}
                         >
                             {items.label}
                         </Link>
-                    ))
-}
+                    ))}
                 </div>
             )}
         </div>
@@ -155,28 +156,31 @@ const ImplementDropdown = () => {
 };
 
 function LinkComponent({ route, path }) {
-    const {pathname} = useLocation();
-   
+    const { pathname } = useLocation();
+
     return (
         <div key={route.label}>
             {route.children ? (
                 <div className={styles.menuHeader}>{route.label}</div>
             ) : (
-                <Link to={path} className={`${styles.menuItem} ${path === pathname.replace('/docs/','') ? styles.selected : ''}`}>
+                <Link
+                    to={path}
+                    className={`${styles.menuItem} ${path === pathname.replace('/docs/', '') ? styles.selected : ''}`}
+                >
                     {route.label}
                 </Link>
             )}
             {route.children &&
-                route.children.map((child) => {
+                route.children.map(child => {
                     // If there are children, recursively go over the nested children
                     // till there are none anymore.
                     return !child.is_collapsible ? (
                         <>
-                            <LinkComponent route={child} path={`${path}/${child.path}`}/>
+                            <LinkComponent route={child} path={`${path}/${child.path}`} />
                         </>
                     ) : (
                         <>
-                            <ImplementDropdown/>
+                            <ImplementDropdown />
                         </>
                     );
                 })}
@@ -190,7 +194,7 @@ export const SidebarMenuItems = ({ routes }) => {
         const route = items[1];
         return (
             <>
-                <LinkComponent route={route} path={route.path} key={route.path}/>
+                <LinkComponent route={route} path={route.path} key={route.path} />
             </>
         );
     });
