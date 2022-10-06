@@ -1,4 +1,5 @@
 import React from 'react';
+import { sandboxRoutes } from './routes-data/sandbox-routes';
 const Endpoint = React.lazy(() => import('./components/endpoint/Endpoint/Endpoint'));
 const HomePage = React.lazy(() => import('./components/homepage/Homepage/Homepage'));
 const Docs = React.lazy(() => import('./components/docs/Docs/Docs'));
@@ -20,6 +21,7 @@ export const routes = [
         path: 'docs',
         element: <Docs />,
         children: [
+            ...sandboxRoutes("implement_now"),
             {
                 path: '',
                 element: <Quickstart />,
