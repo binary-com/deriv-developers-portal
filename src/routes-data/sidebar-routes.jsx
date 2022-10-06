@@ -175,13 +175,13 @@ function LinkComponent({ route, path }) {
                     // If there are children, recursively go over the nested children
                     // till there are none anymore.
                     return !child.is_collapsible ? (
-                        <>
+                        <React.Fragment>
                             <LinkComponent route={child} path={`${path}/${child.path}`} />
-                        </>
+                        </React.Fragment>
                     ) : (
-                        <>
+                        <React.Fragment>
                             <ImplementDropdown />
-                        </>
+                        </React.Fragment>
                     );
                 })}
         </div>

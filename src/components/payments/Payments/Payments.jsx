@@ -1,7 +1,3 @@
-export default function Payemnts() {
-    return (
-      <div>
-        Payments
-      </div>
-    );
-  }
+export default Payemnts = () => {
+    return <div>Payments</div>;
+};

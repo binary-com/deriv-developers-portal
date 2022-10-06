@@ -1,8 +1,3 @@
-export default function MarketData() {
-    return (
-      <div data-id="bug-bounty">
-        MarketData
-      </div>
-    );
-  }
-  
+export default MarketData = () => {
+    return <div>MarketData</div>;
+};

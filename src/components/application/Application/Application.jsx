@@ -1,8 +1,3 @@
-export default function Application() {
-    return (
-      <div>
-        Application
-      </div>
-    );
-  }
-  
+export default Application = () => {
+    return <div>Application</div>;
+};

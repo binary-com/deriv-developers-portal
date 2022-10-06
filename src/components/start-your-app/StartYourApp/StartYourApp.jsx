@@ -1,7 +1,3 @@
-export default function StartYourApp() {
-    return (
-      <div>
-        App
-      </div>
-    );
-  }
+export default StartYourApp = () => {
+    return <div>App</div>;
+};
