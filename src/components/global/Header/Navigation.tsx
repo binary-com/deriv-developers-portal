@@ -23,7 +23,6 @@ export default function Navigation() {
       <HamburgerNavigation />
       <nav id="navbar" className={`${styles.flexContainer} ${styles.navbar}`} data-id="navbar">
         {[
-          ["/", "Home"],
           ["/docs/", "Documentation"],
           ["/api-explorer/", "API Explorer"],
           ["/app-registration/","Application Registration"]
