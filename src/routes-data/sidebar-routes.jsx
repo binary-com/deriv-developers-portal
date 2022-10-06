@@ -134,6 +134,7 @@ export const sidebar_routes = [...getting_started, ...what_can_you_do, ...resour
 
 const ImplementDropdown = route => {
     const location = useLocation();
+    const split_current_location = location.pathname.split('/');
     const [isActive, setIsActive] = useState(false);
     useEffect(() => {
         if (route.route.path) {
@@ -161,7 +162,9 @@ const ImplementDropdown = route => {
                             key={items.path}
                             to={'getting-started/implement-now/' + items.path}
                             className={`${styles.dropdownContent} ${
-                                items.path === location.pathname.split('/')[4] ? styles.selected : ''
+                                items.path === split_current_location[split_current_location.length - 1]
+                                    ? styles.selected
+                                    : ''
                             }`}
                         >
                             {items.label}
