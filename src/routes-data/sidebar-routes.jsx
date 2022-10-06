@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+const Quickstart = React.lazy(() => import('../components/quickstart/Quickstart/Quickstart'));
 const ApiGuide = React.lazy(() => import('../components/api-guide/ApiGuide/ApiGuide'));
 const Faq = React.lazy(() => import('../components/faq/Faq/Faq'));
 const Json = React.lazy(() => import('../components/json-schemas/JsonSchemas'));
@@ -121,18 +122,35 @@ export const resources = [
     },
 ];
 
+export const rest = [
+    {
+        path: '/docs',
+        element: <Quickstart />,
+        label: 'Quickstart',
+    },
+];
 // Stitching all the arrays together to one route object for the Router.
 export const sidebar_routes = [...getting_started, ...what_can_you_do, ...resources];
 
-const ImplementDropdown = () => {
+const ImplementDropdown = route => {
     const location = useLocation();
     const [isActive, setIsActive] = useState(false);
+    useEffect(() => {
+        if (route.route.path) {
+            const dropdown = route.route.path;
+            const split_current_location = location.pathname.split('/');
+            if (split_current_location.includes(dropdown)) {
+                // set the dropdown useState active.
+                setIsActive(!isActive);
+            }
+        }
+    }, []);
     const handleToggleDropdown = () => {
         setIsActive(!isActive);
     };
     return (
         <div className={styles.dropdown}>
-            <div className={styles.dropdownBtn} onClick={handleToggleDropdown}>
+            <div className={`${styles.dropdownBtn} ${isActive ? styles.boldText : ''}`} onClick={handleToggleDropdown}>
                 Implement Now
                 <span className={`${styles.arrow} ${isActive ? styles.down : ''}`} />
             </div>
@@ -157,7 +175,6 @@ const ImplementDropdown = () => {
 
 function LinkComponent({ route, path }) {
     const { pathname } = useLocation();
-
     return (
         <div key={route.label}>
             {route.children ? (
@@ -180,7 +197,7 @@ function LinkComponent({ route, path }) {
                         </React.Fragment>
                     ) : (
                         <React.Fragment>
-                            <ImplementDropdown />
+                            <ImplementDropdown route={child} />
                         </React.Fragment>
                     );
                 })}

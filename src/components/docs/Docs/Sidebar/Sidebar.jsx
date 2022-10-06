@@ -5,9 +5,8 @@ import {
     getting_started,
     resources,
     SidebarMenuItems,
-    sidebar_routes,
     what_can_you_do,
-    implement_now,
+    rest,
 } from '../../../../routes-data/sidebar-routes';
 
 const Sidebar = () => {
@@ -17,15 +16,7 @@ const Sidebar = () => {
         <div className={styles.sidebarleft} data-id='sidebarleft'>
             <p className={styles.sidebartitle}>Documentation</p>
             <div>
-                {[['/docs/', 'Quickstart']].map(([to, label]) => {
-                    return (
-                        <div key={to}>
-                            <Link to={to} className={to === location.pathname ? styles.selected : ''} data-id={to}>
-                                {label}
-                            </Link>
-                        </div>
-                    );
-                })}
+                <SidebarMenuItems routes={rest} />
                 <SidebarMenuItems routes={getting_started} />
                 <SidebarMenuItems routes={what_can_you_do} />
                 <SidebarMenuItems routes={resources} />

@@ -93,6 +93,7 @@
     line-height: 1.25;
     color: #333333;
     font-weight: bold;
+    border-bottom: 2px solid var(--gray-01);
 }
 
 .dropdown {
@@ -129,10 +130,13 @@
         cursor: pointer;
         justify-content: space-between;
     }
+    .boldText {
+        font-weight: 700;
+        color: #000;
+    }
     .dropdownList {
         max-height: 700px;
         overflow: auto;
-        padding: 0 56px 0 24px;
         .dropdownContent {
             width: 236px;
             height: 24px;
