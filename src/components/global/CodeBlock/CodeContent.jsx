@@ -40,9 +40,6 @@ const CodeContent = ({ lang, data }) => {
     if (language === "json") {
       return "json";
     }
-    if (language === "javascript") {
-      return "javascript";
-    }
   });
 
   return (
