@@ -213,9 +213,9 @@ export const SidebarMenuItems = ({ routes }) => {
     const map_links = Object.entries(routes_array).map(items => {
         const route = items[1];
         return (
-            <>
+            <React.Fragment>
                 <LinkComponent route={route} path={route.path} key={route.path} />
-            </>
+            </React.Fragment>
         );
     });
     return map_links;

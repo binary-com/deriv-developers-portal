@@ -19,7 +19,7 @@ export default function Navigation() {
             <HamburgerNavigation />
             <nav id='navbar' className={`${styles.flexContainer} ${styles.navbar}`} data-id='navbar'>
                 {[
-                    ['/docs/', 'Documentation'],
+                    ['/docs', 'Documentation'],
                     ['/api-explorer/', 'API Explorer'],
                     ['/app-registration/', 'Application Registration'],
                 ].map(([to, label], i) => {
