@@ -1,38 +1,28 @@
-import styles from "./Sidebar.module.scss";
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import styles from './Sidebar.module.scss';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import {
+    getting_started,
+    resources,
+    SidebarMenuItems,
+    what_can_you_do,
+    rest,
+} from '../../../../routes-data/sidebar-routes';
 
 const Sidebar = () => {
-  const location = useLocation();
+    const location = useLocation();
 
-  return (
-    <div className={styles.sidebarleft} data-id="sidebarleft">
-      <p className={styles.sidebartitle}>Deriv API</p>
-      <div>
-        {[
-          ["/docs/", "Quickstart"],
-          ["/docs/app-registration/", "App registration"],
-          ["/api-explorer/", "API explorer"],
-          ["/docs/api-guide/", "API guide"],
-          ["/docs/faq/", "FAQ"],
-          ["/docs/json-schemas/", "JSON Schemas"],
-          ["/docs/bug-bounty/", "Bug Bounty"],
-        ].map(([to, label]) => {
-          return (
-            <div key={to}>
-              <Link
-                to={to}
-                className={to === location.pathname ? styles.selected : ""}
-                data-id={to}
-              >
-                {label}
-              </Link>
+    return (
+        <div className={styles.sidebarleft} data-id='sidebarleft'>
+            <p className={styles.sidebartitle}>Documentation</p>
+            <div>
+                <SidebarMenuItems routes={rest} />
+                <SidebarMenuItems routes={getting_started} />
+                <SidebarMenuItems routes={what_can_you_do} />
+                <SidebarMenuItems routes={resources} />
             </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Sidebar;
