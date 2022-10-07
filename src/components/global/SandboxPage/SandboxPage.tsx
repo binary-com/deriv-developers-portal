@@ -1,10 +1,11 @@
+import React, { ReactElement } from "react";
 import { SandboxIframe } from "../../utility/SandboxIframe/SandboxIframe"; 
 
 interface SandboxPageProps {
     title: string,
     description: {
-        before: string;
-        after: string;
+        before: Element | ReactElement;
+        after: Element | ReactElement;
     },
     sandbox: string
 }
@@ -12,10 +13,14 @@ interface SandboxPageProps {
 export default function SandboxPage({title, description, sandbox}:SandboxPageProps) {
     return (
         <div>
-            <h1>{title}</h1>
-            <div>{description.before}</div>
+            <h3>{title}</h3>
+            <React.Fragment>
+                {description?.before}
+            </React.Fragment>
             <SandboxIframe sandbox={sandbox} />
-            <div>{description.after}</div>
+            <React.Fragment>
+                {description?.after}
+            </React.Fragment>
         </div>
     );
 }
