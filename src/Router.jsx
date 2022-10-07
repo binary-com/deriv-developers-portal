@@ -1,5 +1,6 @@
 import React from 'react';
 import { sandboxRoutes } from './routes-data/sandbox-routes';
+import { sidebar_routes } from './routes-data/sidebar-routes';
 const Endpoint = React.lazy(() => import('./components/endpoint/Endpoint/Endpoint'));
 const HomePage = React.lazy(() => import('./components/homepage/Homepage/Homepage'));
 const Docs = React.lazy(() => import('./components/docs/Docs/Docs'));
@@ -25,36 +26,41 @@ export const routes = [
             {
                 path: '',
                 element: <Quickstart />,
+                label: 'Quickstart',
             },
-            {
-                path: 'build-your-app',
-                element: <BuildYourApp />,
-            },
-            {
-                path: 'app-registration',
-                element: <AppRegistration />,
-            },
+            ...sidebar_routes,
             {
                 path: 'api-explorer',
                 element: <ApiExplorer />,
+                label: 'Api explorer',
             },
             {
                 path: 'api-guide',
                 element: <ApiGuide />,
+                label: 'Api guide',
             },
             {
                 path: 'faq',
                 element: <Faq />,
+                label: 'FAQ',
             },
             {
                 path: 'json-schemas',
                 element: <Json />,
+                label: 'JSON Schemas',
             },
             {
                 path: 'bug-bounty',
                 element: <BugBounty />,
+                Label: 'Bug bounty',
             },
         ],
+    },
+
+    {
+        path: 'app-registration',
+        element: <AppRegistration />,
+        label: 'App registration',
     },
     {
         path: 'api-explorer',
