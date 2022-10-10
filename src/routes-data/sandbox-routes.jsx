@@ -58,7 +58,7 @@ const implement_now_sandboxes = {
     }
 };
 
-// future sandbox route objects can be added and selected here from one wrapper object.
+// future sandbox route objects can be added and filtered from this sandboxes object.
 const sandboxes = {
     implement_now: implement_now_sandboxes,
 }

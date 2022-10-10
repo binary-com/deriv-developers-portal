@@ -11,10 +11,10 @@
     a {
         position: relative;
         opacity: 0.72;
-        margin-bottom: 14px;
+        margin: 5px 0;
         line-height: 1.88;
         color: #333333;
-        padding: 0 24px 0 10px;
+        padding: 2px 16px 2px 16px;
         height: 44px;
         display: flex;
         align-items: center;
@@ -58,7 +58,7 @@
 }
 
 .menuHeader {
-    padding: 20px 0 20px 0;
+    padding: 20px 0 10px 0;
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -88,7 +88,8 @@
 }
 
 .sidebartitle {
-    margin: 18px 0 16px 2px;
+    margin: 18px 0 0 2px;
+    padding-bottom: 10px;
     font-size: 32px;
     line-height: 1.25;
     color: #333333;
@@ -120,11 +121,11 @@
 
     .dropdownBtn {
         position: relative;
+        height: 44px;
         opacity: 0.72;
-        margin-bottom: 14px;
         line-height: 1.88;
         color: #333333;
-        padding: 0 24px 0 10px;
+        padding: 2px 16px 2px 16px;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -137,14 +138,13 @@
     .dropdownList {
         max-height: 700px;
         overflow: auto;
+        a {
+            padding: 2px 16px 2px 32px;
+        }
         .dropdownContent {
-            width: 236px;
-            height: 24px;
             font-weight: 400;
             font-size: 16px;
-            padding: 10px 24px 10px 17px;
             line-height: 24px;
-            margin-top: 14px;
             color: #333333;
         }
         .selected {

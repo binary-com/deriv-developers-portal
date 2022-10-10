@@ -477,7 +477,6 @@ textarea {
 }
 .pageWrapper {
   width: 100%;
-  margin-left: 5rem;
   color: var(--text-01);
   padding-bottom: 20px;
 }
@@ -686,11 +685,5 @@ textarea {
 [data-state*="responsive.mobile"] {
   .pageWrapper {
     margin-left:0;
-  }
-}
-
-[data-state~="responsive.desktopLaptopM"] {
-  .pageWrapper{
-    margin-left: 15rem;
   }
 }
