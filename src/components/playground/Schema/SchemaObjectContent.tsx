@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import RecursiveProperties from "./RecursiveProperties";
 import SchemaDescription from "./SchemaDescription";
 import CodeContent from "../../global/CodeBlock/CodeContent";
@@ -71,14 +71,14 @@ const SchemaBodyHeader = ({
           </p>
           <div className={styles.enumContainer}>
             {is_type_with_enumlabel && (
-              <>
+              <React.Fragment>
                 <span className={styles.enumLabel}>
                   {_enum.length > 1 ? "enum" : "constant"}
                 </span>{" "}
                 <span className={`${styles.enumType} ${typeClassName}`}>
                   {type}
                 </span>
-                <>
+                <React.Fragment>
                   {_enum.map((el: string, i: number) => (
                     <div
                       className={`${styles.schemaCode} ${styles.schemaEnums}`}
@@ -87,8 +87,8 @@ const SchemaBodyHeader = ({
                       {el}
                     </div>
                   ))}
-                </>
-              </>
+                </React.Fragment>
+              </React.Fragment>
             )}
             {is_only_type && (
               <span className={`${styles.enumType} ${typeClassName}`}>
@@ -97,15 +97,15 @@ const SchemaBodyHeader = ({
             )}
 
             {type && Array.isArray(type) && (
-              <>
+              <React.Fragment>
                 <span className={`${styles.enumType} ${typeClassName}`}>
                   {type[0]}, {type[1]}
                 </span>
-              </>
+              </React.Fragment>
             )}
 
             {type === "object" || type === "array" ? (
-              <>
+              <React.Fragment>
                 <div className={styles.schemaObjectContent}>
                   <div>
                     <button onClick={() => setIsOpenObject(!is_open_object)}>
@@ -113,7 +113,7 @@ const SchemaBodyHeader = ({
                     </button>
                   </div>
                 </div>
-              </>
+              </React.Fragment>
             ) : (
               <></>
             )}

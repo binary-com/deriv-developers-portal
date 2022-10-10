@@ -1,5 +1,5 @@
 import { useSelector } from '@xstate/react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRegisterOrUpdateApp } from '../../../../custom-hooks/useRegisterOrUpdate';
 import { isUpdateModeSelector, isRegisterTabIdleSelector } from '../../../../state/selectors';
@@ -53,7 +53,7 @@ export default function AppRegistrationForm() {
     const registerButtonMessage = isUpdateMode ? 'Update application' : 'Register as application';
 
     return (
-        <>
+        <React.Fragment>
             <form
                 className={styles.frmNewApplication}
                 id='frmNewApplication'
@@ -304,7 +304,7 @@ export default function AppRegistrationForm() {
                             <span>.</span>
                         </div>
                         <div className={styles.registerAppButtonContainer}>
-                            <>
+                            <React.Fragment>
                                 {isUpdateMode && (
                                     <Button type='secondary' onClick={() => stateService.send('REGISTER_TOGGLE_TAB')}>
                                         Cancel
@@ -313,13 +313,13 @@ export default function AppRegistrationForm() {
                                 <Button disabled={isLoading || Object.keys(errors)?.length > 0}>
                                     {registerButtonMessage}
                                 </Button>
-                            </>
+                            </React.Fragment>
                         </div>
                     </div>
                 </div>
                 <input type='hidden' id='app_id' name='app_id' />
             </form>
             <RegisterAppDialogError error={error} />
-        </>
+        </React.Fragment>
     );
 }

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-
+import React from "react";
 import { useMemo, useState } from "react";
 import { useTable, useSortBy } from "react-table";
 import "../AppRegistration/AppRegistration.scss"
@@ -79,7 +79,7 @@ export default function AppManagement() {
     );
 
   return (
-    <>
+    <React.Fragment>
       <div className={styles.manageApps}>
         <table {...getTableProps()}>
           <thead>
@@ -115,13 +115,13 @@ export default function AppManagement() {
       </div>
       <DeleteAppDialog deleteApp={deleteApp} />
       <AppManagementEmptyLazy />
-    </>
+    </React.Fragment>
   );
 }
 
 const Scopes = ({ values,idx }) => {
   return (
-    <>
+    <React.Fragment>
       {values.map((scopes) => {
         return (
           <span key={idx} className={`${styles.scope}  ${
@@ -131,7 +131,7 @@ const Scopes = ({ values,idx }) => {
           </span>
         );
       })}
-    </>
+    </React.Fragment>
   )}
 
 const SkeletonRows = () => {

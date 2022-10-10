@@ -2,8 +2,6 @@ import React from "react";
 import SandboxPage from "../components/global/SandboxPage/SandboxPage";
 import { url_base } from "../components/utility/SandboxIframe/SandboxIframe";
 
-let sandbox_routes : Object[] = [];
-
 const implement_now_sandboxes = {
     active_symbols: {
         title: "Active Symbols",
@@ -60,27 +58,34 @@ const implement_now_sandboxes = {
     }
 };
 
-export const sandboxRoutes = (type:string) => {
-    if (type === "implement_now") {
-        implementNowRoutes();
-    }
-    return sandbox_routes;
+// future sandbox route objects can be added and selected here from one wrapper object.
+const sandboxes = {
+    implement_now: implement_now_sandboxes,
 }
 
-const implementNowRoutes = () => {
-    for (const [key, sandbox] of Object.entries(implement_now_sandboxes)) {
-        const route_name = key.replace(/_/g, "-") // spaced words in the URL path use hyphens, not underscores.
-        // populate array with route objects
-        sandbox_routes = [...sandbox_routes, {
-            path: route_name, 
-            element: <SandboxPage
-                        title={sandbox.title}
-                        description={{
-                            before: sandbox.description.before,
-                            after: sandbox.description.after
-                        }}
-                        sandbox={`${url_base}${key}`}
-                    />
-        }];
+export const sandboxRoutes = (path) => {
+    let sandbox_routes = [];
+    const path_converted_to_key = path.replace(/-/g, "_");
+    const sandbox_keys = Object.keys(sandboxes);
+    const path_is_sandbox_key = sandbox_keys.includes(path_converted_to_key)
+    const sandboxes_entries = Object.entries(sandboxes[path_converted_to_key]);
+    if (path_is_sandbox_key) {
+        for (const [key, sandbox] of sandboxes_entries) {
+            const path_name = key.replace(/_/g, "-") // spaced words in the URL path use hyphens, not underscores.
+            // populate array with route objects (array of objects)
+            sandbox_routes = [...sandbox_routes, {
+                path: path_name, 
+                label: sandbox.title,
+                element: <SandboxPage
+                            title={sandbox.title}
+                            description={{
+                                before: sandbox.description.before,
+                                after: sandbox.description.after
+                            }}
+                            sandbox={`${url_base}${key}`}
+                        />
+            }];
+        }
     }
+    return sandbox_routes;
 }

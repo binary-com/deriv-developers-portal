@@ -10,8 +10,6 @@ const ApiGuide = React.lazy(() => import('./components/api-guide/ApiGuide/ApiGui
 const Faq = React.lazy(() => import('./components/faq/Faq/Faq'));
 const Json = React.lazy(() => import('./components/json-schemas/JsonSchemas'));
 const BugBounty = React.lazy(() => import('./components/bounty/Bounty/Bounty'));
-const Quickstart = React.lazy(() => import('./components/quickstart/Quickstart/Quickstart'));
-const BuildYourApp = React.lazy(() => import('./components/build-your-app/BuildYourApp/BuildYourApp'));
 
 export const routes = [
     {
@@ -22,12 +20,6 @@ export const routes = [
         path: 'docs',
         element: <Docs />,
         children: [
-            ...sandboxRoutes("implement_now"),
-            {
-                path: '',
-                element: <Quickstart />,
-                label: 'Quickstart',
-            },
             ...sidebar_routes,
             {
                 path: 'api-explorer',

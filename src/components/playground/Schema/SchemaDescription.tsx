@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Schema.module.scss";
 
 type SchemaDescriptionTypes = {
@@ -7,7 +8,7 @@ type SchemaDescriptionTypes = {
 const HighlightCode = ({ description }: any) => {
   const [first, code, ...rest] = description.split("`");
   return (
-    <>
+    <React.Fragment>
       {first}
       {code && (
         <span className={`${styles.schemaRole} ${styles.schemaCode}`}>
@@ -15,7 +16,7 @@ const HighlightCode = ({ description }: any) => {
         </span>
       )}
       {rest.length > 0 && <HighlightCode description={rest.join("`")} />}
-    </>
+    </React.Fragment>
   );
 };
 

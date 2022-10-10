@@ -1,45 +1,13 @@
-import { Link, useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { sandboxRoutes } from './sandbox-routes';
+import BuildYourApp from '../components/build-your-app/BuildYourApp/BuildYourApp';
+import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
 const Quickstart = React.lazy(() => import('../components/quickstart/Quickstart/Quickstart'));
 const ApiGuide = React.lazy(() => import('../components/api-guide/ApiGuide/ApiGuide'));
 const Faq = React.lazy(() => import('../components/faq/Faq/Faq'));
 const Json = React.lazy(() => import('../components/json-schemas/JsonSchemas'));
 const BugBounty = React.lazy(() => import('../components/bounty/Bounty/Bounty'));
-import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
-
-// Filter route objects with key + value pair (Object.entries);
-export const implement_now = [
-    {
-        path: 'ticks-history',
-        element: <div>This is a child of random</div>,
-        label: 'Ticks History',
-    },
-    {
-        path: 'active-symbol',
-        element: <div>This is a child of random</div>,
-        label: 'Active Symbol',
-    },
-    {
-        path: 'contracts-for-symbol',
-        element: <div>This is a child of random</div>,
-        label: 'Contracts For Symbol',
-    },
-    {
-        path: 'website-status',
-        element: <div>This is a child of random</div>,
-        label: 'Website Status',
-    },
-    {
-        path: 'proposal',
-        element: <div>This is a child of random</div>,
-        label: 'Proposal',
-    },
-    {
-        path: 'keep-alive',
-        element: <div>This is a child of random</div>,
-        label: 'Keep Alive',
-    },
-];
 
 export const getting_started = [
     {
@@ -48,51 +16,52 @@ export const getting_started = [
         children: [
             {
                 path: 'implement-now',
-                element: <div>This is a child of getting starteeeeeeeeed</div>,
                 label: 'Implement Now',
                 is_collapsible: true,
-                children: implement_now,
+                children: sandboxRoutes('implement_now'),
             },
             {
-                path: 'start-your-app',
-                label: 'Start your app',
+                path: 'build-your-app',
+                element: <BuildYourApp />,
+                label: 'Build your app',
             },
         ],
     },
 ];
-export const what_can_you_do = [
-    {
-        path: 'what-can-you-do',
-        label: 'What Can You Do',
-        children: [
-            {
-                path: 'trading',
-                element: <div>This is a child of random</div>,
-                label: 'Trading',
-            },
-            {
-                path: 'market-data',
-                element: <div>This is a child of random</div>,
-                label: 'Market Data',
-            },
-            {
-                path: 'account-information',
-                element: <div>This is a child of random</div>,
-                label: 'Account Information',
-            },
-            {
-                path: 'payments',
-                element: <div>This is a child of random</div>,
-                label: 'Payments',
-            },
-            {
-                path: 'application',
-                element: <div>This is a child of random</div>,
-                label: 'Application',
-            },
-        ],
-    },
-];
+// TODO: Implement "what can you do" when design is ready.
+// export const what_can_you_do = [
+//     {
+//         path: 'what-can-you-do',
+//         label: 'What Can You Do',
+//         children: [
+//             {
+//                 path: 'trading',
+//                 element: <div></div>,
+//                 label: 'Trading',
+//             },
+//             {
+//                 path: 'market-data',
+//                 element: <div></div>,
+//                 label: 'Market Data',
+//             },
+//             {
+//                 path: 'account-information',
+//                 element: <div></div>,
+//                 label: 'Account Information',
+//             },
+//             {
+//                 path: 'payments',
+//                 element: <div></div>,
+//                 label: 'Payments',
+//             },
+//             {
+//                 path: 'application',
+//                 element: <div></div>,
+//                 label: 'Application',
+//             },
+//         ],
+//     },
+// ];
 export const resources = [
     {
         path: 'resources',
@@ -129,13 +98,15 @@ export const rest = [
         label: 'Quickstart',
     },
 ];
-// Stitching all the arrays together to one route object for the Router.
-export const sidebar_routes = [...rest, ...getting_started, ...what_can_you_do, ...resources];
 
-const ImplementDropdown = route => {
+// Stitching all the arrays together to one route object for Router.jsx.
+export const sidebar_routes = [...rest, ...getting_started, ...resources];
+
+const ImplementDropdown = (route) => {
     const location = useLocation();
     const split_current_location = location.pathname.split('/');
     const [isActive, setIsActive] = useState(false);
+
     useEffect(() => {
         if (route.route.path) {
             const dropdown = route.route.path;
@@ -146,6 +117,7 @@ const ImplementDropdown = route => {
             }
         }
     }, []);
+
     const handleToggleDropdown = () => {
         setIsActive(!isActive);
     };
@@ -157,7 +129,7 @@ const ImplementDropdown = route => {
             </div>
             {isActive && (
                 <div className={styles.dropdownList}>
-                    {implement_now.map(items => (
+                    {sandboxRoutes(route.route.path).map(items => (
                         <Link
                             key={items.path}
                             to={'getting-started/implement-now/' + items.path}
@@ -195,11 +167,11 @@ function LinkComponent({ route, path }) {
                     // If there are children, recursively go over the nested children
                     // till there are none anymore.
                     return !child.is_collapsible ? (
-                        <React.Fragment>
+                        <React.Fragment key={child.label}>
                             <LinkComponent route={child} path={`${path}/${child.path}`} />
                         </React.Fragment>
                     ) : (
-                        <React.Fragment>
+                        <React.Fragment key={child.label}>
                             <ImplementDropdown route={child} />
                         </React.Fragment>
                     );
@@ -213,7 +185,7 @@ export const SidebarMenuItems = ({ routes }) => {
     const map_links = Object.entries(routes_array).map(items => {
         const route = items[1];
         return (
-            <React.Fragment>
+            <React.Fragment key={route.label}>
                 <LinkComponent route={route} path={route.path} key={route.path} />
             </React.Fragment>
         );

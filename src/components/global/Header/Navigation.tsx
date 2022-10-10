@@ -2,13 +2,14 @@ import { Link, useLocation } from 'react-router-dom';
 import { send } from '../../../state/stateSignal';
 import styles from './Header.module.scss';
 import HamburgerNavigation from './HamburgerNavigation';
+import React from 'react';
 
 export default function Navigation() {
     const location = useLocation();
     const address = location.pathname;
     const docAddress = location.pathname.substring(0, 6);
     return (
-        <>
+        <React.Fragment>
             <div id='hamburger' className={styles.hamburger} onClick={() => send('TOGGLE_HAMBURGER')} />
             <Link className={styles.logoLink} to='/' data-testid='mainLogo'>
                 <div className={styles.flexContainer}>
@@ -38,7 +39,7 @@ export default function Navigation() {
                     );
                 })}
             </nav>
-        </>
+        </React.Fragment>
     );
 }
 

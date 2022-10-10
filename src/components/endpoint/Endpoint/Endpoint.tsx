@@ -2,6 +2,7 @@ import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
 import { stateService } from '../../../state/stateSignal';
 import { app_id, server_url, setAppId, setServerUrl, socket_url } from '../../../state/storageSignals';
+import React from 'react';
 
 
 interface FormData {
@@ -31,7 +32,7 @@ const EndPoint = () => {
     };
 
     return (
-        <>
+        <React.Fragment>
             <form onSubmit={handleSubmit(handleClick)}>
                 <div className={styles.pageContent}>
                     <div className={styles.header}>Change API endpoint</div>
@@ -107,7 +108,7 @@ const EndPoint = () => {
                     </div>
                 </div>
             </form>
-        </>
+        </React.Fragment>
     );
 };
 
