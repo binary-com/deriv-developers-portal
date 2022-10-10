@@ -25,7 +25,11 @@ export const routes = [
                 element: <Quickstart />,
                 label: 'Quickstart',
             },
-            ...sidebar_routes,
+            {
+                path: 'app-registration',
+                element: <AppRegistration />,
+                label: 'App registration',
+            },
             {
                 path: 'api-explorer',
                 element: <ApiExplorer />,
@@ -52,12 +56,6 @@ export const routes = [
                 Label: 'Bug bounty',
             },
         ],
-    },
-
-    {
-        path: 'app-registration',
-        element: <AppRegistration />,
-        label: 'App registration',
     },
     {
         path: 'api-explorer',
