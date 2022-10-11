@@ -126,7 +126,6 @@ p {
   }
 }
 .doc-content {
-  padding: 128px 50px 0 50px;
   display: flex;
   min-height: 95vh;
   overflow-y: auto;
@@ -173,9 +172,9 @@ button:focus {
   }
 }
 
-[data-state~="responsive.desktopLaptopM"] {
+[data-state*="responsive.desktop"] {
   .doc-content {
-    padding: 188px 50px 0 50px;
+    padding: 128px 50px 0 50px;
   }
 }
 
@@ -663,9 +662,12 @@ textarea {
 .mb-16p {
   margin-bottom: 16px;
 }
-[data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"]
-  nav
-  a.active {
+[data-state*="responsive.mobile"][data-state~="hamburger.hamburger_open"] {
+  .sandbox-iframe {
+    pointer-events: none;
+  }
+}
+a.active {
   background-color: var(--hamburger-active-link);
   font-weight: bold;
   &::before {
