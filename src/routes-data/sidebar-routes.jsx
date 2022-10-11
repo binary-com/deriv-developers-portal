@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { sandboxRoutes } from './sandbox-routes';
 import BuildYourApp from '../components/build-your-app/BuildYourApp/BuildYourApp';
@@ -70,8 +70,8 @@ export const sidebar_routes = [
 const ImplementDropdown = (props) => {
     const location = useLocation();
     const split_current_location = location.pathname.split('/');
-    const [isActive, setIsActive] = useState(false);
-    useEffect(() => {
+    const [isActive, setIsActive] = React.useState(false);
+    React.useEffect(() => {
         if (props.route.path) {
             const dropdown = props.route.path;
             const split_current_location = location.pathname.split('/');

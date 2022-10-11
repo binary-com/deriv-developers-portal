@@ -1,8 +1,8 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { send } from '../../../state/stateSignal';
 import styles from './Header.module.scss';
 import HamburgerNavigation from './HamburgerNavigation';
-import React from 'react';
 
 export default function Navigation() {
     const location = useLocation();

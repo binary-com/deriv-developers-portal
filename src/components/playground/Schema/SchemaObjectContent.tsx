@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import RecursiveProperties from "./RecursiveProperties";
 import SchemaDescription from "./SchemaDescription";
 import CodeContent from "../../global/CodeBlock/CodeContent";
@@ -164,8 +164,8 @@ const SourceButton = ({ is_code_open, setIsCodeOpen }: any) => {
 };
 
 export default function SchemaObjectContent({ key_value, properties }) {
-  const [is_open_object, setIsOpenObject] = useState(false);
-  const [is_code_open, setIsCodeOpen] = useState(false);
+  const [is_open_object, setIsOpenObject] = React.useState(false);
+  const [is_code_open, setIsCodeOpen] = React.useState(false);
   const {
     type,
     description,
@@ -182,7 +182,7 @@ export default function SchemaObjectContent({ key_value, properties }) {
   } catch (_error) {
     data = "";
   }
-  useEffect(() => {
+  React.useEffect(() => {
     setIsCodeOpen(false);
     setIsOpenObject(false);
   }, [properties]);

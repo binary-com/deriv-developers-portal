@@ -63,6 +63,7 @@ const sandboxes = {
     implement_now: implement_now_sandboxes,
 }
 
+// This function will return an object of selected (path parameter) sandbox page routes
 export const sandboxRoutes = (path) => {
     let sandbox_routes = [];
     const path_converted_to_key = path.replace(/-/g, "_");
