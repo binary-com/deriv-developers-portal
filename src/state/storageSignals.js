@@ -12,7 +12,7 @@ createEffect(() => {
     console.log(window.location.href)
 
     if (window.location.href === staging_url) {
-         setAppId('32239');
+         app_id_in_local= '32239'
     }
 
     if (app_id_in_local) setAppId(app_id_in_local);
