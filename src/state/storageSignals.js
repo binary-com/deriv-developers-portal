@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import { createEffect, createSignal } from 'solid-js';
 export const [token1, setToken1] = createSignal(sessionStorage.getItem('token1'));
 export const [app_id, setAppId] = createSignal(localStorage.getItem('app_id'));
@@ -10,10 +9,9 @@ createEffect(() => {
     const server_url_in_local = localStorage.getItem('server_url') || 'green.binaryws.com';
     const token_in_local = sessionStorage.getItem('token1');
     const staging_url = 'staging-api.deriv.com';
-    const location = useLocation();
 
-    if (location.pathname === staging_url) {
-        setAppId('32239');
+    if (window.location.pathname === staging_url) {
+         setAppId('32239');
     }
 
     if (app_id_in_local) setAppId(app_id_in_local);
@@ -32,7 +30,7 @@ createEffect(() => {
     const endpoint_in_url = urlParams.get('server_url');
 
     if (app_id_in_url) setAppId(app_id_in_url);
-    if (endpoint_in_url) {
+    if (endpoint_in_url) { 
         setServerUrl(endpoint_in_url);
     }
     if (token1_in_url) {
