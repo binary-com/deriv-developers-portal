@@ -14,14 +14,14 @@ const implement_now_sandboxes = {
         title: "Contracts for Symbol",
         description: {
             before: <p>For a given symbol, get the list of currently available contracts, and the latest barrier and duration limits for each contract.</p>,
-            after: <></>
+            after: <React.Fragment></React.Fragment>
         }
     },
     keep_alive: {
         title: "Keep Alive",
         description: {
             before: <p>In this example you’ll see how to keep a connection alive when getting contract proposals via the Deriv API. This example keeps the connection alive by sending a ping every 30 seconds.</p>,
-            after: <></>
+            after: <React.Fragment></React.Fragment>
         }
     },
     proposal: {
@@ -53,7 +53,7 @@ const implement_now_sandboxes = {
         title: "Website Status",
         description: {
             before: <p>Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.</p>,
-            after: <></>
+            after: <React.Fragment></React.Fragment>
         }
     }
 };
@@ -68,9 +68,9 @@ export const sandboxRoutes = (path) => {
     const path_converted_to_key = path.replace(/-/g, "_");
     const sandbox_keys = Object.keys(sandboxes);
     const path_is_sandbox_key = sandbox_keys.includes(path_converted_to_key)
-    const sandboxes_entries = Object.entries(sandboxes[path_converted_to_key]);
+    const sandbox_entries = Object.entries(sandboxes[path_converted_to_key]);
     if (path_is_sandbox_key) {
-        for (const [key, sandbox] of sandboxes_entries) {
+        for (const [key, sandbox] of sandbox_entries) {
             const path_name = key.replace(/_/g, "-") // spaced words in the URL path use hyphens, not underscores.
             // populate array with route objects (array of objects)
             sandbox_routes = [...sandbox_routes, {

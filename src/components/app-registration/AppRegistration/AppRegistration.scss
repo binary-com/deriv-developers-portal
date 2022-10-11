@@ -54,6 +54,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: calc(100vh - 105px);
 }
 
 .app-registration-logged-in {
@@ -192,6 +193,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin: 125px 0 40px 0;
 }
 
 fieldset {
@@ -377,20 +379,28 @@ fieldset {
   display: none;
 }
 
-@media screen and (min-width: 480px) {
-  .dialog {
-    width: 440px;
-  }
-  .dialog-delete,
-  .dialog-update {
-    width: 360px;
+[data-state*="responsive.mobile"] {
+  &[data-state~="registration.logged_in"] .app-registration-logged-in {
+    margin-top: 80px;
   }
 }
 
-@media screen and (min-width: 992px) {
+[data-state*="responsive.mobileL"],
+[data-state*="responsive.mobileTablet"],
+[data-state*="responsive.desktop"] { 
+  .dialog {
+    width: 385px;
+  }
+  .dialog-delete,
+  .dialog-update {
+    width: 320px;
+  }
+}
+
+[data-state*="responsive.mobileTablet"],
+[data-state*="responsive.desktop"] {
   .app-registration-login {
-    padding-left: 158px;
-    height: 614px;
+    height: 100vh;
   }
 
   .app-registration-header .form-title {

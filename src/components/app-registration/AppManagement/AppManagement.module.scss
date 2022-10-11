@@ -2,7 +2,8 @@
     display: none;
     table {
         border-spacing: 0;
-        width: calc(100% - 125px);
+        width: 100%;
+        padding: 0 50px;
     }
     thead {
         background-color: var(--gray-02);
