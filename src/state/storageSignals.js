@@ -8,7 +8,7 @@ createEffect(() => {
     const app_id_in_local = localStorage.getItem('app_id') || '31063';
     const server_url_in_local = localStorage.getItem('server_url') || 'green.binaryws.com';
     const token_in_local = sessionStorage.getItem('token1');
-    const staging_url = 'https://deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx/-api.deriv.com';
+    const staging_url = 'deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx';
 
     if (window.location.pathname === staging_url) {
          setAppId('32239');
