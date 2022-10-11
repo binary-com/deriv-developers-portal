@@ -5,14 +5,17 @@ export const [server_url, setServerUrl] = createSignal(localStorage.getItem('ser
 export const socket_url = () => `wss://${server_url()}/websockets/v3?app_id=${app_id()}&l=EN&brand=deriv`;
 
 createEffect(() => {
-    var app_id_in_local = localStorage.getItem('app_id') || '31063';
+    let app_id_in_local ;
     const server_url_in_local = localStorage.getItem('server_url') || 'green.binaryws.com';
     const token_in_local = sessionStorage.getItem('token1');
-    const staging_url = 'http://deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx';
+    const staging_url = 'http://deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx/endpoint';
     console.log(window.location.href)
 
     if (window.location.href === staging_url) {
-         app_id_in_local= '32239'
+        app_id_in_local = localStorage.getItem('app_id') || '32239';
+    }
+    else{
+        app_id_in_local = localStorage.getItem('app_id') || '31063';
     }
 
     if (app_id_in_local) setAppId(app_id_in_local);

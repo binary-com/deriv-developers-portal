@@ -28,6 +28,7 @@ const EndPoint = () => {
         setServerUrl(data.server_url);
         stateService.send('LOGOUT');
         sessionStorage.removeItem('token1');
+        data.preventDefault()
     };
 
     return (
