@@ -14,7 +14,7 @@ const Sidebar = () => {
                 <SidebarMenuItems routes={sidebar_routes} />
             </div>
         </div>
-    );
+  );
 };
 
 export default Sidebar;
