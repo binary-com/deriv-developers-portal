@@ -97,7 +97,7 @@ const EndPoint = () => {
                                     window.history.replaceState({}, document.title, window.location.pathname);
                                     stateService.send('LOGOUT');
                                     sessionStorage.removeItem('token1');
-                                    location.replace('/docs/app-registration/');
+                                    location.replace('/app-registration/');
                                     window.location.reload();
                                 }}
                                 className={styles.resetButton}

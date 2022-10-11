@@ -166,6 +166,54 @@
     .sidebarleft {
         display: none;
     }
+    .dropdown {
+        width: 236px;
+        min-height: 24px;
+        font-size: 14px;
+        line-height: 24px;
+        .dropdownBtn {
+            opacity: unset;
+            font-size: 14px;
+            color: var(--text-01);
+        }
+        .dropdownList {
+            display: flex;
+            flex-direction: column;
+            padding-right: 16px;
+            overflow: unset;
+            gap: 16px;
+            a {
+                padding: 0;
+                padding-left: 16px;
+                text-indent: 16px;
+                height: 40px;
+                width: calc(100% - 22px);
+                color: var(--text-01);
+                display: flex;
+                align-items: center;
+                border-radius: 0px 4px 4px 0px;
+                position: relative;
+                font-size: 14px;
+                &:before {
+                    width: 4px;
+                    margin-bottom: 2px;
+                    border-radius: 4px 0 0 4px;
+                }
+            }
+            .selected {
+                background-color: var(--white-03);
+            }
+        }
+    }
+
+    .menuHeader {
+        padding: 20px 0 10px 0;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 700;
+        color: #333333;
+        border-top: 2px solid var(--gray-01);
+    }
 }
 
 [data-state~='responsive.desktopLaptopM'] {

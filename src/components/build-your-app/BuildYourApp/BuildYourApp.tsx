@@ -22,7 +22,7 @@ export default function BuildYourApp() {
                 <p>You'll get your app ID when you register your application. With this app ID and the API token from the previous step, your application can talk to the Deriv API. Also, whenever you need support, just quote your app ID when talking to our Customer Support team.</p>
                 <p>Follow these steps to register your application:</p>
                 <ul className="numbered-list">
-                    <li><a href={oauthUrl()}>Log in</a> to your Deriv account and <a href="https://api.deriv.com/docs/app-registration/">complete this form</a>. Remember the API token you created during the previous step? You'll need it in this step.</li>
+                    <li><a href={oauthUrl()}>Log in</a> to your Deriv account and <a href="https://api.deriv.com/app-registration/">complete this form</a>. Remember the API token you created during the previous step? You'll need it in this step.</li>
                     <li>After your application is registered, it will appear in the <strong>Manage existing applications</strong> tab. You may now delete your API token.</li>
                 </ul>
             </div>

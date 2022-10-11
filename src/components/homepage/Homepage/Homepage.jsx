@@ -164,7 +164,7 @@ export default function HomePage() {
                   Binary.com login details).
                 </div>
               </a>
-              <a href="/docs/app-registration" className="main-page-card">
+              <a href="/app-registration" className="main-page-card">
                 <div className="header">
                   <h3>2. Register your app</h3>
                   <div className={styles.registerYourAppIcon} />

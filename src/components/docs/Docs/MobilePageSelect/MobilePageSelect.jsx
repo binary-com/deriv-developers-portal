@@ -18,12 +18,12 @@ export default function MobilePageSelect() {
       value={currentPath}
     >
       <option value="/docs/">Quickstart</option>
-      <option value="/docs/app-registration/">App Registration</option>
+      <option value="/app-registration/">App Registration</option>
       <option value="/api-explorer/">API Explorer</option>
-      <option value="/docs/api-guide/">API Guide</option>
-      <option value="/docs/faq/">FAQ</option>
-      <option value="/docs/json-schemas/">JSON Schemas</option>
-      <option value="/docs/bug-bounty/">Bug Bounty</option>
+      <option value="/docs/resources/api-guide/">API Guide</option>
+      <option value="/docs/resources/faq/">FAQ</option>
+      <option value="/docs/resources/json-schemas/">JSON Schemas</option>
+      <option value="/docs/resources/bug-bounty/">Bug Bounty</option>
     </select>
   );
 }

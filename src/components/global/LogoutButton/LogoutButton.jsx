@@ -23,5 +23,5 @@ export default function LogoutButton() {
 const logout = () => {
   stateService.send("LOGOUT");
   sessionStorage.removeItem("token1");
-  location.replace("/docs/app-registration/");
+  location.replace("/app-registration/");
 };

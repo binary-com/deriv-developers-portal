@@ -1,10 +1,8 @@
 import styles from './Sidebar.module.scss';
 import React from 'react';
 import {
-    getting_started,
-    resources,
+    sidebar_routes,
     SidebarMenuItems,
-    rest,
 } from '../../../../routes-data/sidebar-routes';
 
 const Sidebar = () => {
@@ -13,10 +11,7 @@ const Sidebar = () => {
         <div className={styles.sidebarleft} data-id='sidebarleft'>
             <p className={styles.sidebartitle}>Documentation</p>
             <div>
-                <SidebarMenuItems routes={rest} />
-                <SidebarMenuItems routes={getting_started} />
-                {/* <SidebarMenuItems routes={what_can_you_do} /> */}
-                <SidebarMenuItems routes={resources} />
+                <SidebarMenuItems routes={sidebar_routes} />
             </div>
         </div>
     );

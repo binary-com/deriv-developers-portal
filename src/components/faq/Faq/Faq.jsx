@@ -95,7 +95,7 @@ const FAQ = () => {
               <li>
                 If you are prepared to offer higher contract prices than ours,
                 you may add a <strong>markup percentage</strong> when you
-                <a href="/docs/app-registration"> register</a> your app. This is
+                <a href="/app-registration"> register</a> your app. This is
                 a percentage of contract payouts, and it’s added to all contract
                 prices in your app. The aggregate markup is paid to you around
                 the 15th of every month. Sign up as our affiliate and contact
