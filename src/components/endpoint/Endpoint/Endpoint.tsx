@@ -1,17 +1,8 @@
+import React from 'react';
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
 import { stateService } from '../../../state/stateSignal';
 import { app_id, server_url, setAppId, setServerUrl, socket_url } from '../../../state/storageSignals';
-import React from 'react';
-
-
-interface FormData {
-    server_url: string,
-    app_id: number,
-    inputAppRef: object,
-    form_app_id:number
-}
-
 
 const EndPoint = () => {
     const {

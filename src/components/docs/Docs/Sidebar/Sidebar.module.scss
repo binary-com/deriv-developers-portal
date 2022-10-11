@@ -13,7 +13,7 @@
         opacity: 0.72;
         margin: 5px 0;
         line-height: 1.88;
-        color: #333333;
+        color: var(--text-01);
         padding: 2px 16px 2px 16px;
         height: 44px;
         display: flex;
@@ -62,7 +62,7 @@
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
-    color: #333333;
+    color: var(--text-01);
     border-top: 2px solid var(--gray-01);
 }
 
@@ -92,7 +92,7 @@
     padding-bottom: 10px;
     font-size: 32px;
     line-height: 1.25;
-    color: #333333;
+    color: var(--text-01);
     font-weight: bold;
     border-bottom: 2px solid var(--gray-01);
 }
@@ -124,7 +124,7 @@
         height: 44px;
         opacity: 0.72;
         line-height: 1.88;
-        color: #333333;
+        color: var(--text-01);
         padding: 2px 16px 2px 16px;
         display: flex;
         align-items: center;
@@ -133,7 +133,7 @@
     }
     .boldText {
         font-weight: 700;
-        color: #000;
+        color: var(--black-01);
     }
     .dropdownList {
         max-height: 700px;
@@ -145,7 +145,7 @@
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
-            color: #333333;
+            color: var(--text-01);
         }
         .selected {
             background-color: var(--gray-01);
@@ -230,7 +230,7 @@
         font-size: 14px;
         line-height: 24px;
         font-weight: 700;
-        color: #333333;
+        color: var(--text-01);
         border-top: 2px solid var(--gray-01);
     }
 }

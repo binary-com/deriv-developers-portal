@@ -1,5 +1,5 @@
+import React from 'react';
 import { useSelector } from '@xstate/react';
-import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRegisterOrUpdateApp } from '../../../../custom-hooks/useRegisterOrUpdate';
 import { isUpdateModeSelector, isRegisterTabIdleSelector } from '../../../../state/selectors';
@@ -33,7 +33,7 @@ export default function AppRegistrationForm() {
     const { registerApp, isLoading, error } = useRegisterOrUpdateApp();
     const isUpdateMode: boolean = useSelector(stateService, isUpdateModeSelector);
     const isOnRegisterTab = useSelector(stateService, isRegisterTabIdleSelector);
-    useEffect(() => {
+    React.useEffect(() => {
         if (isOnRegisterTab) reset();
         if (isUpdateMode) {
             const { name, app_markup_percentage, redirect_uri, verification_uri, scopes } = updatingRow();
