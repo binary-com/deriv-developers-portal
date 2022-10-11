@@ -115,6 +115,7 @@ const ImplementDropdown = (props) => {
 
 function LinkComponent({ route, path }) {
     const { pathname } = useLocation();
+    const path_is_pathname = path === pathname || path === pathname.replace('/docs/', '');
     return (
         <div key={route.label}>
             { !route.path.includes('docs') && (
@@ -124,7 +125,7 @@ function LinkComponent({ route, path }) {
                     ) : (
                         <Link
                             to={path}
-                            className={`${styles.menuItem} ${path === pathname.replace('/docs/', '') ? styles.selected : ''}`}
+                            className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
                         >
                             {route.label}
                         </Link>

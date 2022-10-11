@@ -206,6 +206,25 @@
         }
     }
 
+    .menuItem {
+        margin: 16px 0;
+        &.selected {
+            background-color: var(--gray-01);
+            font-weight: bold;
+            line-height: 1.88;
+            opacity: 1;
+            &::before {
+                visibility: visible;
+                height: 100%;
+                width: 4px;
+                border-radius: 4px 0 0 4px;
+            }
+        }
+        &[href~="/docs/"] {
+            display: none;
+        }
+    }
+
     .menuHeader {
         padding: 20px 0 10px 0;
         font-size: 14px;
