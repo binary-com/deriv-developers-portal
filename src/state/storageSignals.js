@@ -11,7 +11,7 @@ createEffect(() => {
     const staging_url = 'http://deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx/endpoint';
     console.log(window.location.href)
 
-    if (window.location.href === 'https://deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx/endpoint') {
+    if (window.location.href === 'https://deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx') {
         app_id_in_local = localStorage.getItem('app_id') || '32239';
     }
     else{
