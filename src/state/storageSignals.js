@@ -5,7 +5,7 @@ export const [server_url, setServerUrl] = createSignal(localStorage.getItem('ser
 export const socket_url = () => `wss://${server_url()}/websockets/v3?app_id=${app_id()}&l=EN&brand=deriv`;
 
 createEffect(() => {
-    const app_id_in_local = localStorage.getItem('app_id') || '31063';
+    var app_id_in_local = localStorage.getItem('app_id') || '31063';
     const server_url_in_local = localStorage.getItem('server_url') || 'green.binaryws.com';
     const token_in_local = sessionStorage.getItem('token1');
     const staging_url = 'http://deriv-developers-portal-git-fork-sanjam-deriv-staging.binary.sx';
