@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { sandboxRoutes } from './sandbox-routes';
-import BuildYourApp from '../components/build-your-app/BuildYourApp/BuildYourApp';
 import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
+const BuildYourApp = React.lazy(() => import('../components/build-your-app/BuildYourApp/BuildYourApp'));
 const Quickstart = React.lazy(() => import('../components/quickstart/Quickstart/Quickstart'));
 const ApiGuide = React.lazy(() => import('../components/api-guide/ApiGuide/ApiGuide'));
 const Faq = React.lazy(() => import('../components/faq/Faq/Faq'));
@@ -14,6 +14,7 @@ export const sidebar_routes = [
     {
         path: '/docs',
         element: <Docs />,
+        label: 'Documentation',
         children: [
             {
                 path: '',
@@ -115,7 +116,19 @@ const ImplementDropdown = (props) => {
 
 function LinkComponent({ route, path }) {
     const { pathname } = useLocation();
-    const path_is_pathname = path === pathname || path === pathname.replace('/docs/', '');
+    const split_pathname = pathname.split('/');
+    const split_path = path.split('/');
+
+    const last_pathname = split_pathname[split_pathname.length - 1] !== '' 
+    ? split_pathname[split_pathname.length - 1]
+    : split_pathname[split_pathname.length - 2];
+
+    const last_path = split_path[split_path.length - 1] !== '' 
+    ? split_path[split_path.length - 1]
+    : split_path[split_path.length - 2];
+
+    const path_is_pathname = last_pathname === last_path;
+
     return (
         <div key={route.label}>
             { !route.path.includes('docs') && (

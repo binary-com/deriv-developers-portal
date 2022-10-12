@@ -1,11 +1,11 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { SandboxIframe } from "../../utility/SandboxIframe/SandboxIframe"; 
 
 interface SandboxPageProps {
     title: string,
     description: {
-        before: Element | ReactElement;
-        after: Element | ReactElement;
+        before: React.ReactNode;
+        after: React.ReactNode;
     },
     sandbox: string
 }

@@ -40,7 +40,7 @@ fieldset .customTextInput:last-child {
         text-indent: 12px;
         &:not(:placeholder-shown) ~ label {
             color: var(--app-registration-tab-active-font);
-            background-color: var(--white-01);
+            background-color: var(--white);
             padding: 0 4px;
             transform: translateY(-20px) scale(0.75);
         }
@@ -48,7 +48,7 @@ fieldset .customTextInput:last-child {
             outline: none;
             & ~ label {
                 color: var(--brand-secondary);
-                background-color: var(--white-01);
+                background-color: var(--white);
                 padding: 0 4px;
                 transform: translateY(-20px) scale(0.75);
             }

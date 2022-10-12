@@ -20,6 +20,8 @@
   --gray-11: #1f1f1f;
   --gray-12: #303536;
   --gray-13: #f8fafb;
+  --gray-14: #f5f7fa;
+  --gray-15: #f2f3f4;
   --blue-01: #85acb0;
   --blue-03: #85acb0;
   --teal-01: #4bb4b3;
@@ -40,19 +42,17 @@
   --copy-color: #c2c2c2;
   --hamburger-active-link: var(--gray-06);
   --hamburger-menu-width: 260px;
-  --white-01: #ffffff;
-  --white-02: #f5f7fa;
-  --white-03: #f2f3f4;
+  --white: #ffffff;
   --json-purple: #8860e8;
   --json-magenta: #de5ea0;
   --json-gold: #f3ca5e;
   --json-midnight: #282a35;
-  --blockquote-separator-color: var(--white-02);
-  --blockquote-text-color: var(--white-03);
+  --blockquote-separator-color: var(--gray-14);
+  --blockquote-text-color: var(--gray-15);
   --btn-background: var(--red-01);
-  --btn-text-color: var(--white-01);
+  --btn-text-color: var(--white);
   --btn-background-disabled: var(--gray-02);
-  --btn-text-color-disabled: var(--white-01);
+  --btn-text-color-disabled: var(--white);
   --spinner-height: 100px;
   --spinner-width: 100px;
 }
@@ -387,7 +387,7 @@ blockquote:after {
   background-color: var(--blockquote-separator-color);
 }
 .white {
-  background-color: var(--white-01);
+  background-color: var(--white);
 }
 .subheader {
   font-size: 24px;
@@ -522,7 +522,7 @@ textarea {
 .single-container > h2 {
   font-size: 32px;
   margin-bottom: 8px;
-  color: var(--white-01);
+  color: var(--white);
 }
 .with-pattern {
   background-image: url(/img/pattern.svg);
@@ -568,7 +568,7 @@ textarea {
   padding: 32px 24px;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgb(14, 14, 14, 0.1);
-  background-color: var(--white-01);
+  background-color: var(--white);
   margin: 0 12px;
 }
 .main-page-card .header {
@@ -648,12 +648,12 @@ textarea {
   margin: 0 auto;
 }
 .dark {
-  color: var(--white-01);
+  color: var(--white);
   background-color: var(--black-01);
 }
 .dark .selected,
 .dark a {
-  color: var(--white-01);
+  color: var(--white);
 }
 .dark p {
   color: var(--copy-color);

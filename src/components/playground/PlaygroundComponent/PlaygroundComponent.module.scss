@@ -90,7 +90,7 @@
       border-radius: 4px;
       border: solid 2px var(--gray-04);
       color: var(--black-03);
-      background-color: var(--white-01);
+      background-color: var(--white);
       
       &:hover {
         background-color: var(--gray-13);
@@ -127,7 +127,7 @@
   background-color: var(--red-01);
   font-size: 14px;
   line-height: 1.43;
-  color: var(--white-01);
+  color: var(--white);
 }
 
 .bold {
@@ -191,7 +191,7 @@
     .btnSubmit {
       background-color: var(--black-04);
       border: var(--gray-04) 2px solid;
-      color: var(--white-01);
+      color: var(--white);
       font-weight: bold;
       font-size: 14px;
       line-height: 1.43;
@@ -201,7 +201,7 @@
 
     #playground-reset-btn {
       .btnReset {
-        color: var(--white-01);
+        color: var(--white);
         font-weight: bold;
         font-size: 14px;
         line-height: 1.43;

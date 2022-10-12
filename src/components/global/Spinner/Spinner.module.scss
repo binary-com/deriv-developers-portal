@@ -6,8 +6,8 @@
   background-image: linear-gradient(
     to right,
     var(--red-01),
-    var(--white-01),
-    var(--white-01)
+    var(--white),
+    var(--white)
   );
   animation: rotating 0.5s linear infinite;
   &:before {
@@ -17,7 +17,7 @@
     width: 70%;
     height: 70%;
     position: absolute;
-    background-color: var(--white-01);
+    background-color: var(--white);
     border-radius: 100%;
     transform: translate(-50%, -50%);
   }

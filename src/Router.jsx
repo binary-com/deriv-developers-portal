@@ -12,13 +12,14 @@ export const routes = [
     },
     ...sidebar_routes,
     {
-        path: 'app-registration',
-        element: <AppRegistration />,
-        label: 'App registration',
-    },
-    {
         path: 'api-explorer',
         element: <ApiExplorer />,
+        label: 'API Explorer',
+    },
+    {
+        path: 'app-registration',
+        element: <AppRegistration />,
+        label: 'Application registration',
     },
     {
         path: 'endpoint',
