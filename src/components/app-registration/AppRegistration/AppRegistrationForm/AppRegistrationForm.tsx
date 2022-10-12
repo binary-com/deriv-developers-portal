@@ -137,7 +137,7 @@ export default function AppRegistrationForm() {
                                                 pattern: {
                                                     value: /^((([0-4]\.([0-9]([0-9])?)?))||([5]\.([0]([0])?)?)||([0-5]))$/,
                                                     message:
-                                                        'Your markup value must be above 0.00 and no more than 5.00.',
+                                                        'Your markup value must be equal to or above 0.00 and no more than 5.00.',
                                                 },
                                                 maxLength: {
                                                     value: 4,
