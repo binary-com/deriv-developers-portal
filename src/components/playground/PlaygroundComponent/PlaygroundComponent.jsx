@@ -16,6 +16,7 @@ import styles from "./PlaygroundComponent.module.scss";
 import { createBrowserHistory } from "history";
 
 export const PlaygroundComponent = () => {
+  const DEFAULT_VALUE = "Select API Call - Version 3";
   const [current_api, setCurrentAPI] = useState(api);
   const [is_initial_socket, setIsInitialSocket] = useState(true);
   const [messages, setMessages] = useState([]);
@@ -26,10 +27,10 @@ export const PlaygroundComponent = () => {
   const [scroll_direction, setScrollDirection] = useState("down");
   const [text_data, setTextData] = useState({
     request: "",
-    selected_value: "Select API Call - Version 3",
+    selected_value: DEFAULT_VALUE,
     token: "",
   });
-  const [selected, setSelected] = useState("Select API Call - Version 3");
+  const [selected, setSelected] = useState(DEFAULT_VALUE);
   const location = useLocation();
   const history = createBrowserHistory();
   
@@ -90,33 +91,31 @@ export const PlaygroundComponent = () => {
     }
   }, [window.location.hash, playground_requests]);
 
-  const dynamicImportJSON = useCallback(
-    (selected_value) => {
-      import(`../../../../config/v3/${selected_value}/send.json`)
-        .then((data) => {
-          setRequestInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-      import(`../../../../config/v3/${selected_value}/receive.json`)
-        .then((data) => {
-          setResponseInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-    }, [setRequestInfo, setResponseInfo]
-  );
+  const dynamicImportJSON = useCallback((selected_value) => {
+    import(`../../../../config/v3/${selected_value}/send.json`)
+      .then((data) => {
+        setRequestInfo(data);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line
+        console.log(error);
+      });
+    import(`../../../../config/v3/${selected_value}/receive.json`)
+      .then((data) => {
+        setResponseInfo(data);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line
+        console.log(error);
+      });
+  }, [setRequestInfo, setResponseInfo])
 
   const displayAuthDoc = () => dynamicImportJSON('authorize');
 
   const sendRequest = useCallback(() => {
     if (
       !request_input.current?.value &&
-      text_data.selected_value === "Select API Call - Version 3"
+      text_data.selected_value === DEFAULT_VALUE
     ) {
       alert("Invalid JSON!");
       return;
