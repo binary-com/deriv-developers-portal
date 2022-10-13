@@ -14,6 +14,7 @@ export default function NavigationLinks() {
     return (
         <React.Fragment>
             {routes.map(route => {
+                // Check if user is on current page location
                 const route_is_path = route.path.replace(/\//g, '') === last_path;
                 return (
                     <React.Fragment>
@@ -23,8 +24,7 @@ export default function NavigationLinks() {
                                     {route.label}
                                 </Link>
                             </div>
-                            ) :
-                            <React.Fragment></React.Fragment>
+                            ) : null
                         }
                     </React.Fragment>
                 );

@@ -4,7 +4,6 @@ import { stateService } from "../../../state/stateSignal";
 import Navigation from "./Navigation";
 import styles from "./Header.module.scss";
 
-
 export default function Header() {
   const ref = useRef(null);
   useOutsideClick(ref, () => {
