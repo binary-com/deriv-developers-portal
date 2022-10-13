@@ -1,5 +1,5 @@
 import React from "react";
-import { SandboxIframe } from "../../utility/SandboxIframe/SandboxIframe"; 
+import { SandboxIframe } from "../../utility/SandboxIframe/SandboxIframe";
 
 interface SandboxPageProps {
     title: string,
@@ -10,7 +10,7 @@ interface SandboxPageProps {
     sandbox: string
 }
 
-export default function SandboxPage({title, description, sandbox}:SandboxPageProps) {
+export default function SandboxPage({ title, description, sandbox }: SandboxPageProps) {
     return (
         <div>
             <h3>{title}</h3>

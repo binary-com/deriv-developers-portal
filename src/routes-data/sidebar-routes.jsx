@@ -71,6 +71,7 @@ export const sidebar_routes = [
 const ImplementDropdown = (props) => {
     const location = useLocation();
     const split_current_location = location.pathname.split('/');
+    const last_path = split_current_location[split_current_location.length - 1];
     const [isActive, setIsActive] = React.useState(false);
     React.useEffect(() => {
         if (props.route.path) {
@@ -86,7 +87,7 @@ const ImplementDropdown = (props) => {
     const handleToggleDropdown = () => {
         setIsActive(!isActive);
     };
-    
+
     return (
         <div className={styles.dropdown}>
             <div className={`${styles.dropdownBtn} ${isActive ? styles.boldText : ''}`} onClick={handleToggleDropdown}>
@@ -99,11 +100,7 @@ const ImplementDropdown = (props) => {
                         <Link
                             key={items.path}
                             to={`${props.path}/${items.path}`}
-                            className={`${styles.dropdownContent} ${
-                                items.path === split_current_location[split_current_location.length - 1]
-                                    ? styles.selected
-                                    : ''
-                            }`}
+                            className={`${styles.dropdownContent} ${items.path === last_path ? styles.selected : ''}`}
                         >
                             {items.label}
                         </Link>
@@ -116,22 +113,20 @@ const ImplementDropdown = (props) => {
 
 function LinkComponent({ route, path }) {
     const { pathname } = useLocation();
-    const split_pathname = pathname.split('/');
-    const split_path = path.split('/');
 
-    const last_pathname = split_pathname[split_pathname.length - 1] !== '' 
-    ? split_pathname[split_pathname.length - 1]
-    : split_pathname[split_pathname.length - 2];
+    const getLastPathString = (split_path_or_pathname) => {
+        // if the pathname is for example .../docs/, last item in array will be '', so have to do - 2.
+        // if pathname is .../docs, the last item in the array will be 'docs'. so, I can do - 1.
+        return split_path_or_pathname[split_path_or_pathname.length - 1] !== ''
+            ? split_path_or_pathname[split_path_or_pathname.length - 1]
+            : split_path_or_pathname[split_path_or_pathname.length - 2];
+    }
 
-    const last_path = split_path[split_path.length - 1] !== '' 
-    ? split_path[split_path.length - 1]
-    : split_path[split_path.length - 2];
-
-    const path_is_pathname = last_pathname === last_path;
+    const path_is_pathname = getLastPathString(pathname.split('/')) === getLastPathString(path.split('/'));
 
     return (
-        <div key={route.label}>
-            { !route.path.includes('docs') && (
+        <div key={route.label} className={styles.menuBlock}>
+            {!route.path.includes('docs') && (
                 <React.Fragment>
                     {route.children ? (
                         <div className={styles.menuHeader}>{route.label}</div>

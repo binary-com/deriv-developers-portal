@@ -1,8 +1,8 @@
 import React from 'react';
-import HamburgerNavigation from './HamburgerNavigation';
-import NavigationLinks from './NavigationLinks/NavigationLinks';
 import { Link } from 'react-router-dom';
 import { send } from '../../../state/stateSignal';
+import HamburgerNavigation from './HamburgerNavigation';
+import NavigationLinks from './NavigationLinks/NavigationLinks';
 import styles from './Header.module.scss';
 
 export default function Navigation() {
@@ -17,7 +17,7 @@ export default function Navigation() {
             </Link>
             <HamburgerNavigation />
             <nav id='navbar' className={`${styles.flexContainer} ${styles.navbar}`} data-id='navbar'>
-               <NavigationLinks />
+                <NavigationLinks />
             </nav>
         </React.Fragment>
     );

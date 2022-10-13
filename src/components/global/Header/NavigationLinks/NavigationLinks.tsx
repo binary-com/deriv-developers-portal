@@ -8,9 +8,10 @@ export default function NavigationLinks() {
     const address = location.pathname;
     const split_path = address.split('/');
 
-    const last_path = split_path[split_path.length - 1] !== '' 
-    ? split_path[split_path.length - 1] 
-    : split_path[split_path.length - 2];
+    const last_path = split_path[split_path.length - 1] !== ''
+        ? split_path[split_path.length - 1]
+        : split_path[split_path.length - 2];
+
     return (
         <React.Fragment>
             {routes.map(route => {
@@ -18,13 +19,13 @@ export default function NavigationLinks() {
                 const route_is_path = route.path.replace(/\//g, '') === last_path;
                 return (
                     <React.Fragment>
-                        { route?.label ? (
+                        {route?.label ? (
                             <div data-id={route.path} key={route.path}>
-                                <Link to={route.path} className={ route_is_path ? styles.selected : ''}>
+                                <Link to={route.path} className={route_is_path ? styles.selected : ''}>
                                     {route.label}
                                 </Link>
                             </div>
-                            ) : null
+                        ) : null
                         }
                     </React.Fragment>
                 );

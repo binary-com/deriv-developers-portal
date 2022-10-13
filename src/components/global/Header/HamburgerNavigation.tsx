@@ -4,6 +4,7 @@ import {
   SidebarMenuItems,
   sidebar_routes
 } from "../../../routes-data/sidebar-routes"
+import NavigationLinks from "./NavigationLinks/NavigationLinks";
 
 export default function HamburgerNavigation() {
   return (
@@ -13,18 +14,7 @@ export default function HamburgerNavigation() {
           <li>
             <HamburgerLink location="/" name="Home" />
           </li>
-          <li>
-            <HamburgerLink location="/docs/" name="Quickstart" />
-          </li>
-          <li>
-            <HamburgerLink location="/api-explorer/" name="API Explorer" />
-          </li>
-          <li>
-              <HamburgerLink
-                location="/app-registration/"
-                name="App Registration"
-              />
-          </li>
+          <NavigationLinks />
           <SidebarMenuItems routes={sidebar_routes} />
         </ul>
       </nav>

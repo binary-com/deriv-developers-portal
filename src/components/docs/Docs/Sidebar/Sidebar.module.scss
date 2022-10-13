@@ -177,6 +177,7 @@
             color: var(--text-01);
         }
         .dropdownList {
+            margin-top: 16px;
             display: flex;
             flex-direction: column;
             padding-right: 16px;
@@ -206,32 +207,36 @@
         }
     }
 
-    .menuItem {
-        margin: 16px 0;
-        &.selected {
-            background-color: var(--gray-01);
-            font-weight: bold;
-            line-height: 1.88;
-            opacity: 1;
-            &::before {
-                visibility: visible;
-                height: 100%;
-                width: 4px;
-                border-radius: 4px 0 0 4px;
+    .menuBlock {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .menuItem {
+            &.selected {
+                background-color: var(--gray-01);
+                font-weight: bold;
+                line-height: 1.88;
+                opacity: 1;
+                &::before {
+                    visibility: visible;
+                    height: 100%;
+                    width: 4px;
+                    border-radius: 4px 0 0 4px;
+                }
+            }
+            &[href~="/docs/"] {
+                display: none;
             }
         }
-        &[href~="/docs/"] {
-            display: none;
-        }
-    }
 
-    .menuHeader {
-        padding: 20px 0 10px 0;
-        font-size: 14px;
-        line-height: 24px;
-        font-weight: 700;
-        color: var(--text-01);
-        border-top: 2px solid var(--gray-01);
+        .menuHeader {
+            padding: 20px 0 10px 0;
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 700;
+            color: var(--text-01);
+            border-top: 2px solid var(--gray-01);
+        }
     }
 }
 
