@@ -11,9 +11,7 @@ export default function HamburgerNavigation() {
     <div className={styles.hamburgerNavigation}>
       <nav id="navbar" className={`${styles.flexContainer}`}>
         <ul>
-          <li>
-            <HamburgerLink location="/" name="Home" />
-          </li>
+          <HamburgerLink location="/" name="Home" />
           <NavigationLinks />
           <SidebarMenuItems routes={sidebar_routes} />
         </ul>
