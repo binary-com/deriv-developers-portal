@@ -137,35 +137,39 @@ function LinkComponent({ route, path }) {
     const path_is_pathname = getLastPathString(pathname.split('/')) === getLastPathString(path.split('/'));
 
     return (
-        <div key={route.label} className={styles.menuBlock}>
-            {!route.path.includes('docs') && (
-                <React.Fragment>
-                    {route.children ? (
-                        <div className={styles.menuHeader}>{route.label}</div>
-                    ) : (
-                        <Link
-                            to={path}
-                            className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
-                        >
-                            {route.label}
-                        </Link>
-                    )}
-                </React.Fragment>
-            )}
-            {route.children &&
-                route.children.map(child => {
-                    // If there are children, recursively go over the nested children.
-                    return !child.is_collapsible ? (
-                        <React.Fragment key={child.label}>
-                            <LinkComponent route={child} path={`${path}/${child.path}`} />
-                        </React.Fragment>
-                    ) : (
-                        <React.Fragment key={child.label}>
-                            <ImplementDropdown route={child} path={`${path}/${child.path}`} />
-                        </React.Fragment>
-                    );
-                })}
-        </div>
+        <React.Fragment>
+        { route.label && (      
+            <div key={route.label} className={styles.menuBlock}>
+                {!route.path.includes('docs') && (
+                    <React.Fragment>
+                        {route.children ? (
+                            <div className={styles.menuHeader}>{route.label}</div>
+                        ) : (
+                            <Link
+                                to={path}
+                                className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
+                            >
+                                {route.label}
+                            </Link>
+                        )}
+                    </React.Fragment>
+                )}
+                {route.children &&
+                    route.children.map(child => {
+                        // If there are children, recursively go over the nested children.
+                        return !child.is_collapsible ? (
+                            <React.Fragment key={child.label}>
+                                <LinkComponent route={child} path={`${path}/${child.path}`} />
+                            </React.Fragment>
+                        ) : (
+                            <React.Fragment key={child.label}>
+                                <ImplementDropdown route={child} path={`${path}/${child.path}`} />
+                            </React.Fragment>
+                        );
+                    })}
+            </div>
+        )}
+        </React.Fragment>
     );
 }
 

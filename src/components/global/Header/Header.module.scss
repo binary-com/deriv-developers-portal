@@ -12,6 +12,9 @@
     font-size: 16px;
     line-height: 1.5;
     color: var(--white);
+    &:empty {
+      display: none !important;
+    }
     &::before {
       content: "";
       position: absolute;

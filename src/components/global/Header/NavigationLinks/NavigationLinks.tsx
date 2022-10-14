@@ -8,20 +8,17 @@ export default function NavigationLinks() {
     const address = location.pathname;
     const split_path = address.split('/');
 
-    const last_path = split_path[split_path.length - 1] !== ''
-        ? split_path[split_path.length - 1]
-        : split_path[split_path.length - 2];
-
     return (
         <React.Fragment>
             {routes.map(route => {
                 // Check if user is on current page location
-                const route_is_path = route.path.replace(/\//g, '') === last_path;
+                const trimmed_route = route.path.replace(/\//g, '')
+                const path_is_route = split_path.includes(trimmed_route);
                 return (
                     <React.Fragment>
                         {route?.label ? (
                             <div data-id={route.path} key={route.path}>
-                                <Link to={route.path} className={route_is_path ? styles.selected : ''}>
+                                <Link to={route.path} className={path_is_route ? styles.selected : ''}>
                                     {route.label}
                                 </Link>
                             </div>
