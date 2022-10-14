@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import { sandboxRoutes } from './sandbox-routes';
 import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
 const BuildYourApp = React.lazy(() => import('../components/build-your-app/BuildYourApp/BuildYourApp'));
@@ -9,6 +9,7 @@ const Faq = React.lazy(() => import('../components/faq/Faq/Faq'));
 const Json = React.lazy(() => import('../components/json-schemas/JsonSchemas'));
 const BugBounty = React.lazy(() => import('../components/bounty/Bounty/Bounty'));
 const Docs = React.lazy(() => import('../components/docs/Docs/Docs'));
+const implement_now_child = sandboxRoutes('implement_now')[0].path;
 
 export const sidebar_routes = [
     {
@@ -26,10 +27,20 @@ export const sidebar_routes = [
                 label: 'Getting Started',
                 children: [
                     {
+                        path: '',
+                        element: <Navigate replace to={`implement-now/${implement_now_child}`} />,
+                    },
+                    {
                         path: 'implement-now',
                         label: 'Implement Now',
                         is_collapsible: true,
-                        children: sandboxRoutes('implement_now'),
+                        children: [
+                            {
+                                path: '',
+                                element: <Navigate replace to={implement_now_child} />,
+                            },
+                            ...sandboxRoutes('implement_now')
+                        ],
                     },
                     {
                         path: 'build-your-app',
@@ -96,7 +107,8 @@ const ImplementDropdown = (props) => {
             </div>
             {isActive && (
                 <div className={styles.dropdownList}>
-                    {sandboxRoutes(props.route.path).map(items => (
+                    {sandboxRoutes(props.route.path).map(items => {
+                        return (
                         <Link
                             key={items.path}
                             to={`${props.path}/${items.path}`}
@@ -104,7 +116,7 @@ const ImplementDropdown = (props) => {
                         >
                             {items.label}
                         </Link>
-                    ))}
+                    )})}
                 </div>
             )}
         </div>

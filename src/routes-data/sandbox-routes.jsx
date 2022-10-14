@@ -3,7 +3,7 @@ import SandboxPage from "../components/global/SandboxPage/SandboxPage";
 import { url_base } from "../components/utility/SandboxIframe/SandboxIframe";
 
 const implement_now_sandboxes = {
-    ticks_history: {
+    ticks_history : {
         title: "Ticks History",
         description: {
             before: <p>With ticks history you are able to get a collection of past tick times and prices.</p>,
@@ -25,14 +25,14 @@ const implement_now_sandboxes = {
         title: "Contracts for Symbol",
         description: {
             before: <p>For a given symbol, get the list of currently available contracts, and the latest barrier and duration limits for each contract.</p>,
-            after: <React.Fragment></React.Fragment>
+            after: null
         }
     },
     website_status: {
         title: "Website Status",
         description: {
             before: <p>Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.</p>,
-            after: <React.Fragment></React.Fragment>
+            after: null
         }
     },
     proposal: {
@@ -45,8 +45,8 @@ const implement_now_sandboxes = {
     keep_alive: {
         title: "Keep Alive",
         description: {
-            before: <p>In this example you’ll see how to keep a connection alive when getting contract proposals via the Deriv API. This example keeps the connection alive by sending a ping every 30 seconds.</p>,
-            after: <React.Fragment></React.Fragment>
+            before: <p>In this example you'll see how to keep a connection alive when getting contract proposals via the Deriv API. This example keeps the connection alive by sending a ping every 30 seconds.</p>,
+            after: null
         }
     },
 };
@@ -69,12 +69,12 @@ export const sandboxRoutes = (path) => {
             // populate array with route objects (array of objects)
             sandbox_routes = [...sandbox_routes, {
                 path: path_name, 
-                label: sandbox.title,
+                label: sandbox?.title,
                 element: <SandboxPage
-                            title={sandbox.title}
+                            title={sandbox?.title}
                             description={{
-                                before: sandbox.description.before,
-                                after: sandbox.description.after
+                                before: sandbox?.description?.before,
+                                after: sandbox?.description?.after
                             }}
                             sandbox={`${url_base}${key}`}
                         />
