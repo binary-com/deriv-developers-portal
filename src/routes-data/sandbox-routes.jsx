@@ -3,6 +3,17 @@ import SandboxPage from "../components/global/SandboxPage/SandboxPage";
 import { url_base } from "../components/utility/SandboxIframe/SandboxIframe";
 
 const implement_now_sandboxes = {
+    ticks_history: {
+        title: "Ticks History",
+        description: {
+            before: <p>With ticks history you are able to get a collection of past tick times and prices.</p>,
+            after: 
+            <React.Fragment>
+                <p>We subscribe to the ticks functionality from the Deriv API websocket to keep track of current and past ticks.</p>
+                <p>As an example you could create an interactive tick graph.</p>
+            </React.Fragment>
+        }
+    },
     active_symbols: {
         title: "Active Symbols",
         description: {
@@ -17,10 +28,10 @@ const implement_now_sandboxes = {
             after: <React.Fragment></React.Fragment>
         }
     },
-    keep_alive: {
-        title: "Keep Alive",
+    website_status: {
+        title: "Website Status",
         description: {
-            before: <p>In this example you’ll see how to keep a connection alive when getting contract proposals via the Deriv API. This example keeps the connection alive by sending a ping every 30 seconds.</p>,
+            before: <p>Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.</p>,
             after: <React.Fragment></React.Fragment>
         }
     },
@@ -31,31 +42,13 @@ const implement_now_sandboxes = {
             after: <p>This example is for getting a contract proposal. You'll be able to get the price, payout and spot value for your contract. To keep this connection alive in case of inactivity timeouts, see the example for Keep alive.</p>
         }
     },
-    ticks: {
-        title: "Ticks",
+    keep_alive: {
+        title: "Keep Alive",
         description: {
-            before: <p>A tick is a measure of minimum upward or downward movement in the price of a trading commodity. This example shows you how to collect ticks for your trading app using Deriv's API.</p>,
-            after: <p>We start off with an example of ticks, because it is a fairly simple block of code to implement. But, if you plan to develop for example a trading application, it is fundamentally also an important feature.</p>
-        }
-    },
-    ticks_history: {
-        title: "Ticks History",
-        description: {
-            before: <p>With ticks history you are able to get a collection of past tick times and prices.</p>,
-            after: 
-            <React.Fragment>
-                <p>We subscribe to the ticks functionality from the Deriv API websocket to keep track of current and past ticks.</p>
-                <p>As an example you could create an interactive tick graph.</p>
-            </React.Fragment>
-        }
-    },
-    website_status: {
-        title: "Website Status",
-        description: {
-            before: <p>Request the website status. From the API response you will be able to look into general settings like call limits, currencies information, supported languages and much more.</p>,
+            before: <p>In this example you’ll see how to keep a connection alive when getting contract proposals via the Deriv API. This example keeps the connection alive by sending a ping every 30 seconds.</p>,
             after: <React.Fragment></React.Fragment>
         }
-    }
+    },
 };
 
 // future sandbox route objects can be added and filtered from this sandboxes object.
