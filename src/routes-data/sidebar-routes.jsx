@@ -19,7 +19,7 @@ export const sidebar_routes = [
             {
                 path: '',
                 element: <Quickstart />,
-                label: 'Quickstart',
+                label: 'Quick Start',
             },
             {
                 path: 'getting-started',
@@ -45,7 +45,7 @@ export const sidebar_routes = [
                     {
                         path: 'api-guide',
                         element: <ApiGuide />,
-                        label: 'Api Guide',
+                        label: 'API Guide',
                     },
                     {
                         path: 'faq',
@@ -55,7 +55,7 @@ export const sidebar_routes = [
                     {
                         path: 'json-schemas',
                         element: <Json />,
-                        label: 'JSON',
+                        label: 'JSON Schema',
                     },
                     {
                         path: 'bug-bounty',

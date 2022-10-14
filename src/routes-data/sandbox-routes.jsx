@@ -36,7 +36,7 @@ const implement_now_sandboxes = {
         }
     },
     proposal: {
-        title: "Price proposal",
+        title: "Proposal",
         description: {
             before: <p>Gets the latest price for a specific contract.</p>,
             after: <p>This example is for getting a contract proposal. You'll be able to get the price, payout and spot value for your contract. To keep this connection alive in case of inactivity timeouts, see the example for Keep alive.</p>
