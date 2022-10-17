@@ -115,7 +115,8 @@
   width: 50%;
 }
 
-[data-state~="playground.notselected_tokenEmpty"] .playgroundApiDocs {
+[data-state~="playground.notselected_tokenEmpty"] .playgroundApiDocs,
+[data-state~="playground.notselected_tokenFilled"] .playgroundApiDocs {
   display: none;
 }
 

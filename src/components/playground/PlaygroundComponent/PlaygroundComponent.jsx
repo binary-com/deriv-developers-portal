@@ -53,7 +53,14 @@ export const PlaygroundComponent = () => {
     }
     , [setRequestInfo, setResponseInfo]);
 
-    const displayAuthDoc = () => dynamicImportJSON('authorize');
+  const displayAuthDoc = () => dynamicImportJSON('authorize');
+
+  // Reset playground state when unmounting the component.
+  useEffect(() => {
+    return () => {
+      send('EMPTY_TOKEN');
+    }
+  }, [])
 
   useEffect(() => {
     const hash_value = window.location.hash.split("#")[1];
