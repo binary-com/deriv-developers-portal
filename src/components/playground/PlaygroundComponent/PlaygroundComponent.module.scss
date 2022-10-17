@@ -24,6 +24,7 @@
       margin-top: 40px;
       .playgroundPageWrapper {
         display: flex;
+        justify-content: center;
         width: 95%;
       }
     }
@@ -112,6 +113,10 @@
   display: flex;
   flex-direction: column;
   width: 50%;
+}
+
+[data-state~="playground.notselected_tokenEmpty"] .playgroundApiDocs {
+  display: none;
 }
 
 #content {
