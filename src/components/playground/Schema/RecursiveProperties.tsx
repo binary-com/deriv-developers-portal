@@ -1,3 +1,4 @@
+import React from "react";
 import SchemaDescription from "./SchemaDescription";
 import SchemaObjectContent from "./SchemaObjectContent";
 
@@ -16,14 +17,14 @@ export default function RecursiveProperties({
   }
   if (!keys) {
     return (
-      <>
+      <React.Fragment>
         <SchemaDescription description={value.description} />
-      </>
+      </React.Fragment>
     );
   }
   return keys?.map((key, index) => {
     return (
-      <>
+      <React.Fragment>
         {index === 0 && value?.items?.description && (
           <SchemaDescription description={value.items.description} />
         )}
@@ -32,7 +33,7 @@ export default function RecursiveProperties({
           key_value={key}
           properties={properties}
         />
-      </>
+      </React.Fragment>
     );
   });
 }

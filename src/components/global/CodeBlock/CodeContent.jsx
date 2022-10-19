@@ -43,13 +43,13 @@ const CodeContent = ({ lang, data }) => {
   });
 
   return (
-    <>
+    <React.Fragment>
       {showdata && (
         <pre className={styles.pre}>
           <code className={`language-${lang}`}>{data}</code>
         </pre>
       )}
-    </>
+    </React.Fragment>
   );
 };
 

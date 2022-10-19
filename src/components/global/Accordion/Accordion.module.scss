@@ -2,7 +2,6 @@
     @media (min-width: 992px) {
       padding-left: 75px;
     }
-  
     .accordionWrapper {
       display: flex;
       flex-direction: column;
@@ -18,7 +17,7 @@
         border: none;
         border-radius: 6px;
         box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
-        background-color: #ffffff;
+        background-color: var(--white);
         transition: 0.2s;
         font-weight: 700;
         @media (max-width: 992px) {
@@ -31,7 +30,7 @@
         .accordionText {
           font-size: 16px;
           margin-right: 16px;
-          color: #333333;
+          color: var(--text-01);
         }
   
         .accordionButtonPlus {
@@ -60,10 +59,10 @@
         background-color: rgba(87, 122, 146, 0.04);
         margin-bottom: 24px;
         z-index: 2;
-        color: #333333;
+        color: var(--text-01);
   
         .code {
-          color: #ff444f;
+          color: var(--red-01);
           font-weight: 400;
           margin: 0 2px 0 0;
           border-radius: 4px;

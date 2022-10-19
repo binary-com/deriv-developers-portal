@@ -54,6 +54,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: calc(100vh - 105px);
 }
 
 .app-registration-logged-in {
@@ -80,7 +81,7 @@
   transform: translate(-50%, -50%);
   width: 320px;
   height: auto;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 16px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   justify-content: space-between;
@@ -148,7 +149,7 @@
 /* red "No, keep it" button with white text */
 .dialog-btn-submit {
   background-color: var(--red-01);
-  color: white;
+  color: var(--white);
   font-weight: bold;
   height: 40px;
   border: none;
@@ -157,12 +158,12 @@
 }
 
 .dialog-btn-submit:hover {
-  background-color: #ff5560;
+  background-color: var(--red-01);
 }
 
 /* white "Yes, delete" button with black text */
 .dialog-btn-cancel {
-  background-color: white;
+  background-color: var(--white);
   color: black;
   font-weight: bold;
   border: 1px solid #999999;
@@ -174,7 +175,7 @@
 
 /* add hover color to "Yes, delete" */
 .dialog-btn-cancel:hover {
-  background-color: #e4e2e2;
+  background-color: var(--gray-02);
 }
 
 .dialog-success {
@@ -192,6 +193,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin: 125px 0 40px 0;
 }
 
 fieldset {
@@ -235,10 +237,10 @@ fieldset {
 .main-register-btn {
   padding: 10px 16px;
   border-radius: 4px;
-  background-color: #ff444f;
+  background-color: var(--red-01);
   text-decoration: none;
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
 }
 
 .no-apps {
@@ -377,20 +379,28 @@ fieldset {
   display: none;
 }
 
-@media screen and (min-width: 480px) {
-  .dialog {
-    width: 440px;
-  }
-  .dialog-delete,
-  .dialog-update {
-    width: 360px;
+[data-state*="responsive.mobile"] {
+  &[data-state~="registration.logged_in"] .app-registration-logged-in {
+    margin-top: 80px;
   }
 }
 
-@media screen and (min-width: 992px) {
+[data-state~="responsive.mobileL"],
+[data-state~="responsive.mobileTablet"],
+[data-state*="responsive.desktop"] { 
+  .dialog {
+    width: 385px;
+  }
+  .dialog-delete,
+  .dialog-update {
+    width: 320px;
+  }
+}
+
+[data-state~="responsive.mobileTablet"],
+[data-state*="responsive.desktop"] {
   .app-registration-login {
-    padding-left: 158px;
-    height: 614px;
+    height: 100vh;
   }
 
   .app-registration-header .form-title {

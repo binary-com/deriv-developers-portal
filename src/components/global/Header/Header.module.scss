@@ -11,7 +11,10 @@
     margin-right: 40px;
     font-size: 16px;
     line-height: 1.5;
-    color: #ffffff;
+    color: var(--white);
+    &:empty {
+      display: none !important;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -100,6 +103,7 @@
 }
 
 .hamburgerNavigation {
+  overflow-y: auto;
   box-shadow: rgb(0, 0, 0, 0.1) 0 16px 20px 0;
   display: inline-block;
   position: fixed;
@@ -108,27 +112,27 @@
   top: 48px;
   bottom: 0;
   width: var(--hamburger-menu-width);
-  background-color: white;
+  background-color: var(--white);
   transition: left 0.4s ease-in;
   .flexContainer {
     flex-direction: column;
-    padding: 24px 16px 24px 16px;
-    ul > li a {
-      font-weight: bold;
-    }
+    padding: 24px 16px 54px 16px;
     ul {
       margin-left: 0;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
       section {
         width: inherit;
       }
       li {
         list-style: none;
         a {
-          padding-left: 22px;
+          padding-left: 16px;
           height: 40px;
           width: calc(100% - 22px);
-          color: black;
+          color: var(--text-01);
           display: flex;
           align-items: center;
           border-radius: 0px 4px 4px 0px;
@@ -248,26 +252,40 @@
 }
 
 [data-state*="responsive.mobile"] {
-  .nav .selected {
-    &::before {
-      width: 20px;
-      visibility: visible;
-      line-height: 1.5;
-      height: 100%;
-      bottom: 0;
-      width: 4px;
-      border-radius: 4px 0 0 4px;
+  .nav {
+    a {
+      padding-left: 16px;
+      height: 40px;
+      width: calc(100% - 22px);
+      color: var(--text-01);
+      display: flex;
+      align-items: center;
+      border-radius: 0px 4px 4px 0px;
+      position: relative;
+      font-size: 14px;
     }
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: var(--white-03);
-      top: 0;
-      left: 0;
-      z-index: -1;
-      border-radius: 0 4px 4px 0;
+    .selected {
+      font-weight: bold;
+      &::before {
+        width: 20px;
+        visibility: visible;
+        line-height: 1.5;
+        height: 100%;
+        bottom: 0;
+        width: 4px;
+        border-radius: 4px 0 0 4px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--gray-15);
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 0 4px 4px 0;
+      }
     }
   }
 }

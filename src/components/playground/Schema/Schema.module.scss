@@ -24,7 +24,7 @@
 }
 
 .schemaCode {
-  color: var(--white-01);
+  color: var(--white);
   font-size: 14px;
 }
 
@@ -42,7 +42,7 @@
 
   .schemaTitle {
     font-size: 24px;
-    color: var(--white-01);
+    color: var(--white);
   }
 
   .schemaDescription {
@@ -50,7 +50,7 @@
     padding: 5px 0;
     gap: 20px;
     justify-content: space-between;
-    color: var(--white-01);
+    color: var(--white);
 
     .schemaAuthRequired {
       width: 40%;
@@ -59,7 +59,7 @@
 }
 
 .schemaBodyKeyLabel {
-  color: white;
+  color: var(--white);
 }
 
 .schemaObjectContent {
@@ -67,7 +67,7 @@
   flex-direction: row;
   position: relative;
   p {
-    color: var(--white-01);
+    color: var(--white);
   }
   button {
     position: relative;
@@ -118,7 +118,7 @@
     .schemaBodyDescription + .schemaBodyDescription {
       text-indent: 16px;
       padding: 10px;
-      color: var(--white-01);
+      color: var(--white);
       background-color: rgba(219, 219, 219, 0.05) !important;
       border-radius: 4px;
     }
@@ -130,7 +130,7 @@
     .schemaBodyHeader {
       display: flex;
       flex-direction: row;
-      color: var(--white-01);
+      color: var(--white);
       font-size: 16px;
       margin: 0px 8px 0 0;
       font-weight: 700;
@@ -207,7 +207,7 @@
       font-size: 14px;
       font-weight: 400;
       line-height: 2.5;
-      color: var(--white-01);
+      color: var(--white);
       height: fit-content;
       padding: 5px 5px;
       margin: 0 5px;
@@ -220,7 +220,7 @@
     width: 100%;
     > p {
       display: flex;
-      color: white;
+      color: var(--white);
       min-width: 35%;
       margin-bottom: unset;
       align-items: center;

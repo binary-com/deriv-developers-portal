@@ -1,144 +1,92 @@
-import { Link, useLocation } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link, Navigate, useLocation } from 'react-router-dom';
+import { sandboxRoutes } from './sandbox-routes';
+import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
+const BuildYourApp = React.lazy(() => import('../components/build-your-app/BuildYourApp/BuildYourApp'));
 const Quickstart = React.lazy(() => import('../components/quickstart/Quickstart/Quickstart'));
 const ApiGuide = React.lazy(() => import('../components/api-guide/ApiGuide/ApiGuide'));
 const Faq = React.lazy(() => import('../components/faq/Faq/Faq'));
 const Json = React.lazy(() => import('../components/json-schemas/JsonSchemas'));
 const BugBounty = React.lazy(() => import('../components/bounty/Bounty/Bounty'));
-import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
+const Docs = React.lazy(() => import('../components/docs/Docs/Docs'));
+const implement_now_child = sandboxRoutes('implement_now')[0].path;
 
-// Filter route objects with key + value pair (Object.entries);
-export const implement_now = [
-    {
-        path: 'ticks-history',
-        element: <div>This is a child of random</div>,
-        label: 'Ticks History',
-    },
-    {
-        path: 'active-symbol',
-        element: <div>This is a child of random</div>,
-        label: 'Active Symbol',
-    },
-    {
-        path: 'contracts-for-symbol',
-        element: <div>This is a child of random</div>,
-        label: 'Contracts For Symbol',
-    },
-    {
-        path: 'website-status',
-        element: <div>This is a child of random</div>,
-        label: 'Website Status',
-    },
-    {
-        path: 'proposal',
-        element: <div>This is a child of random</div>,
-        label: 'Proposal',
-    },
-    {
-        path: 'keep-alive',
-        element: <div>This is a child of random</div>,
-        label: 'Keep Alive',
-    },
-];
-
-export const getting_started = [
-    {
-        path: 'getting-started',
-        label: 'Getting Started',
-        children: [
-            {
-                path: 'implement-now',
-                element: <div>This is a child of getting starteeeeeeeeed</div>,
-                label: 'Implement Now',
-                is_collapsible: true,
-                children: implement_now,
-            },
-            {
-                path: 'start-your-app',
-                label: 'Start your app',
-            },
-        ],
-    },
-];
-export const what_can_you_do = [
-    {
-        path: 'what-can-you-do',
-        label: 'What Can You Do',
-        children: [
-            {
-                path: 'trading',
-                element: <div>This is a child of random</div>,
-                label: 'Trading',
-            },
-            {
-                path: 'market-data',
-                element: <div>This is a child of random</div>,
-                label: 'Market Data',
-            },
-            {
-                path: 'account-information',
-                element: <div>This is a child of random</div>,
-                label: 'Account Information',
-            },
-            {
-                path: 'payments',
-                element: <div>This is a child of random</div>,
-                label: 'Payments',
-            },
-            {
-                path: 'application',
-                element: <div>This is a child of random</div>,
-                label: 'Application',
-            },
-        ],
-    },
-];
-export const resources = [
-    {
-        path: 'resources',
-        label: 'Resources',
-        children: [
-            {
-                path: 'api-guide',
-                element: <ApiGuide />,
-                label: 'Api Guide',
-            },
-            {
-                path: 'faq',
-                element: <Faq />,
-                label: 'FAQ',
-            },
-            {
-                path: 'json-schemas',
-                element: <Json />,
-                label: 'JSON',
-            },
-            {
-                path: 'bug-bounty',
-                element: <BugBounty />,
-                label: 'Bug Bounty',
-            },
-        ],
-    },
-];
-
-export const rest = [
+export const sidebar_routes = [
     {
         path: '/docs',
-        element: <Quickstart />,
-        label: 'Quickstart',
+        element: <Docs />,
+        label: 'Documentation',
+        children: [
+            {
+                path: '',
+                element: <Quickstart />,
+                label: 'Quick Start',
+            },
+            {
+                path: 'getting-started',
+                label: 'Getting Started',
+                children: [
+                    {
+                        path: '',
+                        element: <Navigate replace to={`implement-now/${implement_now_child}`} />,
+                    },
+                    {
+                        path: 'implement-now',
+                        label: 'Implement Now',
+                        is_collapsible: true,
+                        children: [
+                            {
+                                path: '',
+                                element: <Navigate replace to={implement_now_child} />,
+                            },
+                            ...sandboxRoutes('implement_now')
+                        ],
+                    },
+                    {
+                        path: 'build-your-app',
+                        element: <BuildYourApp />,
+                        label: 'Build your app',
+                    },
+                ],
+            },
+            {
+                path: 'resources',
+                label: 'Resources',
+                children: [
+                    {
+                        path: 'api-guide',
+                        element: <ApiGuide />,
+                        label: 'API Guide',
+                    },
+                    {
+                        path: 'faq',
+                        element: <Faq />,
+                        label: 'FAQ',
+                    },
+                    {
+                        path: 'json-schemas',
+                        element: <Json />,
+                        label: 'JSON Schema',
+                    },
+                    {
+                        path: 'bug-bounty',
+                        element: <BugBounty />,
+                        label: 'Bug Bounty',
+                    },
+                ],
+            },
+        ]
     },
 ];
-// Stitching all the arrays together to one route object for the Router.
-export const sidebar_routes = [...getting_started, ...what_can_you_do, ...resources];
 
-const ImplementDropdown = route => {
+const ImplementDropdown = (props) => {
     const location = useLocation();
     const split_current_location = location.pathname.split('/');
-    const [isActive, setIsActive] = useState(false);
-    useEffect(() => {
-        if (route.route.path) {
-            const dropdown = route.route.path;
+    const last_path = split_current_location[split_current_location.length - 1];
+    const [isActive, setIsActive] = React.useState(false);
+    React.useEffect(() => {
+        if (props.route.path) {
+            const dropdown = props.route.path;
             const split_current_location = location.pathname.split('/');
             if (split_current_location.includes(dropdown)) {
                 // set the dropdown useState active.
@@ -146,9 +94,11 @@ const ImplementDropdown = route => {
             }
         }
     }, []);
+
     const handleToggleDropdown = () => {
         setIsActive(!isActive);
     };
+
     return (
         <div className={styles.dropdown}>
             <div className={`${styles.dropdownBtn} ${isActive ? styles.boldText : ''}`} onClick={handleToggleDropdown}>
@@ -157,19 +107,16 @@ const ImplementDropdown = route => {
             </div>
             {isActive && (
                 <div className={styles.dropdownList}>
-                    {implement_now.map(items => (
+                    {sandboxRoutes(props.route.path).map(items => {
+                        return (
                         <Link
                             key={items.path}
-                            to={'getting-started/implement-now/' + items.path}
-                            className={`${styles.dropdownContent} ${
-                                items.path === split_current_location[split_current_location.length - 1]
-                                    ? styles.selected
-                                    : ''
-                            }`}
+                            to={`${props.path}/${items.path}`}
+                            className={`${styles.dropdownContent} ${items.path === last_path ? styles.selected : ''}`}
                         >
                             {items.label}
                         </Link>
-                    ))}
+                    )})}
                 </div>
             )}
         </div>
@@ -178,33 +125,51 @@ const ImplementDropdown = route => {
 
 function LinkComponent({ route, path }) {
     const { pathname } = useLocation();
+
+    const getLastPathString = (split_path_or_pathname) => {
+        // if the pathname is for example .../docs/, last item in array will be '', so have to do - 2.
+        // if pathname is .../docs, the last item in the array will be 'docs'. so, I can do - 1.
+        return split_path_or_pathname[split_path_or_pathname.length - 1] !== ''
+            ? split_path_or_pathname[split_path_or_pathname.length - 1]
+            : split_path_or_pathname[split_path_or_pathname.length - 2];
+    }
+
+    const path_is_pathname = getLastPathString(pathname.split('/')) === getLastPathString(path.split('/'));
+
     return (
-        <div key={route.label}>
-            {route.children ? (
-                <div className={styles.menuHeader}>{route.label}</div>
-            ) : (
-                <Link
-                    to={path}
-                    className={`${styles.menuItem} ${path === pathname.replace('/docs/', '') ? styles.selected : ''}`}
-                >
-                    {route.label}
-                </Link>
-            )}
-            {route.children &&
-                route.children.map(child => {
-                    // If there are children, recursively go over the nested children
-                    // till there are none anymore.
-                    return !child.is_collapsible ? (
-                        <React.Fragment>
-                            <LinkComponent route={child} path={`${path}/${child.path}`} />
-                        </React.Fragment>
-                    ) : (
-                        <React.Fragment>
-                            <ImplementDropdown route={child} />
-                        </React.Fragment>
-                    );
-                })}
-        </div>
+        <React.Fragment>
+        { route.label && (      
+            <div key={route.label} className={styles.menuBlock}>
+                {!route.path.includes('docs') && (
+                    <React.Fragment>
+                        {route.children ? (
+                            <div className={styles.menuHeader}>{route.label}</div>
+                        ) : (
+                            <Link
+                                to={path}
+                                className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
+                            >
+                                {route.label}
+                            </Link>
+                        )}
+                    </React.Fragment>
+                )}
+                {route.children &&
+                    route.children.map(child => {
+                        // If there are children, recursively go over the nested children.
+                        return !child.is_collapsible ? (
+                            <React.Fragment key={child.label}>
+                                <LinkComponent route={child} path={`${path}/${child.path}`} />
+                            </React.Fragment>
+                        ) : (
+                            <React.Fragment key={child.label}>
+                                <ImplementDropdown route={child} path={`${path}/${child.path}`} />
+                            </React.Fragment>
+                        );
+                    })}
+            </div>
+        )}
+        </React.Fragment>
     );
 }
 
@@ -213,7 +178,7 @@ export const SidebarMenuItems = ({ routes }) => {
     const map_links = Object.entries(routes_array).map(items => {
         const route = items[1];
         return (
-            <React.Fragment>
+            <React.Fragment key={route.label}>
                 <LinkComponent route={route} path={route.path} key={route.path} />
             </React.Fragment>
         );

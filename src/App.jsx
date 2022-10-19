@@ -1,3 +1,4 @@
+import React from 'react';
 import './state/stateSignal';
 import './state/storageSignals';
 import './global-functions/resizeEffect';
@@ -11,11 +12,11 @@ import DelayedFallbackHomepage from './components/homepage/DelayedFallbackHomepa
 function App() {
     const element = useRoutes(routes);
     return (
-        <>
+        <React.Fragment>
             <Header />
             <LogoutButton />
             <Suspense fallback={<DelayedFallbackHomepage />}>{element}</Suspense>
-        </>
+        </React.Fragment>
     );
 }
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
 import styles from "./DelayedFallback.module.scss";
@@ -12,12 +13,12 @@ export default function DelayedFallback() {
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       {show && (
         <div className={styles.centralSpinner}>
           <Spinner />
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 }

@@ -1,16 +1,8 @@
+import React from 'react';
 import styles from './Endpoint.module.scss';
 import { useForm } from 'react-hook-form';
 import { stateService } from '../../../state/stateSignal';
 import { app_id, server_url, setAppId, setServerUrl, socket_url } from '../../../state/storageSignals';
-
-
-interface FormData {
-    server_url: string,
-    app_id: number,
-    inputAppRef: object,
-    form_app_id:number
-}
-
 
 const EndPoint = () => {
     const {
@@ -31,7 +23,7 @@ const EndPoint = () => {
     };
 
     return (
-        <>
+        <React.Fragment>
             <form onSubmit={handleSubmit(handleClick)}>
                 <div className={styles.pageContent}>
                     <div className={styles.header}>Change API endpoint</div>
@@ -96,7 +88,7 @@ const EndPoint = () => {
                                     window.history.replaceState({}, document.title, window.location.pathname);
                                     stateService.send('LOGOUT');
                                     sessionStorage.removeItem('token1');
-                                    location.replace('/docs/app-registration/');
+                                    location.replace('/app-registration/');
                                     window.location.reload();
                                 }}
                                 className={styles.resetButton}
@@ -107,7 +99,7 @@ const EndPoint = () => {
                     </div>
                 </div>
             </form>
-        </>
+        </React.Fragment>
     );
 };
 

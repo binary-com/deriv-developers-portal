@@ -279,6 +279,9 @@ createMachine({
                         displayAuthDoc: {},
                     },
                     on: {
+                        EMPTY_TOKEN: {
+                            target: 'notselected_tokenEmpty',
+                        },
                         FILL_TOKEN: {
                             target: 'selected_tokenFilled',
                         },
