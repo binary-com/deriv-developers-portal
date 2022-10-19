@@ -1,8 +1,6 @@
 import React from "react";
 import SchemaDescription from "./SchemaDescription";
 import SchemaObjectContent from "./SchemaObjectContent";
-import styles from "./Schema.module.scss";
-import React from "react";
 
 export default function RecursiveProperties({
   is_open,
