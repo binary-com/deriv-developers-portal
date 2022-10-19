@@ -24,12 +24,12 @@ export default function RecursiveProperties({
   }
   return keys?.map((key, index) => {
     return (
-      <React.Fragment>
+      <React.Fragment key={key}>
         {index === 0 && value?.items?.description && (
           <SchemaDescription description={value.items.description} />
         )}
         <SchemaObjectContent
-          key={index}
+          key={key}
           key_value={key}
           properties={properties}
         />

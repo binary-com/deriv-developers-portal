@@ -15,18 +15,18 @@ const RequestJSONBox = ({
   current_api,
   isRegister,
   inputListText,
+  setScrollDirection,
+  scroll_direction
 }) => {
-  const [scroll_direction, setScrollDirection] = useState("down");
   const [is_scrolling, setIsScrolling] = useState(true);
   const messagesRef = useRef(null);
   const [isActive, setIsActive] = useState(false)
    
   useEffect(() => {
     if(isActive==true){
-    setIsScrolling(true)
+      setIsScrolling(true)
     }
   },[])
-
 
   const onScrollRequest = (event) => {
     setIsActive(true)
@@ -86,6 +86,7 @@ const RequestJSONBox = ({
         spellCheck={isAppRegistration ? false : undefined}
       />
       <ResetSendButtonsBlock
+        setScrollDirection={setScrollDirection}
         isAppRegistration={isAppRegistration}
         sendRequest={sendRequest}
         resetMessagesInConsole={setMessages}

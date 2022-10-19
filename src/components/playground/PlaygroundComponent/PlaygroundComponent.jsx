@@ -16,6 +16,7 @@ import styles from "./PlaygroundComponent.module.scss";
 import { createBrowserHistory } from "history";
 
 export const PlaygroundComponent = () => {
+  const DEFAULT_VALUE = "Select API Call - Version 3";
   const [current_api, setCurrentAPI] = useState(api);
   const [is_initial_socket, setIsInitialSocket] = useState(true);
   const [messages, setMessages] = useState([]);
@@ -23,37 +24,15 @@ export const PlaygroundComponent = () => {
   const request_input = useRef(null);
   const [request_info, setRequestInfo] = useState({});
   const [response_info, setResponseInfo] = useState({});
+  const [scroll_direction, setScrollDirection] = useState("down");
   const [text_data, setTextData] = useState({
     request: "",
-    selected_value: "Select API Call - Version 3",
+    selected_value: DEFAULT_VALUE,
     token: "",
   });
-  const [selected, setSelected] = useState("Select API Call - Version 3");
+  const [selected, setSelected] = useState(DEFAULT_VALUE);
   const location = useLocation();
   const history = createBrowserHistory();
-
-  const dynamicImportJSON = useCallback(
-    (selected_value) => {
-      import(`../../../../config/v3/${selected_value}/send.json`)
-        .then((data) => {
-          setRequestInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-      import(`../../../../config/v3/${selected_value}/receive.json`)
-        .then((data) => {
-          setResponseInfo(data);
-        })
-        .catch((error) => {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-    }
-    , [setRequestInfo, setResponseInfo]);
-
-  const displayAuthDoc = () => dynamicImportJSON('authorize');
 
   // Reset playground state when unmounting the component.
   useEffect(() => {
@@ -61,7 +40,28 @@ export const PlaygroundComponent = () => {
       send('EMPTY_TOKEN');
     }
   }, [])
+  
+  // add/remove event listeners on component mount/unmount
+  useEffect(() => {
+    // mounting
+    document.addEventListener("visibilitychange", documentVisibility);
+    // unmounting
+    return () => document.removeEventListener("visibilitychange", documentVisibility);
+  }, []);
 
+  // If the user switches to a different tab, it will trigger the visibility state.
+  const documentVisibility = () => {
+    // If the visibility state is hidden, we will close the API.
+    if (document.visibilityState === "hidden") {
+      current_api.connection.close();
+      ticksSubject.complete();
+      setScrollDirection("down");
+    }
+    // When we switch back to the main window, initiate a new API call.
+    setCurrentAPI(api);
+  }
+
+  // Dynamically import JSON to update the select value of the playground dropdown.
   useEffect(() => {
     const hash_value = window.location.hash.split("#")[1];
     const request_body = playground_requests.find(
@@ -98,10 +98,31 @@ export const PlaygroundComponent = () => {
     }
   }, [window.location.hash, playground_requests]);
 
+  const dynamicImportJSON = useCallback((selected_value) => {
+    import(`../../../../config/v3/${selected_value}/send.json`)
+      .then((data) => {
+        setRequestInfo(data);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line
+        console.log(error);
+      });
+    import(`../../../../config/v3/${selected_value}/receive.json`)
+      .then((data) => {
+        setResponseInfo(data);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line
+        console.log(error);
+      });
+  }, [setRequestInfo, setResponseInfo])
+
+  const displayAuthDoc = () => dynamicImportJSON('authorize');
+
   const sendRequest = useCallback(() => {
     if (
       !request_input.current?.value &&
-      text_data.selected_value === "Select API Call - Version 3"
+      text_data.selected_value === DEFAULT_VALUE
     ) {
       alert("Invalid JSON!");
       return;
@@ -219,6 +240,8 @@ export const PlaygroundComponent = () => {
     request_example: text_data.request,
     handleChange: handleTextAreaInput,
     request_input,
+    setScrollDirection,
+    scroll_direction,
   };
 
   return (
