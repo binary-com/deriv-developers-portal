@@ -6,7 +6,7 @@ const SchemaWrapper = ({ info }) => {
   const { title, description, auth_required, auth_scopes } = info;
 
   return Object.entries(info).length !== 0 ? (
-    <>
+    <React.Fragment>
       <SchemaHeader
         title={title}
         description={description}
@@ -14,7 +14,7 @@ const SchemaWrapper = ({ info }) => {
         auth_scopes={auth_scopes}
       />
       <SchemaBody jsonSchema={info} />
-    </>
+    </React.Fragment>
   ) : null;
 };
 

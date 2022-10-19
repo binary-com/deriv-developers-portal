@@ -138,7 +138,7 @@ export default function HomepageSlider() {
     };
 
     return (
-        <>
+        <React.Fragment>
             <div id='slider' className={`${styles.slider} loaded`}>
                 <div className={`${styles.sliderWrapper} wrapper`}>
                     <div
@@ -177,6 +177,6 @@ export default function HomepageSlider() {
                 <div id='prev' className='control prev' onClick={() => nextOrPrevSlide(PREVIOUS)} />
                 <div id='next' className='control next' onClick={() => nextOrPrevSlide(NEXT)} />
             </div>
-        </>
+        </React.Fragment>
     );
 }

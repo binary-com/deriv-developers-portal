@@ -21,7 +21,7 @@
 
   .dropdownBtn {
     padding: 5px 5px;
-    background: var(--white-01);
+    background: var(--white);
     color: var(--black-03);
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
     top: 110%;
     padding-top: 10px;
     left: 0;
-    background: var(--white-01);
+    background: var(--white);
     color: var(--black-03);
     overflow: auto;
     overflow-x: hidden;
@@ -83,7 +83,7 @@
       transition: all 0.2s;
       &:hover {
         background: #1e90ff;
-        color: var(--white-01);
+        color: var(--white);
       }
     }
   }

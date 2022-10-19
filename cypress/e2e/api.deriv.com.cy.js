@@ -122,7 +122,7 @@ const derivAPIEvents = {
         cy.get('[data-id="/"]').click();
     },
     CLICK_APP_REGISTRATION: function () {
-        cy.get('[data-id="/docs/app-registration/"]').click();
+        cy.get('[data-id="/app-registration/"]').click();
     },
     CLICK_DOCUMENTATION: function () {
         cy.get('[data-id="/docs/"]').click();

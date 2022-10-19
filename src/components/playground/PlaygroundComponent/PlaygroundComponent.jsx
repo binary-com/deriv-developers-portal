@@ -33,6 +33,13 @@ export const PlaygroundComponent = () => {
   const [selected, setSelected] = useState(DEFAULT_VALUE);
   const location = useLocation();
   const history = createBrowserHistory();
+
+  // Reset playground state when unmounting the component.
+  useEffect(() => {
+    return () => {
+      send('EMPTY_TOKEN');
+    }
+  }, [])
   
   // add/remove event listeners on component mount/unmount
   useEffect(() => {

@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { useOutsideClick } from "../../../custom-hooks/useClickOutsideElement";
 import { stateService } from "../../../state/stateSignal";
-import styles from "./Header.module.scss";
 import Navigation from "./Navigation";
+import styles from "./Header.module.scss";
 
 export default function Header() {
   const ref = useRef(null);

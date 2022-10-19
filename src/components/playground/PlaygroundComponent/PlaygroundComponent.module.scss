@@ -1,4 +1,5 @@
 .playgroundContent {
+  margin-top: 125px;
   min-height: 95vh;
   width: 100%;
   border-left: 2px solid var(--app-sidebar-border-color);
@@ -20,10 +21,10 @@
       flex-wrap: wrap;
       height: fit-content;
       width: 100%;
-      margin-bottom: 160px;
-
+      margin-top: 40px;
       .playgroundPageWrapper {
         display: flex;
+        justify-content: center;
         width: 95%;
       }
     }
@@ -90,7 +91,7 @@
       border-radius: 4px;
       border: solid 2px var(--gray-04);
       color: var(--black-03);
-      background-color: var(--white-01);
+      background-color: var(--white);
       
       &:hover {
         background-color: var(--gray-13);
@@ -114,6 +115,11 @@
   width: 50%;
 }
 
+[data-state~="playground.notselected_tokenEmpty"] .playgroundApiDocs,
+[data-state~="playground.notselected_tokenFilled"] .playgroundApiDocs {
+  display: none;
+}
+
 #content {
   display: block;
 }
@@ -127,7 +133,7 @@
   background-color: var(--red-01);
   font-size: 14px;
   line-height: 1.43;
-  color: var(--white-01);
+  color: var(--white);
 }
 
 .bold {
@@ -191,7 +197,7 @@
     .btnSubmit {
       background-color: var(--black-04);
       border: var(--gray-04) 2px solid;
-      color: var(--white-01);
+      color: var(--white);
       font-weight: bold;
       font-size: 14px;
       line-height: 1.43;
@@ -201,7 +207,7 @@
 
     #playground-reset-btn {
       .btnReset {
-        color: var(--white-01);
+        color: var(--white);
         font-weight: bold;
         font-size: 14px;
         line-height: 1.43;
@@ -310,7 +316,7 @@
     }
   }
   .playgroundContent {
-    padding: 80px 0px;
+    margin-top: 80px;
     width: 100%;
   }
   .playground {

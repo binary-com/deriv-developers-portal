@@ -1929,6 +1929,24 @@
       ]
     },
     {
+      "path": "config/v3/unsubscribe_email",
+      "name": "unsubscribe_email",
+      "children": [
+        {
+          "path": "config/v3/unsubscribe_email/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/unsubscribe_email/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/unsubscribe_email/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
       "path": "config/v3/verify_email",
       "name": "verify_email",
       "children": [

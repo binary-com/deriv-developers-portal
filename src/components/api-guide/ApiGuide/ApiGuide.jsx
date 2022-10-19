@@ -452,21 +452,21 @@ export default function ApiGuide() {
         </p>
         <ul>
           <li>
-            Call <a>Active Symbols</a> to get the list of active symbols.
+            Call <a href="/api-explorer#active_symbols">Active Symbols</a> to get the list of active symbols.
           </li>
           <li>
-            Call <a>Contracts For Symbol</a> to see what contracts can be
+            Call <a href="/api-explorer#contracts_for">Contracts For Symbol</a> to see what contracts can be
             purchased.
           </li>
           <li>
-            Call <a>Price Proposal</a> to get the current payout level for the
+            Call <a href="/api-explorer#proposal">Price Proposal</a> to get the current payout level for the
             contract. Setting "subscribe": 1 gives regular updates.
           </li>
           <li>
-            Call <a>Buy Contract</a> with the ID given in the Price Proposal to
+            Call <a href="/api-explorer#buy">Buy Contract</a> with the ID given in the Price Proposal to
             open a trade. Note the contract_id from the response. Setting
             “subscribe” : 1 will send you updates on the contracts status as{" "}
-            <a>Proposal Open Contract</a> responses.
+            <a href="/api-explorer#proposal_open_contract">Proposal Open Contract</a> responses.
           </li>
           <li>
             Monitor the <b>“is_sold”</b> attribute of the{" "}

@@ -56,7 +56,7 @@
                 text-indent: 12px;
                 &:not(:placeholder-shown) ~ label {
                     color: var(--app-registration-tab-active-font);
-                    background-color: var(--white-01);
+                    background-color: var(--white);
                     padding: 0 4px;
                     transform: translateY(-20px) scale(0.75);
                 }
@@ -64,7 +64,7 @@
                     outline: none;
                     & ~ label {
                         color: var(--brand-secondary);
-                        background-color: var(--white-01);
+                        background-color: var(--white);
                         padding: 0 4px;
                         transform: translateY(-20px) scale(0.75);
                     }
@@ -82,7 +82,7 @@
                 line-height: 20px;
                 color: var(--black-01);
                 padding: 4px 2px;
-                background-color: var(--white-01);
+                background-color: var(--white);
                 pointer-events: none;
                 white-space: nowrap;
             }
@@ -113,9 +113,9 @@
             .urlId {
                 border-radius: 4px;
                 padding: 2px 4px;
-                color: #c7254e;
+                color: var(--wine-01);
                 font-size: 90%;
-                border: 1px solid #eceff1;
+                border: 1px solid var(--gray-01);
                 font-weight: 400;
             }
         }
@@ -131,7 +131,7 @@
                 font-weight: bold;
                 height: fit-content;
                 border: 2px solid var(--red-01);
-                color: var(--white-01);
+                color: var(--white);
                 background: var(--red-01);
             }
 

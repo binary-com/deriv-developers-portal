@@ -14,7 +14,7 @@
     left: 10px;
     font-size: 10px;
     padding: 2px 4px;
-    background-color: var(--white-01);
+    background-color: var(--white);
   }
 }
 
@@ -74,7 +74,7 @@
 
   .btnResetPlayground button {
     background-color: var(--black-04);
-    color: var(--white-01);
+    color: var(--white);
     padding: 10px 16px;
     border: var(--gray-04) 2px solid;
   }
@@ -82,7 +82,7 @@
   .grayBtnSubmit button {
     padding: 8px 16px;
     border: solid 2px var(--gray-09);
-    background-color: var(--white-01);
+    background-color: var(--white);
     line-height: 1.43;
     letter-spacing: normal;
     text-align: center;
@@ -102,7 +102,7 @@
     line-height: 1.43;
     letter-spacing: normal;
     text-align: center;
-    color: var(--white-01);
+    color: var(--white);
 
     &:hover {
       background-color: var(--red-02);
