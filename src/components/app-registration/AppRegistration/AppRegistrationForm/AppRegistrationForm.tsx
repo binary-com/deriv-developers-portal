@@ -152,7 +152,7 @@ export default function AppRegistrationForm() {
                                             // eslint-disable-next-line
                                             onWheel={(e: any) => e.target.blur()}
                                         />
-                                        <label>Markup percentage (requried)</label>
+                                        <label>Markup percentage (required)</label>
                                     </div>
                                     <p className={styles.helperText}>
                                         If you don’t want to earn a markup, enter 0 here. Otherwise, enter a number up
