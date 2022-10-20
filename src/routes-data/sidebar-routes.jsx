@@ -23,6 +23,10 @@ export const sidebar_routes = [
                 label: 'Quick Start',
             },
             {
+                path: 'app-registration',
+                element: <Navigate replace to={`/app-registration`} />,
+            },
+            {
                 path: 'getting-started',
                 label: 'Getting Started',
                 children: [
