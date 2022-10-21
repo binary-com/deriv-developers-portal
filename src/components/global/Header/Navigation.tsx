@@ -11,7 +11,7 @@ export default function Navigation() {
             <div id='hamburger' className={styles.hamburger} onClick={() => send('TOGGLE_HAMBURGER')} />
             <Link className={styles.logoLink} to='/' data-testid='mainLogo'>
                 <div className={styles.flexContainer}>
-                    <div data-testid='home_logo' onClick={clickLogo} className={styles.logo} />
+                    <div data-testid='home_logo' onClick={clickLogo} className={styles.logo} id="derivLogo" />
                     <h1 className={styles.branding}>API</h1>
                 </div>
             </Link>
