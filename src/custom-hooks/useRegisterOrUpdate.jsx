@@ -21,7 +21,7 @@ const appRegister = async ({
     app_id: app_id(),
   });
   await api.authorize(token);
-  console.log("app_id in update app", app_id);
+  console.log("app_id in update app", app_id());
   const registerParams = { name, redirect_uri, scopes, app_markup_percentage };
   if (verification_uri) registerParams.verification_uri = verification_uri;
   if (isUpdateMode) {
