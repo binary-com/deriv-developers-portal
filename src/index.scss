@@ -56,13 +56,6 @@
   --spinner-height: 100px;
   --spinner-width: 100px;
 }
-[data-state~="location.third_party_location"] {
-  #derivLogo,
-  #derivFooter,
-  #topNavigation {
-    display: none;
-  }
-}
 * {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 16px;

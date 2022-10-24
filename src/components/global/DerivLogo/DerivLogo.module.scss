@@ -1,0 +1,48 @@
+.logoLink {
+    &:hover:before {
+        visibility: hidden;
+    }
+    .flexContainer {
+        display: flex;
+        align-items: center;
+        margin-right: 5%;
+        &::before {
+            --red-01: none;
+        }
+    }
+    .branding {
+        display: inline;
+        font-size: 24px;
+        padding-top: 2.5rem;
+        font-weight: normal;
+        color: #ffffff;
+        margin-left: 24px;
+    }
+    .logo {
+        background-image: url(/img/deriv.svg);
+        width: 180px;
+        height: 73px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        [data-view~="desktopLaptopM"] {
+            .logo {
+            width: 84px;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+        }
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .logo {
+        width: 84px;
+    }
+    .branding {
+        font-size: 16px;
+        margin-left: 8px;
+    }
+}
