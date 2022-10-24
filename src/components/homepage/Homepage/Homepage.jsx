@@ -262,7 +262,7 @@ export default function HomePage() {
               Join our community
             </a>
           </div>
-          <div className="single-container dark" >
+          <div className="single-container dark">
             <h2>We're here to help</h2>
             <p>
               Email us at
