@@ -4,6 +4,7 @@ import { stateService } from "../state/stateSignal";
 import { token1, server_url } from "../state/storageSignals";
 
 const appDelete = async (app_id) => {
+  console.log('app_id', app_id);
   stateService.send("DELETE_APP");
   const api = new DerivAPIBasic({ endpoint: server_url(), lang: "EN", app_id });
   await api.authorize(token1());
