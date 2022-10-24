@@ -10,7 +10,7 @@ const Sidebar = () => {
     return (
         <div className={styles.sidebarleft} data-id='sidebarleft'>
             <p className={styles.sidebartitle}>Documentation</p>
-            <div>
+            <div className={styles.sidebarContainer}>
                 <SidebarMenuItems routes={sidebar_routes} />
             </div>
         </div>
