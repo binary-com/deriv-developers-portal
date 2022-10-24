@@ -246,7 +246,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container dark">
+      <div className="container dark" id="derivFooter">
         <div className="row-container">
           <div className="single-container dark">
             <h2>Get connected</h2>
@@ -262,7 +262,7 @@ export default function HomePage() {
               Join our community
             </a>
           </div>
-          <div className="single-container dark" id="derivFooter">
+          <div className="single-container dark" >
             <h2>We're here to help</h2>
             <p>
               Email us at
