@@ -254,7 +254,7 @@ createMachine({
             },
         },
         location: {
-            initial: "third_party_location",
+            initial: "deriv_location",
             states: {
                 deriv_location: {
                     on: {

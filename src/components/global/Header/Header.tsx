@@ -16,12 +16,17 @@ export default function Header() {
   useEffect(() => {
       // remove branding on hosts that are not Deriv
       const host = window.location.host;
+      let is_deriv_host = false;
       domains.forEach(domain => {
-        const is_deriv_host = host.indexOf(domain) !== -1
-        if (is_deriv_host) {
-          send("TOGGLE_BRANDING_ON");
+        const host_exists = host.indexOf(domain) === 0;
+        if (host_exists) {
+          is_deriv_host = host_exists;
         }
       })
+
+      if (!is_deriv_host) {
+        send("TOGGLE_BRANDING_OFF");
+      }
   }, [])
 
   return (
