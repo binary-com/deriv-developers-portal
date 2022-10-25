@@ -1,10 +1,11 @@
 import { useRef, useEffect } from "react";
-import { domains } from "../../../data-stores/domains"
-import { useOutsideClick } from "../../../custom-hooks/useClickOutsideElement";
 import { stateService } from "../../../state/stateSignal";
 import { send } from '../../../state/stateSignal';
-import Navigation from "./Navigation";
-import TopNav from "./TopNav";
+import { domains } from "../../../data-stores/domains"
+import { useOutsideClick } from "../../../custom-hooks/useClickOutsideElement";
+import { Navigation } from "./Navigation";
+import { TopNav } from "./TopNav";
+import { RenderOfficialDomainContents } from "../../utility/RenderOfficialDomainContents/RenderOfficialDomainContents";
 import styles from "./Header.module.scss";
 
 export default function Header() {
@@ -32,7 +33,7 @@ export default function Header() {
 
   return (
     <div id="main-nav" className={styles.nav}>
-      <TopNav />
+      <RenderOfficialDomainContents Component={TopNav} />
       <header ref={ref} className={styles.header}>
         <div className={styles.headerContainer}>
           <Navigation />

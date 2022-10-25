@@ -1,13 +1,5 @@
 import styles from "./Header.module.scss";
-import { useSelector } from "@xstate/react";
-import { stateService } from "../../../state/stateSignal";
-import { isThirdPartyHostSelector } from '../../../state/selectors';
-export default function TopNav() {
-    const is_third_party_host = useSelector(stateService, isThirdPartyHostSelector);
-    if (is_third_party_host) {
-        return null;
-    }
-
+export const TopNav = () => {
     return (
         <div className={`${styles.topNav} ${styles.flexContainer}`}>
             <div className={styles.topNavContainer}>

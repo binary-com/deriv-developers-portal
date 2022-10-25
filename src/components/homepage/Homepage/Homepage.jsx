@@ -1,6 +1,7 @@
 import styles from "./homepage.module.scss";
 import HomepageSlider from "../HomepageSlider/HomepageSlider";
-import HomepageFooter from "./HomepageFooter/HomepageFooter"
+import { HomepageFooter } from "./HomepageFooter/HomepageFooter"
+import { RenderOfficialDomainContents } from "../../utility/RenderOfficialDomainContents/RenderOfficialDomainContents";
 
 export default function HomePage() {
   return (
@@ -247,7 +248,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <HomepageFooter />
+      <RenderOfficialDomainContents Component={HomepageFooter} />
     </div>
   );
 }
