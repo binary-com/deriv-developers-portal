@@ -1,19 +1,18 @@
 import DerivAPIBasic from "@deriv/deriv-api/dist/DerivAPIBasic";
 import { useMutation } from "react-query";
 import { stateService } from "../state/stateSignal";
-import { token1, server_url } from "../state/storageSignals";
+import { token1, server_url, app_id } from "../state/storageSignals";
 
-const appDelete = async (app_id) => {
-  console.log('app_id', app_id);
+const appDelete = async (created_app_id) => {
   stateService.send("DELETE_APP");
-  const api = new DerivAPIBasic({ endpoint: server_url(), lang: "EN", app_id });
+  const api = new DerivAPIBasic({ endpoint: server_url(), lang: "EN", app_id: app_id() });
   await api.authorize(token1());
-  await api.appDelete(app_id);
+  await api.appDelete(created_app_id);
   await api.disconnect();
 };
 
-export const useDeleteApp = (app_id) => {
-  const { mutate, isLoading } = useMutation(() => appDelete(app_id), {
+export const useDeleteApp = (created_app_id) => {
+  const { mutate, isLoading } = useMutation(() => appDelete(created_app_id), {
     onSuccess: () => {
       stateService.send("SUCCESS");
       stateService.send("FETCH_APP_LIST");
@@ -24,7 +23,7 @@ export const useDeleteApp = (app_id) => {
   });
 
   const deleteApp = () => {
-    mutate(app_id);
+    mutate(created_app_id);
   };
 
   return {

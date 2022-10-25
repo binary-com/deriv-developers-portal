@@ -203,8 +203,6 @@ export const PlaygroundComponent = () => {
       });
       send('CLICK_AUTHENTICATE');
       if (isDisplayAuthDoc()) displayAuthDoc();
-
-      console.log(isDisplayAuthDoc(), isDisplaySelectedDoc());
     },
     [setTextData, sendRequest]
   );
