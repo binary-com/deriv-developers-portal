@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from 'react-router-dom';
 import { routes } from '../../../../Router';
+import { send } from "../../../../state/stateSignal";
 import styles from '../Header.module.scss';
 
 export default function NavigationLinks() {
@@ -18,7 +19,7 @@ export default function NavigationLinks() {
                     <React.Fragment>
                         {route?.label ? (
                             <div data-id={route.path} key={route.path}>
-                                <Link to={route.path} className={path_is_route ? styles.selected : ''}>
+                                <Link to={route.path} className={path_is_route ? styles.selected : ''} onClick= {() => send('TOGGLE_HAMBURGER')}>
                                     {route.label}
                                 </Link>
                             </div>
