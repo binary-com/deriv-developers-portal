@@ -6,26 +6,26 @@
     height: 100%;
     z-index: 10;
     background: white;
-    border-right: 2px solid var(--gray-01);
-    margin-right: 48px;
+    border-right: 0.125rem solid var(--gray-01);
+    margin-right: 3rem;
     top: 105px;
     .sidebarContainer {
         overflow-y: auto;
         overflow-x: hidden;
-        height: calc(100vh - 200px);
+        height: calc(100vh - 13rem);
     }
     a {
         position: relative;
         opacity: 0.72;
-        margin: 5px 0;
+        margin: 0.375rem 0;
         line-height: 1.88;
         color: var(--text-01);
-        padding: 2px 16px 2px 16px;
+        padding: 0.125rem 1rem 0.125rem 1rem;
         height: 44px;
         display: flex;
         align-items: center;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
         &:empty {
             display: none;
         }
@@ -33,13 +33,13 @@
             content: '';
             position: absolute;
             left: 0;
-            width: 4px;
+            width: 0.25rem;
             height: 0;
             background-color: red;
             visibility: hidden;
             transition: all 0.2s ease-in-out;
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
+            border-top-left-radius: 0.25rem;
+            border-bottom-left-radius: 0.25rem;
         }
 
         &:hover {
@@ -54,7 +54,7 @@
     }
     .selected {
         background-color: var(--gray-01);
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: bold;
         line-height: 1.88;
         opacity: 1;
@@ -67,24 +67,24 @@
 }
 
 .menuHeader {
-    padding: 20px 0 10px 0;
-    font-size: 16px;
-    line-height: 24px;
+    padding: 1.25rem 0 0.625rem 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
     font-weight: 700;
     color: var(--text-01);
-    border-top: 2px solid var(--gray-01);
+    border-top: 0.125rem solid var(--gray-01);
 }
 
 .menuItem {
     width: 236px;
-    height: 24px;
+    height: 1.5rem;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: 1.5rem;
 
     .selected {
         background-color: var(--gray-01);
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: bold;
         line-height: 1.88;
         opacity: 1;
@@ -97,32 +97,32 @@
 }
 
 .sidebartitle {
-    margin: 24px 0 0 2px;
-    padding-bottom: 10px;
-    font-size: 32px;
+    margin: 1.5rem 0 0 0.125rem;
+    padding-bottom: 0.375rem;
+    font-size: 2rem;
     line-height: 1.25;
     color: var(--text-01);
     font-weight: bold;
-    border-bottom: 2px solid var(--gray-01);
+    border-bottom: 0.125rem solid var(--gray-01);
 }
 
 .dropdown {
     width: 236px;
-    min-height: 24px;
+    min-height: 1.5rem;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: 1.5rem;
 
     .arrow {
-        background-size: 22px;
+        background-size: 1.375rem;
         background-position: center;
         background-repeat: no-repeat;
         cursor: pointer;
         background-image: url(/img/arrow_up.svg);
         transform: rotate(-180deg);
         transition: transform 0.2s;
-        width: 22px;
-        height: 22px;
+        width: 1.375rem;
+        height: 1.375rem;
         &.down {
             transform: rotate(0deg);
         }
@@ -134,7 +134,7 @@
         opacity: 0.72;
         line-height: 1.88;
         color: var(--text-01);
-        padding: 2px 16px 2px 16px;
+        padding: 0.125rem 1rem 0.125rem 1rem;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -148,17 +148,17 @@
         max-height: 700px;
         overflow: auto;
         a {
-            padding: 2px 16px 2px 32px;
+            padding: 0.125rem 1rem 0.125rem 2rem;
         }
         .dropdownContent {
             font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
+            font-size: 1rem;
+            line-height: 1.5rem;
             color: var(--text-01);
         }
         .selected {
             background-color: var(--gray-01);
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: bold;
             line-height: 1.88;
             opacity: 1;
@@ -177,37 +177,37 @@
     }
     .dropdown {
         width: 236px;
-        min-height: 24px;
-        font-size: 14px;
-        line-height: 24px;
+        min-height: 1.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
         .dropdownBtn {
             opacity: unset;
-            font-size: 14px;
+            font-size: 0.875rem;
             color: var(--text-01);
         }
         .dropdownList {
-            margin-top: 16px;
+            margin-top: 1rem;
             display: flex;
             flex-direction: column;
-            padding-right: 16px;
+            padding-right: 1rem;
             overflow: unset;
-            gap: 16px;
+            gap: 1rem;
             a {
                 padding: 0;
-                padding-left: 16px;
-                text-indent: 16px;
+                padding-left: 1rem;
+                text-indent: 1rem;
                 height: 40px;
-                width: calc(100% - 22px);
+                width: calc(100% - 1.375rem);
                 color: var(--text-01);
                 display: flex;
                 align-items: center;
-                border-radius: 0px 4px 4px 0px;
+                border-radius: 0 0.25rem 0.25rem 0;
                 position: relative;
-                font-size: 14px;
+                font-size: 0.875rem;
                 &:before {
-                    width: 4px;
-                    margin-bottom: 2px;
-                    border-radius: 4px 0 0 4px;
+                    width: 0.25rem;
+                    margin-bottom: 0.125rem;
+                    border-radius: 0.25rem 0 0 0.25rem;
                 }
             }
             .selected {
@@ -219,7 +219,7 @@
     .menuBlock {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 1rem;
         .menuItem {
             &.selected {
                 background-color: var(--gray-01);
@@ -229,8 +229,8 @@
                 &::before {
                     visibility: visible;
                     height: 100%;
-                    width: 4px;
-                    border-radius: 4px 0 0 4px;
+                    width: 0.25rem;
+                    border-radius: 0.25rem 0 0 0.25rem;
                 }
             }
             &[href~="/docs/"] {
@@ -239,12 +239,12 @@
         }
 
         .menuHeader {
-            padding: 20px 0 10px 0;
-            font-size: 14px;
-            line-height: 24px;
+            padding: 1.25rem 0 0.625rem 0;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
             font-weight: 700;
             color: var(--text-01);
-            border-top: 2px solid var(--gray-01);
+            border-top: 0.125rem solid var(--gray-01);
         }
     }
 }
