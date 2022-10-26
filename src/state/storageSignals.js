@@ -9,7 +9,7 @@ createEffect(() => {
     const server_url_in_local = localStorage.getItem('server_url') || 'green.binaryws.com';
     const token_in_local = sessionStorage.getItem('token1');
 
-    if (window.location.href === 'https://staging-api.deriv.com') {
+    if (window.location.host === 'staging-api.deriv.com') {
         app_id_in_local = localStorage.getItem('app_id') || '32239';
     } else {
         app_id_in_local = localStorage.getItem('app_id') || '31063';
