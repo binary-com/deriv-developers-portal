@@ -2,12 +2,18 @@
     display: flex;
     flex-direction: column;
     width: 270px;
-    position: relative;
+    position: fixed;
     height: 100%;
     z-index: 10;
     background: white;
     border-right: 2px solid var(--gray-01);
     margin-right: 48px;
+    top: 105px;
+    .sidebarContainer {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: calc(100vh - 200px);
+    }
     a {
         position: relative;
         opacity: 0.72;
@@ -91,7 +97,7 @@
 }
 
 .sidebartitle {
-    margin: 18px 0 0 2px;
+    margin: 24px 0 0 2px;
     padding-bottom: 10px;
     font-size: 32px;
     line-height: 1.25;
