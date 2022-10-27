@@ -1,10 +1,10 @@
 import React from 'react';
 import { useOnWindowResize } from '../../../custom-hooks/useOnWindowResize';
 import { devices } from '../../../data-stores/devices';
+import { Slide } from './Slide';
 import styles from './HomepageSlider.module.scss';
-import Slide from './Slide';
 
-export default function HomepageSlider() {
+export const HomepageSlider = () => {
     const window_resize = useOnWindowResize();
     const NEXT = 'next';
     const PREVIOUS = 'previous';

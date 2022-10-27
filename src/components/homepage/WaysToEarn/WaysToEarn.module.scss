@@ -1,0 +1,68 @@
+.waysContainer {
+    margin-top: 20px;
+
+    .waysWrapper {
+        width: 100%;
+        margin-bottom: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+
+        h2 {
+            text-align: center;
+            max-width: 384px;
+            color: var(--text-01);
+            font-size: 48px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .ways {
+            display: flex;
+            align-items: center;
+            width: unset;
+            max-width: 628px;
+            margin: 20px 12px;
+            padding: 16px;
+
+            p {
+                margin-bottom: 0;
+                margin-left: 16px;
+            }
+
+            .checklistIcon {
+                background-image: url(/img/checklist-icon-red.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                width: 32px;
+                height: 32px;
+                background-size: 32px 32px;
+                padding-right: 16px;
+            }
+        }
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .waysContainer {
+        margin-top: 0;
+
+        .waysWrapper .ways {
+            max-width: 328px;
+
+            >div {
+                padding-right: 24px;
+            }
+        }
+    }
+}
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"] {
+    .waysWrapper h1 {
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}

@@ -1,0 +1,20 @@
+.guideIcon,
+.signUpIcon,
+.registerYourAppIcon {
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.guideIcon {
+    background-image: url(/img/guide.svg);
+}
+
+.signUpIcon {
+    background-image: url(/img/sign-up.svg);
+}
+
+.registerYourAppIcon {
+    background-image: url(/img/register-your-app.svg);
+}
