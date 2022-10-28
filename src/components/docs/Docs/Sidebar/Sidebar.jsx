@@ -11,7 +11,7 @@ const Sidebar = () => {
         <div className={styles.sidebarleft} data-id='sidebarleft'>
             <p className={styles.sidebartitle}>Documentation</p>
             <div>
-                <SidebarMenuItems routes={sidebar_routes} />
+                <SidebarMenuItems routes={sidebar_routes} onClick={() => send("TOGGLE_HAMBURGER")}/>
             </div>
         </div>
   );

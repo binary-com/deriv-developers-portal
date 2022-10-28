@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { sandboxRoutes } from './sandbox-routes';
+import { send } from "../state/stateSignal";
 import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
 const BuildYourApp = React.lazy(() => import('../components/build-your-app/BuildYourApp/BuildYourApp'));
 const Quickstart = React.lazy(() => import('../components/quickstart/Quickstart/Quickstart'));
@@ -117,6 +118,7 @@ const ImplementDropdown = (props) => {
                             key={items.path}
                             to={`${props.path}/${items.path}`}
                             className={`${styles.dropdownContent} ${items.path === last_path ? styles.selected : ''}`}
+                            onClick={() => send("TOGGLE_HAMBURGER")}
                         >
                             {items.label}
                         </Link>
@@ -152,6 +154,7 @@ function LinkComponent({ route, path }) {
                             <Link
                                 to={path}
                                 className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
+                                onClick={() => send("TOGGLE_HAMBURGER")}
                             >
                                 {route.label}
                             </Link>
@@ -183,7 +186,7 @@ export const SidebarMenuItems = ({ routes }) => {
         const route = items[1];
         return (
             <React.Fragment key={route.label}>
-                <LinkComponent route={route} path={route.path} key={route.path} />
+                <LinkComponent route={route} path={route.path} key={route.path}/>
             </React.Fragment>
         );
     });
