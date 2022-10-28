@@ -9,7 +9,7 @@ const EndPoint = () => {
         register,
         formState: { errors },
         handleSubmit,
-    } = useForm();
+    } = useForm({ mode: 'onChange' });
 
     const server_url_ui = server_url();
     const app_id_ui = app_id();
@@ -39,8 +39,8 @@ const EndPoint = () => {
                                             message: 'Server is Required',
                                         },
                                         pattern: {
-                                            value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                                            message: 'You have entered an invalid email address!',
+                                            value: /^([\w-]+\.)+[\w-]+(`[\w- ;,.\/?%&=])*?$/,
+                                            message: 'Please enter a valid server URL',
                                         },
                                     })}
                                     name='server_url'
@@ -63,7 +63,7 @@ const EndPoint = () => {
                                         },
                                         pattern: {
                                             value: /^(0|[1-9]\d*)(\.\d+)?$/,
-                                            message: 'App ID can only be a numercial value',
+                                            message: 'Please enter a valid app ID',
                                         },
                                     })}
                                     name='app_id'
