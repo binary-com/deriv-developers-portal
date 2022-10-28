@@ -6,6 +6,7 @@ import { useOutsideClick } from "../../../custom-hooks/useClickOutsideElement";
 import { Navigation } from "./Navigation";
 import { TopNav } from "./TopNav";
 import { RenderOfficialDomainContents } from "../../utility/RenderOfficialDomainContents/RenderOfficialDomainContents";
+import { LogoutButton } from "../LogoutButton/LogoutButton"
 import styles from "./Header.module.scss";
 
 export default function Header() {
@@ -38,6 +39,7 @@ export default function Header() {
         <div className={styles.headerContainer}>
           <Navigation />
         </div>
+        <LogoutButton />
       </header>
     </div>
   );

@@ -1,6 +1,6 @@
 .logoLink {
     &:hover:before {
-        visibility: hidden;
+        visibility: hidden !important;
     }
     .flexContainer {
         display: flex;
