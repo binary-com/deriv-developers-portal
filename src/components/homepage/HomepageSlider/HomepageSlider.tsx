@@ -139,43 +139,47 @@ export const HomepageSlider = () => {
 
     return (
         <React.Fragment>
-            <div id='slider' className={`${styles.slider} loaded`}>
-                <div className={`${styles.sliderWrapper} wrapper`}>
-                    <div
-                        id='slides'
-                        className={styles.slides}
-                        style={{
-                            left: `${slide_distance}vw`,
-                            transition: enable_slide_animation ? 'left 0.5s' : 'none',
-                        }}
-                        onMouseUp={() => setIsHoldingCard(false)}
-                        onMouseDown={event => enableSliding('mouse', event)}
-                        onMouseMove={event => slideCard(event.clientX)}
-                        onTouchEnd={() => setIsHoldingCard(false)}
-                        onTouchStart={event => enableSliding('touch', event)}
-                        onTouchMove={event => slideCard(event.targetTouches[0].clientX)}
-                    >
-                        <SlidePortal portal_entry={LAST_SLIDE} />
-                        <FirstSlide />
-                        <Slide
-                            content={
-                                <span>
-                                    Probably the best API for making your business successful in trading derivatives out
-                                    there.
-                                </span>
-                            }
-                            author={
-                                <span>
-                                    <b>Thiago</b>, entrepreneur | Brazil
-                                </span>
-                            }
-                        />
-                        <LastSlide />
-                        <SlidePortal portal_entry={FIRST_SLIDE} />
+            <div className="main-page-row white">
+                <h2 className="clients-opinion">See what our clients say</h2>
+                <div className="column-container"></div>
+                <div id='slider' className={`${styles.slider} loaded`}>
+                    <div className={`${styles.sliderWrapper} wrapper`}>
+                        <div
+                            id='slides'
+                            className={styles.slides}
+                            style={{
+                                left: `${slide_distance}vw`,
+                                transition: enable_slide_animation ? 'left 0.5s' : 'none',
+                            }}
+                            onMouseUp={() => setIsHoldingCard(false)}
+                            onMouseDown={event => enableSliding('mouse', event)}
+                            onMouseMove={event => slideCard(event.clientX)}
+                            onTouchEnd={() => setIsHoldingCard(false)}
+                            onTouchStart={event => enableSliding('touch', event)}
+                            onTouchMove={event => slideCard(event.targetTouches[0].clientX)}
+                        >
+                            <SlidePortal portal_entry={LAST_SLIDE} />
+                            <FirstSlide />
+                            <Slide
+                                content={
+                                    <span>
+                                        Probably the best API for making your business successful in trading derivatives out
+                                        there.
+                                    </span>
+                                }
+                                author={
+                                    <span>
+                                        <b>Thiago</b>, entrepreneur | Brazil
+                                    </span>
+                                }
+                            />
+                            <LastSlide />
+                            <SlidePortal portal_entry={FIRST_SLIDE} />
+                        </div>
                     </div>
+                    <div id='prev' className='control prev' onClick={() => nextOrPrevSlide(PREVIOUS)} />
+                    <div id='next' className='control next' onClick={() => nextOrPrevSlide(NEXT)} />
                 </div>
-                <div id='prev' className='control prev' onClick={() => nextOrPrevSlide(PREVIOUS)} />
-                <div id='next' className='control next' onClick={() => nextOrPrevSlide(NEXT)} />
             </div>
         </React.Fragment>
     );

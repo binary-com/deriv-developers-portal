@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { sandboxRoutes } from './sandbox-routes';
+import { RenderOfficialDomainContents } from '../components/utility/RenderOfficialDomainContents/RenderOfficialDomainContents';
 import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
 const BuildYourApp = React.lazy(() => import('../components/build-your-app/BuildYourApp/BuildYourApp'));
 const Quickstart = React.lazy(() => import('../components/quickstart/Quickstart/Quickstart'));
@@ -19,7 +20,7 @@ export const sidebar_routes = [
         children: [
             {
                 path: '',
-                element: <Quickstart />,
+                element: <RenderOfficialDomainContents Component={Quickstart} />,
                 label: 'Quick Start',
             },
             {
@@ -48,7 +49,7 @@ export const sidebar_routes = [
                     },
                     {
                         path: 'build-your-app',
-                        element: <BuildYourApp />,
+                        element: <RenderOfficialDomainContents Component={BuildYourApp} />,
                         label: 'Build your app',
                     },
                 ],
@@ -64,7 +65,7 @@ export const sidebar_routes = [
                     },
                     {
                         path: 'faq',
-                        element: <Faq />,
+                        element: <RenderOfficialDomainContents Component={Faq} />,
                         label: 'FAQ',
                     },
                     {
@@ -74,7 +75,7 @@ export const sidebar_routes = [
                     },
                     {
                         path: 'bug-bounty',
-                        element: <BugBounty />,
+                        element: <RenderOfficialDomainContents Component={BugBounty} />,
                         label: 'Bug Bounty',
                     },
                 ],

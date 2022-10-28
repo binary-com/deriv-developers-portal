@@ -18,12 +18,7 @@ export default function HomePage() {
         <RenderOfficialDomainContents Component={WaysToEarn} />
         <RenderOfficialDomainContents Component={GetStarted} />
         <RenderOfficialDomainContents Component={DerivApiFeatures} />
-        <div className="main-page-row white">
-          <h2 className="clients-opinion">See what our clients say</h2>
-          <div className="column-container">
-            <RenderOfficialDomainContents Component={HomepageSlider} />
-          </div>
-        </div>
+        <RenderOfficialDomainContents Component={HomepageSlider} />
       </div>
       <RenderOfficialDomainContents Component={HomepageFooter} />
     </div>
