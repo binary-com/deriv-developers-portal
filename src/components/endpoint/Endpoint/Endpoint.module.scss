@@ -109,13 +109,7 @@
             flex-direction: row;
             font-size: 20px;
             padding: 10px;
-            @media (max-width: 785px) {
-                flex-direction: column;
-            }
 
-            @media (max-width: 650px) {
-                text-align: center;
-            }
             .urlLabel {
                 font-weight: bold;
                 font-size: 20px;
@@ -165,5 +159,6 @@
 [data-state~='responsive.mobileS'] {
     .url {
         flex-direction: column;
+        text-align: center;
     }
 }
