@@ -9,12 +9,12 @@ import nestedJSON from "../../../../../public/demos/json/nested.json";
 import statusJSON from "../../../../../public/demos/json/status.json";
 import schemaJSON from "../../../../../public/demos/json/schema.json";
 
-import apiPlaygroundUrl from "../../../../img/api-playground.png";
-import showJSONSchemaUrl from "../../../../img/show-json-schema.png";
-import apiTokenPageUrl from "../../../../img/api-token-page.png";
-import readAccessUrl from "../../../../img/read-access.png";
-import howOauthWorksUrl from "../../../../img/how-oauth-works.png";
-import signupUrl from "../../../../img/signup.png";
+import apiPlaygroundUrl from "../../../../../img/api-playground.png";
+import showJSONSchemaUrl from "../../../../../img/show-json-schema.png";
+import apiTokenPageUrl from "../../../../../img/api-token-page.png";
+import readAccessUrl from "../../../../../img/read-access.png";
+import howOauthWorksUrl from "../../../../../img/how-oauth-works.png";
+import signupUrl from "../../../../../img/signup.png";
 
 export const DerivGuideContent = () => {
     const tickContent = JSON.stringify(ticksJSON, null, 2);
