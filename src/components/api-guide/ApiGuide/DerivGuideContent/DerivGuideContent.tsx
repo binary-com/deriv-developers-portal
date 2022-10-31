@@ -9,12 +9,12 @@ import nestedJSON from "../../../../../public/demos/json/nested.json";
 import statusJSON from "../../../../../public/demos/json/status.json";
 import schemaJSON from "../../../../../public/demos/json/schema.json";
 
-import apiPlaygroundUrl from "../../../../../img/api-playground.png";
-import showJSONSchemaUrl from "../../../../../img/show-json-schema.png";
-import apiTokenPageUrl from "../../../../../img/api-token-page.png";
-import readAccessUrl from "../../../../../img/read-access.png";
-import howOauthWorksUrl from "../../../../../img/how-oauth-works.png";
-import signupUrl from "../../../../../img/signup.png";
+import apiPlaygroundImg from "../../../../../img/api-playground.png";
+import showJSONSchemaImg from "../../../../../img/show-json-schema.png";
+import apiTokenPageImg from "../../../../../img/api-token-page.png";
+import readAccessImg from "../../../../../img/read-access.png";
+import howOauthWorksImg from "../../../../../img/how-oauth-works.png";
+import signupImg from "../../../../../img/signup.png";
 
 export const DerivGuideContent = () => {
     const tickContent = JSON.stringify(ticksJSON, null, 2);
@@ -219,13 +219,13 @@ export const DerivGuideContent = () => {
           each API call on our <a href="/api-explorer/">API Explorer</a>.
         </p>
         <div className={styles.apiGuideImage}>
-          <img src={apiPlaygroundUrl} alt="API Guide" loading="lazy" />
+          <img src={apiPlaygroundImg} alt="API Guide" loading="lazy" />
         </div>
         <p>
           To see the raw JSON schemas, click on the braces within each call.
         </p>
         <div className={styles.apiGuideImage}>
-          <img src={showJSONSchemaUrl} alt="API Guide" loading="lazy" />
+          <img src={showJSONSchemaImg} alt="API Guide" loading="lazy" />
         </div>
         <p>
           The JSON Schema also forms the documentation for the API Explorer.
@@ -246,7 +246,7 @@ export const DerivGuideContent = () => {
           setting the appropriate access level.
         </p>
         <div className={styles.apiGuideImage}>
-          <img src={apiTokenPageUrl} alt="API Guide" loading="lazy" />
+          <img src={apiTokenPageImg} alt="API Guide" loading="lazy" />
         </div>
         <p>
           The access level for each API token has to match the required access
@@ -258,7 +258,7 @@ export const DerivGuideContent = () => {
           use the Account Status, a token with read access level must be used.
         </p>
         <div className={styles.apiGuideImage}>
-          <img src={readAccessUrl} alt="API Guide" loading="lazy" />
+          <img src={readAccessImg} alt="API Guide" loading="lazy" />
         </div>
         <p>
           Following the authorisation of a WebSocket connection, subsequent
@@ -294,7 +294,7 @@ export const DerivGuideContent = () => {
           connection works:
         </p>
         <div className={styles.apiGuideImage}>
-          <img src={howOauthWorksUrl} alt="API Guide" loading="lazy" />
+          <img src={howOauthWorksImg} alt="API Guide" loading="lazy" />
         </div>
         <h2>
           What do you need to do to use OAuth authorisation for Deriv API?
@@ -320,7 +320,7 @@ export const DerivGuideContent = () => {
           </li>
         </ul>
         <div className={styles.apiGuideImage}>
-          <img src={signupUrl} alt="API Guide" loading="lazy" />
+          <img src={signupImg} alt="API Guide" loading="lazy" />
         </div>
         <p>
           Once a user signs up, they will be redirected to the URL that you
