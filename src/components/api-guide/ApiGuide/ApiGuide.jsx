@@ -13,10 +13,10 @@ export default function ApiGuide() {
   const isMobile = useSelector(stateService, isMobileSelector);
   return (
     <div className={styles.apiGuide} data-id="api-guide">
-      {!isMobile && <Navigator />}
+      {!isMobile && <RenderOfficialDomainContents Component={Navigator} />}
       <div className={styles.apiGuideContent}>
         <h1>API guide</h1>
-        {isMobile && <Navigator />}
+        {isMobile && <RenderOfficialDomainContents Component={Navigator} />}
         <div className={styles.textBlock}>
           <h2 id="what-is-api">What is API?</h2>
           <p>
