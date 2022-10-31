@@ -43,7 +43,7 @@ export const sidebar_routes = [
                                 path: '',
                                 element: <Navigate replace to={implement_now_child} />,
                             },
-                            ...sandboxRoutes('implement_now')
+                            ...sandboxRoutes('implement_now'),
                         ],
                     },
                     {
@@ -79,11 +79,11 @@ export const sidebar_routes = [
                     },
                 ],
             },
-        ]
+        ],
     },
 ];
 
-const ImplementDropdown = (props) => {
+const ImplementDropdown = props => {
     const location = useLocation();
     const split_current_location = location.pathname.split('/');
     const last_path = split_current_location[split_current_location.length - 1];
@@ -113,14 +113,17 @@ const ImplementDropdown = (props) => {
                 <div className={styles.dropdownList}>
                     {sandboxRoutes(props.route.path).map(items => {
                         return (
-                        <Link
-                            key={items.path}
-                            to={`${props.path}/${items.path}`}
-                            className={`${styles.dropdownContent} ${items.path === last_path ? styles.selected : ''}`}
-                        >
-                            {items.label}
-                        </Link>
-                    )})}
+                            <Link
+                                key={items.path}
+                                to={`${props.path}/${items.path}`}
+                                className={`${styles.dropdownContent} ${
+                                    items.path === last_path ? styles.selected : ''
+                                }`}
+                            >
+                                {items.label}
+                            </Link>
+                        );
+                    })}
                 </div>
             )}
         </div>
@@ -130,49 +133,49 @@ const ImplementDropdown = (props) => {
 function LinkComponent({ route, path }) {
     const { pathname } = useLocation();
 
-    const getLastPathString = (split_path_or_pathname) => {
+    const getLastPathString = split_path_or_pathname => {
         // if the pathname is for example .../docs/, last item in array will be '', so have to do - 2.
         // if pathname is .../docs, the last item in the array will be 'docs'. so, I can do - 1.
         return split_path_or_pathname[split_path_or_pathname.length - 1] !== ''
             ? split_path_or_pathname[split_path_or_pathname.length - 1]
             : split_path_or_pathname[split_path_or_pathname.length - 2];
-    }
+    };
 
     const path_is_pathname = getLastPathString(pathname.split('/')) === getLastPathString(path.split('/'));
 
     return (
         <React.Fragment>
-        { route.label && (      
-            <div key={route.label} className={styles.menuBlock}>
-                {!route.path.includes('docs') && (
-                    <React.Fragment>
-                        {route.children ? (
-                            <div className={styles.menuHeader}>{route.label}</div>
-                        ) : (
-                            <Link
-                                to={path}
-                                className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
-                            >
-                                {route.label}
-                            </Link>
-                        )}
-                    </React.Fragment>
-                )}
-                {route.children &&
-                    route.children.map(child => {
-                        // If there are children, recursively go over the nested children.
-                        return !child.is_collapsible ? (
-                            <React.Fragment key={child.label}>
-                                <LinkComponent route={child} path={`${path}/${child.path}`} />
-                            </React.Fragment>
-                        ) : (
-                            <React.Fragment key={child.label}>
-                                <ImplementDropdown route={child} path={`${path}/${child.path}`} />
-                            </React.Fragment>
-                        );
-                    })}
-            </div>
-        )}
+            {route.label && (
+                <div key={route.label} className={styles.menuBlock}>
+                    {!route.path.includes('docs') && (
+                        <React.Fragment>
+                            {route.children ? (
+                                <div className={styles.menuHeader}>{route.label}</div>
+                            ) : (
+                                <Link
+                                    to={path}
+                                    className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
+                                >
+                                    {route.label}
+                                </Link>
+                            )}
+                        </React.Fragment>
+                    )}
+                    {route.children &&
+                        route.children.map(child => {
+                            // If there are children, recursively go over the nested children.
+                            return !child.is_collapsible ? (
+                                <React.Fragment key={child.label}>
+                                    <LinkComponent route={child} path={`${path}/${child.path}`} />
+                                </React.Fragment>
+                            ) : (
+                                <React.Fragment key={child.label}>
+                                    <ImplementDropdown route={child} path={`${path}/${child.path}`} />
+                                </React.Fragment>
+                            );
+                        })}
+                </div>
+            )}
         </React.Fragment>
     );
 }

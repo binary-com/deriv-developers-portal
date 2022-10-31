@@ -8,19 +8,19 @@ const EndPoint = () => {
     const {
         register,
         formState: { errors },
-        handleSubmit
+        handleSubmit,
     } = useForm();
 
     const server_url_ui = server_url();
     const app_id_ui = app_id();
     const socket_url_ui = socket_url();
 
-    const handleClick = (data) => {
+    const handleClick = data => {
         setAppId(data.app_id);
         setServerUrl(data.server_url);
         stateService.send('LOGOUT');
         sessionStorage.removeItem('token1');
-        data.preventDefault()
+        data.preventDefault();
     };
 
     return (
@@ -32,11 +32,11 @@ const EndPoint = () => {
                         <div className={styles.customTextInput} id='custom-text-input'>
                             <div className={styles.inlineLabel}>Server_URL</div>
                             <input
-                                {...register('server_url',{
+                                {...register('server_url', {
                                     required: {
                                         value: true,
                                         message: 'Server is Required',
-                                    }
+                                    },
                                     // pattern:{
                                     //     value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                                     //     message: 'You have entered an invalid email address!'
@@ -53,7 +53,7 @@ const EndPoint = () => {
                             )}
                             <div className={styles.inlineLabel}>App_id</div>
                             <input
-                                {...register('app_id',{
+                                {...register('app_id', {
                                     required: {
                                         value: true,
                                         message: 'App ID is required',

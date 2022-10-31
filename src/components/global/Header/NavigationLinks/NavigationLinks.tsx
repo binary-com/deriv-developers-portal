@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { routes } from '../../../../Router';
 import styles from '../Header.module.scss';
@@ -12,7 +12,7 @@ export default function NavigationLinks() {
         <React.Fragment>
             {routes.map(route => {
                 // Check if user is on current page location
-                const trimmed_route = route.path.replace(/\//g, '')
+                const trimmed_route = route.path.replace(/\//g, '');
                 const path_is_route = split_path.includes(trimmed_route);
                 return (
                     <React.Fragment>
@@ -22,11 +22,10 @@ export default function NavigationLinks() {
                                     {route.label}
                                 </Link>
                             </div>
-                        ) : null
-                        }
+                        ) : null}
                     </React.Fragment>
                 );
             })}
         </React.Fragment>
-    )
+    );
 }

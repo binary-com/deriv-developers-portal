@@ -161,7 +161,7 @@ const derivAPIEvents = {
     },
     CLICK_LOGO: function () {
         cy.get('[data-testid="home_logo"]').click();
-    }
+    },
 };
 
 const derivAPIStates = {
@@ -171,7 +171,9 @@ const derivAPIStates = {
         cy.contains(/ways to earn with deriv api/i).should('be.visible');
         cy.contains(/register your app with deriv/i).should('be.visible');
         cy.contains(/sign up as an affiliate, build your app/i).should('be.visible');
-        cy.contains(/sign up as a payment agent/i).should('be.visible').scrollIntoView();
+        cy.contains(/sign up as a payment agent/i)
+            .should('be.visible')
+            .scrollIntoView();
     },
     playground: () => {
         // checkScroll(); TODO children states cause scroll to not be at top
@@ -183,8 +185,12 @@ const derivAPIStates = {
     },
     documetnation: () => {
         isScrollOnTop();
-        cy.contains(/Quickstart to Deriv API/i).should('be.visible').scrollIntoView();
-        cy.contains(/Keep alive/i).should('be.visible').scrollIntoView();
+        cy.contains(/Quickstart to Deriv API/i)
+            .should('be.visible')
+            .scrollIntoView();
+        cy.contains(/Keep alive/i)
+            .should('be.visible')
+            .scrollIntoView();
     },
     faq: () => {
         isScrollOnTop();
@@ -218,25 +224,25 @@ const derivAPIStates = {
         cy.get('[data-testid="apiTokenInput"]').should('have.value', Cypress.env('DERIV_API_TOKEN'));
     },
     displayAuthDoc: () => {
-        cy.get('[data-testid=apiDropdown]')
-        .contains(/authorize/i)
+        cy.get('[data-testid=apiDropdown]').contains(/authorize/i);
         cy.get('[data-testid=playgroundDocs]')
             .should('be.visible')
             .contains(/authorize/i);
     },
     displaySelectedDoc: () => {
         cy.get('[data-testid=apiDropdown]')
-        .contains(/authorize/i)
-        .should('not.exist');
+            .contains(/authorize/i)
+            .should('not.exist');
         cy.get('[data-testid=playgroundDocs]')
-        .should('be.visible')
-        // should not contain authorize
-        .contains(/authorize/i).should('not.exist');
+            .should('be.visible')
+            // should not contain authorize
+            .contains(/authorize/i)
+            .should('not.exist');
     },
     selecting_api: () => {
         // data-testid searchInput should be in focus
         cy.get('[data-testid="searchInput"]').should('have.focus');
-    }
+    },
 };
 
 // cypress check if the scroll is at the top of the page

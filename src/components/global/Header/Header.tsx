@@ -1,28 +1,28 @@
-import { useRef } from "react";
-import { useOutsideClick } from "../../../custom-hooks/useClickOutsideElement";
-import { stateService } from "../../../state/stateSignal";
-import Navigation from "./Navigation";
-import styles from "./Header.module.scss";
+import { useRef } from 'react';
+import { useOutsideClick } from '../../../custom-hooks/useClickOutsideElement';
+import { stateService } from '../../../state/stateSignal';
+import Navigation from './Navigation';
+import styles from './Header.module.scss';
 
 export default function Header() {
-  const ref = useRef(null);
-  useOutsideClick(ref, () => {
-    stateService.send("CLICK_OUTSIDE");
-  });
-  return (
-    <div id="main-nav" className={styles.nav}>
-      <div className={`${styles.topNav} ${styles.flexContainer}`}>
-        <div className={styles.topNavContainer}>
-          <a href="https://deriv.com/">Deriv website</a>
-          <a href="https://deriv.com/who-we-are">About us</a>
-          <a href="https://deriv.com/contact-us">Contact us</a>
+    const ref = useRef(null);
+    useOutsideClick(ref, () => {
+        stateService.send('CLICK_OUTSIDE');
+    });
+    return (
+        <div id='main-nav' className={styles.nav}>
+            <div className={`${styles.topNav} ${styles.flexContainer}`}>
+                <div className={styles.topNavContainer}>
+                    <a href='https://deriv.com/'>Deriv website</a>
+                    <a href='https://deriv.com/who-we-are'>About us</a>
+                    <a href='https://deriv.com/contact-us'>Contact us</a>
+                </div>
+            </div>
+            <header ref={ref} className={styles.header}>
+                <div className={styles.headerContainer}>
+                    <Navigation />
+                </div>
+            </header>
         </div>
-      </div>
-      <header ref={ref} className={styles.header}>
-        <div className={styles.headerContainer}>
-          <Navigation />
-        </div>
-      </header>
-    </div>
-  );
+    );
 }
