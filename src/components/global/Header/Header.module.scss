@@ -45,14 +45,6 @@
     &::before {
       --red-01: none;
     }
-    .branding {
-      display: inline;
-      font-size: 24px;
-      padding-top: 2.5rem;
-      font-weight: normal;
-      color: #ffffff;
-      margin-left: 24px;
-    }
   }
   .topNav {
     height: 32px;
@@ -87,9 +79,6 @@
       flex-wrap: nowrap;
       align-items: center;
       width: 80%;
-      .logoLink:hover:before {
-        visibility: hidden;
-      }
       .hamburger {
         width: 16px;
         height: 16px;
@@ -181,13 +170,6 @@
       width: 100%;
       height: 56px;
       padding-left: 16px;
-      .logo {
-        width: 84px;
-      }
-      .branding {
-        font-size: 16px;
-        margin-left: 8px;
-      }
       .hamburger {
         display: flex;
         justify-content: center;
@@ -231,23 +213,6 @@
   .topNav,
   .navbar {
     display: none;
-  }
-}
-.logo {
-  background-image: url(/img/deriv.svg);
-  width: 180px;
-  height: 73px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  [data-view~="desktopLaptopM"] {
-    .logo {
-      width: 84px;
-      height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
 }
 

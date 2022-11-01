@@ -1,0 +1,72 @@
+.clientLibrary {
+    .iconJsLibrary {
+        background-image: url(/img/js-library.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 64px;
+        height: 64px;
+    }
+
+    .libraryLinks {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .logoAndLink {
+            padding: 10px 20px;
+
+            .libraryGoTo {
+                display: flex;
+                align-items: center;
+
+                .logoJavascript {
+                    background-image: url(/img/js.svg);
+                }
+
+                .logoPython {
+                    background-image: url(/img/py.svg);
+                }
+
+                .logoFlutter {
+                    background-image: url(/img/flutter.svg);
+                }
+
+                .logoJavascript,
+                .logoPython,
+                .logoFlutter {
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .logoJavascript,
+                .logoPython {
+                    margin-right: 10px;
+                }
+
+                .libraryChevron {
+                    background-image: url(/img/library-chevron.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 12px;
+                    height: 12px;
+                    margin-left: 13px;
+                }
+
+                label {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .clientLibrary {
+        h1 {
+            max-width: 290px;
+            margin-bottom: 8px;
+        }
+    }
+}
