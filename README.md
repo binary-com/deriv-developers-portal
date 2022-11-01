@@ -54,7 +54,7 @@ Moreover, having these extensions will help you to speed up the development proc
     npm run dev
     ```
 
-6.  Release to staging:
+1.  Release to staging:
 
 Merging to master (squash and merge) will automatically release the last commit to the staging server https://staging-api.deriv.com/
 
