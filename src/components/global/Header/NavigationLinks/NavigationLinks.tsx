@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { routes } from '../../../../Router';
-import { hidden_menu_items } from '../../../../data-stores/domains.js'
-import { RenderOfficialDomainContents } from "../../../utility/RenderOfficialDomainContents/RenderOfficialDomainContents";
+import { hidden_menu_items } from '../../../../data-stores/domains.js';
+import { RenderOfficialDomainContents } from '../../../utility/RenderOfficialDomainContents/RenderOfficialDomainContents';
 import styles from '../Header.module.scss';
 
 export default function NavigationLinks() {
@@ -26,8 +26,8 @@ export default function NavigationLinks() {
                                 {route.label}
                             </Link>
                         </div>
-                    )
-                }
+                    );
+                };
 
                 // Rendering component here.
                 return (
@@ -35,17 +35,12 @@ export default function NavigationLinks() {
                         {hidden_menu_items.includes(route?.path) ? (
                             // Hide specific links if website is rendered on non-deriv domain.
                             <RenderOfficialDomainContents Component={LinkComponent} />
-                        ) :
-                            <Fragment>
-                                {route?.label ? (
-                                    <LinkComponent />
-                                ) : null
-                                }
-                            </Fragment>
-                        }
+                        ) : (
+                            <Fragment>{route?.label ? <LinkComponent /> : null}</Fragment>
+                        )}
                     </Fragment>
                 );
             })}
         </Fragment>
-    )
+    );
 }

@@ -255,21 +255,21 @@ export const stateMachine =
             },
         },
         location: {
-            initial: "deriv_location",
+            initial: 'deriv_location',
             states: {
                 deriv_location: {
                     on: {
                         TOGGLE_BRANDING_OFF: {
-                            target: "third_party_location"
-                        }
-                    }
+                            target: 'third_party_location',
+                        },
+                    },
                 },
                 third_party_location: {
                     on: {
                         TOGGLE_BRANDING_ON: {
-                            target: "deriv_location"
-                        }
-                    }
+                            target: 'deriv_location',
+                        },
+                    },
                 },
             },
         },

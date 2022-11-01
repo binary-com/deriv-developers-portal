@@ -151,16 +151,13 @@ function LinkComponent({ route, path }) {
                 {route.children ? (
                     <div className={styles.menuHeader}>{route.label}</div>
                 ) : (
-                    <Link
-                        to={path}
-                        className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}
-                    >
+                    <Link to={path} className={`${styles.menuItem} ${path_is_pathname ? styles.selected : ''}`}>
                         {route.label}
                     </Link>
                 )}
             </Fragment>
-        )
-    }
+        );
+    };
 
     return (
         <Fragment>
@@ -169,10 +166,10 @@ function LinkComponent({ route, path }) {
                     {!route.path.includes('docs') && (
                         <Fragment>
                             {hidden_menu_items.includes(route.path) ? (
-                                <RenderOfficialDomainContents Component={ LinkFragment } />
-                            ) :
+                                <RenderOfficialDomainContents Component={LinkFragment} />
+                            ) : (
                                 <LinkFragment />
-                            }
+                            )}
                         </Fragment>
                     )}
                     {route.children &&

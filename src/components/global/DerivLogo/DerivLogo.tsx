@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 import styles from './DerivLogo.module.scss';
 
 export const DerivLogo = () => {
@@ -14,5 +14,5 @@ export const DerivLogo = () => {
                 <h1 className={styles.branding}>API</h1>
             </div>
         </Link>
-    )
-}
+    );
+};
