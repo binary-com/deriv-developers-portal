@@ -17,6 +17,8 @@
 }
 
 .apiGuideImage {
+  display: flex;
+  justify-content: center;
   margin-bottom: 24px;
   img {
     width: 80%;

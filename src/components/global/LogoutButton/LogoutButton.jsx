@@ -6,7 +6,7 @@ import styles from "./LogoutButton.module.scss";
 
 const LazyButton = lazy(() => import("../Button/Button"));
 
-export default function LogoutButton() {
+export const LogoutButton = () => {
   const isLoggedIn = useSelector(stateService, isLoggedInSelector);
   if (!isLoggedIn) {
     return null;

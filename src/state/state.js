@@ -253,6 +253,25 @@ createMachine({
                 },
             },
         },
+        location: {
+            initial: "deriv_location",
+            states: {
+                deriv_location: {
+                    on: {
+                        TOGGLE_BRANDING_OFF: {
+                            target: "third_party_location"
+                        }
+                    }
+                },
+                third_party_location: {
+                    on: {
+                        TOGGLE_BRANDING_ON: {
+                            target: "deriv_location"
+                        }
+                    }
+                },
+            },
+        },
         playground: {
             initial: 'notselected_tokenEmpty',
             states: {

@@ -5,9 +5,15 @@ export const [server_url, setServerUrl] = createSignal(localStorage.getItem('ser
 export const socket_url = () => `wss://${server_url()}/websockets/v3?app_id=${app_id()}&l=EN&brand=deriv`;
 
 createEffect(() => {
-    const app_id_in_local = localStorage.getItem('app_id') || '31063';
+    let app_id_in_local;
     const server_url_in_local = localStorage.getItem('server_url') || 'green.binaryws.com';
     const token_in_local = sessionStorage.getItem('token1');
+
+    if (window.location.host === 'staging-api.deriv.com') {
+        app_id_in_local = localStorage.getItem('app_id') || '32239';
+    } else {
+        app_id_in_local = localStorage.getItem('app_id') || '31063';
+    }
 
     if (app_id_in_local) setAppId(app_id_in_local);
     if (server_url_in_local) {
@@ -35,7 +41,7 @@ createEffect(() => {
 });
 
 createEffect(() => {
-    if(app_id()) localStorage.setItem('app_id', app_id());
-    if(server_url()) localStorage.setItem('server_url', server_url());
-    if(token1()) sessionStorage.setItem('token1', token1());
+    if (app_id()) localStorage.setItem('app_id', app_id());
+    if (server_url()) localStorage.setItem('server_url', server_url());
+    if (token1()) sessionStorage.setItem('token1', token1());
 });

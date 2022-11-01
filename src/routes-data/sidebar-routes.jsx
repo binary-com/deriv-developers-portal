@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { sandboxRoutes } from './sandbox-routes';
 import { send } from "../state/stateSignal";
+import { hidden_menu_items } from '../data-stores/domains';
+import { RenderOfficialDomainContents } from '../components/utility/RenderOfficialDomainContents/RenderOfficialDomainContents';
 import styles from '../components/docs/Docs/Sidebar/Sidebar.module.scss';
 const BuildYourApp = React.lazy(() => import('../components/build-your-app/BuildYourApp/BuildYourApp'));
 const Quickstart = React.lazy(() => import('../components/quickstart/Quickstart/Quickstart'));
@@ -20,7 +22,7 @@ export const sidebar_routes = [
         children: [
             {
                 path: '',
-                element: <Quickstart />,
+                element: <RenderOfficialDomainContents Component={Quickstart} />,
                 label: 'Quick Start',
             },
             {
@@ -49,7 +51,7 @@ export const sidebar_routes = [
                     },
                     {
                         path: 'build-your-app',
-                        element: <BuildYourApp />,
+                        element: <RenderOfficialDomainContents Component={BuildYourApp} />,
                         label: 'Build your app',
                     },
                 ],
@@ -65,7 +67,7 @@ export const sidebar_routes = [
                     },
                     {
                         path: 'faq',
-                        element: <Faq />,
+                        element: <RenderOfficialDomainContents Component={Faq} />,
                         label: 'FAQ',
                     },
                     {
@@ -75,7 +77,7 @@ export const sidebar_routes = [
                     },
                     {
                         path: 'bug-bounty',
-                        element: <BugBounty />,
+                        element: <RenderOfficialDomainContents Component={BugBounty} />,
                         label: 'Bug Bounty',
                     },
                 ],
@@ -123,6 +125,7 @@ const ImplementDropdown = (props) => {
                             {items.label}
                         </Link>
                     )})}
+
                 </div>
             )}
         </div>
@@ -161,22 +164,39 @@ function LinkComponent({ route, path }) {
                         )}
                     </React.Fragment>
                 )}
-                {route.children &&
-                    route.children.map(child => {
-                        // If there are children, recursively go over the nested children.
-                        return !child.is_collapsible ? (
-                            <React.Fragment key={child.label}>
-                                <LinkComponent route={child} path={`${path}/${child.path}`} />
-                            </React.Fragment>
-                        ) : (
-                            <React.Fragment key={child.label}>
-                                <ImplementDropdown route={child} path={`${path}/${child.path}`} />
-                            </React.Fragment>
-                        );
-                    })}
-            </div>
-        )}
-        </React.Fragment>
+            </Fragment>
+        )
+    }
+
+    return (
+        <Fragment>
+            {route.label && (
+                <div key={route.label} className={styles.menuBlock}>
+                    {!route.path.includes('docs') && (
+                        <Fragment>
+                            {hidden_menu_items.includes(route.path) ? (
+                                <RenderOfficialDomainContents Component={ LinkFragment } />
+                            ) :
+                                <LinkFragment />
+                            }
+                        </Fragment>
+                    )}
+                    {route.children &&
+                        route.children.map(child => {
+                            // If there are children, recursively go over the nested children.
+                            return !child.is_collapsible ? (
+                                <Fragment key={child.label}>
+                                    <LinkComponent route={child} path={`${path}/${child.path}`} />
+                                </Fragment>
+                            ) : (
+                                <Fragment key={child.label}>
+                                    <ImplementDropdown route={child} path={`${path}/${child.path}`} />
+                                </Fragment>
+                            );
+                        })}
+                </div>
+            )}
+        </Fragment>
     );
 }
 

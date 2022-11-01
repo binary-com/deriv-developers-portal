@@ -1,7 +1,9 @@
-import React from "react";
+import { Fragment } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { routes } from '../../../../Router';
 import { send } from "../../../../state/stateSignal";
+import { hidden_menu_items } from '../../../../data-stores/domains.js'
+import { RenderOfficialDomainContents } from "../../../utility/RenderOfficialDomainContents/RenderOfficialDomainContents";
 import styles from '../Header.module.scss';
 
 export default function NavigationLinks() {
@@ -10,11 +12,25 @@ export default function NavigationLinks() {
     const split_path = address.split('/');
 
     return (
-        <React.Fragment>
+        <Fragment>
             {routes.map(route => {
                 // Check if user is on current page location
                 const trimmed_route = route.path.replace(/\//g, '')
                 const path_is_route = split_path.includes(trimmed_route);
+
+                console.log(route.path);
+
+                const LinkComponent = () => {
+                    return (
+                        <div data-id={route.path} key={route.path}>
+                            <Link to={route.path} className={path_is_route ? styles.selected : ''}>
+                                {route.label}
+                            </Link>
+                        </div>
+                    )
+                }
+
+                // Rendering component here.
                 return (
                     <React.Fragment>
                         {route?.label ? (
@@ -24,10 +40,11 @@ export default function NavigationLinks() {
                                 </Link>
                             </div>
                         ) : null
+
                         }
-                    </React.Fragment>
+                    </Fragment>
                 );
             })}
-        </React.Fragment>
+        </Fragment>
     )
 }

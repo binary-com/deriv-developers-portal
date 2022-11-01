@@ -1,0 +1,93 @@
+.heroImage {
+    background-color: var(--brown-02);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)),
+        url(/img/header.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 488px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+
+    .heroContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 160px 0;
+        width: 1008px;
+
+        .heroHeader {
+            max-width: 775px;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.25;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .heroText {
+            font-size: 24px;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 0;
+        }
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .heroImage {
+        margin-top: 47px;
+        padding-top: unset;
+
+        .heroContainer {
+            width: 100%;
+            padding: 80px 20px;
+
+            .heroHeader {
+                max-width: unset;
+            }
+        }
+    }
+}
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"] {
+    .heroImage {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)),
+            url(/img/header-mobile.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 328px;
+
+        .heroContainer {
+            padding: 80px 16px;
+
+            .heroHeader {
+                font-size: 32px;
+                text-align: left;
+                width: 100%;
+            }
+
+            .heroText {
+                font-size: 20px;
+                margin-bottom: 12px;
+                text-align: left;
+            }
+        }
+    }
+}
+
+[data-state~="responsive.mobileS"] {
+    .heroImage {
+        height: 378px;
+    }
+}

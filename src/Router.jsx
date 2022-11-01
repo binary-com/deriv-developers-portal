@@ -1,5 +1,6 @@
 import React from 'react';
 import { sidebar_routes } from './routes-data/sidebar-routes';
+import { RenderOfficialDomainContents } from './components/utility/RenderOfficialDomainContents/RenderOfficialDomainContents';
 const Endpoint = React.lazy(() => import('./components/endpoint/Endpoint/Endpoint'));
 const HomePage = React.lazy(() => import('./components/homepage/Homepage/Homepage'));
 const ApiExplorer = React.lazy(() => import('./components/playground/ApiExplorer/ApiExplorer'));
@@ -18,7 +19,7 @@ export const routes = [
     },
     {
         path: 'app-registration',
-        element: <AppRegistration />,
+        element: <RenderOfficialDomainContents Component={AppRegistration} />,
         label: 'Application registration',
     },
     {
