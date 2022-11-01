@@ -1,0 +1,228 @@
+.benefitsContainer {
+    .benefitsTitle {
+        margin-bottom: 10px;
+        color: var(--text-01);
+        font-size: 48px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .benefitsIcons {
+        width: 65%;
+        flex-wrap: nowrap;
+        margin-bottom: 20px;
+
+        .image {
+            background-size: contain;
+            width: 72px;
+            height: 72px;
+            display: inline-block;
+            margin: 8px;
+
+            &.automationIcon {
+                background: url(/img/automation.svg) no-repeat;
+            }
+
+            &.integrationIcon {
+                background: url(/img/integration.svg) no-repeat;
+            }
+
+            &.executionIcon {
+                background: url(/img/execution.svg) no-repeat;
+            }
+        }
+
+        p {
+            font-size: 22px !important;
+        }
+    }
+
+    .benefits {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 100%;
+
+        div {
+            width: 486px;
+        }
+
+        img {
+            margin-bottom: 40px;
+        }
+
+        .personalisationImage,
+        .earnMoreImage {
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 486px;
+            height: 260px;
+        }
+
+        .earnMoreContainer,
+        .personalisationContainer {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+        }
+
+        .earnMoreContainer {
+            .earnMoreImage {
+                background-image: url(/img/build-business.png);
+            }
+
+            .earnMore {
+                margin-left: 40px;
+
+                h3 {
+                    font-size: 32px;
+                }
+
+                p {
+                    font-size: 22px;
+                    line-height: 2rem;
+                }
+            }
+        }
+
+        .personalisationContainer {
+            flex-direction: row-reverse;
+
+            .personalisationImage {
+                background-image: url(/img/personalisation.png);
+            }
+
+            .personalisation {
+                margin-right: 40px;
+
+                h3 {
+                    font-size: 32px;
+                }
+
+                p {
+                    font-size: 22px;
+                    line-height: 2rem;
+                }
+            }
+        }
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .benefitsContainer {
+        .benefitsIcons {
+            margin-top: 30px;
+
+            img {
+                width: 48px;
+                height: 48px;
+            }
+
+            p {
+                font-size: 10px;
+            }
+        }
+
+        .benefits {
+            flex-wrap: wrap;
+            width: 90%;
+
+            div {
+                width: 100%;
+            }
+
+            h3 {
+                margin: 16px 0;
+            }
+
+            img {
+                height: auto;
+            }
+
+            .personalisationContainer {
+                flex-direction: column-reverse;
+                margin: 0;
+
+                .personalisation {
+                    width: 90% !important;
+                    margin: 0 auto 30px;
+
+                    h3 {
+                        font-size: 24px;
+                    }
+                }
+            }
+
+            .earnMoreContainer {
+                flex-direction: column;
+                margin: 0;
+
+                .earnMoreImage {
+                    margin: 40px 0;
+                }
+
+                .earnMore {
+                    width: 90% !important;
+                    margin: 0 auto;
+
+                    h3 {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .benefitsContainer .benefits .personalisationImage,
+    .benefitsContainer .benefits .earnMoreImage {
+        max-width: 486px;
+        height: 220px;
+    }
+}
+
+[data-state~="responsive.mobileS"],
+[data-state~="responsive.mobileM"] {
+    .benefitsContainer {
+        .benefits {
+            img {
+                margin-bottom: 0;
+            }
+
+            .personalisationContainer {
+                .personalisationImage {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+            }
+
+            .earnMoreContainer {
+                .earnMoreImage {
+                    width: 100%;
+                    margin: 0 auto;
+                }
+            }
+
+            .personalisation,
+            .earnMore {
+                margin: 0;
+
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+[data-state~="responsive.mobileS"] {
+
+    .benefitsContainer .benefits .personalisationImage,
+    .benefitsContainer .benefits .earnMoreImage {
+        max-width: 486px;
+        height: 150px;
+    }
+}

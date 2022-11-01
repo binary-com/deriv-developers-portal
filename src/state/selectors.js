@@ -1,3 +1,5 @@
+export const isThirdPartyHostSelector = (state) =>
+  state.matches("location.third_party_location");
 export const isLoggedInSelector = (state) =>
   state.matches("registration.logged_in");
 export const isManageAppsTabSelector = (state) =>
