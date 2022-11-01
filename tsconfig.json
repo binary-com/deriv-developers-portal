@@ -17,6 +17,6 @@
         "jsx": "react-jsx",
         "noImplicitAny": false
     },
-    "include": ["src", "ApiExplorer.jsx"],
+    "include": ["src", "./src/index.d.ts"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
