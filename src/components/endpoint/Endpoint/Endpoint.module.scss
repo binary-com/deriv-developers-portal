@@ -157,8 +157,15 @@
 [data-state~='responsive.mobileL'],
 [data-state~='responsive.mobileM'],
 [data-state~='responsive.mobileS'] {
-    .url {
-        flex-direction: column;
-        text-align: center;
+    .pageContent {
+        .content {
+            .customTextInput {
+                width: 140%;
+            }
+            .url {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     }
 }
