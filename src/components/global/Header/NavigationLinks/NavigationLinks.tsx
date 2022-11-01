@@ -16,9 +16,6 @@ export default function NavigationLinks() {
                 // Check if user is on current page location
                 const trimmed_route = route.path.replace(/\//g, '')
                 const path_is_route = split_path.includes(trimmed_route);
-
-                console.log(route.path);
-
                 const LinkComponent = () => {
                     return (
                         <div data-id={route.path} key={route.path}>
