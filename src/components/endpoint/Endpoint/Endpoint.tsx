@@ -8,19 +8,19 @@ const EndPoint = () => {
     const {
         register,
         formState: { errors },
-        handleSubmit
-    } = useForm();
+        handleSubmit,
+    } = useForm({ mode: 'onChange' });
 
     const server_url_ui = server_url();
     const app_id_ui = app_id();
     const socket_url_ui = socket_url();
 
-    const handleClick = (data) => {
+    const handleClick = data => {
         setAppId(data.app_id);
         setServerUrl(data.server_url);
         stateService.send('LOGOUT');
         sessionStorage.removeItem('token1');
-        data.preventDefault()
+        data.preventDefault();
     };
 
     return (
@@ -30,46 +30,50 @@ const EndPoint = () => {
                     <div className={styles.header}>Change API endpoint</div>
                     <div className={styles.content}>
                         <div className={styles.customTextInput} id='custom-text-input'>
-                            <div className={styles.inlineLabel}>Server_URL</div>
-                            <input
-                                {...register('server_url',{
-                                    required: {
-                                        value: true,
-                                        message: 'Server is Required',
-                                    }
-                                    // pattern:{
-                                    //     value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-                                    //     message: 'You have entered an invalid email address!'
-                                    // }
-                                })}
-                                name='server_url'
-                                defaultValue={server_url_ui}
-                                placeholder='e.g. frontend.binaryws.com'
-                                className={styles.textInput}
-                                required
-                            />
-                            {errors.server_url && (
-                                <span className={styles.errorMessage}>{errors.server_url?.message}</span>
-                            )}
-                            <div className={styles.inlineLabel}>App_id</div>
-                            <input
-                                {...register('app_id',{
-                                    required: {
-                                        value: true,
-                                        message: 'App ID is required',
-                                    },
-                                    pattern: {
-                                        value: /^(0|[1-9]\d*)(\.\d+)?$/,
-                                        message: 'App ID can only be a numercial value',
-                                    },
-                                })}
-                                name='app_id'
-                                className={styles.textInput}
-                                defaultValue={app_id_ui}
-                                placeholder='e.g. 9999'
-                                required
-                            />
-                            {errors.app_id && <span className={styles.errorMessage}>{errors.app_id?.message}</span>}
+                            <div className={styles.inputField}>
+                                <label className={styles.inlineLabel}>Server_URL</label>
+                                <input
+                                    {...register('server_url', {
+                                        required: {
+                                            value: true,
+                                            message: 'Server is Required',
+                                        },
+                                        pattern: {
+                                            value: /^([\w-]+\.)+[\w-]+(`[\w- ;,.\/?%&=])*?$/,
+                                            message: 'Please enter a valid server URL',
+                                        },
+                                    })}
+                                    name='server_url'
+                                    defaultValue={server_url_ui}
+                                    placeholder='e.g. frontend.binaryws.com'
+                                    className={styles.textInput}
+                                    required
+                                />
+                                {errors.server_url && (
+                                    <span className={styles.erorMessage}>{errors.server_url?.message}</span>
+                                )}
+                            </div>
+                            <div className={styles.inputField}>
+                                <label className={styles.inlineLabel}>App_id</label>
+                                <input
+                                    {...register('app_id', {
+                                        required: {
+                                            value: true,
+                                            message: 'App ID is required',
+                                        },
+                                        pattern: {
+                                            value: /^(0|[1-9]\d*)(\.\d+)?$/,
+                                            message: 'Please enter a valid app ID',
+                                        },
+                                    })}
+                                    name='app_id'
+                                    className={styles.textInput}
+                                    defaultValue={app_id_ui}
+                                    placeholder='e.g. 9999'
+                                    required
+                                />
+                                {errors.app_id && <span className={styles.errorMessage}>{errors.app_id?.message}</span>}
+                            </div>
                         </div>
                         <div className={styles.url}>
                             <span className={styles.urlLabel}>Connected to :</span>{' '}
