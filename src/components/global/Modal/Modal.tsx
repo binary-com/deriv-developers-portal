@@ -2,6 +2,18 @@ import Button from "../Button/Button";
 import { Dialog } from "../Dialog/Dialog";
 import styles from "./Modal.module.scss";
 
+type TModal = {
+  onRequestClose: () => void;
+  open: boolean;
+  type: "success" | "warning";
+  title: string;
+  description: string;
+  primaryButtonText?: string;
+  secondaryButtonText: string;
+  onPrimaryButtonClick?: () => void;
+  onSecondaryButtonClick: () => void;
+}
+
 export default function Modal({
   onRequestClose,
   open,
@@ -12,17 +24,7 @@ export default function Modal({
   secondaryButtonText,
   onPrimaryButtonClick,
   onSecondaryButtonClick,
-}: {
-  onRequestClose: () => void;
-  open: any;
-  type: "success" | "warning";
-  title: string;
-  description: string;
-  primaryButtonText?: any;
-  secondaryButtonText: string;
-  onPrimaryButtonClick?: () => void;
-  onSecondaryButtonClick: () => void;
-}) {
+}: TModal) {
   return (
     <Dialog onRequestClose={onRequestClose} open={open} closeOnOutsideClick>
       <div className={styles.modalHeader}>
