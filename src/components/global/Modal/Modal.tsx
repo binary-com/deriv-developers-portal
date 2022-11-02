@@ -8,7 +8,7 @@ type TModal = {
   type: "success" | "warning";
   title: string;
   description: string;
-  primaryButtonText?: string;
+  primaryButtonText?: string | null;
   secondaryButtonText: string;
   onPrimaryButtonClick?: () => void;
   onSecondaryButtonClick: () => void;
