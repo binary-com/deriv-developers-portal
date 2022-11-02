@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import Dialog from "../Dialog/Dialog";
+import { Dialog } from "../Dialog/Dialog";
 import styles from "./Modal.module.scss";
 
 export default function Modal({

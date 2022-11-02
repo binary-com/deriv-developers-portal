@@ -1,18 +1,27 @@
 import React from "react";
 import styles from "./Dialog.module.scss";
 
-export default function Dialog({
+type TDialog = {
+  closeOnOutsideClick: boolean
+  onRequestClose: () => void
+  open: boolean,
+  props: HTMLElement
+}
+
+type TDialogRef = React.RefObject<HTMLDialogElement>
+
+export const Dialog = ({
   closeOnOutsideClick,
   onRequestClose,
   open,
   ...props
-}) {
+}: TDialog) => {
   const dialogRef = React.useRef<HTMLDialogElement>(null);
 
   useDialogOpening(dialogRef, open);
   useDialogClosing(dialogRef, onRequestClose);
 
-  const handleOutsideClick: React.ReactEventHandler = (event) => {
+  const handleOutsideClick = (event: React.MouseEvent<HTMLDialogElement>) => {
     const dialogNode = dialogRef?.current;
     if (closeOnOutsideClick && event?.target === dialogNode) {
       onRequestClose();
@@ -29,8 +38,6 @@ export default function Dialog({
     </dialog>
   );
 }
-
-type TDialogRef = React.RefObject<HTMLDialogElement>
 
 const useDialogOpening = (dialogRef: TDialogRef, open: boolean) => {
   const lastActiveElement = React.useRef<HTMLDialogElement>(null);
