@@ -1,5 +1,4 @@
-import { ReactEventHandler, RefObject, useEffect, useRef } from "react";
-import { useDialogPolyfill } from "./useDialogPolyfill";
+import React from "react";
 import styles from "./Dialog.module.scss";
 
 export default function Dialog({
@@ -8,13 +7,12 @@ export default function Dialog({
   open,
   ...props
 }) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const dialogRef = React.useRef<HTMLDialogElement>(null);
 
-  useDialogPolyfill(dialogRef);
   useDialogOpening(dialogRef, open);
   useDialogClosing(dialogRef, onRequestClose);
 
-  const handleOutsideClick: ReactEventHandler = (event) => {
+  const handleOutsideClick: React.ReactEventHandler = (event) => {
     const dialogNode = dialogRef?.current;
     if (closeOnOutsideClick && event?.target === dialogNode) {
       onRequestClose();
@@ -32,9 +30,11 @@ export default function Dialog({
   );
 }
 
-const useDialogOpening = (dialogRef: RefObject<HTMLDialogElement>, open: boolean) => {
-  const lastActiveElement = useRef<HTMLDialogElement>(null);
-  useEffect(() => {
+type TDialogRef = React.RefObject<HTMLDialogElement>
+
+const useDialogOpening = (dialogRef: TDialogRef, open: boolean) => {
+  const lastActiveElement = React.useRef<HTMLDialogElement>(null);
+  React.useEffect(() => {
     const dialogNode = dialogRef?.current;
     if (open) {
       dialogNode?.showModal();
@@ -45,8 +45,8 @@ const useDialogOpening = (dialogRef: RefObject<HTMLDialogElement>, open: boolean
   }, [open]);
 };
 
-const useDialogClosing = (dialogRef: RefObject<HTMLDialogElement>, onRequestClose: VoidFunction) => {
-  useEffect(() => {
+const useDialogClosing = (dialogRef: TDialogRef, onRequestClose: () => void) => {
+  React.useEffect(() => {
     const dialogNode = dialogRef?.current;
     const handleCancel: EventListener = (event) => {
       event.preventDefault();
