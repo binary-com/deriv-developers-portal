@@ -7,7 +7,7 @@ import DelayedFallback from "../../../../global/DelayedFallback/DelayedFallback"
 const Modal = lazy(() => import("../../../../global/Modal/Modal"));
 
 export default function RegisterAppDialogError({ error }) {
-  const isModalOpen = useSelector(stateService, isRegisterErrorSelector);
+  const isModalOpen: boolean = useSelector(stateService, isRegisterErrorSelector);
   if (!isModalOpen) {
     return null;
   }
