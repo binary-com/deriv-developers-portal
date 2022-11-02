@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./Dialog.module.scss";
 
 type TDialog = {
-  closeOnOutsideClick: boolean
-  onRequestClose: () => void
+  closeOnOutsideClick: boolean,
+  onRequestClose: () => void,
   open: boolean,
   props: HTMLElement
 }
