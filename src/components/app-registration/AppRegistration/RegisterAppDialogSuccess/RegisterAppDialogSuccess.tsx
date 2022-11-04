@@ -9,12 +9,12 @@ import { stateService } from "../../../../state/stateSignal";
 const Modal = lazy(() => import("../../../global/Modal/Modal"));
 
 export default function RegisterAppDialogSuccess() {
-  const isModalOpen: boolean = useSelector(stateService, isRegisterSuccessSelector);
+  const isModalOpen = useSelector(stateService, isRegisterSuccessSelector);
   const isUpdateMode = useSelector(stateService, isUpdateModeSelector);
   const description = isUpdateMode
     ? "Your app has been updated successfully."
     : "You have successfully registered your application. You can now start using Deriv API.";
-  const primaryButtonText: string | null = isUpdateMode ? null : "Manage application";
+  const primaryButtonText = isUpdateMode ? null : "Manage application";
   if (!isModalOpen) {
     return null;
   }
