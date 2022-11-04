@@ -55,7 +55,7 @@ const useDialogOpening = (dialog_ref: TDialogRef, open: boolean) => {
 const useDialogClosing = (dialog_ref: TDialogRef, onRequestClose: () => void) => {
   React.useEffect(() => {
     const dialog_node = dialog_ref?.current;
-    const handleCancel: EventListener = (event: Event): void => {
+    const handleCancel: EventListener = (event) => {
       event.preventDefault();
       onRequestClose();
     };
