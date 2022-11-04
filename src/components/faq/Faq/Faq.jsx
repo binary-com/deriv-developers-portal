@@ -104,9 +104,11 @@ const FAQ = () => {
             </ol>
           </AccordionItem>
           <AccordionItem title="What does it mean if a schema property has the ‘sensitive’ attribute?">
-            This means we will treat the value of this property as confidential,
-            and will never return it in any API response. It is used for
-            passwords and tokens.
+            <p>
+              This means we will treat the value of this property as confidential,
+              and will never return it in any API response. It is used for
+              passwords and tokens.
+            </p>
           </AccordionItem>
           <AccordionItem title="What is copy trading?">
             <p>
@@ -170,14 +172,16 @@ const FAQ = () => {
             />
           </AccordionItem>
           <AccordionItem title="How do I get help?">
-            Visit our{" "}
-            <a href="https://binary.vanillacommunity.com/">dev forum</a> or
-            email
-            <a href="mailto:api-support@deriv.com?subject=API+Question:+">
-              {" "}
-              api-support@deriv.com
-            </a>
-            .
+            <p>
+              Visit our{" "}
+              <a href="https://binary.vanillacommunity.com/">dev forum</a> or
+              email
+              <a href="mailto:api-support@deriv.com?subject=API+Question:+">
+                {" "}
+                api-support@deriv.com
+              </a>
+              .
+            </p>
           </AccordionItem>
         </Accordion>
       </div>

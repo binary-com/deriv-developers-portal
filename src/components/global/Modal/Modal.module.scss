@@ -13,8 +13,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 12px;
-  height: 12px;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .modalContent {
@@ -29,8 +29,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  width: 100px;
-  height: 100px;
+  width: 10rem;
+  height: 10rem;
 }
 
 .modalImageSuccess {
@@ -44,29 +44,29 @@
 }
 
 .modalTitle {
-  margin-bottom: 16px;
-  font-size: 24px;
-  text-align: left;
-  line-height: 1.5;
+  margin-bottom: 1.6rem;
+  font-size: var(--text-size-m);
+  text-align: var(--text-align-left);
+  line-height: var(--text-lh-m);
   color: var(--text-01);
-  font-weight: bold;
+  font-weight: var(--text-weight-bold);
 }
 
 .modalDescription {
-  text-align: center;
-  padding: 10px;
+  text-align: var(--text-align-center);
+  padding: 1rem;
 }
 
 .modalFooter {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 24px;
-  margin-bottom: 37px;
-  gap: 24px;
+  justify-content: var(--text-align-center);
+  align-items: var(--text-align-center);
+  margin-top: 2.4rem;
+  margin-bottom: 3.7rem;
+  gap: 2.4rem;
 }
 
 .modalSecondary {
-  margin-right: 24px;
+  margin-right: 2.4rem;
 }

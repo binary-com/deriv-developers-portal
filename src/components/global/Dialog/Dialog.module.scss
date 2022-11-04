@@ -16,7 +16,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
+  width: 32rem;
   height: auto;
   background-color: #fff;
   border-radius: 16px;
@@ -25,9 +25,9 @@
 }
 
 [data-state~="responsive.mobileS"] .dialogContent {
-  width: 300px;
+  width: 30rem;
 }
 
 [data-state*="responsive.desktop"] .dialogContent {
-  width: 433px;
+  width: 43.3rem;
 }
