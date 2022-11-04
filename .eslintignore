@@ -1,3 +1,4 @@
 public/demos/demos/*
 tsconfig.json
 tsconfig.node.json
+state/state.js

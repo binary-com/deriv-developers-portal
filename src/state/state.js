@@ -253,40 +253,32 @@ export const stateMachine =
                     },
                 },
             },
-        },
-        location: {
-            initial: 'deriv_location',
-            states: {
-                deriv_location: {
-                    on: {
-                        TOGGLE_BRANDING_OFF: {
-                            target: 'third_party_location',
+            location: {
+                initial: 'deriv_location',
+                states: {
+                    deriv_location: {
+                        on: {
+                            TOGGLE_BRANDING_OFF: {
+                                target: 'third_party_location',
+                            },
                         },
                     },
-                },
-                third_party_location: {
-                    on: {
-                        TOGGLE_BRANDING_ON: {
-                            target: 'deriv_location',
+                    third_party_location: {
+                        on: {
+                            TOGGLE_BRANDING_ON: {
+                                target: 'deriv_location',
+                            },
                         },
                     },
                 },
             },
-        },
-        playground: {
-            initial: 'notselected_tokenEmpty',
-            states: {
-                notselected_tokenEmpty: {
-                    initial: 'displayAuthDoc',
-                    states: {
-                        displayAuthDoc: {},
-                    },
-                    on: {
-                        FILL_TOKEN: {
-                            target: 'notselected_tokenFilled',
-                        },
-                        SELECT_API: {
-                            target: 'selected_tokenEmpty',
+            playground: {
+                initial: 'notselected_tokenEmpty',
+                states: {
+                    notselected_tokenEmpty: {
+                        initial: 'displayAuthDoc',
+                        states: {
+                            displayAuthDoc: {},
                         },
                         on: {
                             FILL_TOKEN: {

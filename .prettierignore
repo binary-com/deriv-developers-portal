@@ -6,6 +6,7 @@ config/
 examples/
 public/
 api-data/
+state.js
 *.d.ts
 *.config.ts
 *.config.js

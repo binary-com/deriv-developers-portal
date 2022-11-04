@@ -672,6 +672,14 @@ textarea {
     pointer-events: none;
   }
 }
+[data-state*="responsive.mobile"] {
+  .next {
+    right: -55px;
+  }
+  .prev {
+    left: -55px;
+  }
+}
 a.active {
   background-color: var(--hamburger-active-link);
   font-weight: bold;
