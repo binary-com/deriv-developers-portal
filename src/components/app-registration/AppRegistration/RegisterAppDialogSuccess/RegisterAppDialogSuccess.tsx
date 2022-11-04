@@ -9,7 +9,7 @@ import { stateService } from "../../../../state/stateSignal";
 const Modal = lazy(() => import("../../../global/Modal/Modal"));
 
 export default function RegisterAppDialogSuccess() {
-  const isModalOpen = useSelector(stateService, isRegisterSuccessSelector);
+  const isModalOpen: boolean = useSelector(stateService, isRegisterSuccessSelector);
   const isUpdateMode = useSelector(stateService, isUpdateModeSelector);
   const description = isUpdateMode
     ? "Your app has been updated successfully."
