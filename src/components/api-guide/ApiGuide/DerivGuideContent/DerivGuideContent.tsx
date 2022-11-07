@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import ApiGuideTable from "../ApiGuideTable/ApiGuideTable";
 import CodeBlockSingleLanguage from "../../../global/CodeBlock/CodeBlockSingleLanguage";
+import { InlineCode } from "../../../global/InlineCode/InlineCode";
 import styles from "../ApiGuide.module.scss";
 
 import ticksJSON from "../../../../../public/demos/json/ticks.json";
@@ -175,7 +176,7 @@ export const DerivGuideContent = () => {
         </div>
         <p>
           When you are writing an API client, you will write something like{" "}
-          <code className="inline-code">print address.street_number </code>
+          <InlineCode>print address.street_number</InlineCode>
           (depending on the programming language) to print the street number.
         </p>
         <p>
@@ -185,9 +186,9 @@ export const DerivGuideContent = () => {
         <p>
           For example, when we send information about account status, it
           requires several levels to print information (
-          <code className="inline-code">
-            print authentication.identity.services.manual
-          </code>
+            <InlineCode>
+              print authentication.identity.services.manual
+            </InlineCode>
           ) about the manual Identity service status:
         </p>
         <div className={styles.apiCodeBlock}>
@@ -328,11 +329,11 @@ export const DerivGuideContent = () => {
           with the user's session tokens, and will look similar to this:
         </p>
         <p>
-          <code className="inline-code">
-            https://mywebsite.com/redirect/?acct1=cr799393&
-            token1=a1-f7pnteezo4jzhpxclctizt27hyeot&cur1=usd& acct2=vrtc1859315&
-            token2=a1clwe3vfuuus5kraceykdsoqm4snfq& cur2=usd&state=
-          </code>
+          <InlineCode>
+              https://mywebsite.com/redirect/?acct1=cr799393&
+              token1=a1-f7pnteezo4jzhpxclctizt27hyeot&cur1=usd& acct2=vrtc1859315&
+              token2=a1clwe3vfuuus5kraceykdsoqm4snfq& cur2=usd&state=
+          </InlineCode>
         </p>
         <p>
           In the parameters of the URL you will see all the accounts and the
