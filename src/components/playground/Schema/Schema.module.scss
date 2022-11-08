@@ -13,42 +13,42 @@
 }
 
 .schemaRole {
-  font-size: 14px;
-  line-height: 1.43;
+  font-size: var(--text-size-xs);
+  line-height: var(--text-lh-s) ;
   color: var(--green-03);
   border: none;
-  margin: 8px 8px 0 0;
-  padding: 6px 8px;
+  margin: 0.8rem 0.8rem 0 0;
+  padding: 0.6rem 0.8rem;
   border-radius: 4px;
   background-color: rgba(0, 255, 104, 0.16);
 }
 
 .schemaCode {
   color: var(--white);
-  font-size: 14px;
+  font-size: var(--text-size-xs);
 }
 
 .schemaSubText {
-  line-height: 1.5;
-  font-size: 16px;
+  line-height: var(--text-lh-m);
+  font-size: var(--text-size-s);
 }
 
 .schemaHeader {
-  padding: 24px;
+  padding: 2.4rem;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border: none;
   background: var(--black-04);
 
   .schemaTitle {
-    font-size: 24px;
+    font-size: var(--text-size-m);
     color: var(--white);
   }
 
   .schemaDescription {
     display: flex;
-    padding: 5px 0;
-    gap: 20px;
+    padding: 0.5rem 0;
+    gap: 2rem;
     justify-content: space-between;
     color: var(--white);
 
@@ -74,16 +74,16 @@
     color: #9ed178 !important;
     background-color: #0e0e0e;
     border: none;
-    padding: 10px;
+    padding: 1rem;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: var(--text-size-xs);
   }
 }
 
 .schemaObjectHeader {
   flex-direction: column !important;
   .schemaObjectBody {
-    padding: 8px 16px;
+    padding: 0.8rem 1.6rem;
     width: 100%;
     box-sizing: border-box;
     height: fit-content;
@@ -91,14 +91,14 @@
     display: none;
     &.objectOpen {
       opacity: 1;
-      gap: 24px;
-      margin-top: 10px;
+      gap: 2.4rem;
+      margin-top: 1rem;
       display: flex;
       flex-direction: column;
     }
     .schemaObjectDescription {
       font-weight: normal;
-      font-size: 14px;
+      font-size: var(--text-size-xs);
     }
     .schemaBodyHeader {
       flex-direction: column;
@@ -108,7 +108,7 @@
 
 .schemaBody {
   background-color: #282a35;
-  padding: 28px 23px;
+  padding: 2.8rem 2.3rem;
 
   .schemaBodySignature {
     display: flex;
@@ -116,55 +116,55 @@
     position: relative;
 
     .schemaBodyDescription + .schemaBodyDescription {
-      text-indent: 16px;
-      padding: 10px;
+      text-indent: 1.6rem;
+      padding: 1rem;
       color: var(--white);
       background-color: rgba(219, 219, 219, 0.05) !important;
       border-radius: 4px;
     }
 
     .schemaBodySignature {
-      padding: 10px 16px;
+      padding: 1rem 1.6rem;
     }
 
     .schemaBodyHeader {
       display: flex;
       flex-direction: row;
       color: var(--white);
-      font-size: 16px;
-      margin: 0px 8px 0 0;
+      font-size: var(--text-size-s);
+      margin: 0 0.8rem 0 0;
       font-weight: 700;
       width: 100%;
 
       .schemaBodyType {
         display: flex;
         width: fit-content;
-        font-size: 14px;
+        font-size: var(--text-size-xs);
         font-weight: 400;
-        align-items: center;
+        align-items: var(--text-align-center);
         width: 100%;
       }
 
       .schemaEnums {
         width: fit-content;
         height: fit-content;
-        font-size: 14px;
-        line-height: 1.43;
+        font-size: var(--text-size-xs);
+        line-height: var(--text-lh-s);
         color: var(--green-03);
         border: none;
-        padding: 6px 8px;
+        padding: 0.6rem 0.8rem;
         border-radius: 4px;
         background-color: rgba(0, 255, 104, 0.16);
       }
 
       .schemaItems {
         color: var(--green-02);
-        font-size: 14px;
-        line-height: 1.43;
+        font-size: var(--text-size-xs);
+        line-height: var(--text-lh-s);
         color: var(--green-03);
         border: none;
-        margin: 8px 8px 0 0;
-        padding: 6px 8px;
+        margin: 0.8rem 0.8rem 0 0;
+        padding: 0.6rem 0.8rem;
         white-space: nowrap;
         border-radius: 4px;
       }
@@ -176,14 +176,14 @@
 
         .schemaBodyPattern {
           width: 100%;
-          font-size: 11px;
+          font-size: 1.1rem;
           color: var(--green-01);
-          margin: 0 10px;
+          margin: 0 1rem;
         }
 
         .schemaPatternType {
           color: var(--green-03);
-          font-size: 14px;
+          font-size: var(--text-size-xs);
           font-weight: 400;
         }
       }
@@ -193,72 +193,72 @@
       display: inline-block;
       white-space: break-spaces;
       color: var(--copy-color);
-      margin-top: 10px;
-      font-size: 14px;
-      line-height: 2;
-      margin-bottom: 24px;
+      margin-top: 1rem;
+      font-size: var(--text-size-xs);
+      line-height: var(--text-lh-xl);
+      margin-bottom: 2.4rem;
       &.objectOpen {
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
       }
     }
     .schemaRole {
       background-color: rgba(255, 255, 255, 0.16);
       border: none;
-      font-size: 14px;
+      font-size: var(--text-size-xs);
       font-weight: 400;
-      line-height: 2.5;
+      line-height: var(--text-lh-xxl);
       color: var(--white);
       height: fit-content;
-      padding: 5px 5px;
-      margin: 0 5px;
+      padding: 0.5rem 0.5rem;
+      margin: 0 0.5rem;
     }
   }
   .enumFlex {
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     display: flex;
-    gap: 8px;
+    gap: 0.8rem;
     width: 100%;
     > p {
       display: flex;
       color: var(--white);
       min-width: 35%;
       margin-bottom: unset;
-      align-items: center;
+      align-items: var(--text-align-center);
     }
     .defaultValue {
       display: flex;
-      align-items: center;
+      align-items: var(--text-align-center);
       gap: 5px;
     }
     .defaultValueLabel,
     .schemaDefaultValue {
-      font-size: 14px;
+      font-size: var(--text-size-xs);
       color: #c2c2c2;
     }
     .schemaDefaultValue {
       border: 2px solid #c2c2c2;
       border-radius: 4px;
-      padding: 3px;
+      padding: 0.3rem;
     }
     .enumContainer {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
+      gap: 0.8rem;
+      align-items: var(--text-align-center);
     }
     .enumLabel {
-      font-size: 14px;
-      line-height: 1.43;
+      font-size: var(--text-size-xs);
+      line-height: var(--text-lh-s);
       color: #c2c2c2;
     }
     .enumType {
-      font-size: 14px;
+      font-size: var(--text-size-xs);
     }
     .enumLabel,
     .enumType {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: var(--text-align-center);
+      align-items: var(--text-align-center);
     }
   }
 }
@@ -272,7 +272,7 @@
   > .schemaBodySignature {
     background-color: rgba(219, 219, 219, 0.05) !important;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 }
 
@@ -281,14 +281,14 @@
   color: var(--gray-01);
   font-family: lucida console, Monaco, monospace;
   position: absolute;
-  padding: 2px;
-  margin-top: 3px;
+  padding: 0.2rem;
+  margin-top: 0.3rem;
   right: 2px;
-  width: 18px;
-  text-align: center;
+  width: 1.8rem;
+  text-align: var(--text-align-center);
   cursor: pointer;
   font-weight: 700;
-  font-size: 10px;
+  font-size: var(--text-size-xxxs);
   transition: opacity 0.2s ease-in-out;
   &:hover {
     opacity: 1;
@@ -301,9 +301,9 @@
 
 .sourceButtonMain {
   @extend .sourceButton;
-  top: 10px;
-  right: 24px;
-  font-size: 16px;
+  top: 1rem;
+  right: 2.4rem;
+  font-size: var(--text-size-s);
 }
 
 [data-state~="responsive.mobileS"],

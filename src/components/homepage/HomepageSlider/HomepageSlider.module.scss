@@ -3,7 +3,7 @@
   left: 50%;
   transform: translate(0);
   width: 33vw;
-  height: 248px;
+  height: 24.8rem;
   .sliderWrapper {
     width: 33vw;
     .slides {
@@ -11,15 +11,15 @@
       display: flex;
       position: relative;
       top: 0;
-      width: 10000px;
+      width: 1000rem;
       cursor: pointer;
       .slide {
         width: 33vw;
-        height: 248px;
+        height: 24.8rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: var(--text-align-center);
+        align-items: var(--text-align-center);
         transition: all 1s;
         position: relative;
         pointer-events: none;
@@ -27,6 +27,7 @@
         hr,
         p {
           pointer-events: none;
+          font-size: var(--text-size-s);
         }
       }
     }
@@ -36,7 +37,7 @@
 [data-state~="responsive.mobileS"],
 [data-state~="responsive.mobileM"] {
   .slider {
-    height: 190px;
+    height: 19rem;
   }
 }
 

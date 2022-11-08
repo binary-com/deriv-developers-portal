@@ -66,7 +66,7 @@ const SchemaBodyHeader = ({
     >
       <div className={styles.schemaBodyType}>
         <div className={styles.enumFlex}>
-          <p>
+          <p style={{ fontSize : '2.6rem'}}>
             <strong>{key_value}</strong>
           </p>
           <div className={styles.enumContainer}>

@@ -5,34 +5,35 @@
   overflow-x: hidden;
 
   .arrow {
-    background-size: 22px;
-    background-position: center;
+    background-size: 2.2rem;
+    background-position: var(--text-align-center);
     background-repeat: no-repeat;
     cursor: pointer;
     background-image: url(/img/arrow_up.svg);
     transform: rotate(-180deg);
     transition: transform 0.2s;
-    width: 22px;
-    height: 22px;
+    width: 2.2rem;
+    height: 2.2rem;
     &.down {
       transform: rotate(0deg);
     }
   }
 
   .dropdownBtn {
-    padding: 5px 5px;
+    padding: 0.5rem 0.5rem;
     background: var(--white);
     color: var(--black-03);
     display: flex;
-    align-items: center;
+    align-items: var(--text-align-center);
     cursor: pointer;
     justify-content: space-between;
+    font-size: var(--text-size-s);
   }
 
   .dropdownContent {
     position: relative;
     top: 110%;
-    padding-top: 10px;
+    padding-top: 1rem;
     left: 0;
     background: var(--white);
     color: var(--black-03);
@@ -40,8 +41,8 @@
     overflow-x: hidden;
 
     .dropdownSearch {
-      padding: 4px;
-      margin: 10px;
+      padding: 0.4rem;
+      margin: 1rem;
       width: 97%;
       box-sizing: border-box;
       border: 1px solid #ccc;
@@ -49,15 +50,17 @@
 
     .dropdownSelect{
       padding: 0;
-      margin: 5px;
+      margin: 0.5rem;
       color: var(--gray-05);
+      font-size: var(--text-size-s);
     }
 
     .dropdownStart {
       padding: 0;
-      margin: 5px;
-      font-weight: bold;
+      margin: 0.5rem;
+      font-weight: var(--text-weight-bold);
       color: var(--black-03);
+      font-size: var(--text-size-s);
     }
 
     .dropdownSelected {
@@ -65,7 +68,7 @@
     }
 
     .dropdownList{
-      max-height: 700px;
+      max-height: 70rem;
       overflow: auto;
     }
 
@@ -74,12 +77,13 @@
       margin: 0;
       padding: 0;
       cursor: pointer;
-      padding: 6px;
+      padding: 0.6rem;
       user-select: none;
       color: var(--black-03);
       cursor: pointer;
-      padding: 10px;
+      padding: 1rem;
       cursor: pointer;
+      font-size: var(--text-size-s);
       transition: all 0.2s;
       &:hover {
         background: #1e90ff;
