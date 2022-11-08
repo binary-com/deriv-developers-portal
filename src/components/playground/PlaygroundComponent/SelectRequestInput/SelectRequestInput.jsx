@@ -37,7 +37,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                     onClick={handleToggleDropdown}
                     data-testid='apiDropdown'
                 >
-                    {selected_value}
+                    <span>{selected_value}</span>
                     <span className={`${styles.arrow} ${isActive ? styles.down : ''}`} />
                 </div>
                 {isActive && (
@@ -52,8 +52,12 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                             }}
                         />
                         <div className={styles.dropdownList}>
-                            <div className={styles.dropdownSelect}> Select API Call - Version 3</div>
-                            <div className={styles.dropdownStart}>ALL CALLS</div>
+                            <div className={styles.dropdownSelect}>
+                                <span>Select API Call - Version 3</span>
+                            </div>
+                            <div className={styles.dropdownStart}>
+                                <span>ALL CALLS</span>
+                            </div>
                             {playground_requests
                                 .filter(option => {
                                     return option.title.toLowerCase().includes(searchResults.toLowerCase())
@@ -74,7 +78,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
                                         }`}
                                         data-testid={`apiDropdownItem${option.name}`}
                                     >
-                                        {option.title}
+                                        <span>{option.title}</span>
                                     </div>
                                 ))}
                         </div>

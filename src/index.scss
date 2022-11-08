@@ -13,7 +13,7 @@ a.active {
     position: absolute;
     height: 40px;
     width: 4px;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0.4rem 0 0 0.4rem;
     left: 0;
     bottom: 0;
     background-color: var(--red-01);
@@ -31,24 +31,24 @@ button {
 
 li {
   font-size: var(--text-size-s);
-  margin-top: 16px;
+  margin-top: 1.6rem;
 }
 
 ul {
-  margin-left: 20px;
+  margin-left: 2rem;
 
   li {
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
   }
 }
 
 textarea {
-  font-size: 16px;
+  font-size: var(--text-size-s);
   resize: none;
-  width: calc(100% - 16px);
+  width: calc(100% - 1.6rem);
   min-height: 119px;
   margin-top: 1.5rem;
-  padding: 10px;
+  padding: 1rem;
   border-radius: 4px;
   border: solid 1px var(--border-normal);
 }
@@ -66,7 +66,7 @@ textarea {
 .card-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
 }
 
 .center {
@@ -94,9 +94,9 @@ textarea {
 
 .error-message {
   color: var(--red-01);
-  font-size: 14px;
+  font-size: var(--text-size-xs);
   font-weight: 400;
-  padding-left: 10px;
+  padding-left: 1rem;
 }
 
 .language-json {
@@ -128,7 +128,7 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 80px 0;
+  padding: 8rem 0;
 
   &.ways-row {
     padding: 0;
@@ -138,14 +138,14 @@ textarea {
 .main-page-card {
   width: 100%;
   max-width: 316px;
-  padding: 32px 24px;
+  padding: 3.2rem 2.4rem;
   border-radius: 4px;
   box-shadow: 0 4px 8px 0 rgb(14, 14, 14, 0.1);
   background-color: var(--white);
-  margin: 0 12px;
+  margin: 0 1.2rem;
 
   .content {
-    font-size: 16px;
+    font-size: var(--text-size-s);
     line-height: 1.5;
     color: var(--text-01);
     margin-bottom: 0;
@@ -164,17 +164,17 @@ textarea {
     width: 100%;
 
     h3 {
-      font-size: 24px;
+      font-size: var(--text-size-m);
       font-weight: 700;
       color: var(--text-01);
-      margin-bottom: 8px;
+      margin-bottom: 0.8rem;
       float: left;
       width: 100%;
     }
 
     img {
       float: right;
-      padding-left: 10px;
+      padding-left: 1rem;
     }
 
   }
@@ -193,8 +193,8 @@ textarea {
 .pageWrapper {
   width: 100%;
   color: var(--text-01);
-  padding-bottom: 20px;
-  margin-left: 300px;
+  padding-bottom: 2rem;
+  margin-left: 30rem;
 }
 
 .row-container {
@@ -216,18 +216,18 @@ textarea {
 
   h1 {
     width: 80%;
-    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
     line-height: 1.25;
   }
 
   >h2 {
-    font-size: 32px;
+    font-size: var(--text-size-l);
     margin-bottom: 8px;
     color: var(--white);
   }
 
   p {
-    margin-bottom: 32px;
+    margin-bottom: 3.2rem;
     text-align: center;
 
     a {
@@ -236,16 +236,16 @@ textarea {
   }
 
   img {
-    margin-bottom: 24px;
+    margin-bottom: 2.4rem;
   }
 }
 
 .subheader {
-  font-size: 24px;
+  font-size: var(--text-size-m);
   text-align: center;
   line-height: 1.5;
   color: var(--text-01);
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
 }
 
 .gray {
@@ -285,12 +285,12 @@ textarea {
 
       .card-container {
         flex-direction: column;
-        padding: 24px 16px 0;
+        padding: 2.4rem 1.6rem 0;
         margin-bottom: 0;
 
         .main-page-card {
           width: unset;
-          margin: 0 0 24px;
+          margin: 0 0 2.4rem;
         }
       }
 
@@ -299,10 +299,10 @@ textarea {
       }
 
       .single-container {
-        font-size: 24px;
+        font-size: var(--text-size-m);
 
         .subheader {
-          font-size: 16px;
+          font-size: var(--text-size-s);
         }
       }
 
@@ -322,7 +322,7 @@ textarea {
 
       .single-container {
         width: unset;
-        padding: 40px 16px 0;
+        padding: 4rem 1.6rem 0;
       }
     }
   }
@@ -334,16 +334,13 @@ textarea {
   }
 
   .main-content {
-    .container {
-      flex-direction: column;
 
-      .row-container {
-        width: 100%;
+    .row-container {
+      width: 100%;
 
-        .single-container {
-          width: unset;
-          padding: 40px 16px 0;
-        }
+      .single-container {
+        width: unset;
+        padding: 4rem 1.6rem 0;
       }
     }
 
@@ -364,7 +361,7 @@ textarea {
 [data-state~="responsive.mobileM"] {
 
   .main-page-card {
-    padding: 28px 16px 24px;
+    padding: 2.8rem 1.6rem 2.4rem;
 
     .hide-on-desktop {
       display: block;
