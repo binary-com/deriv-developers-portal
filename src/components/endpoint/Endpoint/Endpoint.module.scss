@@ -1,45 +1,45 @@
 .pageContent {
     height: 140vh;
     justify-content: center;
-    padding-top: 60px;
+    padding-top: 6rem;
     .header {
         text-align: center;
         color: var(--black-01);
-        margin-top: 80px;
-        font-weight: bold;
-        font-size: 3.8rem;
-        line-height: 6rem;
+        margin-top: 8rem;
+        font-weight: var(--text-weight-bold);
+        font-size: 6.08rem;
+        line-height: 9.6rem;
         width: 100%;
     }
 
     .content {
         display: flex;
-        align-items: center;
+        align-items: var(--text-align-center);
         flex-direction: column;
-        justify-content: center;
-        margin: 10px;
-        padding: 10px;
+        justify-content: var(--text-align-center);
+        margin: 1rem;
+        padding: 1rem;
         position: relative;
 
         .title {
-            text-align: center;
+            text-align: var(--text-align-center);
             color: var(--black-01);
-            margin-top: 0.5rem;
-            margin-bottom: 3.8rem;
+            margin-top: 0.8rem;
+            margin-bottom: 6.08rem;
             font-weight: 500;
-            font-size: 1.4rem;
-            line-height: 3rem;
+            font-size: 2.24rem;
+            line-height: 4.8rem;
             width: 100%;
         }
         .customTextInput {
             border-radius: 4px;
-            align-items: center;
+            align-items: var(--text-align-center);
             display: flex;
             flex-direction: column;
-            line-height: 1.43;
+            line-height: var(--text-lh-s);
             width: 100%;
             box-sizing: border-box;
-            padding: 10px;
+            padding: 1rem;
             &:focus-within {
                 border-color: var(--brand-secondary);
             }
@@ -53,16 +53,16 @@
                     box-sizing: border-box;
                     color: var(--app-registration-tab-active-font);
                     display: block;
-                    height: 2.5rem;
+                    height: 4rem;
                     min-width: 0;
                     width: 100%;
                     border: none;
-                    text-indent: 12px;
+                    text-indent: 1.2rem;
                     &:not(:placeholder-shown) ~ label {
                         color: var(--app-registration-tab-active-font);
                         background-color: var(--white);
-                        background-size: 10px;
-                        padding: 0 4px;
+                        background-size: 1rem;
+                        padding: 0 0.4rem;
                         transform: translateY(-20px) scale(0.75);
                     }
                     &:focus {
@@ -70,53 +70,54 @@
                         & ~ label {
                             color: var(--brand-secondary);
                             background-color: var(--white);
-                            padding: 0 4px;
+                            padding: 0 0.4rem;
                             transform: translateY(-20px) scale(0.75);
                         }
                     }
                 }
                 .inlineLabel {
                     position: relative;
-                    padding: 4px 2px;
+                    padding: 0.4rem 0.2rem;
                     display: inline-block;
-                    font-size: 16px;
-                    margin-right: 5px;
-                    line-height: 20px;
+                    font-size: var(--text-size-s);
+                    margin-right: 0.5rem;
+                    line-height: var(--text-lh-xl);
                     color: var(--black-01);
-                    padding: 4px 2px;
+                    padding: 0.4rem 0.2rem;
                     background-color: var(--white);
                     pointer-events: none;
                     white-space: nowrap;
-                    transform: translate(6px, 10px);
+                    transform: translate(0.6rem, 1rem);
                 }
                 .textInput {
                     background: none;
                     border: 1px solid #ccc;
                     color: var(--black-01);
-                    padding: 1rem 1rem 1rem 0.8rem;
+                    padding: 1.6rem 1.6rem 1.6rem 1.28rem;
                     width: 100%;
+                    font-size: var(--text-size-s);
                 }
                 .errorMessage {
                     color: var(--red-01);
-                    font-size: 14px;
+                    font-size: var(--text-size-xs);
                     font-weight: 400;
-                    padding-left: 10px;
+                    padding-left: 1rem;
                 }
             }
         }
         .url {
             display: flex;
             flex-direction: row;
-            font-size: 20px;
-            padding: 10px;
+            font-size: var(--text-size-sm);
+            padding: 1rem;
 
             .urlLabel {
                 font-weight: bold;
-                font-size: 20px;
+                font-size: var(--text-size-sm);
             }
             .urlId {
                 border-radius: 4px;
-                padding: 2px 4px;
+                padding: 0.2rem 0.4rem;
                 color: var(--wine-01);
                 font-size: 90%;
                 border: 1px solid var(--gray-01);
@@ -125,12 +126,12 @@
         }
         .buttons {
             display: flex;
-            margin: 5px;
+            margin: 0.5rem;
 
             .submitButton {
                 border-radius: 4px;
-                padding: 10px 16px;
-                font-size: 14px;
+                padding: 1rem 1.6rem;
+                font-size: var(--text-size-xs);
                 transition: all 0.25s ease 0s;
                 font-weight: bold;
                 height: fit-content;
@@ -141,10 +142,10 @@
 
             .resetButton {
                 border-radius: 4px;
-                padding: 10px 16px;
-                font-size: 14px;
+                padding: 1rem 1.6rem;
+                font-size: var(--text-size-xs);
                 transition: all 0.25s ease 0s;
-                font-weight: bold;
+                font-weight: var(--text-weight-bold);
                 height: fit-content;
                 border: 2px solid var(--gray-05);
                 color: var(--black-01);
@@ -164,7 +165,7 @@
             }
             .url {
                 flex-direction: column;
-                text-align: center;
+                text-align: var(--text-align-center);
             }
         }
     }
