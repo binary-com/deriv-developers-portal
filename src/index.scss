@@ -7,7 +7,7 @@ a {
   color: var(--red-01);
   text-decoration: none;
 
-  .active {
+  &.active {
     background-color: var(--hamburger-active-link);
     font-weight: bold;
 
