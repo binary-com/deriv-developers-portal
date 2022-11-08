@@ -3,22 +3,32 @@ body {
   overflow-x: hidden;
 }
 
-a.active {
-  background-color: var(--hamburger-active-link);
-  font-weight: bold;
+a {
+  color: var(--red-01);
+  text-decoration: none;
 
-  &::before {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    height: 40px;
-    width: 4px;
-    border-radius: 0.4rem 0 0 0.4rem;
-    left: 0;
-    bottom: 0;
-    background-color: var(--red-01);
-    visibility: visible;
+  .active {
+    background-color: var(--hamburger-active-link);
+    font-weight: bold;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      height: 40px;
+      width: 4px;
+      border-radius: 0.4rem 0 0 0.4rem;
+      left: 0;
+      bottom: 0;
+      background-color: var(--red-01);
+      visibility: visible;
+    }
   }
+}
+
+p {
+  line-height: 2.8rem;
+  margin-bottom: 1.6rem;
 }
 
 button {
