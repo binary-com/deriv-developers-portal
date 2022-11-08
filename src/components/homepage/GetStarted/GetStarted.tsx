@@ -1,9 +1,9 @@
 import styles from "./GetStarted.module.scss";
 export const GetStarted = () => {
     return (
-        <div className="main-page-row with-pattern">
+        <div className={`main-page-row ${styles.withPattern}`}>
             <div className="column-container">
-                <h2 className="header_h2">Get started with our API in 3 simple steps:</h2>
+                <h1>Get started with our API in 3 simple steps:</h1>
                 <div className="card-container">
                     <a
                         target="_blank"
@@ -45,7 +45,7 @@ export const GetStarted = () => {
                         </div>
                     </a>
                 </div>
-                <span className="term-conditions">
+                <span className={styles.termConditions}>
                     By using our API, you confirm that you have read and agreed to our
                     <a
                         href="https://deriv.com/tnc/business-partners-api-user.pdf"

@@ -3,7 +3,7 @@ export const Benefits = () => {
     return (
         <div className="main-page-row">
             <div className={`column-container ${styles.benefitsContainer}`}>
-                <h2 className={styles.benefitsTitle}>Benefits of using Deriv API</h2>
+                <h1>Benefits of using Deriv API</h1>
                 <div className={`container ${styles.benefitsIcons}`}>
                     <div className="single-container">
                         <div className={`${styles.automationIcon} ${styles.image}`} />

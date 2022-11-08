@@ -4,7 +4,7 @@ export const WaysToEarn = () => {
         <div className={`column-container ${styles.waysContainer}`}>
             <div className={styles.waysWrapper}>
                 <div>
-                    <h2>Ways to earn with Deriv API</h2>
+                    <h1>Ways to earn with Deriv API</h1>
                 </div>
                 <div>
                     <div className={`main-page-card ${styles.ways}`}>

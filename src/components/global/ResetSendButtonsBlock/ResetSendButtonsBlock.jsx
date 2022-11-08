@@ -1,5 +1,5 @@
-import Button from "../GeneralButton/GeneralButton";
 import React from "react";
+import Button from "../GeneralButton/GeneralButton";
 import style from "./ResetSendButtonsBlock.module.scss";
 import { ticksSubject } from "../../../global-functions/ticksSubject";
 
@@ -14,21 +14,21 @@ export const ResetSendButtonsBlock = (
       setIsScrolling?.(true)
     }
        return (
-      <div className={style["json-btn-wrapper"]}>
+      <div className={style.jsonBtnWrapper}>
         <div
           id="playground-reset-btn"
           className={
             isAppRegistration
-              ? `${style["btn-reset"]} ${style["gray-btn-submit"]}`
-              : `${style["btn-reset"]} ${style["btn-reset-playground"]}`
+              ? `${style.btnReset} ${style.grayBtnSubmit}`
+              : `${style.btnReset} ${style.btnResetPlayground}`
           }
         >
           <Button text={"Reset Connection"} clickHandler={onClick}  />
         </div>
-        <div className={style["btn-submit"]}>
+        <div className={style.btnSubmit}>
           <Button
             id="playground-send-btn"
-            className={style["btn-submit"]}
+            className={style.btnSubmit}
             text={"Send Request"}
             clickHandler={sendRequest}
           />

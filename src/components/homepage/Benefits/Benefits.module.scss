@@ -1,12 +1,4 @@
 .benefitsContainer {
-    .benefitsTitle {
-        margin-bottom: 1rem;
-        color: var(--text-01);
-        font-size: var(--text-size-xl);
-        margin-bottom: 40px;
-        text-align: center;
-    }
-
     .benefitsIcons {
         width: 65%;
         flex-wrap: nowrap;
@@ -43,6 +35,10 @@
         flex-direction: column;
         justify-content: space-evenly;
         width: 100%;
+
+        h3 {
+            margin: 16px 0;
+        }
 
         div {
             width: 48.6rem;
@@ -192,20 +188,6 @@
                 margin-bottom: 0;
             }
 
-            .personalisationContainer {
-                .personalisationImage {
-                    width: 100%;
-                    margin: 0 auto;
-                }
-            }
-
-            .earnMoreContainer {
-                .earnMoreImage {
-                    width: 100%;
-                    margin: 0 auto;
-                }
-            }
-
             .personalisation,
             .earnMore {
                 margin: 0;
@@ -224,5 +206,15 @@
     .benefitsContainer .benefits .earnMoreImage {
         max-width: 48.6rem;
         height: 15rem;
+    }
+}
+
+[data-state~="responsive.desktopL"] {
+    .personalisation {
+        order: 2;
+    }
+
+    .personalisationImage {
+        order: 1;
     }
 }
