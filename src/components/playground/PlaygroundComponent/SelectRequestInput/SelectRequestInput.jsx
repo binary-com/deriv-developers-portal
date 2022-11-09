@@ -32,11 +32,7 @@ const SelectRequestInput = ({ selected, setSelected, handleChange, selected_valu
     return (
         <div>
             <div className={styles.dropdown} ref={ref}>
-                <div
-                    className={styles.dropdownBtn}
-                    onClick={handleToggleDropdown}
-                    data-testid='apiDropdown'
-                >
+                <div className={styles.dropdownBtn} onClick={handleToggleDropdown} data-testid='apiDropdown'>
                     {selected_value}
                     <span className={`${styles.arrow} ${isActive ? styles.down : ''}`} />
                 </div>

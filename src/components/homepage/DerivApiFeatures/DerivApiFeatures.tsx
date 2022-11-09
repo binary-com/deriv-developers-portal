@@ -1,16 +1,15 @@
-import styles from "./DerivApiFeatures.module.scss";
+import styles from './DerivApiFeatures.module.scss';
 
 export const DerivApiFeatures = () => {
     return (
-        <div className="main-page-row white">
-            <div className="column-container">
+        <div className='main-page-row white'>
+            <div className='column-container'>
                 <div className={styles.apiFeatures}>
                     <div className={styles.apiFeaturesDescription}>
                         <h2>Deriv API features</h2>
                         <p>
-                            Deriv API gives you full access to all the trading
-                            functionalities of DTrader and allows you to build your own
-                            comprehensive trading systems and analysis tools.
+                            Deriv API gives you full access to all the trading functionalities of DTrader and allows you
+                            to build your own comprehensive trading systems and analysis tools.
                         </p>
                         <p>With our API, you'll be able to:</p>
                         <ul>
@@ -44,5 +43,5 @@ export const DerivApiFeatures = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

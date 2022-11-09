@@ -1,5 +1,5 @@
-import styles from "./Spinner.module.scss";
+import styles from './Spinner.module.scss';
 
 export default function Spinner() {
-  return <div className={styles.spinner} />;
+    return <div className={styles.spinner} />;
 }
