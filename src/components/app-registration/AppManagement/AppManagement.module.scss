@@ -126,7 +126,7 @@
     border: 0.1rem solid #d6dadb;
     border-radius: 0.4rem;
     padding: 0.2rem 0.2rem;
-    font-size: 11px;
+    font-size: var(--text-size-xxs);
 }
 .adminScope {
     border: 0.1rem solid var(--teal-01);

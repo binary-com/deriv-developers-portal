@@ -68,6 +68,10 @@ fieldset .customTextInput:last-child {
         align-items: center;
         justify-content: center;
         width: 80%;
+        input[type='number'],
+        input[type='text'] {
+            height: 40px;
+        }
         input[type='number'] {
             appearance: none;
             &::-webkit-outer-spin-button,
@@ -215,6 +219,7 @@ input[type='checkbox'] {
         height: 11px;
         border-radius: 2px;
         transition: background-color 0.25s, border-color 0.25s;
+        top: 3px;
         z-index: 1;
     }
     input:checked + .customCheckbox {
