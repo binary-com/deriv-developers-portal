@@ -1,5 +1,5 @@
 fieldset .customTextInput:last-child {
-    margin-top: 15px;
+    margin-top: 1.5rem;
 }
 
 .customTextInput {
@@ -7,7 +7,7 @@ fieldset .customTextInput:last-child {
     border: 1px solid var(--border-normal);
     border-radius: 4px;
     display: flex;
-    line-height: 1.43;
+    line-height: var(--text-lh-s);
     position: relative;
     width: 100%;
     box-sizing: border-box;
@@ -20,8 +20,8 @@ fieldset .customTextInput:last-child {
     label {
         position: absolute;
         color: var(--app-registration-tab-secondary);
-        left: 12px;
-        font-size: 14px;
+        left: 1.2rem;
+        font-size: var(--text-size-xs);
         pointer-events: none;
         transform-origin: top left;
         transition: all 0.25s ease;
@@ -33,24 +33,24 @@ fieldset .customTextInput:last-child {
         box-sizing: border-box;
         color: var(--app-registration-tab-active-font);
         display: block;
-        height: 2.5rem;
+        height: 4.0rem;
         min-width: 0;
         width: 100%;
         border: none;
-        text-indent: 12px;
+        text-indent: 1.2rem;
         &:not(:placeholder-shown) ~ label {
             color: var(--app-registration-tab-active-font);
             background-color: var(--white);
-            padding: 0 4px;
-            transform: translateY(-20px) scale(0.75);
+            padding: 0 0.4rem;
+            transform: translateY(-2rem) scale(0.75);
         }
         &:focus {
             outline: none;
             & ~ label {
                 color: var(--brand-secondary);
                 background-color: var(--white);
-                padding: 0 4px;
-                transform: translateY(-20px) scale(0.75);
+                padding: 0 0.4rem;
+                transform: translateY(-2rem) scale(0.75);
             }
         }
     }
@@ -59,14 +59,14 @@ fieldset .customTextInput:last-child {
 .frmNewApplication {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: var(--text-align-center);
+    align-items: var(--text-align-center);
     width: 100%;
     .formContent {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: var(--text-align-center);
+        justify-content: var(--text-align-center);
         width: 80%;
         input[type='number'],
         input[type='text'] {
@@ -87,9 +87,9 @@ fieldset .customTextInput:last-child {
         }
         .helperText {
             width: 100%;
-            padding-left: 12px;
-            font-size: 12px;
-            line-height: 1.5;
+            padding-left: 1.2rem;
+            font-size: var(--text-size-xxs);
+            line-height: var(--text-lh-m);
             color: var(--gray-09);
             margin-bottom: 0;
         }
@@ -97,13 +97,13 @@ fieldset .customTextInput:last-child {
             width: 80%;
             left: 0;
             display: flex;
-            padding: 40px 0 10px;
+            padding: 4rem 0 1rem;
 
             .expandFormCheckbox {
-                margin-right: 16px;
+                margin-right: 1.6rem;
                 transform: scale(1.23);
-                padding: 9px;
-                top: 1px;
+                padding: 0.9rem;
+                top: 0.1rem;
                 position: relative;
             }
         }
@@ -113,53 +113,53 @@ fieldset .customTextInput:last-child {
                 width: 100%;
             }
             .termsOfConditionRegister {
-                margin-top: 35px;
+                margin-top: 3.5rem;
             }
             .scopes {
-                margin-top: 40px;
+                margin-top: 4rem;
                 .scopesField {
                     width: 96%;
                     display: flex;
                     flex-direction: row;
-                    margin-bottom: 16px;
-                    align-items: center;
-                    justify-self: center;
+                    margin-bottom: 1.6rem;
+                    align-items: var(--text-align-center);
+                    justify-self: var(--text-align-center);
                 }
             }
             .registerAppButtonContainer {
                 display: flex;
-                justify-content: center;
+                justify-content: var(--text-align-center);
                 width: 100%;
-                margin-top: 25px;
+                margin-top: 2.5rem;
                 flex-wrap: wrap-reverse;
-                gap: 16px;
+                gap: 1.6rem;
                 button {
-                    font-size: 16px;
+                    font-size: 1.6rem;
                 }
             }
         }
         .formHeaderContainer {
             display: flex;
-            padding: 10px 0;
-            margin-top: 15px;
+            padding: 1rem 0;
+            margin-top: 1.5rem;
             flex-direction: column;
             .registerFormHeader {
-                font-size: 16px;
-                margin-right: 5px;
-                line-height: 20px;
-                margin-bottom: 1rem;
+                font-size: var(--text-size-s);
+                margin-right: 0.5rem;
+                line-height: var(--text-lh-xl);
+                margin-bottom: 1.6rem;
             }
             .description {
-                margin-bottom: 1rem;
+                margin-bottom: 1.6rem;
             }
         }
     }
 }
 
 .scopeItem {
-    border: 0.1rem solid #d6dadb;
-    border-radius: 0.4rem;
-    padding: 0.8rem 0.4rem;
+    border: 0.16rem solid #d6dadb;
+    border-radius: 0.64rem;
+    padding: 1.28rem 0.64rem;
 }
 
 [data-state~='registration.logged_in.register_tab.unfolded_form'] .expandableForm {
@@ -179,19 +179,19 @@ fieldset .customTextInput:last-child {
     .formContent {
         width: 100%;
         .registerFormHeader {
-            font-size: 16px;
+            font-size: var(--text-size-s);
         }
     }
     .infoIcon:hover .tooltip {
-        width: 140px;
+        width: 14rem;
         transform: translate(-19%, calc(-100% - 10px));
     }
 }
 
 input[type='checkbox'] {
     position: absolute;
-    top: 2px;
-    left: 2px;
+    top: 0.2rem;
+    left: 0.2rem;
     right: 0;
     bottom: 0;
     width: 100%;
@@ -203,10 +203,10 @@ input[type='checkbox'] {
 
 .customCheckboxContainer {
     position: relative;
-    height: 11px;
-    min-width: 11px;
-    margin-right: 15px;
-    padding-top: 4.5px;
+    height: 1.1rem;
+    min-width: 1.1rem;
+    margin-right: 1.5rem;
+    padding-top: 0.45rem;
     z-index: 0;
     margin-bottom: auto;
     .customCheckbox {
@@ -215,8 +215,8 @@ input[type='checkbox'] {
         background-repeat: no-repeat;
         display: inline-block;
         border: 2px solid var(--app-registration-tab-secondary);
-        min-width: 11px;
-        height: 11px;
+        min-width: 1.1rem;
+        height: 1.1rem;
         border-radius: 2px;
         transition: background-color 0.25s, border-color 0.25s;
         top: 3px;

@@ -1,39 +1,46 @@
 .manageApps {
     display: none;
+
     table {
         border-spacing: 0;
         width: 100%;
-        padding: 0 50px;
+        padding: 0 5rem;
     }
+
     thead {
         background-color: var(--gray-02);
-        height: 50px;
-        text-align: left;
+        height: 5rem;
+        text-align: var(--text-align-left);
     }
+
     th,
     td {
-        padding: 16px;
-        min-width: 120px;
-        max-width: 200px;
+        padding: 1.6rem;
+        min-width: 12rem;
+        max-width: 20rem;
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     td:last-child,
     th:last-child {
         white-space: nowrap;
-        padding: 0 10px;
+        padding: 0 1rem;
     }
+
     td:first-child,
     th:first-child {
-        padding-left: 32px;
+        padding-left: 3.2rem;
     }
+
     tbody tr:nth-child(even) {
         background-color: var(--gray-03);
     }
+
     td:nth-child(2n + 3) {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem;
+        gap: 0.64rem;
     }
 }
 
@@ -41,7 +48,7 @@
     display: inline-block;
     overflow: auto;
     width: 100%;
-    max-height: 500px;
+    max-height: 50rem;
 }
 
 [data-state~='registration.logged_in.manage_tab.loadingApps.empty'] .manageApps {
@@ -53,17 +60,17 @@
 }
 
 [data-state~='responsive.desktopLaptopM'] .manageApps {
-    width: 650px;
+    width: 65rem;
 }
 
 @mixin actionIcon {
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: var(--text-align-center);
     background-size: contain;
-    width: 16px;
-    height: 16px;
+    width: 1.6rem;
+    height: 1.6rem;
     cursor: pointer;
-    padding: 0 8px;
+    padding: 0 0.8rem;
 }
 
 .deleteApp {
@@ -78,43 +85,47 @@
 
 .appActions {
     display: flex;
-    justify-content: center;
-    margin: 30px;
+    justify-content: var(--text-align-center);
+    margin: 3rem;
 }
 
 .tooltip {
     position: relative;
+
     .tooltipText {
         visibility: hidden;
-        width: 130px;
-        height: 15px;
+        width: 13rem;
+        height: 1.5rem;
         background-color: var(--border-normal);
         border-radius: 4px;
         color: var(--app-registration-tab-active-font);
-        text-align: center;
+        text-align: var(--text-align-center);
         border-radius: 6px;
-        padding: 5px 0;
+        padding: 0.5rem 0;
         position: absolute;
         z-index: 1;
         bottom: 125%;
-        font-size: 12px;
+        font-size: var(--text-size-xxs);
         left: 50%;
-        margin-left: -55px;
+        margin-left: -5.5rem;
         opacity: 0;
         transition: opacity 1s;
+
         &::after {
             content: '';
             position: absolute;
             top: 100%;
             left: 50%;
-            margin-left: -5px;
+            margin-left: -0.5rem;
             border-width: 5px;
             border-style: solid;
             border-color: var(--border-normal) transparent transparent transparent;
         }
     }
+
     &:hover {
         transform: translateY(-2px);
+
         .tooltipText {
             visibility: visible;
             opacity: 1;
@@ -123,11 +134,12 @@
 }
 
 .scope {
-    border: 0.1rem solid #d6dadb;
+    border: 0.16rem solid #d6dadb;
     border-radius: 0.4rem;
-    padding: 0.2rem 0.2rem;
+    padding: 0.32rem 0.32rem;
     font-size: var(--text-size-xxs);
 }
+
 .adminScope {
     border: 0.1rem solid var(--teal-01);
     color: var(--teal-01);

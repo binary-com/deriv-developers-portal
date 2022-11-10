@@ -1,29 +1,29 @@
 .sidebarleft {
     display: flex;
     flex-direction: column;
-    width: 270px;
+    width: 27rem;
     position: fixed;
     height: 100%;
     z-index: 10;
     background: white;
     border-right: 2px solid var(--gray-01);
-    margin-right: 48px;
-    top: 105px;
+    margin-right: 4.8rem;
+    top: 10.5rem;
     .sidebarContainer {
         overflow-y: auto;
         overflow-x: hidden;
-        height: calc(100vh - 200px);
+        height: calc(100vh - 20rem);
     }
     a {
         position: relative;
         opacity: 0.72;
-        margin: 5px 0;
+        margin: 0.5rem 0;
         line-height: 1.88;
         color: var(--text-01);
-        padding: 2px 16px 2px 16px;
-        height: 44px;
+        padding: 0.2rem 1.6rem 0.2rem 1.6rem;
+        height: 4.4rem;
         display: flex;
-        align-items: center;
+        align-items: var(--text-align-center);
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
         &:empty {
@@ -33,7 +33,7 @@
             content: '';
             position: absolute;
             left: 0;
-            width: 4px;
+            width: 0.4rem;
             height: 0;
             background-color: red;
             visibility: hidden;
@@ -54,8 +54,8 @@
     }
     .selected {
         background-color: var(--gray-01);
-        font-size: 16px;
-        font-weight: bold;
+        font-size: var(--text-size-s);
+        font-weight: var(--text-weight-bold);
         line-height: 1.88;
         opacity: 1;
 
@@ -67,24 +67,24 @@
 }
 
 .menuHeader {
-    padding: 20px 0 10px 0;
-    font-size: 16px;
-    line-height: 24px;
+    padding: 2rem 0 1rem 0;
+    font-size: var(--text-size-s);
+    line-height: var(--text-lh-xxl);
     font-weight: 700;
     color: var(--text-01);
     border-top: 2px solid var(--gray-01);
 }
 
 .menuItem {
-    width: 236px;
-    height: 24px;
+    width: 23.6rem;
+    height: 2.4rem;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--text-size-s);
+    line-height: var(--text-lh-xxl);
 
     .selected {
         background-color: var(--gray-01);
-        font-size: 16px;
+        font-size: var(--text-size-s);
         font-weight: bold;
         line-height: 1.88;
         opacity: 1;
@@ -97,32 +97,32 @@
 }
 
 .sidebartitle {
-    margin: 24px 0 0 2px;
-    padding-bottom: 10px;
-    font-size: 32px;
-    line-height: 1.25;
+    margin: 2.4rem 0 0 2rem;
+    padding-bottom: 1rem;
+    font-size: 3.2rem;
+    line-height: var(--text-lh-xs);
     color: var(--text-01);
     font-weight: bold;
     border-bottom: 2px solid var(--gray-01);
 }
 
 .dropdown {
-    width: 236px;
-    min-height: 24px;
+    width: 23.6rem;
+    min-height: 2.4rem;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: var(--text-size-s);
+    line-height: var(--text-lh-xxl);
 
     .arrow {
-        background-size: 22px;
-        background-position: center;
+        background-size: 2.2rem;
+        background-position: var(--text-align-center);
         background-repeat: no-repeat;
         cursor: pointer;
         background-image: url(/img/arrow_up.svg);
         transform: rotate(-180deg);
         transition: transform 0.2s;
-        width: 22px;
-        height: 22px;
+        width: 2.2rem;
+        height: 2.2rem;
         &.down {
             transform: rotate(0deg);
         }
@@ -130,13 +130,14 @@
 
     .dropdownBtn {
         position: relative;
-        height: 44px;
+        height: 4.4rem;
         opacity: 0.72;
         line-height: 1.88;
         color: var(--text-01);
-        padding: 2px 16px 2px 16px;
+        font-size: var(--text-size-s);
+        padding: 0.2rem 1.6rem 0.2rem 1.6rem;
         display: flex;
-        align-items: center;
+        align-items: var(--text-align-center);
         cursor: pointer;
         justify-content: space-between;
     }
@@ -152,8 +153,8 @@
         }
         .dropdownContent {
             font-weight: 400;
-            font-size: 16px;
-            line-height: 24px;
+            font-size: var(--text-size-s);
+            line-height: var(--text-lh-xxl);
             color: var(--text-01);
         }
         .selected {
@@ -176,39 +177,40 @@
         display: none;
     }
     .dropdown {
-        width: 236px;
-        min-height: 24px;
-        font-size: 14px;
+        width: 23.6rem;
+        min-height: 2.4rem;
+        font-size: var(--text-size-xs);
         line-height: 24px;
         .dropdownBtn {
             opacity: unset;
+            font-size: var(--text-size-xs);
             color: var(--text-01);
             > span {
                 font-size: var(--text-size-xs);
             }
         }
         .dropdownList {
-            margin-top: 16px;
+            margin-top: 1.6rem;
             display: flex;
             flex-direction: column;
-            padding-right: 16px;
+            padding-right: 1.6rem;
             overflow: unset;
-            gap: 16px;
+            gap: 1.6rem;
             a {
                 padding: 0;
-                padding-left: 16px;
-                text-indent: 16px;
-                height: 40px;
-                width: calc(100% - 22px);
+                padding-left: 1.6rem;
+                text-indent: 1.6rem;
+                height: 4rem;
+                width: calc(100% - 2.2rem);
                 color: var(--text-01);
                 display: flex;
-                align-items: center;
+                align-items: var(--text-align-center);
                 border-radius: 0px 4px 4px 0px;
                 position: relative;
-                font-size: 14px;
+                font-size: var(--text-size-xs);
                 &:before {
-                    width: 4px;
-                    margin-bottom: 2px;
+                    width: 0.4rem;
+                    margin-bottom: 0.2rem;
                     border-radius: 4px 0 0 4px;
                 }
             }
@@ -221,17 +223,17 @@
     .menuBlock {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 1.6rem;
         .menuItem {
             &.selected {
                 background-color: var(--gray-01);
-                font-weight: bold;
+                font-weight: var(--text-weight-bold);
                 line-height: 1.88;
                 opacity: 1;
                 &::before {
                     visibility: visible;
                     height: 100%;
-                    width: 4px;
+                    width: 0.4rem;
                     border-radius: 4px 0 0 4px;
                 }
             }
@@ -241,9 +243,9 @@
         }
 
         .menuHeader {
-            padding: 20px 0 10px 0;
-            font-size: 14px;
-            line-height: 24px;
+            padding: 2rem 0 1rem 0;
+            font-size: var(--text-size-xs);
+            line-height: var(--text-lh-xxl);
             font-weight: 700;
             color: var(--text-01);
             border-top: 2px solid var(--gray-01);
