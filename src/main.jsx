@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.scss";
+import "./themes.scss";
 import App from "./App";
 import ScrollToTop from "./global-functions/ScrollToTop";
 

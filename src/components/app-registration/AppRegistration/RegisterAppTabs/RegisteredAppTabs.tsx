@@ -8,14 +8,14 @@ export default function RegisteredAppTabs() {
         id="register_button"
         className="register-button"
       >
-        Register your application
+        <label>Register your application</label>
       </button>
       <button
         onClick={() => send("MANAGE_TOGGLE_TAB")}
         id="manage_button"
         className="manage-button"
       >
-        Manage existing applications
+        <label>Manage existing applications</label>
       </button>
     </div>
   );

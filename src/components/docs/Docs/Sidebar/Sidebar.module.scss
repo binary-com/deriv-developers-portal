@@ -185,6 +185,9 @@
             opacity: unset;
             font-size: var(--text-size-xs);
             color: var(--text-01);
+            > span {
+                font-size: var(--text-size-xs);
+            }
         }
         .dropdownList {
             margin-top: 1.6rem;

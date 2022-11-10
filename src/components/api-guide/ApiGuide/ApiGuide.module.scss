@@ -45,6 +45,7 @@
 [data-state~="responsive.mobileS"] {
   .apiGuideImage {
     overflow: auto;
+    justify-content: unset;
     img {
       width: 90rem;
     }

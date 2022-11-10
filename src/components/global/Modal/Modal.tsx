@@ -32,7 +32,11 @@ export default function Modal({
         {type === "success" && <div className={styles.modalImageSuccess} />}
         {type === "warning" && <div className={styles.modalImageWarning} />}
         <div className={styles.modalTitle}>{title}</div>
-        <div className={styles.modalDescription}>{description}</div>
+        <div className={styles.modalDescription}>
+          <span>
+            {description}
+          </span>
+        </div>
       </div>
       <div className={styles.modalFooter}>
         <Button type="secondary" onClick={onSecondaryButtonClick}>

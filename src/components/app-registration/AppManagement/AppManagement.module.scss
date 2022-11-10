@@ -1,15 +1,18 @@
 .manageApps {
     display: none;
+
     table {
         border-spacing: 0;
         width: 100%;
         padding: 0 5rem;
     }
+
     thead {
         background-color: var(--gray-02);
         height: 5rem;
         text-align: var(--text-align-left);
     }
+
     th,
     td {
         padding: 1.6rem;
@@ -18,18 +21,22 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
     td:last-child,
     th:last-child {
         white-space: nowrap;
         padding: 0 1rem;
     }
+
     td:first-child,
     th:first-child {
         padding-left: 3.2rem;
     }
+
     tbody tr:nth-child(even) {
         background-color: var(--gray-03);
     }
+
     td:nth-child(2n + 3) {
         display: flex;
         flex-wrap: wrap;
@@ -84,6 +91,7 @@
 
 .tooltip {
     position: relative;
+
     .tooltipText {
         visibility: hidden;
         width: 13rem;
@@ -102,6 +110,7 @@
         margin-left: -5.5rem;
         opacity: 0;
         transition: opacity 1s;
+
         &::after {
             content: '';
             position: absolute;
@@ -113,8 +122,10 @@
             border-color: var(--border-normal) transparent transparent transparent;
         }
     }
+
     &:hover {
         transform: translateY(-2px);
+
         .tooltipText {
             visibility: visible;
             opacity: 1;
@@ -126,8 +137,9 @@
     border: 0.16rem solid #d6dadb;
     border-radius: 0.4rem;
     padding: 0.32rem 0.32rem;
-    font-size: 1.1rem;
+    font-size: var(--text-size-xxs);
 }
+
 .adminScope {
     border: 0.1rem solid var(--teal-01);
     color: var(--teal-01);
