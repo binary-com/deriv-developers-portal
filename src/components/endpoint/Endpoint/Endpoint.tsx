@@ -50,7 +50,7 @@ const EndPoint = () => {
                                     required
                                 />
                                 {errors.server_url && (
-                                    <span className={styles.erorMessage}>{errors.server_url?.message}</span>
+                                    <span className={styles.errorMessage}>{errors.server_url?.message}</span>
                                 )}
                             </div>
                             <div className={styles.inputField}>
