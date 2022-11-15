@@ -177,7 +177,7 @@ function LinkComponent({ route, path }) {
                         route.children.map(child => {
                             // If there are children, recursively go over the nested children.
                             return !child.is_collapsible ? (
-                                <Fragment key={child.label}>
+                                <Fragment key={child.path}>
                                     <LinkComponent route={child} path={`${path}/${child.path}`} />
                                 </Fragment>
                             ) : (
