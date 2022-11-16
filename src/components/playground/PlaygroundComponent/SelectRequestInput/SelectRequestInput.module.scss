@@ -45,7 +45,7 @@
       margin: 1rem;
       width: 97%;
       box-sizing: border-box;
-      border: 1px solid #ccc;
+      border: 1px solid var(--gray-08);
     }
 
     .dropdownSelect{
@@ -64,7 +64,7 @@
     }
 
     .dropdownSelected {
-      background: #ccc;
+      background: var(--gray-08);
     }
 
     .dropdownList{
@@ -86,7 +86,7 @@
       font-size: var(--text-size-s);
       transition: all 0.2s;
       &:hover {
-        background: #1e90ff;
+        background: var(--blue-01);
         color: var(--white);
       }
     }

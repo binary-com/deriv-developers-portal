@@ -60,7 +60,7 @@
         margin-right: 4rem;
         font-size: var(--text-size-xxs);
         line-height: var(--text-lh-m);
-        color: #c2c2c2;
+        color: var(--copy-color);
 
         &::before {
           visibility: hidden;

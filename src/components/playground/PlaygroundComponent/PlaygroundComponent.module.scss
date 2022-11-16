@@ -154,13 +154,13 @@
       margin: 0 auto;
     }
     pre .key {
-      color: #f92672;
+      color: var(--json-magenta);
     }
     pre .string {
-      color: #e6db74;
+      color: var(--json-gold);
     }
     pre .number {
-      color: #ae81ff;
+      color: var(--json-purple);
     }
     pre.req,
     pre.res,
