@@ -1,5 +1,5 @@
 .playgroundBox {
-  border-radius: 6px;
+  border-radius: 0.6rem;
   border: none;
   margin-left: 0.5rem;
   position: relative;
@@ -36,7 +36,7 @@
 }
 
 .textareaRequest {
-  border-radius: 4px;
+  border-radius: 0.4rem;
   resize: none;
 }
 
@@ -45,13 +45,13 @@
   padding: 1rem 1.2rem;
   border: none;
   color: var(--blue-04);
-  border: 1px solid var(--border-normal);
+  border: 0.1rem solid var(--border-normal);
 }
 
 .registrationRequest {
   min-height: 11.9rem;
   padding: 1rem;
-  border: solid 1px var(--border-normal);
+  border: solid 0.1rem var(--border-normal);
   font-size: var(--text-size-s);
 }
 
@@ -66,7 +66,7 @@
     cursor: pointer;
     width: fit-content;
     height: fit-content;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     margin-right: 0.8rem;
     font-size: 1.4rem;
     font-weight: 700;
@@ -76,12 +76,12 @@
     background-color: var(--black-04);
     color: var(--white);
     padding: 1rem 1.6rem;
-    border: var(--gray-04) 2px solid;
+    border: var(--gray-04) 0.2rem solid;
   }
 
   .grayBtnSubmit button {
     padding: 1rem 1.6rem;
-    border: solid 2px var(--gray-09);
+    border: solid 0.2rem var(--gray-09);
     background-color: var(--white);
     line-height: var(--text-lh-s);
     letter-spacing: normal;
@@ -95,7 +95,7 @@
     height: fit-content;
     padding: 1rem 1.6rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     background-color: var(--red-01);
     font-size: var(--text-size-xs);
     font-weight: 700;

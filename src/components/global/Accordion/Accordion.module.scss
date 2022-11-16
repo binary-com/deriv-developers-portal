@@ -1,79 +1,85 @@
 .accordion {
-    @media (min-width: 992px) {
-      padding-left: 7.5rem;
-    }
-    .accordionWrapper {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin-bottom: 2.4rem;
-  
-      .accordionHeader {
-        display: inline-flex;
-        min-height: 5.6rem;
-        align-items: center;
-        max-height: fit-content;
-        padding: 0 4rem;
-        border: none;
-        border-radius: 6px;
-        box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
-        background-color: var(--white);
-        transition: 0.2s;
-        font-weight: 700;
-        @media (max-width: 992px) {
-          padding: 16px 28px;
-        }
-  
-        > div {
-          margin-right: 1.6rem;
-        }
-        .accordionText {
-          font-size: 1.6rem;
-          margin-right: 1.6rem;
-          color: var(--text-01);
-        }
-  
-        .accordionButtonPlus {
-          background-image: url("/img/plus.svg");
-          width: 1.6rem;
-          height: 1.6rem;
-          margin-left: auto;
-        }
-        .accordionButtonMinus {
-          background-image: url("/img/minus.svg");
-          width: 1.6rem;
-          height: 1.6rem;
-          margin-left: auto;
-          transform: rotate(90deg);
-        }
+
+  .accordionWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2.4rem;
+
+    .accordionHeader {
+      display: inline-flex;
+      min-height: 5.6rem;
+      align-items: center;
+      max-height: fit-content;
+      padding: 0 4rem;
+      border: none;
+      border-radius: 0.6rem;
+      box-shadow: -0.2rem 0.6rem 1.5rem 0 rgba(195, 195, 195, 0.31);
+      background-color: var(--white);
+      transition: 0.2s;
+      font-weight: 700;
+
+      >div {
+        margin-right: 1.6rem;
       }
-  
-      .accordionHeader :nth-child(2) {
-        margin-left: auto !important;
-        flex-shrink: 0;
-      }
-  
-      .accordionPanel {
-        height: fit-content;
-        padding: 2.4rem 4rem;
-        background-color: rgba(87, 122, 146, 0.04);
-        margin-bottom: 2.4rem;
-        z-index: 2;
+
+      .accordionText {
+        font-size: 1.6rem;
+        margin-right: 1.6rem;
         color: var(--text-01);
-  
-        .code {
-          color: var(--red-01);
-          font-weight: 400;
-          margin: 0 2px 0 0;
-          border-radius: 4px;
-          padding: 2px 4px;
-          border: 1px solid #eaeced;
-          font-family: ibm plex sans, sans-serif;
-        }
-  
-        ol {
-          margin-left: 2rem;
-        }
+      }
+
+      .accordionButtonPlus {
+        background-image: url("/img/plus.svg");
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-left: auto;
+      }
+
+      .accordionButtonMinus {
+        background-image: url("/img/minus.svg");
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-left: auto;
+        transform: rotate(90deg);
+      }
+    }
+
+    .accordionHeader :nth-child(2) {
+      margin-left: auto !important;
+      flex-shrink: 0;
+    }
+
+    .accordionPanel {
+      height: fit-content;
+      padding: 2.4rem 4rem;
+      background-color: rgba(87, 122, 146, 0.04);
+      margin-bottom: 2.4rem;
+      z-index: 2;
+      color: var(--text-01);
+
+      .code {
+        color: var(--red-01);
+        font-weight: 400;
+        margin: 0 0.2rem 0 0;
+        border-radius: 0.4rem;
+        padding: 0.2rem 0.4rem;
+        border: 0.1rem solid #eaeced;
+        font-family: ibm plex sans, sans-serif;
+      }
+
+      ol {
+        margin-left: 2rem;
       }
     }
   }
+}
+
+[data-state*="responsive.desktop"] {
+  .accordion {
+    padding-left: 7.5rem;
+    .accordionHeader {
+      padding: 1.6rem 2.8rem;
+    }
+  }
+}

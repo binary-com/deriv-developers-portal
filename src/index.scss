@@ -15,8 +15,8 @@ a {
       content: "";
       display: inline-block;
       position: absolute;
-      height: 40px;
-      width: 4px;
+      height: 4rem;
+      width: 0.4rem;
       border-radius: 0.4rem 0 0 0.4rem;
       left: 0;
       bottom: 0;
@@ -56,18 +56,18 @@ textarea {
   font-size: var(--text-size-s);
   resize: none;
   width: calc(100% - 1.6rem);
-  min-height: 119px;
+  min-height: 11.9rem;
   margin-top: 1.5rem;
   padding: 1rem;
-  border-radius: 4px;
-  border: solid 1px var(--border-normal);
+  border-radius: 0.4rem;
+  border: solid 0.1rem var(--border-normal);
 }
 
 .container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  min-height: 208px;
+  min-height: 20.8rem;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -147,10 +147,10 @@ textarea {
 
 .main-page-card {
   width: 100%;
-  max-width: 316px;
+  max-width: 31.6rem;
   padding: 3.2rem 2.4rem;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px 0 rgb(14, 14, 14, 0.1);
+  border-radius: 0.4rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgb(14, 14, 14, 0.1);
   background-color: var(--white);
   margin: 0 1.2rem;
 
@@ -232,7 +232,7 @@ textarea {
 
   >h2 {
     font-size: var(--text-size-l);
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem;
     color: var(--white);
   }
 

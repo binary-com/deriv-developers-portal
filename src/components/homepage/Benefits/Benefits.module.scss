@@ -37,7 +37,7 @@
         width: 100%;
 
         h3 {
-            margin: 16px 0;
+            margin: 1.6rem 0;
         }
 
         div {
@@ -79,7 +79,7 @@
                 }
 
                 p {
-                    font-size: 22px;
+                    font-size: var(--text-size-m);
                     line-height: 3.2rem;
                 }
             }
@@ -145,7 +145,7 @@
 
                 .personalisation {
                     width: 90% !important;
-                    margin: 0 auto 30px;
+                    margin: 0 auto 3rem;
 
                     h3 {
                         font-size: var(--text-size-m);

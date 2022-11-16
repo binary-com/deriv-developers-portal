@@ -9,7 +9,7 @@
     cursor: pointer;
     width: fit-content;
     height: fit-content;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     margin-right: 0.8rem;
     font-size: var(--text-size-xs);
     font-weight: 700;
@@ -19,12 +19,12 @@
     background-color: var(--white);
     color: var(--black-03);
     padding: 1rem 1.6rem;
-    border: var(--gray-04) 1px solid;
+    border: var(--gray-04) 0.1rem solid;
   }
 
   .grayBtnSubmit button {
     padding: 0.8rem 1.6rem;
-    border: solid 2px var(--gray-05);
+    border: solid 0.2rem var(--gray-05);
     background-color: var(--white);
     line-height: var(--text-lh-s);
     letter-spacing: normal;
@@ -38,7 +38,7 @@
     height: fit-content;
     padding: 1rem 1.6rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     background-color: var(--red-01);
     font-size: var(--text-size-xs);
     font-weight: 700;

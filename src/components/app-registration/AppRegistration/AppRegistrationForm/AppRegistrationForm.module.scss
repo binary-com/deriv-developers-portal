@@ -4,8 +4,8 @@ fieldset .customTextInput:last-child {
 
 .customTextInput {
     align-items: center;
-    border: 1px solid var(--border-normal);
-    border-radius: 4px;
+    border: 0.1rem solid var(--border-normal);
+    border-radius: 0.4rem;
     display: flex;
     line-height: var(--text-lh-s);
     position: relative;
@@ -15,7 +15,7 @@ fieldset .customTextInput:last-child {
         border-color: var(--brand-secondary);
     }
     &:hover {
-        border: 1px solid var(--app-registration-tab-secondary);
+        border: 0.1rem solid var(--app-registration-tab-secondary);
     }
     label {
         position: absolute;
@@ -70,7 +70,7 @@ fieldset .customTextInput:last-child {
         width: 80%;
         input[type='number'],
         input[type='text'] {
-            height: 40px;
+            height: 4rem;
         }
         input[type='number'] {
             appearance: none;
@@ -184,7 +184,7 @@ fieldset .customTextInput:last-child {
     }
     .infoIcon:hover .tooltip {
         width: 14rem;
-        transform: translate(-19%, calc(-100% - 10px));
+        transform: translate(-19%, calc(-100% - 1rem));
     }
 }
 
@@ -214,12 +214,12 @@ input[type='checkbox'] {
         background-image: url(/img/check.svg);
         background-repeat: no-repeat;
         display: inline-block;
-        border: 2px solid var(--app-registration-tab-secondary);
+        border: 0.2rem solid var(--app-registration-tab-secondary);
         min-width: 1.1rem;
         height: 1.1rem;
-        border-radius: 2px;
+        border-radius: 0.2rem;
         transition: background-color 0.25s, border-color 0.25s;
-        top: 3px;
+        top: 0.3rem;
         z-index: 1;
     }
     input:checked + .customCheckbox {

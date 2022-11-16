@@ -97,10 +97,10 @@
         width: 13rem;
         height: 1.5rem;
         background-color: var(--border-normal);
-        border-radius: 4px;
+        border-radius: 0.4rem;
         color: var(--app-registration-tab-active-font);
         text-align: var(--text-align-center);
-        border-radius: 6px;
+        border-radius: 0.6rem;
         padding: 0.5rem 0;
         position: absolute;
         z-index: 1;
@@ -117,14 +117,14 @@
             top: 100%;
             left: 50%;
             margin-left: -0.5rem;
-            border-width: 5px;
+            border-width: 0.5rem;
             border-style: solid;
             border-color: var(--border-normal) transparent transparent transparent;
         }
     }
 
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-0.2rem);
 
         .tooltipText {
             visibility: visible;

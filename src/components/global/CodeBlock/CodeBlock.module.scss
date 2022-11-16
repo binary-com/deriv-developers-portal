@@ -4,7 +4,7 @@
   white-space: pre-wrap;
   word-break: break-word;
   color: var(--white);
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 0.4rem 0.4rem;
   padding: 2.4rem;
   margin-bottom: 1.6rem;
   background: var(--json-midnight);
@@ -18,7 +18,7 @@
   .sub_title {
     font-size: var(--text-size-l);
     text-align: left;
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem;
   }
 
   p {
@@ -42,14 +42,14 @@
 }
 
 .card {
-  border-radius: 6px;
+  border-radius: 0.6rem;
   background-color: var(--black-02);
 
   .cardHeader {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    border-radius: 6px;
+    border-radius: 0.6rem;
     background-color: var(--json-midnight);
     color: var(--gray-07);
     line-height: 1.5;

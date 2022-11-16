@@ -11,7 +11,7 @@
     position: relative;
 
     button {
-      border-radius: 0 4px 4px 0;
+      border-radius: 0 0.4rem 0.4rem 0;
     }
 
     .helper-label {
@@ -31,8 +31,8 @@
       width: 100%;
       height: 4rem;
       padding: 0 1.2rem;
-      border-radius: 4px 0 0 4px;
-      border: solid 1px var(--border-normal);
+      border-radius: 0.4rem 0 0 0.4rem;
+      border: solid 0.1rem var(--border-normal);
       font-size: 1.4rem;
       line-height: var(--text-lh-s);
       color: var(--black-03);
@@ -43,8 +43,8 @@
       padding: 0 1.2rem;
       font-size: var(--text-size-xs);
       line-height: var(--text-lh-s);
-      border: 1px solid var(--border-normal);
-      border-radius: 4px 0 0 4px;
+      border: 0.1rem solid var(--border-normal);
+      border-radius: 0.4rem 0 0 0.4rem;
       color: var(--black-03);
       background-color: var(--white);
     }

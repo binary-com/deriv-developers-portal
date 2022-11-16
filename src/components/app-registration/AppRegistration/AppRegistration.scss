@@ -21,7 +21,7 @@
   background-clip: content-box;
   background-color: transparent;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   font-size: var(--text-size-xs);
   font-weight: var(--text-weight-bold);
   width: 3.2rem;
@@ -82,8 +82,8 @@
   width: 32rem;
   height: auto;
   background-color: var(--white);
-  border-radius: 16px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 1.6rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   justify-content: space-between;
 }
 
@@ -153,7 +153,7 @@
   font-weight: var(--text-weight-bold);
   height: 4rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   padding: 1rem 1.6rem 1rem 1.6rem;
 }
 
@@ -166,9 +166,9 @@
   background-color: var(--white);
   color: black;
   font-weight: var(--text-weight-bold);
-  border: 1px solid #999999;
+  border: 0.1rem solid #999999;
   height: 4rem;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   padding: 1rem 1.6rem 1rem 1.6rem;
   margin-right: 2.4rem;
 }
@@ -236,7 +236,7 @@ fieldset {
 
 .main-register-btn {
   padding: 1rem 1.6rem;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   background-color: var(--red-01);
   text-decoration: none;
   font-weight: 700;
@@ -290,7 +290,7 @@ fieldset {
   border: none;
   background-color: transparent;
   color: var(--gray-05);
-  border-bottom: 1px solid var(--gray-05);
+  border-bottom: 0.1rem solid var(--gray-05);
   padding: 1rem 2rem;
 }
 
@@ -298,7 +298,7 @@ fieldset {
 [data-state~="registration.logged_in.register_tab"] .register-button {
   font-weight: bold;
   color: var(--text-01);
-  border-bottom: 3px solid var(--red-01);
+  border-bottom: 0.3rem solid var(--red-01);
 }
 
 [data-state~="registration.logged_in.update_mode"] .register-button {
@@ -312,13 +312,13 @@ fieldset {
   content: "Update your application";
   font-weight: var(--text-weight-bold);
   color: var(--text-01);
-  border-bottom: 3px solid var(--red-01);
+  border-bottom: 0.3rem solid var(--red-01);
   position: absolute;
   padding: 1rem 0;
   width: 100%;
   right: 0;
   top: 0;
-  bottom: -1px;
+  bottom: -0.1rem;
 }
 
 [data-state~="registration.logged_in.update_mode"] .register-app {
