@@ -4,7 +4,7 @@
   white-space: pre-wrap;
   word-break: break-word;
   color: var(--white);
-  border-radius: 0 0 0.4rem 0.4rem;
+  border-radius: 0 0 4px 4px;
   padding: 2.4rem;
   margin-bottom: 1.6rem;
   background: var(--json-midnight);
@@ -42,14 +42,14 @@
 }
 
 .card {
-  border-radius: 0.6rem;
+  border-radius: 6px;
   background-color: var(--black-02);
 
   .cardHeader {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
-    border-radius: 0.6rem;
+    border-radius: 6px;
     background-color: var(--json-midnight);
     color: var(--gray-07);
     line-height: 1.5;

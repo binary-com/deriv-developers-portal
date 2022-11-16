@@ -97,10 +97,10 @@
         width: 13rem;
         height: 1.5rem;
         background-color: var(--border-normal);
-        border-radius: 0.4rem;
+        border-radius: 4px;
         color: var(--app-registration-tab-active-font);
         text-align: var(--text-align-center);
-        border-radius: 0.6rem;
+        border-radius: 4px;
         padding: 0.5rem 0;
         position: absolute;
         z-index: 1;
@@ -117,7 +117,7 @@
             top: 100%;
             left: 50%;
             margin-left: -0.5rem;
-            border-width: 0.5rem;
+            border-width: 5px;
             border-style: solid;
             border-color: var(--border-normal) transparent transparent transparent;
         }
@@ -134,13 +134,13 @@
 }
 
 .scope {
-    border: 0.16rem solid #d6dadb;
-    border-radius: 0.4rem;
+    border: 1.6px solid #d6dadb;
+    border-radius: 4px;
     padding: 0.32rem 0.32rem;
     font-size: var(--text-size-xxs);
 }
 
 .adminScope {
-    border: 0.1rem solid var(--teal-01);
+    border: 1px solid var(--teal-01);
     color: var(--teal-01);
 }

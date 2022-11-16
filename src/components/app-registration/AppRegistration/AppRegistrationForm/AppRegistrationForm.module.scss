@@ -4,8 +4,8 @@ fieldset .customTextInput:last-child {
 
 .customTextInput {
     align-items: center;
-    border: 0.1rem solid var(--border-normal);
-    border-radius: 0.4rem;
+    border: 1px solid var(--border-normal);
+    border-radius: 4px;
     display: flex;
     line-height: var(--text-lh-s);
     position: relative;
@@ -15,7 +15,7 @@ fieldset .customTextInput:last-child {
         border-color: var(--brand-secondary);
     }
     &:hover {
-        border: 0.1rem solid var(--app-registration-tab-secondary);
+        border: 1px solid var(--app-registration-tab-secondary);
     }
     label {
         position: absolute;
@@ -157,8 +157,8 @@ fieldset .customTextInput:last-child {
 }
 
 .scopeItem {
-    border: 0.16rem solid #d6dadb;
-    border-radius: 0.64rem;
+    border: 1.6px solid #d6dadb;
+    border-radius: 6.4px;
     padding: 1.28rem 0.64rem;
 }
 
@@ -214,10 +214,10 @@ input[type='checkbox'] {
         background-image: url(/img/check.svg);
         background-repeat: no-repeat;
         display: inline-block;
-        border: 0.2rem solid var(--app-registration-tab-secondary);
+        border: 2px solid var(--app-registration-tab-secondary);
         min-width: 1.1rem;
         height: 1.1rem;
-        border-radius: 0.2rem;
+        border-radius: 2px;
         transition: background-color 0.25s, border-color 0.25s;
         top: 0.3rem;
         z-index: 1;

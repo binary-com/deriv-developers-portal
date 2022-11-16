@@ -32,7 +32,7 @@
             width: 100%;
         }
         .customTextInput {
-            border-radius: 0.4rem;
+            border-radius: 4px;
             align-items: var(--text-align-center);
             display: flex;
             flex-direction: column;
@@ -91,7 +91,7 @@
                 }
                 .textInput {
                     background: none;
-                    border: 0.1rem solid #ccc;
+                    border: 1px solid #ccc;
                     color: var(--black-01);
                     padding: 1.6rem 1.6rem 1.6rem 1.28rem;
                     width: 100%;
@@ -116,11 +116,11 @@
                 font-size: var(--text-size-sm);
             }
             .urlId {
-                border-radius: 0.4rem;
+                border-radius: 4px;
                 padding: 0.2rem 0.4rem;
                 color: var(--wine-01);
                 font-size: 90%;
-                border: 0.1rem solid var(--gray-01);
+                border: 1px solid var(--gray-01);
                 font-weight: 400;
             }
         }
@@ -129,25 +129,25 @@
             margin: 0.5rem;
 
             .submitButton {
-                border-radius: 0.4rem;
+                border-radius: 4px;
                 padding: 1rem 1.6rem;
                 font-size: var(--text-size-xs);
                 transition: all 0.25s ease 0s;
                 font-weight: bold;
                 height: fit-content;
-                border: 0.2rem solid var(--red-01);
+                border: 2px solid var(--red-01);
                 color: var(--white);
                 background: var(--red-01);
             }
 
             .resetButton {
-                border-radius: 0.4rem;
+                border-radius: 4px;
                 padding: 1rem 1.6rem;
                 font-size: var(--text-size-xs);
                 transition: all 0.25s ease 0s;
                 font-weight: var(--text-weight-bold);
                 height: fit-content;
-                border: 0.2rem solid var(--gray-05);
+                border: 2px solid var(--gray-05);
                 color: var(--black-01);
                 background: transparent;
             }

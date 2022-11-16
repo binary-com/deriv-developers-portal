@@ -19,7 +19,7 @@
   border: none;
   margin: 0.8rem 0.8rem 0 0;
   padding: 0.6rem 0.8rem;
-  border-radius: 0.4rem;
+  border-radius: 4px;
   background-color: rgba(0, 255, 104, 0.16);
 }
 
@@ -35,8 +35,8 @@
 
 .schemaHeader {
   padding: 2.4rem;
-  border-top-left-radius: 0.6rem;
-  border-top-right-radius: 0.6rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   border: none;
   background: var(--black-04);
 
@@ -75,7 +75,7 @@
     background-color: #0e0e0e;
     border: none;
     padding: 1rem;
-    border-radius: 0.4rem;
+    border-radius: 4px;
     font-size: var(--text-size-xs);
   }
 }
@@ -120,7 +120,7 @@
       padding: 1rem;
       color: var(--white);
       background-color: rgba(219, 219, 219, 0.05) !important;
-      border-radius: 0.4rem;
+      border-radius: 4px;
     }
 
     .schemaBodySignature {
@@ -153,7 +153,7 @@
         color: var(--green-03);
         border: none;
         padding: 0.6rem 0.8rem;
-        border-radius: 0.4rem;
+        border-radius: 4px;
         background-color: rgba(0, 255, 104, 0.16);
       }
 
@@ -166,7 +166,7 @@
         margin: 0.8rem 0.8rem 0 0;
         padding: 0.6rem 0.8rem;
         white-space: nowrap;
-        border-radius: 0.4rem;
+        border-radius: 4px;
       }
 
       .schemaRegexContainer {
@@ -239,8 +239,8 @@
       color: #c2c2c2;
     }
     .schemaDefaultValue {
-      border: 0.2rem solid #c2c2c2;
-      border-radius: 0.4rem;
+      border: 2px solid #c2c2c2;
+      border-radius: 4px;
       padding: 0.3rem;
     }
     .enumContainer {
@@ -274,7 +274,7 @@
   }
   > .schemaBodySignature {
     background-color: rgba(219, 219, 219, 0.05) !important;
-    border-radius: 0.4rem;
+    border-radius: 4px;
     margin-bottom: 1rem;
   }
 }

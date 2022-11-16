@@ -6,7 +6,7 @@
     height: 100%;
     z-index: 10;
     background: white;
-    border-right: 0.2rem solid var(--gray-01);
+    border-right: 2px solid var(--gray-01);
     margin-right: 4.8rem;
     top: 10.5rem;
     .sidebarContainer {
@@ -24,8 +24,8 @@
         height: 4.4rem;
         display: flex;
         align-items: var(--text-align-center);
-        border-top-left-radius: 0.4rem;
-        border-bottom-left-radius: 0.4rem;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
         &:empty {
             display: none;
         }
@@ -38,8 +38,8 @@
             background-color: red;
             visibility: hidden;
             transition: all 0.2s ease-in-out;
-            border-top-left-radius: 0.4rem;
-            border-bottom-left-radius: 0.4rem;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
         }
 
         &:hover {
@@ -72,7 +72,7 @@
     line-height: var(--text-lh-xxl);
     font-weight: 700;
     color: var(--text-01);
-    border-top: 0.2rem solid var(--gray-01);
+    border-top: 2px solid var(--gray-01);
 }
 
 .menuItem {
@@ -103,7 +103,7 @@
     line-height: var(--text-lh-xs);
     color: var(--text-01);
     font-weight: bold;
-    border-bottom: 0.2rem solid var(--gray-01);
+    border-bottom: 2px solid var(--gray-01);
 }
 
 .dropdown {
@@ -205,13 +205,13 @@
                 color: var(--text-01);
                 display: flex;
                 align-items: var(--text-align-center);
-                border-radius: 0 0.4rem 0.4rem 0;
+                border-radius: 0 4px 4px 0;
                 position: relative;
                 font-size: var(--text-size-xs);
                 &:before {
                     width: 0.4rem;
                     margin-bottom: 0.2rem;
-                    border-radius: 0.4rem 0 0 0.4rem;
+                    border-radius: 4px 0 0 4px;
                 }
             }
             .selected {
@@ -234,7 +234,7 @@
                     visibility: visible;
                     height: 100%;
                     width: 0.4rem;
-                    border-radius: 0.4rem 0 0 0.4rem;
+                    border-radius: 4px 0 0 4px;
                 }
             }
             &[href~="/docs/"] {
@@ -248,7 +248,7 @@
             line-height: var(--text-lh-xxl);
             font-weight: 700;
             color: var(--text-01);
-            border-top: 0.2rem solid var(--gray-01);
+            border-top: 2px solid var(--gray-01);
         }
     }
 }

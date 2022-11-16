@@ -17,7 +17,7 @@ a {
       position: absolute;
       height: 4rem;
       width: 0.4rem;
-      border-radius: 0.4rem 0 0 0.4rem;
+      border-radius: 4px 0 0 4px;
       left: 0;
       bottom: 0;
       background-color: var(--red-01);
@@ -59,8 +59,8 @@ textarea {
   min-height: 11.9rem;
   margin-top: 1.5rem;
   padding: 1rem;
-  border-radius: 0.4rem;
-  border: solid 0.1rem var(--border-normal);
+  border-radius: 4px;
+  border: solid 1px var(--border-normal);
 }
 
 .container {
@@ -149,7 +149,7 @@ textarea {
   width: 100%;
   max-width: 31.6rem;
   padding: 3.2rem 2.4rem;
-  border-radius: 0.4rem;
+  border-radius: 4px;
   box-shadow: 0 0.4rem 0.8rem 0 rgb(14, 14, 14, 0.1);
   background-color: var(--white);
   margin: 0 1.2rem;

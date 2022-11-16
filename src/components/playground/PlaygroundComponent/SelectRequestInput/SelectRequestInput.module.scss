@@ -1,6 +1,6 @@
 .dropdown {
   user-select: none;
-  border: 0.1rem solid var(--border-normal);
+  border: 1px solid var(--border-normal);
   position: relative;
   overflow-x: hidden;
 
@@ -45,7 +45,7 @@
       margin: 1rem;
       width: 97%;
       box-sizing: border-box;
-      border: 0.1rem solid #ccc;
+      border: 1px solid #ccc;
     }
 
     .dropdownSelect{

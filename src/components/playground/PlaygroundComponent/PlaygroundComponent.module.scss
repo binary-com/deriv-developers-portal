@@ -2,7 +2,7 @@
   margin-top: 12.5rem;
   min-height: 95vh;
   width: 100%;
-  border-left: 0.2rem solid var(--app-sidebar-border-color);
+  border-left: 2px solid var(--app-sidebar-border-color);
 
   .headerTitle h1 {
     text-align: var(--text-align-center);
@@ -40,7 +40,7 @@
   .apiToken {
     display: flex;
     flex-wrap: nowrap;
-    border-radius: 0.4rem;
+    border-radius: 4px;
     background-color: var(--gray-13);
     padding: 2.4rem;
     margin-bottom: 4.8rem;
@@ -65,9 +65,9 @@
   .apiRequest {
     display: flex;
     flex-wrap: nowrap;
-    border-radius: 0.4rem;
+    border-radius: 4px;
     margin-bottom: 2.4rem;
-    border: 0.05rem solid var(--gray-10);
+    border: 0.5px solid var(--gray-10);
     width: 100%;
   }
 
@@ -81,15 +81,15 @@
     align-items: var(--text-align-center);
     justify-content: var(--text-align-center);
     padding: 1rem 0;
-    border-left: 0.1rem solid var(--app-sidebar-border-color);
+    border-left: 1px solid var(--app-sidebar-border-color);
 
     &-button button {
       cursor: pointer;
       font-size: var(--text-size-xs);
       font-weight: 700;
       padding: 1rem 1.6rem;
-      border-radius: 0.4rem;
-      border: solid 0.2rem var(--gray-04);
+      border-radius: 4px;
+      border: solid 2px var(--gray-04);
       color: var(--black-03);
       background-color: var(--white);
       
@@ -129,7 +129,7 @@
   height: 4.2rem;
   padding: 1rem 1.6rem;
   border: none;
-  border-radius: 0 0.4rem 0.4rem 0;
+  border-radius: 0 4px 4px 0;
   background-color: var(--red-01);
   font-size: var(--text-size-xs);
   line-height: var(--text-lh-s);
@@ -141,7 +141,7 @@
 }
 
 .playgroundBox {
-  border-radius: 0.6rem;
+  border-radius: 6px;
   border: none;
   padding: 2.4rem 2.4rem 8.2rem 2.4rem;
   margin-bottom: 4rem;
@@ -167,7 +167,7 @@
     pre.err {
       padding: 1.6rem;
       border: none;
-      border-radius: 0.4rem;
+      border-radius: 4px;
       background-color: var(--black-01);
       color: var(--copy-color);
       line-height: var(--text-lh-xxl);
@@ -196,7 +196,7 @@
 
     .btnSubmit {
       background-color: var(--black-04);
-      border: var(--gray-04) 0.2rem solid;
+      border: var(--gray-04) 2px solid;
       color: var(--white);
       font-weight: bold;
       font-size: var(--text-size-xs);
@@ -225,7 +225,7 @@
     min-height: 20rem;
     padding: 1rem 1.2rem;
     border: none;
-    border-radius: 0.4rem;
+    border-radius: 4px;
     background-color: var(--black-01);
     color: var(--copy-color);
     resize: none;
@@ -245,14 +245,14 @@
 .apiRequest {
   display: flex;
   flex-wrap: nowrap;
-  border-radius: 0.4rem;
+  border-radius: 4px;
   margin-bottom: 2.4rem;
-  border: 0.05rem var(--gray-10);
+  border: 0.5px var(--gray-10);
 }
 .select2 {
   width: 100% !important;
   color: var(--gray-05);
-  border: solid 0.1rem var(--border-normal) !important;
+  border: solid 1px var(--border-normal) !important;
   display: block;
   padding-left: 0.8rem;
   padding-right: 2rem;
@@ -266,8 +266,8 @@
 }
 .option {
   border: none;
-  border-radius: 0.35rem !important;
-  border: solid 0.1rem var(--border-normal) !important;
+  border-radius: 3.5px !important;
+  border: solid 1px var(--border-normal) !important;
   color: var(--gray-05) !important;
 }
 

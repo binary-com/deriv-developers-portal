@@ -1,7 +1,7 @@
 .pageContent {
   width: 70%;
   padding-left: 4.2rem;
-  border-left: 0.2rem solid var(--gray-01);
+  border-left: 2px solid var(--gray-01);
 
   @media (max-width: 99.2rem) {
     width: 100% !important;
@@ -21,7 +21,7 @@
   white-space: pre-wrap;
   word-break: break-word;
   color: var(--white);
-  border-radius: 0.4rem;
+  border-radius: 4px;
   padding: 2.4rem;
   margin-bottom: 1.6rem;
   background: #1d1f20;
