@@ -250,8 +250,7 @@ export const DerivGuideContent = () => {
                 <li>
                     <p>
                         Specify the URL that will be used as the OAuth Redirect URL on the{' '}
-                        <a href='/app-registration'>API registration</a> page in the 'Website
-                        URL' field.
+                        <a href='/app-registration'>API registration</a> page in the 'Website URL' field.
                     </p>
                 </li>
                 <li>
