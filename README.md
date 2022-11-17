@@ -48,14 +48,13 @@ Moreover, having these extensions will help you to speed up the development proc
     npm install
     ```
 
-
 5.  **To start developing:**
 
     ```sh
     npm run dev
     ```
 
-1. Release to staging:
+1.  Release to staging:
 
 Merging to master (squash and merge) will automatically release the last commit to the staging server https://staging-api.deriv.com/
 
@@ -67,7 +66,7 @@ Releasing to production requires a tag using the following format:
 
 ## How to contribute
 
-PRs are  based on the master branch
+PRs are based on the master branch
 
 1. Create branch from the latest master branch
 

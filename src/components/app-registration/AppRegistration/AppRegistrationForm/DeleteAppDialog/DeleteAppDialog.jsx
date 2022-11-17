@@ -1,32 +1,32 @@
-import { useSelector } from "@xstate/react";
-import { lazy, Suspense } from "react";
-import { isDeletingAppModal } from "../../../../../state/selectors";
-import { stateService } from "../../../../../state/stateSignal";
+import { useSelector } from '@xstate/react';
+import { lazy, Suspense } from 'react';
+import { isDeletingAppModal } from '../../../../../state/selectors';
+import { stateService } from '../../../../../state/stateSignal';
 
-const Modal = lazy(() => import("../../../../global/Modal/Modal"));
+const Modal = lazy(() => import('../../../../global/Modal/Modal'));
 
 export default function DeleteAppDialogLazy({ deleteApp }) {
-  const isModalOpen = useSelector(stateService, isDeletingAppModal);
-  if (!isModalOpen) {
-    return null;
-  }
-  return (
-    <Suspense fallback={<div />}>
-      <Modal
-        open={isModalOpen}
-        title="Delete app"
-        description="Are you sure you want to delete this app?"
-        primaryButtonText="Yes, delete"
-        secondaryButtonText="No, keep it"
-        type="warning"
-        onRequestClose={() => stateService.send("CANCEL")}
-        onPrimaryButtonClick={() => {
-          deleteApp();
-        }}
-        onSecondaryButtonClick={() => {
-          stateService.send("CANCEL");
-        }}
-      />
-    </Suspense>
-  );
+    const isModalOpen = useSelector(stateService, isDeletingAppModal);
+    if (!isModalOpen) {
+        return null;
+    }
+    return (
+        <Suspense fallback={<div />}>
+            <Modal
+                open={isModalOpen}
+                title='Delete app'
+                description='Are you sure you want to delete this app?'
+                primaryButtonText='Yes, delete'
+                secondaryButtonText='No, keep it'
+                type='warning'
+                onRequestClose={() => stateService.send('CANCEL')}
+                onPrimaryButtonClick={() => {
+                    deleteApp();
+                }}
+                onSecondaryButtonClick={() => {
+                    stateService.send('CANCEL');
+                }}
+            />
+        </Suspense>
+    );
 }

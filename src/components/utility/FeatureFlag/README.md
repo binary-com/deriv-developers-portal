@@ -1,19 +1,20 @@
 ## Feature flag implementation
+
 To use the feature flag wrapper component, do the following:
 
 Example 1: making a new feature component that replaces loose content.
 <FeatureFlag feature_name='MyFeature'>
-    <React.Fragment>
-        <p>I am the default content that can be replaced by the new feature.</p>
-        <p>more content...</p>
-    </React.fragment>
-    <NewFeature />
+<React.Fragment>
+<p>I am the default content that can be replaced by the new feature.</p>
+<p>more content...</p>
+</React.fragment>
+<NewFeature />
 </FeatureFlag>
 
 Example 2: Replacing a single component.
 <FeatureFlag feature_name='MyFeature'>
-    <CurrentFeature />
-    <NewFeature />
+<CurrentFeature />
+<NewFeature />
 </FeatureFlag>
 
 Keep in mind, that the new feature should always be the second child in the featureflag wrapper in order for it to work.

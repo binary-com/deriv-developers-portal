@@ -139,9 +139,9 @@ export const HomepageSlider = () => {
 
     return (
         <React.Fragment>
-            <div className="main-page-row white">
-                <h2 className="clients-opinion">See what our clients say</h2>
-                <div className="column-container"></div>
+            <div className='main-page-row white'>
+                <h2 className='clients-opinion'>See what our clients say</h2>
+                <div className='column-container'></div>
                 <div id='slider' className={`${styles.slider} loaded`}>
                     <div className={`${styles.sliderWrapper} wrapper`}>
                         <div
@@ -163,8 +163,8 @@ export const HomepageSlider = () => {
                             <Slide
                                 content={
                                     <span>
-                                        Probably the best API for making your business successful in trading derivatives out
-                                        there.
+                                        Probably the best API for making your business successful in trading derivatives
+                                        out there.
                                     </span>
                                 }
                                 author={
@@ -183,4 +183,4 @@ export const HomepageSlider = () => {
             </div>
         </React.Fragment>
     );
-}
+};
