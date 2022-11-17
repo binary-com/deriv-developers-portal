@@ -1,4 +1,4 @@
-import styles from "./ClientLibraries.module.scss";
+import styles from './ClientLibraries.module.scss';
 export const ClientLibraries = () => {
     return (
         <div className={`main-page-row gray ${styles.takeToLib}`}>
@@ -14,9 +14,9 @@ export const ClientLibraries = () => {
                     <div className={styles.libraryLinks}>
                         <div className={styles.logoAndLink}>
                             <a
-                                href="https://binary-com.github.io/deriv-api/"
+                                href='https://binary-com.github.io/deriv-api/'
                                 className={styles.libraryGoTo}
-                                target="_blank"
+                                target='_blank'
                             >
                                 <div className={styles.logoJavascript} />
                                 <label>Go to the JavaScript library</label>
@@ -25,9 +25,9 @@ export const ClientLibraries = () => {
                         </div>
                         <div className={styles.logoAndLink}>
                             <a
-                                href="https://binary-com.github.io/python-deriv-api/"
+                                href='https://binary-com.github.io/python-deriv-api/'
                                 className={styles.libraryGoTo}
-                                target="_blank"
+                                target='_blank'
                             >
                                 <div className={styles.logoPython} />
                                 <label>Go to the Python library</label>
@@ -36,9 +36,9 @@ export const ClientLibraries = () => {
                         </div>
                         <div className={styles.logoAndLink}>
                             <a
-                                href="https://github.com/deriv-com/flutter-deriv-api"
+                                href='https://github.com/deriv-com/flutter-deriv-api'
                                 className={styles.libraryGoTo}
-                                target="_blank"
+                                target='_blank'
                             >
                                 <div className={styles.logoFlutter} />
                                 <label>Go to the Flutter library</label>
@@ -49,5 +49,5 @@ export const ClientLibraries = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

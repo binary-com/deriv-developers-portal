@@ -17,4 +17,4 @@ export const Navigation = () => {
             </nav>
         </React.Fragment>
     );
-}
+};

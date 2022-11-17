@@ -1,7 +1,7 @@
 import React from 'react';
 import { useUrlParams } from '../../../custom-hooks/useUrlParams';
 
-export default function FeatureFlag({children, is_feature, feature_name}) {
+export default function FeatureFlag({ children, is_feature, feature_name }) {
     const [selected_child, setSelectedChild] = React.useState(0);
     const url_params = useUrlParams();
 
@@ -20,13 +20,9 @@ export default function FeatureFlag({children, is_feature, feature_name}) {
                     setSelectedChild(0);
                 }
             }
-        })
-        return (
-            <React.Fragment>
-                { children[selected_child] }
-            </React.Fragment>
-        )
-    }
-    
-    return <FeatureFlagComponent />
+        });
+        return <React.Fragment>{children[selected_child]}</React.Fragment>;
+    };
+
+    return <FeatureFlagComponent />;
 }

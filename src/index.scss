@@ -388,6 +388,31 @@ textarea {
     pointer-events: none;
   }
 }
+[data-state*="responsive.mobile"] {
+  .next {
+    right: -55px;
+  }
+  .prev {
+    left: -55px;
+  }
+}
+a.active {
+  background-color: var(--hamburger-active-link);
+  font-weight: bold;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    height: 40px;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+    left: 0;
+    bottom: 0;
+    background-color: var(--red-01);
+    visibility: visible;
+  }
+}
 
 [data-state*="responsive.mobile"] {
   .pageWrapper {

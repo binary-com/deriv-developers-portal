@@ -1,4 +1,4 @@
-import styles from "./HomepageSlider.module.scss";
+import styles from './HomepageSlider.module.scss';
 
 export const Slide = ({ content, author }) => {
   return (

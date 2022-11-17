@@ -163,8 +163,8 @@ export const HomepageSlider = () => {
                             <Slide
                                 content={
                                     <span>
-                                        Probably the best API for making your business successful in trading derivatives out
-                                        there.
+                                        Probably the best API for making your business successful in trading derivatives
+                                        out there.
                                     </span>
                                 }
                                 author={
@@ -183,4 +183,4 @@ export const HomepageSlider = () => {
             </div>
         </React.Fragment>
     );
-}
+};

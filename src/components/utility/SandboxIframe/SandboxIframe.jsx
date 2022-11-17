@@ -12,25 +12,32 @@ export const sandboxes = {
     contracts_for_symbol: `${url_base}contracts_for_symbol`,
     profit_table: `${url_base}profit_table`,
     portfolio: `${url_base}portfolio`,
-    keep_alive:`${url_base}keep_alive`,
+    keep_alive: `${url_base}keep_alive`,
     proposal_open_contract: `${url_base}open_contracts`,
     proposal: `${url_base}proposal`,
-    statement: `${url_base}statement`
-}
+    statement: `${url_base}statement`,
+};
 
 export const SandboxIframe = ({ sandbox }) => {
-
-    const sandbox_url_attributes = "?autoresize=1&runonclick=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=darkveiw&view=split"
+    const sandbox_url_attributes =
+        '?autoresize=1&runonclick=1&codemirror=1&expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Findex.js&theme=darkveiw&view=split';
     return (
-        <div className="sandbox-wrapper">
+        <div className='sandbox-wrapper'>
             <iframe
-                className="sandbox-iframe"
+                className='sandbox-iframe'
                 src={`${sandbox}${sandbox_url_attributes}`}
-                style={{ width:"100%", height:"500px", border:"0", borderRadius:"4px", overflow: "hidden", marginBottom: "50px" }}
-                title="static"
-                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                loading="lazy"
+                style={{
+                    width: '100%',
+                    height: '500px',
+                    border: '0',
+                    borderRadius: '4px',
+                    overflow: 'hidden',
+                    marginBottom: '50px',
+                }}
+                title='static'
+                sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+                loading='lazy'
             />
         </div>
-    )
-}
+    );
+};
