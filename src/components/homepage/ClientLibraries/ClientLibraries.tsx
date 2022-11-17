@@ -2,13 +2,12 @@ import styles from './ClientLibraries.module.scss';
 export const ClientLibraries = () => {
     return (
         <div className={`main-page-row gray ${styles.takeToLib}`}>
-            <div className="row-container">
+            <div className='row-container'>
                 <div className={`single-container gray ${styles.clientLibrary}`}>
                     <div className={styles.iconJsLibrary} />
                     <h1>Comprehensive all-in-one client library</h1>
-                    <p className="subheader">
-                        Simplify your development processes and get your app up and
-                        running <br />
+                    <p className='subheader'>
+                        Simplify your development processes and get your app up and running <br />
                         faster with the client library of your choice.
                     </p>
                     <div className={styles.libraryLinks}>

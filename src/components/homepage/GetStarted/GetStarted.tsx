@@ -2,9 +2,9 @@ import styles from './GetStarted.module.scss';
 export const GetStarted = () => {
     return (
         <div className={`main-page-row ${styles.withPattern}`}>
-            <div className="column-container">
+            <div className='column-container'>
                 <h1>Get started with our API in 3 simple steps:</h1>
-                <div className="card-container">
+                <div className='card-container'>
                     <a
                         target='_blank'
                         href='https://deriv.com/signup/'

@@ -7,10 +7,10 @@ export const HomepageFooter = () => {
                     <h2>Get connected</h2>
                     <p className='mb-16p'>Discuss ideas and share solutions with developers worldwide.</p>
                     <a
-                        target="_blank"
-                        href="https://binary.vanillacommunity.com/"
+                        target='_blank'
+                        href='https://binary.vanillacommunity.com/'
                         className={styles.communityBtn}
-                        rel="noreferrer noopener"
+                        rel='noreferrer noopener'
                     >
                         Join our community
                     </a>

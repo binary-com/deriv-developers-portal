@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "react-router-dom";
-import ApiGuideTable from "../ApiGuideTable/ApiGuideTable";
-import CodeBlockSingleLanguage from "../../../global/CodeBlock/CodeBlockSingleLanguage";
-import styles from "../ApiGuide.module.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ApiGuideTable from '../ApiGuideTable/ApiGuideTable';
+import CodeBlockSingleLanguage from '../../../global/CodeBlock/CodeBlockSingleLanguage';
+import styles from '../ApiGuide.module.scss';
 
 import ticksJSON from '../../../../../public/demos/json/ticks.json';
 import nestedJSON from '../../../../../public/demos/json/nested.json';
