@@ -12,22 +12,22 @@
     }
     .branding {
         display: inline;
-        font-size: 24px;
-        padding-top: 2.5rem;
+        font-size: var(--text-size-m);
+        padding-top: 4rem;
         font-weight: normal;
         color: #ffffff;
         margin-left: 24px;
     }
     .logo {
         background-image: url(/img/deriv.svg);
-        width: 180px;
-        height: 73px;
+        width: 18rem;
+        height: 7.3rem;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
         [data-view~="desktopLaptopM"] {
             .logo {
-            width: 84px;
+            width: 8.4rem;
             height: auto;
             display: flex;
             justify-content: center;
@@ -39,10 +39,10 @@
 
 [data-state*="responsive.mobile"] {
     .logo {
-        width: 84px;
+        width: 8.4rem;
     }
     .branding {
-        font-size: 16px;
+        font-size: var(--text-size-s);
         margin-left: 8px;
     }
 }

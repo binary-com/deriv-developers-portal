@@ -10,19 +10,19 @@
     align-items: center;
     justify-content: flex-end;
     color: var(--copy-color);
-    padding: 8px 16px;
+    padding: 0.8rem 1.6rem;
     cursor: copy;
     flex-shrink: 0;
     width: fit-content;
 
     .copyButtonImage {
       background-image: url(/img/copy.svg);
-      width: 15px;
-      height: 16px;
+      width: 1.5rem;
+      height: 1.6rem;
     }
 
     > div {
-      margin-left: 9px;
+      margin-left: 0.9rem;
     }
 
     &:hover {

@@ -31,8 +31,8 @@ export const GetStarted = () => {
                         </div>
                         <div className='content'>Fill out the registration form to start using Deriv API.</div>
                     </a>
-                    <a href='/docs/api-guide/' className='main-page-card'>
-                        <div className='header'>
+                    <a href="/docs/resources/api-guide/" className="main-page-card">
+                        <div className="header">
                             <h3>3. Read our guide</h3>
                             <div className={styles.guideIcon} />
                         </div>

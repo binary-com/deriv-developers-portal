@@ -5,18 +5,18 @@
   word-break: break-word;
   color: var(--white);
   border-radius: 0 0 4px 4px;
-  padding: 24px;
-  margin-bottom: 16px;
+  padding: 2.4rem;
+  margin-bottom: 1.6rem;
   background: var(--json-midnight);
-  font-size: inherit;
+  font-size: var(--text-size-s);
   word-wrap: inherit;
 }
 
 .codeBlock {
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
 
   .sub_title {
-    font-size: 32px;
+    font-size: var(--text-size-l);
     text-align: left;
     margin-bottom: 8px;
   }
@@ -31,10 +31,10 @@
   ol {
     li {
       a {
-        font-weight: normal;
+        font-weight: var(--text-weight-normal);
       }
       code {
-        font-weight: normal;
+        font-weight: var(--text-weight-normal);
         color: var(--red-01);
       }
     }
@@ -57,7 +57,7 @@
     .cardTitle {
       width: 100%;
       margin-bottom: unset;
-      padding-left: 24px;
+      padding-left: 2.4rem;
     }
     select {
       background-color: inherit;
@@ -73,7 +73,7 @@
 [data-state~="responsive.mobileS"],
 [data-state~="responsive.mobileM"] {
   .codeBlockTitle {
-    font-size: 24px;
-    margin-bottom: 8px;
+    font-size: 2.4rem;
+    margin-bottom: 0.8rem;
   }
 }
