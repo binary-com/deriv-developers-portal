@@ -57,10 +57,7 @@ const SchemaBodyHeader = ({
     const is_only_type = !_enum && type && type !== 'object' && typeof type !== 'object';
 
     return (
-        <div
-            className={`${styles.schemaBodyHeader}${type === "object" ? ` ${styles.schemaObjectHeader}` : ""
-                }`}
-        >
+        <div className={`${styles.schemaBodyHeader}${type === 'object' ? ` ${styles.schemaObjectHeader}` : ''}`}>
             <div className={styles.schemaBodyType}>
                 <div className={styles.enumFlex}>
                     <p style={{ fontSize: '2.6rem' }}>
@@ -69,29 +66,18 @@ const SchemaBodyHeader = ({
                     <div className={styles.enumContainer}>
                         {is_type_with_enumlabel && (
                             <React.Fragment>
-                                <span className={styles.enumLabel}>
-                                    {_enum.length > 1 ? "enum" : "constant"}
-                                </span>{" "}
-                                <span className={`${styles.enumType} ${typeClassName}`}>
-                                    {type}
-                                </span>
+                                <span className={styles.enumLabel}>{_enum.length > 1 ? 'enum' : 'constant'}</span>{' '}
+                                <span className={`${styles.enumType} ${typeClassName}`}>{type}</span>
                                 <React.Fragment>
                                     {_enum.map((el: string, i: number) => (
-                                        <div
-                                            className={`${styles.schemaCode} ${styles.schemaEnums}`}
-                                            key={i}
-                                        >
+                                        <div className={`${styles.schemaCode} ${styles.schemaEnums}`} key={i}>
                                             {el}
                                         </div>
                                     ))}
                                 </React.Fragment>
                             </React.Fragment>
                         )}
-                        {is_only_type && (
-                            <span className={`${styles.enumType} ${typeClassName}`}>
-                                {type}
-                            </span>
-                        )}
+                        {is_only_type && <span className={`${styles.enumType} ${typeClassName}`}>{type}</span>}
 
                         {type && Array.isArray(type) && (
                             <React.Fragment>
