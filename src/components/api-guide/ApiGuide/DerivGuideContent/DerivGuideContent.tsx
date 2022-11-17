@@ -250,7 +250,7 @@ export const DerivGuideContent = () => {
                 <li>
                     <p>
                         Specify the URL that will be used as the OAuth Redirect URL on the{' '}
-                        <a href='https://developers.binary.com/applications/'>API registration</a> page in the 'Website
+                        <a href='/app-registration'>API registration</a> page in the 'Website
                         URL' field.
                     </p>
                 </li>
