@@ -1,9 +1,13 @@
 .takeToLib {
-    padding: 8rem 0 0;
     .clientLibrary {
 
         h1 {
             margin: 1.8rem 0;
+            width: 100%;
+        }
+
+        .subheader {
+            padding: 0 1.5rem;
         }
 
         .iconJsLibrary {

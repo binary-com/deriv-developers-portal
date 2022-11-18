@@ -6,7 +6,7 @@ export const DerivApiFeatures = () => {
             <div className='column-container'>
                 <div className={styles.apiFeatures}>
                     <div className={styles.apiFeaturesDescription}>
-                        <h2>Deriv API features</h2>
+                        <h1>Deriv API features</h1>
                         <p>
                             Deriv API gives you full access to all the trading functionalities of DTrader and allows you
                             to build your own comprehensive trading systems and analysis tools.

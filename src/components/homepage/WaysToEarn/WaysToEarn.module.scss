@@ -2,12 +2,19 @@
     margin-top: 2rem;
 
     .waysWrapper {
-        width: 100%;
+        width: 80%;
         margin-bottom: 3rem;
         display: flex;
         flex-wrap: wrap;
         align-items: var(--text-align-center);
         justify-content: space-around;
+
+        h1 {
+            max-width: 384px;
+            color: var(--text-01);
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
         .ways {
             display: flex;
