@@ -10,16 +10,22 @@
     thead {
         background-color: var(--gray-02);
         height: 5rem;
-        text-align: var(--text-align-left);
     }
 
     th,
     td {
+        text-align: var(--text-align-left);
         padding: 1.6rem;
         min-width: 12rem;
         max-width: 20rem;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+
+    td:nth-child(3) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.64rem;
     }
 
     td:last-child,
@@ -35,12 +41,6 @@
 
     tbody tr:nth-child(even) {
         background-color: var(--gray-03);
-    }
-
-    td:nth-child(2n + 3) {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.64rem;
     }
 }
 
@@ -85,7 +85,7 @@
 
 .appActions {
     display: flex;
-    justify-content: var(--text-align-center);
+    justify-content: var(--text-align-left);
     margin: 3rem;
 }
 
@@ -136,11 +136,11 @@
 .scope {
     border: 1.6px solid var(--border-normal);
     border-radius: 4px;
-    padding: 0.32rem 0.32rem;
-    font-size: var(--text-size-xxs);
+    padding: 0.24rem 0.24rem;
+    font-size: 1.1rem;
 }
 
 .adminScope {
-    border: 1px solid var(--teal-01);
+    border: 1.6px solid var(--teal-01);
     color: var(--teal-01);
 }
