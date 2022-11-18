@@ -13,8 +13,8 @@ export default function Navigator() {
                 />
             </div>
             <div className={`${styles.navigatorContent} ${is_closed ? '' : styles.opened}`}>
-                <a className={styles.navigatorLink} href='#what-is-api'>
-                    What is API?
+                <a className={styles.navigatorLink} href='#what-is-an-api'>
+                    What is an API?
                 </a>
                 <a className={styles.navigatorLink} href='#the-deriv-api'>
                     The Deriv API

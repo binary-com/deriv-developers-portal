@@ -110,6 +110,10 @@ html * {
     font-size: var(--text-size-s);
 }
 
+th, td {
+    font-size: var(--text-size-xs);
+}
+
 @mixin header {
     margin-bottom: 1.6rem;
     color: var(--text-01);
