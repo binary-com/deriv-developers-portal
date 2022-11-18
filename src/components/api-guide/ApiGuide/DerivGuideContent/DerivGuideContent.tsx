@@ -272,8 +272,9 @@ export const DerivGuideContent = () => {
             </p>
             <p>
                 <InlineCode>
-                    https://&#91;YOUR_WEBSITE_URL&#93;/redirect/?acct1=cr799393& token1=a1-f7pnteezo4jzhpxclctizt27hyeot&cur1=usd&
-                    acct2=vrtc1859315& token2=a1clwe3vfuuus5kraceykdsoqm4snfq& cur2=usd&state=
+                    https://&#91;YOUR_WEBSITE_URL&#93;/redirect/?acct1=cr799393&
+                    token1=a1-f7pnteezo4jzhpxclctizt27hyeot&cur1=usd& acct2=vrtc1859315&
+                    token2=a1clwe3vfuuus5kraceykdsoqm4snfq& cur2=usd&state=
                 </InlineCode>
             </p>
             <p>In the parameters of the URL you will see all the accounts and the session token for each account.</p>
