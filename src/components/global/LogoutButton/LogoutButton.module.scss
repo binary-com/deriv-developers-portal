@@ -1,6 +1,7 @@
 .signOut {
   --btn-background: var(--black-01);
   width: 13rem;
+  text-align: center;
   display: block;
   z-index: 100;
   color: var(--white);
@@ -11,6 +12,5 @@
 
 [data-state*="mobile"] .signOut {
   position: relative;
-  text-align: center;
   bottom: 0.1rem;
 }
