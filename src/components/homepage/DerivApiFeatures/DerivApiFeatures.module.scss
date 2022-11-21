@@ -5,6 +5,10 @@
     width: 90%;
     align-items: center;
 
+    h1 {
+        text-align: left;
+    }
+
     .apiFeaturesDescription,
     .apiFeaturesImage {
         min-width: 32rem;
@@ -73,7 +77,6 @@
     .apiFeaturesDescription {
         h1 {
             padding: 0 0 1rem 0;
-            text-align: left;
         }
     }
 }
