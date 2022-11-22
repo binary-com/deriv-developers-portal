@@ -13,4 +13,7 @@
 [data-state*="mobile"] .signOut {
   position: relative;
   bottom: 0.1rem;
+  button {
+    padding: 1rem;
+  }
 }
