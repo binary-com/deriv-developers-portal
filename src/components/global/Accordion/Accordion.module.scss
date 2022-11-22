@@ -1,4 +1,5 @@
 .accordion {
+  padding-left: 7.5rem;
 
   .accordionWrapper {
     display: flex;
@@ -75,9 +76,9 @@
   }
 }
 
-[data-state*="responsive.desktop"] {
+[data-state*="responsive.mobile"] {
   .accordion {
-    padding-left: 7.5rem;
+    padding-left: 0;
     .accordionHeader {
       padding: 1.6rem 2.8rem;
     }
