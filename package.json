@@ -27,7 +27,7 @@
         "@xstate/test": "^0.5.1",
         "cypress": "^10.3.0",
         "dialog-polyfill": "^0.5.6",
-        "directory-tree": "^3.3.2",
+        "directory-tree": "^3.4.0",
         "eslint": "^8.20.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-import": "^2.26.0",
