@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { InlineCode } from '../../../global/InlineCode/InlineCode';
 import ApiGuideTable from '../ApiGuideTable/ApiGuideTable';
 import CodeBlockSingleLanguage from '../../../global/CodeBlock/CodeBlockSingleLanguage';
 import styles from '../ApiGuide.module.scss';
@@ -79,7 +80,7 @@ export const DerivGuideContent = () => {
                         Client's stake with the markup = 1.07 USD + (2 USD x 2%) = <b>1.11 USD</b>
                     </li>
                 </ul>
-                <h3>Conditions of using the Deriv API</h3>
+                <h4>Conditions of using the Deriv API</h4>
                 <p>
                     The Deriv API is free of charge and is subject to our{' '}
                     <a href='https://deriv.com/terms-and-conditions'>terms and conditions</a> and{' '}
@@ -120,7 +121,7 @@ export const DerivGuideContent = () => {
                     For more information on how to write a client using WebSockets, visit this{' '}
                     <a href='/docs/'>guide</a>.
                 </p>
-                <h2 id='json'>JSON</h2>
+                <h3 id='json'>JSON</h3>
                 <p>
                     JavaScript Object Notation (JSON) is a data format based on JavaScript. However, it is completely
                     language-independent, and can be used by any modern programming language. JSON has a good balance
@@ -156,7 +157,7 @@ export const DerivGuideContent = () => {
             <div className={styles.apiCodeBlock}>
                 <CodeBlockSingleLanguage lang='json' content={statusContent} />
             </div>
-            <h2 id='json-schemas'>JSON Schemas</h2>
+            <h3 id='json-schemas'>JSON Schemas</h3>
             <p>
                 JSON Schema is a defined format for the JSON messages used to describe their structure to Deriv API
                 users. In a nutshell, it’s a standardised way of explaining what a JSON request should look like using
@@ -186,12 +187,12 @@ export const DerivGuideContent = () => {
                 <img src={showJSONSchemaImg} alt='API Guide' loading='lazy' />
             </div>
             <p>The JSON Schema also forms the documentation for the API Explorer.</p>
-            <h2 id='authorisation'>Authorisation</h2>
+            <h3 id='authorisation'>Authorisation</h3>
             <p>
                 Third-party developers can authorise calls to the API in two different ways: via API token or via
                 OAuth2.
             </p>
-            <h3>API token</h3>
+            <h4>API token</h4>
             <p>
                 An API token is a unique identifier of a client that requests access from a server. It's the simplest
                 way of authorisation.
@@ -223,7 +224,7 @@ export const DerivGuideContent = () => {
                 Please bear in mind that the API token can be used with any app, so both your app and your clients need
                 to keep it secure.
             </p>
-            <h3>OAuth2</h3>
+            <h4>OAuth2</h4>
             <p>
                 OAuth stands for Open Authorisation - a protocol that allows a client access resources hosted on a
                 server on behalf of the user without revealing the credentials.
@@ -245,7 +246,7 @@ export const DerivGuideContent = () => {
             <div className={styles.apiGuideImage}>
                 <img src={howOauthWorksImg} alt='API Guide' loading='lazy' />
             </div>
-            <h2>What do you need to do to use OAuth authorisation for Deriv API?</h2>
+            <h3>What do you need to do to use OAuth authorisation for Deriv API?</h3>
             <ul>
                 <li>
                     <p>
@@ -270,10 +271,11 @@ export const DerivGuideContent = () => {
                 will have arguments added to it with the user's session tokens, and will look similar to this:
             </p>
             <p>
-                <code className='inline-code'>
-                    https://mywebsite.com/redirect/?acct1=cr799393& token1=a1-f7pnteezo4jzhpxclctizt27hyeot&cur1=usd&
-                    acct2=vrtc1859315& token2=a1clwe3vfuuus5kraceykdsoqm4snfq& cur2=usd&state=
-                </code>
+                <InlineCode>
+                    https://&#91;YOUR_WEBSITE_URL&#93;/redirect/?acct1=cr799393&
+                    token1=a1-f7pnteezo4jzhpxclctizt27hyeot&cur1=usd& acct2=vrtc1859315&
+                    token2=a1clwe3vfuuus5kraceykdsoqm4snfq& cur2=usd&state=
+                </InlineCode>
             </p>
             <p>In the parameters of the URL you will see all the accounts and the session token for each account.</p>
             <ul>

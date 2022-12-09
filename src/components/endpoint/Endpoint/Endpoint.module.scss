@@ -63,7 +63,7 @@
                         background-color: var(--white);
                         background-size: 1rem;
                         padding: 0 0.4rem;
-                        transform: translateY(-20px) scale(0.75);
+                        transform: translateY(-2rem) scale(0.75);
                     }
                     &:focus {
                         outline: none;
@@ -71,7 +71,7 @@
                             color: var(--brand-secondary);
                             background-color: var(--white);
                             padding: 0 0.4rem;
-                            transform: translateY(-20px) scale(0.75);
+                            transform: translateY(-2rem) scale(0.75);
                         }
                     }
                 }
@@ -91,7 +91,7 @@
                 }
                 .textInput {
                     background: none;
-                    border: 1px solid #ccc;
+                    border: 1px solid var(--gray-08);
                     color: var(--black-01);
                     padding: 1.6rem 1.6rem 1.6rem 1.28rem;
                     width: 100%;

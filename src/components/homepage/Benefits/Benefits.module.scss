@@ -1,12 +1,5 @@
 .benefitsContainer {
-    .benefitsTitle {
-        margin-bottom: 1rem;
-        color: var(--text-01);
-        font-size: var(--text-size-xl);
-        margin-bottom: 40px;
-        text-align: center;
-    }
-
+    width: 80%;
     .benefitsIcons {
         width: 65%;
         flex-wrap: nowrap;
@@ -44,6 +37,10 @@
         justify-content: space-evenly;
         width: 100%;
 
+        h3 {
+            margin: 1.6rem 0;
+        }
+
         div {
             width: 48.6rem;
         }
@@ -65,7 +62,7 @@
         .personalisationContainer {
             display: flex;
             width: 100%;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: var(--text-align-center);
             margin: 4rem 0;
         }
@@ -83,7 +80,7 @@
                 }
 
                 p {
-                    font-size: 22px;
+                    font-size: var(--text-size-m);
                     line-height: 3.2rem;
                 }
             }
@@ -149,7 +146,7 @@
 
                 .personalisation {
                     width: 90% !important;
-                    margin: 0 auto 30px;
+                    margin: 0 auto 3rem;
 
                     h3 {
                         font-size: var(--text-size-m);
@@ -192,20 +189,6 @@
                 margin-bottom: 0;
             }
 
-            .personalisationContainer {
-                .personalisationImage {
-                    width: 100%;
-                    margin: 0 auto;
-                }
-            }
-
-            .earnMoreContainer {
-                .earnMoreImage {
-                    width: 100%;
-                    margin: 0 auto;
-                }
-            }
-
             .personalisation,
             .earnMore {
                 margin: 0;
@@ -224,5 +207,15 @@
     .benefitsContainer .benefits .earnMoreImage {
         max-width: 48.6rem;
         height: 15rem;
+    }
+}
+
+[data-state~="responsive.desktopL"] {
+    .personalisation {
+        order: 2;
+    }
+
+    .personalisationImage {
+        order: 1;
     }
 }

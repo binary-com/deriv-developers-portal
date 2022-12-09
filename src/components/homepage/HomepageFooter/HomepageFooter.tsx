@@ -1,3 +1,4 @@
+import styles from './HomepageFooter.module.scss';
 export const HomepageFooter = () => {
     return (
         <div className='container dark' id='derivFooter'>
@@ -8,7 +9,7 @@ export const HomepageFooter = () => {
                     <a
                         target='_blank'
                         href='https://binary.vanillacommunity.com/'
-                        className='community-btn'
+                        className={styles.communityBtn}
                         rel='noreferrer noopener'
                     >
                         Join our community

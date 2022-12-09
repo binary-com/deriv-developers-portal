@@ -2,13 +2,12 @@
   display: none;
 }
 
-.app-registration-header .form-title {
-  font-size: var(--text-size-xm);
-}
-
-.app-registration-header .form-title,
-.app-registration-header .form-subtitle {
-  text-align: var(--text-align-center);
+.app-registration-header {
+  padding: 0 2rem;
+  .form-title,
+  .form-subtitle {
+    text-align: var(--text-align-center);
+  }
 }
 
 /* add delete.svg icon to app-remove-btn */
@@ -83,7 +82,7 @@
   height: auto;
   background-color: var(--white);
   border-radius: 16px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   justify-content: space-between;
 }
 
@@ -166,7 +165,7 @@
   background-color: var(--white);
   color: black;
   font-weight: var(--text-weight-bold);
-  border: 1px solid #999999;
+  border: 0.1rem solid var(--gray-05);
   height: 4rem;
   border-radius: 4px;
   padding: 1rem 1.6rem 1rem 1.6rem;
@@ -200,6 +199,7 @@ fieldset {
   width: 80%;
   margin: 0 auto;
   border: none;
+
   .first {
     margin-top: 2rem;
   }
@@ -257,8 +257,7 @@ fieldset {
   display: none;
 }
 
-[data-state~="registration.logged_in.manage_tab.loadingApps.empty"]
-  .no-apps-wrapper {
+[data-state~="registration.logged_in.manage_tab.loadingApps.empty"] .no-apps-wrapper {
   display: inline-block;
   visibility: visible;
 }
@@ -318,7 +317,7 @@ fieldset {
   width: 100%;
   right: 0;
   top: 0;
-  bottom: -1px;
+  bottom: -0.1rem;
 }
 
 [data-state~="registration.logged_in.update_mode"] .register-app {
@@ -346,8 +345,7 @@ fieldset {
 }
 
 /*  display register-app when [data-state] success */
-[data-state~="registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_success"]
-  .registration-dialog {
+[data-state~="registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_success"] .registration-dialog {
   display: flex;
 }
 
@@ -387,10 +385,11 @@ fieldset {
 
 [data-state~="responsive.mobileL"],
 [data-state~="responsive.mobileTablet"],
-[data-state*="responsive.desktop"] { 
+[data-state*="responsive.desktop"] {
   .dialog {
     width: 38.5rem;
   }
+
   .dialog-delete,
   .dialog-update {
     width: 32rem;

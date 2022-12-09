@@ -15,8 +15,8 @@
         font-size: var(--text-size-m);
         padding-top: 4rem;
         font-weight: normal;
-        color: #ffffff;
-        margin-left: 24px;
+        color: var(--white);
+        margin-left: 2.4rem;
     }
     .logo {
         background-image: url(/img/deriv.svg);
@@ -38,11 +38,18 @@
 }
 
 [data-state*="responsive.mobile"] {
-    .logo {
-        width: 8.4rem;
-    }
-    .branding {
-        font-size: var(--text-size-s);
-        margin-left: 8px;
+    .logoLink {
+        justify-content: center;
+        .logo {
+            height: 4.8rem;
+            width: 8.4rem;
+        }
+        .branding {
+            font-size: var(--text-size-s);
+            margin-left: 0.8rem;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-left: 0.2rem;
+        }
     }
 }

@@ -10,7 +10,7 @@
     display: flex;
     justify-content: var(--text-align-center);
     align-items: var(--text-align-center);
-    padding-top: 40px;
+    padding-top: 4rem;
 
     .heroContainer {
         display: flex;
@@ -20,6 +20,7 @@
         width: 100.8rem;
 
         .heroHeader {
+            padding: 0;
             max-width: 77.5rem;
             font-size: var(--text-size-xxl);
             font-weight: 700;

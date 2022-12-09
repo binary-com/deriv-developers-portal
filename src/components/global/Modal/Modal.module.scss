@@ -1,13 +1,13 @@
 .modalHeader {
   width: 100%;
-  height: 50px;
+  height: 5rem;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
 .closeModal {
-  margin: 26px 18px;
+  margin: 2.6rem 1.8rem;
   cursor: pointer;
   background-image: url(/img/close_dialog.svg);
   background-repeat: no-repeat;

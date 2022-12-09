@@ -1,6 +1,6 @@
 input[type="checkbox"] {
   display: none;
-  margin-right: 16px;
+  margin-right: 1.6rem;
   transform: scale(1.23);
   padding: 0.9rem;
 }
@@ -11,10 +11,10 @@ input[type="checkbox"] {
   display: inline-block;
   border: 2px solid var(--app-registration-tab-secondary);
   min-width: 1.1rem;
-  height: 11px;
+  height: 1.1rem;
   position: relative;
-  top: 1px;
-  margin-right: 8px;
+  top: 0.1rem;
+  margin-right: 0.8rem;
   border-radius: 2px;
   transition: background-color 0.25s, border-color 0.25s;
 }

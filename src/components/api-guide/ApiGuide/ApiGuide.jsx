@@ -18,7 +18,7 @@ export default function ApiGuide() {
                 <h1>API guide</h1>
                 {isMobile && <RenderOfficialDomainContents Component={Navigator} />}
                 <div className={styles.textBlock}>
-                    <h2 id='what-is-api'>What is API?</h2>
+                    <h2 id='what-is-an-api'>What is an API?</h2>
                     <p>
                         API stands for Application Programming Interface - a software that allows 2 or more computer
                         programs to communicate with each other. These 2 programs are usually referred to as server and
@@ -70,7 +70,7 @@ export default function ApiGuide() {
                     <div className={styles.apiGuideImage}>
                         <img src={howAPIWorksUrl} alt='How API works' loading='lazy' />
                     </div>
-                    <h3>Client libraries</h3>
+                    <h4>Client libraries</h4>
                     <p>
                         {' '}
                         Client libraries are pre-written pieces of code that can be used to send API calls instead of

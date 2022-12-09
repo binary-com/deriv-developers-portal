@@ -21,7 +21,7 @@
       flex-wrap: wrap;
       height: fit-content;
       width: 100%;
-      margin-top: 40px;
+      margin-top: 4rem;
       .playgroundPageWrapper {
         display: flex;
         justify-content: var(--text-align-center);
@@ -75,7 +75,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     width: 100%;
     margin-bottom: unset;
     align-items: var(--text-align-center);
@@ -154,13 +154,13 @@
       margin: 0 auto;
     }
     pre .key {
-      color: #f92672;
+      color: var(--json-magenta);
     }
     pre .string {
-      color: #e6db74;
+      color: var(--json-gold);
     }
     pre .number {
-      color: #ae81ff;
+      color: var(--json-purple);
     }
     pre.req,
     pre.res,
