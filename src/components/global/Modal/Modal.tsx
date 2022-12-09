@@ -1,6 +1,18 @@
 import Button from '../Button/Button';
-import Dialog from '../Dialog/Dialog';
+import { Dialog } from '../Dialog/Dialog';
 import styles from './Modal.module.scss';
+
+type TModal = {
+    onRequestClose: () => void;
+    open: boolean;
+    type: 'success' | 'warning';
+    title: string;
+    description: string;
+    primaryButtonText?: string | null;
+    secondaryButtonText: string;
+    onPrimaryButtonClick?: () => void;
+    onSecondaryButtonClick: () => void;
+};
 
 export default function Modal({
     onRequestClose,
@@ -12,17 +24,7 @@ export default function Modal({
     secondaryButtonText,
     onPrimaryButtonClick,
     onSecondaryButtonClick,
-}: {
-    onRequestClose: () => void;
-    open: any;
-    type: 'success' | 'warning';
-    title: string;
-    description: string;
-    primaryButtonText?: any;
-    secondaryButtonText: string;
-    onPrimaryButtonClick?: () => void;
-    onSecondaryButtonClick: () => void;
-}) {
+}: TModal) {
     return (
         <Dialog onRequestClose={onRequestClose} open={open} closeOnOutsideClick>
             <div className={styles.modalHeader}>
@@ -32,9 +34,7 @@ export default function Modal({
                 {type === 'success' && <div className={styles.modalImageSuccess} />}
                 {type === 'warning' && <div className={styles.modalImageWarning} />}
                 <div className={styles.modalTitle}>{title}</div>
-                <div className={styles.modalDescription}>
-                    <span>{description}</span>
-                </div>
+                <div className={styles.modalDescription}>{description}</div>
             </div>
             <div className={styles.modalFooter}>
                 <Button type='secondary' onClick={onSecondaryButtonClick}>
