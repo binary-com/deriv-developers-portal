@@ -28,7 +28,7 @@ export default function NavigationLinks() {
 
                 // Rendering component here.
                 return (
-                    <Fragment>
+                    <Fragment key={route.path}>
                         {hidden_menu_items.includes(route?.path) ? (
                             // Hide specific links if website is rendered on non-deriv domain.
                             <RenderOfficialDomainContents Component={LinkComponent} />
