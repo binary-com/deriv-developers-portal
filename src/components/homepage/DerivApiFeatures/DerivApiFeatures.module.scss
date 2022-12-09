@@ -5,43 +5,38 @@
     width: 90%;
     align-items: center;
 
+    h1 {
+        text-align: left;
+    }
+
     .apiFeaturesDescription,
     .apiFeaturesImage {
-        min-width: 320px;
-        margin-bottom: 40px;
+        min-width: 32rem;
+        margin-bottom: 4rem;
     }
 
     .apiFeaturesDescription {
-        width: 486px;
-        margin-left: 40px;
-        padding: 0 10px;
+        width: 48.6rem;
+        margin-left: 2rem;
+        padding: 0 1rem;
         box-sizing: border-box;
-
-        h2 {
-            font-size: 48px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 2rem;
-        }
 
         ul {
             margin-left: 0;
 
             li {
                 display: flex;
-                align-items: center;
+                align-items: var(--text-align-center);
                 list-style-type: none;
 
                 .checklistIcon {
                     background-image: url(/img/checklist-icon-red.svg);
                     background-repeat: no-repeat;
-                    background-position: center;
-                    margin-right: 10px;
+                    background-position: var(--text-align-center);
+                    margin-right: 1rem;
                     margin-bottom: 0;
-                    width: 24px;
-                    height: 24px;
+                    width: 2.4rem;
+                    height: 2.4rem;
                 }
 
                 p {
@@ -57,8 +52,8 @@
         background-repeat: no-repeat;
         background-size: contain;
         display: inline-block;
-        width: 600px;
-        margin-top: 10px;
+        width: 60rem;
+        margin-top: 1rem;
     }
 }
 
@@ -68,12 +63,20 @@
         margin: 0;
 
         p {
-            font-size: 16px;
+            font-size: var(--text-size-s);
         }
 
         h3 {
-            text-align: center;
-            font-size: 22px;
+            text-align: var(--text-align-center);
+            font-size: 2.2rem;
+        }
+    }
+}
+
+[data-state*="responsive.mobile"] {
+    .apiFeaturesDescription {
+        h1 {
+            padding: 0 0 1rem 0;
         }
     }
 }

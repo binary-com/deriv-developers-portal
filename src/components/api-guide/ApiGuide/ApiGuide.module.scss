@@ -4,22 +4,25 @@
   h2 {
     text-align: left;
   }
+  strong{
+    font-size: var(--text-size-s);
+  }
 }
 
 .apiGuideContent {
   width: 100%;
   .textBlock {
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
   }
   .markupCalc li {
-    margin-left: 30px;
+    margin-left: 3rem;
   }
 }
 
 .apiGuideImage {
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
   img {
     width: 80%;
   }
@@ -42,15 +45,16 @@
 [data-state~="responsive.mobileS"] {
   .apiGuideImage {
     overflow: auto;
+    justify-content: unset;
     img {
-      width: 900px;
+      width: 90rem;
     }
   }
 }
 
 [data-state*="responsive.desktop"] {
   .apiGuideContent {
-    width: calc(100% - 270px);
+    width: calc(100% - 27rem);
   }
 
   .apiCodeBlock {

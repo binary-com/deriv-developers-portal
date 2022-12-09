@@ -2,29 +2,28 @@
   display: none;
 }
 
-.app-registration-header .form-title {
-  font-size: 28px;
-}
-
-.app-registration-header .form-title,
-.app-registration-header .form-subtitle {
-  text-align: center;
+.app-registration-header {
+  padding: 0 2rem;
+  .form-title,
+  .form-subtitle {
+    text-align: var(--text-align-center);
+  }
 }
 
 /* add delete.svg icon to app-remove-btn */
 .app-btn {
   background-image: url("/img/delete.svg");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 16px;
+  background-position: var(--text-align-center);
+  background-size: 1.6rem;
   background-origin: content-box;
   background-clip: content-box;
   background-color: transparent;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
-  width: 32px;
+  font-size: var(--text-size-xs);
+  font-weight: var(--text-weight-bold);
+  width: 3.2rem;
 }
 
 .app-btn span {
@@ -32,7 +31,7 @@
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: var(--text-weight-bold);
 }
 
 .delete-icon {
@@ -52,9 +51,9 @@
 [data-state~="registration.logged_out"] .app-registration-login {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 105px);
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
+  height: calc(100vh - 10.5rem);
 }
 
 .app-registration-logged-in {
@@ -77,84 +76,84 @@
 .dialog {
   position: absolute;
   top: 50%;
-  left: calc(50% - 16px);
+  left: calc(50% - 1.6rem);
   transform: translate(-50%, -50%);
-  width: 320px;
+  width: 32rem;
   height: auto;
   background-color: var(--white);
   border-radius: 16px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   justify-content: space-between;
 }
 
 .dialog-delete {
-  width: 320px;
+  width: 32rem;
 }
 
 .dialog-update {
-  width: 320px;
-  height: 700px;
+  width: 32rem;
+  height: 70rem;
 }
 
 .dialog-update-input {
-  padding: 20px;
+  padding: 2rem;
 }
 
 .dialog-update-scopes {
-  padding: 20px;
+  padding: 2rem;
 }
 
 .dialog-header {
   width: 100%;
-  height: 50px;
+  height: 5rem;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: var(--text-align-center);
 }
 
 .dialog-header img {
-  padding: 26px 18px;
+  padding: 2.6rem 1.8rem;
   cursor: pointer;
 }
 
 .dialog-body {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: var(--text-align-center);
+  align-items: var(--text-align-center);
   flex-direction: column;
 }
 
 .dialog-body-delete {
-  align-items: center;
+  align-items: var(--text-align-center);
 }
 
 .dialog-body .dialog-body-delete img {
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 }
 
 .dialog-body .dialog-body-delete h3 {
-  margin-bottom: 8px;
+  margin-bottom: 0.8rem;
 }
 
 .dialog-footer {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 24px;
-  margin-bottom: 37px;
+  justify-content: var(--text-align-center);
+  align-items: var(--text-align-center);
+  margin-top: 2.4rem;
+  margin-bottom: 3.7rem;
 }
 
 /* red "No, keep it" button with white text */
 .dialog-btn-submit {
   background-color: var(--red-01);
   color: var(--white);
-  font-weight: bold;
-  height: 40px;
+  font-weight: var(--text-weight-bold);
+  height: 4rem;
   border: none;
   border-radius: 4px;
-  padding: 10px 16px 10px 16px;
+  padding: 1rem 1.6rem 1rem 1.6rem;
 }
 
 .dialog-btn-submit:hover {
@@ -165,12 +164,12 @@
 .dialog-btn-cancel {
   background-color: var(--white);
   color: black;
-  font-weight: bold;
-  border: 1px solid #999999;
-  height: 40px;
+  font-weight: var(--text-weight-bold);
+  border: 0.1rem solid var(--gray-05);
+  height: 4rem;
   border-radius: 4px;
-  padding: 10px 16px 10px 16px;
-  margin-right: 24px;
+  padding: 1rem 1.6rem 1rem 1.6rem;
+  margin-right: 2.4rem;
 }
 
 /* add hover color to "Yes, delete" */
@@ -179,35 +178,36 @@
 }
 
 .dialog-success {
-  width: 100px;
-  height: 100px;
+  width: 10rem;
+  height: 10rem;
 }
 
 .dialog-question {
-  text-align: center;
+  text-align: var(--text-align-center);
 }
 
 [data-state~="registration.logged_in"] .app-registration-logged-in {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
   width: 100%;
-  margin: 125px 0 40px 0;
+  margin: 12.5rem 0 4rem 0;
 }
 
 fieldset {
   width: 80%;
   margin: 0 auto;
   border: none;
+
   .first {
-    margin-top: 20px;
+    margin-top: 2rem;
   }
 }
 
 .form-subtitle {
   font-weight: normal;
-  line-height: 24px;
+  line-height: var(--text-lh-xxl);
 }
 
 .input-container {
@@ -216,26 +216,26 @@ fieldset {
 }
 
 .login-image {
-  margin-top: 95px;
-  margin-bottom: 16px;
+  margin-top: 9.5rem;
+  margin-bottom: 1.6rem;
   background-image: url(/img/login.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  width: 128px;
-  height: 128px;
+  background-position: var(--text-align-center);
+  width: 12.8rem;
+  height: 12.8rem;
 }
 
 .login-title {
-  font-size: 16px;
-  margin-bottom: 40px;
-  padding-left: 16px;
-  padding-right: 16px;
-  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 4rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  text-align: var(--text-align-center);
 }
 
 .main-register-btn {
-  padding: 10px 16px;
+  padding: 1rem 1.6rem;
   border-radius: 4px;
   background-color: var(--red-01);
   text-decoration: none;
@@ -246,9 +246,9 @@ fieldset {
 .no-apps {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: calc(320px - 32px);
+  justify-content: var(--text-align-center);
+  align-items: var(--text-align-center);
+  width: calc(32rem - 3.2rem);
   position: relative;
   margin: 0 auto;
 }
@@ -257,14 +257,13 @@ fieldset {
   display: none;
 }
 
-[data-state~="registration.logged_in.manage_tab.loadingApps.empty"]
-  .no-apps-wrapper {
+[data-state~="registration.logged_in.manage_tab.loadingApps.empty"] .no-apps-wrapper {
   display: inline-block;
   visibility: visible;
 }
 
 .no-apps-wrapper {
-  width: calc(100% - 32px);
+  width: calc(100% - 3.2rem);
   position: absolute;
   height: auto;
 }
@@ -277,13 +276,13 @@ fieldset {
 [data-state~="registration.logged_in.register_tab"] .register-app {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
 }
 
 .registered-apps-tabs {
   display: flex;
-  padding: 40px 0;
+  padding: 4rem 0;
 }
 
 .registered-apps-tabs button {
@@ -291,7 +290,7 @@ fieldset {
   background-color: transparent;
   color: var(--gray-05);
   border-bottom: 1px solid var(--gray-05);
-  padding: 10px 20px;
+  padding: 1rem 2rem;
 }
 
 [data-state~="registration.logged_in.manage_tab"] .manage-button,
@@ -310,22 +309,22 @@ fieldset {
 [data-state~="registration.logged_in.update_mode"] .register-button::before {
   visibility: visible;
   content: "Update your application";
-  font-weight: bold;
+  font-weight: var(--text-weight-bold);
   color: var(--text-01);
   border-bottom: 3px solid var(--red-01);
   position: absolute;
-  padding: 10px 0;
+  padding: 1rem 0;
   width: 100%;
   right: 0;
   top: 0;
-  bottom: -1px;
+  bottom: -0.1rem;
 }
 
 [data-state~="registration.logged_in.update_mode"] .register-app {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
 }
 
 [data-state~="registration.logged_in.update_mode"] .expandable-form {
@@ -336,7 +335,7 @@ fieldset {
 .register-app fieldset input[type="text"] {
   padding: 0;
   width: 100%;
-  text-indent: 12px;
+  text-indent: 1.2rem;
   margin-bottom: 0 !important;
 }
 
@@ -346,8 +345,7 @@ fieldset {
 }
 
 /*  display register-app when [data-state] success */
-[data-state~="registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_success"]
-  .registration-dialog {
+[data-state~="registration.logged_in.register_tab.unfolded_form.submitting_registration.registration_success"] .registration-dialog {
   display: flex;
 }
 
@@ -366,13 +364,13 @@ fieldset {
 
 .tooltip:after {
   background: transparent;
-  height: 15px;
+  height: 1.5rem;
   content: " ";
   position: absolute;
   left: 0;
   width: inherit;
-  bottom: -15px;
-  padding: 0 8px;
+  bottom: -1.5rem;
+  padding: 0 0.8rem;
 }
 
 .app-registration-signout {
@@ -381,19 +379,20 @@ fieldset {
 
 [data-state*="responsive.mobile"] {
   &[data-state~="registration.logged_in"] .app-registration-logged-in {
-    margin-top: 80px;
+    margin-top: 8rem;
   }
 }
 
 [data-state~="responsive.mobileL"],
 [data-state~="responsive.mobileTablet"],
-[data-state*="responsive.desktop"] { 
+[data-state*="responsive.desktop"] {
   .dialog {
-    width: 385px;
+    width: 38.5rem;
   }
+
   .dialog-delete,
   .dialog-update {
-    width: 320px;
+    width: 32rem;
   }
 }
 
@@ -404,47 +403,47 @@ fieldset {
   }
 
   .app-registration-header .form-title {
-    font-size: 48px;
+    font-size: var(--text-size-xl);
   }
 
   .app-registration-header .form-subtitle {
-    font-size: 20px;
+    font-size: var(--text-size-sm);
   }
 
   .dialog-delete {
-    width: 433px;
+    width: 43.3rem;
   }
 
   .dialog-update {
-    width: 433px;
-    height: 640px;
+    width: 43.3rem;
+    height: 64rem;
   }
 
   .dialog-warning {
-    margin-bottom: 24px;
+    margin-bottom: 2.4rem;
   }
 
   .login-title {
-    font-size: 20px;
-    margin-bottom: 24px;
+    font-size: var(--text-size-sm);
+    margin-bottom: 2.4rem;
   }
 
   .no-apps-wrapper {
-    width: calc(100% - 125px);
+    width: calc(100% - 12.5rem);
     position: relative;
   }
 
   .no-apps {
-    padding-top: 72px;
+    padding-top: 7.2rem;
     margin: 0 auto;
     position: relative;
   }
 
   .no-apps-text {
-    width: 390px;
+    width: 39rem;
   }
 
   .expandable-form .register-app-button {
-    padding: 12px 20px;
+    padding: 1.2rem 2rem;
   }
 }

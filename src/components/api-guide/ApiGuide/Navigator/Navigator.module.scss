@@ -3,11 +3,11 @@
   flex-direction: column;
   width: 100%;
   background-color: var(--gray-06);
-  right: 40px;
+  right: 4rem;
   z-index: 10;
   box-sizing: border-box;
-  padding: 1rem;
-  margin: 0 auto 30px;
+  padding: 1.6rem;
+  margin: 0 auto 3rem;
   .navigatorContent {
     display: flex;
     flex-direction: column;
@@ -15,18 +15,18 @@
     overflow: hidden;
     transition: height 0.3s ease-in-out;
     &.opened {
-      height: 370px;
+      height: 37rem;
     }
     .navigatorLink {
-      line-height: 26px;
-      font-size: 12px;
+      line-height: 2.6rem;
+      font-size: var(--text-size-xxs);
       color: var(--gray-05);
-      padding: 4px 0;
+      padding: 0.4rem 0;
       &:hover {
         background-color: var(--gray-01);
       }
       &.navigatorSubLink {
-        margin-left: 0.5rem;
+        margin-left: 0.8rem;
       }
     }
   }
@@ -36,22 +36,22 @@
     align-items: center;
     justify-content: space-between;
     .navigatorTitle {
-      font-size: 18px;
+      font-size: var(--text-size-xsm);
       margin: 0;
       &.bold {
         font-weight: 700;
       }
     }
     .arrow {
-      background-size: 22px;
+      background-size: 2.2rem;
       background-position: center;
       background-repeat: no-repeat;
       cursor: pointer;
       background-image: url(/img/arrow_up.svg);
       transform: rotate(-180deg);
       transition: transform 0.2s;
-      width: 22px;
-      height: 22px;
+      width: 2.2rem;
+      height: 2.2rem;
       &.down {
         transform: rotate(0deg);
       }
@@ -61,14 +61,14 @@
 
 [data-state~="responsive.mobileTablet"] {
   .navigator {
-    width: 650px;
+    width: 65rem;
   }
 }
 
 [data-state*="responsive.desktop"] {
   .navigator {
-    max-width: 270px;
-    width: 270px;
+    max-width: 27rem;
+    width: 27rem;
     position: fixed;
   }
 }

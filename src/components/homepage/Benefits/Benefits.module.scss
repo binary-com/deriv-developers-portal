@@ -1,23 +1,16 @@
 .benefitsContainer {
-    .benefitsTitle {
-        margin-bottom: 10px;
-        color: var(--text-01);
-        font-size: 48px;
-        margin-bottom: 40px;
-        text-align: center;
-    }
-
+    width: 80%;
     .benefitsIcons {
         width: 65%;
         flex-wrap: nowrap;
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
 
         .image {
             background-size: contain;
-            width: 72px;
-            height: 72px;
+            width: 7.2rem;
+            height: 7.2rem;
             display: inline-block;
-            margin: 8px;
+            margin: 0.8rem;
 
             &.automationIcon {
                 background: url(/img/automation.svg) no-repeat;
@@ -33,7 +26,7 @@
         }
 
         p {
-            font-size: 22px !important;
+            font-size: 2.2rem !important;
         }
     }
 
@@ -44,30 +37,34 @@
         justify-content: space-evenly;
         width: 100%;
 
+        h3 {
+            margin: 1.6rem 0;
+        }
+
         div {
-            width: 486px;
+            width: 48.6rem;
         }
 
         img {
-            margin-bottom: 40px;
+            margin-bottom: 4rem;
         }
 
         .personalisationImage,
         .earnMoreImage {
             background-size: 100% auto;
             background-repeat: no-repeat;
-            background-position: center;
-            width: 486px;
-            height: 260px;
+            background-position: var(--text-align-center);
+            width: 48.6rem;
+            height: 26rem;
         }
 
         .earnMoreContainer,
         .personalisationContainer {
             display: flex;
             width: 100%;
-            justify-content: space-around;
-            align-items: center;
-            margin: 40px 0;
+            justify-content: space-evenly;
+            align-items: var(--text-align-center);
+            margin: 4rem 0;
         }
 
         .earnMoreContainer {
@@ -76,15 +73,15 @@
             }
 
             .earnMore {
-                margin-left: 40px;
+                margin-left: 4rem;
 
                 h3 {
-                    font-size: 32px;
+                    font-size: var(--text-size-l);
                 }
 
                 p {
-                    font-size: 22px;
-                    line-height: 2rem;
+                    font-size: var(--text-size-m);
+                    line-height: 3.2rem;
                 }
             }
         }
@@ -97,15 +94,15 @@
             }
 
             .personalisation {
-                margin-right: 40px;
+                margin-right: 4rem;
 
                 h3 {
-                    font-size: 32px;
+                    font-size: var(--text-size-l);
                 }
 
                 p {
-                    font-size: 22px;
-                    line-height: 2rem;
+                    font-size: 2.2rem;
+                    line-height: 3.2rem;
                 }
             }
         }
@@ -115,15 +112,15 @@
 [data-state*="responsive.mobile"] {
     .benefitsContainer {
         .benefitsIcons {
-            margin-top: 30px;
+            margin-top: 3rem;
 
             img {
-                width: 48px;
-                height: 48px;
+                width: 4.8rem;
+                height: 4.8rem;
             }
 
             p {
-                font-size: 10px;
+                font-size: var(--text-size-xxxs);
             }
         }
 
@@ -136,7 +133,7 @@
             }
 
             h3 {
-                margin: 16px 0;
+                margin: 1.6rem 0;
             }
 
             img {
@@ -149,10 +146,10 @@
 
                 .personalisation {
                     width: 90% !important;
-                    margin: 0 auto 30px;
+                    margin: 0 auto 3rem;
 
                     h3 {
-                        font-size: 24px;
+                        font-size: var(--text-size-m);
                     }
                 }
             }
@@ -162,7 +159,7 @@
                 margin: 0;
 
                 .earnMoreImage {
-                    margin: 40px 0;
+                    margin: 4rem 0;
                 }
 
                 .earnMore {
@@ -170,7 +167,7 @@
                     margin: 0 auto;
 
                     h3 {
-                        font-size: 24px;
+                        font-size: var(--text-size-m);
                     }
                 }
             }
@@ -179,8 +176,8 @@
 
     .benefitsContainer .benefits .personalisationImage,
     .benefitsContainer .benefits .earnMoreImage {
-        max-width: 486px;
-        height: 220px;
+        max-width: 48.6rem;
+        height: 22rem;
     }
 }
 
@@ -192,26 +189,12 @@
                 margin-bottom: 0;
             }
 
-            .personalisationContainer {
-                .personalisationImage {
-                    width: 100%;
-                    margin: 0 auto;
-                }
-            }
-
-            .earnMoreContainer {
-                .earnMoreImage {
-                    width: 100%;
-                    margin: 0 auto;
-                }
-            }
-
             .personalisation,
             .earnMore {
                 margin: 0;
 
                 p {
-                    font-size: 20px;
+                    font-size: var(--text-size-sm);
                 }
             }
         }
@@ -222,7 +205,17 @@
 
     .benefitsContainer .benefits .personalisationImage,
     .benefitsContainer .benefits .earnMoreImage {
-        max-width: 486px;
-        height: 150px;
+        max-width: 48.6rem;
+        height: 15rem;
+    }
+}
+
+[data-state~="responsive.desktopL"] {
+    .personalisation {
+        order: 2;
+    }
+
+    .personalisationImage {
+        order: 1;
     }
 }

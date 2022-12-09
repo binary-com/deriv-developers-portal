@@ -1,12 +1,9 @@
-import { useSelector } from "@xstate/react";
-import { lazy, Suspense } from "react";
-import {
-  isRegisterSuccessSelector,
-  isUpdateModeSelector,
-} from "../../../../state/selectors";
-import { stateService } from "../../../../state/stateSignal";
+import { useSelector } from '@xstate/react';
+import { lazy, Suspense } from 'react';
+import { isRegisterSuccessSelector, isUpdateModeSelector } from '../../../../state/selectors';
+import { stateService } from '../../../../state/stateSignal';
 
-const Modal = lazy(() => import("../../../global/Modal/Modal"));
+const Modal = lazy(() => import('../../../global/Modal/Modal'));
 
 export default function RegisterAppDialogSuccess() {
   const isModalOpen: boolean = useSelector(stateService, isRegisterSuccessSelector);

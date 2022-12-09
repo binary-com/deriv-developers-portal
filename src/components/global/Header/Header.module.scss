@@ -8,8 +8,8 @@
   background-color: var(--black-01);
   a {
     position: relative;
-    margin-right: 40px;
-    font-size: 16px;
+    margin-right: 4rem;
+    font-size: var(--text-size-s);
     line-height: 1.5;
     color: var(--white);
     &:empty {
@@ -19,8 +19,8 @@
       content: "";
       position: absolute;
       width: 0;
-      height: 2px;
-      bottom: -2px;
+      height: 0.2rem;
+      bottom: -0.2rem;
       left: 0;
       background-color: var(--red-01);
       visibility: hidden;
@@ -28,14 +28,14 @@
     }
     &:hover:before {
       visibility: visible;
-      width: 20px;
+      width: 2rem;
     }
   }
   .selected {
     &::before {
-      width: 20px;
+      width: 2rem;
       visibility: visible;
-      line-height: 1.5;
+      line-height: var(--text-lh-m);
     }
   }
   .flexContainer {
@@ -47,20 +47,20 @@
     }
   }
   .topNav {
-    height: 32px;
-    padding-left: 11px;
-    justify-content: center;
-    box-shadow: inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+    height: 3.2rem;
+    padding-left: 1.1rem;
+    justify-content: var(--text-align-center);
+    box-shadow: inset 0 -0.1rem 0 0 rgba(255, 255, 255, 0.1);
     z-index: 1;
     &Container {
       display: flex;
       flex-wrap: nowrap;
       width: 80%;
       a {
-        margin-right: 40px;
-        font-size: 12px;
-        line-height: 1.5;
-        color: #c2c2c2;
+        margin-right: 4rem;
+        font-size: var(--text-size-xxs);
+        line-height: var(--text-lh-m);
+        color: var(--copy-color);
 
         &::before {
           visibility: hidden;
@@ -72,7 +72,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 73px;
+    height: 7.3rem;
     background-color: var(--black-01);
     .headerContainer {
       display: flex;
@@ -80,11 +80,11 @@
       align-items: center;
       width: 80%;
       .hamburger {
-        width: 16px;
-        height: 16px;
+        width: 1.6rem;
+        height: 1.6rem;
         background-image: url(/img/hamburger_menu.svg);
         background-repeat: no-repeat;
-        padding: 1px;
+        padding: 0.1rem;
         display: none;
       }
     }
@@ -93,64 +93,64 @@
 
 .hamburgerNavigation {
   overflow-y: auto;
-  box-shadow: rgb(0, 0, 0, 0.1) 0 16px 20px 0;
+  box-shadow: rgb(0, 0, 0, 0.1) 0 1.6rem 2rem 0;
   display: inline-block;
   position: fixed;
-  left: -260px;
+  left: -26rem;
   height: 100%;
-  top: 48px;
+  top: 4.8rem;
   bottom: 0;
   width: var(--hamburger-menu-width);
   background-color: var(--white);
   transition: left 0.4s ease-in;
   .flexContainer {
     flex-direction: column;
-    padding: 24px 16px 54px 16px;
+    padding: 2.4rem 1.6rem 5.4rem 1.6rem;
     ul {
       margin-left: 0;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 1.6rem;
       section {
         width: inherit;
       }
       li {
         list-style: none;
         a {
-          padding-left: 16px;
-          height: 40px;
-          width: calc(100% - 22px);
+          padding-left: 1.6rem;
+          height: 4rem;
+          width: calc(100% - 2.2rem);
           color: var(--text-01);
           display: flex;
-          align-items: center;
-          border-radius: 0px 4px 4px 0px;
+          align-items: var(--text-align-center);
+          border-radius: 0 4px 4px 0;
           position: relative;
-          font-size: 14px;
+          font-size: var(--text-size-xs);
         }
       }
       button {
         position: relative;
         font-weight: bold;
-        font-size: 14px;
-        width: calc(100% - 22px);
-        height: 40px;
+        font-size: var(--text-size-xs);
+        width: calc(100% - 2.2rem);
+        height: 4rem;
         color: black;
         display: flex;
         align-items: center;
-        padding-left: 22px;
-        border-radius: 0px 4px 4px 0px;
+        padding-left: 2.2rem;
+        border-radius: 0 4px 4px 0;
         background-color: transparent;
         border: none;
         &::after {
           content: "";
           display: inline-block;
           position: absolute;
-          width: 15px;
-          height: 15px;
+          width: 1.5rem;
+          height: 1.5rem;
           background-image: url(/img/arrow_down.svg);
           background-size: cover;
-          right: 16px;
+          right: 1.6rem;
           transition: transform 0.25s;
         }
       }
@@ -165,16 +165,17 @@
 }
 [data-state*="responsive.mobile"] {
   .header {
-    height: 48px;
+    height: 4.8rem;
+    position: relative;
     .headerContainer {
       width: 100%;
-      height: 56px;
-      padding-left: 16px;
+      height: 5.6rem;
+      padding-left: 1.6rem;
       .hamburger {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: 12px;
+        margin-right: 1.2rem;
         z-index: 101;
         cursor: pointer;
         transition: transform 0.25s;
@@ -183,7 +184,7 @@
   }
   &[data-state~="hamburger.hamburger_closed"] {
     .hamburgerNavigation {
-      left: -260px;
+      left: -26rem;
     }
   }
   &[data-state~="hamburger.hamburger_open"] {
@@ -219,25 +220,25 @@
 [data-state*="responsive.mobile"] {
   .nav {
     a {
-      padding-left: 16px;
-      height: 40px;
-      width: calc(100% - 22px);
+      padding-left: 1.6rem;
+      height: 4rem;
+      width: calc(100% - 2.2rem);
       color: var(--text-01);
       display: flex;
       align-items: center;
-      border-radius: 0px 4px 4px 0px;
+      border-radius: 0 4px 4px 0;
       position: relative;
-      font-size: 14px;
+      font-size: var(--text-size-xs);
     }
     .selected {
       font-weight: bold;
       &::before {
-        width: 20px;
+        width: 2rem;
         visibility: visible;
         line-height: 1.5;
         height: 100%;
         bottom: 0;
-        width: 4px;
+        width: 0.4rem;
         border-radius: 4px 0 0 4px;
       }
       &::after {

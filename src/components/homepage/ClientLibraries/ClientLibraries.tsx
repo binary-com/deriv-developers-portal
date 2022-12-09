@@ -1,22 +1,21 @@
-import styles from "./ClientLibraries.module.scss";
+import styles from './ClientLibraries.module.scss';
 export const ClientLibraries = () => {
     return (
-        <div className="main-page-row gray take-to-lib">
-            <div className="row-container">
+        <div className={`main-page-row gray ${styles.takeToLib}`}>
+            <div className='row-container'>
                 <div className={`single-container gray ${styles.clientLibrary}`}>
                     <div className={styles.iconJsLibrary} />
-                    <h2 className="header">Comprehensive all-in-one client library</h2>
-                    <p className="subheader">
-                        Simplify your development processes and get your app up and
-                        running <br />
+                    <h1>Comprehensive all-in-one client library</h1>
+                    <p className='subheader'>
+                        Simplify your development processes and get your app up and running <br />
                         faster with the client library of your choice.
                     </p>
                     <div className={styles.libraryLinks}>
                         <div className={styles.logoAndLink}>
                             <a
-                                href="https://binary-com.github.io/deriv-api/"
+                                href='https://binary-com.github.io/deriv-api/'
                                 className={styles.libraryGoTo}
-                                target="_blank"
+                                target='_blank'
                             >
                                 <div className={styles.logoJavascript} />
                                 <label>Go to the JavaScript library</label>
@@ -25,9 +24,9 @@ export const ClientLibraries = () => {
                         </div>
                         <div className={styles.logoAndLink}>
                             <a
-                                href="https://binary-com.github.io/python-deriv-api/"
+                                href='https://binary-com.github.io/python-deriv-api/'
                                 className={styles.libraryGoTo}
-                                target="_blank"
+                                target='_blank'
                             >
                                 <div className={styles.logoPython} />
                                 <label>Go to the Python library</label>
@@ -36,9 +35,9 @@ export const ClientLibraries = () => {
                         </div>
                         <div className={styles.logoAndLink}>
                             <a
-                                href="https://github.com/deriv-com/flutter-deriv-api"
+                                href='https://github.com/deriv-com/flutter-deriv-api'
                                 className={styles.libraryGoTo}
-                                target="_blank"
+                                target='_blank'
                             >
                                 <div className={styles.logoFlutter} />
                                 <label>Go to the Flutter library</label>
@@ -49,5 +48,5 @@ export const ClientLibraries = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

@@ -1,9 +1,9 @@
 .pageContent {
   width: 70%;
-  padding-left: 42px;
+  padding-left: 4.2rem;
   border-left: 2px solid var(--gray-01);
 
-  @media (max-width: 992px) {
+  @media (max-width: 99.2rem) {
     width: 100% !important;
     border-left: unset;
   }
@@ -12,7 +12,7 @@
   background-image: url("/img/pattern-left.svg"), url("/img/pattern-right.svg");
   background-size: 46%, 50%;
   background-repeat: no-repeat, no-repeat;
-  background-position: top 20px left 8px, bottom 0 right -8px;
+  background-position: top 2rem left 0.8rem, bottom 0 right -0.8rem;
   z-index: 0;
 }
 .pre {
@@ -22,9 +22,9 @@
   word-break: break-word;
   color: var(--white);
   border-radius: 4px;
-  padding: 24px;
-  margin-bottom: 16px;
-  background: #1d1f20;
+  padding: 2.4rem;
+  margin-bottom: 1.6rem;
+  background: var(--black-02);
   font-size: inherit;
   word-wrap: inherit;
 }

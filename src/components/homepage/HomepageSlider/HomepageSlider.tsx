@@ -139,11 +139,11 @@ export const HomepageSlider = () => {
 
     return (
         <React.Fragment>
-            <div className="main-page-row white">
-                <h2 className="clients-opinion">See what our clients say</h2>
-                <div className="column-container"></div>
+            <div className='main-page-row white'>
+                <h1 className='clients-opinion'>See what our clients say</h1>
+                <div className='column-container'></div>
                 <div id='slider' className={`${styles.slider} loaded`}>
-                    <div className={`${styles.sliderWrapper} wrapper`}>
+                    <div className={`${styles.sliderWrapper} ${styles.wrapper}`}>
                         <div
                             id='slides'
                             className={styles.slides}
@@ -163,8 +163,8 @@ export const HomepageSlider = () => {
                             <Slide
                                 content={
                                     <span>
-                                        Probably the best API for making your business successful in trading derivatives out
-                                        there.
+                                        Probably the best API for making your business successful in trading derivatives
+                                        out there.
                                     </span>
                                 }
                                 author={
@@ -177,10 +177,18 @@ export const HomepageSlider = () => {
                             <SlidePortal portal_entry={FIRST_SLIDE} />
                         </div>
                     </div>
-                    <div id='prev' className='control prev' onClick={() => nextOrPrevSlide(PREVIOUS)} />
-                    <div id='next' className='control next' onClick={() => nextOrPrevSlide(NEXT)} />
+                    <div
+                        id='prev'
+                        className={`${styles.control} ${styles.prev}`}
+                        onClick={() => nextOrPrevSlide(PREVIOUS)}
+                    />
+                    <div
+                        id='next'
+                        className={`${styles.control} ${styles.next}`}
+                        onClick={() => nextOrPrevSlide(NEXT)}
+                    />
                 </div>
             </div>
         </React.Fragment>
     );
-}
+};

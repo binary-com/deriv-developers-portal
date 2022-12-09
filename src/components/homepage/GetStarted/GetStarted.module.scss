@@ -1,8 +1,8 @@
 .guideIcon,
 .signUpIcon,
 .registerYourAppIcon {
-    width: 32px;
-    height: 32px;
+    width: 3.2rem;
+    height: 3.2rem;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -17,4 +17,20 @@
 
 .registerYourAppIcon {
     background-image: url(/img/register-your-app.svg);
+}
+
+.withPattern {
+    background-image: url(/img/pattern.svg);
+    object-fit: contain;
+}
+
+[data-state*="responsive.mobile"] {
+
+    .termConditions,
+    .termConditions a {
+        text-align: center;
+        max-width: 35rem;
+        font-size: var(--text-size-xs);
+        margin-top: 0;
+    }
 }

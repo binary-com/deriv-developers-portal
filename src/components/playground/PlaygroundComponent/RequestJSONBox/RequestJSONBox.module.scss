@@ -1,19 +1,19 @@
 .playgroundBox {
   border-radius: 6px;
   border: none;
-  margin-left: 5px;
+  margin-left: 0.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
 
   .inlineLabel {
     position: absolute;
-    top: 16px;
-    left: 10px;
-    font-size: 10px;
-    padding: 2px 4px;
+    top: 0.8rem;
+    left: 1rem;
+    font-size: var(--text-size-xxxs);
+    padding: 0.2rem 0.4rem;
     background-color: var(--white);
   }
 }
@@ -21,16 +21,16 @@
 .formContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
   width: 80%;
 
   .appRegistrationSubheader {
     align-self: flex-start;
-    margin-bottom: 16px;
-    font-size: 24px;
-    text-align: left;
-    line-height: 1.5;
+    margin-bottom: 1.6rem;
+    font-size: var(--text-size-m);
+    text-align: var(--text-align-left);
+    line-height: var(--text-lh-m);
     color: var(--black-03);
   }
 }
@@ -41,51 +41,51 @@
 }
 
 .playgroundRequest {
-  min-height: 200px;
-  padding: 10px 12px;
+  min-height: 20rem;
+  padding: 1rem 1.2rem;
   border: none;
   color: var(--blue-04);
   border: 1px solid var(--border-normal);
 }
 
 .registrationRequest {
-  min-height: 119px;
-  padding: 10px;
+  min-height: 11.9rem;
+  padding: 1rem;
   border: solid 1px var(--border-normal);
-  font-size: 16px;
+  font-size: var(--text-size-s);
 }
 
 .jsonBtnWrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 26px 0 40px;
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
+  margin: 2.6rem 0 4rem;
 
   .btnReset button {
     cursor: pointer;
     width: fit-content;
     height: fit-content;
     border-radius: 4px;
-    margin-right: 8px;
-    font-size: 14px;
+    margin-right: 0.8rem;
+    font-size: 1.4rem;
     font-weight: 700;
   }
 
   .btnResetPlayground button {
     background-color: var(--black-04);
     color: var(--white);
-    padding: 10px 16px;
+    padding: 1rem 1.6rem;
     border: var(--gray-04) 2px solid;
   }
 
   .grayBtnSubmit button {
-    padding: 8px 16px;
+    padding: 1rem 1.6rem;
     border: solid 2px var(--gray-09);
     background-color: var(--white);
-    line-height: 1.43;
+    line-height: var(--text-lh-s);
     letter-spacing: normal;
-    text-align: center;
+    text-align: var(--text-align-center);
     color: var(--black-03);
   }
 
@@ -93,15 +93,15 @@
     cursor: pointer;
     width: fit-content;
     height: fit-content;
-    padding: 10px 16px;
+    padding: 1rem 1.6rem;
     border: none;
     border-radius: 4px;
     background-color: var(--red-01);
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     font-weight: 700;
-    line-height: 1.43;
+    line-height: var(--text-lh-s);
     letter-spacing: normal;
-    text-align: center;
+    text-align: var(--text-align-center);
     color: var(--white);
 
     &:hover {
@@ -111,7 +111,7 @@
 }
 
 .playgroundConsole {
-  margin-top: 2px;
+  margin-top: 0.2rem;
   max-height: 60vh;
   overflow-y: auto;
   width: 100%;

@@ -6,37 +6,38 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 488px;
+    height: 48.8rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
+    justify-content: var(--text-align-center);
+    align-items: var(--text-align-center);
+    padding-top: 4rem;
 
     .heroContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 160px 0;
-        width: 1008px;
+        padding: 16rem 0;
+        width: 100.8rem;
 
         .heroHeader {
-            max-width: 775px;
-            font-size: 64px;
+            padding: 0;
+            max-width: 77.5rem;
+            font-size: var(--text-size-xxl);
             font-weight: 700;
-            line-height: 1.25;
-            text-align: center;
+            line-height: var(--text-lh-xs);
+            text-align: var(--text-align-center);
             color: var(--white);
-            margin-bottom: 16px;
+            margin-bottom: 1.6rem;
         }
 
         .heroText {
-            font-size: 24px;
+            font-size: 2.4rem;
             font-weight: 400;
             font-stretch: normal;
             font-style: normal;
             line-height: 1.5;
             letter-spacing: normal;
-            text-align: center;
+            text-align: var(--text-align-center);
             color: var(--white);
             margin-bottom: 0;
         }
@@ -45,12 +46,12 @@
 
 [data-state*="responsive.mobile"] {
     .heroImage {
-        margin-top: 47px;
+        margin-top: 4.7rem;
         padding-top: unset;
 
         .heroContainer {
             width: 100%;
-            padding: 80px 20px;
+            padding: 8rem 2rem;
 
             .heroHeader {
                 max-width: unset;
@@ -65,22 +66,22 @@
         background-image: linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.16)),
             url(/img/header-mobile.png);
         background-repeat: no-repeat;
-        background-position: center;
-        height: 328px;
+        background-position: var(--text-align-center);
+        height: 32.8rem;
 
         .heroContainer {
-            padding: 80px 16px;
+            padding: 8rem 1.6rem;
 
             .heroHeader {
-                font-size: 32px;
+                font-size: var(--text-size-l);
                 text-align: left;
                 width: 100%;
             }
 
             .heroText {
-                font-size: 20px;
-                margin-bottom: 12px;
-                text-align: left;
+                font-size: var(--text-size-sm);
+                margin-bottom: 1.2rem;
+                text-align: var(--text-align-left);
             }
         }
     }
@@ -88,6 +89,6 @@
 
 [data-state~="responsive.mobileS"] {
     .heroImage {
-        height: 378px;
+        height: 37.8rem;
     }
 }

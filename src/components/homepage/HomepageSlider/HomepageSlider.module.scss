@@ -3,48 +3,138 @@
   left: 50%;
   transform: translate(0);
   width: 33vw;
-  height: 248px;
+  height: 24.8rem;
+
+  .control {
+    position: absolute;
+    top: 35%;
+    width: 5rem;
+    height: 5rem;
+    z-index: 2;
+  }
+
+  .prev,
+  .next {
+    background-size: 2.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .prev {
+    background-image: url(/img/arrow_left.svg);
+    left: -10rem;
+  }
+
+  .next {
+    background-image: url(/img/arrow_right.svg);
+    right: -10rem;
+  }
+
+  .prev:active,
+  .next:active {
+    transform: scale(0.8);
+  }
+
   .sliderWrapper {
     width: 33vw;
+    height: 24.8rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
     .slides {
       transition: left 0.75s;
       display: flex;
       position: relative;
       top: 0;
-      width: 10000px;
+      width: 1000rem;
       cursor: pointer;
+
       .slide {
         width: 33vw;
-        height: 248px;
+        height: 24.8rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: var(--text-align-center);
+        align-items: var(--text-align-center);
         transition: all 1s;
         position: relative;
         pointer-events: none;
+
+        blockquote {
+          position: relative;
+          text-align: left;
+        }
+        
+        blockquote:after {
+          box-sizing: border-box;
+          content: "\201c";
+          position: absolute;
+          font-size: 17rem;
+          font-weight: 700;
+          z-index: -1;
+          left: 0rem;
+          top: -6.9rem;
+          color: var(--blockquote-text-color);
+          opacity: 56%;
+        }
+        
+        .blockquoteSeparator {
+          margin: 2rem 0;
+          border: none;
+          width: 15rem;
+          height: 0.1rem;
+          background-color: var(--blockquote-separator-color);
+        }
+        
+        .blockquoteAuthor {
+          text-align: left;
+          line-height: 1.5;
+          font-size: 1rem;
+          width: auto;
+        }
+
         blockquote,
         hr,
         p {
           pointer-events: none;
+          font-size: var(--text-size-s);
         }
       }
     }
   }
 }
 
+[data-state*="responsive.mobileL"],
+[data-state*="responsive.mobileTablet"] {
+  .clientsOpinion {
+    margin-bottom: 1rem;
+  }
+}
+
 [data-state~="responsive.mobileS"],
 [data-state~="responsive.mobileM"] {
   .slider {
-    height: 190px;
+    height: 19rem;
   }
 }
 
 [data-state*="responsive.mobile"] {
   .slider {
     width: 70vw;
+
+    .prev {
+      left: -5.5rem;
+    }
+
+    .next {
+      right: -5.5rem;
+    }
+
     .sliderWrapper {
       width: 70vw;
+
       .slides .slide {
         width: 70vw;
       }

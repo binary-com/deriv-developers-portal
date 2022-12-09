@@ -1,72 +1,75 @@
-.clientLibrary {
-    .iconJsLibrary {
-        background-image: url(/img/js-library.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 64px;
-        height: 64px;
-    }
+.takeToLib {
+    .clientLibrary {
 
-    .libraryLinks {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        h1 {
+            margin: 1.8rem 0;
+            width: 100%;
+        }
 
-        .logoAndLink {
-            padding: 10px 20px;
+        .subheader {
+            padding: 0 1.5rem;
+        }
 
-            .libraryGoTo {
-                display: flex;
-                align-items: center;
+        .iconJsLibrary {
+            background-image: url(/img/js-library.svg);
+            background-repeat: no-repeat;
+            background-position: var(--text-align-center);
+            width: 6.4rem;
+            height: 6.4rem;
+        }
 
-                .logoJavascript {
-                    background-image: url(/img/js.svg);
-                }
+        .libraryLinks {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: var(--text-align-center);
 
-                .logoPython {
-                    background-image: url(/img/py.svg);
-                }
+            .logoAndLink {
+                padding: 1rem 2rem;
 
-                .logoFlutter {
-                    background-image: url(/img/flutter.svg);
-                }
+                .libraryGoTo {
+                    display: flex;
+                    align-items: var(--text-align-center);
 
-                .logoJavascript,
-                .logoPython,
-                .logoFlutter {
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    width: 40px;
-                    height: 40px;
-                }
+                    .logoJavascript {
+                        background-image: url(/img/js.svg);
+                    }
 
-                .logoJavascript,
-                .logoPython {
-                    margin-right: 10px;
-                }
+                    .logoPython {
+                        background-image: url(/img/py.svg);
+                    }
 
-                .libraryChevron {
-                    background-image: url(/img/library-chevron.svg);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    width: 12px;
-                    height: 12px;
-                    margin-left: 13px;
-                }
+                    .logoFlutter {
+                        background-image: url(/img/flutter.svg);
+                    }
 
-                label {
-                    cursor: pointer;
+                    .logoJavascript,
+                    .logoPython,
+                    .logoFlutter {
+                        background-repeat: no-repeat;
+                        background-position: var(--text-align-center);
+                        width: 4rem;
+                        height: 4rem;
+                    }
+
+                    .logoJavascript,
+                    .logoPython {
+                        margin-right: 1rem;
+                    }
+
+                    .libraryChevron {
+                        background-image: url(/img/library-chevron.svg);
+                        background-repeat: no-repeat;
+                        background-position: var(--text-align-center);
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        margin-left: 1.3rem;
+                    }
+
+                    label {
+                        cursor: pointer;
+                    }
                 }
             }
-        }
-    }
-}
-
-[data-state*="responsive.mobile"] {
-    .clientLibrary {
-        h1 {
-            max-width: 290px;
-            margin-bottom: 8px;
         }
     }
 }

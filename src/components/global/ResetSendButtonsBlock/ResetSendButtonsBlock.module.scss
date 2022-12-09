@@ -1,50 +1,50 @@
-.json-btn-wrapper {
+.jsonBtnWrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 26px 0 40px;
+  align-items: var(--text-align-center);
+  justify-content: var(--text-align-center);
+  margin: 2.6rem 0 4rem;
 
-  .btn-reset button {
+  .btnReset button {
     cursor: pointer;
     width: fit-content;
     height: fit-content;
     border-radius: 4px;
-    margin-right: 8px;
-    font-size: 14px;
+    margin-right: 0.8rem;
+    font-size: var(--text-size-xs);
     font-weight: 700;
   }
 
-  .btn-reset-playground button {
+  .btnResetPlayground button {
     background-color: var(--white);
     color: var(--black-03);
-    padding: 10px 16px;
+    padding: 1rem 1.6rem;
     border: var(--gray-04) 1px solid;
   }
 
-  .gray-btn-submit button {
-    padding: 8px 16px;
+  .grayBtnSubmit button {
+    padding: 0.8rem 1.6rem;
     border: solid 2px var(--gray-05);
     background-color: var(--white);
-    line-height: 1.43;
+    line-height: var(--text-lh-s);
     letter-spacing: normal;
-    text-align: center;
+    text-align: var(--text-align-center);
     color: var(--black-03);
   }
 
-  .btn-submit button {
+  .btnSubmit button {
     cursor: pointer;
     width: fit-content;
     height: fit-content;
-    padding: 10px 16px;
+    padding: 1rem 1.6rem;
     border: none;
     border-radius: 4px;
     background-color: var(--red-01);
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     font-weight: 700;
-    line-height: 1.43;
+    line-height: var(--text-lh-s);
     letter-spacing: normal;
-    text-align: center;
+    text-align: var(--text-align-center);
     color: var(--white);
 
     &:hover {

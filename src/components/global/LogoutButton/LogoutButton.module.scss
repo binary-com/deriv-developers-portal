@@ -1,5 +1,7 @@
 .signOut {
   --btn-background: var(--black-01);
+  width: fit-content;
+  text-align: center;
   display: block;
   z-index: 100;
   color: var(--white);
@@ -9,8 +11,11 @@
 }
 
 [data-state*="mobile"] .signOut {
-  position: relative;
-  width: 130px;
-  text-align: center;
-  bottom: 1px;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  bottom: 0.1rem;
+  button {
+    padding: 1rem;
+  }
 }
