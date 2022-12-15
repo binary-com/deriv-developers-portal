@@ -125,12 +125,9 @@ jobs:
       - npm_install_from_cache
       - build
       - versioning
-      - persist_to_workspace:
-          root: _site
-          paths:
-            - .
       - docker_build_push
       - k8s_deploy
+      - publish_to_pages_staging
       - notify_slack
     environment:
       NODE_ENV: staging
@@ -144,37 +141,14 @@ jobs:
       - build
       - versioning:
           version_name: production
-      - persist_to_workspace:
-          root: _site
-          paths:
-            - .
       - docker_build_push:
           docker_latest_image_tag: latest
           docker_image_tag: ${CIRCLE_SHA1}
       - k8s_deploy:
           k8s_namespace: "deriv-com-api-production"
           k8s_version: ${CIRCLE_SHA1}
-      - notify_slack
-    environment:
-      NODE_ENV: production
-
-  publish_cloudflare_staging:
-    docker:
-      - image: circleci/node:16.13.1-stretch
-    steps:
-      - attach_workspace:
-          at: _site
-      - publish_to_pages_staging
-    environment:
-      NODE_ENV: staging
-
-  publish_cloudflare_production:
-    docker:
-      - image: circleci/node:16.13.1-stretch
-    steps:
-      - attach_workspace:
-          at: _site
       - publish_to_pages_production
+      - notify_slack
     environment:
       NODE_ENV: production
 
@@ -186,26 +160,10 @@ workflows:
           filters:
             branches:
               only: /^master$/
-      - publish_cloudflare_staging:
-          context: binary-frontend-artifact-upload
-          requires:
-            - release_staging
-          filters:
-            branches:
-              only: /^master$/
   release_production:
     jobs:
       - release_production:
           context: binary-frontend-artifact-upload
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^production.*/
-      - publish_cloudflare_production:
-          context: binary-frontend-artifact-upload
-          requires:
-            - release_production
           filters:
             branches:
               ignore: /.*/
