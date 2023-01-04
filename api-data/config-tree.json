@@ -1047,6 +1047,24 @@
       ]
     },
     {
+      "path": "config/v3/p2p_advertiser_list",
+      "name": "p2p_advertiser_list",
+      "children": [
+        {
+          "path": "config/v3/p2p_advertiser_list/example.json",
+          "name": "example.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_list/receive.json",
+          "name": "receive.json"
+        },
+        {
+          "path": "config/v3/p2p_advertiser_list/send.json",
+          "name": "send.json"
+        }
+      ]
+    },
+    {
       "path": "config/v3/p2p_advertiser_payment_methods",
       "name": "p2p_advertiser_payment_methods",
       "children": [
