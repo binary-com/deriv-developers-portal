@@ -18,7 +18,7 @@ function Docs() {
         } else {
             setIsQuickstart(false);
         }
-    }, [])
+    }, []);
 
     return (
         <div id='content' className='doc-content'>
