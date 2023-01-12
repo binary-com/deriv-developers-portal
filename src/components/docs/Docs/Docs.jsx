@@ -1,5 +1,4 @@
-import React from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import Sidebar from './Sidebar/Sidebar';
 import '../../../index.scss';
