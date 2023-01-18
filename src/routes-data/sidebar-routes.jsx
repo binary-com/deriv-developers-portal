@@ -21,12 +21,16 @@ export const sidebar_routes = [
         children: [
             {
                 path: '',
+                element: <Navigate replace to={`quickstart`} />,
+            },
+            {
+                path: 'quickstart',
                 element: <RenderOfficialDomainContents Component={Quickstart} />,
                 label: 'Quick Start',
             },
             {
                 path: 'app-registration',
-                element: <Navigate replace to={`/app-registration`} />,
+                element: <Navigate replace to={'/app-registration'} />,
             },
             {
                 path: 'getting-started',
