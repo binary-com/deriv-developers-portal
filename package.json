@@ -10,8 +10,7 @@
         "lint": "eslint .",
         "lint:fix": "eslint --fix",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-        "e2e": "cypress open",
-        "prepare": "husky install"
+        "e2e": "cypress open"
     },
     "dependencies": {
         "@cypress/code-coverage": "^3.10.0",
