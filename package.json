@@ -52,6 +52,7 @@
         "xstate": "^4.32.1"
     },
     "devDependencies": {
+        "@types/estree": "^1.0.0",
         "husky": "^8.0.1"
     }
 }
