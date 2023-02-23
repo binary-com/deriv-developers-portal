@@ -19,7 +19,7 @@
         margin-left: 2.4rem;
     }
     .logo {
-        background-image: url(/img/wordmark.svg);
+        background-image: url(/img/deriv.svg);
         width: 18rem;
         height: 7.3rem;
         background-size: contain;
@@ -38,7 +38,8 @@
 }
 
 [data-state*="responsive.mobile"] {
-    .logoLink { 
+    .logoLink {
+        justify-content: center;
         .logo {
             height: 4.8rem;
             width: 8.4rem;

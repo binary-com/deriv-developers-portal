@@ -11,6 +11,7 @@ export const DerivLogo = () => {
         <Link className={styles.logoLink} to='/' data-testid='mainLogo'>
             <div className={styles.flexContainer}>
                 <div data-testid='home_logo' onClick={clickLogo} className={styles.logo} />
+                <h1 className={styles.branding}>API</h1>
             </div>
         </Link>
     );

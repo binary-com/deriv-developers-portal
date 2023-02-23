@@ -14,7 +14,7 @@ export const LogoutButton = () => {
     return (
         <Suspense fallback={<div />}>
             <div className={styles.signOut}>
-                <LazyButton onClick={logout} type='logout'>Sign out</LazyButton>
+                <LazyButton onClick={logout}>Sign out</LazyButton>
             </div>
         </Suspense>
     );
