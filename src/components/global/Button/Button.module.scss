@@ -30,6 +30,18 @@
       --btn-background: var(--gray-05);
     }
   }
+  &.logout {
+    --btn-background: transparent;
+    --btn-text-color: var(--red-01);
+    border: solid 2px var(--red-01);
+    border-radius: 10px;
+    width: fit-content;
+    padding: 0.8rem 1.6rem;
+
+    &:hover {
+      --btn-background: var(--gray-05);
+    }
+  }
 }
 
 button[disabled] {
