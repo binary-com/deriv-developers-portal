@@ -14,7 +14,10 @@ export default function Button({
     let classesNames = `${styles.btn}`;
     if (type === 'secondary') {
         classesNames += ` ${styles.secondary}`;
+    } else if (type === 'logout') {
+        classesNames += ` ${styles.logout}`;
     }
+
     return (
         <button disabled={disabled} onClick={onClick} className={classesNames}>
             {children}

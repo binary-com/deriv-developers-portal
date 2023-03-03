@@ -5,13 +5,13 @@
   z-index: 100;
   display: flex;
   flex-direction: column;
-  background-color: var(--black-01);
+  background-color: var(--white);
   a {
     position: relative;
     margin-right: 4rem;
     font-size: var(--text-size-s);
     line-height: 1.5;
-    color: var(--white);
+    color: var(--black-01);
     &:empty {
       display: none !important;
     }
@@ -60,7 +60,7 @@
         margin-right: 4rem;
         font-size: var(--text-size-xxs);
         line-height: var(--text-lh-m);
-        color: var(--copy-color);
+        color: var(--black-01);
 
         &::before {
           visibility: hidden;
@@ -73,7 +73,8 @@
     align-items: center;
     justify-content: center;
     height: 7.3rem;
-    background-color: var(--black-01);
+    background-color: var(--white);
+    border-bottom: 1px var(--gray-01) solid;
     .headerContainer {
       display: flex;
       flex-wrap: nowrap;
@@ -82,7 +83,7 @@
       .hamburger {
         width: 1.6rem;
         height: 1.6rem;
-        background-image: url(/img/hamburger_menu.svg);
+        background-image: url(/img/hamburger_icon.svg);
         background-repeat: no-repeat;
         padding: 0.1rem;
         display: none;
