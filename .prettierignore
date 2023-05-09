@@ -5,7 +5,6 @@ _data/
 config/
 examples/
 public/
-api-data/
 state.js
 *.d.ts
 *.config.ts
