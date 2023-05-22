@@ -1,7 +1,7 @@
 export const domains = [
     'deriv.com',
-    'deriv.me',
-    'deriv.be',
+    'api.deriv.me',
+    'api.deriv.be',
     'api.deriv.com',
     'staging.deriv.be',
     'localhost',
