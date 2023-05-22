@@ -4,7 +4,7 @@ export const domains = [
     'api.deriv.be',
     'api.deriv.com',
     'staging.deriv.be',
-    'localhost',
+    'localhost:3000',
     'deriv-com-git-fork',
     'deriv-developers-portal-git-fork',
     'staging-api.deriv.com',
