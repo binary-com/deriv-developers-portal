@@ -94,7 +94,7 @@ commands:
           command: |
             npm i wrangler@2.0.19
             cd _site
-            npx wrangler pages publish . --project-name=deriv-developers-portal-pages --branch=staging
+            #npx wrangler pages publish . --project-name=deriv-developers-portal-pages --branch=staging
             echo "New staging website - http://staging.cf-pages-deriv-developers-portal.deriv.com"
 
   publish_to_pages_production:
@@ -105,7 +105,7 @@ commands:
           command: |
             npm i wrangler@2.0.19
             cd _site
-            npx wrangler pages publish . --project-name=deriv-developers-portal-pages --branch=main
+            #npx wrangler pages publish . --project-name=deriv-developers-portal-pages --branch=main
             echo "New website - http://cf-pages-deriv-developers-portal.deriv.com"
 
 jobs:
@@ -125,10 +125,10 @@ jobs:
       - npm_install_from_cache
       - build
       - versioning
-      - docker_build_push
-      - k8s_deploy
-      - publish_to_pages_staging
-      - notify_slack
+      #- docker_build_push
+      #- k8s_deploy
+      #- publish_to_pages_staging
+      #- notify_slack
     environment:
       NODE_ENV: staging
 
@@ -141,14 +141,14 @@ jobs:
       - build
       - versioning:
           version_name: production
-      - docker_build_push:
-          docker_latest_image_tag: latest
-          docker_image_tag: ${CIRCLE_SHA1}
-      - k8s_deploy:
-          k8s_namespace: "deriv-com-api-production"
-          k8s_version: ${CIRCLE_SHA1}
-      - publish_to_pages_production
-      - notify_slack
+      #- docker_build_push:
+      #    docker_latest_image_tag: latest
+      #    docker_image_tag: ${CIRCLE_SHA1}
+      #- k8s_deploy:
+      #    k8s_namespace: "deriv-com-api-production"
+      #    k8s_version: ${CIRCLE_SHA1}
+      #- publish_to_pages_production
+      #- notify_slack
     environment:
       NODE_ENV: production
 
